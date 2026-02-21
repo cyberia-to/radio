@@ -1,0 +1,21 @@
+[package]
+name = "cyber-poseidon2"
+version = "0.1.0"
+edition = "2024"
+description = "Poseidon2 hash over Goldilocks field — Blake3-compatible API for the Cyber project"
+license = "MIT OR Apache-2.0"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[dependencies]
+p3-poseidon2 = "0.4"
+p3-goldilocks = "0.4"
+p3-field = "0.4"
+p3-symmetric = "0.4"
+rand = "0.9"
+rand_chacha = "0.9"
+
+[dev-dependencies]
+proptest = "1"
