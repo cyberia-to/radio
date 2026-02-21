@@ -45,7 +45,7 @@ This way you get authenticated encryption, concurrent streams with stream priori
 ## Compose Protocols
 
 Use pre-existing protocols built on iroh instead of writing your own:
-- [iroh-blobs] for [BLAKE3]-based content-addressed blob transfer scaling from kilobytes to terabytes
+- [iroh-blobs] for [Poseidon2]-based content-addressed blob transfer scaling from kilobytes to terabytes
 - [iroh-gossip] for establishing publish-subscribe overlay networks that scale, requiring only resources that your average phone can handle
 - [iroh-docs] for an eventually-consistent key-value store of [iroh-blobs] blobs
 - [iroh-willow] for an (in-construction) implementation of the [willow protocol]
@@ -133,7 +133,8 @@ This repository contains a workspace of crates:
 - `iroh-relay`: The relay server implementation. This is the code we run in production (and you can, too!).
 - `iroh-base`: Common types like `Hash`, key types or `RelayUrl`.
 - `iroh-dns-server`: DNS server implementation powering the `n0_discovery` for EndpointIds, running at dns.iroh.link.
-- `iroh-net-report`: Analyzes your host's networking ability & NAT.
+- `cyber-poseidon2`: Poseidon2 hash over the Goldilocks field — Blake3-compatible API for ZK-friendly content addressing.
+- `cyber-bao`: Poseidon2-BAO verified streaming — hash tree construction, encoding, decoding, and slice extraction.
 
 ## License
 
@@ -153,7 +154,7 @@ at your option.
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in this project by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
 
 [QUIC]: https://en.wikipedia.org/wiki/QUIC
-[BLAKE3]: https://github.com/BLAKE3-team/BLAKE3
+[Poseidon2]: https://eprint.iacr.org/2023/323
 [Quinn]: https://github.com/quinn-rs/quinn
 [iroh-blobs]: https://github.com/n0-computer/iroh-blobs
 [iroh-gossip]: https://github.com/n0-computer/iroh-gossip
