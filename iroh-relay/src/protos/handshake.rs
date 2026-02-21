@@ -212,7 +212,7 @@ impl ServerChallenge {
         // signature, if it maliciously choses the challenge instead of generating it
         // randomly.
         // Deriving a key to sign instead mitigates this attack.
-        blake3::derive_key(DOMAIN_SEP_CHALLENGE, &self.challenge)
+        cyber_poseidon2::derive_key(DOMAIN_SEP_CHALLENGE, &self.challenge)
     }
 }
 
@@ -309,7 +309,7 @@ impl KeyMaterialClientAuth {
                 actual: suffix
             }
         );
-        // NOTE: We don't blake3-hash here as we do it in [`ServerChallenge::message_to_sign`],
+        // NOTE: We don't hash here as we do it in [`ServerChallenge::message_to_sign`],
         // because we already have a domain separation string and keyed hashing step in
         // the TLS export keying material above.
         self.public_key
@@ -589,11 +589,12 @@ mod tests {
             label: &[u8],
             context: Option<&[u8]>,
         ) -> Option<T> {
-            // we simulate something like exporting keying material using blake3
+            // we simulate something like exporting keying material using cyber-poseidon2
 
-            let label_key = blake3::hash(label);
-            let context_key = blake3::keyed_hash(label_key.as_bytes(), context.unwrap_or(&[]));
-            let mut hasher = blake3::Hasher::new_keyed(context_key.as_bytes());
+            let label_key = cyber_poseidon2::hash(label);
+            let context_key =
+                cyber_poseidon2::keyed_hash(label_key.as_bytes(), context.unwrap_or(&[]));
+            let mut hasher = cyber_poseidon2::Hasher::new_keyed(context_key.as_bytes());
             hasher.update(&self.shared_secret?.to_le_bytes());
             hasher.finalize_xof().fill(output.as_mut());
 
