@@ -1,0 +1,19 @@
+[package]
+name = "cyber-bao"
+version = "0.1.0"
+edition = "2024"
+description = "Poseidon2-BAO: verified streaming with Poseidon2 hash over Goldilocks"
+license = "MIT OR Apache-2.0"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[dependencies]
+cyber-poseidon2 = { path = "../cyber-poseidon2" }
+bytes = "1"
+smallvec = "1"
+range-collections = "0.4"
+
+[dev-dependencies]
+proptest = "1"

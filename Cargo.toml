@@ -6,6 +6,7 @@ members = [
   "iroh/bench",
   "iroh-relay",
   "cyber-poseidon2",
+  "cyber-bao",
 ]
 resolver = "2"
 
