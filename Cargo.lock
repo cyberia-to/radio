@@ -839,6 +839,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "cyber-hash"
+version = "0.1.0"
+dependencies = [
+ "cyber-bao",
+ "cyber-poseidon2",
+]
+
+[[package]]
 name = "cyber-poseidon2"
 version = "0.1.0"
 dependencies = [

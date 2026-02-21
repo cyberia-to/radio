@@ -1,0 +1,18 @@
+[package]
+name = "cyber-hash"
+version = "0.1.0"
+edition = "2024"
+description = "CLI tool for Poseidon2 hashing and BAO verified streaming"
+license = "MIT OR Apache-2.0"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "cyber-hash"
+path = "src/main.rs"
+
+[dependencies]
+cyber-poseidon2 = { path = "../cyber-poseidon2" }
+cyber-bao = { path = "../cyber-bao" }
