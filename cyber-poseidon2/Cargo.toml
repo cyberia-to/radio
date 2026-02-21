@@ -17,5 +17,17 @@ p3-symmetric = "0.4"
 rand = "0.9"
 rand_chacha = "0.9"
 
+# GPU backend (optional)
+wgpu = { version = "28", optional = true }
+bytemuck = { version = "1", features = ["derive"], optional = true }
+pollster = { version = "0.4", optional = true }
+
 [dev-dependencies]
 proptest = "1"
+wgpu = "28"
+bytemuck = { version = "1", features = ["derive"] }
+pollster = "0.4"
+
+[features]
+default = []
+gpu = ["dep:wgpu", "dep:bytemuck", "dep:pollster"]

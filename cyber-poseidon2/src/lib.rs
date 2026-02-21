@@ -31,6 +31,9 @@ pub mod hazmat;
 mod params;
 mod sponge;
 
+#[cfg(feature = "gpu")]
+pub mod gpu;
+
 pub use sponge::{Hash, Hasher, OutputReader};
 
 /// Hash the input bytes and return a 32-byte digest.

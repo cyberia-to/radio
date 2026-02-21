@@ -20,7 +20,8 @@ pub const ROUNDS_P: usize = 22;
 /// on every platform. Changing this value changes the hash function entirely.
 /// The value is the Goldilocks prime p = 2^64 - 2^32 + 1 truncated to 64 bits,
 /// chosen as a nothing-up-my-sleeve number.
-const FIXED_SEED: u64 = 0xFFFF_FFFF_0000_0001;
+pub(crate) const FIXED_SEED_VALUE: u64 = 0xFFFF_FFFF_0000_0001;
+const FIXED_SEED: u64 = FIXED_SEED_VALUE;
 
 /// Global singleton Poseidon2 permutation instance.
 static POSEIDON2: LazyLock<Poseidon2Goldilocks<WIDTH>> = LazyLock::new(|| {
