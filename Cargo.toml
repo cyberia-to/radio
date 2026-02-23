@@ -8,6 +8,7 @@ members = [
   "cyber-poseidon2",
   "cyber-bao",
   "cyber-hash",
+  "iroh-blobs",
 ]
 resolver = "2"
 

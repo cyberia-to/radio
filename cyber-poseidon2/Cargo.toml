@@ -16,6 +16,7 @@ p3-field = "0.4"
 p3-symmetric = "0.4"
 rand = "0.9"
 rand_chacha = "0.9"
+serde = { version = "1", features = ["derive"], optional = true }
 
 # GPU backend (optional)
 wgpu = { version = "28", optional = true }
@@ -31,3 +32,4 @@ pollster = "0.4"
 [features]
 default = []
 gpu = ["dep:wgpu", "dep:bytemuck", "dep:pollster"]
+serde = ["dep:serde"]

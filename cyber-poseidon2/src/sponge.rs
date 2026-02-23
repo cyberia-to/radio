@@ -21,17 +21,28 @@ const CAPACITY_START: usize = RATE; // 8
 
 /// A 32-byte Poseidon2 hash output.
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Hash([u8; OUTPUT_BYTES]);
 
 impl Hash {
     /// Create a hash from a raw byte array.
-    pub fn from_bytes(bytes: [u8; OUTPUT_BYTES]) -> Self {
+    pub const fn from_bytes(bytes: [u8; OUTPUT_BYTES]) -> Self {
         Self(bytes)
     }
 
     /// Return the hash as a byte slice.
     pub fn as_bytes(&self) -> &[u8; OUTPUT_BYTES] {
         &self.0
+    }
+
+    /// Convert the hash to a hex string.
+    pub fn to_hex(&self) -> String {
+        let mut s = String::with_capacity(OUTPUT_BYTES * 2);
+        for byte in &self.0 {
+            use fmt::Write;
+            write!(s, "{byte:02x}").unwrap();
+        }
+        s
     }
 }
 

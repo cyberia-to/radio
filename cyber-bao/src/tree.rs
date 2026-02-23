@@ -12,6 +12,7 @@ use std::ops::Range;
 /// Leaves are at even indices (0, 2, 4, ...).
 /// Parents are at odd indices with level = trailing_ones count.
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct TreeNode(pub(crate) u64);
 
 impl TreeNode {
@@ -73,6 +74,23 @@ impl TreeNode {
         ChunkNum(mid - span)..ChunkNum(mid + span)
     }
 
+    /// Range of bytes covered by this node's subtree.
+    pub fn byte_range(self) -> Range<u64> {
+        let range = self.chunk_range();
+        range.start.to_bytes()..range.end.to_bytes()
+    }
+
+    /// The right descendant of this node that is within the tree bounds.
+    ///
+    /// Starts at right child, then walks left until within `len`.
+    pub fn right_descendant(self, len: Self) -> Option<Self> {
+        let mut node = self.right_child()?;
+        while node >= len {
+            node = node.left_child()?;
+        }
+        Some(node)
+    }
+
     /// Count of nodes below this node in the subtree (excluding self).
     pub fn count_below(self) -> u64 {
         let level = self.level();
@@ -91,6 +109,25 @@ impl TreeNode {
         // In a complete binary tree, post-order offset = start + count_below
         start + self.count_below()
     }
+
+    /// Shift the node index by removing the block_size lowest bits.
+    ///
+    /// Returns `None` if the node's level is below the block size
+    /// (i.e., it's an intra-block node that doesn't appear in the block-level tree).
+    pub const fn add_block_size(self, n: u8) -> Option<Self> {
+        let mask = (1u64 << n) - 1;
+        if self.0 & mask == mask {
+            Some(Self(self.0 >> n))
+        } else {
+            None
+        }
+    }
+
+    /// The inverse of `add_block_size` — expand back to the unshifted index.
+    pub const fn subtract_block_size(self, n: u8) -> Self {
+        let shifted = !(!self.0 << n);
+        Self(shifted)
+    }
 }
 
 impl fmt::Debug for TreeNode {
@@ -107,6 +144,7 @@ impl fmt::Display for TreeNode {
 
 /// Count of 1024-byte chunks (or chunk groups).
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct ChunkNum(pub u64);
 
 impl ChunkNum {
@@ -132,6 +170,50 @@ impl fmt::Debug for ChunkNum {
     }
 }
 
+impl fmt::Display for ChunkNum {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
+
+impl std::ops::Add for ChunkNum {
+    type Output = Self;
+    fn add(self, rhs: Self) -> Self {
+        Self(self.0 + rhs.0)
+    }
+}
+
+impl std::ops::Add<u64> for ChunkNum {
+    type Output = Self;
+    fn add(self, rhs: u64) -> Self {
+        Self(self.0 + rhs)
+    }
+}
+
+impl std::ops::Sub for ChunkNum {
+    type Output = Self;
+    fn sub(self, rhs: Self) -> Self {
+        Self(self.0 - rhs.0)
+    }
+}
+
+impl std::ops::Sub<u64> for ChunkNum {
+    type Output = Self;
+    fn sub(self, rhs: u64) -> Self {
+        Self(self.0 - rhs)
+    }
+}
+
+impl range_collections::range_set::RangeSetEntry for ChunkNum {
+    fn min_value() -> Self {
+        ChunkNum(0)
+    }
+
+    fn is_min_value(&self) -> bool {
+        self.0 == 0
+    }
+}
+
 /// Block size for chunk groups — log2 of the number of 1024-byte chunks per block.
 ///
 /// `BlockSize(0)` = 1024 bytes (one chunk per block, original bao behavior).
@@ -147,7 +229,7 @@ impl BlockSize {
     pub const DEFAULT: Self = Self(4);
 
     /// Create from the log2 of chunks per block.
-    pub fn from_chunk_log(log: u8) -> Self {
+    pub const fn from_chunk_log(log: u8) -> Self {
         Self(log)
     }
 
@@ -168,6 +250,11 @@ impl BlockSize {
     /// Log2 of chunks per block.
     pub fn chunk_log(self) -> u8 {
         self.0
+    }
+
+    /// Log2 of chunks per block as u32.
+    pub fn to_u32(self) -> u32 {
+        self.0 as u32
     }
 }
 
@@ -229,6 +316,131 @@ impl BaoTree {
             return 0;
         }
         (blocks - 1) * 64
+    }
+
+    /// Block size in bytes (chunk group size).
+    pub fn chunk_group_bytes(&self) -> usize {
+        self.block_size.bytes()
+    }
+
+    /// Compute the shifted tree representation (block-level tree).
+    ///
+    /// Returns `(root_node, filled_size)` in the shifted coordinate system.
+    pub fn shifted(&self) -> (TreeNode, TreeNode) {
+        let level = self.block_size.0;
+        let size = self.size;
+        let shift = 10 + level as u32;
+        let mask = (1u64 << shift) - 1;
+        let full_blocks = size >> shift;
+        let open_block = u64::from((size & mask) != 0);
+        let blocks = (full_blocks + open_block).max(1);
+        let n = blocks.div_ceil(2);
+        let root = n.next_power_of_two() - 1;
+        let filled_size = n + n.saturating_sub(1);
+        (TreeNode(root), TreeNode(filled_size))
+    }
+
+    /// The offset of the given node's hash pair in the pre-order outboard.
+    ///
+    /// Returns `None` if the node doesn't exist in the block-level tree
+    /// (e.g., it's below the block size or it's a half-filled rightmost leaf).
+    pub fn pre_order_offset(&self, node: TreeNode) -> Option<u64> {
+        let shifted = node.add_block_size(self.block_size.0)?;
+        // A "half-leaf" is a leaf in the shifted tree whose corresponding
+        // block range extends beyond the data — it has no sibling and thus
+        // no parent hash pair to store.
+        let is_half_leaf = shifted.is_leaf() && node.mid().to_bytes() >= self.size;
+        if !is_half_leaf {
+            let (_, tree_filled_size) = self.shifted();
+            Some(pre_order_offset_loop(shifted.0, tree_filled_size.0))
+        } else {
+            None
+        }
+    }
+
+    /// Post-order offset of a node in the block-level tree.
+    pub fn post_order_offset(&self, node: TreeNode) -> Option<u64> {
+        let shifted = node.add_block_size(self.block_size.0)?;
+        Some(shifted.post_order_offset())
+    }
+
+    /// Iterator over chunks in post-order (lazy version compatible with bao-tree).
+    pub fn post_order_chunks_iter(&self) -> PostOrderChunkIter {
+        PostOrderChunkIter {
+            chunks: self.post_order_chunks(),
+            pos: 0,
+        }
+    }
+
+    /// Compute the left, mid, and right byte boundaries for a leaf node.
+    ///
+    /// `(start, mid.min(size), end.min(size))`
+    pub fn leaf_byte_ranges3(&self, node: TreeNode) -> (u64, u64, u64) {
+        let Range { start, end } = node.byte_range();
+        let mid = node.mid().to_bytes();
+        (start, mid.min(self.size), end.min(self.size))
+    }
+
+    /// Whether a node is relevant for the outboard (i.e., tracked at this block size).
+    pub fn is_relevant_for_outboard(&self, node: TreeNode) -> bool {
+        let level = node.level();
+        let bs = self.block_size.to_u32();
+        if level < bs {
+            false
+        } else if level > bs {
+            true
+        } else {
+            node.mid().to_bytes() < self.size
+        }
+    }
+}
+
+/// Iterative pre-order offset computation.
+///
+/// Given a node index in a tree with `len` nodes (filled size),
+/// computes the node's position in a pre-order traversal.
+fn pre_order_offset_loop(node: u64, len: u64) -> u64 {
+    let level = (!node).trailing_zeros();
+    let span = 1u64 << level;
+    let left = node + 1 - span;
+    let mut parent_count = 0u64;
+    let mut offset = node;
+    let mut current_span = span;
+    loop {
+        let pspan = current_span * 2;
+        offset = if (offset & pspan) == 0 {
+            offset + current_span
+        } else {
+            offset - current_span
+        };
+        if offset < len {
+            parent_count += 1;
+        }
+        if pspan >= len {
+            break;
+        }
+        current_span = pspan;
+    }
+    left - (left.count_ones() as u64) + parent_count
+}
+
+/// Iterator over `BaoChunk` items (wraps the Vec returned by `post_order_chunks`).
+#[derive(Debug)]
+pub struct PostOrderChunkIter {
+    chunks: Vec<BaoChunk>,
+    pos: usize,
+}
+
+impl Iterator for PostOrderChunkIter {
+    type Item = BaoChunk;
+    fn next(&mut self) -> Option<BaoChunk> {
+        if self.pos < self.chunks.len() {
+            let item = self.chunks[self.pos].clone();
+            self.pos += 1;
+            Some(item)
+        } else {
+            None
+        }
     }
 }
 

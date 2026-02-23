@@ -12,8 +12,18 @@ workspace = true
 [dependencies]
 cyber-poseidon2 = { path = "../cyber-poseidon2" }
 bytes = "1"
-smallvec = "1"
-range-collections = "0.4"
+smallvec = { version = "1", features = ["const_new"] }
+range-collections = { version = "0.4", features = ["serde", "new_unchecked"] }
+iroh-io = "0.6.1"
+genawaiter = { version = "0.99.1", features = ["futures03"] }
+tokio = { version = "1", features = ["io-util"], optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
 
 [dev-dependencies]
 proptest = "1"
+tokio = { version = "1", features = ["macros", "rt", "io-util"] }
+
+[features]
+default = []
+tokio_fsm = ["dep:tokio"]
+serde = ["dep:serde", "cyber-poseidon2/serde", "bytes/serde"]
