@@ -383,7 +383,44 @@ large blob hashing.
 
 ### 5.2 Migration Phases
 
+---
+
+### Phase Status Summary (updated 2026-02-23)
+
+| Phase | Description | Status | Commit |
+|-------|-------------|--------|--------|
+| 0a | cyber-poseidon2 CPU backend | DONE | `1517ebff54` |
+| 0b | cyber-poseidon2 GPU scaffolding | DONE | `5aefbfedb3` |
+| 1 | cyber-bao verified streaming | **~80% DONE** | `2c91d5b9e2`, `b1f6de6ba2` |
+| 2 | iroh-blobs integration | NOT STARTED | -- |
+| 3 | Relay handshake migration | DONE | `07e31dd236` |
+| 4 | Higher-level protocols | NOT STARTED | -- |
+| 5 | Blake3 removal | NOT STARTED | -- |
+| 6 | Validation | NOT STARTED | -- |
+
+### Phase 1 Gap Analysis (updated 2026-02-23)
+
+Phase 1 is ~80% complete. Core encode/decode/outboard works (50 tests pass).
+Remaining gaps before Phase 1 can be declared DONE:
+
+| # | Gap | Severity | Notes |
+|---|-----|----------|-------|
+| 1 | **Post-order outboard I/O** | HIGH | Tree geometry exists (`post_order_offset`, `post_order_chunks_iter`) but no `PostOrderOutboard` storage/read/write. Needed by iroh-blobs for append-only sync. |
+| 2 | **Multi-range slice extraction** | HIGH | `slice.rs` takes `Range<u64>` (single range). Needs `ChunkRanges` support for multi-range queries. |
+| 3 | **Slice verification** | HIGH | No `verify_slice()` / `decode_slice()` function. Cannot verify an extracted slice against a root hash. |
+| 4 | **Async range filtering** | MEDIUM | `fsm.rs` `ResponseDecoder` and `mixed.rs` `traverse_ranges_validated` both ignore `_ranges` parameter (never read). |
+| 5 | **Async final-length validation** | MEDIUM | `ResponseDecoder` never checks that total decoded bytes match declared size. Sync `decode()` does this correctly. |
+| 6 | **HashBackend genericity in protocol layer** | LOW | `sync.rs`, `fsm.rs`, `mixed.rs`, `io/mod.rs::hash_block` hardcode `Poseidon2Backend`. Low-level encode/decode/outboard/slice are properly generic. |
+| 7 | **BlockSize non-zero test coverage** | LOW | All encode/decode tests use `BlockSize::ZERO`. No test exercises `BlockSize::DEFAULT` (16 KiB). |
+
+**Recommendation**: Gaps 1-3 are blockers for Phase 2. Gaps 4-5 are needed for
+correct protocol behavior. Gaps 6-7 can be deferred.
+
+---
+
 #### Phase 0: Foundation - Poseidon2 Primitive Crate
+
+**Status: DONE** (0a: `1517ebff54`, 0b: `5aefbfedb3`)
 
 **Goal**: Build a standalone crate providing all Poseidon2 operations needed by the ecosystem.
 
@@ -528,6 +565,8 @@ pub async fn build_tree(
 
 #### Phase 1: Poseidon2-BAO - Verified Streaming Library
 
+**Status: ~80% DONE** (`2c91d5b9e2`, `b1f6de6ba2`) — see Gap Analysis above.
+
 **Goal**: Replace bao-tree and abao with Poseidon2-based equivalents.
 
 **Approach**: Fork bao-tree and make it hash-agnostic, then plug in Poseidon2.
@@ -607,7 +646,24 @@ means the decoder must buffer up to 256 KB before verification. For streaming,
 
 #### Phase 2: Hash Type and Content Addressing (iroh-blobs)
 
+**Status: NOT STARTED** — iroh-blobs vendored into workspace, 0 files modified yet.
+
 **Goal**: Migrate the `Hash` type and all content addressing to Poseidon2.
+
+**Integration surface**: 67 references to `bao_tree`/`cyber_bao` across 30 source files.
+
+**Sub-phase decomposition:**
+
+| Sub-phase | Scope | Files | Depends on |
+|-----------|-------|-------|------------|
+| **2a** Foundation types | `Hash` type, `BaoTree` imports | `hash.rs`, `store/util/size_info.rs` | Phase 1 gaps 1-3 |
+| **2b** Trait bridge | cyber-bao traits ↔ iroh-blobs I/O | `store/util/mem_or_file.rs`, `store/util/sparse_mem_file.rs`, `store/util/partial_mem_storage.rs` | 2a |
+| **2c** Outboard & storage | Core data path | `store/fs/bao_file.rs`, `store/fs/import.rs`, `store/fs/meta.rs`, `store/fs/entry_state.rs`, `store/fs.rs` (7 refs), `store/mem.rs`, `store/readonly_mem.rs`, `store/gc.rs`, `store/mod.rs` | 2b |
+| **2d** Protocol & streaming | Wire format | `protocol.rs` (5 refs), `protocol/range_spec.rs`, `get.rs` (11 refs), `get/request.rs`, `provider.rs` | 2c |
+| **2e** API layer | Public surface | `api.rs`, `api/blobs.rs`, `api/blobs/reader.rs`, `api/downloader.rs`, `api/remote.rs`, `api/proto.rs`, `api/proto/bitfield.rs` | 2d |
+| **2f** Tests | Integration tests | `tests.rs`, `util.rs` | 2e |
+
+**Order**: 2a → 2b → 2c → 2d → 2e → 2f (bottom-up, each committable).
 
 **Changes in iroh-blobs:**
 
@@ -647,6 +703,8 @@ Per the hash function selection rationale, migration at planetary scale requires
 
 #### Phase 3: Relay Handshake Migration (this repo)
 
+**Status: DONE** (`07e31dd236`)
+
 **Goal**: Replace Blake3 in the relay handshake protocol.
 
 **Files to modify in iroh-relay:**
@@ -670,6 +728,8 @@ incompatible. Coordinated deployment required.
 
 #### Phase 4: Higher-Level Protocol Migration
 
+**Status: NOT STARTED** — blocked on Phase 2.
+
 **Goal**: Update all protocols that reference Blake3 hashes.
 
 | Component | Change Required |
@@ -684,6 +744,8 @@ incompatible. Coordinated deployment required.
 
 #### Phase 5: Remove Blake3 Dependencies
 
+**Status: NOT STARTED** — blocked on Phases 2 + 4.
+
 **Goal**: Complete removal of all Blake3 dependencies across the ecosystem.
 
 1. Remove `blake3` from all `Cargo.toml` files
@@ -696,6 +758,8 @@ incompatible. Coordinated deployment required.
 ---
 
 #### Phase 6: Validation
+
+**Status: NOT STARTED** — blocked on Phase 5.
 
 **Goal**: Verify zero functionality loss.
 
