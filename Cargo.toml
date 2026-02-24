@@ -9,6 +9,11 @@ members = [
   "cyber-bao",
   "cyber-hash",
   "iroh-blobs",
+  "iroh-gossip",
+  "iroh-docs",
+  "iroh-car",
+  "iroh-willow",
+  "tests/integration",
 ]
 resolver = "2"
 
@@ -49,3 +54,11 @@ unused-async = "warn"
 iroh-quinn = { git = "https://github.com/n0-computer/quinn", branch = "main" }
 iroh-quinn-proto = { git = "https://github.com/n0-computer/quinn", branch = "main" }
 iroh-quinn-udp = { git = "https://github.com/n0-computer/quinn", branch = "main" }
+iroh = { path = "iroh" }
+iroh-base = { path = "iroh-base" }
+iroh-blobs = { path = "iroh-blobs" }
+iroh-gossip = { path = "iroh-gossip" }
+iroh-relay = { path = "iroh-relay" }
+willow-data-model = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
+willow-encoding = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
+meadowcap = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
