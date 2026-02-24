@@ -1,0 +1,114 @@
+# General
+-.DS_Store
+
+# Rust
+target/
+
+# Swift
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/include
+.build
+
+/IrohLib.xcframework.zip
+
+/Iroh.xcframework/*/Iroh.framework/*
+/Iroh.xcframework/*/Iroh.framework/Headers/*
+!/Iroh.xcframework/*/Iroh.framework/Info.plist
+!/Iroh.xcframework/*/Iroh.framework/Modules
+!/Iroh.xcframework/*/Iroh.framework/Headers
+!/Iroh.xcframework/*/Iroh.framework/Headers/iroh_ffiFFI.h
+!/Iroh.xcframework/*/Iroh.framework/Headers/Export.h
+
+
+/IrohLib/artifacts/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+.venv/
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+include/
+venv/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+pip-selfcheck.json
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+.DS_Store
+
+# Sphinx documentation
+docs/_build/
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Pyenv
+.python-version
+
+# Go
+iroh-node-go
+/iroh-go/iroh/libiroh*
+
+# Python
+python/iroh-data
+
+# Node
+node_modules
+*.node
+package-lock.json
+
+
+# Kotlin
+
+kotlin/*.jar
+kotlin/**/*.dylib
