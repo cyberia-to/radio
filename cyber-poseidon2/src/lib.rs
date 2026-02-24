@@ -1,6 +1,6 @@
 //! Poseidon2 hash over the Goldilocks field.
 //!
-//! This crate provides a Blake3-compatible API backed by the Poseidon2
+//! This crate provides a streaming hash API backed by the Poseidon2
 //! algebraic hash function operating over the Goldilocks prime field
 //! (p = 2^64 - 2^32 + 1).
 //!

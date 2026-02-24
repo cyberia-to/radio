@@ -157,7 +157,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
         let block_bytes = inner.tree.block_size().bytes();
 
         match chunk {
-            BaoChunk::Parent { node, is_root } => {
+            BaoChunk::Parent { node, is_root, left: visit_left, right: visit_right } => {
                 let pair_buf: [u8; 64] = match inner.encoded.read().await {
                     Ok(buf) => buf,
                     Err(e) => return Some(Err(DecodeError::Io(e))),
@@ -178,8 +178,13 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                     return Some(Err(DecodeError::ParentHashMismatch(node)));
                 }
 
-                inner.stack.push(right.clone());
-                inner.stack.push(left.clone());
+                // Only push hashes for children that will be visited
+                if visit_right {
+                    inner.stack.push(right.clone());
+                }
+                if visit_left {
+                    inner.stack.push(left.clone());
+                }
 
                 Some(Ok(BaoContentItem::Parent(Parent {
                     node,

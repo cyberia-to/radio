@@ -94,7 +94,7 @@ where
 
     for chunk in &pre_order {
         match chunk {
-            BaoChunk::Parent { node, is_root } => {
+            BaoChunk::Parent { node, is_root, left, right } => {
                 let pair = match outboard.load(*node) {
                     Ok(Some(pair)) => pair,
                     Ok(None) => {
@@ -110,9 +110,13 @@ where
                 if computed != expected {
                     return Ok(Err(EncodeError::ParentHashMismatch(*node)));
                 }
-                // Push right then left (left will be popped first)
-                stack.push(pair.1.clone());
-                stack.push(pair.0.clone());
+                // Only push hashes for children that will be visited
+                if *right {
+                    stack.push(pair.1.clone());
+                }
+                if *left {
+                    stack.push(pair.0.clone());
+                }
 
                 send.send(EncodedItem::Parent(Parent {
                     node: *node,

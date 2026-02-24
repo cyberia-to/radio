@@ -10,8 +10,8 @@ use smallvec::SmallVec;
 use crate::hash::{HashBackend, Poseidon2Backend};
 use crate::io::error::EncodeError;
 use crate::io::traits::{Outboard, ReadAt};
-use crate::tree::{BaoTree, ChunkNum, TreeNode};
-use crate::{ChunkRanges, ChunkRangesRef};
+use crate::tree::ChunkNum;
+use crate::ChunkRangesRef;
 
 /// Encode ranges relevant to a query from a reader and outboard to a writer.
 ///
@@ -30,29 +30,26 @@ pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = cyber_poseidon2::Ha
         return Ok(());
     }
     let backend = Poseidon2Backend;
+    let tree = outboard.tree();
+    let block_size = tree.block_size();
+
+    // Use the same tree traversal as the decoder (pre_order_chunks_filtered)
+    // to ensure encoder and decoder agree on the stream structure.
+    let pre_order = tree.pre_order_chunks_filtered(ranges);
+
     let mut stack = SmallVec::<[cyber_poseidon2::Hash; 10]>::new();
     stack.push(outboard.root());
-    let tree = outboard.tree();
-    let mut buffer = vec![0u8; tree.chunk_group_bytes()];
-    let mut out_buf = Vec::new();
-    // canonicalize ranges
-    let ranges = truncate_ranges(ranges, tree.size());
-    // Use recursive approach to iterate the tree in pre-order with range info
-    let items = select_nodes_rec_collect(tree, ranges);
-    for item in &items {
-        match item {
-            RangeChunk::Parent {
-                node,
-                is_root,
-                left,
-                right,
-            } => {
+
+    for chunk in &pre_order {
+        match chunk {
+            crate::tree::BaoChunk::Parent { node, is_root, left, right } => {
                 let (l_hash, r_hash) = outboard.load(*node)?.unwrap();
                 let actual = backend.parent_hash(&l_hash, &r_hash, *is_root);
                 let expected = stack.pop().unwrap();
                 if actual != expected {
                     return Err(EncodeError::ParentHashMismatch(*node));
                 }
+                // Only push hashes for children that will be visited
                 if *right {
                     stack.push(r_hash.clone());
                 }
@@ -62,42 +59,22 @@ pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = cyber_poseidon2::Ha
                 let pair = combine_hash_pair(&l_hash, &r_hash);
                 encoded.write_all(&pair)?;
             }
-            RangeChunk::Leaf {
+            crate::tree::BaoChunk::Leaf {
                 start_chunk,
                 size,
                 is_root,
-                full,
             } => {
+                let byte_start = *start_chunk * 1024;
+                let mut buf = vec![0u8; *size];
+                data.read_exact_at(byte_start, &mut buf)?;
+
+                let computed =
+                    super::hash_block(&backend, &buf, *start_chunk, *is_root, block_size.bytes());
                 let expected = stack.pop().unwrap();
-                let start = start_chunk.to_bytes();
-                let buf = &mut buffer[..*size];
-                data.read_exact_at(start, buf)?;
-                let (actual, to_write) = if !full {
-                    // For partial ranges within a block, we need to encode selected data.
-                    // In practice with Poseidon2 and block-level trees, partial block
-                    // encoding is rare. We use the recursive encoder for correctness.
-                    out_buf.clear();
-                    let actual = encode_selected_rec(
-                        &backend,
-                        *start_chunk,
-                        buf,
-                        *is_root,
-                        &ChunkRanges::all(), // simplification: encode full block
-                        tree.block_size().to_u32(),
-                        true,
-                        &mut out_buf,
-                    );
-                    (actual, &out_buf[..])
-                } else {
-                    let actual =
-                        hash_subtree(&backend, start_chunk.0, buf, *is_root);
-                    #[allow(clippy::redundant_slicing)]
-                    (actual, &buf[..])
-                };
-                if actual != expected {
-                    return Err(EncodeError::LeafHashMismatch(*start_chunk));
+                if computed != expected {
+                    return Err(EncodeError::LeafHashMismatch(ChunkNum(*start_chunk)));
                 }
-                encoded.write_all(to_write)?;
+                encoded.write_all(&buf)?;
             }
         }
     }
@@ -128,132 +105,6 @@ where
 }
 
 // ---- Internal helpers ----
-
-/// A chunk item with range information for `encode_ranges_validated`.
-enum RangeChunk {
-    Parent {
-        node: TreeNode,
-        is_root: bool,
-        left: bool,
-        right: bool,
-    },
-    Leaf {
-        start_chunk: ChunkNum,
-        size: usize,
-        is_root: bool,
-        /// Whether the full block is requested (vs partial).
-        full: bool,
-    },
-}
-
-/// Collect pre-order chunks with range information for the given tree and ranges.
-fn select_nodes_rec_collect(tree: BaoTree, ranges: &ChunkRangesRef) -> Vec<RangeChunk> {
-    let mut result = Vec::new();
-    select_nodes_rec(
-        ChunkNum(0),
-        tree.size().try_into().unwrap_or(0),
-        true,
-        ranges,
-        tree.block_size().to_u32(),
-        tree.block_size().to_u32(),
-        tree.block_size().chunk_log(),
-        &mut result,
-    );
-    result
-}
-
-/// Recursive pre-order chunk selection with range tracking.
-fn select_nodes_rec(
-    start_chunk: ChunkNum,
-    size: usize,
-    is_root: bool,
-    ranges: &ChunkRangesRef,
-    tree_level: u32,
-    min_full_level: u32,
-    block_log: u8,
-    result: &mut Vec<RangeChunk>,
-) {
-    if ranges.is_empty() {
-        return;
-    }
-    const CHUNK_LEN: usize = 1024;
-    if size <= CHUNK_LEN {
-        result.push(RangeChunk::Leaf {
-            start_chunk,
-            size,
-            is_root,
-            full: true,
-        });
-    } else {
-        let chunks: usize = size / CHUNK_LEN + (size % CHUNK_LEN != 0) as usize;
-        let chunks = chunks.next_power_of_two();
-        let level = chunks.trailing_zeros() - 1;
-        let full = ranges.is_all();
-        if (level < tree_level) || (full && level < min_full_level) {
-            result.push(RangeChunk::Leaf {
-                start_chunk,
-                size,
-                is_root,
-                full,
-            });
-        } else {
-            let mid = chunks / 2;
-            let mid_bytes = mid * CHUNK_LEN;
-            let mid_chunk = ChunkNum(start_chunk.0 + mid as u64);
-            let (l_ranges, r_ranges) = split_inner(ranges, start_chunk, mid_chunk);
-            // Compute the chunk-level tree node, then convert to block-level
-            let chunk_node = TreeNode::new(
-                start_chunk.0 * 2 + (1u64 << (level + 1)) - 1,
-            );
-            let node = chunk_node.add_block_size(block_log)
-                .unwrap_or(chunk_node);
-            result.push(RangeChunk::Parent {
-                node,
-                is_root,
-                left: !l_ranges.is_empty(),
-                right: !r_ranges.is_empty(),
-            });
-            select_nodes_rec(
-                start_chunk,
-                mid_bytes,
-                false,
-                l_ranges,
-                tree_level,
-                min_full_level,
-                block_log,
-                result,
-            );
-            select_nodes_rec(
-                mid_chunk,
-                size - mid_bytes,
-                false,
-                r_ranges,
-                tree_level,
-                min_full_level,
-                block_log,
-                result,
-            );
-        }
-    }
-}
-
-/// Split ranges at a midpoint, canonicalizing single-interval results.
-fn split_inner<'a>(
-    ranges: &'a ChunkRangesRef,
-    start: ChunkNum,
-    mid: ChunkNum,
-) -> (&'a ChunkRangesRef, &'a ChunkRangesRef) {
-    let (mut a, mut b) = ranges.split(mid);
-    // Canonicalize: if a is a single interval starting at or before start, make it "all"
-    if a.boundaries().len() == 1 && a.boundaries()[0] <= start {
-        a = ChunkRangesRef::new(&[ChunkNum(0)]).unwrap();
-    }
-    // Same for b with mid
-    if b.boundaries().len() == 1 && b.boundaries()[0] <= mid {
-        b = ChunkRangesRef::new(&[ChunkNum(0)]).unwrap();
-    }
-    (a, b)
-}
 
 /// Truncate ranges to the given data size, ensuring the last chunk is included.
 pub fn truncate_ranges(ranges: &ChunkRangesRef, size: u64) -> &ChunkRangesRef {
@@ -333,71 +184,13 @@ fn hash_subtree(
     level.into_iter().next().unwrap()
 }
 
-/// Recursive encoder for selected ranges (used for partial block encoding).
-fn encode_selected_rec(
-    backend: &Poseidon2Backend,
-    start_chunk: ChunkNum,
-    data: &[u8],
-    is_root: bool,
-    _query: &ChunkRangesRef,
-    min_level: u32,
-    emit_data: bool,
-    res: &mut Vec<u8>,
-) -> cyber_poseidon2::Hash {
-    const CHUNK_LEN: usize = 1024;
-    if data.len() <= CHUNK_LEN {
-        if emit_data {
-            res.extend_from_slice(data);
-        }
-        hash_subtree(backend, start_chunk.0, data, is_root)
-    } else {
-        let chunks = data.len() / CHUNK_LEN + (data.len() % CHUNK_LEN != 0) as usize;
-        let chunks = chunks.next_power_of_two();
-        let level = chunks.trailing_zeros() - 1;
-        let mid = chunks / 2;
-        let mid_bytes = mid * CHUNK_LEN;
+// ---- valid_ranges implementation ----
 
-        let emit_parent = level >= min_level;
-        let hash_offset = if emit_parent {
-            res.extend_from_slice(&[0xFFu8; 64]);
-            Some(res.len() - 64)
-        } else {
-            None
-        };
-        let left = encode_selected_rec(
-            backend,
-            start_chunk,
-            &data[..mid_bytes],
-            false,
-            &ChunkRanges::all(),
-            min_level,
-            emit_data,
-            res,
-        );
-        let mid_chunk = ChunkNum(start_chunk.0 + mid as u64);
-        let right = encode_selected_rec(
-            backend,
-            mid_chunk,
-            &data[mid_bytes..],
-            false,
-            &ChunkRanges::all(),
-            min_level,
-            emit_data,
-            res,
-        );
-        if let Some(o) = hash_offset {
-            res[o..o + 32].copy_from_slice(left.as_bytes());
-            res[o + 32..o + 64].copy_from_slice(right.as_bytes());
-        }
-        backend.parent_hash(&left, &right, is_root)
-    }
-}
-
-// ---- valid_ranges implementation (pre-order stack-based) ----
-
-/// Validate ranges by walking the pre-order tree with a hash stack.
+/// Validate ranges by recursively walking the tree.
 ///
 /// For each leaf whose hash matches, yield the corresponding chunk range.
+/// When an outboard entry is missing or a parent hash doesn't match,
+/// the subtree is skipped (not the entire scan).
 async fn validate_ranges_impl<O, D>(
     outboard: O,
     data: D,
@@ -411,10 +204,16 @@ where
     let backend = Poseidon2Backend;
     let tree = outboard.tree();
 
+    if tree.blocks() == 0 {
+        return Ok(());
+    }
+
     if tree.blocks() == 1 {
         let sz: usize = tree.size().try_into().unwrap();
         let mut tmp = vec![0u8; sz];
-        data.read_exact_at(0, &mut tmp)?;
+        if data.read_exact_at(0, &mut tmp).is_err() {
+            return Ok(());
+        }
         let actual = hash_subtree(&backend, 0, &tmp, true);
         if actual == outboard.root() {
             co.yield_(Ok(ChunkNum(0)..tree.chunks())).await;
@@ -423,64 +222,115 @@ where
     }
 
     let ranges = truncate_ranges(ranges, tree.size());
-    let pre_order = tree.pre_order_chunks_filtered(ranges);
-    let mut stack: Vec<cyber_poseidon2::Hash> = vec![outboard.root()];
-    let block_bytes = tree.block_size().bytes();
-
-    for chunk in &pre_order {
-        match chunk {
-            crate::tree::BaoChunk::Parent { node, is_root } => {
-                let expected = match stack.pop() {
-                    Some(h) => h,
-                    None => return Ok(()),
-                };
-                let Some((l_hash, r_hash)) = outboard.load(*node)? else {
-                    return Ok(());
-                };
-                let actual = backend.parent_hash(&l_hash, &r_hash, *is_root);
-                if actual != expected {
-                    // Hash mismatch at this parent — skip entire subtree.
-                    // We can't easily skip in a flat pre-order walk, so just return.
-                    // A more refined implementation could track subtree sizes.
-                    return Ok(());
-                }
-                // Push right then left (left will be popped first)
-                stack.push(r_hash);
-                stack.push(l_hash);
-            }
-            crate::tree::BaoChunk::Leaf {
-                start_chunk,
-                size,
-                is_root,
-            } => {
-                let expected = match stack.pop() {
-                    Some(h) => h,
-                    None => return Ok(()),
-                };
-                let byte_start = *start_chunk * 1024;
-                let mut buf = vec![0u8; *size];
-                data.read_exact_at(byte_start, &mut buf)?;
-                let actual = hash_subtree(&backend, *start_chunk, &buf, *is_root);
-                if actual == expected {
-                    // Compute the chunk range for this leaf
-                    let chunks_per_block = 1u64 << tree.block_size().chunk_log();
-                    let leaf_end_chunk = *start_chunk + chunks_per_block;
-                    let _ = block_bytes;
-                    co.yield_(Ok(ChunkNum(*start_chunk)..ChunkNum(leaf_end_chunk)))
-                        .await;
-                }
-            }
-        }
-    }
+    validate_node_rec(
+        &outboard, &data, &backend, &tree, tree.root(), outboard.root(),
+        true, ranges, co,
+    ).await;
 
     Ok(())
+}
+
+/// Recursively validate a node and its subtree.
+async fn validate_node_rec<O, D>(
+    outboard: &O,
+    data: &D,
+    backend: &Poseidon2Backend,
+    tree: &crate::tree::BaoTree,
+    node: crate::tree::TreeNode,
+    expected_hash: cyber_poseidon2::Hash,
+    is_root: bool,
+    ranges: &ChunkRangesRef,
+    co: &genawaiter::sync::Co<io::Result<std::ops::Range<ChunkNum>>>,
+)
+where
+    O: Outboard<Hash = cyber_poseidon2::Hash>,
+    D: ReadAt,
+{
+    use range_collections::RangeSet2;
+
+    // Check if this node's subtree overlaps the ranges
+    let actual_range = tree.node_actual_chunk_range(node);
+    let node_chunks = RangeSet2::from(actual_range.start..actual_range.end);
+    if node_chunks.is_disjoint(ranges) {
+        return;
+    }
+
+    let level = node.level();
+    if level == 0 {
+        // Leaf node — verify hash
+        let block_idx = node.0 / 2;
+        let block_bytes = tree.block_size().bytes() as u64;
+        let start_byte = block_idx * block_bytes;
+        let end_byte = ((block_idx + 1) * block_bytes).min(tree.size());
+        let size = if start_byte >= tree.size() {
+            0
+        } else {
+            (end_byte - start_byte) as usize
+        };
+        let start_chunk = block_idx * (1u64 << tree.block_size().0);
+        let mut buf = vec![0u8; size];
+        if data.read_exact_at(start_byte, &mut buf).is_err() {
+            return; // Can't read data — skip this leaf
+        }
+        let actual = hash_subtree(backend, start_chunk, &buf, is_root);
+        if actual == expected_hash {
+            let chunks_per_block = 1u64 << tree.block_size().chunk_log();
+            let leaf_end_chunk = start_chunk + chunks_per_block;
+            co.yield_(Ok(ChunkNum(start_chunk)..ChunkNum(leaf_end_chunk))).await;
+        }
+        return;
+    }
+
+    // Check if right child exists
+    let right_exists = node.right_child().is_some_and(|rc| {
+        let right_block_start = rc.chunk_range().start.0 / 2;
+        right_block_start < tree.blocks()
+    });
+
+    if !right_exists {
+        // No right child — skip parent, recurse left with inherited is_root
+        if let Some(left) = node.left_child() {
+            Box::pin(validate_node_rec(
+                outboard, data, backend, tree, left, expected_hash,
+                is_root, ranges, co,
+            )).await;
+        }
+        return;
+    }
+
+    // Load outboard hash pair
+    let pair = match outboard.load(node) {
+        Ok(Some(pair)) => pair,
+        _ => return, // Missing outboard entry — skip this subtree
+    };
+
+    let (l_hash, r_hash) = pair;
+    let actual = backend.parent_hash(&l_hash, &r_hash, is_root);
+    if actual != expected_hash {
+        return; // Hash mismatch — skip this subtree
+    }
+
+    // Recurse into children
+    if let Some(left) = node.left_child() {
+        Box::pin(validate_node_rec(
+            outboard, data, backend, tree, left, l_hash,
+            false, ranges, co,
+        )).await;
+    }
+    if let Some(right) = node.right_child() {
+        Box::pin(validate_node_rec(
+            outboard, data, backend, tree, right, r_hash,
+            false, ranges, co,
+        )).await;
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::io::pre_order::PreOrderMemOutboard;
-    use crate::tree::BlockSize;
+    use crate::tree::{BlockSize, ChunkNum};
+    use crate::ChunkRanges;
 
     #[test]
     fn encode_ranges_validated_full() {
@@ -550,6 +400,19 @@ mod tests {
             .expect("encode should succeed");
         // outboard has 3 parents × 64 + 8192 data
         assert_eq!(encoded.len(), 3 * 64 + 8192);
+    }
+
+    #[test]
+    fn encode_ranges_partial_large_block() {
+        // Test partial range encoding: 100KB data, chunks 16..32, block_log=4 (16KB blocks)
+        let bs = BlockSize::from_chunk_log(4);
+        let data: Vec<u8> = (0..100000u64).map(|i| (i % 251) as u8).collect();
+        let outboard = PreOrderMemOutboard::create(&data, bs);
+        let ranges = ChunkRanges::from(ChunkNum(16)..ChunkNum(32));
+        let mut encoded = Vec::new();
+        encode_ranges_validated(&data[..], &outboard, &ranges, &mut encoded)
+            .expect("encode should succeed for partial ranges");
+        assert!(!encoded.is_empty());
     }
 
     #[test]

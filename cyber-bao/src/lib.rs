@@ -1,7 +1,7 @@
 //! Poseidon2-BAO: verified streaming with Poseidon2 hash over Goldilocks.
 //!
 //! This crate provides BAO-style content-verified streaming using the
-//! Poseidon2 algebraic hash function instead of BLAKE3. The tree structure
+//! Poseidon2 algebraic hash function. The tree structure
 //! and encoding formats are compatible with the original bao specification,
 //! differing only in the hash function used.
 //!

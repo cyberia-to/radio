@@ -68,7 +68,7 @@ pub fn decode<B: HashBackend>(
 
     for chunk in &pre_order {
         match chunk {
-            BaoChunk::Parent { node, is_root } => {
+            BaoChunk::Parent { node, is_root, .. } => {
                 let pair_size = hash_size * 2;
                 if cursor + pair_size > encoded.len() {
                     return Err(DecodeError::Truncated);

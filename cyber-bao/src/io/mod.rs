@@ -32,7 +32,7 @@ use crate::{ByteRanges, ChunkRanges};
 ///
 /// Hashes each 1024-byte chunk individually, then reduces via parent_hash
 /// to produce the block's root. Used by both sync and async encode/decode paths.
-pub(crate) fn hash_block(
+pub fn hash_block(
     backend: &Poseidon2Backend,
     data: &[u8],
     start_chunk: u64,

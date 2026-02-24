@@ -1,7 +1,7 @@
 //! BAO tree geometry — pure math, no hashing.
 //!
 //! This module provides the tree structure used for verified streaming.
-//! The tree uses in-order indexing (same as BLAKE3/bao-tree): leaves at
+//! The tree uses in-order indexing (same as bao-tree): leaves at
 //! even positions, parents at odd positions, level = trailing ones count.
 
 use std::fmt;
@@ -452,6 +452,10 @@ pub enum BaoChunk {
     Parent {
         node: TreeNode,
         is_root: bool,
+        /// Whether the left child will be visited in this traversal.
+        left: bool,
+        /// Whether the right child will be visited in this traversal.
+        right: bool,
     },
     /// A leaf node — contains actual data.
     Leaf {
@@ -529,7 +533,7 @@ impl BaoTree {
         }
 
         // Both children exist — emit parent, then recurse left and right
-        out.push(BaoChunk::Parent { node, is_root });
+        out.push(BaoChunk::Parent { node, is_root, left: true, right: true });
 
         if let Some(left) = node.left_child() {
             self.pre_order_recurse(left, false, total_blocks, out);
@@ -610,7 +614,7 @@ impl BaoTree {
         }
 
         // Parent after children
-        out.push(BaoChunk::Parent { node, is_root });
+        out.push(BaoChunk::Parent { node, is_root, left: true, right: true });
     }
 }
 
@@ -687,19 +691,46 @@ impl BaoTree {
         });
 
         if !right_exists {
+            // Right subtree doesn't exist — skip parent, inherit is_root
             if let Some(left) = node.left_child() {
                 self.pre_order_filtered_recurse(left, is_root, total_blocks, ranges, out);
             }
             return;
         }
 
-        out.push(BaoChunk::Parent { node, is_root });
+        // Check which children actually overlap the requested ranges
+        let left_child = node.left_child();
+        let right_child = node.right_child();
 
-        if let Some(left) = node.left_child() {
-            self.pre_order_filtered_recurse(left, false, total_blocks, ranges, out);
+        let left_overlaps = left_child.is_some_and(|lc| {
+            let lr = self.node_actual_chunk_range(lc);
+            let lcs = range_collections::RangeSet2::from(lr.start..lr.end);
+            !lcs.is_disjoint(ranges)
+        });
+        let right_overlaps = right_child.is_some_and(|rc| {
+            let rr = self.node_actual_chunk_range(rc);
+            let rcs = range_collections::RangeSet2::from(rr.start..rr.end);
+            !rcs.is_disjoint(ranges)
+        });
+
+        if !left_overlaps && !right_overlaps {
+            // Neither child overlaps — shouldn't happen since we checked above
+            return;
         }
-        if let Some(right) = node.right_child() {
-            self.pre_order_filtered_recurse(right, false, total_blocks, ranges, out);
+
+        // Emit the parent — the hash pair is needed to verify children
+        out.push(BaoChunk::Parent { node, is_root, left: left_overlaps, right: right_overlaps });
+
+        // Only recurse into children that overlap the ranges
+        if left_overlaps {
+            if let Some(left) = left_child {
+                self.pre_order_filtered_recurse(left, false, total_blocks, ranges, out);
+            }
+        }
+        if right_overlaps {
+            if let Some(right) = right_child {
+                self.pre_order_filtered_recurse(right, false, total_blocks, ranges, out);
+            }
         }
     }
 }

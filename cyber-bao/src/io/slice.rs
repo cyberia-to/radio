@@ -127,7 +127,7 @@ pub fn decode_slice<B: HashBackend>(
 
     for chunk in &pre_order {
         match chunk {
-            BaoChunk::Parent { node, is_root } => {
+            BaoChunk::Parent { node, is_root, .. } => {
                 let actual_range = tree.node_actual_chunk_range(*node);
                 let node_chunks = ChunkRanges::from(actual_range.start..actual_range.end);
                 let included = !node_chunks.is_disjoint(ranges);

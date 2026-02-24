@@ -1,6 +1,6 @@
 //! Low-level primitives for BAO-style Merkle tree construction.
 //!
-//! These functions mirror the blake3 "hazmat" API: `chunk_cv` for hashing
+//! Low-level BAO-tree primitives: `chunk_cv` for hashing
 //! leaf data into a chaining value, and `parent_cv` for combining two
 //! child chaining values into a parent node.
 

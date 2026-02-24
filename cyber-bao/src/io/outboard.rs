@@ -66,7 +66,7 @@ pub fn outboard<B: HashBackend>(
                 let block_cv = hash_block(backend, chunk_data, *start_chunk, *is_root, bs);
                 hash_stack.push(block_cv);
             }
-            BaoChunk::Parent { node, is_root } => {
+            BaoChunk::Parent { node, is_root, .. } => {
                 let right = hash_stack.pop().expect("missing right child hash");
                 let left = hash_stack.pop().expect("missing left child hash");
                 node_to_children.insert(node.0, (left.clone(), right.clone()));
