@@ -124,4 +124,29 @@ mod tests {
         assert_eq!(r1, r2);
         assert_eq!(e1, e2);
     }
+
+    #[test]
+    fn encode_block_size_nonzero() {
+        let backend = Poseidon2Backend;
+        let bs = BlockSize::from_chunk_log(1); // 2KB blocks
+        // 8KB data → 4 blocks of 2KB → 3 parents
+        let data: Vec<u8> = (0..8192).map(|i| (i % 256) as u8).collect();
+        let (root, encoded) = encode(&backend, &data, bs);
+        // Header (8) + 3 parent pairs (3×64) + 8192 data = 8392
+        assert_eq!(encoded.len(), 8 + 3 * 64 + 8192);
+        // Root hash should be non-zero
+        assert_ne!(root, backend.chunk_hash(&[], 0, true));
+    }
+
+    #[test]
+    fn encode_block_size_default() {
+        let backend = Poseidon2Backend;
+        let bs = BlockSize::DEFAULT; // 16KiB blocks
+        // 32KB data → 2 blocks of 16KB → 1 parent
+        let data: Vec<u8> = (0..32768).map(|i| (i % 256) as u8).collect();
+        let (root, encoded) = encode(&backend, &data, bs);
+        // Header (8) + 1 parent pair (64) + 32768 data
+        assert_eq!(encoded.len(), 8 + 64 + 32768);
+        assert_ne!(root, backend.chunk_hash(&[], 0, true));
+    }
 }

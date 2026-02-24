@@ -74,7 +74,7 @@ where
 async fn traverse_impl<D, O, S>(
     data: &D,
     outboard: &O,
-    _ranges: &ChunkRanges,
+    ranges: &ChunkRanges,
     send: &mut S,
     tree: BaoTree,
 ) -> Result<Result<(), EncodeError>, S::Error>
@@ -86,7 +86,7 @@ where
     use crate::hash::Poseidon2Backend;
     let backend = Poseidon2Backend;
 
-    let pre_order = tree.pre_order_chunks();
+    let pre_order = tree.pre_order_chunks_filtered(ranges);
     let mut stack: SmallVec<[cyber_poseidon2::Hash; 10]> = SmallVec::new();
     stack.push(outboard.root());
 

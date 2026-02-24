@@ -70,10 +70,12 @@ struct ResponseDecoderInner<R> {
     tree: BaoTree,
     encoded: R,
     stack: SmallVec<[cyber_poseidon2::Hash; 10]>,
-    /// Pre-computed list of chunks to iterate
+    /// Pre-computed list of chunks to iterate (filtered by ranges)
     items: Vec<BaoChunk>,
     /// Current position in the items list
     pos: usize,
+    /// Total leaf bytes decoded (for final length validation)
+    decoded_bytes: u64,
 }
 
 impl<R> std::fmt::Debug for ResponseDecoder<R> {
@@ -85,14 +87,16 @@ impl<R> std::fmt::Debug for ResponseDecoder<R> {
 }
 
 impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
-    /// Create a new decoder for the given root hash, tree, and reader.
+    /// Create a new decoder for the given root hash, ranges, tree, and reader.
+    ///
+    /// Only items matching the requested ranges will be read from the stream.
     pub fn new(
         hash: cyber_poseidon2::Hash,
-        _ranges: ChunkRanges,
+        ranges: ChunkRanges,
         tree: BaoTree,
         encoded: R,
     ) -> Self {
-        let items = tree.pre_order_chunks();
+        let items = tree.pre_order_chunks_filtered(&ranges);
         let mut stack = SmallVec::new();
         stack.push(hash.clone());
         Self {
@@ -103,6 +107,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                 stack,
                 items,
                 pos: 0,
+                decoded_bytes: 0,
             },
         }
     }
@@ -135,6 +140,13 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
     ) -> Option<Result<BaoContentItem<cyber_poseidon2::Hash>, DecodeError>> {
         let inner = &mut self.inner;
         if inner.pos >= inner.items.len() {
+            // Final length validation: decoded bytes must not exceed tree size
+            if inner.decoded_bytes > inner.tree.size() {
+                return Some(Err(DecodeError::Io(io::Error::new(
+                    io::ErrorKind::InvalidData,
+                    "decoded more bytes than declared tree size",
+                ))));
+            }
             return None;
         }
 
@@ -146,7 +158,6 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
 
         match chunk {
             BaoChunk::Parent { node, is_root } => {
-                // Read 64 bytes (hash pair)
                 let pair_buf: [u8; 64] = match inner.encoded.read().await {
                     Ok(buf) => buf,
                     Err(e) => return Some(Err(DecodeError::Io(e))),
@@ -167,7 +178,6 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                     return Some(Err(DecodeError::ParentHashMismatch(node)));
                 }
 
-                // Push children: right first, then left (left popped first)
                 inner.stack.push(right.clone());
                 inner.stack.push(left.clone());
 
@@ -181,7 +191,6 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                 size,
                 is_root,
             } => {
-                // Read leaf data
                 let leaf_data = match inner.encoded.read_bytes(size).await {
                     Ok(data) => {
                         if data.len() < size {
@@ -207,6 +216,8 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                 if computed != expected {
                     return Some(Err(DecodeError::LeafHashMismatch(ChunkNum(start_chunk))));
                 }
+
+                inner.decoded_bytes += leaf_data.len() as u64;
 
                 let offset = start_chunk * 1024;
                 Some(Ok(BaoContentItem::Leaf(Leaf {
@@ -235,7 +246,6 @@ mod tests {
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
 
         let tree = BaoTree::new(2048, BlockSize::ZERO);
-        // Skip the 8-byte header (ResponseDecoder expects raw tree data)
         let encoded_bytes = Bytes::from(encoded[8..].to_vec());
         let decoder =
             ResponseDecoder::new(root, ChunkRanges::all(), tree, encoded_bytes);
@@ -243,7 +253,6 @@ mod tests {
         assert_eq!(decoder.tree(), tree);
         assert_eq!(*decoder.hash(), root);
 
-        // Decode all items
         let mut current = decoder;
         let mut leaf_data = Vec::new();
         loop {
@@ -259,5 +268,45 @@ mod tests {
             }
         }
         assert_eq!(leaf_data, data);
+    }
+
+    #[tokio::test]
+    async fn fsm_decode_with_range_filter() {
+        let backend = Poseidon2Backend;
+        let data: Vec<u8> = (0..4096).map(|i| (i % 256) as u8).collect();
+        let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+
+        let tree = BaoTree::new(4096, BlockSize::ZERO);
+        // Only request chunk 0 (first 1024 bytes)
+        let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(1));
+
+        // Build the encoded stream for just this range using sync encoder
+        use crate::io::pre_order::PreOrderMemOutboard;
+        use crate::io::sync::encode_ranges_validated;
+
+        let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
+        let mut range_encoded = Vec::new();
+        encode_ranges_validated(&data[..], &outboard, &ranges, &mut range_encoded)
+            .expect("encode should succeed");
+
+        let encoded_bytes = Bytes::from(range_encoded);
+        let decoder = ResponseDecoder::new(root, ranges, tree, encoded_bytes);
+
+        let mut current = decoder;
+        let mut leaf_data = Vec::new();
+        loop {
+            match current.next().await {
+                ResponseDecoderNext::More((dec, result)) => {
+                    let item = result.expect("decode should succeed");
+                    if let BaoContentItem::Leaf(leaf) = item {
+                        leaf_data.extend_from_slice(&leaf.data);
+                    }
+                    current = dec;
+                }
+                ResponseDecoderNext::Done(_) => break,
+            }
+        }
+        assert_eq!(leaf_data.len(), 1024);
+        assert_eq!(leaf_data, data[..1024]);
     }
 }

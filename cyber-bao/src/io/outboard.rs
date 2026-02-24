@@ -31,9 +31,10 @@ pub fn outboard<B: HashBackend>(
 ) -> Outboard<B::Hash> {
     let tree = BaoTree::new(data.len() as u64, block_size);
     let blocks = tree.blocks();
+    let bs = block_size.bytes();
 
     if blocks <= 1 {
-        let root = backend.chunk_hash(data, 0, true);
+        let root = hash_block(backend, data, 0, true, bs);
         return Outboard {
             root,
             data: Vec::new(),
@@ -42,7 +43,6 @@ pub fn outboard<B: HashBackend>(
     }
 
     let post_order = tree.post_order_chunks();
-    let bs = block_size.bytes();
 
     // Bottom-up computation: hash leaves, then combine parents.
     // Track child hashes for each parent to serialize in pre-order later.

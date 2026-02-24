@@ -275,4 +275,28 @@ mod tests {
             assert_eq!(decoded, data, "roundtrip failed for size {size}");
         }
     }
+
+    #[test]
+    fn roundtrip_block_size_nonzero() {
+        let backend = Poseidon2Backend;
+        let bs = BlockSize::from_chunk_log(1); // 2KB blocks
+        for size in [0, 1024, 2048, 3000, 4096, 8192, 10000] {
+            let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
+            let (root, encoded) = encode::encode(&backend, &data, bs);
+            let decoded = decode(&backend, &encoded, &root, bs).unwrap();
+            assert_eq!(decoded, data, "roundtrip failed for size {size} with BlockSize(1)");
+        }
+    }
+
+    #[test]
+    fn roundtrip_block_size_default() {
+        let backend = Poseidon2Backend;
+        let bs = BlockSize::DEFAULT; // 16KiB blocks
+        for size in [0, 1024, 16384, 32768, 50000] {
+            let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
+            let (root, encoded) = encode::encode(&backend, &data, bs);
+            let decoded = decode(&backend, &encoded, &root, bs).unwrap();
+            assert_eq!(decoded, data, "roundtrip failed for size {size} with BlockSize::DEFAULT");
+        }
+    }
 }

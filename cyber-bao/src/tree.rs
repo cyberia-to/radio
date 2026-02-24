@@ -342,26 +342,42 @@ impl BaoTree {
 
     /// The offset of the given node's hash pair in the pre-order outboard.
     ///
-    /// Returns `None` if the node doesn't exist in the block-level tree
-    /// (e.g., it's below the block size or it's a half-filled rightmost leaf).
+    /// Returns `None` if the node is not a parent in the pre-order traversal.
+    /// Returns the 0-based index among parents in pre-order.
     pub fn pre_order_offset(&self, node: TreeNode) -> Option<u64> {
-        let shifted = node.add_block_size(self.block_size.0)?;
-        // A "half-leaf" is a leaf in the shifted tree whose corresponding
-        // block range extends beyond the data — it has no sibling and thus
-        // no parent hash pair to store.
-        let is_half_leaf = shifted.is_leaf() && node.mid().to_bytes() >= self.size;
-        if !is_half_leaf {
-            let (_, tree_filled_size) = self.shifted();
-            Some(pre_order_offset_loop(shifted.0, tree_filled_size.0))
-        } else {
-            None
+        let pre_order = self.pre_order_chunks();
+        let mut parent_idx = 0u64;
+        for chunk in &pre_order {
+            if let BaoChunk::Parent { node: n, .. } = chunk {
+                if *n == node {
+                    return Some(parent_idx);
+                }
+                parent_idx += 1;
+            }
         }
+        None
     }
 
     /// Post-order offset of a node in the block-level tree.
+    ///
+    /// Returns the 0-based index of this parent node among all parent nodes
+    /// when traversed in post-order. Leaves are not counted (they are not
+    /// stored in the outboard).
+    ///
+    /// Returns `None` if the node is a leaf (not stored in outboard).
     pub fn post_order_offset(&self, node: TreeNode) -> Option<u64> {
-        let shifted = node.add_block_size(self.block_size.0)?;
-        Some(shifted.post_order_offset())
+        // Walk the post-order chunks and count parents until we find this node.
+        let post_order = self.post_order_chunks();
+        let mut parent_idx = 0u64;
+        for chunk in &post_order {
+            if let BaoChunk::Parent { node: n, .. } = chunk {
+                if *n == node {
+                    return Some(parent_idx);
+                }
+                parent_idx += 1;
+            }
+        }
+        None
     }
 
     /// Iterator over chunks in post-order (lazy version compatible with bao-tree).
@@ -381,6 +397,20 @@ impl BaoTree {
         (start, mid.min(self.size), end.min(self.size))
     }
 
+    /// Convert a node's in-order chunk_range to actual chunk numbers.
+    ///
+    /// `TreeNode::chunk_range()` returns values in the in-order index space
+    /// where leaf at index 2k covers range 2k..2k+2. Actual chunk numbers
+    /// are: block_idx * chunks_per_block, where block_idx = leaf_index / 2.
+    /// This method performs that conversion for use with `ChunkRanges`.
+    pub fn node_actual_chunk_range(&self, node: TreeNode) -> Range<ChunkNum> {
+        let raw = node.chunk_range();
+        let cpb = 1u64 << self.block_size.0;
+        // In-order index space → block space: divide by 2
+        // Block space → chunk space: multiply by chunks_per_block
+        ChunkNum((raw.start.0 / 2) * cpb)..ChunkNum((raw.end.0 / 2) * cpb)
+    }
+
     /// Whether a node is relevant for the outboard (i.e., tracked at this block size).
     pub fn is_relevant_for_outboard(&self, node: TreeNode) -> bool {
         let level = node.level();
@@ -393,35 +423,6 @@ impl BaoTree {
             node.mid().to_bytes() < self.size
         }
     }
-}
-
-/// Iterative pre-order offset computation.
-///
-/// Given a node index in a tree with `len` nodes (filled size),
-/// computes the node's position in a pre-order traversal.
-fn pre_order_offset_loop(node: u64, len: u64) -> u64 {
-    let level = (!node).trailing_zeros();
-    let span = 1u64 << level;
-    let left = node + 1 - span;
-    let mut parent_count = 0u64;
-    let mut offset = node;
-    let mut current_span = span;
-    loop {
-        let pspan = current_span * 2;
-        offset = if (offset & pspan) == 0 {
-            offset + current_span
-        } else {
-            offset - current_span
-        };
-        if offset < len {
-            parent_count += 1;
-        }
-        if pspan >= len {
-            break;
-        }
-        current_span = pspan;
-    }
-    left - (left.count_ones() as u64) + parent_count
 }
 
 /// Iterator over `BaoChunk` items (wraps the Vec returned by `post_order_chunks`).
@@ -610,6 +611,96 @@ impl BaoTree {
 
         // Parent after children
         out.push(BaoChunk::Parent { node, is_root });
+    }
+}
+
+impl BaoTree {
+    /// Iterate over the tree in pre-order, filtered by chunk ranges.
+    ///
+    /// Only yields parent nodes whose subtree overlaps the given ranges,
+    /// and leaf nodes whose block overlaps the given ranges. This matches
+    /// the set of items a sender would transmit for a range query.
+    pub fn pre_order_chunks_filtered(
+        &self,
+        ranges: &range_collections::RangeSetRef<ChunkNum>,
+    ) -> Vec<BaoChunk> {
+        let blocks = self.blocks();
+        if blocks == 0 || ranges.is_empty() {
+            return vec![];
+        }
+        if blocks == 1 {
+            let chunk_bytes = self.size.min(self.block_size.bytes() as u64) as usize;
+            let leaf_range = range_collections::RangeSet2::from(ChunkNum(0)..ChunkNum(1u64 << self.block_size.0));
+            if leaf_range.is_disjoint(ranges) {
+                return vec![];
+            }
+            return vec![BaoChunk::Leaf {
+                start_chunk: 0,
+                size: chunk_bytes,
+                is_root: true,
+            }];
+        }
+        let root = self.root();
+        let mut items = Vec::new();
+        self.pre_order_filtered_recurse(root, true, blocks, ranges, &mut items);
+        items
+    }
+
+    fn pre_order_filtered_recurse(
+        &self,
+        node: TreeNode,
+        is_root: bool,
+        total_blocks: u64,
+        ranges: &range_collections::RangeSetRef<ChunkNum>,
+        out: &mut Vec<BaoChunk>,
+    ) {
+        // Check if this node's subtree overlaps the ranges (actual chunk space)
+        let actual_range = self.node_actual_chunk_range(node);
+        let node_chunks =
+            range_collections::RangeSet2::from(actual_range.start..actual_range.end);
+        if node_chunks.is_disjoint(ranges) {
+            return;
+        }
+
+        let level = node.level();
+        if level == 0 {
+            let block_idx = node.0 / 2;
+            let block_bytes = self.block_size.bytes() as u64;
+            let start_byte = block_idx * block_bytes;
+            let end_byte = ((block_idx + 1) * block_bytes).min(self.size);
+            let size = if start_byte >= self.size {
+                0
+            } else {
+                (end_byte - start_byte) as usize
+            };
+            out.push(BaoChunk::Leaf {
+                start_chunk: block_idx * (1u64 << self.block_size.0),
+                size,
+                is_root,
+            });
+            return;
+        }
+
+        let right_exists = node.right_child().is_some_and(|rc| {
+            let right_block_start = rc.chunk_range().start.0 / 2;
+            right_block_start < total_blocks
+        });
+
+        if !right_exists {
+            if let Some(left) = node.left_child() {
+                self.pre_order_filtered_recurse(left, is_root, total_blocks, ranges, out);
+            }
+            return;
+        }
+
+        out.push(BaoChunk::Parent { node, is_root });
+
+        if let Some(left) = node.left_child() {
+            self.pre_order_filtered_recurse(left, false, total_blocks, ranges, out);
+        }
+        if let Some(right) = node.right_child() {
+            self.pre_order_filtered_recurse(right, false, total_blocks, ranges, out);
+        }
     }
 }
 
