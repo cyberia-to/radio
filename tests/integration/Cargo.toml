@@ -1,0 +1,23 @@
+[package]
+name = "radio-integration-tests"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+iroh = { path = "../../iroh" }
+iroh-base = { path = "../../iroh-base" }
+iroh-blobs = { path = "../../iroh-blobs" }
+iroh-gossip = { path = "../../iroh-gossip" }
+iroh-docs = { path = "../../iroh-docs" }
+cyber-poseidon2 = { path = "../../cyber-poseidon2" }
+cyber-bao = { path = "../../cyber-bao" }
+
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+bytes = "1"
+rand = "0.9"
+rand_chacha = "0.9"
+futures-util = "0.3"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
