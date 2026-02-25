@@ -14,6 +14,7 @@ members = [
   "iroh-car",
   "iroh-willow",
   "tests/integration",
+  "radio-cli",
 ]
 resolver = "2"
 
