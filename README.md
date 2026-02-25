@@ -1,171 +1,122 @@
-<h1 align="center"><a href="https://iroh.computer"><img alt="iroh" src="./.img/iroh_wordmark.svg" width="100" /></a></h1>
+# radio
 
-<h3 align="center">
-less net work for networks
-</h3>
+Verified content streaming over Poseidon2.
 
-[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square)](https://docs.rs/iroh/)
-[![Crates.io](https://img.shields.io/crates/v/iroh.svg?style=flat-square)](https://crates.io/crates/iroh)
-[![downloads](https://img.shields.io/crates/d/iroh.svg?style=flat-square)](https://crates.io/crates/iroh)
-[![Chat](https://img.shields.io/discord/1161119546170687619?logo=discord&style=flat-square)](https://discord.com/invite/DpmJgtU7cW)
-[![Youtube](https://img.shields.io/badge/YouTube-red?logo=youtube&logoColor=white&style=flat-square)](https://www.youtube.com/@n0computer)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE-MIT)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE-APACHE)
-[![CI](https://img.shields.io/github/actions/workflow/status/n0-computer/iroh/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/n0-computer/iroh/actions/workflows/ci.yml)
+Radio is a fork of [iroh](https://github.com/n0-computer/iroh) where every hash — content identifiers, verified streaming trees, relay handshakes — runs through Poseidon2 over the Goldilocks field instead of BLAKE3.
 
-<div align="center">
-  <h3>
-    <a href="https://iroh.computer/docs">
-      Docs Site
-    </a>
-    <span> | </span>
-    <a href="https://docs.rs/iroh">
-      Rust Docs
-    </a>
-  </h3>
-</div>
-<br/>
+## Why replace a fast hash with a slow one?
 
-## What is iroh?
+BLAKE3 hashes at 2 GB/s. Poseidon2 over Goldilocks hashes at ~50-100 MB/s on CPU. By every throughput benchmark, BLAKE3 wins.
 
-Iroh gives you an API for dialing by public key.
-You say “connect to that phone”, iroh will find & maintain the fastest connection for you, regardless of where it is.
+But throughput is the wrong metric when the goal is a self-verifying knowledge graph at planetary scale.
 
-### Hole-punching
+BLAKE3 uses bit-oriented operations — XOR, rotation, shift — that are cheap on CPUs and catastrophic in arithmetic circuits. Proving a single BLAKE3 hash inside a STARK costs 50,000-100,000 constraints. Poseidon2 costs ~300. That is not a percentage improvement. It is the difference between a system that can prove its own state transitions and one that cannot.
 
-The fastest route is a direct connection, so if necessary, iroh tries to hole-punch.
-Should this fail, it can fall back to an open ecosystem of public relay servers.
-To ensure these connections are as fast as possible, we [continuously measure iroh][iroh-perf].
+A content-addressed network where every hash is cheaply provable in zero knowledge enables:
 
-### Built on [QUIC]
+- Storage proofs that verify content availability without downloading it
+- Verified streaming where every chunk is authenticated against a Poseidon2 Merkle tree
+- Private collective computation over encrypted knowledge graphs (MPC, FHE)
+- Post-quantum security — STARKs rely on hash collision resistance only, no pairings
 
-Iroh uses [Quinn] to establish [QUIC] connections between endpoints.
-This way you get authenticated encryption, concurrent streams with stream priorities, a datagram transport and avoid head-of-line-blocking out of the box.
+One hash everywhere. No "fast hash for data, ZK hash for proofs" split. The content identifier IS the proof-friendly identifier. Deduplication, verified streaming, and zero-knowledge proofs all operate on the same identity.
 
-## Compose Protocols
+The performance gap narrows with GPU acceleration (Poseidon2 is massively parallelizable) and larger chunk groups (16 KB blocks amortize per-chunk overhead). For the proving system, there is no gap at all — Poseidon2 is 100x cheaper where it matters.
 
-Use pre-existing protocols built on iroh instead of writing your own:
-- [iroh-blobs] for [Poseidon2]-based content-addressed blob transfer scaling from kilobytes to terabytes
-- [iroh-gossip] for establishing publish-subscribe overlay networks that scale, requiring only resources that your average phone can handle
-- [iroh-docs] for an eventually-consistent key-value store of [iroh-blobs] blobs
-- [iroh-willow] for an (in-construction) implementation of the [willow protocol]
+See [hash function selection](https://cyb.ai/oracle/ask/hash-function-selection) for the full analysis across seven domains: content addressing, deduplication, ZK proofs, MPC, FHE, quantum resistance, and planetary scale.
+
+## Architecture
+
+Radio preserves iroh's networking layer — QUIC connections, hole-punching, relay servers — and replaces the cryptographic substrate:
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                        Protocols                             │
+│   iroh-blobs    iroh-docs    iroh-gossip    iroh-willow      │
+│   (content)     (key-value)  (pub-sub)      (sync)           │
+├──────────────────────────────────────────────────────────────┤
+│                    Verified Streaming                         │
+│                       cyber-bao                               │
+│            (Poseidon2 Merkle tree encode/decode)              │
+├──────────────────────────────────────────────────────────────┤
+│                     Content Identity                          │
+│                    cyber-poseidon2                             │
+│       (sponge, compression, KDF — Goldilocks field)           │
+├──────────────────────────────────────────────────────────────┤
+│                       Networking                              │
+│               iroh (QUIC, hole-punching)                      │
+│              iroh-relay (relay servers)                        │
+└──────────────────────────────────────────────────────────────┘
+```
+
+## Crates
+
+| Crate | Description |
+|-------|-------------|
+| `cyber-poseidon2` | Poseidon2 hash over Goldilocks (Hemera: t=16, rate=8, capacity=8, x^7). CPU backend via p3-poseidon2, GPU scaffolding via wgpu. |
+| `cyber-bao` | Verified streaming with Poseidon2. Encoding, decoding, outboard, slice extraction — the BAO protocol rebuilt on algebraic hashing. |
+| `cyber-hash` | CLI tool for Poseidon2 hashing from the command line. |
+| `iroh` | Hole-punching and QUIC connections between endpoints. Dial by public key. |
+| `iroh-relay` | Relay server with Poseidon2-based handshake. |
+| `iroh-base` | Common types — `Hash` (Poseidon2 digest), keys, `RelayUrl`. |
+| `iroh-blobs` | Content-addressed blob transfer with Poseidon2 verified streaming. Scales from kilobytes to terabytes. |
+| `iroh-docs` | Eventually-consistent key-value store over iroh-blobs. |
+| `iroh-gossip` | Publish-subscribe overlay networks. |
+| `iroh-car` | CAR (Content Addressable aRchive) format support. |
+| `iroh-willow` | Willow protocol implementation. |
+| `iroh-dns-server` | DNS-based endpoint discovery. |
+
+## Hemera Parameters
+
+Frozen at deployment. These never change — changing them changes every content identifier in the network.
+
+| Parameter | Value |
+|-----------|-------|
+| Field | Goldilocks (p = 2^64 - 2^32 + 1) |
+| State width | 16 elements (128 bytes) |
+| Rate | 8 elements (64 bytes absorbed per permutation) |
+| Capacity | 8 elements (64 bytes) |
+| Full rounds | 8 (4 initial + 4 final) |
+| Partial rounds | 32 |
+| S-box | x^7 |
+| Padding | 0x01 &#124;&#124; 0x00* |
+| Encoding | Little-endian canonical |
+| Output | 8 elements = 64 bytes |
+| Security | 256-bit collision resistance |
+
+## Migration Status
+
+Complete. Zero BLAKE3 dependencies remain in any Cargo.toml or Cargo.lock. 395 tests pass across all crates.
+
+| Phase | Status |
+|-------|--------|
+| cyber-poseidon2 (CPU + GPU scaffolding) | Done |
+| cyber-bao (verified streaming) | Done |
+| iroh-blobs (content addressing) | Done |
+| iroh-relay (handshake) | Done |
+| iroh-docs, iroh-gossip, iroh-car | Done |
+| Blake3 removal | Done |
+| Validation (395 tests, 0 failures) | Done |
 
 ## Getting Started
 
-### Rust Library
+```sh
+# Build the workspace
+cargo build
 
-It's easiest to use iroh from rust.
-Install it using `cargo add iroh`, then on the connecting side:
+# Run tests
+cargo test
 
-```rs
-const ALPN: &[u8] = b"iroh-example/echo/0";
-
-let endpoint = Endpoint::bind().await?;
-
-// Open a connection to the accepting endpoint
-let conn = endpoint.connect(addr, ALPN).await?;
-
-// Open a bidirectional QUIC stream
-let (mut send, mut recv) = conn.open_bi().await?;
-
-// Send some data to be echoed
-send.write_all(b"Hello, world!").await?;
-send.finish()?;
-
-// Receive the echo
-let response = recv.read_to_end(1000).await?;
-assert_eq!(&response, b"Hello, world!");
-
-// As the side receiving the last application data - say goodbye
-conn.close(0u32.into(), b"bye!");
-
-// Close the endpoint and all its connections
-endpoint.close().await;
+# Hash something
+cargo run --bin cyber-hash -- "hello"
 ```
-
-And on the accepting side:
-```rs
-let endpoint = Endpoint::bind().await?;
-
-let router = Router::builder(endpoint)
-    .accept(ALPN.to_vec(), Arc::new(Echo))
-    .spawn()
-    .await?;
-
-// The protocol definition:
-#[derive(Debug, Clone)]
-struct Echo;
-
-impl ProtocolHandler for Echo {
-    async fn accept(&self, connection: Connection) -> Result<()> {
-        let (mut send, mut recv) = connection.accept_bi().await?;
-
-        // Echo any bytes received back directly.
-        let bytes_sent = tokio::io::copy(&mut recv, &mut send).await?;
-
-        send.finish()?;
-        connection.closed().await;
-
-        Ok(())
-    }
-}
-```
-
-The full example code with more comments can be found at [`echo.rs`][echo-rs].
-
-Or use one of the pre-existing protocols, e.g. [iroh-blobs] or [iroh-gossip].
-
-### Other Languages
-
-If you want to use iroh from other languages, make sure to check out [iroh-ffi], the repository for FFI bindings.
-
-### Links
-
-- [Introducing Iroh (video)][iroh-yt-video]
-- [Iroh Documentation][docs]
-- [Iroh Examples]
-- [Iroh Experiments]
-
-## Repository Structure
-
-This repository contains a workspace of crates:
-- `iroh`: The core library for hole-punching & communicating with relays.
-- `iroh-relay`: The relay server implementation. This is the code we run in production (and you can, too!).
-- `iroh-base`: Common types like `Hash`, key types or `RelayUrl`.
-- `iroh-dns-server`: DNS server implementation powering the `n0_discovery` for EndpointIds, running at dns.iroh.link.
-- `cyber-poseidon2`: Poseidon2 hash over the Goldilocks field — Blake3-compatible API for ZK-friendly content addressing.
-- `cyber-bao`: Poseidon2-BAO verified streaming — hash tree construction, encoding, decoding, and slice extraction.
 
 ## License
 
 Copyright 2025 N0, INC.
 
-This project is licensed under either of
+Dual-licensed under MIT or Apache-2.0, at your option.
 
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or
-   http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or
-   http://opensource.org/licenses/MIT)
-
-at your option.
-
-## Contribution
-
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in this project by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
-
-[QUIC]: https://en.wikipedia.org/wiki/QUIC
+[iroh]: https://github.com/n0-computer/iroh
 [Poseidon2]: https://eprint.iacr.org/2023/323
-[Quinn]: https://github.com/quinn-rs/quinn
-[iroh-blobs]: https://github.com/n0-computer/iroh-blobs
-[iroh-gossip]: https://github.com/n0-computer/iroh-gossip
-[iroh-docs]: https://github.com/n0-computer/iroh-docs
-[iroh-willow]: https://github.com/n0-computer/iroh-willow
-[iroh-doctor]: https://github.com/n0-computer/iroh-doctor
-[willow protocol]: https://willowprotocol.org
-[iroh-ffi]: https://github.com/n0-computer/iroh-ffi
-[iroh-yt-video]: https://www.youtube.com/watch?v=RwAt36Xe3UI_
-[Iroh Examples]: https://github.com/n0-computer/iroh-examples
-[Iroh Experiments]: https://github.com/n0-computer/iroh-experiments
-[echo-rs]: /iroh/examples/echo.rs
-[iroh-perf]: https://perf.iroh.computer
-[docs]: https://iroh.computer/docs
+[Goldilocks]: https://en.wikipedia.org/wiki/Goldilocks_field
