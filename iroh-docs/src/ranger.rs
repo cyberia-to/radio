@@ -103,8 +103,39 @@ impl<K> From<(K, K)> for Range<K> {
     }
 }
 
-#[derive(Copy, Clone, PartialEq, Serialize, Deserialize)]
-pub struct Fingerprint(pub [u8; 32]);
+#[derive(Copy, Clone, PartialEq)]
+pub struct Fingerprint(pub [u8; 64]);
+
+impl Serialize for Fingerprint {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        use serde::ser::SerializeTuple;
+        let mut seq = serializer.serialize_tuple(64)?;
+        for byte in &self.0 {
+            seq.serialize_element(byte)?;
+        }
+        seq.end()
+    }
+}
+
+impl<'de> Deserialize<'de> for Fingerprint {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        struct Visitor;
+        impl<'de> serde::de::Visitor<'de> for Visitor {
+            type Value = Fingerprint;
+            fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+                write!(f, "64 bytes")
+            }
+            fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<Fingerprint, A::Error> {
+                let mut bytes = [0u8; 64];
+                for (i, byte) in bytes.iter_mut().enumerate() {
+                    *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                }
+                Ok(Fingerprint(bytes))
+            }
+        }
+        deserializer.deserialize_tuple(64, Visitor)
+    }
+}
 
 impl Debug for Fingerprint {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

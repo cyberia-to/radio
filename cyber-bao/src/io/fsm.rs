@@ -7,11 +7,16 @@ use std::io;
 
 use smallvec::SmallVec;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::hash::HashBackend;
 use crate::io::content::{BaoContentItem, Leaf, Parent};
 use crate::io::error::DecodeError;
 use crate::tree::{BaoChunk, BaoTree, ChunkNum, TreeNode};
 use crate::ChunkRanges;
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Async outboard mutation trait (for writing hash pairs during decode).
 pub trait OutboardMut: Sized {
@@ -158,15 +163,15 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
 
         match chunk {
             BaoChunk::Parent { node, is_root, left: visit_left, right: visit_right } => {
-                let pair_buf: [u8; 64] = match inner.encoded.read().await {
+                let pair_buf: [u8; PAIR_SIZE] = match inner.encoded.read().await {
                     Ok(buf) => buf,
                     Err(e) => return Some(Err(DecodeError::Io(e))),
                 };
 
                 let left =
-                    cyber_poseidon2::Hash::from_bytes(pair_buf[..32].try_into().unwrap());
+                    cyber_poseidon2::Hash::from_bytes(pair_buf[..OUTPUT_BYTES].try_into().unwrap());
                 let right =
-                    cyber_poseidon2::Hash::from_bytes(pair_buf[32..].try_into().unwrap());
+                    cyber_poseidon2::Hash::from_bytes(pair_buf[OUTPUT_BYTES..].try_into().unwrap());
 
                 let computed = backend.parent_hash(&left, &right, is_root);
                 let expected = match inner.stack.pop() {

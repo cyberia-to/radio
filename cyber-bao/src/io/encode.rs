@@ -9,9 +9,14 @@
 //! Parent nodes appear before their children, so the decoder can verify
 //! each piece as it arrives without buffering the entire file.
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::hash::HashBackend;
 use crate::io::outboard;
 use crate::tree::{BaoChunk, BlockSize};
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Encode data into the combined (pre-order) format.
 ///
@@ -82,8 +87,8 @@ mod tests {
         let data = vec![0x42u8; 2048];
         let (root, encoded) = encode(&backend, &data, BlockSize::ZERO);
 
-        // Header (8) + parent pair (64) + leaf0 (1024) + leaf1 (1024) = 3120
-        assert_eq!(encoded.len(), 8 + 64 + 2048);
+        // Header (8) + parent pair + leaf0 (1024) + leaf1 (1024)
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 2048);
 
         // Verify header
         let size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
@@ -132,8 +137,8 @@ mod tests {
         // 8KB data → 4 blocks of 2KB → 3 parents
         let data: Vec<u8> = (0..8192).map(|i| (i % 256) as u8).collect();
         let (root, encoded) = encode(&backend, &data, bs);
-        // Header (8) + 3 parent pairs (3×64) + 8192 data = 8392
-        assert_eq!(encoded.len(), 8 + 3 * 64 + 8192);
+        // Header (8) + 3 parent pairs + 8192 data
+        assert_eq!(encoded.len(), 8 + 3 * PAIR_SIZE + 8192);
         // Root hash should be non-zero
         assert_ne!(root, backend.chunk_hash(&[], 0, true));
     }
@@ -145,8 +150,8 @@ mod tests {
         // 32KB data → 2 blocks of 16KB → 1 parent
         let data: Vec<u8> = (0..32768).map(|i| (i % 256) as u8).collect();
         let (root, encoded) = encode(&backend, &data, bs);
-        // Header (8) + 1 parent pair (64) + 32768 data
-        assert_eq!(encoded.len(), 8 + 64 + 32768);
+        // Header (8) + 1 parent pair + 32768 data
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 32768);
         assert_ne!(root, backend.chunk_hash(&[], 0, true));
     }
 }

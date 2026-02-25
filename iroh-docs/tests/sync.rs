@@ -60,7 +60,9 @@ async fn spawn_nodes(n: usize, mut rng: &mut (impl CryptoRng + Rng)) -> anyhow::
 }
 
 pub fn test_rng(seed: &[u8]) -> rand_chacha::ChaCha12Rng {
-    rand_chacha::ChaCha12Rng::from_seed(*Hash::new(seed).as_bytes())
+    let hash = Hash::new(seed);
+    let seed_bytes: [u8; 32] = hash.as_bytes()[..32].try_into().unwrap();
+    rand_chacha::ChaCha12Rng::from_seed(seed_bytes)
 }
 
 macro_rules! match_event {

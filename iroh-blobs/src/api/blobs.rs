@@ -1116,9 +1116,9 @@ impl ExportBaoProgress {
                     target.write(&size.to_le_bytes()).await?;
                 }
                 EncodedItem::Parent(parent) => {
-                    let mut data = vec![0u8; 64];
-                    data[..32].copy_from_slice(parent.pair.0.as_bytes());
-                    data[32..].copy_from_slice(parent.pair.1.as_bytes());
+                    let mut data = vec![0u8; 128];
+                    data[..64].copy_from_slice(parent.pair.0.as_bytes());
+                    data[64..].copy_from_slice(parent.pair.1.as_bytes());
                     target.write(&data).await?;
                 }
                 EncodedItem::Leaf(leaf) => {
@@ -1148,11 +1148,11 @@ impl ExportBaoProgress {
                     progress.log_other_write(8);
                 }
                 EncodedItem::Parent(parent) => {
-                    let mut data = [0u8; 64];
-                    data[..32].copy_from_slice(parent.pair.0.as_bytes());
-                    data[32..].copy_from_slice(parent.pair.1.as_bytes());
+                    let mut data = [0u8; 128];
+                    data[..64].copy_from_slice(parent.pair.0.as_bytes());
+                    data[64..].copy_from_slice(parent.pair.1.as_bytes());
                     writer.send(&data).await?;
-                    progress.log_other_write(64);
+                    progress.log_other_write(128);
                 }
                 EncodedItem::Leaf(leaf) => {
                     let len = leaf.data.len();
@@ -1175,9 +1175,9 @@ impl ExportBaoProgress {
                 Some(Ok(size))
             }
             EncodedItem::Parent(parent) => {
-                let mut data = vec![0u8; 64];
-                data[..32].copy_from_slice(parent.pair.0.as_bytes());
-                data[32..].copy_from_slice(parent.pair.1.as_bytes());
+                let mut data = vec![0u8; 128];
+                data[..64].copy_from_slice(parent.pair.0.as_bytes());
+                data[64..].copy_from_slice(parent.pair.1.as_bytes());
                 Some(Ok(data.into()))
             }
             EncodedItem::Leaf(leaf) => Some(Ok(leaf.data)),

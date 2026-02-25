@@ -119,7 +119,8 @@ mod util {
 
     pub fn create_rng(seed: &str) -> ChaCha12Rng {
         let seed = iroh_blobs::Hash::new(seed);
-        ChaCha12Rng::from_seed(*(seed.as_bytes()))
+        let seed_bytes: [u8; 32] = seed.as_bytes()[..32].try_into().unwrap();
+        ChaCha12Rng::from_seed(seed_bytes)
     }
 
     fn generate_secret_key(rng: &mut impl CryptoRngCore) -> iroh::SecretKey {

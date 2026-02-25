@@ -1275,7 +1275,8 @@ pub(crate) mod test {
         ];
 
         debug!("----- adding peers  ----- ");
-        let topic: TopicId = (*cyber_poseidon2::hash(b"foobar").as_bytes()).into();
+        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"foobar").as_bytes()[..32].try_into().unwrap();
+        let topic: TopicId = hash_bytes.into();
 
         let addr1 = EndpointAddr::new(pi1).with_relay_url(relay_url.clone());
         let addr2 = EndpointAddr::new(pi2).with_relay_url(relay_url);
@@ -1403,7 +1404,8 @@ pub(crate) mod test {
             "endpoints ready"
         );
 
-        let topic: TopicId = (*cyber_poseidon2::hash(b"subscription_cleanup").as_bytes()).into();
+        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"subscription_cleanup").as_bytes()[..32].try_into().unwrap();
+        let topic: TopicId = hash_bytes.into();
         tracing::info!(%topic, "joining");
 
         // create the tasks for each gossip instance:
@@ -1543,7 +1545,8 @@ pub(crate) mod test {
             "endpoints ready"
         );
 
-        let topic: TopicId = (*cyber_poseidon2::hash(b"can_reconnect").as_bytes()).into();
+        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"can_reconnect").as_bytes()[..32].try_into().unwrap();
+        let topic: TopicId = hash_bytes.into();
         tracing::info!(%topic, "joining");
 
         let ct2 = ct.child_token();

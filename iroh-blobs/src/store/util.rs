@@ -215,16 +215,16 @@ mod fs {
 
     pub fn write_checksummed<P: AsRef<Path>, T: Serialize>(path: P, data: &T) -> io::Result<()> {
         // Build Vec with space for hash
-        let mut buffer = Vec::with_capacity(32 + 128);
-        buffer.extend_from_slice(&[0u8; 32]);
+        let mut buffer = Vec::with_capacity(64 + 128);
+        buffer.extend_from_slice(&[0u8; 64]);
 
         // Serialize directly into buffer
         postcard::to_io(data, &mut buffer).map_err(io::Error::other)?;
 
-        // Compute hash over data (skip first 32 bytes)
-        let data_slice = &buffer[32..];
+        // Compute hash over data (skip first 64 bytes)
+        let data_slice = &buffer[64..];
         let hash = cyber_poseidon2::hash(data_slice);
-        buffer[..32].copy_from_slice(hash.as_bytes());
+        buffer[..64].copy_from_slice(hash.as_bytes());
 
         // Write all at once
         let mut file = File::create(&path)?;
@@ -255,12 +255,12 @@ mod fs {
             ));
         }
 
-        if buffer.len() < 32 {
+        if buffer.len() < 64 {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "File too short"));
         }
 
-        let stored_hash = &buffer[..32];
-        let data = &buffer[32..];
+        let stored_hash = &buffer[..64];
+        let data = &buffer[64..];
 
         let computed_hash = cyber_poseidon2::hash(data);
         if computed_hash.as_bytes() != stored_hash {
@@ -293,12 +293,12 @@ mod fs {
             ));
         }
 
-        if buffer.len() < 32 {
+        if buffer.len() < 64 {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "File too short"));
         }
 
-        let stored_hash = &buffer[..32];
-        let data = &buffer[32..];
+        let stored_hash = &buffer[..64];
+        let data = &buffer[64..];
 
         let computed_hash = cyber_poseidon2::hash(data);
         if computed_hash.as_bytes() != stored_hash {
@@ -349,7 +349,7 @@ mod fs {
 
         // Hash the input with Poseidon2
         let hash = cyber_poseidon2::hash(data);
-        let bytes = hash.as_bytes(); // 32-byte hash
+        let bytes = hash.as_bytes(); // 64-byte hash
 
         // Create an ArrayString with capacity 12 (bytes)
         let mut result = ArrayString::<12>::new();

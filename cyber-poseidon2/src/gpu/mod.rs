@@ -11,7 +11,7 @@ use p3_field::PrimeField64;
 use p3_goldilocks::Goldilocks;
 use wgpu::util::DeviceExt;
 
-use crate::params::WIDTH;
+use crate::params::{ROUNDS_F, ROUNDS_P, WIDTH};
 use crate::sponge::Hash;
 
 /// Pre-compiled GPU compute pipelines and device handles.
@@ -132,7 +132,7 @@ impl GpuContext {
 
     /// Run batch Poseidon2 permutations on GPU.
     ///
-    /// Each state is WIDTH (12) Goldilocks elements. Returns the permuted states.
+    /// Each state is WIDTH (16) Goldilocks elements. Returns the permuted states.
     #[allow(clippy::unused_async)] // Will use await when GPU dispatch is fully async
     pub async fn batch_permute(
         &self,
@@ -265,11 +265,10 @@ fn generate_round_constants_u32() -> Vec<u32> {
     // We need to generate the same constants as p3-poseidon2's new_from_rng.
     // External constants: R_F * WIDTH elements
     // Internal constants: R_P elements
-    // Total: 8 * 12 + 22 = 118 elements = 236 u32s
-
+    // Total: ROUNDS_F * WIDTH + ROUNDS_P elements
     // For now, generate random Goldilocks elements using the same RNG.
     // TODO: match exact p3-poseidon2 constant generation order
-    let total_constants = 8 * 12 + 22;
+    let total_constants = ROUNDS_F * WIDTH + ROUNDS_P;
     let mut constants = Vec::with_capacity(total_constants * 2);
 
     use rand::Rng;

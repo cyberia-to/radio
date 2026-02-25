@@ -73,7 +73,7 @@ async fn blob_store_hash_round_trip() -> Result<()> {
 async fn poseidon2_keyed_hash_differs() -> Result<()> {
     let data = b"keyed hash test";
     let plain = cyber_poseidon2::hash(data);
-    let keyed = cyber_poseidon2::keyed_hash(&[0u8; 32], data);
+    let keyed = cyber_poseidon2::keyed_hash(&[0u8; 64], data);
     assert_ne!(plain, keyed);
     Ok(())
 }

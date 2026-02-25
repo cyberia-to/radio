@@ -33,7 +33,7 @@ use crate::proto::{
 #[repr(C, packed)]
 pub(crate) struct StoredAuthorisedEntry {
     pub(crate) authorisation_token_id: ed25519::SignatureBytes,
-    pub(crate) payload_digest: [u8; 32],
+    pub(crate) payload_digest: [u8; 64],
     pub(crate) payload_size: u64,
 }
 

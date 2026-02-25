@@ -7,11 +7,16 @@ use std::io::{self, Write};
 
 use smallvec::SmallVec;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::hash::{HashBackend, Poseidon2Backend};
 use crate::io::error::EncodeError;
 use crate::io::traits::{Outboard, ReadAt};
 use crate::tree::ChunkNum;
 use crate::ChunkRangesRef;
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Encode ranges relevant to a query from a reader and outboard to a writer.
 ///
@@ -136,11 +141,11 @@ fn truncated_len(ranges: &ChunkRangesRef, size: u64) -> usize {
     }
 }
 
-/// Combine two hashes into a 64-byte pair.
-fn combine_hash_pair(l: &cyber_poseidon2::Hash, r: &cyber_poseidon2::Hash) -> [u8; 64] {
-    let mut res = [0u8; 64];
-    res[..32].copy_from_slice(l.as_bytes());
-    res[32..].copy_from_slice(r.as_bytes());
+/// Combine two hashes into a pair buffer.
+fn combine_hash_pair(l: &cyber_poseidon2::Hash, r: &cyber_poseidon2::Hash) -> [u8; PAIR_SIZE] {
+    let mut res = [0u8; PAIR_SIZE];
+    res[..OUTPUT_BYTES].copy_from_slice(l.as_bytes());
+    res[OUTPUT_BYTES..].copy_from_slice(r.as_bytes());
     res
 }
 
@@ -341,8 +346,8 @@ mod tests {
         encoded.extend_from_slice(&size.to_le_bytes());
         encode_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut encoded)
             .expect("encode should succeed");
-        // Should have size prefix + parent hash pair (64) + 2 leaf chunks (2048)
-        assert_eq!(encoded.len(), 8 + 64 + 2048);
+        // Should have size prefix + parent hash pair + 2 leaf chunks (2048)
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 2048);
     }
 
     #[test]
@@ -398,8 +403,8 @@ mod tests {
         let mut encoded = Vec::new();
         encode_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut encoded)
             .expect("encode should succeed");
-        // outboard has 3 parents × 64 + 8192 data
-        assert_eq!(encoded.len(), 3 * 64 + 8192);
+        // outboard has 3 parents × PAIR_SIZE + 8192 data
+        assert_eq!(encoded.len(), 3 * PAIR_SIZE + 8192);
     }
 
     #[test]

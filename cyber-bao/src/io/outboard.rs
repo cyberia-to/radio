@@ -6,8 +6,13 @@
 
 use std::collections::HashMap;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::hash::HashBackend;
 use crate::tree::{BaoChunk, BaoTree, BlockSize};
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Result of computing the outboard for a blob.
 #[derive(Debug, Clone)]
@@ -173,14 +178,14 @@ mod tests {
         let backend = Poseidon2Backend;
         let data = vec![0x42u8; 2048];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
-        assert_eq!(ob.data.len(), 64);
+        assert_eq!(ob.data.len(), PAIR_SIZE);
 
         let left = backend.chunk_hash(&data[..1024], 0, false);
         let right = backend.chunk_hash(&data[1024..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(ob.root, expected_root);
-        assert_eq!(&ob.data[..32], left.as_ref());
-        assert_eq!(&ob.data[32..64], right.as_ref());
+        assert_eq!(&ob.data[..OUTPUT_BYTES], left.as_ref());
+        assert_eq!(&ob.data[OUTPUT_BYTES..PAIR_SIZE], right.as_ref());
     }
 
     #[test]
@@ -188,8 +193,8 @@ mod tests {
         let backend = Poseidon2Backend;
         let data = vec![0x42u8; 4096];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
-        // 4 blocks -> 3 parents -> 3 * 64 = 192 bytes
-        assert_eq!(ob.data.len(), 192);
+        // 4 blocks -> 3 parents -> 3 * PAIR_SIZE bytes
+        assert_eq!(ob.data.len(), 3 * PAIR_SIZE);
     }
 
     #[test]
@@ -223,7 +228,7 @@ mod tests {
         let backend = Poseidon2Backend;
         let data = vec![0x42u8; 1500];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
-        assert_eq!(ob.data.len(), 64);
+        assert_eq!(ob.data.len(), PAIR_SIZE);
 
         let left = backend.chunk_hash(&data[..1024], 0, false);
         let right = backend.chunk_hash(&data[1024..], 1, false);

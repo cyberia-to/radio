@@ -294,7 +294,7 @@ impl LocalInfo {
     /// Number of children in this hash sequence
     pub fn children(&self) -> Option<u64> {
         if self.children.is_some() {
-            self.bitfield.validated_size().map(|x| x / 32)
+            self.bitfield.validated_size().map(|x| x / 64)
         } else {
             Some(0)
         }
@@ -323,7 +323,7 @@ impl LocalInfo {
         }
         if let Some(children) = self.children.as_ref() {
             let mut iter = self.request.ranges.iter_non_empty_infinite();
-            let max_child = self.bitfield.validated_size().map(|x| x / 32);
+            let max_child = self.bitfield.validated_size().map(|x| x / 64);
             loop {
                 let Some((offset, range)) = iter.next() else {
                     break;
@@ -371,7 +371,7 @@ impl LocalInfo {
             .next_back()
             .map(|x| *x + 1)
             .unwrap_or_default();
-        let max_offset = self.bitfield.validated_size().map(|x| x / 32);
+        let max_offset = self.bitfield.validated_size().map(|x| x / 64);
         loop {
             let Some((offset, requested)) = iter.next() else {
                 break;
@@ -998,7 +998,7 @@ impl IntoIterator for HashSeqChunk {
 
 impl HashSeqChunk {
     pub fn base(&self) -> u64 {
-        self.offset / 32
+        self.offset / 64
     }
 
     #[allow(dead_code)]
@@ -1044,7 +1044,7 @@ impl LazyHashSeq {
         // load the chunk covering the offset
         let leaf = self
             .blobs
-            .export_chunk(self.hash, child_offset * 32)
+            .export_chunk(self.hash, child_offset * 64)
             .await?;
         // return the hash if it is in the chunk, otherwise we are behind the end
         let hs = HashSeqChunk::try_from(leaf)?;
@@ -1145,7 +1145,7 @@ mod tests {
     #[tokio::test]
     async fn test_local_info_hash_seq_large() -> TestResult<()> {
         let sizes = (0..1024 + 5).collect::<Vec<_>>();
-        let relevant_sizes = sizes[32 * 16..32 * 32]
+        let relevant_sizes = sizes[16 * 16..16 * 32]
             .iter()
             .map(|x| *x as u64)
             .sum::<u64>();
@@ -1214,7 +1214,7 @@ mod tests {
     async fn test_local_info_hash_seq() -> TestResult<()> {
         let sizes = INTERESTING_SIZES;
         let total_size = sizes.iter().map(|x| *x as u64).sum::<u64>();
-        let hash_seq_size = (sizes.len() as u64) * 32;
+        let hash_seq_size = (sizes.len() as u64) * 64;
         let td = tempfile::tempdir()?;
         let store = FsStore::load(td.path().join("blobs.db")).await?;
         {
@@ -1305,7 +1305,7 @@ mod tests {
     #[tokio::test]
     async fn test_local_info_complex_request() -> TestResult<()> {
         let sizes = INTERESTING_SIZES;
-        let hash_seq_size = (sizes.len() as u64) * 32;
+        let hash_seq_size = (sizes.len() as u64) * 64;
         let td = tempfile::tempdir()?;
         let store = FsStore::load(td.path().join("blobs.db")).await?;
         // only add the hash seq itself, and only the first chunk of the children

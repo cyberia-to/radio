@@ -193,7 +193,7 @@ impl ProtocolHandler for BlobSearch {
         println!("query: {query}, found {} results", hashes.len());
 
         // We want to return a list of hashes. We do the simplest thing possible, and just send
-        // one hash after the other. Because the hashes have a fixed size of 32 bytes, this is
+        // one hash after the other. Because the hashes have a fixed size of 64 bytes, this is
         // very easy to parse on the other end.
         for hash in hashes {
             send.write_all(hash.as_bytes())
@@ -288,11 +288,11 @@ pub async fn query_remote(
     // For real protocols, you'd usually want to return a stream of results instead.
     let mut out = vec![];
 
-    // The response is sent as a list of 32-byte long hashes.
+    // The response is sent as a list of 64-byte long hashes.
     // We simply read one after the other into a byte buffer.
-    let mut hash_bytes = [0u8; 32];
+    let mut hash_bytes = [0u8; 64];
     loop {
-        // Read 32 bytes from the stream.
+        // Read 64 bytes from the stream.
         match recv.read_exact(&mut hash_bytes).await {
             // FinishedEarly means that the remote side did not send further data,
             // so in this case we break our loop.

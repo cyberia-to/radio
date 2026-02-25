@@ -257,9 +257,9 @@ mod tests {
         let backend = Poseidon2Backend;
         let data = vec![0x42u8; 2048];
         let (root, mut encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
-        // Tamper with leaf data (after 8-byte header + 64-byte parent pair)
-        if encoded.len() > 80 {
-            encoded[80] ^= 0xFF;
+        // Tamper with leaf data (after 8-byte header + parent hash pair)
+        if encoded.len() > 144 {
+            encoded[144] ^= 0xFF;
         }
         let result = decode(&backend, &encoded, &root, BlockSize::ZERO);
         assert!(result.is_err());

@@ -98,7 +98,8 @@ pub async fn spawn_nodes(n: usize, rng: &mut (impl CryptoRng + Rng)) -> Result<V
 /// Create a deterministic RNG from a seed string.
 pub fn test_rng(seed: &[u8]) -> rand_chacha::ChaCha12Rng {
     let hash = cyber_poseidon2::hash(seed);
-    rand_chacha::ChaCha12Rng::from_seed(*hash.as_bytes())
+    let seed_bytes: [u8; 32] = hash.as_bytes()[..32].try_into().unwrap();
+    rand_chacha::ChaCha12Rng::from_seed(seed_bytes)
 }
 
 /// Initialize tracing for tests (call once, ignores errors on repeat calls).

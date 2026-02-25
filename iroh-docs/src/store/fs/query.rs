@@ -156,5 +156,5 @@ impl Iterator for QueryIterator {
 
 fn value_is_empty(value: &RecordsValue) -> bool {
     let (_timestamp, _namespace_sig, _author_sig, _len, hash) = value;
-    *hash == Hash::EMPTY.as_bytes()
+    **hash == *Hash::EMPTY.as_bytes()
 }

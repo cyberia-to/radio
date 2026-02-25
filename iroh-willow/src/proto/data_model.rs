@@ -39,7 +39,7 @@ pub const MAX_COMPONENT_COUNT: usize = 1024;
 pub const MAX_PATH_LENGTH: usize = 4096;
 
 /// The byte length of a [`PayloadDigest`].
-pub const DIGEST_LENGTH: usize = 32;
+pub const DIGEST_LENGTH: usize = 64;
 
 /// See [`willow_data_model::Component`].
 pub type Component<'a> = willow_data_model::Component<'a, MAX_COMPONENT_LENGTH>;
@@ -64,7 +64,7 @@ pub struct PayloadDigest(pub Hash);
 
 impl Default for PayloadDigest {
     fn default() -> Self {
-        Self(Hash::from_bytes([0u8; 32]))
+        Self(Hash::from_bytes([0u8; 64]))
     }
 }
 

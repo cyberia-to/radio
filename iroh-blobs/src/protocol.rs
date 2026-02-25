@@ -113,7 +113,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::GetRequest;
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::blob(hash);
 //! ```
 //!
@@ -131,7 +131,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::chunks(..10))
 //!     .build(hash);
@@ -143,7 +143,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt, ChunkRangesSeq};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::chunks(..10) | ChunkRanges::chunks(100..110))
 //!     .build(hash);
@@ -156,7 +156,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt, ChunkRangesSeq};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::bytes(..1000) | ChunkRanges::bytes(10000..11000))
 //!     .build(hash);
@@ -167,7 +167,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt, ChunkRangesSeq};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::offset(1) | ChunkRanges::last_chunk())
 //!     .build(hash);
@@ -207,7 +207,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{ChunkRanges, ChunkRangesExt, GetRequest};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::all())
 //!     .build_open(hash); // repeats the last range forever
@@ -219,7 +219,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{ChunkRanges, ChunkRangesExt, GetRequest};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::all(hash);
 //! ```
 //!
@@ -238,7 +238,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .child(1, ChunkRanges::chunks(1000000..)) // we don't need the first child;
 //!     .next(ChunkRanges::all()) // we need the second child and all subsequent children completely
@@ -256,7 +256,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt, ChunkRangesSeq};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .root(ChunkRanges::all())
 //!     .next(ChunkRanges::chunk(1)) // the first chunk of each child)
@@ -270,7 +270,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesExt};
-//! # let hash: iroh_blobs::Hash = [0; 32].into();
+//! # let hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::builder()
 //!     .child(1, ChunkRanges::all()) // we need the second child completely
 //!     .build(hash);
@@ -281,7 +281,7 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetRequest, ChunkRanges, ChunkRangesSeq};
-//! # let child_hash: iroh_blobs::Hash = [0; 32].into();
+//! # let child_hash: iroh_blobs::Hash = [0; 64].into();
 //! let request = GetRequest::blob(child_hash);
 //! ```
 //!
@@ -341,8 +341,8 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetManyRequest, ChunkRanges, ChunkRangesExt};
-//! # let hash1: iroh_blobs::Hash = [0; 32].into();
-//! # let hash2: iroh_blobs::Hash = [1; 32].into();
+//! # let hash1: iroh_blobs::Hash = [0; 64].into();
+//! # let hash2: iroh_blobs::Hash = [1; 64].into();
 //! GetManyRequest::builder()
 //!     .hash(hash1, ChunkRanges::all())
 //!     .hash(hash2, ChunkRanges::all())
@@ -353,8 +353,8 @@
 //!
 //! ```rust
 //! # use iroh_blobs::protocol::{GetManyRequest, ChunkRanges, ChunkRangesExt};
-//! # let hash1: iroh_blobs::Hash = [0; 32].into();
-//! # let hash2: iroh_blobs::Hash = [1; 32].into();
+//! # let hash1: iroh_blobs::Hash = [0; 64].into();
+//! # let hash2: iroh_blobs::Hash = [1; 64].into();
 //! GetManyRequest::builder()
 //!     .hash(hash1, ChunkRanges::chunk(1))
 //!     .hash(hash2, ChunkRanges::all())
@@ -959,7 +959,7 @@ pub mod builder {
 
         #[test]
         fn get_request_builder() {
-            let hash = [0; 32];
+            let hash = [0; 64];
             let request = GetRequest::builder()
                 .root(ChunkRanges::all())
                 .next(ChunkRanges::all())
@@ -994,7 +994,7 @@ pub mod builder {
                 .root(ChunkRanges::all())
                 .next(ChunkRanges::bytes(0..1024) | ChunkRanges::last_chunk())
                 .build_open(hash);
-            assert_eq!(request.hash.as_bytes(), &[0; 32]);
+            assert_eq!(request.hash.as_bytes(), &[0; 64]);
             assert_eq!(
                 request.ranges,
                 ChunkRangesSeq::from_ranges_infinite([
@@ -1006,9 +1006,9 @@ pub mod builder {
 
         #[test]
         fn get_many_request_builder() {
-            let hash1 = [0; 32];
-            let hash2 = [1; 32];
-            let hash3 = [2; 32];
+            let hash1 = [0; 64];
+            let hash2 = [1; 64];
+            let hash3 = [2; 64];
             let request = GetManyRequest::builder()
                 .hash(hash1, ChunkRanges::all())
                 .hash(hash2, ChunkRanges::empty()) // will be ignored!
@@ -1016,7 +1016,7 @@ pub mod builder {
                 .build();
             assert_eq!(
                 request.hashes,
-                vec![Hash::from([0; 32]), Hash::from([2; 32])]
+                vec![Hash::from([0; 64]), Hash::from([2; 64])]
             );
             assert_eq!(
                 request.ranges,
@@ -1039,13 +1039,13 @@ mod tests {
 
     #[test]
     fn request_wire_format() {
-        let hash: Hash = [0xda; 32].into();
+        let hash: Hash = [0xda; 64].into();
         let cases = [
             (
                 Request::from(GetRequest::blob(hash)),
                 r"
                     00 # enum variant for GetRequest
-                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
+                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
                     020001000100 # the ChunkRangesSeq
             ",
             ),
@@ -1053,7 +1053,7 @@ mod tests {
                 Request::from(GetRequest::all(hash)),
                 r"
                     00 # enum variant for GetRequest
-                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
+                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
                     01000100 # the ChunkRangesSeq
             ",
             ),

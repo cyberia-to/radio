@@ -203,7 +203,7 @@ impl ServerChallenge {
     }
 
     /// The actual message bytes to sign (and verify against) for this challenge.
-    fn message_to_sign(&self) -> [u8; 32] {
+    fn message_to_sign(&self) -> [u8; 64] {
         // We're signing a key instead of the direct challenge.
         // This gives us domain separation protecting from multiple possible attacks,
         // but especially this one:

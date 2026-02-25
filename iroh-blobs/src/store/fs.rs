@@ -2076,7 +2076,7 @@ pub mod tests {
         let testdir = tempfile::tempdir()?;
         let db_dir = testdir.path().join("db");
         let store = FsStore::load(db_dir).await?;
-        let haf = HashAndFormat::raw(Hash::from([0u8; 32]));
+        let haf = HashAndFormat::raw(Hash::from([0u8; 64]));
         store.tags().set(Tag::from("test"), haf).await?;
         store.tags().set(Tag::from("boo"), haf).await?;
         store.tags().set(Tag::from("bar"), haf).await?;

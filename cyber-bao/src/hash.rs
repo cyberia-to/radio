@@ -4,7 +4,7 @@
 //! construction, making the tree machinery hash-agnostic. The `Poseidon2Backend`
 //! provides the concrete implementation using cyber-poseidon2.
 
-use cyber_poseidon2::Hash;
+use cyber_poseidon2::{Hash, OUTPUT_BYTES};
 
 /// Trait for pluggable hash functions in BAO tree operations.
 ///
@@ -60,16 +60,16 @@ impl HashBackend for Poseidon2Backend {
     }
 
     fn hash_size(&self) -> usize {
-        32
+        OUTPUT_BYTES
     }
 
     fn zero_hash(&self) -> Hash {
-        Hash::from_bytes([0u8; 32])
+        Hash::from_bytes([0u8; OUTPUT_BYTES])
     }
 
     fn hash_from_bytes(&self, bytes: &[u8]) -> Hash {
-        let mut arr = [0u8; 32];
-        arr.copy_from_slice(&bytes[..32]);
+        let mut arr = [0u8; OUTPUT_BYTES];
+        arr.copy_from_slice(&bytes[..OUTPUT_BYTES]);
         Hash::from_bytes(arr)
     }
 }
@@ -124,6 +124,6 @@ mod tests {
     #[test]
     fn hash_size() {
         let backend = Poseidon2Backend;
-        assert_eq!(backend.hash_size(), 32);
+        assert_eq!(backend.hash_size(), OUTPUT_BYTES);
     }
 }

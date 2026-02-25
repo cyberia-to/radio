@@ -329,7 +329,7 @@ pub(crate) mod outboard_with_progress {
             for size in [1024 * 18 + 1] {
                 let data = test_data(size);
                 let mut o1 = PreOrderOutboard::<cyber_poseidon2::Hash, Vec<u8>> {
-                    root: cyber_poseidon2::Hash::from([0u8; 32]),
+                    root: cyber_poseidon2::Hash::from([0u8; 64]),
                     tree: BaoTree::new(data.len() as u64, IROH_BLOCK_SIZE),
                     data: Vec::new(),
                 };

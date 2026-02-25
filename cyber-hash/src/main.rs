@@ -153,13 +153,13 @@ fn parse_hash(hex: &str) -> cyber_poseidon2::Hash {
     let bytes = hex_to_bytes(hex).unwrap_or_else(|| {
         fatal(&format!("invalid hex hash: {hex}"));
     });
-    if bytes.len() != 32 {
+    if bytes.len() != 64 {
         fatal(&format!(
-            "hash must be 32 bytes (64 hex chars), got {} bytes",
+            "hash must be 64 bytes (128 hex chars), got {} bytes",
             bytes.len()
         ));
     }
-    let mut arr = [0u8; 32];
+    let mut arr = [0u8; 64];
     arr.copy_from_slice(&bytes);
     cyber_poseidon2::Hash::from_bytes(arr)
 }

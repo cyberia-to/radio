@@ -8,13 +8,18 @@
 
 use std::io;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::io::outboard as outboard_fn;
 use crate::io::traits::{Outboard, OutboardMut, ReadAt, WriteAt};
 use crate::tree::{BaoTree, BlockSize, TreeNode};
 
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
+
 /// Pre-order outboard with generic hash and data storage.
 ///
-/// The `data` field stores parent hash pairs (left || right, 64 bytes each)
+/// The `data` field stores parent hash pairs (left || right)
 /// in pre-order traversal order.
 #[derive(Debug, Clone)]
 pub struct PreOrderOutboard<H = cyber_poseidon2::Hash, D = Vec<u8>> {
@@ -26,14 +31,9 @@ pub struct PreOrderOutboard<H = cyber_poseidon2::Hash, D = Vec<u8>> {
     pub data: D,
 }
 
-impl<H, D> PreOrderOutboard<H, D> {
-    /// Size of a hash pair (two 32-byte hashes).
-    const PAIR_SIZE: u64 = 64;
-}
-
 impl<H, D> Outboard for PreOrderOutboard<H, D>
 where
-    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; 32]>,
+    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; OUTPUT_BYTES]>,
     D: ReadAt,
 {
     type Hash = H;
@@ -50,11 +50,11 @@ where
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(None);
         };
-        let byte_offset = offset * Self::PAIR_SIZE;
-        let mut buf = [0u8; 64];
+        let byte_offset = offset * PAIR_SIZE as u64;
+        let mut buf = [0u8; PAIR_SIZE];
         self.data.read_exact_at(byte_offset, &mut buf)?;
-        let left = H::from(<[u8; 32]>::try_from(&buf[..32]).unwrap());
-        let right = H::from(<[u8; 32]>::try_from(&buf[32..]).unwrap());
+        let left = H::from(<[u8; OUTPUT_BYTES]>::try_from(&buf[..OUTPUT_BYTES]).unwrap());
+        let right = H::from(<[u8; OUTPUT_BYTES]>::try_from(&buf[OUTPUT_BYTES..]).unwrap());
         Ok(Some((left, right)))
     }
 }
@@ -70,10 +70,10 @@ where
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(());
         };
-        let byte_offset = offset * Self::PAIR_SIZE;
-        let mut buf = [0u8; 64];
-        buf[..32].copy_from_slice(hash_pair.0.as_ref());
-        buf[32..].copy_from_slice(hash_pair.1.as_ref());
+        let byte_offset = offset * PAIR_SIZE as u64;
+        let mut buf = [0u8; PAIR_SIZE];
+        buf[..OUTPUT_BYTES].copy_from_slice(hash_pair.0.as_ref());
+        buf[OUTPUT_BYTES..].copy_from_slice(hash_pair.1.as_ref());
         self.data.write_all_at(byte_offset, &buf)?;
         Ok(())
     }
@@ -109,7 +109,7 @@ impl PreOrderMemOutboard<cyber_poseidon2::Hash> {
 
 impl<H> Outboard for PreOrderMemOutboard<H>
 where
-    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; 32]>,
+    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; OUTPUT_BYTES]>,
 {
     type Hash = H;
 
@@ -125,13 +125,13 @@ where
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(None);
         };
-        let byte_offset = (offset * 64) as usize;
-        if byte_offset + 64 > self.data.len() {
+        let byte_offset = (offset as usize) * PAIR_SIZE;
+        if byte_offset + PAIR_SIZE > self.data.len() {
             return Ok(None);
         }
-        let left = H::from(<[u8; 32]>::try_from(&self.data[byte_offset..byte_offset + 32]).unwrap());
+        let left = H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES]).unwrap());
         let right =
-            H::from(<[u8; 32]>::try_from(&self.data[byte_offset + 32..byte_offset + 64]).unwrap());
+            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE]).unwrap());
         Ok(Some((left, right)))
     }
 }
@@ -146,13 +146,13 @@ where
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(());
         };
-        let byte_offset = (offset * 64) as usize;
-        let end = byte_offset + 64;
+        let byte_offset = (offset as usize) * PAIR_SIZE;
+        let end = byte_offset + PAIR_SIZE;
         if end > self.data.len() {
             self.data.resize(end, 0);
         }
-        self.data[byte_offset..byte_offset + 32].copy_from_slice(hash_pair.0.as_ref());
-        self.data[byte_offset + 32..end].copy_from_slice(hash_pair.1.as_ref());
+        self.data[byte_offset..byte_offset + OUTPUT_BYTES].copy_from_slice(hash_pair.0.as_ref());
+        self.data[byte_offset + OUTPUT_BYTES..end].copy_from_slice(hash_pair.1.as_ref());
         Ok(())
     }
 
@@ -165,7 +165,7 @@ where
 
 /// Post-order outboard with generic hash and data storage.
 ///
-/// The `data` field stores parent hash pairs (left || right, 64 bytes each)
+/// The `data` field stores parent hash pairs (left || right)
 /// in post-order traversal order. This format allows append-only construction:
 /// children are written before their parents.
 #[derive(Debug, Clone)]
@@ -178,13 +178,9 @@ pub struct PostOrderOutboard<H = cyber_poseidon2::Hash, D = Vec<u8>> {
     pub data: D,
 }
 
-impl<H, D> PostOrderOutboard<H, D> {
-    const PAIR_SIZE: u64 = 64;
-}
-
 impl<H, D> Outboard for PostOrderOutboard<H, D>
 where
-    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; 32]>,
+    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; OUTPUT_BYTES]>,
     D: ReadAt,
 {
     type Hash = H;
@@ -201,11 +197,11 @@ where
         let Some(offset) = self.tree.post_order_offset(node) else {
             return Ok(None);
         };
-        let byte_offset = offset * Self::PAIR_SIZE;
-        let mut buf = [0u8; 64];
+        let byte_offset = offset * PAIR_SIZE as u64;
+        let mut buf = [0u8; PAIR_SIZE];
         self.data.read_exact_at(byte_offset, &mut buf)?;
-        let left = H::from(<[u8; 32]>::try_from(&buf[..32]).unwrap());
-        let right = H::from(<[u8; 32]>::try_from(&buf[32..]).unwrap());
+        let left = H::from(<[u8; OUTPUT_BYTES]>::try_from(&buf[..OUTPUT_BYTES]).unwrap());
+        let right = H::from(<[u8; OUTPUT_BYTES]>::try_from(&buf[OUTPUT_BYTES..]).unwrap());
         Ok(Some((left, right)))
     }
 }
@@ -221,10 +217,10 @@ where
         let Some(offset) = self.tree.post_order_offset(node) else {
             return Ok(());
         };
-        let byte_offset = offset * Self::PAIR_SIZE;
-        let mut buf = [0u8; 64];
-        buf[..32].copy_from_slice(hash_pair.0.as_ref());
-        buf[32..].copy_from_slice(hash_pair.1.as_ref());
+        let byte_offset = offset * PAIR_SIZE as u64;
+        let mut buf = [0u8; PAIR_SIZE];
+        buf[..OUTPUT_BYTES].copy_from_slice(hash_pair.0.as_ref());
+        buf[OUTPUT_BYTES..].copy_from_slice(hash_pair.1.as_ref());
         self.data.write_all_at(byte_offset, &buf)?;
         Ok(())
     }
@@ -262,16 +258,16 @@ impl PostOrderMemOutboard<cyber_poseidon2::Hash> {
                 .filter(|c| matches!(c, crate::tree::BaoChunk::Parent { .. }))
                 .count();
 
-            let mut post_data = vec![0u8; parent_count * 64];
+            let mut post_data = vec![0u8; parent_count * PAIR_SIZE];
             let mut pre_offset = 0usize;
             for chunk in &pre_order {
                 if let crate::tree::BaoChunk::Parent { node, .. } = chunk {
-                    let pair_bytes = &ob.data[pre_offset..pre_offset + 64];
+                    let pair_bytes = &ob.data[pre_offset..pre_offset + PAIR_SIZE];
                     if let Some(post_idx) = tree.post_order_offset(*node) {
-                        let post_byte = (post_idx * 64) as usize;
-                        post_data[post_byte..post_byte + 64].copy_from_slice(pair_bytes);
+                        let post_byte = (post_idx as usize) * PAIR_SIZE;
+                        post_data[post_byte..post_byte + PAIR_SIZE].copy_from_slice(pair_bytes);
                     }
-                    pre_offset += 64;
+                    pre_offset += PAIR_SIZE;
                 }
             }
             post_data
@@ -287,7 +283,7 @@ impl PostOrderMemOutboard<cyber_poseidon2::Hash> {
 
 impl<H> Outboard for PostOrderMemOutboard<H>
 where
-    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; 32]>,
+    H: AsRef<[u8]> + Clone + Eq + std::fmt::Debug + From<[u8; OUTPUT_BYTES]>,
 {
     type Hash = H;
 
@@ -303,14 +299,14 @@ where
         let Some(offset) = self.tree.post_order_offset(node) else {
             return Ok(None);
         };
-        let byte_offset = (offset * 64) as usize;
-        if byte_offset + 64 > self.data.len() {
+        let byte_offset = (offset as usize) * PAIR_SIZE;
+        if byte_offset + PAIR_SIZE > self.data.len() {
             return Ok(None);
         }
         let left =
-            H::from(<[u8; 32]>::try_from(&self.data[byte_offset..byte_offset + 32]).unwrap());
+            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES]).unwrap());
         let right =
-            H::from(<[u8; 32]>::try_from(&self.data[byte_offset + 32..byte_offset + 64]).unwrap());
+            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE]).unwrap());
         Ok(Some((left, right)))
     }
 }
@@ -325,13 +321,13 @@ where
         let Some(offset) = self.tree.post_order_offset(node) else {
             return Ok(());
         };
-        let byte_offset = (offset * 64) as usize;
-        let end = byte_offset + 64;
+        let byte_offset = (offset as usize) * PAIR_SIZE;
+        let end = byte_offset + PAIR_SIZE;
         if end > self.data.len() {
             self.data.resize(end, 0);
         }
-        self.data[byte_offset..byte_offset + 32].copy_from_slice(hash_pair.0.as_ref());
-        self.data[byte_offset + 32..end].copy_from_slice(hash_pair.1.as_ref());
+        self.data[byte_offset..byte_offset + OUTPUT_BYTES].copy_from_slice(hash_pair.0.as_ref());
+        self.data[byte_offset + OUTPUT_BYTES..end].copy_from_slice(hash_pair.1.as_ref());
         Ok(())
     }
 
@@ -370,14 +366,14 @@ mod tests {
     fn pre_order_mem_outboard_create() {
         let data = vec![0x42u8; 2048];
         let ob = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
-        assert_eq!(ob.data.len(), 64);
+        assert_eq!(ob.data.len(), PAIR_SIZE);
     }
 
     #[test]
     fn post_order_mem_outboard_create() {
         let data = vec![0x42u8; 2048];
         let ob = PostOrderMemOutboard::create(&data, BlockSize::ZERO);
-        assert_eq!(ob.data.len(), 64);
+        assert_eq!(ob.data.len(), PAIR_SIZE);
     }
 
     #[test]
@@ -410,7 +406,7 @@ mod tests {
         let mut encoded = Vec::new();
         encode_ranges_validated(&data[..], &post_ob, &ChunkRanges::all(), &mut encoded)
             .expect("post-order outboard should be usable for encoding");
-        assert_eq!(encoded.len(), 192 + 4096);
+        assert_eq!(encoded.len(), 3 * PAIR_SIZE + 4096);
     }
 
     #[test]
@@ -420,7 +416,7 @@ mod tests {
         // 8KB data → 4 blocks of 2KB → 3 parents
         let data = vec![0x42u8; 8192];
         let ob = PreOrderMemOutboard::create(&data, bs);
-        assert_eq!(ob.data.len(), 3 * 64);
+        assert_eq!(ob.data.len(), 3 * PAIR_SIZE);
 
         // Verify all parent nodes can be loaded
         let tree = ob.tree;

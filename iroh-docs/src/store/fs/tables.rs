@@ -31,13 +31,13 @@ pub const NAMESPACES_TABLE: TableDefinition<&[u8; 32], (u8, &[u8; 32])> =
 /// Table: Records
 /// Key:   `([u8; 32], [u8; 32], &[u8])`
 ///      # (NamespaceId, AuthorId, Key)
-/// Value: `(u64, [u8; 32], [u8; 32], u64, [u8; 32])`
+/// Value: `(u64, [u8; 64], [u8; 64], u64, [u8; 64])`
 ///      # (timestamp, signature_namespace, signature_author, len, hash)
 pub const RECORDS_TABLE: TableDefinition<RecordsId, RecordsValue> =
     TableDefinition::new("records-1");
 pub type RecordsId<'a> = (&'a [u8; 32], &'a [u8; 32], &'a [u8]);
 pub type RecordsIdOwned = ([u8; 32], [u8; 32], Bytes);
-pub type RecordsValue<'a> = (u64, &'a [u8; 64], &'a [u8; 64], u64, &'a [u8; 32]);
+pub type RecordsValue<'a> = (u64, &'a [u8; 64], &'a [u8; 64], u64, &'a [u8; 64]);
 pub type RecordsTable = ReadOnlyTable<RecordsId<'static>, RecordsValue<'static>>;
 
 /// Table: Latest per author

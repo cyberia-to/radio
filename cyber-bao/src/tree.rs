@@ -7,6 +7,11 @@
 use std::fmt;
 use std::ops::Range;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
+
 /// A node position in the in-order binary tree.
 ///
 /// Leaves are at even indices (0, 2, 4, ...).
@@ -309,13 +314,13 @@ impl BaoTree {
     }
 
     /// Size of the outboard (hash pairs only, no size prefix).
-    /// Each internal node is a 64-byte hash pair (two 32-byte hashes).
+    /// Each internal node is a hash pair (two OUTPUT_BYTES hashes).
     pub fn outboard_size(&self) -> u64 {
         let blocks = self.blocks();
         if blocks <= 1 {
             return 0;
         }
-        (blocks - 1) * 64
+        (blocks - 1) * PAIR_SIZE as u64
     }
 
     /// Block size in bytes (chunk group size).
@@ -448,7 +453,7 @@ impl Iterator for PostOrderChunkIter {
 /// Items yielded during tree traversal.
 #[derive(Debug, Clone)]
 pub enum BaoChunk {
-    /// A parent node — contains two child hashes (64 bytes).
+    /// A parent node — contains two child hashes (PAIR_SIZE bytes).
     Parent {
         node: TreeNode,
         is_root: bool,
@@ -806,7 +811,7 @@ mod tests {
         let tree = BaoTree::new(2048, BlockSize::ZERO);
         assert_eq!(tree.chunks(), ChunkNum(2));
         assert_eq!(tree.blocks(), 2);
-        assert_eq!(tree.outboard_size(), 64); // one parent pair
+        assert_eq!(tree.outboard_size(), PAIR_SIZE as u64); // one parent pair
     }
 
     #[test]

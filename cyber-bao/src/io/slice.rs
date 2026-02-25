@@ -7,10 +7,15 @@
 
 use std::ops::Range;
 
+use cyber_poseidon2::OUTPUT_BYTES;
+
 use crate::hash::HashBackend;
 use crate::io::outboard;
 use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum};
 use crate::{ChunkRanges, ChunkRangesRef};
+
+/// Size of a hash pair (two hashes concatenated).
+const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Extract a slice (proof + data) for the given byte range.
 ///
@@ -277,7 +282,7 @@ mod tests {
         let data = vec![0x42u8; 2048];
         let (root, slice) = extract_slice(&backend, &data, 0..2048, BlockSize::ZERO);
 
-        assert_eq!(slice.len(), 8 + 64 + 2048);
+        assert_eq!(slice.len(), 8 + PAIR_SIZE + 2048);
 
         let left = backend.chunk_hash(&data[..1024], 0, false);
         let right = backend.chunk_hash(&data[1024..], 1, false);

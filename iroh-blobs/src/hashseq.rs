@@ -26,7 +26,7 @@ impl FromIterator<Hash> for HashSeq {
     fn from_iter<T: IntoIterator<Item = Hash>>(iter: T) -> Self {
         let iter = iter.into_iter();
         let (lower, _upper) = iter.size_hint();
-        let mut bytes = Vec::with_capacity(lower * 32);
+        let mut bytes = Vec::with_capacity(lower * 64);
         for hash in iter {
             bytes.extend_from_slice(hash.as_ref());
         }
@@ -54,7 +54,7 @@ impl IntoIterator for HashSeq {
 impl HashSeq {
     /// Create a new sequence of hashes.
     pub fn new(bytes: Bytes) -> Option<Self> {
-        if bytes.len().is_multiple_of(32) {
+        if bytes.len().is_multiple_of(64) {
             Some(Self(bytes))
         } else {
             None
@@ -63,15 +63,15 @@ impl HashSeq {
 
     /// Iterate over the hashes in this sequence.
     pub fn iter(&self) -> impl Iterator<Item = Hash> + '_ {
-        self.0.chunks_exact(32).map(|chunk| {
-            let hash: [u8; 32] = chunk.try_into().unwrap();
+        self.0.chunks_exact(64).map(|chunk| {
+            let hash: [u8; 64] = chunk.try_into().unwrap();
             hash.into()
         })
     }
 
     /// Get the number of hashes in this sequence.
     pub fn len(&self) -> usize {
-        self.0.len() / 32
+        self.0.len() / 64
     }
 
     /// Check if this sequence is empty.
@@ -82,7 +82,7 @@ impl HashSeq {
     /// Get the hash at the given index.
     pub fn get(&self, index: usize) -> Option<Hash> {
         if index < self.len() {
-            let hash: [u8; 32] = self.0[index * 32..(index + 1) * 32].try_into().unwrap();
+            let hash: [u8; 64] = self.0[index * 64..(index + 1) * 64].try_into().unwrap();
             Some(hash.into())
         } else {
             None
@@ -95,7 +95,7 @@ impl HashSeq {
             None
         } else {
             let hash = self.get(0).unwrap();
-            self.0 = self.0.slice(32..);
+            self.0 = self.0.slice(64..);
             Some(hash)
         }
     }

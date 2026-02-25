@@ -439,7 +439,8 @@ mod tests {
 
     fn create_rng(seed: &str) -> ChaCha12Rng {
         let seed = iroh_blobs::Hash::new(seed);
-        rand_chacha::ChaCha12Rng::from_seed(*(seed.as_bytes()))
+        let seed_bytes: [u8; 32] = seed.as_bytes()[..32].try_into().unwrap();
+        rand_chacha::ChaCha12Rng::from_seed(seed_bytes)
     }
 
     pub async fn run(

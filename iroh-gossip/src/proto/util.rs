@@ -11,22 +11,25 @@ use rand::{
     Rng,
 };
 
-/// Implement methods, display, debug and conversion traits for 32 byte identifiers.
+/// Implement methods, display, debug and conversion traits for fixed-size byte identifiers.
 macro_rules! idbytes_impls {
     ($ty:ty, $name:expr) => {
+        idbytes_impls!($ty, $name, 32);
+    };
+    ($ty:ty, $name:expr, $size:expr) => {
         impl $ty {
             /// Create from a byte array.
-            pub const fn from_bytes(bytes: [u8; 32]) -> Self {
+            pub const fn from_bytes(bytes: [u8; $size]) -> Self {
                 Self(bytes)
             }
 
             /// Get as byte slice.
-            pub fn as_bytes(&self) -> &[u8; 32] {
+            pub fn as_bytes(&self) -> &[u8; $size] {
                 &self.0
             }
         }
 
-        impl<T: ::std::convert::Into<[u8; 32]>> ::std::convert::From<T> for $ty {
+        impl<T: ::std::convert::Into<[u8; $size]>> ::std::convert::From<T> for $ty {
             fn from(value: T) -> Self {
                 Self::from_bytes(value.into())
             }
@@ -47,7 +50,7 @@ macro_rules! idbytes_impls {
         impl ::std::str::FromStr for $ty {
             type Err = ::hex::FromHexError;
             fn from_str(s: &str) -> ::std::result::Result<Self, Self::Err> {
-                let mut bytes = [0u8; 32];
+                let mut bytes = [0u8; $size];
                 ::hex::decode_to_slice(s, &mut bytes)?;
                 Ok(Self::from_bytes(bytes))
             }
@@ -59,8 +62,8 @@ macro_rules! idbytes_impls {
             }
         }
 
-        impl ::std::convert::AsRef<[u8; 32]> for $ty {
-            fn as_ref(&self) -> &[u8; 32] {
+        impl ::std::convert::AsRef<[u8; $size]> for $ty {
+            fn as_ref(&self) -> &[u8; $size] {
                 &self.0
             }
         }
