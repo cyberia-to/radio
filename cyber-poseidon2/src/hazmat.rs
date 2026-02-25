@@ -4,10 +4,11 @@
 //! leaf data into a chaining value, and `parent_cv` for combining two
 //! child chaining values into a parent node.
 
+use p3_field::PrimeField64;
 use p3_goldilocks::Goldilocks;
 
-use crate::encoding::{OUTPUT_ELEMENTS, RATE, bytes_to_cv, hash_to_bytes};
-use crate::params::{self, WIDTH};
+use crate::encoding::{bytes_to_cv, hash_to_bytes};
+use crate::params::{self, OUTPUT_ELEMENTS, RATE, WIDTH};
 use crate::sponge::Hash;
 
 /// Flags encoded in the capacity for BAO operations.
@@ -52,8 +53,9 @@ pub fn chunk_cv(chunk: &[u8], counter: u64, is_root: bool) -> Hash {
 
 /// Combine two child chaining values into a parent chaining value.
 ///
-/// This is optimally efficient: `left` (4 elements) + `right` (4 elements) = 8 elements,
-/// which exactly fills one rate block. A single permutation produces the result.
+/// With Hemera parameters (output=8 elements, rate=8), each child hash is 8 elements.
+/// We absorb left (8 elements) then right (8 elements) via two sponge absorptions,
+/// with flags set in the capacity before the first permutation.
 ///
 /// The `is_root` flag domain-separates the tree root from interior nodes.
 pub fn parent_cv(left: &Hash, right: &Hash, is_root: bool) -> Hash {
@@ -62,17 +64,31 @@ pub fn parent_cv(left: &Hash, right: &Hash, is_root: bool) -> Hash {
 
     let mut state = [Goldilocks::new(0); WIDTH];
 
-    // Fill rate with left || right (8 elements total).
-    state[..OUTPUT_ELEMENTS].copy_from_slice(&left_elems);
-    state[OUTPUT_ELEMENTS..RATE].copy_from_slice(&right_elems);
-
-    // Set flags in capacity.
+    // Set flags in capacity before absorbing.
     let mut flags = FLAG_PARENT;
     if is_root {
         flags |= FLAG_ROOT;
     }
     state[CAPACITY_FLAGS_IDX] = Goldilocks::new(flags);
 
+    // Absorb left child (8 elements = full rate block).
+    for i in 0..RATE {
+        state[i] = Goldilocks::new(
+            state[i]
+                .as_canonical_u64()
+                .wrapping_add(left_elems[i].as_canonical_u64()),
+        );
+    }
+    params::permute(&mut state);
+
+    // Absorb right child (8 elements = full rate block).
+    for i in 0..RATE {
+        state[i] = Goldilocks::new(
+            state[i]
+                .as_canonical_u64()
+                .wrapping_add(right_elems[i].as_canonical_u64()),
+        );
+    }
     params::permute(&mut state);
 
     let output: [Goldilocks; OUTPUT_ELEMENTS] = state[..OUTPUT_ELEMENTS].try_into().unwrap();
@@ -82,11 +98,12 @@ pub fn parent_cv(left: &Hash, right: &Hash, is_root: bool) -> Hash {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::params::OUTPUT_BYTES;
 
     #[test]
     fn parent_cv_non_commutative() {
-        let left = Hash::from_bytes([1u8; 32]);
-        let right = Hash::from_bytes([2u8; 32]);
+        let left = Hash::from_bytes([1u8; OUTPUT_BYTES]);
+        let right = Hash::from_bytes([2u8; OUTPUT_BYTES]);
         let lr = parent_cv(&left, &right, false);
         let rl = parent_cv(&right, &left, false);
         assert_ne!(lr, rl);
@@ -94,8 +111,8 @@ mod tests {
 
     #[test]
     fn parent_cv_root_differs() {
-        let left = Hash::from_bytes([1u8; 32]);
-        let right = Hash::from_bytes([2u8; 32]);
+        let left = Hash::from_bytes([1u8; OUTPUT_BYTES]);
+        let right = Hash::from_bytes([2u8; OUTPUT_BYTES]);
         let non_root = parent_cv(&left, &right, false);
         let root = parent_cv(&left, &right, true);
         assert_ne!(non_root, root);
@@ -119,8 +136,8 @@ mod tests {
 
     #[test]
     fn parent_cv_deterministic() {
-        let left = Hash::from_bytes([0xAA; 32]);
-        let right = Hash::from_bytes([0xBB; 32]);
+        let left = Hash::from_bytes([0xAA; OUTPUT_BYTES]);
+        let right = Hash::from_bytes([0xBB; OUTPUT_BYTES]);
         let h1 = parent_cv(&left, &right, false);
         let h2 = parent_cv(&left, &right, false);
         assert_eq!(h1, h2);
@@ -136,7 +153,7 @@ mod tests {
     #[test]
     fn chunk_cv_empty() {
         let h = chunk_cv(b"", 0, false);
-        assert_ne!(h.as_bytes(), &[0u8; 32]);
+        assert_ne!(h.as_bytes(), &[0u8; OUTPUT_BYTES]);
     }
 
     #[test]

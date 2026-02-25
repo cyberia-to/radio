@@ -77,7 +77,7 @@ Frozen at deployment. These never change — changing them changes every content
 | Rate | 8 elements (64 bytes absorbed per permutation) |
 | Capacity | 8 elements (64 bytes) |
 | Full rounds | 8 (4 initial + 4 final) |
-| Partial rounds | 32 |
+| Partial rounds | 64 |
 | S-box | x^7 |
 | Padding | 0x01 &#124;&#124; 0x00* |
 | Encoding | Little-endian canonical |

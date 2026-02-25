@@ -1,7 +1,10 @@
 // Poseidon2 permutation over Goldilocks field (p = 2^64 - 2^32 + 1)
-// State width: 12, Full rounds: 8, Partial rounds: 22, S-box: x^7
+// State width: 16, Full rounds: 8, Partial rounds: 64, S-box: x^7
 //
-// Each invocation processes one full permutation of 12 Goldilocks elements.
+// IMPORTANT: Constants below must match cyber-poseidon2/src/params.rs (Hemera spec).
+// Any change here requires matching the Rust source of truth.
+//
+// Each invocation processes one full permutation of 16 Goldilocks elements.
 // Elements are stored as pairs of u32 (lo, hi) representing a u64 in [0, p).
 
 // Goldilocks prime: p = 0xFFFFFFFF00000001
@@ -9,20 +12,20 @@ const P_LO: u32 = 0x00000001u;
 const P_HI: u32 = 0xFFFFFFFFu;
 
 // State width
-const WIDTH: u32 = 12u;
+const WIDTH: u32 = 16u;
 
 // Round counts
 const ROUNDS_F: u32 = 8u;   // 4 initial + 4 final
-const ROUNDS_P: u32 = 22u;
+const ROUNDS_P: u32 = 64u;
 
-// Total elements per permutation state (12 elements * 2 u32 each)
-const STATE_U32S: u32 = 24u;
+// Total elements per permutation state (16 elements * 2 u32 each)
+const STATE_U32S: u32 = 32u;
 
 // Input/output: array of u32 pairs, each pair is one Goldilocks element (lo, hi)
 @group(0) @binding(0)
 var<storage, read_write> states: array<u32>;
 
-// Round constants: external_initial (4*12*2) + external_terminal (4*12*2) + internal (22*2)
+// Round constants: external_initial (4*16*2) + external_terminal (4*16*2) + internal (32*2)
 @group(0) @binding(1)
 var<storage, read> round_constants: array<u32>;
 
@@ -242,7 +245,7 @@ fn poseidon2_permute(@builtin(global_invocation_id) global_id: vec3<u32>) {
     let base = perm_idx * STATE_U32S;
 
     // Load state into local variables
-    var s: array<vec2<u32>, 12>;
+    var s: array<vec2<u32>, 16>;
     for (var i = 0u; i < WIDTH; i++) {
         s[i] = load_elem(base, i);
     }
@@ -259,11 +262,11 @@ fn poseidon2_permute(@builtin(global_invocation_id) global_id: vec3<u32>) {
         for (var i = 0u; i < WIDTH; i++) {
             s[i] = gl_pow7(s[i].x, s[i].y);
         }
-        // External (MDS) linear layer - using M4 circulant for Goldilocks width=12
+        // External (MDS) linear layer - using M4 circulant for Goldilocks width=16
         // Simplified: for scaffolding, use a basic diffusion.
         // TODO: implement exact MDSMat4 from Plonky3 Goldilocks
         // For now, placeholder linear layer that mixes state.
-        var t: array<vec2<u32>, 12>;
+        var t: array<vec2<u32>, 16>;
         for (var i = 0u; i < WIDTH; i++) {
             t[i] = s[i];
             let next = (i + 1u) % WIDTH;
@@ -301,7 +304,7 @@ fn poseidon2_permute(@builtin(global_invocation_id) global_id: vec3<u32>) {
         for (var i = 0u; i < WIDTH; i++) {
             s[i] = gl_pow7(s[i].x, s[i].y);
         }
-        var t: array<vec2<u32>, 12>;
+        var t: array<vec2<u32>, 16>;
         for (var i = 0u; i < WIDTH; i++) {
             t[i] = s[i];
             let next = (i + 1u) % WIDTH;

@@ -1,30 +1,9 @@
 use p3_field::PrimeField64;
 use p3_goldilocks::Goldilocks;
 
-/// Bytes per field element when encoding arbitrary input data.
-///
-/// We use 7 bytes per element because 2^56 - 1 < p (Goldilocks prime),
-/// so any 7-byte value fits without reduction. This avoids needing
-/// modular reduction on the input path.
-pub const INPUT_BYTES_PER_ELEMENT: usize = 7;
-
-/// Bytes per field element when encoding hash output.
-///
-/// For output we use the full canonical u64 representation (8 bytes),
-/// since output elements are already valid field elements.
-pub const OUTPUT_BYTES_PER_ELEMENT: usize = 8;
-
-/// Number of rate elements in the sponge.
-pub const RATE: usize = 8;
-
-/// Number of input bytes that fill one rate block (8 elements * 7 bytes).
-pub const RATE_BYTES: usize = RATE * INPUT_BYTES_PER_ELEMENT; // 56
-
-/// Number of output elements extracted per squeeze.
-pub const OUTPUT_ELEMENTS: usize = 4;
-
-/// Number of output bytes per squeeze (4 elements * 8 bytes).
-pub const OUTPUT_BYTES: usize = OUTPUT_ELEMENTS * OUTPUT_BYTES_PER_ELEMENT; // 32
+use crate::params::{
+    INPUT_BYTES_PER_ELEMENT, OUTPUT_BYTES, OUTPUT_BYTES_PER_ELEMENT, OUTPUT_ELEMENTS, RATE,
+};
 
 /// Encode arbitrary bytes into Goldilocks field elements.
 ///
@@ -62,7 +41,7 @@ pub(crate) fn bytes_to_rate_block(bytes: &[u8], out: &mut [Goldilocks; RATE]) ->
     consumed
 }
 
-/// Convert 4 output field elements to a 32-byte hash.
+/// Convert output field elements to a hash byte array.
 ///
 /// Uses the full canonical u64 representation (8 bytes LE) per element.
 pub(crate) fn hash_to_bytes(elements: &[Goldilocks; OUTPUT_ELEMENTS]) -> [u8; OUTPUT_BYTES] {
@@ -75,7 +54,7 @@ pub(crate) fn hash_to_bytes(elements: &[Goldilocks; OUTPUT_ELEMENTS]) -> [u8; OU
     out
 }
 
-/// Convert a 32-byte hash back into 4 Goldilocks elements.
+/// Convert a hash byte array back into Goldilocks elements.
 ///
 /// Inverse of `hash_to_bytes`. Used by `parent_cv` in the hazmat module.
 pub(crate) fn bytes_to_cv(bytes: &[u8; OUTPUT_BYTES]) -> [Goldilocks; OUTPUT_ELEMENTS] {
@@ -95,6 +74,7 @@ pub(crate) fn bytes_to_cv(bytes: &[u8; OUTPUT_BYTES]) -> [Goldilocks; OUTPUT_ELE
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::params::RATE_BYTES;
 
     #[test]
     fn roundtrip_hash_bytes() {
@@ -103,6 +83,10 @@ mod tests {
             Goldilocks::new(2),
             Goldilocks::new(3),
             Goldilocks::new(4),
+            Goldilocks::new(5),
+            Goldilocks::new(6),
+            Goldilocks::new(7),
+            Goldilocks::new(8),
         ];
         let bytes = hash_to_bytes(&elements);
         let recovered = bytes_to_cv(&bytes);

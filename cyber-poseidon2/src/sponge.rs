@@ -4,11 +4,8 @@ use std::io;
 use p3_field::PrimeField64;
 use p3_goldilocks::Goldilocks;
 
-use crate::encoding::{
-    OUTPUT_BYTES, OUTPUT_BYTES_PER_ELEMENT, OUTPUT_ELEMENTS, RATE, RATE_BYTES,
-    bytes_to_rate_block, hash_to_bytes,
-};
-use crate::params::{self, WIDTH};
+use crate::encoding::{bytes_to_rate_block, hash_to_bytes};
+use crate::params::{self, OUTPUT_BYTES, OUTPUT_BYTES_PER_ELEMENT, OUTPUT_ELEMENTS, RATE, RATE_BYTES, WIDTH};
 
 /// Domain separation tags placed in `state[capacity_start + 3]` (i.e. `state[11]`).
 const DOMAIN_HASH: u64 = 0x00;
@@ -19,9 +16,8 @@ const DOMAIN_DERIVE_KEY_MATERIAL: u64 = 0x03;
 /// Index where the capacity region starts (after the rate region).
 const CAPACITY_START: usize = RATE; // 8
 
-/// A 32-byte Poseidon2 hash output.
+/// A 64-byte Poseidon2 hash output (Hemera: 8 Goldilocks elements).
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Hash([u8; OUTPUT_BYTES]);
 
 impl Hash {
@@ -49,6 +45,46 @@ impl Hash {
 impl From<[u8; OUTPUT_BYTES]> for Hash {
     fn from(bytes: [u8; OUTPUT_BYTES]) -> Self {
         Self(bytes)
+    }
+}
+
+#[cfg(feature = "serde")]
+impl serde::Serialize for Hash {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        use serde::ser::SerializeTuple;
+        let mut seq = serializer.serialize_tuple(OUTPUT_BYTES)?;
+        for byte in &self.0 {
+            seq.serialize_element(byte)?;
+        }
+        seq.end()
+    }
+}
+
+#[cfg(feature = "serde")]
+impl<'de> serde::Deserialize<'de> for Hash {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        struct HashVisitor;
+        impl<'de> serde::de::Visitor<'de> for HashVisitor {
+            type Value = Hash;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                write!(formatter, "a byte array of length {OUTPUT_BYTES}")
+            }
+
+            fn visit_seq<A: serde::de::SeqAccess<'de>>(
+                self,
+                mut seq: A,
+            ) -> Result<Hash, A::Error> {
+                let mut bytes = [0u8; OUTPUT_BYTES];
+                for (i, byte) in bytes.iter_mut().enumerate() {
+                    *byte = seq
+                        .next_element()?
+                        .ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                }
+                Ok(Hash(bytes))
+            }
+        }
+        deserializer.deserialize_tuple(OUTPUT_BYTES, HashVisitor)
     }
 }
 
@@ -102,14 +138,12 @@ impl Hasher {
 
     /// Create a new hasher in keyed hash mode.
     ///
-    /// The 32-byte key is absorbed as the first block (before any user data).
+    /// The key is absorbed as the first block (before any user data).
     pub fn new_keyed(key: &[u8; OUTPUT_BYTES]) -> Self {
         let mut state = [Goldilocks::new(0); WIDTH];
         state[CAPACITY_START + 3] = Goldilocks::new(DOMAIN_KEYED);
 
-        // Absorb the key into the rate portion.
-        // 32 bytes = 4 full elements + 4 bytes remainder (encoded as 5 elements via 7-byte packing,
-        // but it's simpler and correct to absorb via the normal buffer path).
+        // Absorb the key into the rate portion via the normal buffer path.
         let mut hasher = Self {
             state,
             buf: Vec::new(),
@@ -182,8 +216,8 @@ impl Hasher {
 
     /// Apply padding and produce the finalized state.
     ///
-    /// Padding scheme:
-    /// 1. Append 0x80 byte to remaining buffer
+    /// Padding scheme (Hemera: 0x01 || 0x00*):
+    /// 1. Append 0x01 byte to remaining buffer
     /// 2. Pad to RATE_BYTES with zeros
     /// 3. Encode as field elements and absorb
     /// 4. Store total byte count in capacity[2]
@@ -191,8 +225,8 @@ impl Hasher {
         let mut state = self.state;
         let mut padded = self.buf.clone();
 
-        // Append padding marker.
-        padded.push(0x80);
+        // Append padding marker (Hemera: 0x01).
+        padded.push(0x01);
 
         // Pad to full rate block.
         padded.resize(RATE_BYTES, 0x00);
@@ -213,7 +247,7 @@ impl Hasher {
         state
     }
 
-    /// Finalize and return the 32-byte hash.
+    /// Finalize and return the hash.
     pub fn finalize(&self) -> Hash {
         let state = self.finalize_state();
         let output: [Goldilocks; OUTPUT_ELEMENTS] = state[..OUTPUT_ELEMENTS]
@@ -250,7 +284,7 @@ impl fmt::Debug for Hasher {
 
 /// An extendable-output reader that can produce arbitrary-length output.
 ///
-/// Operates by repeatedly squeezing 32 bytes from the sponge state,
+/// Operates by repeatedly squeezing OUTPUT_BYTES from the sponge state,
 /// then permuting to produce more output.
 pub struct OutputReader {
     state: [Goldilocks; WIDTH],
@@ -306,16 +340,16 @@ mod tests {
 
     #[test]
     fn hash_display_is_hex() {
-        let h = Hash([0xAB; 32]);
+        let h = Hash([0xAB; OUTPUT_BYTES]);
         let s = format!("{h}");
-        assert_eq!(s.len(), 64);
+        assert_eq!(s.len(), OUTPUT_BYTES * 2);
         assert!(s.chars().all(|c| c.is_ascii_hexdigit()));
     }
 
     #[test]
     fn empty_hash_is_not_zero() {
         let h = Hasher::new().finalize();
-        assert_ne!(h.0, [0u8; 32]);
+        assert_ne!(h.0, [0u8; OUTPUT_BYTES]);
     }
 
     #[test]
@@ -366,7 +400,7 @@ mod tests {
     fn domain_separation_hash_vs_keyed() {
         let data = b"test data";
         let plain = Hasher::new().update(data).finalize();
-        let keyed = Hasher::new_keyed(&[0u8; 32]).update(data).finalize();
+        let keyed = Hasher::new_keyed(&[0u8; OUTPUT_BYTES]).update(data).finalize();
         assert_ne!(plain, keyed);
     }
 
@@ -387,7 +421,7 @@ mod tests {
         let data = b"xof test";
         let hash = Hasher::new().update(data).finalize();
         let mut xof = Hasher::new().update(data).finalize_xof();
-        let mut xof_bytes = [0u8; 32];
+        let mut xof_bytes = [0u8; OUTPUT_BYTES];
         xof.fill(&mut xof_bytes);
         assert_eq!(hash.as_bytes(), &xof_bytes);
     }
@@ -400,7 +434,7 @@ mod tests {
         // Not all zeros.
         assert_ne!(out, [0u8; 128]);
         // Different 32-byte blocks (with overwhelming probability).
-        assert_ne!(out[..32], out[32..64]);
+        assert_ne!(out[..OUTPUT_BYTES], out[OUTPUT_BYTES..OUTPUT_BYTES * 2]);
     }
 
     #[test]
@@ -415,8 +449,8 @@ mod tests {
     #[test]
     fn keyed_hash_different_keys() {
         let data = b"same data";
-        let h1 = Hasher::new_keyed(&[0u8; 32]).update(data).finalize();
-        let h2 = Hasher::new_keyed(&[1u8; 32]).update(data).finalize();
+        let h1 = Hasher::new_keyed(&[0u8; OUTPUT_BYTES]).update(data).finalize();
+        let h2 = Hasher::new_keyed(&[1u8; OUTPUT_BYTES]).update(data).finalize();
         assert_ne!(h1, h2);
     }
 }
