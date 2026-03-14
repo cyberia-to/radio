@@ -40,7 +40,7 @@ Radio preserves iroh's networking layer — QUIC connections, hole-punching, rel
 │            (Poseidon2 Merkle tree encode/decode)              │
 ├──────────────────────────────────────────────────────────────┤
 │                     Content Identity                          │
-│                    cyber-poseidon2                             │
+│                    hemera                             │
 │       (sponge, compression, KDF — Goldilocks field)           │
 ├──────────────────────────────────────────────────────────────┤
 │                       Networking                              │
@@ -53,9 +53,9 @@ Radio preserves iroh's networking layer — QUIC connections, hole-punching, rel
 
 | Crate | Description |
 |-------|-------------|
-| `cyber-poseidon2` | Poseidon2 hash over Goldilocks (Hemera: t=16, rate=8, capacity=8, x^7). CPU backend via p3-poseidon2, GPU scaffolding via wgpu. |
+| `hemera` | Poseidon2 hash over Goldilocks (Hemera: t=16, rate=8, capacity=8, x^7). CPU backend via p3-poseidon2, GPU scaffolding via wgpu. |
 | `cyber-bao` | Verified streaming with Poseidon2. Encoding, decoding, outboard, slice extraction — the BAO protocol rebuilt on algebraic hashing. |
-| `cyber-hash` | CLI tool for Poseidon2 hashing from the command line. |
+| `particle` | CLI tool for Poseidon2 hashing from the command line. |
 | `iroh` | Hole-punching and QUIC connections between endpoints. Dial by public key. |
 | `iroh-relay` | Relay server with Poseidon2-based handshake. |
 | `iroh-base` | Common types — `Hash` (Poseidon2 digest), keys, `RelayUrl`. |
@@ -90,7 +90,7 @@ Complete. Zero BLAKE3 dependencies remain in any Cargo.toml or Cargo.lock. 395 t
 
 | Phase | Status |
 |-------|--------|
-| cyber-poseidon2 (CPU + GPU scaffolding) | Done |
+| hemera (CPU + GPU scaffolding) | Done |
 | cyber-bao (verified streaming) | Done |
 | iroh-blobs (content addressing) | Done |
 | iroh-relay (handshake) | Done |
@@ -108,7 +108,7 @@ cargo build
 cargo test
 
 # Hash something
-cargo run --bin cyber-hash -- "hello"
+cargo run --bin particle -- "hello"
 ```
 
 ## License

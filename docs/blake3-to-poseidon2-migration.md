@@ -360,7 +360,7 @@ dual-hash complexity. Single hash function across the entire stack.
 **Architecture:**
 
 ```rust
-// cyber-poseidon2 crate provides unified API with backend selection
+// hemera crate provides unified API with backend selection
 
 pub enum Backend {
     Cpu,           // p3-poseidon2, always available
@@ -389,8 +389,8 @@ large blob hashing.
 
 | Phase | Description | Status | Commit |
 |-------|-------------|--------|--------|
-| 0a | cyber-poseidon2 CPU backend | DONE | `1517ebff54` |
-| 0b | cyber-poseidon2 GPU scaffolding | DONE | `5aefbfedb3` |
+| 0a | hemera CPU backend | DONE | `1517ebff54` |
+| 0b | hemera GPU scaffolding | DONE | `5aefbfedb3` |
 | 1 | cyber-bao verified streaming | **DONE** | `2c91d5b9e2`, `b1f6de6ba2`, `c62b83fa9a` |
 | 2 | iroh-blobs integration | **DONE** | (pending commit) |
 | 3 | Relay handshake migration | DONE | `07e31dd236` |
@@ -404,8 +404,8 @@ Phase 2 is COMPLETE. All 6 sub-phases (2a–2f) are done.
 
 - **0 blake3 references** remain in iroh-blobs .rs files
 - **0 bao-tree** crate references remain
-- **~80+ cyber_bao** and **~50+ cyber_poseidon2** references across 30+ source files
-- `Hash` type wraps `cyber_poseidon2::Hash` (32-byte Poseidon2 digest)
+- **~80+ cyber_bao** and **~50+ hemera** references across 30+ source files
+- `Hash` type wraps `hemera::Hash` (32-byte Poseidon2 digest)
 - BAO tree operations use cyber-bao throughout (outboard, encoding, decoding, streaming)
 - **97 tests pass, 0 failures** (2 pre-existing ignored tests)
 - **67 cyber-bao tests pass** independently
@@ -432,8 +432,8 @@ Key changes made during Phase 2 (and Phase 1 bug-fix pass):
 
 | Repo | Status | Changes | Tests |
 |------|--------|---------|-------|
-| **iroh-docs** (v0.96) | **DONE** | `blake3::Hasher` → `cyber_poseidon2::Hasher` in fingerprint computation (ranger.rs, sync.rs) | 69 passed, 0 failed |
-| **iroh-gossip** (v0.96) | **DONE** | `blake3::hash()` → `cyber_poseidon2::hash()` for MessageId + test TopicIds | 19 passed, 0 failed |
+| **iroh-docs** (v0.96) | **DONE** | `blake3::Hasher` → `hemera::Hasher` in fingerprint computation (ranger.rs, sync.rs) | 69 passed, 0 failed |
+| **iroh-gossip** (v0.96) | **DONE** | `blake3::hash()` → `hemera::hash()` for MessageId + test TopicIds | 19 passed, 0 failed |
 | **iroh-car** (standalone) | **DONE** | `Code::Blake3_256` → `Code::Sha2_256` in test CIDs (hash-agnostic library) | 3 passed, 0 failed |
 | **iroh-willow** (v0.34) | DEFERRED | Depends on iroh 0.34 / iroh-blobs 0.34 — version gap too large | — |
 | **iroh-ffi** (v0.35) | DEFERRED | Depends on iroh 0.35 — version gap; no direct blake3 usage anyway | — |
@@ -460,9 +460,9 @@ Full workspace validation — 395 tests pass, 0 failures:
 
 | Crate | Tests | Passed | Failed | Ignored |
 |-------|-------|--------|--------|---------|
-| cyber-poseidon2 | 42 | 42 | 0 | 0 |
+| hemera | 42 | 42 | 0 | 0 |
 | cyber-bao | 67 | 67 | 0 | 0 |
-| cyber-hash | 0 | 0 | 0 | 0 |
+| particle | 0 | 0 | 0 | 0 |
 | iroh-base | 2 | 2 | 0 | 0 |
 | iroh-relay | 9 | 9 | 0 | 0 |
 | iroh | 90 | 90 | 0 | 1 |
@@ -487,13 +487,13 @@ Blake3 dependency audit:
 
 **Goal**: Build a standalone crate providing all Poseidon2 operations needed by the ecosystem.
 
-**Deliverable**: `cyber-poseidon2` crate
+**Deliverable**: `hemera` crate
 
 Dual-backend: CPU via `p3-poseidon2`, GPU via custom wgpu compute shaders.
 Both backends produce identical output for the same input (same Poseidon2 permutation).
 
 ```
-cyber-poseidon2/
+hemera/
   src/
     lib.rs          -- Public API, backend selection
     sponge.rs       -- Sponge construction over Goldilocks (rate=8, capacity=4)
@@ -731,7 +731,7 @@ means the decoder must buffer up to 256 KB before verification. For streaming,
 **Changes in iroh-blobs:**
 
 1. **`Hash` type**: Change from wrapping `blake3::Hash` to wrapping `[u8; 32]` from Poseidon2
-2. **Blob hashing**: Replace `blake3::Hasher` with `cyber_poseidon2::Hasher` for computing blob hashes
+2. **Blob hashing**: Replace `blake3::Hasher` with `hemera::Hasher` for computing blob hashes
 3. **BAO integration**: Replace bao-tree with cyber-bao (Poseidon2 backend)
 4. **Transfer protocol**: Wire format carries Poseidon2 tree nodes instead of Blake3 CVs
 5. **Storage**: Re-index stored blobs under new Poseidon2 hashes
@@ -772,8 +772,8 @@ Per the hash function selection rationale, migration at planetary scale requires
 
 **Files to modify in iroh-relay:**
 
-1. `Cargo.toml`: Replace `blake3 = "1.8.2"` with `cyber-poseidon2` dependency
-2. `src/protos/handshake.rs:215`: `blake3::derive_key(...)` -> `cyber_poseidon2::derive_key(...)`
+1. `Cargo.toml`: Replace `blake3 = "1.8.2"` with `hemera` dependency
+2. `src/protos/handshake.rs:215`: `blake3::derive_key(...)` -> `hemera::derive_key(...)`
 3. `src/protos/handshake.rs:312`: Update comment referencing blake3
 4. `src/protos/handshake.rs:594-598`: Replace test keying material simulation
 
@@ -885,9 +885,9 @@ incompatible. Coordinated deployment required.
 ## 7. Dependency Graph and Ordering
 
 ```
-Phase 0a: cyber-poseidon2 CPU backend (p3-poseidon2 wrapper)
+Phase 0a: hemera CPU backend (p3-poseidon2 wrapper)
     |
-    +---> Phase 0b: cyber-poseidon2 GPU backend (wgpu shaders) [parallel with 0a]
+    +---> Phase 0b: hemera GPU backend (wgpu shaders) [parallel with 0a]
     |
     +---> Phase 1: cyber-bao (verified streaming) [needs 0a, benefits from 0b]
     |         |
@@ -965,8 +965,8 @@ Phase 0a: cyber-poseidon2 CPU backend (p3-poseidon2 wrapper)
 
 | Phase | Scope | Estimated Effort |
 |-------|-------|-----------------|
-| Phase 0a: cyber-poseidon2 CPU backend | p3-poseidon2 wrapper, sponge, KDF, hazmat API | 2-3 weeks |
-| Phase 0b: cyber-poseidon2 GPU backend | wgpu compute shaders (WGSL), Goldilocks u64 arithmetic on GPU, cross-validation | 3-5 weeks |
+| Phase 0a: hemera CPU backend | p3-poseidon2 wrapper, sponge, KDF, hazmat API | 2-3 weeks |
+| Phase 0b: hemera GPU backend | wgpu compute shaders (WGSL), Goldilocks u64 arithmetic on GPU, cross-validation | 3-5 weeks |
 | Phase 1: cyber-bao (verified streaming) | Fork + refactor bao-tree, hash-agnostic design, Poseidon2 backend | 4-8 weeks |
 | Phase 2: iroh-blobs migration | Modify existing crate, Hash type change | 2-4 weeks |
 | Phase 3: iroh-relay handshake | 2-3 file changes | 1-2 days |
