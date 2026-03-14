@@ -1,0 +1,18 @@
+[package]
+name = "particle"
+version = "0.1.0"
+edition = "2024"
+description = "CLI tool for Poseidon2 hashing and BAO verified streaming"
+license = "MIT OR Apache-2.0"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "particle"
+path = "src/main.rs"
+
+[dependencies]
+hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
+cyber-bao = { path = "../cyber-bao" }
