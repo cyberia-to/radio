@@ -16,7 +16,7 @@ pub mod io;
 pub mod tree;
 
 pub use hash::{HashBackend, Poseidon2Backend};
-pub use tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, PostOrderChunkIter, TreeNode};
+pub use tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, PostOrderChunkIter, TreeNode, CHUNK_SIZE};
 
 /// A set of chunk ranges (used for partial downloads, range requests, etc.).
 pub type ChunkRanges = range_collections::RangeSet2<ChunkNum>;

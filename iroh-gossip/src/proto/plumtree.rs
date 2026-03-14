@@ -66,9 +66,9 @@ idbytes_impls!(MessageId, "MessageId", 64);
 impl MessageId {
     /// Create a `[MessageId]` by hashing the message content.
     ///
-    /// This hashes the input with [`cyber_poseidon2::hash`].
+    /// This hashes the input with [`hemera::hash`].
     pub fn from_content(message: &[u8]) -> Self {
-        Self::from(*cyber_poseidon2::hash(message).as_bytes())
+        Self::from(*hemera::hash(message).as_bytes())
     }
 }
 

@@ -58,7 +58,7 @@ pub trait ReadBytesAt {
 
 /// Sync outboard trait — read-only access to the hash tree.
 pub trait Outboard {
-    /// The hash type used (e.g., `cyber_poseidon2::Hash`).
+    /// The hash type used (e.g., `hemera::Hash`).
     type Hash: AsRef<[u8]> + Clone + Eq + std::fmt::Debug;
 
     /// The root hash.

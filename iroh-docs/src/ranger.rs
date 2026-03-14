@@ -139,14 +139,14 @@ impl<'de> Deserialize<'de> for Fingerprint {
 
 impl Debug for Fingerprint {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Fp({})", cyber_poseidon2::Hash::from_bytes(self.0).to_hex())
+        write!(f, "Fp({})", hemera::Hash::from_bytes(self.0).to_hex())
     }
 }
 
 impl Fingerprint {
     /// The fingerprint of the empty set
     pub(crate) fn empty() -> Self {
-        Fingerprint(*cyber_poseidon2::hash(&[]).as_bytes())
+        Fingerprint(*hemera::hash(&[]).as_bytes())
     }
 }
 
@@ -773,7 +773,7 @@ mod tests {
         }
 
         fn as_fingerprint(&self) -> Fingerprint {
-            let mut hasher = cyber_poseidon2::Hasher::new();
+            let mut hasher = hemera::Hasher::new();
             hasher.update(format!("{:?}", self.0).as_bytes());
             hasher.update(format!("{:?}", self.1).as_bytes());
             Fingerprint(*hasher.finalize().as_bytes())

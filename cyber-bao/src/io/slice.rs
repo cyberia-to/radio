@@ -7,11 +7,11 @@
 
 use std::ops::Range;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
 use crate::io::outboard;
-use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum};
+use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, CHUNK_SIZE};
 use crate::{ChunkRanges, ChunkRangesRef};
 
 /// Size of a hash pair (two hashes concatenated).
@@ -81,7 +81,7 @@ pub fn extract_slice_ranges<B: HashBackend>(
                 let leaf_range =
                     ChunkRanges::from(ChunkNum(leaf_start)..ChunkNum(leaf_end));
                 if !leaf_range.is_disjoint(ranges) {
-                    let byte_start = (*start_chunk * 1024) as usize;
+                    let byte_start = (*start_chunk * CHUNK_SIZE as u64) as usize;
                     let byte_end = (byte_start + *size).min(data.len());
                     if byte_start < data.len() {
                         slice_data.extend_from_slice(&data[byte_start..byte_end]);
@@ -189,7 +189,7 @@ pub fn decode_slice<B: HashBackend>(
                         });
                     }
 
-                    let byte_offset = *start_chunk * 1024;
+                    let byte_offset = *start_chunk * CHUNK_SIZE as u64;
                     results.push((byte_offset, leaf_data.to_vec()));
                 } else {
                     let _ = expected_stack.pop();
@@ -240,11 +240,11 @@ fn hash_block_for_verify<B: HashBackend>(
     let mut offset = 0usize;
     let mut counter = start_chunk;
     while offset < data.len() {
-        let end = (offset + 1024).min(data.len());
+        let end = (offset + CHUNK_SIZE).min(data.len());
         let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= 1024 && is_root;
+        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
         chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += 1024;
+        offset += CHUNK_SIZE;
         counter += 1;
     }
 
@@ -279,13 +279,13 @@ mod tests {
     #[test]
     fn slice_full_range_matches_encode() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
-        let (root, slice) = extract_slice(&backend, &data, 0..2048, BlockSize::ZERO);
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let (root, slice) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
 
-        assert_eq!(slice.len(), 8 + PAIR_SIZE + 2048);
+        assert_eq!(slice.len(), 8 + PAIR_SIZE + CHUNK_SIZE * 2);
 
-        let left = backend.chunk_hash(&data[..1024], 0, false);
-        let right = backend.chunk_hash(&data[1024..], 1, false);
+        let left = backend.chunk_hash(&data[..CHUNK_SIZE], 0, false);
+        let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(root, expected_root);
     }
@@ -293,10 +293,10 @@ mod tests {
     #[test]
     fn slice_partial_range_is_smaller() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 4096];
-        let (root_full, full_slice) = extract_slice(&backend, &data, 0..4096, BlockSize::ZERO);
+        let data = vec![0x42u8; CHUNK_SIZE * 4];
+        let (root_full, full_slice) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
         let (root_partial, partial_slice) =
-            extract_slice(&backend, &data, 0..1024, BlockSize::ZERO);
+            extract_slice(&backend, &data, 0..CHUNK_SIZE as u64, BlockSize::ZERO);
 
         assert_eq!(root_full, root_partial);
         assert!(partial_slice.len() < full_slice.len());
@@ -305,10 +305,10 @@ mod tests {
     #[test]
     fn slice_root_hash_independent_of_range() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 4096];
-        let (root1, _) = extract_slice(&backend, &data, 0..1024, BlockSize::ZERO);
-        let (root2, _) = extract_slice(&backend, &data, 1024..2048, BlockSize::ZERO);
-        let (root3, _) = extract_slice(&backend, &data, 0..4096, BlockSize::ZERO);
+        let data = vec![0x42u8; CHUNK_SIZE * 4];
+        let (root1, _) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64, BlockSize::ZERO);
+        let (root2, _) = extract_slice(&backend, &data, CHUNK_SIZE as u64..CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
+        let (root3, _) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
         assert_eq!(root1, root2);
         assert_eq!(root2, root3);
     }
@@ -316,14 +316,14 @@ mod tests {
     #[test]
     fn decode_slice_full_range_roundtrip() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(2));
         let (root, slice) = extract_slice_ranges(&backend, &data, &ranges, BlockSize::ZERO);
 
         let results = decode_slice(&backend, &slice, &root, &ranges, BlockSize::ZERO)
             .expect("decode should succeed");
 
-        let mut decoded = vec![0u8; 2048];
+        let mut decoded = vec![0u8; CHUNK_SIZE * 2];
         for (offset, chunk) in &results {
             decoded[*offset as usize..*offset as usize + chunk.len()].copy_from_slice(chunk);
         }
@@ -333,7 +333,7 @@ mod tests {
     #[test]
     fn decode_slice_partial_range() {
         let backend = Poseidon2Backend;
-        let data = vec![0xABu8; 4096];
+        let data = vec![0xABu8; CHUNK_SIZE * 4];
         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(1));
         let (root, slice) = extract_slice_ranges(&backend, &data, &ranges, BlockSize::ZERO);
 
@@ -342,13 +342,13 @@ mod tests {
 
         assert_eq!(results.len(), 1);
         assert_eq!(results[0].0, 0);
-        assert_eq!(results[0].1, data[..1024]);
+        assert_eq!(results[0].1, data[..CHUNK_SIZE]);
     }
 
     #[test]
     fn decode_slice_wrong_root_fails() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(2));
         let (_, slice) = extract_slice_ranges(&backend, &data, &ranges, BlockSize::ZERO);
 
@@ -360,7 +360,7 @@ mod tests {
     #[test]
     fn multi_range_slice_extract_and_verify() {
         let backend = Poseidon2Backend;
-        let data: Vec<u8> = (0..4096).map(|i| (i % 256) as u8).collect();
+        let data: Vec<u8> = (0..CHUNK_SIZE * 4).map(|i| (i % 256) as u8).collect();
         // Request chunks 0 and 3 (non-contiguous)
         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(1))
             | ChunkRanges::from(ChunkNum(3)..ChunkNum(4));
@@ -371,9 +371,9 @@ mod tests {
 
         assert_eq!(results.len(), 2);
         assert_eq!(results[0].0, 0);
-        assert_eq!(results[0].1, data[..1024]);
-        assert_eq!(results[1].0, 3072);
-        assert_eq!(results[1].1, data[3072..4096]);
+        assert_eq!(results[0].1, data[..CHUNK_SIZE]);
+        assert_eq!(results[1].0, CHUNK_SIZE as u64 * 3);
+        assert_eq!(results[1].1, data[CHUNK_SIZE * 3..CHUNK_SIZE * 4]);
     }
 
     #[test]
@@ -392,16 +392,16 @@ mod tests {
     #[test]
     fn slice_roundtrip_block_size_nonzero() {
         let backend = Poseidon2Backend;
-        let bs = BlockSize::from_chunk_log(1); // 2KB blocks
-        // 8KB → 4 blocks of 2KB
-        let data: Vec<u8> = (0..8192).map(|i| (i % 256) as u8).collect();
+        let bs = BlockSize::from_chunk_log(1); // 2 chunks per block
+        // 8 chunks → 4 blocks of 2 chunks
+        let data: Vec<u8> = (0..CHUNK_SIZE * 8).map(|i| (i % 256) as u8).collect();
         let ranges = ChunkRanges::all();
         let (root, slice) = extract_slice_ranges(&backend, &data, &ranges, bs);
 
         let results = decode_slice(&backend, &slice, &root, &ranges, bs)
             .expect("decode should succeed");
 
-        let mut decoded = vec![0u8; 8192];
+        let mut decoded = vec![0u8; CHUNK_SIZE * 8];
         for (offset, chunk) in &results {
             decoded[*offset as usize..*offset as usize + chunk.len()].copy_from_slice(chunk);
         }

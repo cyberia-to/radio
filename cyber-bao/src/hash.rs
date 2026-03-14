@@ -2,9 +2,9 @@
 //!
 //! The `HashBackend` trait abstracts the hash function used in BAO tree
 //! construction, making the tree machinery hash-agnostic. The `Poseidon2Backend`
-//! provides the concrete implementation using cyber-poseidon2.
+//! provides the concrete implementation using hemera.
 
-use cyber_poseidon2::{Hash, OUTPUT_BYTES};
+use hemera::{Hash, OUTPUT_BYTES};
 
 /// Trait for pluggable hash functions in BAO tree operations.
 ///
@@ -44,7 +44,7 @@ pub trait HashBackend {
     fn hash_from_bytes(&self, bytes: &[u8]) -> Self::Hash;
 }
 
-/// Poseidon2 hash backend using cyber-poseidon2.
+/// Poseidon2 hash backend using hemera.
 #[derive(Debug, Clone, Copy, Default)]
 pub struct Poseidon2Backend;
 
@@ -52,11 +52,11 @@ impl HashBackend for Poseidon2Backend {
     type Hash = Hash;
 
     fn chunk_hash(&self, data: &[u8], counter: u64, is_root: bool) -> Hash {
-        cyber_poseidon2::hazmat::chunk_cv(data, counter, is_root)
+        hemera::hazmat::chunk_cv(data, counter, is_root)
     }
 
     fn parent_hash(&self, left: &Hash, right: &Hash, is_root: bool) -> Hash {
-        cyber_poseidon2::hazmat::parent_cv(left, right, is_root)
+        hemera::hazmat::parent_cv(left, right, is_root)
     }
 
     fn hash_size(&self) -> usize {

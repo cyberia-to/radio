@@ -25,12 +25,12 @@ pub use traits::{Outboard, OutboardMut, ReadAt, ReadBytesAt, Size, WriteAt};
 use range_collections::range_set::RangeSetRange;
 
 use crate::hash::{HashBackend, Poseidon2Backend};
-use crate::tree::{BlockSize, ChunkNum};
+use crate::tree::{BlockSize, ChunkNum, CHUNK_SIZE};
 use crate::{ByteRanges, ChunkRanges};
 
 /// Compute the root hash for a single block (possibly multi-chunk).
 ///
-/// Hashes each 1024-byte chunk individually, then reduces via parent_hash
+/// Hashes each chunk individually, then reduces via parent_hash
 /// to produce the block's root. Used by both sync and async encode/decode paths.
 pub fn hash_block(
     backend: &Poseidon2Backend,
@@ -38,20 +38,20 @@ pub fn hash_block(
     start_chunk: u64,
     is_root: bool,
     block_bytes: usize,
-) -> cyber_poseidon2::Hash {
+) -> hemera::Hash {
     if data.is_empty() {
         return backend.chunk_hash(&[], start_chunk, is_root);
     }
 
-    let mut chunk_hashes: Vec<cyber_poseidon2::Hash> = Vec::new();
+    let mut chunk_hashes: Vec<hemera::Hash> = Vec::new();
     let mut offset = 0usize;
     let mut counter = start_chunk;
     while offset < data.len() {
-        let end = (offset + 1024).min(data.len());
+        let end = (offset + CHUNK_SIZE).min(data.len());
         let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= 1024 && is_root;
+        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
         chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += 1024;
+        offset += CHUNK_SIZE;
         counter += 1;
     }
 
@@ -85,12 +85,12 @@ pub fn round_up_to_chunks(ranges: &ByteRanges) -> ChunkRanges {
     for range in ranges.iter() {
         let (start, end) = match range.cloned() {
             RangeSetRange::Range(r) => {
-                let start = ChunkNum(r.start / 1024);
-                let end = ChunkNum(r.end.div_ceil(1024));
+                let start = ChunkNum(r.start / CHUNK_SIZE as u64);
+                let end = ChunkNum(r.end.div_ceil(CHUNK_SIZE as u64));
                 (start, Some(end))
             }
             RangeSetRange::RangeFrom(r) => {
-                let start = ChunkNum(r.start / 1024);
+                let start = ChunkNum(r.start / CHUNK_SIZE as u64);
                 (start, None)
             }
         };

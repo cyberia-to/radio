@@ -791,7 +791,7 @@ impl RangeEntry for SignedEntry {
     }
 
     fn as_fingerprint(&self) -> crate::ranger::Fingerprint {
-        let mut hasher = cyber_poseidon2::Hasher::new();
+        let mut hasher = hemera::Hasher::new();
         hasher.update(self.namespace().as_ref());
         hasher.update(self.author_bytes().as_ref());
         hasher.update(self.key());

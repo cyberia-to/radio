@@ -41,7 +41,7 @@
 //!
 //! - Do not attempt to be generic in terms of the used hash function.
 //!
-//!   The protocol makes extensive use of the Poseidon2 hash function (via the `cyber-poseidon2`
+//!   The protocol makes extensive use of the Poseidon2 hash function (via the `hemera`
 //!   crate) and BAO verified streaming for content integrity.
 //!
 //! - Do not support graph traversal.

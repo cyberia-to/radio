@@ -1275,7 +1275,7 @@ pub(crate) mod test {
         ];
 
         debug!("----- adding peers  ----- ");
-        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"foobar").as_bytes()[..32].try_into().unwrap();
+        let hash_bytes: [u8; 32] = hemera::hash(b"foobar").as_bytes()[..32].try_into().unwrap();
         let topic: TopicId = hash_bytes.into();
 
         let addr1 = EndpointAddr::new(pi1).with_relay_url(relay_url.clone());
@@ -1404,7 +1404,7 @@ pub(crate) mod test {
             "endpoints ready"
         );
 
-        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"subscription_cleanup").as_bytes()[..32].try_into().unwrap();
+        let hash_bytes: [u8; 32] = hemera::hash(b"subscription_cleanup").as_bytes()[..32].try_into().unwrap();
         let topic: TopicId = hash_bytes.into();
         tracing::info!(%topic, "joining");
 
@@ -1545,7 +1545,7 @@ pub(crate) mod test {
             "endpoints ready"
         );
 
-        let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"can_reconnect").as_bytes()[..32].try_into().unwrap();
+        let hash_bytes: [u8; 32] = hemera::hash(b"can_reconnect").as_bytes()[..32].try_into().unwrap();
         let topic: TopicId = hash_bytes.into();
         tracing::info!(%topic, "joining");
 

@@ -7,7 +7,7 @@ use crate::tree::TreeNode;
 /// A parent hash pair in the BAO tree.
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-pub struct Parent<H = cyber_poseidon2::Hash> {
+pub struct Parent<H = hemera::Hash> {
     /// The tree node this pair belongs to.
     pub node: TreeNode,
     /// The (left, right) child hash pair.
@@ -29,7 +29,7 @@ pub struct Leaf {
 /// Either a parent hash pair or a verified leaf data chunk.
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-pub enum BaoContentItem<H = cyber_poseidon2::Hash> {
+pub enum BaoContentItem<H = hemera::Hash> {
     /// A parent hash pair.
     Parent(Parent<H>),
     /// A verified leaf data chunk.

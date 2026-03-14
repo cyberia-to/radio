@@ -223,7 +223,7 @@ mod fs {
 
         // Compute hash over data (skip first 64 bytes)
         let data_slice = &buffer[64..];
-        let hash = cyber_poseidon2::hash(data_slice);
+        let hash = hemera::hash(data_slice);
         buffer[..64].copy_from_slice(hash.as_bytes());
 
         // Write all at once
@@ -262,7 +262,7 @@ mod fs {
         let stored_hash = &buffer[..64];
         let data = &buffer[64..];
 
-        let computed_hash = cyber_poseidon2::hash(data);
+        let computed_hash = hemera::hash(data);
         if computed_hash.as_bytes() != stored_hash {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "Hash mismatch"));
         }
@@ -300,7 +300,7 @@ mod fs {
         let stored_hash = &buffer[..64];
         let data = &buffer[64..];
 
-        let computed_hash = cyber_poseidon2::hash(data);
+        let computed_hash = hemera::hash(data);
         if computed_hash.as_bytes() != stored_hash {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "Hash mismatch"));
         }
@@ -348,7 +348,7 @@ mod fs {
         const BASE: usize = SYMBOLS.len(); // 64
 
         // Hash the input with Poseidon2
-        let hash = cyber_poseidon2::hash(data);
+        let hash = hemera::hash(data);
         let bytes = hash.as_bytes(); // 64-byte hash
 
         // Create an ArrayString with capacity 12 (bytes)

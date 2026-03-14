@@ -3,7 +3,7 @@
 use std::{borrow::Borrow, fmt, str::FromStr};
 
 use arrayvec::ArrayString;
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 use n0_error::{e, stack_error, StdResultExt};
 use postcard::experimental::max_size::MaxSize;
 use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
@@ -14,7 +14,7 @@ use crate::store::{util::DD, IROH_BLOCK_SIZE};
 ///
 /// This delegates to the outboard builder to ensure Hash::new(data) equals
 /// the root hash from PreOrderMemOutboard::create for the same data.
-fn tree_hash(data: &[u8]) -> cyber_poseidon2::Hash {
+fn tree_hash(data: &[u8]) -> hemera::Hash {
     use cyber_bao::io::pre_order::PreOrderMemOutboard;
 
     PreOrderMemOutboard::create(data, IROH_BLOCK_SIZE).root
@@ -22,7 +22,7 @@ fn tree_hash(data: &[u8]) -> cyber_poseidon2::Hash {
 
 /// Hash type used throughout.
 #[derive(PartialEq, Eq, Copy, Clone, Hash)]
-pub struct Hash(cyber_poseidon2::Hash);
+pub struct Hash(hemera::Hash);
 
 impl fmt::Debug for Hash {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -55,7 +55,7 @@ impl Hash {
 
     /// Create a `Hash` from its raw bytes representation.
     pub const fn from_bytes(bytes: [u8; OUTPUT_BYTES]) -> Self {
-        Self(cyber_poseidon2::Hash::from_bytes(bytes))
+        Self(hemera::Hash::from_bytes(bytes))
     }
 
     /// Convert the hash to a hex string.
@@ -92,13 +92,13 @@ impl Borrow<[u8; OUTPUT_BYTES]> for Hash {
     }
 }
 
-impl From<cyber_poseidon2::Hash> for Hash {
-    fn from(value: cyber_poseidon2::Hash) -> Self {
+impl From<hemera::Hash> for Hash {
+    fn from(value: hemera::Hash) -> Self {
         Hash(value)
     }
 }
 
-impl From<Hash> for cyber_poseidon2::Hash {
+impl From<Hash> for hemera::Hash {
     fn from(value: Hash) -> Self {
         value.0
     }
@@ -106,7 +106,7 @@ impl From<Hash> for cyber_poseidon2::Hash {
 
 impl From<[u8; OUTPUT_BYTES]> for Hash {
     fn from(value: [u8; OUTPUT_BYTES]) -> Self {
-        Hash(cyber_poseidon2::Hash::from(value))
+        Hash(hemera::Hash::from(value))
     }
 }
 
@@ -118,7 +118,7 @@ impl From<Hash> for [u8; 64] {
 
 impl From<&[u8; 64]> for Hash {
     fn from(value: &[u8; 64]) -> Self {
-        Hash(cyber_poseidon2::Hash::from(*value))
+        Hash(hemera::Hash::from(*value))
     }
 }
 
@@ -173,7 +173,7 @@ impl FromStr for Hash {
             }
             Err(partial) => return Err(e!(HexOrBase32ParseError::Decode, partial.error)),
         }
-        Ok(Self(cyber_poseidon2::Hash::from_bytes(bytes)))
+        Ok(Self(hemera::Hash::from_bytes(bytes)))
     }
 }
 
@@ -185,7 +185,7 @@ impl Serialize for Hash {
         if serializer.is_human_readable() {
             serializer.serialize_str(self.to_string().as_str())
         } else {
-            // Delegate to cyber_poseidon2::Hash's custom serde (tuple of 64 bytes)
+            // Delegate to hemera::Hash's custom serde (tuple of 64 bytes)
             self.0.serialize(serializer)
         }
     }
@@ -200,8 +200,8 @@ impl<'de> Deserialize<'de> for Hash {
             let s = String::deserialize(deserializer)?;
             s.parse().map_err(de::Error::custom)
         } else {
-            // Delegate to cyber_poseidon2::Hash's custom serde
-            let inner = cyber_poseidon2::Hash::deserialize(deserializer)?;
+            // Delegate to hemera::Hash's custom serde
+            let inner = hemera::Hash::deserialize(deserializer)?;
             Ok(Self(inner))
         }
     }

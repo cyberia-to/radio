@@ -12,7 +12,7 @@ async fn gossip_two_nodes() -> Result<()> {
     let mut rng = test_rng(b"gossip_two");
     let (node_a, node_b) = spawn_pair(&mut rng).await?;
 
-    let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"gossip-two-nodes").as_bytes()[..32].try_into().unwrap();
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-two-nodes").as_bytes()[..32].try_into().unwrap();
     let topic: iroh_gossip::TopicId = hash_bytes.into();
 
     // Both nodes subscribe without blocking; node B bootstraps off node A
@@ -56,7 +56,7 @@ async fn gossip_three_nodes_fan_out() -> Result<()> {
     let mut rng = test_rng(b"gossip_fan_out");
     let nodes = spawn_nodes(3, &mut rng).await?;
 
-    let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"gossip-fan-out").as_bytes()[..32].try_into().unwrap();
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-fan-out").as_bytes()[..32].try_into().unwrap();
     let topic: iroh_gossip::TopicId = hash_bytes.into();
 
     // All subscribe; nodes 1 and 2 bootstrap off node 0
@@ -112,7 +112,7 @@ async fn gossip_bidirectional() -> Result<()> {
     let mut rng = test_rng(b"gossip_bidir");
     let (node_a, node_b) = spawn_pair(&mut rng).await?;
 
-    let hash_bytes: [u8; 32] = cyber_poseidon2::hash(b"gossip-bidir").as_bytes()[..32].try_into().unwrap();
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-bidir").as_bytes()[..32].try_into().unwrap();
     let topic: iroh_gossip::TopicId = hash_bytes.into();
 
     // Both subscribe; node B bootstraps off node A

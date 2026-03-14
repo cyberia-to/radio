@@ -7,12 +7,12 @@ use std::io::{self, Write};
 
 use smallvec::SmallVec;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::hash::{HashBackend, Poseidon2Backend};
 use crate::io::error::EncodeError;
 use crate::io::traits::{Outboard, ReadAt};
-use crate::tree::ChunkNum;
+use crate::tree::{ChunkNum, CHUNK_SIZE};
 use crate::ChunkRangesRef;
 
 /// Size of a hash pair (two hashes concatenated).
@@ -25,7 +25,7 @@ const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 /// It is possible to encode ranges from a partial file and outboard.
 /// This will either succeed if the requested ranges are all present, or fail
 /// as soon as a range is missing.
-pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = cyber_poseidon2::Hash>, W: Write>(
+pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = hemera::Hash>, W: Write>(
     data: D,
     outboard: O,
     ranges: &ChunkRangesRef,
@@ -42,7 +42,7 @@ pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = cyber_poseidon2::Ha
     // to ensure encoder and decoder agree on the stream structure.
     let pre_order = tree.pre_order_chunks_filtered(ranges);
 
-    let mut stack = SmallVec::<[cyber_poseidon2::Hash; 10]>::new();
+    let mut stack = SmallVec::<[hemera::Hash; 10]>::new();
     stack.push(outboard.root());
 
     for chunk in &pre_order {
@@ -69,7 +69,7 @@ pub fn encode_ranges_validated<D: ReadAt, O: Outboard<Hash = cyber_poseidon2::Ha
                 size,
                 is_root,
             } => {
-                let byte_start = *start_chunk * 1024;
+                let byte_start = *start_chunk * CHUNK_SIZE as u64;
                 let mut buf = vec![0u8; *size];
                 data.read_exact_at(byte_start, &mut buf)?;
 
@@ -97,7 +97,7 @@ pub fn valid_ranges<'a, O, D>(
     ranges: &'a ChunkRangesRef,
 ) -> impl IntoIterator<Item = io::Result<std::ops::Range<ChunkNum>>> + 'a
 where
-    O: Outboard<Hash = cyber_poseidon2::Hash> + 'a,
+    O: Outboard<Hash = hemera::Hash> + 'a,
     D: ReadAt + 'a,
 {
     genawaiter::sync::Gen::new(move |co| async move {
@@ -142,26 +142,26 @@ fn truncated_len(ranges: &ChunkRangesRef, size: u64) -> usize {
 }
 
 /// Combine two hashes into a pair buffer.
-fn combine_hash_pair(l: &cyber_poseidon2::Hash, r: &cyber_poseidon2::Hash) -> [u8; PAIR_SIZE] {
+fn combine_hash_pair(l: &hemera::Hash, r: &hemera::Hash) -> [u8; PAIR_SIZE] {
     let mut res = [0u8; PAIR_SIZE];
     res[..OUTPUT_BYTES].copy_from_slice(l.as_bytes());
     res[OUTPUT_BYTES..].copy_from_slice(r.as_bytes());
     res
 }
 
-/// Hash a subtree (one or more 1024-byte chunks) using Poseidon2.
+/// Hash a subtree (one or more chunks) using Poseidon2.
 fn hash_subtree(
     backend: &Poseidon2Backend,
     start_chunk: u64,
     data: &[u8],
     is_root: bool,
-) -> cyber_poseidon2::Hash {
-    const CHUNK_LEN: usize = 1024;
+) -> hemera::Hash {
+    const CHUNK_LEN: usize = CHUNK_SIZE;
     if data.len() <= CHUNK_LEN {
         return backend.chunk_hash(data, start_chunk, is_root);
     }
     // Multiple chunks: build a binary tree of hashes
-    let mut chunk_hashes: Vec<cyber_poseidon2::Hash> = Vec::new();
+    let mut chunk_hashes: Vec<hemera::Hash> = Vec::new();
     let mut offset = 0usize;
     let mut counter = start_chunk;
     while offset < data.len() {
@@ -203,7 +203,7 @@ async fn validate_ranges_impl<O, D>(
     co: &genawaiter::sync::Co<io::Result<std::ops::Range<ChunkNum>>>,
 ) -> io::Result<()>
 where
-    O: Outboard<Hash = cyber_poseidon2::Hash>,
+    O: Outboard<Hash = hemera::Hash>,
     D: ReadAt,
 {
     let backend = Poseidon2Backend;
@@ -242,13 +242,13 @@ async fn validate_node_rec<O, D>(
     backend: &Poseidon2Backend,
     tree: &crate::tree::BaoTree,
     node: crate::tree::TreeNode,
-    expected_hash: cyber_poseidon2::Hash,
+    expected_hash: hemera::Hash,
     is_root: bool,
     ranges: &ChunkRangesRef,
     co: &genawaiter::sync::Co<io::Result<std::ops::Range<ChunkNum>>>,
 )
 where
-    O: Outboard<Hash = cyber_poseidon2::Hash>,
+    O: Outboard<Hash = hemera::Hash>,
     D: ReadAt,
 {
     use range_collections::RangeSet2;
@@ -339,20 +339,20 @@ mod tests {
 
     #[test]
     fn encode_ranges_validated_full() {
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
         let mut encoded = Vec::new();
         let size = data.len() as u64;
         encoded.extend_from_slice(&size.to_le_bytes());
         encode_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut encoded)
             .expect("encode should succeed");
-        // Should have size prefix + parent hash pair + 2 leaf chunks (2048)
-        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 2048);
+        // Should have size prefix + parent hash pair + 2 leaf chunks
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + CHUNK_SIZE * 2);
     }
 
     #[test]
     fn valid_ranges_all_valid() {
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
         let mut ranges = ChunkRanges::empty();
         for range in valid_ranges(&outboard, &data[..], &ChunkRanges::all())
@@ -381,7 +381,7 @@ mod tests {
 
     #[test]
     fn encode_then_valid_ranges_roundtrip() {
-        let data = vec![0xABu8; 4096];
+        let data = vec![0xABu8; CHUNK_SIZE * 4];
         let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
         // First verify all ranges are valid
         let mut ranges = ChunkRanges::empty();
@@ -396,15 +396,15 @@ mod tests {
 
     #[test]
     fn encode_ranges_block_size_nonzero() {
-        // BlockSize(1) = 2KB blocks (2 chunks per block)
+        // BlockSize(1) = 2 chunks per block
         let bs = BlockSize::from_chunk_log(1);
-        let data = vec![0x42u8; 8192]; // 4 blocks × 2KB
+        let data = vec![0x42u8; CHUNK_SIZE * 8]; // 4 blocks × 2 chunks
         let outboard = PreOrderMemOutboard::create(&data, bs);
         let mut encoded = Vec::new();
         encode_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut encoded)
             .expect("encode should succeed");
-        // outboard has 3 parents × PAIR_SIZE + 8192 data
-        assert_eq!(encoded.len(), 3 * PAIR_SIZE + 8192);
+        // outboard has 3 parents × PAIR_SIZE + data
+        assert_eq!(encoded.len(), 3 * PAIR_SIZE + CHUNK_SIZE * 8);
     }
 
     #[test]
@@ -423,7 +423,7 @@ mod tests {
     #[test]
     fn valid_ranges_block_size_nonzero() {
         let bs = BlockSize::from_chunk_log(1);
-        let data = vec![0x42u8; 8192];
+        let data = vec![0x42u8; CHUNK_SIZE * 8];
         let outboard = PreOrderMemOutboard::create(&data, bs);
         let mut ranges = ChunkRanges::empty();
         for range in valid_ranges(&outboard, &data[..], &ChunkRanges::all())
@@ -432,7 +432,7 @@ mod tests {
         {
             ranges |= ChunkRanges::from(range);
         }
-        // 8KB with 2KB blocks = 4 blocks, each block = 2 chunks
+        // 8 chunks with 2-chunk blocks = 4 blocks, each block = 2 chunks
         // So 8 total chunks: 0..8
         assert_eq!(ranges, ChunkRanges::from(ChunkNum(0)..ChunkNum(8)));
     }

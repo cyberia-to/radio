@@ -169,13 +169,13 @@ fn cmd_hash(action: HashAction) -> Result<()> {
             if files.is_empty() {
                 let mut data = Vec::new();
                 io::stdin().read_to_end(&mut data)?;
-                let h = cyber_poseidon2::hash(&data);
+                let h = hemera::hash(&data);
                 println!("{h}");
             } else {
                 for path in &files {
                     let data = fs::read(path)
                         .with_context(|| format!("reading {}", path.display()))?;
-                    let h = cyber_poseidon2::hash(&data);
+                    let h = hemera::hash(&data);
                     if files.len() > 1 {
                         println!("{h}  {}", path.display());
                     } else {
@@ -238,14 +238,14 @@ fn cmd_hash(action: HashAction) -> Result<()> {
     Ok(())
 }
 
-fn parse_poseidon_hash(hex: &str) -> Result<cyber_poseidon2::Hash> {
+fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
     let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
     if bytes.len() != 64 {
         bail!("hash must be 64 bytes (128 hex chars), got {} bytes", bytes.len());
     }
     let mut arr = [0u8; 64];
     arr.copy_from_slice(&bytes);
-    Ok(cyber_poseidon2::Hash::from_bytes(arr))
+    Ok(hemera::Hash::from_bytes(arr))
 }
 
 fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {

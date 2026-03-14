@@ -8,7 +8,7 @@
 
 use std::io;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::io::outboard as outboard_fn;
 use crate::io::traits::{Outboard, OutboardMut, ReadAt, WriteAt};
@@ -22,7 +22,7 @@ const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 /// The `data` field stores parent hash pairs (left || right)
 /// in pre-order traversal order.
 #[derive(Debug, Clone)]
-pub struct PreOrderOutboard<H = cyber_poseidon2::Hash, D = Vec<u8>> {
+pub struct PreOrderOutboard<H = hemera::Hash, D = Vec<u8>> {
     /// Root hash of the tree.
     pub root: H,
     /// Tree geometry.
@@ -85,7 +85,7 @@ where
 
 /// In-memory pre-order outboard (convenience type).
 #[derive(Debug, Clone)]
-pub struct PreOrderMemOutboard<H = cyber_poseidon2::Hash> {
+pub struct PreOrderMemOutboard<H = hemera::Hash> {
     /// Root hash.
     pub root: H,
     /// Tree geometry.
@@ -94,7 +94,7 @@ pub struct PreOrderMemOutboard<H = cyber_poseidon2::Hash> {
     pub data: Vec<u8>,
 }
 
-impl PreOrderMemOutboard<cyber_poseidon2::Hash> {
+impl PreOrderMemOutboard<hemera::Hash> {
     /// Create an outboard by hashing the given data using Poseidon2.
     pub fn create(data: &[u8], block_size: BlockSize) -> Self {
         let backend = crate::hash::Poseidon2Backend;
@@ -169,7 +169,7 @@ where
 /// in post-order traversal order. This format allows append-only construction:
 /// children are written before their parents.
 #[derive(Debug, Clone)]
-pub struct PostOrderOutboard<H = cyber_poseidon2::Hash, D = Vec<u8>> {
+pub struct PostOrderOutboard<H = hemera::Hash, D = Vec<u8>> {
     /// Root hash of the tree.
     pub root: H,
     /// Tree geometry.
@@ -232,7 +232,7 @@ where
 
 /// In-memory post-order outboard (convenience type).
 #[derive(Debug, Clone)]
-pub struct PostOrderMemOutboard<H = cyber_poseidon2::Hash> {
+pub struct PostOrderMemOutboard<H = hemera::Hash> {
     /// Root hash.
     pub root: H,
     /// Tree geometry.
@@ -241,7 +241,7 @@ pub struct PostOrderMemOutboard<H = cyber_poseidon2::Hash> {
     pub data: Vec<u8>,
 }
 
-impl PostOrderMemOutboard<cyber_poseidon2::Hash> {
+impl PostOrderMemOutboard<hemera::Hash> {
     /// Create a post-order outboard by hashing the given data using Poseidon2.
     pub fn create(data: &[u8], block_size: BlockSize) -> Self {
         let backend = crate::hash::Poseidon2Backend;
@@ -341,11 +341,12 @@ mod tests {
     use super::*;
     use crate::hash::Poseidon2Backend;
     use crate::io::outboard::outboard;
+    use crate::tree::CHUNK_SIZE;
 
     #[test]
     fn pre_order_outboard_roundtrip() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 4096];
+        let data = vec![0x42u8; CHUNK_SIZE * 4];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
 
         let pre = PreOrderOutboard {
@@ -364,21 +365,21 @@ mod tests {
 
     #[test]
     fn pre_order_mem_outboard_create() {
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let ob = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
         assert_eq!(ob.data.len(), PAIR_SIZE);
     }
 
     #[test]
     fn post_order_mem_outboard_create() {
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let ob = PostOrderMemOutboard::create(&data, BlockSize::ZERO);
         assert_eq!(ob.data.len(), PAIR_SIZE);
     }
 
     #[test]
     fn post_order_outboard_all_nodes_match_pre_order() {
-        let data = vec![0xABu8; 8192]; // 8 blocks -> 7 parent nodes
+        let data = vec![0xABu8; CHUNK_SIZE * 8]; // 8 blocks -> 7 parent nodes
         let pre_ob = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
         let post_ob = PostOrderMemOutboard::create(&data, BlockSize::ZERO);
 
@@ -400,21 +401,21 @@ mod tests {
         use crate::io::sync::encode_ranges_validated;
         use crate::ChunkRanges;
 
-        let data = vec![0x42u8; 4096];
+        let data = vec![0x42u8; CHUNK_SIZE * 4];
         let post_ob = PostOrderMemOutboard::create(&data, BlockSize::ZERO);
 
         let mut encoded = Vec::new();
         encode_ranges_validated(&data[..], &post_ob, &ChunkRanges::all(), &mut encoded)
             .expect("post-order outboard should be usable for encoding");
-        assert_eq!(encoded.len(), 3 * PAIR_SIZE + 4096);
+        assert_eq!(encoded.len(), 3 * PAIR_SIZE + CHUNK_SIZE * 4);
     }
 
     #[test]
     fn pre_order_outboard_block_size_nonzero() {
-        // BlockSize(1) = 2KB blocks (2 chunks per block)
+        // BlockSize(1) = 2 chunks per block
         let bs = BlockSize::from_chunk_log(1);
-        // 8KB data → 4 blocks of 2KB → 3 parents
-        let data = vec![0x42u8; 8192];
+        // 8 chunks → 4 blocks of 2 chunks → 3 parents
+        let data = vec![0x42u8; CHUNK_SIZE * 8];
         let ob = PreOrderMemOutboard::create(&data, bs);
         assert_eq!(ob.data.len(), 3 * PAIR_SIZE);
 
@@ -432,7 +433,7 @@ mod tests {
     #[test]
     fn post_order_matches_pre_order_block_size_nonzero() {
         let bs = BlockSize::from_chunk_log(1);
-        let data = vec![0xABu8; 8192];
+        let data = vec![0xABu8; CHUNK_SIZE * 8];
         let pre_ob = PreOrderMemOutboard::create(&data, bs);
         let post_ob = PostOrderMemOutboard::create(&data, bs);
 

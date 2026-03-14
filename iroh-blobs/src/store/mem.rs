@@ -861,15 +861,15 @@ impl ReadBytesAt for DataReader {
 
 #[derive(Debug)]
 pub struct OutboardReader {
-    hash: cyber_poseidon2::Hash,
+    hash: hemera::Hash,
     tree: BaoTree,
     data: BaoFileHandle,
 }
 
 impl Outboard for OutboardReader {
-    type Hash = cyber_poseidon2::Hash;
+    type Hash = hemera::Hash;
 
-    fn root(&self) -> cyber_poseidon2::Hash {
+    fn root(&self) -> hemera::Hash {
         self.hash
     }
 
@@ -877,7 +877,7 @@ impl Outboard for OutboardReader {
         self.tree
     }
 
-    fn load(&self, node: TreeNode) -> io::Result<Option<(cyber_poseidon2::Hash, cyber_poseidon2::Hash)>> {
+    fn load(&self, node: TreeNode) -> io::Result<Option<(hemera::Hash, hemera::Hash)>> {
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(None);
         };

@@ -9,11 +9,11 @@
 //! Parent nodes appear before their children, so the decoder can verify
 //! each piece as it arrives without buffering the entire file.
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
 use crate::io::outboard;
-use crate::tree::{BaoChunk, BlockSize};
+use crate::tree::{BaoChunk, BlockSize, CHUNK_SIZE};
 
 /// Size of a hash pair (two hashes concatenated).
 const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
@@ -51,7 +51,7 @@ pub fn encode<B: HashBackend>(
             BaoChunk::Leaf {
                 start_chunk, size, ..
             } => {
-                let byte_start = (*start_chunk * 1024) as usize;
+                let byte_start = (*start_chunk * CHUNK_SIZE as u64) as usize;
                 let byte_end = (byte_start + *size).min(data.len());
                 if byte_start < data.len() {
                     encoded.extend_from_slice(&data[byte_start..byte_end]);
@@ -71,12 +71,12 @@ mod tests {
     #[test]
     fn encode_single_block() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 1024];
+        let data = vec![0x42u8; CHUNK_SIZE];
         let (root, encoded) = encode(&backend, &data, BlockSize::ZERO);
 
-        // Header (8 bytes) + data (1024 bytes), no parents
-        assert_eq!(encoded.len(), 8 + 1024);
-        assert_eq!(u64::from_le_bytes(encoded[..8].try_into().unwrap()), 1024);
+        // Header (8 bytes) + data (CHUNK_SIZE bytes), no parents
+        assert_eq!(encoded.len(), 8 + CHUNK_SIZE);
+        assert_eq!(u64::from_le_bytes(encoded[..8].try_into().unwrap()), CHUNK_SIZE as u64);
         assert_eq!(&encoded[8..], &data[..]);
         assert_eq!(root, backend.chunk_hash(&data, 0, true));
     }
@@ -84,19 +84,19 @@ mod tests {
     #[test]
     fn encode_two_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (root, encoded) = encode(&backend, &data, BlockSize::ZERO);
 
-        // Header (8) + parent pair + leaf0 (1024) + leaf1 (1024)
-        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 2048);
+        // Header (8) + parent pair + leaf0 (CHUNK_SIZE) + leaf1 (CHUNK_SIZE)
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + CHUNK_SIZE * 2);
 
         // Verify header
         let size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
-        assert_eq!(size, 2048);
+        assert_eq!(size, CHUNK_SIZE as u64 * 2);
 
         // Verify root hash
-        let left = backend.chunk_hash(&data[..1024], 0, false);
-        let right = backend.chunk_hash(&data[1024..], 1, false);
+        let left = backend.chunk_hash(&data[..CHUNK_SIZE], 0, false);
+        let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(root, expected_root);
     }
@@ -133,12 +133,12 @@ mod tests {
     #[test]
     fn encode_block_size_nonzero() {
         let backend = Poseidon2Backend;
-        let bs = BlockSize::from_chunk_log(1); // 2KB blocks
-        // 8KB data → 4 blocks of 2KB → 3 parents
-        let data: Vec<u8> = (0..8192).map(|i| (i % 256) as u8).collect();
+        let bs = BlockSize::from_chunk_log(1); // 2 chunks per block
+        // 8 chunks → 4 blocks of 2 chunks → 3 parents
+        let data: Vec<u8> = (0..CHUNK_SIZE * 8).map(|i| (i % 256) as u8).collect();
         let (root, encoded) = encode(&backend, &data, bs);
-        // Header (8) + 3 parent pairs + 8192 data
-        assert_eq!(encoded.len(), 8 + 3 * PAIR_SIZE + 8192);
+        // Header (8) + 3 parent pairs + data
+        assert_eq!(encoded.len(), 8 + 3 * PAIR_SIZE + CHUNK_SIZE * 8);
         // Root hash should be non-zero
         assert_ne!(root, backend.chunk_hash(&[], 0, true));
     }
@@ -146,12 +146,12 @@ mod tests {
     #[test]
     fn encode_block_size_default() {
         let backend = Poseidon2Backend;
-        let bs = BlockSize::DEFAULT; // 16KiB blocks
-        // 32KB data → 2 blocks of 16KB → 1 parent
-        let data: Vec<u8> = (0..32768).map(|i| (i % 256) as u8).collect();
+        let bs = BlockSize::DEFAULT; // 4 chunks per block (16 KiB blocks)
+        // 8 chunks → 2 blocks of 4 chunks → 1 parent
+        let data: Vec<u8> = (0..CHUNK_SIZE * 8).map(|i| (i % 256) as u8).collect();
         let (root, encoded) = encode(&backend, &data, bs);
-        // Header (8) + 1 parent pair + 32768 data
-        assert_eq!(encoded.len(), 8 + PAIR_SIZE + 32768);
+        // Header (8) + 1 parent pair + data
+        assert_eq!(encoded.len(), 8 + PAIR_SIZE + CHUNK_SIZE * 8);
         assert_ne!(root, backend.chunk_hash(&[], 0, true));
     }
 }

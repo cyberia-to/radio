@@ -65,7 +65,7 @@ impl Fingerprint {
         payload_digest: &[u8; 64],
         payload_size: u64,
     ) -> Self {
-        let mut hasher = cyber_poseidon2::Hasher::new();
+        let mut hasher = hemera::Hasher::new();
         hasher.update(key.as_slice());
         hasher.update(payload_digest);
         hasher.update(&payload_size.to_le_bytes());

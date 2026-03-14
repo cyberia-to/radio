@@ -235,22 +235,22 @@ pub(crate) mod outboard_with_progress {
 
     use super::sink::Sink;
 
-    fn hash_subtree(start_chunk: u64, data: &[u8], is_root: bool, block_bytes: usize) -> cyber_poseidon2::Hash {
+    fn hash_subtree(start_chunk: u64, data: &[u8], is_root: bool, block_bytes: usize) -> hemera::Hash {
         use cyber_bao::hash::Poseidon2Backend;
         cyber_bao::io::hash_block(&Poseidon2Backend, data, start_chunk, is_root, block_bytes)
     }
 
     fn parent_cv(
-        left_child: &cyber_poseidon2::Hash,
-        right_child: &cyber_poseidon2::Hash,
+        left_child: &hemera::Hash,
+        right_child: &hemera::Hash,
         is_root: bool,
-    ) -> cyber_poseidon2::Hash {
-        cyber_poseidon2::hazmat::parent_cv(left_child, right_child, is_root)
+    ) -> hemera::Hash {
+        hemera::hazmat::parent_cv(left_child, right_child, is_root)
     }
 
     pub async fn init_outboard<R, W, P>(
         data: R,
-        outboard: &mut PreOrderOutboard<cyber_poseidon2::Hash, W>,
+        outboard: &mut PreOrderOutboard<hemera::Hash, W>,
         progress: &mut P,
     ) -> std::io::Result<std::result::Result<(), P::Error>>
     where
@@ -270,7 +270,7 @@ pub(crate) mod outboard_with_progress {
     async fn init_impl<W, P>(
         tree: BaoTree,
         mut data: impl Read,
-        outboard: &mut PreOrderOutboard<cyber_poseidon2::Hash, W>,
+        outboard: &mut PreOrderOutboard<hemera::Hash, W>,
         buffer: &mut [u8],
         progress: &mut P,
     ) -> io::Result<std::result::Result<(), P::Error>>
@@ -279,7 +279,7 @@ pub(crate) mod outboard_with_progress {
         P: Sink<ChunkNum>,
     {
         let block_bytes = tree.block_size().bytes();
-        let mut stack = SmallVec::<[cyber_poseidon2::Hash; 10]>::new();
+        let mut stack = SmallVec::<[hemera::Hash; 10]>::new();
         for item in tree.post_order_chunks_iter() {
             match item {
                 BaoChunk::Parent { is_root, node, .. } => {
@@ -328,8 +328,8 @@ pub(crate) mod outboard_with_progress {
         async fn init_outboard_with_progress() -> TestResult<()> {
             for size in [1024 * 18 + 1] {
                 let data = test_data(size);
-                let mut o1 = PreOrderOutboard::<cyber_poseidon2::Hash, Vec<u8>> {
-                    root: cyber_poseidon2::Hash::from([0u8; 64]),
+                let mut o1 = PreOrderOutboard::<hemera::Hash, Vec<u8>> {
+                    root: hemera::Hash::from([0u8; 64]),
                     tree: BaoTree::new(data.len() as u64, IROH_BLOCK_SIZE),
                     data: Vec::new(),
                 };

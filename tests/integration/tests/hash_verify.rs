@@ -5,16 +5,16 @@ use radio_integration_tests::init_tracing;
 #[tokio::test]
 async fn poseidon2_hash_deterministic() -> Result<()> {
     let data = b"poseidon2 determinism test";
-    let h1 = cyber_poseidon2::hash(data);
-    let h2 = cyber_poseidon2::hash(data);
+    let h1 = hemera::hash(data);
+    let h2 = hemera::hash(data);
     assert_eq!(h1, h2);
     Ok(())
 }
 
 #[tokio::test]
 async fn poseidon2_hash_different_inputs() -> Result<()> {
-    let h1 = cyber_poseidon2::hash(b"alpha");
-    let h2 = cyber_poseidon2::hash(b"beta");
+    let h1 = hemera::hash(b"alpha");
+    let h2 = hemera::hash(b"beta");
     assert_ne!(h1, h2);
     Ok(())
 }
@@ -22,9 +22,9 @@ async fn poseidon2_hash_different_inputs() -> Result<()> {
 #[tokio::test]
 async fn poseidon2_streaming_consistency() -> Result<()> {
     let data = b"streaming hash consistency test with enough data to matter a lot!!";
-    let direct = cyber_poseidon2::hash(data);
+    let direct = hemera::hash(data);
     let streaming = {
-        let mut hasher = cyber_poseidon2::Hasher::new();
+        let mut hasher = hemera::Hasher::new();
         hasher.update(&data[..10]);
         hasher.update(&data[10..30]);
         hasher.update(&data[30..]);
@@ -72,19 +72,19 @@ async fn blob_store_hash_round_trip() -> Result<()> {
 #[tokio::test]
 async fn poseidon2_keyed_hash_differs() -> Result<()> {
     let data = b"keyed hash test";
-    let plain = cyber_poseidon2::hash(data);
-    let keyed = cyber_poseidon2::keyed_hash(&[0u8; 64], data);
+    let plain = hemera::hash(data);
+    let keyed = hemera::keyed_hash(&[0u8; 64], data);
     assert_ne!(plain, keyed);
     Ok(())
 }
 
 #[tokio::test]
 async fn poseidon2_derive_key() -> Result<()> {
-    let k1 = cyber_poseidon2::derive_key("radio/test", b"material");
-    let k2 = cyber_poseidon2::derive_key("radio/test", b"material");
+    let k1 = hemera::derive_key("radio/test", b"material");
+    let k2 = hemera::derive_key("radio/test", b"material");
     assert_eq!(k1, k2);
 
-    let k3 = cyber_poseidon2::derive_key("radio/other", b"material");
+    let k3 = hemera::derive_key("radio/other", b"material");
     assert_ne!(k1, k3);
     Ok(())
 }

@@ -6,10 +6,10 @@
 
 use std::collections::HashMap;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
-use crate::tree::{BaoChunk, BaoTree, BlockSize};
+use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
 
 /// Size of a hash pair (two hashes concatenated).
 const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
@@ -61,7 +61,7 @@ pub fn outboard<B: HashBackend>(
                 size,
                 is_root,
             } => {
-                let byte_start = *start_chunk * 1024;
+                let byte_start = *start_chunk * CHUNK_SIZE as u64;
                 let byte_end = (byte_start + *size as u64).min(data.len() as u64);
                 let chunk_data = if byte_start < data.len() as u64 {
                     &data[byte_start as usize..byte_end as usize]
@@ -106,7 +106,7 @@ pub fn outboard<B: HashBackend>(
     }
 }
 
-/// Hash a single block of data (may contain multiple 1024-byte chunks).
+/// Hash a single block of data (may contain multiple chunks).
 ///
 /// For BlockSize::ZERO (1 chunk per block), this is just `chunk_hash`.
 /// For larger blocks, we hash individual chunks and combine them into
@@ -126,11 +126,11 @@ fn hash_block<B: HashBackend>(
     let mut offset = 0usize;
     let mut counter = start_chunk;
     while offset < data.len() {
-        let end = (offset + 1024).min(data.len());
+        let end = (offset + CHUNK_SIZE).min(data.len());
         let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= 1024 && is_root;
+        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
         chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += 1024;
+        offset += CHUNK_SIZE;
         counter += 1;
     }
 
@@ -167,7 +167,7 @@ mod tests {
     #[test]
     fn outboard_single_block() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 1024];
+        let data = vec![0x42u8; CHUNK_SIZE];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
         assert!(ob.data.is_empty());
         assert_eq!(ob.root, backend.chunk_hash(&data, 0, true));
@@ -176,12 +176,12 @@ mod tests {
     #[test]
     fn outboard_two_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
         assert_eq!(ob.data.len(), PAIR_SIZE);
 
-        let left = backend.chunk_hash(&data[..1024], 0, false);
-        let right = backend.chunk_hash(&data[1024..], 1, false);
+        let left = backend.chunk_hash(&data[..CHUNK_SIZE], 0, false);
+        let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(ob.root, expected_root);
         assert_eq!(&ob.data[..OUTPUT_BYTES], left.as_ref());
@@ -191,7 +191,7 @@ mod tests {
     #[test]
     fn outboard_four_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 4096];
+        let data = vec![0x42u8; CHUNK_SIZE * 4];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
         // 4 blocks -> 3 parents -> 3 * PAIR_SIZE bytes
         assert_eq!(ob.data.len(), 3 * PAIR_SIZE);
@@ -226,12 +226,12 @@ mod tests {
     #[test]
     fn outboard_partial_last_block() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 1500];
+        let data = vec![0x42u8; CHUNK_SIZE + 500];
         let ob = outboard(&backend, &data, BlockSize::ZERO);
         assert_eq!(ob.data.len(), PAIR_SIZE);
 
-        let left = backend.chunk_hash(&data[..1024], 0, false);
-        let right = backend.chunk_hash(&data[1024..], 1, false);
+        let left = backend.chunk_hash(&data[..CHUNK_SIZE], 0, false);
+        let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(ob.root, expected_root);
     }

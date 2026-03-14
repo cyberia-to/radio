@@ -7,7 +7,10 @@
 use std::fmt;
 use std::ops::Range;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
+
+/// Size of a single chunk in bytes (Hemera spec: 4 KiB).
+pub const CHUNK_SIZE: usize = 4096;
 
 /// Size of a hash pair (two hashes concatenated).
 const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
@@ -147,7 +150,7 @@ impl fmt::Display for TreeNode {
     }
 }
 
-/// Count of 1024-byte chunks (or chunk groups).
+/// Count of chunks (each CHUNK_SIZE bytes).
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct ChunkNum(pub u64);
@@ -155,17 +158,17 @@ pub struct ChunkNum(pub u64);
 impl ChunkNum {
     /// Number of chunks needed for `size` bytes (rounds up).
     pub fn chunks(size: u64) -> Self {
-        Self(size.div_ceil(1024))
+        Self(size.div_ceil(CHUNK_SIZE as u64))
     }
 
     /// Number of full chunks in `size` bytes (rounds down).
     pub fn full_chunks(size: u64) -> Self {
-        Self(size / 1024)
+        Self(size / CHUNK_SIZE as u64)
     }
 
     /// Convert chunks back to bytes.
     pub fn to_bytes(self) -> u64 {
-        self.0 * 1024
+        self.0 * CHUNK_SIZE as u64
     }
 }
 
@@ -219,37 +222,37 @@ impl range_collections::range_set::RangeSetEntry for ChunkNum {
     }
 }
 
-/// Block size for chunk groups — log2 of the number of 1024-byte chunks per block.
+/// Block size for chunk groups — log2 of the number of chunks per block.
 ///
-/// `BlockSize(0)` = 1024 bytes (one chunk per block, original bao behavior).
-/// `BlockSize(4)` = 16384 bytes (16 chunks per block, recommended default).
+/// `BlockSize(0)` = CHUNK_SIZE bytes (one chunk per block).
+/// `BlockSize(2)` = 4 × CHUNK_SIZE bytes (4 chunks per block, recommended default).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct BlockSize(pub u8);
 
 impl BlockSize {
-    /// Standard 1024-byte blocks (one chunk per block).
+    /// One chunk per block.
     pub const ZERO: Self = Self(0);
 
-    /// Default 16 KiB blocks (recommended for production).
-    pub const DEFAULT: Self = Self(4);
+    /// Default 16 KiB blocks (4 × 4096-byte chunks, recommended for production).
+    pub const DEFAULT: Self = Self(2);
 
     /// Create from the log2 of chunks per block.
     pub const fn from_chunk_log(log: u8) -> Self {
         Self(log)
     }
 
-    /// Create from a byte size (must be a power of 2 >= 1024).
+    /// Create from a byte size (must be a power of 2 >= CHUNK_SIZE).
     pub fn from_bytes(bytes: u64) -> Option<Self> {
-        if bytes < 1024 || !bytes.is_power_of_two() {
+        if bytes < CHUNK_SIZE as u64 || !bytes.is_power_of_two() {
             return None;
         }
-        let log = (bytes / 1024).trailing_zeros() as u8;
+        let log = (bytes / CHUNK_SIZE as u64).trailing_zeros() as u8;
         Some(Self(log))
     }
 
     /// Block size in bytes.
     pub fn bytes(self) -> usize {
-        1024 << self.0
+        CHUNK_SIZE << self.0
     }
 
     /// Log2 of chunks per block.
@@ -289,7 +292,7 @@ impl BaoTree {
         self.block_size
     }
 
-    /// Number of 1024-byte chunks.
+    /// Number of chunks (CHUNK_SIZE bytes each).
     pub fn chunks(&self) -> ChunkNum {
         ChunkNum::chunks(self.size)
     }
@@ -334,7 +337,7 @@ impl BaoTree {
     pub fn shifted(&self) -> (TreeNode, TreeNode) {
         let level = self.block_size.0;
         let size = self.size;
-        let shift = 10 + level as u32;
+        let shift = CHUNK_SIZE.trailing_zeros() + level as u32;
         let mask = (1u64 << shift) - 1;
         let full_blocks = size >> shift;
         let open_block = u64::from((size & mask) != 0);
@@ -785,22 +788,22 @@ mod tests {
 
     #[test]
     fn block_size_bytes() {
-        assert_eq!(BlockSize::ZERO.bytes(), 1024);
-        assert_eq!(BlockSize::DEFAULT.bytes(), 16384);
-        assert_eq!(BlockSize::from_chunk_log(1).bytes(), 2048);
+        assert_eq!(BlockSize::ZERO.bytes(), CHUNK_SIZE);
+        assert_eq!(BlockSize::DEFAULT.bytes(), CHUNK_SIZE * 4);
+        assert_eq!(BlockSize::from_chunk_log(1).bytes(), CHUNK_SIZE * 2);
     }
 
     #[test]
     fn block_size_from_bytes() {
-        assert_eq!(BlockSize::from_bytes(1024), Some(BlockSize::ZERO));
-        assert_eq!(BlockSize::from_bytes(16384), Some(BlockSize::DEFAULT));
+        assert_eq!(BlockSize::from_bytes(CHUNK_SIZE as u64), Some(BlockSize::ZERO));
+        assert_eq!(BlockSize::from_bytes(CHUNK_SIZE as u64 * 4), Some(BlockSize::DEFAULT));
         assert_eq!(BlockSize::from_bytes(512), None);
         assert_eq!(BlockSize::from_bytes(3000), None);
     }
 
     #[test]
     fn bao_tree_basic() {
-        let tree = BaoTree::new(1024, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64, BlockSize::ZERO);
         assert_eq!(tree.chunks(), ChunkNum(1));
         assert_eq!(tree.blocks(), 1);
         assert_eq!(tree.outboard_size(), 0);
@@ -808,7 +811,7 @@ mod tests {
 
     #[test]
     fn bao_tree_two_blocks() {
-        let tree = BaoTree::new(2048, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
         assert_eq!(tree.chunks(), ChunkNum(2));
         assert_eq!(tree.blocks(), 2);
         assert_eq!(tree.outboard_size(), PAIR_SIZE as u64); // one parent pair
@@ -830,22 +833,22 @@ mod tests {
 
     #[test]
     fn pre_order_single_block() {
-        let tree = BaoTree::new(1024, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64, BlockSize::ZERO);
         let chunks = tree.pre_order_chunks();
         assert_eq!(chunks.len(), 1);
         assert!(matches!(
             chunks[0],
             BaoChunk::Leaf {
                 start_chunk: 0,
-                size: 1024,
+                size,
                 is_root: true,
-            }
+            } if size == CHUNK_SIZE
         ));
     }
 
     #[test]
     fn pre_order_two_blocks() {
-        let tree = BaoTree::new(2048, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
         let chunks = tree.pre_order_chunks();
         // Should be: Parent(root), Leaf(0), Leaf(1)
         assert_eq!(chunks.len(), 3);
@@ -870,7 +873,7 @@ mod tests {
 
     #[test]
     fn post_order_two_blocks() {
-        let tree = BaoTree::new(2048, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
         let chunks = tree.post_order_chunks();
         // Should be: Leaf(0), Leaf(1), Parent(root)
         assert_eq!(chunks.len(), 3);
@@ -895,7 +898,7 @@ mod tests {
 
     #[test]
     fn pre_order_four_blocks() {
-        let tree = BaoTree::new(4096, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
         let chunks = tree.pre_order_chunks();
         // Root parent, left parent, leaf 0, leaf 1, right parent, leaf 2, leaf 3
         assert_eq!(chunks.len(), 7);

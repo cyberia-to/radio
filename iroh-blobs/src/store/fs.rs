@@ -378,7 +378,7 @@ impl SyncEntityApi for HashContext {
 
 impl HashContext {
     /// The outboard for the file.
-    pub fn outboard(&self) -> io::Result<PreOrderOutboard<cyber_poseidon2::Hash, OutboardReader>> {
+    pub fn outboard(&self) -> io::Result<PreOrderOutboard<hemera::Hash, OutboardReader>> {
         let tree = BaoTree::new(self.current_size()?, IROH_BLOCK_SIZE);
         let outboard = self.outboard_reader();
         Ok(PreOrderOutboard {

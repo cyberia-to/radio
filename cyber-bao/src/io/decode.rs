@@ -5,7 +5,7 @@
 //! rejected immediately.
 
 use crate::hash::HashBackend;
-use crate::tree::{BaoChunk, BaoTree, BlockSize};
+use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
 
 /// Error during decoding / verification.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -150,11 +150,11 @@ fn hash_block_for_verify<B: HashBackend>(
     let mut offset = 0usize;
     let mut counter = start_chunk;
     while offset < data.len() {
-        let end = (offset + 1024).min(data.len());
+        let end = (offset + CHUNK_SIZE).min(data.len());
         let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= 1024 && is_root;
+        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
         chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += 1024;
+        offset += CHUNK_SIZE;
         counter += 1;
     }
 
@@ -191,7 +191,7 @@ mod tests {
     #[test]
     fn decode_single_block() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 1024];
+        let data = vec![0x42u8; CHUNK_SIZE];
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         let decoded = decode(&backend, &encoded, &root, BlockSize::ZERO).unwrap();
         assert_eq!(decoded, data);
@@ -200,7 +200,7 @@ mod tests {
     #[test]
     fn decode_two_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         let decoded = decode(&backend, &encoded, &root, BlockSize::ZERO).unwrap();
         assert_eq!(decoded, data);
@@ -209,7 +209,7 @@ mod tests {
     #[test]
     fn decode_four_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0xABu8; 4096];
+        let data = vec![0xABu8; CHUNK_SIZE * 4];
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         let decoded = decode(&backend, &encoded, &root, BlockSize::ZERO).unwrap();
         assert_eq!(decoded, data);
@@ -235,7 +235,7 @@ mod tests {
     #[test]
     fn decode_wrong_root_fails() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (_, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         let wrong_root = backend.chunk_hash(b"wrong", 0, true);
         let result = decode(&backend, &encoded, &wrong_root, BlockSize::ZERO);
@@ -245,7 +245,7 @@ mod tests {
     #[test]
     fn decode_truncated_fails() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         let truncated = &encoded[..encoded.len() - 100];
         let result = decode(&backend, truncated, &root, BlockSize::ZERO);
@@ -255,7 +255,7 @@ mod tests {
     #[test]
     fn decode_tampered_data_fails() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (root, mut encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
         // Tamper with leaf data (after 8-byte header + parent hash pair)
         if encoded.len() > 144 {
@@ -268,7 +268,7 @@ mod tests {
     #[test]
     fn roundtrip_various_sizes() {
         let backend = Poseidon2Backend;
-        for size in [0, 1, 512, 1024, 1025, 2048, 3000, 4096, 5000, 8192] {
+        for size in [0, 1, 512, CHUNK_SIZE, CHUNK_SIZE + 1, CHUNK_SIZE * 2, CHUNK_SIZE * 3 - 1000, CHUNK_SIZE * 4, CHUNK_SIZE * 5 - 1000, CHUNK_SIZE * 8] {
             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
             let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
             let decoded = decode(&backend, &encoded, &root, BlockSize::ZERO).unwrap();
@@ -280,7 +280,7 @@ mod tests {
     fn roundtrip_block_size_nonzero() {
         let backend = Poseidon2Backend;
         let bs = BlockSize::from_chunk_log(1); // 2KB blocks
-        for size in [0, 1024, 2048, 3000, 4096, 8192, 10000] {
+        for size in [0, CHUNK_SIZE, CHUNK_SIZE * 2, CHUNK_SIZE * 3 - 1000, CHUNK_SIZE * 4, CHUNK_SIZE * 8, CHUNK_SIZE * 10] {
             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
             let (root, encoded) = encode::encode(&backend, &data, bs);
             let decoded = decode(&backend, &encoded, &root, bs).unwrap();
@@ -292,7 +292,7 @@ mod tests {
     fn roundtrip_block_size_default() {
         let backend = Poseidon2Backend;
         let bs = BlockSize::DEFAULT; // 16KiB blocks
-        for size in [0, 1024, 16384, 32768, 50000] {
+        for size in [0, CHUNK_SIZE, CHUNK_SIZE * 4, CHUNK_SIZE * 8, CHUNK_SIZE * 12] {
             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
             let (root, encoded) = encode::encode(&backend, &data, bs);
             let decoded = decode(&backend, &encoded, &root, bs).unwrap();

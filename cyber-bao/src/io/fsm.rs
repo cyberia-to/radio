@@ -7,12 +7,12 @@ use std::io;
 
 use smallvec::SmallVec;
 
-use cyber_poseidon2::OUTPUT_BYTES;
+use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
 use crate::io::content::{BaoContentItem, Leaf, Parent};
 use crate::io::error::DecodeError;
-use crate::tree::{BaoChunk, BaoTree, ChunkNum, TreeNode};
+use crate::tree::{BaoChunk, BaoTree, ChunkNum, TreeNode, CHUNK_SIZE};
 use crate::ChunkRanges;
 
 /// Size of a hash pair (two hashes concatenated).
@@ -24,7 +24,7 @@ pub trait OutboardMut: Sized {
     fn save(
         &mut self,
         node: TreeNode,
-        hash_pair: &(cyber_poseidon2::Hash, cyber_poseidon2::Hash),
+        hash_pair: &(hemera::Hash, hemera::Hash),
     ) -> impl std::future::Future<Output = io::Result<()>> + '_;
 
     /// Flush pending writes.
@@ -32,11 +32,11 @@ pub trait OutboardMut: Sized {
 }
 
 /// Implements async OutboardMut for any sync OutboardMut.
-impl<T: crate::io::traits::OutboardMut<Hash = cyber_poseidon2::Hash>> OutboardMut for T {
+impl<T: crate::io::traits::OutboardMut<Hash = hemera::Hash>> OutboardMut for T {
     fn save(
         &mut self,
         node: TreeNode,
-        hash_pair: &(cyber_poseidon2::Hash, cyber_poseidon2::Hash),
+        hash_pair: &(hemera::Hash, hemera::Hash),
     ) -> impl std::future::Future<Output = io::Result<()>> + '_ {
         let result = crate::io::traits::OutboardMut::save(self, node, hash_pair);
         std::future::ready(result)
@@ -55,7 +55,7 @@ pub enum ResponseDecoderNext<R> {
     More(
         (
             ResponseDecoder<R>,
-            Result<BaoContentItem<cyber_poseidon2::Hash>, DecodeError>,
+            Result<BaoContentItem<hemera::Hash>, DecodeError>,
         ),
     ),
     /// Decoding is complete.
@@ -71,10 +71,10 @@ pub struct ResponseDecoder<R> {
 }
 
 struct ResponseDecoderInner<R> {
-    hash: cyber_poseidon2::Hash,
+    hash: hemera::Hash,
     tree: BaoTree,
     encoded: R,
-    stack: SmallVec<[cyber_poseidon2::Hash; 10]>,
+    stack: SmallVec<[hemera::Hash; 10]>,
     /// Pre-computed list of chunks to iterate (filtered by ranges)
     items: Vec<BaoChunk>,
     /// Current position in the items list
@@ -96,7 +96,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
     ///
     /// Only items matching the requested ranges will be read from the stream.
     pub fn new(
-        hash: cyber_poseidon2::Hash,
+        hash: hemera::Hash,
         ranges: ChunkRanges,
         tree: BaoTree,
         encoded: R,
@@ -123,7 +123,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
     }
 
     /// Get the root hash.
-    pub fn hash(&self) -> &cyber_poseidon2::Hash {
+    pub fn hash(&self) -> &hemera::Hash {
         &self.inner.hash
     }
 
@@ -142,7 +142,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
 
     async fn next0(
         &mut self,
-    ) -> Option<Result<BaoContentItem<cyber_poseidon2::Hash>, DecodeError>> {
+    ) -> Option<Result<BaoContentItem<hemera::Hash>, DecodeError>> {
         let inner = &mut self.inner;
         if inner.pos >= inner.items.len() {
             // Final length validation: decoded bytes must not exceed tree size
@@ -169,9 +169,9 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
                 };
 
                 let left =
-                    cyber_poseidon2::Hash::from_bytes(pair_buf[..OUTPUT_BYTES].try_into().unwrap());
+                    hemera::Hash::from_bytes(pair_buf[..OUTPUT_BYTES].try_into().unwrap());
                 let right =
-                    cyber_poseidon2::Hash::from_bytes(pair_buf[OUTPUT_BYTES..].try_into().unwrap());
+                    hemera::Hash::from_bytes(pair_buf[OUTPUT_BYTES..].try_into().unwrap());
 
                 let computed = backend.parent_hash(&left, &right, is_root);
                 let expected = match inner.stack.pop() {
@@ -229,7 +229,7 @@ impl<R: iroh_io::AsyncStreamReader> ResponseDecoder<R> {
 
                 inner.decoded_bytes += leaf_data.len() as u64;
 
-                let offset = start_chunk * 1024;
+                let offset = start_chunk * CHUNK_SIZE as u64;
                 Some(Ok(BaoContentItem::Leaf(Leaf {
                     offset,
                     data: leaf_data,
@@ -252,10 +252,10 @@ mod tests {
     #[tokio::test]
     async fn fsm_decode_two_blocks() {
         let backend = Poseidon2Backend;
-        let data = vec![0x42u8; 2048];
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
 
-        let tree = BaoTree::new(2048, BlockSize::ZERO);
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
         let encoded_bytes = Bytes::from(encoded[8..].to_vec());
         let decoder =
             ResponseDecoder::new(root, ChunkRanges::all(), tree, encoded_bytes);
@@ -283,11 +283,11 @@ mod tests {
     #[tokio::test]
     async fn fsm_decode_with_range_filter() {
         let backend = Poseidon2Backend;
-        let data: Vec<u8> = (0..4096).map(|i| (i % 256) as u8).collect();
+        let data: Vec<u8> = (0..CHUNK_SIZE * 4).map(|i| (i % 256) as u8).collect();
         let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
 
-        let tree = BaoTree::new(4096, BlockSize::ZERO);
-        // Only request chunk 0 (first 1024 bytes)
+        let tree = BaoTree::new(CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
+        // Only request chunk 0 (first CHUNK_SIZE bytes)
         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(1));
 
         // Build the encoded stream for just this range using sync encoder
@@ -316,7 +316,7 @@ mod tests {
                 ResponseDecoderNext::Done(_) => break,
             }
         }
-        assert_eq!(leaf_data.len(), 1024);
-        assert_eq!(leaf_data, data[..1024]);
+        assert_eq!(leaf_data.len(), CHUNK_SIZE);
+        assert_eq!(leaf_data, data[..CHUNK_SIZE]);
     }
 }

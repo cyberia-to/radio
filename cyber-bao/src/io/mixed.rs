@@ -12,7 +12,7 @@ use crate::hash::HashBackend;
 use crate::io::content::{Leaf, Parent};
 use crate::io::error::EncodeError;
 use crate::io::traits::{Outboard, ReadBytesAt};
-use crate::tree::{BaoChunk, BaoTree, ChunkNum};
+use crate::tree::{BaoChunk, BaoTree, ChunkNum, CHUNK_SIZE};
 use crate::ChunkRanges;
 
 /// An item in the encoded BAO stream.
@@ -22,7 +22,7 @@ pub enum EncodedItem {
     /// The total size of the blob.
     Size(u64),
     /// A parent hash pair.
-    Parent(Parent<cyber_poseidon2::Hash>),
+    Parent(Parent<hemera::Hash>),
     /// A leaf data chunk.
     Leaf(Leaf),
     /// An encoding error occurred.
@@ -58,7 +58,7 @@ pub async fn traverse_ranges_validated<D, O, S>(
 ) -> Result<(), S::Error>
 where
     D: ReadBytesAt,
-    O: Outboard<Hash = cyber_poseidon2::Hash>,
+    O: Outboard<Hash = hemera::Hash>,
     S: Sender,
 {
     let tree = outboard.tree();
@@ -80,14 +80,14 @@ async fn traverse_impl<D, O, S>(
 ) -> Result<Result<(), EncodeError>, S::Error>
 where
     D: ReadBytesAt,
-    O: Outboard<Hash = cyber_poseidon2::Hash>,
+    O: Outboard<Hash = hemera::Hash>,
     S: Sender,
 {
     use crate::hash::Poseidon2Backend;
     let backend = Poseidon2Backend;
 
     let pre_order = tree.pre_order_chunks_filtered(ranges);
-    let mut stack: SmallVec<[cyber_poseidon2::Hash; 10]> = SmallVec::new();
+    let mut stack: SmallVec<[hemera::Hash; 10]> = SmallVec::new();
     stack.push(outboard.root());
 
     let block_size = tree.block_size();
@@ -129,7 +129,7 @@ where
                 size,
                 is_root,
             } => {
-                let byte_start = *start_chunk * 1024;
+                let byte_start = *start_chunk * CHUNK_SIZE as u64;
                 let leaf_data = match data.read_bytes_at(byte_start, *size) {
                     Ok(d) => d,
                     Err(e) => return Ok(Err(EncodeError::Io(e))),
