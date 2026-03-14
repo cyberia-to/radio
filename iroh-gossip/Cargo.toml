@@ -18,7 +18,7 @@ crate-type = ["cdylib", "rlib"]
 workspace = true
 
 [dependencies]
-hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
+hemera = { package = "cyber-hemera", version = "0.1" }
 bytes = { version = "1.7", features = ["serde"] }
 data-encoding = "2.6.0"
 derive_more = { version = "2.0.1", features = [

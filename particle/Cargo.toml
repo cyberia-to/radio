@@ -14,5 +14,5 @@ name = "particle"
 path = "src/main.rs"
 
 [dependencies]
-hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
+hemera = { package = "cyber-hemera", version = "0.1" }
 cyber-bao = { path = "../cyber-bao" }

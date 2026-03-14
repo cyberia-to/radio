@@ -10,7 +10,7 @@ rust-version = "1.89"
 workspace = true
 
 [dependencies]
-hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
+hemera = { package = "cyber-hemera", version = "0.1" }
 bytes = "1"
 smallvec = { version = "1", features = ["const_new"] }
 range-collections = { version = "0.4", features = ["serde", "new_unchecked"] }
