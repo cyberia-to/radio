@@ -5,9 +5,9 @@ members = [
   "iroh",
   "iroh/bench",
   "iroh-relay",
-  "cyber-poseidon2",
+
   "cyber-bao",
-  "cyber-hash",
+  "particle",
   "iroh-blobs",
   "iroh-gossip",
   "iroh-docs",

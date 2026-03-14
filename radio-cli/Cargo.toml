@@ -18,7 +18,7 @@ tokio = { version = "1", features = ["full"] }
 iroh = { path = "../iroh" }
 iroh-blobs = { path = "../iroh-blobs" }
 iroh-gossip = { path = "../iroh-gossip" }
-cyber-poseidon2 = { path = "../cyber-poseidon2" }
+hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
 cyber-bao = { path = "../cyber-bao" }
 anyhow = "1"
 futures-lite = "2"

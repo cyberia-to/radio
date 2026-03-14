@@ -10,7 +10,7 @@ iroh-base = { path = "../../iroh-base" }
 iroh-blobs = { path = "../../iroh-blobs" }
 iroh-gossip = { path = "../../iroh-gossip" }
 iroh-docs = { path = "../../iroh-docs" }
-cyber-poseidon2 = { path = "../../cyber-poseidon2" }
+hemera = { git = "https://github.com/cyberia-to/hemera", branch = "main" }
 cyber-bao = { path = "../../cyber-bao" }
 
 tokio = { version = "1", features = ["full"] }
