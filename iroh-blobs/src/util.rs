@@ -245,7 +245,7 @@ pub(crate) mod outboard_with_progress {
         right_child: &hemera::Hash,
         is_root: bool,
     ) -> hemera::Hash {
-        hemera::hazmat::parent_cv(left_child, right_child, is_root)
+        hemera::tree::parent_cv(left_child, right_child, is_root)
     }
 
     pub async fn init_outboard<R, W, P>(

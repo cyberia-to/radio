@@ -52,11 +52,11 @@ impl HashBackend for Poseidon2Backend {
     type Hash = Hash;
 
     fn chunk_hash(&self, data: &[u8], counter: u64, is_root: bool) -> Hash {
-        hemera::hazmat::chunk_cv(data, counter, is_root)
+        hemera::tree::chunk_cv(data, counter, is_root)
     }
 
     fn parent_hash(&self, left: &Hash, right: &Hash, is_root: bool) -> Hash {
-        hemera::hazmat::parent_cv(left, right, is_root)
+        hemera::tree::parent_cv(left, right, is_root)
     }
 
     fn hash_size(&self) -> usize {
