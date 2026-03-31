@@ -20,18 +20,18 @@ use crate::{
     zerocopy_derive::FromZeroes,
 )]
 #[repr(transparent)]
-pub struct Fingerprint(pub [u8; 64]);
+pub struct Fingerprint(pub [u8; 32]);
 
 impl Default for Fingerprint {
     fn default() -> Self {
-        Self([0u8; 64])
+        Self([0u8; 32])
     }
 }
 
 impl Serialize for Fingerprint {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         use serde::ser::SerializeTuple;
-        let mut seq = serializer.serialize_tuple(64)?;
+        let mut seq = serializer.serialize_tuple(32)?;
         for byte in &self.0 {
             seq.serialize_element(byte)?;
         }
@@ -45,24 +45,24 @@ impl<'de> Deserialize<'de> for Fingerprint {
         impl<'de> serde::de::Visitor<'de> for Visitor {
             type Value = Fingerprint;
             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                write!(f, "64 bytes")
+                write!(f, "32 bytes")
             }
             fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<Fingerprint, A::Error> {
-                let mut bytes = [0u8; 64];
+                let mut bytes = [0u8; 32];
                 for (i, byte) in bytes.iter_mut().enumerate() {
                     *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
                 }
                 Ok(Fingerprint(bytes))
             }
         }
-        deserializer.deserialize_tuple(64, Visitor)
+        deserializer.deserialize_tuple(32, Visitor)
     }
 }
 
 impl Fingerprint {
     pub(crate) fn lift_stored_entry(
         key: &PointRef<IrohWillowParams>,
-        payload_digest: &[u8; 64],
+        payload_digest: &[u8; 32],
         payload_size: u64,
     ) -> Self {
         let mut hasher = hemera::Hasher::new();
@@ -92,7 +92,7 @@ impl FixedSize for Fingerprint {
 
 impl LiftingCommutativeMonoid<PointRef<IrohWillowParams>, StoredAuthorisedEntry> for Fingerprint {
     fn neutral() -> Self {
-        Self([0u8; 64])
+        Self([0u8; 32])
     }
 
     fn lift(key: &PointRef<IrohWillowParams>, value: &StoredAuthorisedEntry) -> Self {

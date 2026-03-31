@@ -14,7 +14,7 @@ rust-version = "1.89"
 [dependencies]
 anyhow = "1"
 async-channel = "2.3.1"
-hemera = { package = "cyber-hemera", version = "0.1" }
+hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 bytes = { version = "1.7", features = ["serde"] }
 derive_more = { version = "2.0.1", features = [
     "debug",

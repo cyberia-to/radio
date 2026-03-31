@@ -16,7 +16,7 @@ pub struct ChallengeHash(
 impl Serialize for ChallengeHash {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         use serde::ser::SerializeTuple;
-        let mut seq = serializer.serialize_tuple(64)?;
+        let mut seq = serializer.serialize_tuple(32)?;
         for byte in &self.0 {
             seq.serialize_element(byte)?;
         }
@@ -30,17 +30,17 @@ impl<'de> Deserialize<'de> for ChallengeHash {
         impl<'de> serde::de::Visitor<'de> for Visitor {
             type Value = ChallengeHash;
             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                write!(f, "64 bytes")
+                write!(f, "32 bytes")
             }
             fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<ChallengeHash, A::Error> {
-                let mut bytes = [0u8; 64];
+                let mut bytes = [0u8; 32];
                 for (i, byte) in bytes.iter_mut().enumerate() {
                     *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
                 }
                 Ok(ChallengeHash(bytes))
             }
         }
-        deserializer.deserialize_tuple(64, Visitor)
+        deserializer.deserialize_tuple(32, Visitor)
     }
 }
 

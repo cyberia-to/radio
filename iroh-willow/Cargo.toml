@@ -40,7 +40,7 @@ futures-util = "0.3.30"
 genawaiter = "0.99.1"
 hex = "0.4.3"
 iroh-base = { version = "0.96" }
-hemera = { package = "cyber-hemera", version = "0.1" }
+hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 iroh-blobs = { version = "0.98" }
 iroh-metrics = { version = "0.38", default-features = false, optional = true }
 iroh = { version = "0.96" }
