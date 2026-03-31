@@ -60,7 +60,7 @@ enum HashAction {
     Verify {
         /// File to verify
         file: PathBuf,
-        /// Expected hash (128 hex chars)
+        /// Expected hash (64 hex chars)
         hash: String,
     },
     /// BAO encode a file (writes to stdout)
@@ -72,7 +72,7 @@ enum HashAction {
     BaoDecode {
         /// Encoded file
         file: PathBuf,
-        /// Root hash (128 hex chars)
+        /// Root hash (64 hex chars)
         hash: String,
     },
     /// Print outboard hash tree info
@@ -240,10 +240,10 @@ fn cmd_hash(action: HashAction) -> Result<()> {
 
 fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
     let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
-    if bytes.len() != 64 {
-        bail!("hash must be 64 bytes (128 hex chars), got {} bytes", bytes.len());
+    if bytes.len() != 32 {
+        bail!("hash must be 32 bytes (64 hex chars), got {} bytes", bytes.len());
     }
-    let mut arr = [0u8; 64];
+    let mut arr = [0u8; 32];
     arr.copy_from_slice(&bytes);
     Ok(hemera::Hash::from_bytes(arr))
 }
@@ -332,10 +332,10 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
         }
         BlobAction::Get { hash, peer, out } => {
             let hash_bytes = hex_to_bytes(&hash)?;
-            if hash_bytes.len() != 64 {
-                bail!("blob hash must be 64 bytes (128 hex chars)");
+            if hash_bytes.len() != 32 {
+                bail!("blob hash must be 32 bytes (64 hex chars)");
             }
-            let mut arr = [0u8; 64];
+            let mut arr = [0u8; 32];
             arr.copy_from_slice(&hash_bytes);
             let blob_hash = Hash::from_bytes(arr);
 

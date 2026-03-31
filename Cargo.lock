@@ -1085,7 +1085,7 @@ name = "cyber-bao"
 version = "0.1.0"
 dependencies = [
  "bytes",
- "cyber-hemera",
+ "cyber-hemera 0.2.0",
  "genawaiter",
  "iroh-io",
  "proptest",
@@ -1106,6 +1106,12 @@ dependencies = [
  "p3-poseidon2",
  "p3-symmetric",
  "rand 0.9.2",
+]
+
+[[package]]
+name = "cyber-hemera"
+version = "0.2.0"
+dependencies = [
  "serde",
 ]
 
@@ -2636,7 +2642,7 @@ dependencies = [
  "clap",
  "concat_const",
  "cyber-bao",
- "cyber-hemera",
+ "cyber-hemera 0.2.0",
  "data-encoding",
  "derive_more 2.1.1",
  "futures-lite",
@@ -2757,7 +2763,7 @@ dependencies = [
  "anyhow",
  "async-channel",
  "bytes",
- "cyber-hemera",
+ "cyber-hemera 0.1.0",
  "data-encoding",
  "derive_more 2.1.1",
  "ed25519-dalek 3.0.0-pre.1",
@@ -2806,7 +2812,7 @@ dependencies = [
  "bytes",
  "clap",
  "comfy-table",
- "cyber-hemera",
+ "cyber-hemera 0.1.0",
  "data-encoding",
  "derive_more 2.1.1",
  "ed25519-dalek 3.0.0-pre.1",
@@ -2952,7 +2958,7 @@ dependencies = [
  "bytes",
  "cfg_aliases",
  "clap",
- "cyber-hemera",
+ "cyber-hemera 0.1.0",
  "dashmap",
  "data-encoding",
  "derive_more 2.1.1",
@@ -3053,7 +3059,7 @@ dependencies = [
  "anyhow",
  "bytes",
  "curve25519-dalek 4.1.3",
- "cyber-hemera",
+ "cyber-hemera 0.1.0",
  "data-encoding",
  "derive_more 1.0.0",
  "ed25519-dalek 2.2.0",
@@ -4181,7 +4187,7 @@ name = "particle"
 version = "0.1.0"
 dependencies = [
  "cyber-bao",
- "cyber-hemera",
+ "cyber-hemera 0.2.0",
 ]
 
 [[package]]
@@ -4632,7 +4638,7 @@ dependencies = [
  "bytes",
  "clap",
  "cyber-bao",
- "cyber-hemera",
+ "cyber-hemera 0.2.0",
  "data-encoding",
  "futures-lite",
  "iroh",
@@ -4650,7 +4656,7 @@ dependencies = [
  "anyhow",
  "bytes",
  "cyber-bao",
- "cyber-hemera",
+ "cyber-hemera 0.1.0",
  "futures-util",
  "iroh",
  "iroh-base 0.96.1",

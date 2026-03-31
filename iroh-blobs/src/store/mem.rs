@@ -881,19 +881,19 @@ impl Outboard for OutboardReader {
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(None);
         };
-        let mut buf = [0u8; 128];
+        let mut buf = [0u8; 64];
         let size = self
             .data
             .0
             .state
             .borrow()
             .outboard()
-            .read_at(offset * 128, &mut buf)?;
-        if size != 128 {
+            .read_at(offset * 64, &mut buf)?;
+        if size != 64 {
             return Err(io::Error::new(io::ErrorKind::UnexpectedEof, "short read"));
         }
-        let left: [u8; 64] = buf[..64].try_into().unwrap();
-        let right: [u8; 64] = buf[64..].try_into().unwrap();
+        let left: [u8; 32] = buf[..32].try_into().unwrap();
+        let right: [u8; 32] = buf[32..].try_into().unwrap();
         Ok(Some((left.into(), right.into())))
     }
 }

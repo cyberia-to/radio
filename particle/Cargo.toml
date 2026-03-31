@@ -14,5 +14,5 @@ name = "particle"
 path = "src/main.rs"
 
 [dependencies]
-hemera = { package = "cyber-hemera", version = "0.1" }
+hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 cyber-bao = { path = "../cyber-bao" }
