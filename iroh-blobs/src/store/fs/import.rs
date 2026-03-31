@@ -379,7 +379,7 @@ async fn compute_outboard(
     let size = source.size();
     let tree = BaoTree::new(size, IROH_BLOCK_SIZE);
     // Placeholder root — will be overwritten by init_outboard with the actual Poseidon2 hash.
-    let root = hemera::Hash::from_bytes([0; 64]);
+    let root = hemera::Hash::from_bytes([0; 32]);
     let outboard_size = raw_outboard_size(size);
     let send_progress = OutboardProgress::ref_cast_mut(tx);
     let mut data = source.read();

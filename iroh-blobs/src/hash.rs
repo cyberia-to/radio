@@ -110,14 +110,14 @@ impl From<[u8; OUTPUT_BYTES]> for Hash {
     }
 }
 
-impl From<Hash> for [u8; 64] {
+impl From<Hash> for [u8; 32] {
     fn from(value: Hash) -> Self {
         *value.as_bytes()
     }
 }
 
-impl From<&[u8; 64]> for Hash {
-    fn from(value: &[u8; 64]) -> Self {
+impl From<&[u8; 32]> for Hash {
+    fn from(value: &[u8; 32]) -> Self {
         Hash(hemera::Hash::from(*value))
     }
 }
@@ -157,17 +157,17 @@ impl FromStr for Hash {
     type Err = HexOrBase32ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let mut bytes = [0u8; 64];
+        let mut bytes = [0u8; 32];
 
-        let res = if s.len() == 128 {
-            // hex (64 bytes = 128 hex chars)
+        let res = if s.len() == 64 {
+            // hex (32 bytes = 64 hex chars)
             data_encoding::HEXLOWER.decode_mut(s.as_bytes(), &mut bytes)
         } else {
             data_encoding::BASE32_NOPAD.decode_mut(s.to_ascii_uppercase().as_bytes(), &mut bytes)
         };
         match res {
             Ok(len) => {
-                if len != 64 {
+                if len != 32 {
                     return Err(e!(HexOrBase32ParseError::DecodeInvalidLength));
                 }
             }
@@ -185,7 +185,7 @@ impl Serialize for Hash {
         if serializer.is_human_readable() {
             serializer.serialize_str(self.to_string().as_str())
         } else {
-            // Delegate to hemera::Hash's custom serde (tuple of 64 bytes)
+            // Delegate to hemera::Hash's custom serde (tuple of 32 bytes)
             self.0.serialize(serializer)
         }
     }
@@ -208,7 +208,7 @@ impl<'de> Deserialize<'de> for Hash {
 }
 
 impl MaxSize for Hash {
-    const POSTCARD_MAX_SIZE: usize = 64;
+    const POSTCARD_MAX_SIZE: usize = 32;
 }
 
 /// A format identifier
@@ -296,17 +296,17 @@ mod redb_support {
     impl RedbValue for Hash {
         type SelfType<'a> = Self;
 
-        type AsBytes<'a> = &'a [u8; 64];
+        type AsBytes<'a> = &'a [u8; 32];
 
         fn fixed_width() -> Option<usize> {
-            Some(64)
+            Some(32)
         }
 
         fn from_bytes<'a>(data: &'a [u8]) -> Self::SelfType<'a>
         where
             Self: 'a,
         {
-            let contents: &'a [u8; 64] = data.try_into().unwrap();
+            let contents: &'a [u8; 32] = data.try_into().unwrap();
             (*contents).into()
         }
 
@@ -351,7 +351,7 @@ mod redb_support {
             Self: 'a,
             Self: 'b,
         {
-            let mut res = [0u8; 65];
+            let mut res = [0u8; 33];
             postcard::to_slice(&value, &mut res).unwrap();
             res
         }
@@ -387,7 +387,7 @@ impl HashAndFormat {
 
 impl fmt::Display for HashAndFormat {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let mut slice = [0u8; 129];
+        let mut slice = [0u8; 65];
         hex::encode_to_slice(self.hash.as_bytes(), &mut slice[1..]).unwrap();
         match self.format {
             BlobFormat::Raw => {
@@ -406,13 +406,13 @@ impl FromStr for HashAndFormat {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let s = s.as_bytes();
-        let mut hash = [0u8; 64];
+        let mut hash = [0u8; 32];
         match s.len() {
-            128 => {
+            64 => {
                 hex::decode_to_slice(s, &mut hash).anyerr()?;
                 Ok(Self::raw(hash.into()))
             }
-            129 if s[0].eq_ignore_ascii_case(&b's') => {
+            65 if s[0].eq_ignore_ascii_case(&b's') => {
                 hex::decode_to_slice(&s[1..], &mut hash).anyerr()?;
                 Ok(Self::hash_seq(hash.into()))
             }
@@ -491,9 +491,9 @@ mod tests {
 
     #[test]
     fn hash_wire_format() {
-        let hash = Hash::from([0xab; 64]);
+        let hash = Hash::from([0xab; 32]);
         let serialized = postcard::to_stdvec(&hash).unwrap();
-        assert_eq!(serialized.len(), 64);
+        assert_eq!(serialized.len(), 32);
         assert!(serialized.iter().all(|&b| b == 0xab));
     }
 
@@ -501,15 +501,15 @@ mod tests {
     #[test]
     fn hash_redb() {
         use redb::Value as RedbValue;
-        let bytes: [u8; 64] = {
-            let mut b = [0u8; 64];
+        let bytes: [u8; 32] = {
+            let mut b = [0u8; 32];
             for (i, v) in b.iter_mut().enumerate() {
                 *v = (i % 256) as u8;
             }
             b
         };
         let hash = Hash::from(bytes);
-        assert_eq!(<Hash as RedbValue>::fixed_width(), Some(64));
+        assert_eq!(<Hash as RedbValue>::fixed_width(), Some(32));
         assert_eq!(
             <Hash as RedbValue>::type_name(),
             redb::TypeName::new("iroh_blobs::Hash")
@@ -524,8 +524,8 @@ mod tests {
     #[test]
     fn hash_and_format_redb() {
         use redb::Value as RedbValue;
-        let hash_bytes: [u8; 64] = {
-            let mut b = [0u8; 64];
+        let hash_bytes: [u8; 32] = {
+            let mut b = [0u8; 32];
             for (i, v) in b.iter_mut().enumerate() {
                 *v = (i % 256) as u8;
             }
@@ -533,7 +533,7 @@ mod tests {
         };
         let hash = Hash::from(hash_bytes);
         let haf = HashAndFormat::raw(hash);
-        assert_eq!(<HashAndFormat as RedbValue>::fixed_width(), Some(65));
+        assert_eq!(<HashAndFormat as RedbValue>::fixed_width(), Some(33));
         assert_eq!(
             <HashAndFormat as RedbValue>::type_name(),
             redb::TypeName::new("iroh_blobs::HashAndFormat")
@@ -547,14 +547,14 @@ mod tests {
     fn test_hash_serde() {
         let hash = Hash::new("hello");
 
-        // Hashes are serialized as 64-element tuples
+        // Hashes are serialized as 32-element tuples
         let mut tokens = Vec::new();
-        tokens.push(Token::Tuple { len: 64 });
+        tokens.push(Token::Tuple { len: 32 });
         for byte in hash.as_bytes() {
             tokens.push(Token::U8(*byte));
         }
         tokens.push(Token::TupleEnd);
-        assert_eq!(tokens.len(), 66);
+        assert_eq!(tokens.len(), 34);
 
         assert_tokens(&hash.compact(), &tokens);
 
@@ -571,7 +571,7 @@ mod tests {
         let de = postcard::from_bytes(&ser).unwrap();
         assert_eq!(hash, de);
 
-        assert_eq!(ser.len(), 64);
+        assert_eq!(ser.len(), 32);
     }
 
     #[test]
@@ -580,8 +580,8 @@ mod tests {
         let ser = serde_json::to_string(&hash).unwrap();
         let de = serde_json::from_str(&ser).unwrap();
         assert_eq!(hash, de);
-        // 128 hex chars + 2 quotes
-        assert_eq!(ser.len(), 130);
+        // 64 hex chars + 2 quotes
+        assert_eq!(ser.len(), 66);
     }
 
     #[test]
