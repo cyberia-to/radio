@@ -25,7 +25,7 @@ use super::{
 
 /// A message identifier, which is the message content's Poseidon2 hash.
 #[derive(Clone, Hash, Copy, PartialEq, Eq)]
-pub struct MessageId([u8; 64]);
+pub struct MessageId([u8; 32]);
 
 impl MaxSize for MessageId {
     const POSTCARD_MAX_SIZE: usize = 64;
@@ -48,20 +48,20 @@ impl<'de> Deserialize<'de> for MessageId {
         impl<'de> serde::de::Visitor<'de> for Visitor {
             type Value = MessageId;
             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                write!(f, "64 bytes")
+                write!(f, "32 bytes")
             }
             fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<MessageId, A::Error> {
-                let mut bytes = [0u8; 64];
+                let mut bytes = [0u8; 32];
                 for (i, byte) in bytes.iter_mut().enumerate() {
                     *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
                 }
                 Ok(MessageId(bytes))
             }
         }
-        deserializer.deserialize_tuple(64, Visitor)
+        deserializer.deserialize_tuple(32, Visitor)
     }
 }
-idbytes_impls!(MessageId, "MessageId", 64);
+idbytes_impls!(MessageId, "MessageId", 32);
 
 impl MessageId {
     /// Create a `[MessageId]` by hashing the message content.

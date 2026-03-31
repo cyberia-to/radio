@@ -329,7 +329,7 @@ pub(crate) mod outboard_with_progress {
             for size in [1024 * 18 + 1] {
                 let data = test_data(size);
                 let mut o1 = PreOrderOutboard::<hemera::Hash, Vec<u8>> {
-                    root: hemera::Hash::from([0u8; 64]),
+                    root: hemera::Hash::from([0u8; 32]),
                     tree: BaoTree::new(data.len() as u64, IROH_BLOCK_SIZE),
                     data: Vec::new(),
                 };

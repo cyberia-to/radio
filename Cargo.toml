@@ -61,5 +61,6 @@ iroh-blobs = { path = "iroh-blobs" }
 iroh-gossip = { path = "iroh-gossip" }
 iroh-relay = { path = "iroh-relay" }
 willow-data-model = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
+cyber-hemera = { path = "../hemera/rs" }
 willow-encoding = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
 meadowcap = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }

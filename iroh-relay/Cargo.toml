@@ -89,7 +89,7 @@ serde_json = { version = "1", optional = true }
 tracing-subscriber = { version = "0.3", features = [
     "env-filter",
 ], optional = true }
-hemera = { package = "cyber-hemera", version = "0.1" }
+hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 serde_bytes = "0.11.17"
 
 # non-wasm-in-browser dependencies
