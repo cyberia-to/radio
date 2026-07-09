@@ -104,7 +104,7 @@ jobs:
     runs-on: [self-hosted, linux, X64]
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         submodules: recursive
         ref: ${{ inputs.branch }}
@@ -113,7 +113,7 @@ jobs:
       uses: dtolnay/rust-toolchain@stable
 
     - name: Install sccache
-      uses: mozilla-actions/sccache-action@v0.0.9
+      uses: mozilla-actions/sccache-action@v0.0.10
 
     - name: Build iroh
       run: |
@@ -189,7 +189,7 @@ jobs:
     - name: Cache AWS CLI
       if: always()
       id: cache-awscli
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: ~/awscli
         key: awscli-${{ runner.os }}-${{ runner.arch }}-v2
@@ -227,7 +227,7 @@ jobs:
 
     - name: Upload report
       if: always()
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       id: upload-report
       with:
         name: netsim-report-${{ env.LAST_COMMIT_SHA }}
