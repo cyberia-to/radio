@@ -17,7 +17,7 @@ A content-addressed network where every hash is cheaply provable in zero knowled
 - Storage proofs that verify content availability without downloading it
 - Verified streaming where every chunk is authenticated against a Poseidon2 Merkle tree
 - Private collective computation over encrypted knowledge graphs (MPC, FHE)
-- Post-quantum security — STARKs rely on hash collision resistance only, no pairings
+- Post-quantum security — zheng proofs rely on hash collision resistance only, no pairings
 
 One hash everywhere. No "fast hash for data, ZK hash for proofs" split. The content identifier IS the proof-friendly identifier. Deduplication, verified streaming, and zero-knowledge proofs all operate on the same identity.
 
