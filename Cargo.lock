@@ -1136,7 +1136,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio"
-version = "0.96.1"
+version = "0.1.0"
 dependencies = [
  "axum",
  "backon",
@@ -1203,7 +1203,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-base"
-version = "0.96.1"
+version = "0.1.0"
 dependencies = [
  "curve25519-dalek 5.0.0-pre.1",
  "data-encoding",
@@ -1227,7 +1227,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-netwatch"
-version = "0.14.0"
+version = "0.1.0"
 dependencies = [
  "atomic-waker",
  "bytes",
@@ -1261,7 +1261,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-portmapper"
-version = "0.14.0"
+version = "0.1.0"
 dependencies = [
  "base64",
  "bytes",
@@ -1289,7 +1289,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-quinn"
-version = "0.16.1"
+version = "0.1.0"
 dependencies = [
  "bytes",
  "cfg_aliases",
@@ -1308,7 +1308,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-quinn-proto"
-version = "0.15.1"
+version = "0.1.0"
 dependencies = [
  "bytes",
  "derive_more 2.1.1",
@@ -1334,7 +1334,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-quinn-udp"
-version = "0.8.0"
+version = "0.1.0"
 dependencies = [
  "cfg_aliases",
  "libc",
@@ -1345,7 +1345,7 @@ dependencies = [
 
 [[package]]
 name = "cyber-radio-relay"
-version = "0.96.1"
+version = "0.1.0"
 dependencies = [
  "ahash",
  "bytes",

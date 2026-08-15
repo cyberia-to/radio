@@ -34,7 +34,7 @@ hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 bytes = "1"
 data-encoding = { version = "2.3.3" }
 iroh = { version = "0.35" }
-iroh-base = { package = "cyber-radio-base", version = "0.35", features = ["ticket"] }
+iroh-base = { package = "cyber-radio-base", version = "0.1", features = ["ticket"] }
 iroh-io = { version = "0.6" }
 iroh-gossip = { version = "0.35", features = ["rpc"] }
 iroh-docs = { version = "0.35", features = ["rpc"] }

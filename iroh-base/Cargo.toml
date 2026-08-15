@@ -1,6 +1,6 @@
 [package]
 name = "cyber-radio-base"
-version = "0.96.1"
+version = "0.1.0"
 edition = "2024"
 readme = "README.md"
 description = "radio (cyber transport) — base types; fork of iroh-base"

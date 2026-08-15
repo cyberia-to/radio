@@ -31,7 +31,7 @@ futures-buffered = "0.2.4"
 futures-lite = "2.3.0"
 futures-util = { version = "0.3.25" }
 hex = "0.4"
-iroh = { package = "cyber-radio", version = "0.96", path = "../iroh" }
+iroh = { package = "cyber-radio", version = "0.1", path = "../iroh" }
 iroh-tickets = { version = "0.2"}
 iroh-blobs = { version = "0.98" }
 iroh-gossip = { version = "0.96", features = ["net"] }
@@ -61,7 +61,7 @@ n0-error = "0.1.0"
 
 [dev-dependencies]
 data-encoding = "2.6.0"
-iroh = { package = "cyber-radio", version = "0.96", path = "../iroh", features = ["test-utils"] }
+iroh = { package = "cyber-radio", version = "0.1", path = "../iroh", features = ["test-utils"] }
 nested_enum_utils = "0.2"
 parking_lot = "0.12.3"
 proptest = "1.2.0"

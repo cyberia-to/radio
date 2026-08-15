@@ -1,0 +1,10 @@
+/Users/master/cyber/radio/nettools/target/debug/deps/iroh_quinn_udp-f7b6a1ac1ab59e69.d: /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/lib.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/mod.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/unix.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/unix.rs
+
+/Users/master/cyber/radio/nettools/target/debug/deps/libiroh_quinn_udp-f7b6a1ac1ab59e69.rlib: /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/lib.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/mod.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/unix.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/unix.rs
+
+/Users/master/cyber/radio/nettools/target/debug/deps/libiroh_quinn_udp-f7b6a1ac1ab59e69.rmeta: /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/lib.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/mod.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/unix.rs /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/unix.rs
+
+/Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/lib.rs:
+/Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/mod.rs:
+/Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/cmsg/unix.rs:
+/Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cyber-radio-quinn-udp-0.1.0/src/unix.rs:
