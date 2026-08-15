@@ -9,7 +9,7 @@
 //!
 //! In the past we've hit relay rate-limits from all the tests in our CI, but I expect
 //! we won't hit these with only this integration test.
-use iroh::{
+use radio::{
     Endpoint, RelayMode,
     address_lookup::{AddressLookup, pkarr::PkarrResolver},
 };

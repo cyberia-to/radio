@@ -2,7 +2,7 @@ use std::{env, str::FromStr, time::Instant};
 
 use clap::Parser;
 use data_encoding::HEXLOWER;
-use iroh::{
+use radio::{
     EndpointId, SecretKey,
     address_lookup::AddressLookup,
     endpoint::{RecvStream, SendStream, ZeroRttStatus},
@@ -64,8 +64,8 @@ async fn pong(mut recv: RecvStream, x: u64) -> Result<()> {
 
 async fn connect(args: Args) -> Result<()> {
     let remote_id = args.endpoint_id.unwrap();
-    let endpoint = iroh::Endpoint::builder()
-        .relay_mode(iroh::RelayMode::Disabled)
+    let endpoint = radio::Endpoint::builder()
+        .relay_mode(radio::RelayMode::Disabled)
         .keylog(true)
         .bind()
         .await?;
@@ -134,10 +134,10 @@ async fn connect(args: Args) -> Result<()> {
 
 async fn accept(_args: Args) -> Result<()> {
     let secret_key = get_or_generate_secret_key()?;
-    let endpoint = iroh::Endpoint::builder()
+    let endpoint = radio::Endpoint::builder()
         .alpns(vec![PINGPONG_ALPN.to_vec()])
         .secret_key(secret_key)
-        .relay_mode(iroh::RelayMode::Disabled)
+        .relay_mode(radio::RelayMode::Disabled)
         .bind()
         .await?;
     println!("endpoint id: {}", endpoint.id());

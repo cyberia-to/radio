@@ -7,7 +7,7 @@
 //!
 //!     cargo run --example echo-no-router --features=examples
 
-use iroh::{Endpoint, EndpointAddr};
+use radio::{Endpoint, EndpointAddr};
 use n0_error::{AnyError as Error, Result, StdResultExt};
 
 /// Each protocol is identified by its ALPN string.

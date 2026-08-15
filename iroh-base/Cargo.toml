@@ -1,12 +1,12 @@
 [package]
-name = "iroh-base"
+name = "cyber-radio-base"
 version = "0.96.1"
 edition = "2024"
 readme = "README.md"
-description = "base type and utilities for Iroh"
+description = "radio (cyber transport) — base types; fork of iroh-base"
 license = "MIT OR Apache-2.0"
 authors = ["n0 team"]
-repository = "https://github.com/n0-computer/iroh"
+repository = "https://github.com/cyberia-to/radio"
 
 # Sadly this also needs to be updated in .github/workflows/ci.yml
 rust-version = "1.89"
@@ -62,3 +62,7 @@ relay = [
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "iroh_docsrs"]
+
+# radio — the cyber transport (iroh fork); the lib keeps its iroh_base name
+[lib]
+name = "iroh_base"

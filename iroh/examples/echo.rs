@@ -6,7 +6,7 @@
 //!
 //!     cargo run --example echo --features=examples
 
-use iroh::{
+use radio::{
     Endpoint, EndpointAddr,
     endpoint::Connection,
     protocol::{AcceptError, ProtocolHandler, Router},

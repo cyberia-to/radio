@@ -277,7 +277,7 @@ impl Builder {
     /// ```no_run
     /// # #[tokio::main]
     /// # async fn main() -> n0_error::Result<()> {
-    /// # use iroh::Endpoint;
+    /// # use radio::Endpoint;
     /// let endpoint = Endpoint::builder()
     ///     .clear_ip_transports()
     ///     .bind_addr("127.0.0.1:0")?
@@ -354,7 +354,7 @@ impl Builder {
     /// ```no_run
     /// # #[tokio::main]
     /// # async fn main() -> n0_error::Result<()> {
-    /// # use iroh::{Endpoint, endpoint::BindOpts};
+    /// # use radio::{Endpoint, endpoint::BindOpts};
     /// let endpoint = Endpoint::builder()
     ///     .clear_ip_transports()
     ///     .bind_addr_with_opts("127.0.0.1:0", BindOpts::default().set_prefix_len(24))?
@@ -969,7 +969,7 @@ impl Endpoint {
     ///
     /// ```no_run
     /// # async fn wrapper() -> n0_error::Result<()> {
-    /// use iroh::{Endpoint, Watcher};
+    /// use radio::{Endpoint, Watcher};
     ///
     /// let endpoint = Endpoint::builder()
     ///     .alpns(vec![b"my-alpn".to_vec()])
@@ -1003,7 +1003,7 @@ impl Endpoint {
     /// that loops over a watcher stream once the endpoint stops, combine with [`Self::closed`]:
     ///
     /// ```
-    /// # use iroh::{Watcher, Endpoint};
+    /// # use radio::{Watcher, Endpoint};
     /// # use n0_future::StreamExt;
     /// # use tracing::info;
     /// # async fn wrapper() -> n0_error::Result<()> {
@@ -1096,7 +1096,7 @@ impl Endpoint {
     /// # Examples
     ///
     /// ```no run
-    /// use iroh::Endpoint;
+    /// use radio::Endpoint;
     ///
     /// #[tokio::main]
     /// async fn main() {
@@ -1139,7 +1139,7 @@ impl Endpoint {
     ///
     /// To get the first report use [`Watcher::initialized`]:
     /// ```no_run
-    /// use iroh::{Endpoint, Watcher as _};
+    /// use radio::{Endpoint, Watcher as _};
     ///
     /// # let rt = tokio::runtime::Builder::new_current_thread().enable_all().build().unwrap();
     /// # rt.block_on(async move {
@@ -1216,7 +1216,7 @@ impl Endpoint {
     /// You can access individual metrics directly by using the public fields:
     /// ```rust
     /// # use std::collections::BTreeMap;
-    /// # use iroh::endpoint::Endpoint;
+    /// # use radio::endpoint::Endpoint;
     /// # async fn wrapper() -> n0_error::Result<()> {
     /// let endpoint = Endpoint::bind().await?;
     /// assert_eq!(endpoint.metrics().socket.recv_datagrams.get(), 0);
@@ -1234,7 +1234,7 @@ impl Endpoint {
     /// ```rust
     /// # use std::collections::BTreeMap;
     /// # use iroh_metrics::{Metric, MetricsGroup, MetricValue, MetricsGroupSet};
-    /// # use iroh::endpoint::Endpoint;
+    /// # use radio::endpoint::Endpoint;
     /// # async fn wrapper() -> n0_error::Result<()> {
     /// let endpoint = Endpoint::bind().await?;
     /// let metrics: BTreeMap<String, MetricValue> = endpoint
@@ -1257,7 +1257,7 @@ impl Endpoint {
     /// [`encode_openmetrics_to_string`]:
     /// ```rust
     /// # use iroh_metrics::{Registry, MetricsSource};
-    /// # use iroh::endpoint::Endpoint;
+    /// # use radio::endpoint::Endpoint;
     /// # async fn wrapper() -> n0_error::Result<()> {
     /// let endpoint = Endpoint::bind().await?;
     /// let mut registry = Registry::default();
@@ -1280,7 +1280,7 @@ impl Endpoint {
     /// ```no_run
     /// # use std::{sync::{Arc, RwLock}, time::Duration};
     /// # use iroh_metrics::{Registry, MetricsSource};
-    /// # use iroh::endpoint::Endpoint;
+    /// # use radio::endpoint::Endpoint;
     /// # use n0_error::{StackResultExt, StdResultExt};
     /// # async fn wrapper() -> n0_error::Result<()> {
     /// // Create a registry, wrapped in a read-write lock so that we can register and serve
@@ -1435,7 +1435,7 @@ impl Endpoint {
     /// To run a task and stop it once the endpoint closes, you can use
     /// [`EndpointClosed::run_until`]:
     /// ```
-    /// # use iroh::endpoint::Endpoint;
+    /// # use radio::endpoint::Endpoint;
     /// # async fn wrapper() -> n0_error::Result<()> {
     /// let endpoint = Endpoint::bind().await?;
     /// tokio::spawn(endpoint.closed().run_until(async move {
@@ -1625,7 +1625,7 @@ impl RelayMode {
     ///
     /// ```
     /// # fn main() -> n0_error::Result<()> {
-    /// # use iroh::RelayMode;
+    /// # use radio::RelayMode;
     /// RelayMode::custom([
     ///     "https://use1-1.relay.n0.iroh-canary.iroh.link.".parse()?,
     ///     "https://euw-1.relay.n0.iroh-canary.iroh.link.".parse()?,
@@ -3306,7 +3306,7 @@ mod tests {
         // so we resort to log assertions.
         // TODO(Frando): Replace once we add a proper API for this.
         let expected_log_line = format!(
-            "ep2:relay-actor:active-relay{{url={relay_url}}}:connected: iroh::_events::relay::connected"
+            "ep2:relay-actor:active-relay{{url={relay_url}}}:connected: radio::_events::relay::connected"
         );
         tokio::time::timeout(Duration::from_secs(5), async {
             while !logs_contain(&expected_log_line) {

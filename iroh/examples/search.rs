@@ -32,7 +32,7 @@
 use std::{collections::BTreeSet, sync::Arc};
 
 use clap::Parser;
-use iroh::{
+use radio::{
     Endpoint, EndpointId,
     endpoint::Connection,
     protocol::{AcceptError, ProtocolHandler, Router},

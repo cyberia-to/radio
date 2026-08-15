@@ -12,7 +12,7 @@ use std::sync::{
     atomic::{AtomicU64, Ordering},
 };
 
-use iroh::{
+use radio::{
     Endpoint, EndpointAddr,
     endpoint::{Accepting, Connection},
     protocol::{AcceptError, ProtocolHandler, Router},

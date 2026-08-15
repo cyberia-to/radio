@@ -1,11 +1,11 @@
-//! A small example showing how to get a list of endpoints that were discovered via [`iroh::address_lookup::MdnsAddressLookup`]. Mdns Address Lookup uses [`swarm-discovery`](https://crates.io/crates/swarm-discovery), an opinionated implementation of mDNS to discover other endpoints in the local network.
+//! A small example showing how to get a list of endpoints that were discovered via [`radio::address_lookup::MdnsAddressLookup`]. Mdns Address Lookup uses [`swarm-discovery`](https://crates.io/crates/swarm-discovery), an opinionated implementation of mDNS to discover other endpoints in the local network.
 //!
-//! This example creates an iroh endpoint, a few additional iroh endpoints to discover, waits a few seconds, and reports all of the iroh EndpointIds (also called `[iroh::key::PublicKey]`s) it has discovered.
+//! This example creates an iroh endpoint, a few additional iroh endpoints to discover, waits a few seconds, and reports all of the iroh EndpointIds (also called `[radio::key::PublicKey]`s) it has discovered.
 //!
 //! This is an async, non-determinate process, so the number of EndpointIDs discovered each time may be different. If you have other iroh endpoints or iroh endpoints with [`address_lookup::MdnsAddressLookup`] enabled, it may discover those endpoints as well.
 use std::time::Duration;
 
-use iroh::{Endpoint, EndpointId, address_lookup, endpoint_info::UserData};
+use radio::{Endpoint, EndpointId, address_lookup, endpoint_info::UserData};
 use n0_error::Result;
 use n0_future::StreamExt;
 use tokio::task::JoinSet;

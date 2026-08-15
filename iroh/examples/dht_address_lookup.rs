@@ -11,7 +11,7 @@
 use std::str::FromStr;
 
 use clap::Parser;
-use iroh::{Endpoint, EndpointId};
+use radio::{Endpoint, EndpointId};
 use n0_error::{Result, StdResultExt};
 use tracing::warn;
 use url::Url;
@@ -52,8 +52,8 @@ impl FromStr for PkarrRelay {
     }
 }
 
-fn build_address_lookup(args: Args) -> iroh::address_lookup::pkarr::dht::Builder {
-    let builder = iroh::address_lookup::DhtAddressLookup::builder().dht(!args.disable_dht);
+fn build_address_lookup(args: Args) -> radio::address_lookup::pkarr::dht::Builder {
+    let builder = radio::address_lookup::DhtAddressLookup::builder().dht(!args.disable_dht);
     match args.pkarr_relay {
         PkarrRelay::Disabled => builder,
         PkarrRelay::Iroh => builder.n0_dns_pkarr_relay(),
@@ -62,7 +62,7 @@ fn build_address_lookup(args: Args) -> iroh::address_lookup::pkarr::dht::Builder
 }
 
 async fn chat_server(args: Args) -> Result<()> {
-    let secret_key = iroh::SecretKey::generate(&mut rand::rng());
+    let secret_key = radio::SecretKey::generate(&mut rand::rng());
     let endpoint_id = secret_key.public();
     let address_lookup = build_address_lookup(args);
     let endpoint = Endpoint::builder()
@@ -108,7 +108,7 @@ async fn chat_server(args: Args) -> Result<()> {
 
 async fn chat_client(args: Args) -> Result<()> {
     let remote_endpoint_id = args.endpoint_id.unwrap();
-    let secret_key = iroh::SecretKey::generate(&mut rand::rng());
+    let secret_key = radio::SecretKey::generate(&mut rand::rng());
     let endpoint_id = secret_key.public();
     // note: we don't pass a secret key here, because we don't need to publish our address, don't spam the DHT
     let address_lookup = build_address_lookup(args).no_publish();

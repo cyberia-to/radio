@@ -3,7 +3,7 @@
 //! ## Example
 //!
 //! ```no_run
-//! # use iroh::{
+//! # use radio::{
 //! #     endpoint::{Connection, BindError},
 //! #     protocol::{AcceptError, ProtocolHandler, Router},
 //! #     Endpoint,
@@ -71,7 +71,7 @@ use crate::{
 /// ```no_run
 /// # use std::sync::Arc;
 /// # use n0_error::StdResultExt;
-/// # use iroh::{endpoint::Connecting, protocol::{ProtocolHandler, Router}, Endpoint, EndpointAddr};
+/// # use radio::{endpoint::Connecting, protocol::{ProtocolHandler, Router}, Endpoint, EndpointAddr};
 /// #
 /// # async fn test_compile() -> n0_error::Result<()> {
 /// let endpoint = Endpoint::bind().await?;

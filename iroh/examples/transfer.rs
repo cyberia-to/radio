@@ -38,8 +38,8 @@ use data_encoding::HEXLOWER;
 use derive_more::{Display, From};
 use indicatif::HumanBytes;
 #[cfg(feature = "qlog")]
-use iroh::endpoint::QuicTransportConfig;
-use iroh::{
+use radio::endpoint::QuicTransportConfig;
+use radio::{
     Endpoint, EndpointAddr, EndpointId, RelayMap, RelayMode, RelayUrl, SecretKey, TransportAddr,
     Watcher,
     address_lookup::{
@@ -509,7 +509,7 @@ impl EndpointArgs {
         if self.mdns {
             #[cfg(feature = "address-lookup-mdns")]
             {
-                use iroh::address_lookup::MdnsAddressLookup;
+                use radio::address_lookup::MdnsAddressLookup;
 
                 endpoint
                     .address_lookup()?

@@ -1,9 +1,9 @@
-//! The smallest example showing how to use iroh and [`iroh::Endpoint`] to connect two devices and pass bytes using unreliable datagrams.
+//! The smallest example showing how to use iroh and [`radio::Endpoint`] to connect two devices and pass bytes using unreliable datagrams.
 //!
 //! This example uses the default relay servers to attempt to holepunch, and will use that relay server to relay packets if the two devices cannot establish a direct UDP connection.
 //! run this example from the project root:
 //!     $ cargo run --example listen-unreliable
-use iroh::{Endpoint, RelayMode, SecretKey};
+use radio::{Endpoint, RelayMode, SecretKey};
 use n0_error::{AnyError as Error, Result, StdResultExt};
 use tracing::{info, warn};
 

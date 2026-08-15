@@ -1048,8 +1048,8 @@ impl EndpointInner {
     ///
     /// This does not wait for any current connections or tasks to close gracefully.
     ///
-    /// This should only be called in the `iroh::Endpoint` `Drop` impl when the
-    /// `iroh::Endpoint` is dropped without first calling `Endpoint::close`.
+    /// This should only be called in the `radio::Endpoint` `Drop` impl when the
+    /// `radio::Endpoint` is dropped without first calling `Endpoint::close`.
     #[instrument(skip_all)]
     pub(crate) fn abort(&self) {
         if self.sock.is_closed() || self.sock.is_closing() {
@@ -1353,7 +1353,7 @@ impl Actor {
                     };
                     let is_major = state.is_major_change(&current_netmon_state);
                     event!(
-                        target: "iroh::_events::link_change",
+                        target: "radio::_events::link_change",
                         Level::DEBUG,
                         ?state,
                         is_major
@@ -1630,7 +1630,7 @@ impl DiscoveredDirectAddrs {
         let updated = self.addrs.set(addrs).is_ok();
         if updated {
             event!(
-                target: "iroh::_events::direct_addrs",
+                target: "radio::_events::direct_addrs",
                 Level::DEBUG,
                 addrs = ?self.addrs.get(),
             );

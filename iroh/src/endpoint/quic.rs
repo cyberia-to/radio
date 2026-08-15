@@ -13,28 +13,28 @@ use std::{sync::Arc, time::Duration};
 /// `quinn` types that are used in the public iroh API.
 // Each type is notated with the iroh type or quinn type that uses it.
 pub use quinn::{
-    AcceptBi,             // iroh::endpoint::Connection
-    AcceptUni,            // iroh::endpoint::Connection
-    AckFrequencyConfig,   // iroh::endpoint::quic::QuicTransportConfig
-    ClosedStream,         // iroh::protocol::AcceptError, quinn::RecvStream, quinn::SendStream
-    ConnectionError,      // iroh::endpoint::ConnectError
-    ConnectionStats,      // iroh::endpoint::Connection
+    AcceptBi,             // radio::endpoint::Connection
+    AcceptUni,            // radio::endpoint::Connection
+    AckFrequencyConfig,   // radio::endpoint::quic::QuicTransportConfig
+    ClosedStream,         // radio::protocol::AcceptError, quinn::RecvStream, quinn::SendStream
+    ConnectionError,      // radio::endpoint::ConnectError
+    ConnectionStats,      // radio::endpoint::Connection
     Dir,                  // quinn::StreamId
-    IdleTimeout,          // iroh::endpoint::quic::QuicTransportConfig
-    MtuDiscoveryConfig,   // iroh::endpoint::quic::QuicTransportConfig
-    OpenBi,               // iroh::endpoint::Connection
-    OpenUni,              // iroh::endpoint::Connection
-    PathStats,            // iroh::socket::remote_map::remote_state::PathInfo
-    ReadDatagram,         // iroh::endpoint::Connection
+    IdleTimeout,          // radio::endpoint::quic::QuicTransportConfig
+    MtuDiscoveryConfig,   // radio::endpoint::quic::QuicTransportConfig
+    OpenBi,               // radio::endpoint::Connection
+    OpenUni,              // radio::endpoint::Connection
+    PathStats,            // radio::socket::remote_map::remote_state::PathInfo
+    ReadDatagram,         // radio::endpoint::Connection
     ReadError,            // quinn::RecvStream
     ReadExactError,       // quinn::RecvStream
     ReadToEndError,       // quinn::RecvStream
     RecvStream,           // quinn::AcceptBi, quinn::AcceptUni, quinn::OpenBi, quinn::OpenUni
     ResetError,           // quinn::RecvStream
-    SendDatagram,         // iroh::endpoint::Connection
-    SendDatagramError,    // iroh::endpoint::Connection
+    SendDatagram,         // radio::endpoint::Connection
+    SendDatagramError,    // radio::endpoint::Connection
     SendStream,           // quinn::AcceptBi, quinn::OpenUni
-    Side,                 // iroh::endpoint::Connection, quinn::StreamId,
+    Side,                 // radio::endpoint::Connection, quinn::StreamId,
     StoppedError,         // quinn::SendStream
     StreamId,             // quinn::RecvStream
     UnorderedRecvStream,  // quinn::RecvStream
@@ -50,29 +50,29 @@ pub use quinn::{QlogConfig, QlogFactory, QlogFileFactory};
 pub use quinn_proto::{
     ApplicationClose,                 // quinn::ConnectionError
     Chunk,                            // quinn::RecvStream
-    ConnectError as QuicConnectError, // iroh::endpoint::ConnectWithOptsError
+    ConnectError as QuicConnectError, // radio::endpoint::ConnectWithOptsError
     ConnectionClose,                  // quinn::ConnectionError
     FrameStats,                       // quinn::ConnectionStats
     FrameType,                        // quinn_proto::TransportError
     PathId,                           // quinn_proto::crypto::PacketKey
     RttEstimator,                     // quinn_proto::congestion::Controller
-    TimeSource,                       // iroh::endpoint::quic::ServerConfig
+    TimeSource,                       // radio::endpoint::quic::ServerConfig
     TokenLog,                         // quinn::ValidationTokenConfig
     TokenReuseError,                  // quinn::TokenLog
     TransportError,                   // quinn::ConnectionError
     TransportErrorCode,               // quinn_proto::TransportError
     UdpStats,                         // quinn::ConnectionStats
-    ValidationTokenConfig,            // iroh::endpoint::quic::::ServerConfig
+    ValidationTokenConfig,            // radio::endpoint::quic::::ServerConfig
     congestion::{
-        Controller,        // iroh::endpoint::Connection
-        ControllerFactory, // iroh::endpoint::quic::QuicTransportConfig
+        Controller,        // radio::endpoint::Connection
+        ControllerFactory, // radio::endpoint::quic::QuicTransportConfig
         ControllerMetrics, // quinn_proto::congestion::Controller
     },
     crypto::{
         AeadKey,                   // quinn::HandshakeTokenKey
         CryptoError, // quinn_proto::crypto::CryptoError, quinn_proto::crypto::PacketKey
-        ExportKeyingMaterialError, // iroh::endpoint::Connection
-        HandshakeTokenKey, // iroh::endpoint::quic::ServerConfig
+        ExportKeyingMaterialError, // radio::endpoint::Connection
+        HandshakeTokenKey, // radio::endpoint::quic::ServerConfig
         HeaderKey,   // quinn_proto::crypto::Keys
         Keys,        // quinn_proto::crypto::Session
         PacketKey,   // quinn_proto::crypto::Keys
@@ -116,7 +116,7 @@ pub struct QuicTransportConfigBuilder(quinn::TransportConfig);
 /// ```
 /// use std::time::Duration;
 ///
-/// use iroh::endpoint::QuicTransportConfig;
+/// use radio::endpoint::QuicTransportConfig;
 ///
 /// let _cfg = QuicTransportConfig::builder()
 ///     .send_observed_address_reports(true)
@@ -190,7 +190,7 @@ impl QuicTransportConfigBuilder {
     ///
     /// ```
     /// # use std::{convert::TryInto, time::Duration};
-    /// # use iroh::endpoint::{QuicTransportConfig, VarInt, VarIntBoundsExceeded};
+    /// # use radio::endpoint::{QuicTransportConfig, VarInt, VarIntBoundsExceeded};
     /// # fn main() -> Result<(), VarIntBoundsExceeded> {
     /// let mut builder = QuicTransportConfig::builder()
     ///     // Set the idle timeout as `VarInt`-encoded milliseconds
@@ -407,7 +407,7 @@ impl QuicTransportConfigBuilder {
     ///
     /// # Example
     /// ```
-    /// # use iroh::endpoint::QuicTransportConfig; use quinn_proto::congestion; use std::sync::Arc;
+    /// # use radio::endpoint::QuicTransportConfig; use quinn_proto::congestion; use std::sync::Arc;
     /// let config = QuicTransportConfig::builder()
     ///     .congestion_controller_factory(Arc::new(congestion::NewRenoConfig::default()))
     ///     .build();
@@ -593,7 +593,7 @@ pub struct ServerConfigBuilder {
 ///
 /// [`Endpoint`]: crate::Endpoint
 /// [`Endpoint::create_server_config_builder`]: crate::Endpoint::create_server_config_builder
-// Note: used in `iroh::endpoint::connection::Incoming::accept_with`
+// Note: used in `radio::endpoint::connection::Incoming::accept_with`
 // This is new-typed since `quinn::ServerConfig` takes a `TransportConfig`, which we new-type as a `QuicTransportConfig`
 #[derive(Debug, Clone)]
 pub struct ServerConfig(Arc<quinn::ServerConfig>);

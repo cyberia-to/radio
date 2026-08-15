@@ -17,7 +17,7 @@ async-trait = "0.1.80"
 hemera = { package = "cyber-hemera", version = "0.1" }
 bytes = "1"
 data-encoding = { version = "2.3.3" }
-iroh-base = { version = "0.35", features = ["ticket"] }
+iroh-base = { package = "cyber-radio-base", version = "0.35", features = ["ticket"] }
 iroh-gossip = { version = "0.35", features = ["rpc"] }
 iroh-docs = { version = "0.35", features = ["rpc"] }
 iroh-blobs = { version = "0.35", features = ["rpc"] }

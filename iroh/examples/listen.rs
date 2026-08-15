@@ -1,11 +1,11 @@
-//! The smallest example showing how to use iroh and [`iroh::Endpoint`] to connect two devices.
+//! The smallest example showing how to use iroh and [`radio::Endpoint`] to connect two devices.
 //!
 //! This example uses the default relay servers to attempt to holepunch, and will use that relay server to relay packets if the two devices cannot establish a direct UDP connection.
 //! run this example from the project root:
 //!     $ cargo run --example listen
 use std::time::Duration;
 
-use iroh::{Endpoint, RelayMode, SecretKey, endpoint::ConnectionError};
+use radio::{Endpoint, RelayMode, SecretKey, endpoint::ConnectionError};
 use n0_error::{Result, StdResultExt};
 use tracing::{debug, info, warn};
 

@@ -34,10 +34,10 @@ postcard = { version = "1.1.1", features = ["experimental-derive", "use-std"] }
 data-encoding = "2.8.0"
 ref-cast = "1.0.24"
 arrayvec = "0.7.6"
-iroh = { path = "../iroh", default-features = false }
+iroh = { package = "cyber-radio", path = "../iroh", default-features = false }
 self_cell = "1.1.0"
 genawaiter = { version = "0.99.1", features = ["futures03"] }
-iroh-base = { path = "../iroh-base" }
+iroh-base = { package = "cyber-radio-base", path = "../iroh-base" }
 iroh-tickets = "0.3"
 irpc = { version = "0.12.0", features = ["spans", "stream", "derive", "varint-util"], default-features = false }
 iroh-metrics = { version = "0.38" }
@@ -68,7 +68,7 @@ tracing-subscriber = { version = "0.3.20", features = ["fmt"] }
 tracing-test = "0.2.5"
 walkdir = "2.5.0"
 atomic_refcell = "0.1.13"
-iroh = { path = "../iroh", features = ["address-lookup-mdns"]}
+iroh = { package = "cyber-radio", path = "../iroh", features = ["address-lookup-mdns"]}
 async-compression = { version = "0.4.30", features = ["lz4", "tokio"] }
 concat_const = "0.2.0"
 anyhow = "1.0.100"

@@ -373,7 +373,7 @@ impl ActiveRelayActor {
         let prev = std::mem::replace(&mut self.is_home_relay, is_home);
         if self.is_home_relay != prev {
             event!(
-                target: "iroh::_events::relay::home_changed",
+                target: "radio::_events::relay::home_changed",
                 Level::DEBUG,
                 url = %self.url,
                 home_relay = self.is_home_relay,
@@ -495,7 +495,7 @@ impl ActiveRelayActor {
     ) -> Result<(), RelayConnectionError> {
         debug!("Actor loop: connected to relay");
         event!(
-            target: "iroh::_events::relay::connected",
+            target: "radio::_events::relay::connected",
             Level::DEBUG,
             url = %self.url,
             home_relay = self.is_home_relay,

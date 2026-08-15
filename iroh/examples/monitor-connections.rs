@@ -1,6 +1,6 @@
 use std::{sync::Arc, time::Duration};
 
-use iroh::{
+use radio::{
     Endpoint, RelayMode, Watcher,
     endpoint::{AfterHandshakeOutcome, ConnectionInfo, EndpointHooks},
 };

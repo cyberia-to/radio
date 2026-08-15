@@ -4,7 +4,7 @@
 //!
 //! ```no_run
 //! # async fn wrapper() -> n0_error::Result {
-//! use iroh::{Endpoint, RelayMode, Watcher, endpoint::presets};
+//! use radio::{Endpoint, RelayMode, Watcher, endpoint::presets};
 //!
 //! let endpoint = Endpoint::empty_builder(RelayMode::Disabled)
 //!     .preset(presets::N0)

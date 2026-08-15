@@ -1,4 +1,4 @@
-//! The smallest example showing how to use iroh and [`iroh::Endpoint`] to connect to a remote endpoint and pass bytes using unreliable datagrams.
+//! The smallest example showing how to use iroh and [`radio::Endpoint`] to connect to a remote endpoint and pass bytes using unreliable datagrams.
 //!
 //! We use the endpoint ID (the PublicKey of the remote endpoint), the direct UDP addresses, and the relay url to achieve a connection.
 //!
@@ -8,7 +8,7 @@
 use std::net::SocketAddr;
 
 use clap::Parser;
-use iroh::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey};
+use radio::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey};
 use iroh_base::TransportAddr;
 use n0_error::{Result, StdResultExt};
 use tracing::info;
@@ -20,7 +20,7 @@ const EXAMPLE_ALPN: &[u8] = b"n0/iroh/examples/0";
 struct Cli {
     /// The id of the remote endpoint.
     #[clap(long)]
-    endpoint_id: iroh::EndpointId,
+    endpoint_id: radio::EndpointId,
     /// The list of direct UDP addresses for the remote endpoint.
     #[clap(long, value_parser, num_args = 1.., value_delimiter = ' ')]
     addrs: Vec<SocketAddr>,

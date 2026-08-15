@@ -15,7 +15,7 @@ workspace = true
 [dependencies]
 clap = { version = "4", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
-iroh = { path = "../iroh" }
+iroh = { package = "cyber-radio", path = "../iroh" }
 iroh-blobs = { path = "../iroh-blobs" }
 iroh-gossip = { path = "../iroh-gossip" }
 hemera = { package = "cyber-hemera", path = "../../hemera/rs" }

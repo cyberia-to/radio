@@ -8,7 +8,7 @@
 //! ```no_run
 //! use std::time::Duration;
 //!
-//! use iroh::{
+//! use radio::{
 //!     RelayMode, SecretKey,
 //!     address_lookup::{DiscoveryEvent, MdnsAddressLookup},
 //!     endpoint::{Endpoint, Source},

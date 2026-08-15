@@ -8,7 +8,7 @@
 //! another endpoint:
 //!
 //! ```no_run
-//! # use iroh::{Endpoint, EndpointAddr};
+//! # use radio::{Endpoint, EndpointAddr};
 //! # use n0_error::{StackResultExt, StdResultExt};
 //! # async fn wrapper() -> n0_error::Result<()> {
 //! let addr: EndpointAddr = todo!();
@@ -26,7 +26,7 @@
 //! The other endpoint can accept incoming connections using the [`Endpoint`] as well:
 //!
 //! ```no_run
-//! # use iroh::{Endpoint, EndpointAddr};
+//! # use radio::{Endpoint, EndpointAddr};
 //! # use n0_error::{StackResultExt, StdResultExt};
 //! # async fn wrapper() -> n0_error::Result<()> {
 //! let ep = Endpoint::builder()
@@ -170,7 +170,7 @@
 //! The central struct is the [`Endpoint`], which allows you to connect to other endpoints:
 //!
 //! ```no_run
-//! use iroh::{Endpoint, EndpointAddr};
+//! use radio::{Endpoint, EndpointAddr};
 //! use n0_error::{Result, StackResultExt, StdResultExt};
 //!
 //! async fn connect(addr: EndpointAddr) -> Result<()> {
@@ -195,7 +195,7 @@
 //! Every [`Endpoint`] can also accept connections:
 //!
 //! ```no_run
-//! use iroh::{Endpoint, EndpointAddr};
+//! use radio::{Endpoint, EndpointAddr};
 //! use n0_error::{Result, StackResultExt, StdResultExt};
 //! use n0_future::StreamExt;
 //!

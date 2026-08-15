@@ -40,7 +40,7 @@ pub fn run_iroh(opt: Opt) -> Result<()> {
     #[cfg(feature = "local-relay")]
     let (relay_url, relay_server) = if opt.only_relay {
         let (_, relay_url, relay_server) =
-            runtime.block_on(::iroh::test_utils::run_relay_server())?;
+            runtime.block_on(::radio::test_utils::run_relay_server())?;
 
         (Some(relay_url), Some(relay_server))
     } else {
@@ -51,7 +51,7 @@ pub fn run_iroh(opt: Opt) -> Result<()> {
 
     let (server_addr, endpoint) = {
         let _guard = server_span.enter();
-        iroh::server_endpoint(&runtime, &relay_url, &opt)
+        radio::server_endpoint(&runtime, &relay_url, &opt)
     };
 
     #[cfg(feature = "metrics")]
@@ -59,7 +59,7 @@ pub fn run_iroh(opt: Opt) -> Result<()> {
 
     let server_thread = std::thread::spawn(move || {
         let _guard = server_span.entered();
-        if let Err(e) = runtime.block_on(iroh::server(endpoint, opt)) {
+        if let Err(e) = runtime.block_on(radio::server(endpoint, opt)) {
             eprintln!("server failed: {e:#}");
         }
     });
@@ -71,7 +71,7 @@ pub fn run_iroh(opt: Opt) -> Result<()> {
         handles.push(std::thread::spawn(move || {
             let _guard = tracing::error_span!("client", id).entered();
             let runtime = rt();
-            match runtime.block_on(iroh::client(server_addr, relay_url.clone(), opt)) {
+            match runtime.block_on(radio::client(server_addr, relay_url.clone(), opt)) {
                 Ok(stats) => Ok(stats),
                 Err(e) => {
                     eprintln!("client failed: {e:#}");

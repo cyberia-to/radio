@@ -59,7 +59,7 @@
 //! [`PkarrPublisher`] and [`address_lookup::DnsAddressLookup`]:
 //!
 //! ```no_run
-//! use iroh::{
+//! use radio::{
 //!     Endpoint, SecretKey,
 //!     address_lookup::{self, PkarrPublisher},
 //!     endpoint::RelayMode,
@@ -80,7 +80,7 @@
 //! ```no_run
 //! #[cfg(feature = "address-lookup-mdns")]
 //! # {
-//! # use iroh::{
+//! # use radio::{
 //! #    address_lookup::{self, PkarrPublisher},
 //! #    endpoint::RelayMode,
 //! #    Endpoint, SecretKey,

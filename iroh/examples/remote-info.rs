@@ -7,7 +7,7 @@
 
 use std::time::{Duration, SystemTime};
 
-use iroh::{Endpoint, EndpointAddr};
+use radio::{Endpoint, EndpointAddr};
 use n0_error::{Result, StackResultExt, StdResultExt, ensure_any};
 use n0_future::IterExt;
 use tracing::{Instrument, info, info_span};
@@ -165,7 +165,7 @@ mod remote_map {
         time::{Duration, SystemTime},
     };
 
-    use iroh::{
+    use radio::{
         EndpointId, Watcher,
         endpoint::{AfterHandshakeOutcome, ConnectionInfo, EndpointHooks, PathInfo},
     };
@@ -423,7 +423,7 @@ mod remote_map {
 
         async fn clear_expired(
             retention_time: Duration,
-            map: Arc<RwLock<HashMap<iroh::PublicKey, RemoteInfo>>>,
+            map: Arc<RwLock<HashMap<radio::PublicKey, RemoteInfo>>>,
         ) {
             let mut interval = tokio::time::interval(retention_time);
             loop {

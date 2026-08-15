@@ -37,7 +37,7 @@ use super::{AddressLookup, EndpointData, EndpointInfo, Error, Item};
 /// # Examples
 ///
 /// ```rust
-/// use iroh::{Endpoint, EndpointAddr, TransportAddr, address_lookup::memory::MemoryLookup};
+/// use radio::{Endpoint, EndpointAddr, TransportAddr, address_lookup::memory::MemoryLookup};
 /// use iroh_base::SecretKey;
 ///
 /// # #[tokio::main]
@@ -122,7 +122,7 @@ impl MemoryLookup {
     /// ```rust
     /// use std::{net::SocketAddr, str::FromStr};
     ///
-    /// use iroh::{Endpoint, EndpointAddr, address_lookup::memory::MemoryLookup};
+    /// use radio::{Endpoint, EndpointAddr, address_lookup::memory::MemoryLookup};
     ///
     /// # fn get_addrs() -> Vec<EndpointAddr> {
     /// #     Vec::new()

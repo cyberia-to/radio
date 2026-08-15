@@ -4,7 +4,7 @@ use std::{
 };
 
 use bytes::Bytes;
-use iroh::{
+use radio::{
     Endpoint, EndpointAddr, RelayMode, RelayUrl,
     endpoint::{Connection, ConnectionError, QuicTransportConfig, RecvStream, SendStream},
 };

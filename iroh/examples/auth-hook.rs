@@ -4,7 +4,7 @@
 //! It allows to put authentication in front of iroh protocols. The protocols don't need any special support.
 //! Authentication is handled prior to establishing the connections, over a separate connection.
 
-use iroh::{Endpoint, EndpointAddr, protocol::Router};
+use radio::{Endpoint, EndpointAddr, protocol::Router};
 use n0_error::{Result, StdResultExt};
 
 use crate::echo::Echo;
@@ -60,7 +60,7 @@ async fn accept_side(token: &[u8]) -> Result<Router> {
 mod echo {
     //! A bare-bones protocol with no knowledge of auth whatsoever.
 
-    use iroh::{
+    use radio::{
         Endpoint, EndpointAddr,
         endpoint::Connection,
         protocol::{AcceptError, ProtocolHandler},
@@ -111,7 +111,7 @@ mod auth {
         sync::{Arc, Mutex},
     };
 
-    use iroh::{
+    use radio::{
         Endpoint, EndpointAddr, EndpointId,
         endpoint::{
             AfterHandshakeOutcome, BeforeConnectOutcome, Connection, ConnectionError, EndpointHooks,
@@ -299,7 +299,7 @@ mod auth {
     impl EndpointHooks for IncomingAuthHook {
         async fn after_handshake<'a>(
             &'a self,
-            conn: &'a iroh::endpoint::ConnectionInfo,
+            conn: &'a radio::endpoint::ConnectionInfo,
         ) -> AfterHandshakeOutcome {
             if conn.alpn() == ALPN
                 || self
