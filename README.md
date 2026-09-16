@@ -27,6 +27,10 @@ See [hash function selection](https://cyb.ai/oracle/ask/hash-function-selection)
 
 ## Architecture
 
+Application authority is separate from endpoint authentication. The
+[neuron context contract](specs/neuron-context.md) defines how robot subjects,
+devices and signed application requests compose without changing transport IDs.
+
 Radio preserves iroh's networking layer — QUIC connections, hole-punching, relay servers — and replaces the cryptographic substrate:
 
 ```
