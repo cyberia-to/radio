@@ -165,7 +165,7 @@ fn parse_hash(hex: &str) -> hemera::Hash {
 }
 
 fn hex_to_bytes(hex: &str) -> Option<Vec<u8>> {
-    if !hex.len().is_multiple_of(2) {
+    if !hex.is_ascii() || !hex.len().is_multiple_of(2) {
         return None;
     }
     (0..hex.len())
@@ -177,4 +177,40 @@ fn hex_to_bytes(hex: &str) -> Option<Vec<u8>> {
 fn fatal(msg: &str) -> ! {
     eprintln!("error: {msg}");
     process::exit(1);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn hex_to_bytes_decodes_valid_input() {
+        assert_eq!(hex_to_bytes("ab01"), Some(vec![0xab, 0x01]));
+        assert_eq!(hex_to_bytes(""), Some(vec![]));
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_odd_length() {
+        assert_eq!(hex_to_bytes("abc"), None);
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_non_hex() {
+        assert_eq!(hex_to_bytes("zz"), None);
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_non_ascii_without_panicking() {
+        // 31 ASCII bytes + 'é' (2 bytes) + 1 ASCII byte = 34 bytes, an even
+        // length that used to reach the byte-indexed slice loop and panic
+        // when a step boundary landed inside 'é'.
+        let mut s = String::new();
+        for _ in 0..31 {
+            s.push('a');
+        }
+        s.push('é');
+        s.push('a');
+        assert_eq!(s.len(), 34);
+        assert_eq!(hex_to_bytes(&s), None);
+    }
 }
