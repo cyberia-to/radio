@@ -239,4 +239,19 @@ mod tests {
         let wrong = hemera::hash(b"pussy");
         assert_ne!(ob.root, wrong);
     }
+
+    // the other half of "verified": a peer that answers a request for
+    // particle p with a perfectly well-formed encoding of some other content
+    // q must be rejected, because the root the caller asked for is the key
+    // the stream is checked against, not anything the peer sends.
+    #[test]
+    fn decode_rejects_well_formed_bytes_of_another_particle() {
+        let backend = Poseidon2Backend;
+        let (root_p, _encoded_p) = encode::encode(&backend, b"bostrom", BlockSize::ZERO);
+        let (root_q, encoded_q) = encode::encode(&backend, b"pussy", BlockSize::ZERO);
+        assert_ne!(root_p, root_q);
+
+        let result = decode::decode(&backend, &encoded_q, &root_p, BlockSize::ZERO);
+        assert!(result.is_err(), "bytes of q must not verify as p");
+    }
 }
