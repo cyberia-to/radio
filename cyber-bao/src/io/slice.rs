@@ -110,6 +110,19 @@ pub fn decode_slice<B: HashBackend>(
 
     let declared_size = u64::from_le_bytes(slice[..8].try_into().unwrap());
     let tree = BaoTree::new(declared_size, block_size);
+
+    // `pre_order_chunks()` below eagerly builds one `BaoChunk` per block of
+    // the *declared* size, before a single hash in this unverified header is
+    // checked — a slice legitimately proves a small range of a large file,
+    // so this can't be bounded by `slice.len()` the way decode()'s full-body
+    // buffer can. Cap the block count directly instead: no real file needs
+    // this many blocks at any block size (conservative, not derived from a
+    // committed cost model, same class as row 94's iteration bound).
+    const MAX_SLICE_BLOCKS: u64 = 1 << 24;
+    if tree.blocks() > MAX_SLICE_BLOCKS {
+        return Err(SliceDecodeError::Truncated);
+    }
+
     let hash_size = backend.hash_size();
     let pair_size = hash_size * 2;
     let bs = block_size.bytes();
@@ -355,6 +368,21 @@ mod tests {
         let wrong_root = backend.chunk_hash(b"wrong", 0, true);
         let result = decode_slice(&backend, &slice, &wrong_root, &ranges, BlockSize::ZERO);
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn decode_slice_huge_declared_size_rejected_not_oom() {
+        let backend = Poseidon2Backend;
+        // A real slice header, but with declared_size overwritten to claim
+        // a file so large pre_order_chunks() would try to enumerate an
+        // astronomical tree if it ran unchecked.
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(2));
+        let (root, mut slice) = extract_slice_ranges(&backend, &data, &ranges, BlockSize::ZERO);
+        slice[..8].copy_from_slice(&u64::MAX.to_le_bytes());
+
+        let result = decode_slice(&backend, &slice, &root, &ranges, BlockSize::ZERO);
+        assert_eq!(result, Err(SliceDecodeError::Truncated));
     }
 
     #[test]
