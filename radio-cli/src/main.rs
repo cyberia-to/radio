@@ -249,13 +249,49 @@ fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
 }
 
 fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {
-    if hex.len() % 2 != 0 {
+    if !hex.is_ascii() || hex.len() % 2 != 0 {
         bail!("odd-length hex string");
     }
     (0..hex.len())
         .step_by(2)
         .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).context("invalid hex digit"))
         .collect()
+}
+
+#[cfg(test)]
+mod hex_to_bytes_tests {
+    use super::*;
+
+    #[test]
+    fn decodes_valid_input() {
+        assert_eq!(hex_to_bytes("ab01").unwrap(), vec![0xab, 0x01]);
+        assert_eq!(hex_to_bytes("").unwrap(), Vec::<u8>::new());
+    }
+
+    #[test]
+    fn rejects_odd_length() {
+        assert!(hex_to_bytes("abc").is_err());
+    }
+
+    #[test]
+    fn rejects_non_hex() {
+        assert!(hex_to_bytes("zz").is_err());
+    }
+
+    #[test]
+    fn rejects_non_ascii_without_panicking() {
+        // 31 ASCII bytes + 'é' (2 bytes) + 1 ASCII byte = 34 bytes, an even
+        // length that used to reach the byte-indexed slice loop and panic
+        // when a step boundary landed inside 'é'.
+        let mut s = String::new();
+        for _ in 0..31 {
+            s.push('a');
+        }
+        s.push('é');
+        s.push('a');
+        assert_eq!(s.len(), 34);
+        assert!(hex_to_bytes(&s).is_err());
+    }
 }
 
 // ── Node implementation ────────────────────────────────────────────────
