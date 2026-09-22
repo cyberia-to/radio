@@ -8,7 +8,7 @@ use clap::{Parser, Subcommand};
 use futures_lite::StreamExt;
 use iroh::{Endpoint, RelayMode, SecretKey};
 use iroh::protocol::Router;
-use iroh_blobs::{BlobsProtocol, Hash, store::mem::MemStore};
+use iroh_blobs::{BlobsProtocol, Hash, store::fs::FsStore, store::mem::MemStore};
 use iroh_gossip::net::{Gossip, GOSSIP_ALPN};
 use iroh_gossip::proto::TopicId;
 
@@ -37,6 +37,9 @@ enum Commands {
     },
     /// Content-addressed blob storage and transfer
     Blob {
+        /// Directory the blob store persists to, shared across invocations
+        #[arg(long, default_value = "radio-blobs")]
+        dir: PathBuf,
         #[command(subcommand)]
         action: BlobAction,
     },
@@ -146,11 +149,11 @@ fn main() -> Result<()> {
                 .build()?
                 .block_on(cmd_node(action))
         }
-        Commands::Blob { action } => {
+        Commands::Blob { dir, action } => {
             tokio::runtime::Builder::new_multi_thread()
                 .enable_all()
                 .build()?
-                .block_on(cmd_blob(action))
+                .block_on(cmd_blob(dir, action))
         }
         Commands::Gossip { action } => {
             tokio::runtime::Builder::new_multi_thread()
@@ -311,12 +314,21 @@ async fn cmd_node(action: NodeAction) -> Result<()> {
 
 // ── Blob implementation ────────────────────────────────────────────────
 
-async fn cmd_blob(action: BlobAction) -> Result<()> {
+/// Opens the on-disk blob store at `dir`, creating it if absent. A fresh
+/// `MemStore` per invocation would make `add` in one process invisible to
+/// `list`/`get` in the next, so every `radio blob` subcommand shares this.
+async fn open_blob_store(dir: &std::path::Path) -> Result<FsStore> {
+    FsStore::load(dir)
+        .await
+        .with_context(|| format!("opening blob store at {}", dir.display()))
+}
+
+async fn cmd_blob(dir: PathBuf, action: BlobAction) -> Result<()> {
     tracing_subscriber::fmt::init();
 
     match action {
         BlobAction::Add { path } => {
-            let store = MemStore::new();
+            let store = open_blob_store(&dir).await?;
             let endpoint = Endpoint::builder()
                 .relay_mode(RelayMode::Default)
                 .bind()
@@ -339,7 +351,7 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
             arr.copy_from_slice(&hash_bytes);
             let blob_hash = Hash::from_bytes(arr);
 
-            let store = MemStore::new();
+            let store = open_blob_store(&dir).await?;
             let endpoint = Endpoint::builder()
                 .relay_mode(RelayMode::Default)
                 .bind()
@@ -355,10 +367,10 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
             let data = store.blobs().get_bytes(blob_hash).await?;
             fs::write(&out, &data)
                 .with_context(|| format!("writing {}", out.display()))?;
-            println!("downloaded {} bytes to {}", data.len(), out.display());
+            println!("downloaded {} bytes to {}, kept in {}", data.len(), out.display(), dir.display());
         }
         BlobAction::List => {
-            let store = MemStore::new();
+            let store = open_blob_store(&dir).await?;
             let mut stream = store.tags().list().await?;
             let mut count = 0u64;
             while let Some(item) = stream.next().await {
@@ -372,6 +384,36 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod blob_store_tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn add_persists_across_separate_store_handles() -> Result<()> {
+        let tmp = tempfile::tempdir()?;
+
+        let store = open_blob_store(tmp.path()).await?;
+        let tag = store.blobs().add_bytes(b"hello radio".to_vec()).await?;
+        store.shutdown().await?;
+        drop(store);
+
+        // A second handle over the same directory, as a fresh CLI invocation would open,
+        // must see the blob and tag `add` wrote — this is the bug `list`/`get` hit.
+        let reopened = open_blob_store(tmp.path()).await?;
+        let data = reopened.blobs().get_bytes(tag.hash).await?;
+        assert_eq!(data.as_ref(), b"hello radio");
+
+        let mut names = Vec::new();
+        let mut stream = reopened.tags().list().await?;
+        while let Some(item) = stream.next().await {
+            names.push(item?.hash);
+        }
+        assert!(names.contains(&tag.hash));
+
+        Ok(())
+    }
 }
 
 // ── Gossip implementation ──────────────────────────────────────────────
