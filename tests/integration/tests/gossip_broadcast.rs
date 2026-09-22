@@ -163,10 +163,16 @@ async fn gossip_multihop_relay() -> Result<()> {
     let hash_bytes: [u8; 32] = hemera::hash(b"gossip-multihop").as_bytes()[..32].try_into().unwrap();
     let topic: iroh_gossip::TopicId = hash_bytes.into();
 
-    // Chain topology: 0 bootstraps 1, 1 bootstraps 2, 2 bootstraps 3. Node 3
-    // never learns node 0's or node 1's endpoint id as a gossip peer, only
-    // node 2's — receiving node 0's broadcast proves the message relayed
-    // through the mesh (node 1, then node 2), not a direct link to the sender.
+    // Chain bootstrap: 0 bootstraps 1, 1 bootstraps 2, 2 bootstraps 3. Node 3
+    // is handed node 2's id only. What this proves: a node that joined the
+    // topic through an intermediary, with no bootstrap knowledge of the
+    // sender, still receives the sender's broadcast. What it does not pin
+    // down: the delivery path. HyParView's ForwardJoin and shuffle may place
+    // node 0 straight into node 3's active view (capacity 5 by default, so
+    // four nodes can fully mesh), in which case the message arrives direct
+    // rather than relayed via 1 and 2. A strict relay proof needs a topology
+    // that forbids the direct edge (network isolation, not just bootstrap
+    // order); that is a follow-up on launch row 21.
     let sub0 = nodes[0].gossip.subscribe(topic, vec![]).await?;
     let sub1 = nodes[1].gossip.subscribe(topic, vec![nodes[0].id()]).await?;
     let sub2 = nodes[2].gossip.subscribe(topic, vec![nodes[1].id()]).await?;
