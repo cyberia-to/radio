@@ -54,6 +54,14 @@ pub fn decode<B: HashBackend>(
     }
 
     let declared_size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
+
+    // A valid encoding never needs more payload bytes than `encoded` has
+    // past the header: reject before `declared_size` drives any
+    // size-proportional allocation or recursion below.
+    if declared_size > (encoded.len() as u64).saturating_sub(8) {
+        return Err(DecodeError::Truncated);
+    }
+
     let tree = BaoTree::new(declared_size, block_size);
     let pre_order = tree.pre_order_chunks();
     let hash_size = backend.hash_size();
@@ -250,6 +258,31 @@ mod tests {
         let truncated = &encoded[..encoded.len() - 100];
         let result = decode(&backend, truncated, &root, BlockSize::ZERO);
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn decode_huge_declared_size_rejected_not_oom() {
+        let backend = Poseidon2Backend;
+        // An 8-byte header claiming a near-u64::MAX size, no payload behind it.
+        let mut encoded = u64::MAX.to_le_bytes().to_vec();
+        encoded.extend_from_slice(&[0u8; 8]);
+        let root = backend.chunk_hash(&[], 0, true);
+        let result = decode(&backend, &encoded, &root, BlockSize::ZERO);
+        assert_eq!(result, Err(DecodeError::Truncated));
+    }
+
+    #[test]
+    fn decode_declared_size_past_buffer_rejected() {
+        let backend = Poseidon2Backend;
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let (root, mut encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+        // Claim one byte more payload than the buffer can possibly hold.
+        let real_size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
+        let over = (encoded.len() as u64 - 8) + 1;
+        encoded[..8].copy_from_slice(&over.to_le_bytes());
+        let result = decode(&backend, &encoded, &root, BlockSize::ZERO);
+        assert_eq!(result, Err(DecodeError::Truncated));
+        assert_ne!(over, real_size);
     }
 
     #[test]
