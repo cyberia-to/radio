@@ -79,7 +79,7 @@ pub struct Opt {
 }
 
 pub enum EndpointSelector {
-    Iroh(::radio::Endpoint),
+    Iroh(::iroh::Endpoint),
     #[cfg(not(any(target_os = "freebsd", target_os = "openbsd", target_os = "netbsd")))]
     Quinn(::quinn::Endpoint),
 }
@@ -100,7 +100,7 @@ impl EndpointSelector {
 }
 
 pub enum ConnectionSelector {
-    Iroh(::radio::endpoint::Connection),
+    Iroh(::iroh::endpoint::Connection),
     #[cfg(not(any(target_os = "freebsd", target_os = "openbsd", target_os = "netbsd")))]
     Quinn(::quinn::Connection),
 }
@@ -213,7 +213,7 @@ pub async fn client_handler(
         tokio::spawn(async move {
             let result = match &*connection {
                 ConnectionSelector::Iroh(connection) => {
-                    radio::handle_client_stream(connection, opt.upload_size, opt.read_unordered)
+                    iroh::handle_client_stream(connection, opt.upload_size, opt.read_unordered)
                         .await
                 }
                 #[cfg(not(any(
