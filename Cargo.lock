@@ -4989,6 +4989,7 @@ dependencies = [
  "iroh-blobs 0.98.0",
  "iroh-gossip 0.96.0",
  "rand 0.9.2",
+ "tempfile",
  "tokio",
  "tracing-subscriber",
 ]
