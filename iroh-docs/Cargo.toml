@@ -33,8 +33,8 @@ futures-util = { version = "0.3.25" }
 hex = "0.4"
 iroh = { package = "cyber-radio", version = "0.1", path = "../iroh" }
 iroh-tickets = { version = "0.2"}
-iroh-blobs = { version = "0.98" }
-iroh-gossip = { version = "0.96", features = ["net"] }
+iroh-blobs = { version = "0.98", path = "../iroh-blobs" }
+iroh-gossip = { version = "0.96", features = ["net"], path = "../iroh-gossip" }
 iroh-metrics = { version = "0.38", default-features = false }
 irpc = { version = "0.12.0" }
 n0-future = "0.3"

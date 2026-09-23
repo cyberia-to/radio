@@ -2,6 +2,7 @@ use std::time::Duration;
 
 use anyhow::Result;
 use bytes::Bytes;
+use foculus::{decode_settle_msg, encode_settle_msg, SettleMsg};
 use futures_util::StreamExt;
 use iroh_gossip::api::{Event, GossipReceiver};
 use radio_integration_tests::{init_tracing, spawn_nodes, spawn_pair, test_rng};
@@ -149,6 +150,62 @@ async fn gossip_bidirectional() -> Result<()> {
     sender_b.broadcast(msg_b.clone()).await?;
     let received_a = wait_for_received(&mut receiver_a, Duration::from_secs(10)).await?;
     assert_eq!(received_a, msg_b);
+
+    tokio::try_join!(node_a.shutdown(), node_b.shutdown())?;
+    Ok(())
+}
+
+#[tokio::test]
+async fn gossip_settle_msg_envelope() -> Result<()> {
+    init_tracing();
+    let mut rng = test_rng(b"gossip_settle_msg_envelope");
+    let (node_a, node_b) = spawn_pair(&mut rng).await?;
+
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-settle-msg-envelope")
+        .as_bytes()[..32]
+        .try_into()
+        .unwrap();
+    let topic: iroh_gossip::TopicId = hash_bytes.into();
+
+    let sub_a = node_a.gossip.subscribe(topic, vec![]).await?;
+    let sub_b = node_b.gossip.subscribe(topic, vec![node_a.id()]).await?;
+
+    let (sender_a, _receiver_a) = sub_a.split();
+    let (_sender_b, mut receiver_b) = sub_b.split();
+
+    tokio::time::timeout(Duration::from_secs(10), receiver_b.joined())
+        .await
+        .map_err(|_| anyhow::anyhow!("timeout waiting for receiver_b join"))?
+        .map_err(|e| anyhow::anyhow!(e))?;
+
+    // Property 21's remaining claim is that gossip carries a real settle
+    // message, not opaque bytes: encode a foculus::SettleMsg with the same
+    // wire codec its own ALPN settle protocol uses (foculus::wire — "Used by
+    // in-process mesh and by the iroh ALPN settle protocol"), broadcast the
+    // wire bytes over this fork's gossip channel, and decode them back on the
+    // receiving end.
+    let sent = SettleMsg::ReceiptHash {
+        topic: [7; 32],
+        receipt_hash: [9; 32],
+        epoch: 42,
+    };
+    let wire = encode_settle_msg(&sent);
+    sender_a.broadcast(Bytes::from(wire)).await?;
+
+    let received = wait_for_received(&mut receiver_b, Duration::from_secs(10)).await?;
+    let decoded = decode_settle_msg(&received).expect("valid settle-msg wire bytes");
+    match decoded {
+        SettleMsg::ReceiptHash {
+            topic,
+            receipt_hash,
+            epoch,
+        } => {
+            assert_eq!(topic, [7; 32]);
+            assert_eq!(receipt_hash, [9; 32]);
+            assert_eq!(epoch, 42);
+        }
+        _ => panic!("expected ReceiptHash variant"),
+    }
 
     tokio::try_join!(node_a.shutdown(), node_b.shutdown())?;
     Ok(())
