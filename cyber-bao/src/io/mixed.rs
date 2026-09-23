@@ -159,3 +159,79 @@ where
 }
 
 use super::hash_block;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::io::pre_order::PreOrderMemOutboard;
+    use crate::tree::BlockSize;
+
+    struct VecSender(Vec<EncodedItem>);
+
+    impl Sender for VecSender {
+        type Error = std::convert::Infallible;
+
+        async fn send(&mut self, item: EncodedItem) -> Result<(), Self::Error> {
+            self.0.push(item);
+            Ok(())
+        }
+    }
+
+    #[tokio::test]
+    async fn traverse_sends_size_then_items_then_done() {
+        let data: Vec<u8> = (0..CHUNK_SIZE * 2).map(|i| (i % 251) as u8).collect();
+        let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
+        let mut sender = VecSender(Vec::new());
+
+        traverse_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut sender)
+            .await
+            .expect("VecSender::send never fails");
+
+        let items = sender.0;
+        assert!(
+            matches!(items.first(), Some(EncodedItem::Size(n)) if *n == data.len() as u64),
+            "first item should announce the total size"
+        );
+        assert!(
+            matches!(items.last(), Some(EncodedItem::Done)),
+            "last item should be Done on a clean traversal"
+        );
+
+        let mut leaf_data = Vec::new();
+        for item in &items {
+            if let EncodedItem::Leaf(leaf) = item {
+                leaf_data.extend_from_slice(&leaf.data);
+            }
+        }
+        assert_eq!(leaf_data, data, "leaves should reassemble the original bytes");
+    }
+
+    #[tokio::test]
+    async fn traverse_reports_root_mismatch_as_error_item_not_a_send_error() {
+        let data: Vec<u8> = (0..CHUNK_SIZE * 2).map(|i| (i % 251) as u8).collect();
+        let mut outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
+        // Corrupt the root only; the children hashes loaded from `outboard`
+        // are still genuine, so the top parent's recomputed hash no longer
+        // matches the (wrong) expected root popped off the stack.
+        outboard.root = hemera::Hash::from_bytes([0u8; hemera::OUTPUT_BYTES]);
+        let mut sender = VecSender(Vec::new());
+
+        traverse_ranges_validated(&data[..], &outboard, &ChunkRanges::all(), &mut sender)
+            .await
+            .expect("a hash mismatch is a protocol error, not a transport error");
+
+        let items = sender.0;
+        assert!(
+            matches!(
+                items.last(),
+                Some(EncodedItem::Error(EncodeError::ParentHashMismatch(_)))
+            ),
+            "expected the final item to report the mismatch, got {:?}",
+            items.last()
+        );
+        assert!(
+            !items.iter().any(|i| matches!(i, EncodedItem::Done)),
+            "a mismatched traversal must not report Done"
+        );
+    }
+}
