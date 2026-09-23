@@ -16,6 +16,9 @@ use cyber_bao::hash::Poseidon2Backend;
 use cyber_bao::io::{decode, encode, outboard};
 use cyber_bao::tree::BlockSize;
 
+mod particle_index;
+use particle_index::ParticleIndex;
+
 #[derive(Parser)]
 #[command(name = "radio", about = "Radio network CLI", version)]
 struct Cli {
@@ -100,6 +103,10 @@ enum BlobAction {
     Add {
         /// File to import
         path: PathBuf,
+        /// Record the particle (Poseidon2) → blob-hash (BLAKE3) mapping in
+        /// this index file, so the blob can later be fetched by particle
+        #[arg(long)]
+        index: Option<PathBuf>,
     },
     /// Download a blob from a peer
     Get {
@@ -110,6 +117,20 @@ enum BlobAction {
         /// Output file path
         #[arg(short, long)]
         out: PathBuf,
+    },
+    /// Download a blob from a peer by its cyber particle hash, verifying
+    /// the fetched bytes hash to that particle before writing them out
+    GetByParticle {
+        /// Cyber particle hash (Poseidon2/hemera, 64 hex chars)
+        particle: String,
+        /// Endpoint ID of the peer
+        peer: iroh::EndpointId,
+        /// Output file path
+        #[arg(short, long)]
+        out: PathBuf,
+        /// Index file mapping particle hashes to blob hashes
+        #[arg(long)]
+        index: PathBuf,
     },
     /// List stored blobs
     List,
@@ -315,7 +336,7 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
     tracing_subscriber::fmt::init();
 
     match action {
-        BlobAction::Add { path } => {
+        BlobAction::Add { path, index } => {
             let store = MemStore::new();
             let endpoint = Endpoint::builder()
                 .relay_mode(RelayMode::Default)
@@ -329,6 +350,16 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
             let tag = store.blobs().add_path(&path).await
                 .with_context(|| format!("importing {}", path.display()))?;
             println!("{}", tag.hash);
+
+            if let Some(index_path) = index {
+                let data = fs::read(&path)
+                    .with_context(|| format!("reading {}", path.display()))?;
+                let particle = hemera::hash(&data);
+                let mut idx = ParticleIndex::load(&index_path)?;
+                idx.insert(particle, tag.hash);
+                idx.save(&index_path)?;
+                println!("particle: {particle}");
+            }
         }
         BlobAction::Get { hash, peer, out } => {
             let hash_bytes = hex_to_bytes(&hash)?;
@@ -356,6 +387,47 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
             fs::write(&out, &data)
                 .with_context(|| format!("writing {}", out.display()))?;
             println!("downloaded {} bytes to {}", data.len(), out.display());
+        }
+        BlobAction::GetByParticle { particle, peer, out, index } => {
+            let particle_hash = parse_poseidon_hash(&particle)?;
+            let idx = ParticleIndex::load(&index)?;
+            let blob_hash = idx.lookup(&particle_hash).with_context(|| {
+                format!("particle {particle} not found in index {}", index.display())
+            })?;
+
+            let store = MemStore::new();
+            let endpoint = Endpoint::builder()
+                .relay_mode(RelayMode::Default)
+                .bind()
+                .await?;
+            let blobs = BlobsProtocol::new(&store, None);
+            let _router = Router::builder(endpoint.clone())
+                .accept(iroh_blobs::ALPN, blobs)
+                .spawn();
+
+            let conn = endpoint.connect(peer, iroh_blobs::ALPN).await?;
+            store.remote().fetch(conn, blob_hash).await?;
+
+            let data = store.blobs().get_bytes(blob_hash).await?;
+
+            // The whole point of resolving by particle instead of by the
+            // transport's own hash: a peer that serves bytes for the
+            // requested blob hash but not for the claimed particle is
+            // caught here, before those bytes ever reach disk.
+            let actual = hemera::hash(&data);
+            if actual != particle_hash {
+                bail!(
+                    "peer served bytes that do not hash to the requested particle\n  requested: {particle_hash}\n  actual:    {actual}"
+                );
+            }
+
+            fs::write(&out, &data)
+                .with_context(|| format!("writing {}", out.display()))?;
+            println!(
+                "downloaded {} bytes to {} (particle {particle_hash} verified)",
+                data.len(),
+                out.display()
+            );
         }
         BlobAction::List => {
             let store = MemStore::new();
