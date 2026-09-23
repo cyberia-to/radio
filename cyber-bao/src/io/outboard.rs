@@ -48,13 +48,45 @@ pub fn outboard<B: HashBackend>(
     }
 
     let post_order = tree.post_order_chunks();
+    let (root, node_to_children) = fold_post_order(backend, data, &post_order, bs);
 
-    // Bottom-up computation: hash leaves, then combine parents.
-    // Track child hashes for each parent to serialize in pre-order later.
+    // Serialize child-hash pairs in pre-order
+    let pre_order = tree.pre_order_chunks();
+    let mut outboard_data = Vec::with_capacity(node_to_children.len() * backend.hash_size() * 2);
+
+    for chunk in &pre_order {
+        if let BaoChunk::Parent { node, .. } = chunk
+            && let Some((left, right)) = node_to_children.get(&node.0)
+        {
+            outboard_data.extend_from_slice(left.as_ref());
+            outboard_data.extend_from_slice(right.as_ref());
+        }
+    }
+
+    Outboard {
+        root,
+        data: outboard_data,
+        tree,
+    }
+}
+
+/// Bottom-up fold of a post-order chunk sequence into a single root hash.
+///
+/// Hashes each leaf and combines parents as they are reached, tracking each
+/// parent's child-hash pair for pre-order serialization by the caller. A
+/// well-formed post-order traversal of `tree` always folds to exactly one
+/// value on `hash_stack`; anything else means the traversal handed to this
+/// function does not describe a single tree over `data`.
+fn fold_post_order<B: HashBackend>(
+    backend: &B,
+    data: &[u8],
+    post_order: &[BaoChunk],
+    bs: usize,
+) -> (B::Hash, HashMap<u64, (B::Hash, B::Hash)>) {
     let mut hash_stack: Vec<B::Hash> = Vec::new();
     let mut node_to_children: HashMap<u64, (B::Hash, B::Hash)> = HashMap::new();
 
-    for chunk in &post_order {
+    for chunk in post_order {
         match chunk {
             BaoChunk::Leaf {
                 start_chunk,
@@ -84,26 +116,12 @@ pub fn outboard<B: HashBackend>(
     let root = hash_stack
         .pop()
         .expect("hash stack should have root after traversal");
-    debug_assert!(hash_stack.is_empty());
-
-    // Serialize child-hash pairs in pre-order
-    let pre_order = tree.pre_order_chunks();
-    let mut outboard_data = Vec::with_capacity(node_to_children.len() * backend.hash_size() * 2);
-
-    for chunk in &pre_order {
-        if let BaoChunk::Parent { node, .. } = chunk
-            && let Some((left, right)) = node_to_children.get(&node.0)
-        {
-            outboard_data.extend_from_slice(left.as_ref());
-            outboard_data.extend_from_slice(right.as_ref());
-        }
-    }
-
-    Outboard {
-        root,
-        data: outboard_data,
-        tree,
-    }
+    assert!(
+        hash_stack.is_empty(),
+        "post-order traversal did not fold to a single root: {} chunk(s) left over",
+        hash_stack.len()
+    );
+    (root, node_to_children)
 }
 
 /// Hash a single block of data (may contain multiple chunks).
@@ -163,6 +181,7 @@ fn hash_block<B: HashBackend>(
 mod tests {
     use super::*;
     use crate::hash::Poseidon2Backend;
+    use crate::tree::TreeNode;
 
     #[test]
     fn outboard_single_block() {
@@ -234,5 +253,37 @@ mod tests {
         let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
         let expected_root = backend.parent_hash(&left, &right, true);
         assert_eq!(ob.root, expected_root);
+    }
+
+    #[test]
+    fn fold_post_order_two_blocks_folds_to_one_root() {
+        let backend = Poseidon2Backend;
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let post_order = vec![
+            BaoChunk::Leaf { start_chunk: 0, size: CHUNK_SIZE, is_root: false },
+            BaoChunk::Leaf { start_chunk: 1, size: CHUNK_SIZE, is_root: false },
+            BaoChunk::Parent { node: TreeNode(0), is_root: true, left: true, right: true },
+        ];
+        let (root, children) = fold_post_order(&backend, &data, &post_order, 0);
+        assert_eq!(children.len(), 1);
+        let left = backend.chunk_hash(&data[..CHUNK_SIZE], 0, false);
+        let right = backend.chunk_hash(&data[CHUNK_SIZE..], 1, false);
+        assert_eq!(root, backend.parent_hash(&left, &right, true));
+    }
+
+    #[test]
+    #[should_panic(expected = "post-order traversal did not fold to a single root")]
+    fn fold_post_order_rejects_a_dangling_leaf() {
+        // A post-order sequence with a leaf never combined into a parent —
+        // the same shape a mismatched or corrupted BaoTree traversal would
+        // produce. This must never silently return a root computed over
+        // only part of the tree.
+        let backend = Poseidon2Backend;
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let post_order = vec![
+            BaoChunk::Leaf { start_chunk: 0, size: CHUNK_SIZE, is_root: false },
+            BaoChunk::Leaf { start_chunk: 1, size: CHUNK_SIZE, is_root: false },
+        ];
+        let _ = fold_post_order(&backend, &data, &post_order, 0);
     }
 }
