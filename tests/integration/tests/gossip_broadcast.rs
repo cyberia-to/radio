@@ -2,9 +2,11 @@ use std::time::Duration;
 
 use anyhow::Result;
 use bytes::Bytes;
+use foculus::{claim_announce, claim_from_links, decode_settle_msg, SettleMsg};
 use futures_util::StreamExt;
 use iroh_gossip::api::{Event, GossipReceiver};
 use radio_integration_tests::{init_tracing, spawn_nodes, spawn_pair, test_rng};
+use tru::Link;
 
 #[tokio::test]
 async fn gossip_two_nodes() -> Result<()> {
@@ -149,6 +151,83 @@ async fn gossip_bidirectional() -> Result<()> {
     sender_b.broadcast(msg_b.clone()).await?;
     let received_a = wait_for_received(&mut receiver_a, Duration::from_secs(10)).await?;
     assert_eq!(received_a, msg_b);
+
+    tokio::try_join!(node_a.shutdown(), node_b.shutdown())?;
+    Ok(())
+}
+
+#[tokio::test]
+async fn gossip_claim_announce_envelope() -> Result<()> {
+    init_tracing();
+    let mut rng = test_rng(b"gossip_claim_announce");
+    let (node_a, node_b) = spawn_pair(&mut rng).await?;
+
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-claim-announce")
+        .as_bytes()[..32]
+        .try_into()
+        .unwrap();
+    let topic: iroh_gossip::TopicId = hash_bytes.into();
+
+    let sub_a = node_a.gossip.subscribe(topic, vec![]).await?;
+    let sub_b = node_b.gossip.subscribe(topic, vec![node_a.id()]).await?;
+
+    let (sender_a, _receiver_a) = sub_a.split();
+    let (_sender_b, mut receiver_b) = sub_b.split();
+
+    tokio::time::timeout(Duration::from_secs(10), receiver_b.joined())
+        .await
+        .map_err(|_| anyhow::anyhow!("timeout waiting for receiver_b join"))?
+        .map_err(|e| anyhow::anyhow!(e))?;
+
+    // radio#15's own Remains named this gap: a message with a real
+    // RewardClaim payload exercises more of wire.rs's encoding than
+    // ReceiptHash's fixed-size body does — a claim carries a variable-length
+    // link list, so this is the first gossip test whose wire body length
+    // depends on its content, not just its type tag.
+    let mut link_topic = [0u8; 32];
+    link_topic[0] = 0xC1;
+    let mut from = [0u8; 32];
+    from[0] = 1;
+    let mut to = [0u8; 32];
+    to[0] = 2;
+    let mut claim_id = [0u8; 32];
+    claim_id[0] = 0xA1;
+    let mut neuron = [0u8; 32];
+    neuron[0] = 10;
+
+    let claim = claim_from_links(
+        claim_id,
+        neuron,
+        vec![
+            Link::stake(from, to, 8_000),
+            Link::stake(to, from, 500),
+        ],
+        1,
+    );
+    let sent = claim_announce(link_topic, claim.clone());
+    let wire = foculus::encode_settle_msg(&sent);
+    sender_a.broadcast(Bytes::from(wire)).await?;
+
+    let received = wait_for_received(&mut receiver_b, Duration::from_secs(10)).await?;
+    let decoded = decode_settle_msg(&received).expect("valid settle-msg wire bytes");
+    match decoded {
+        SettleMsg::ClaimAnnounce {
+            topic: t,
+            claim_id: cid,
+            neuron: n,
+            claim: c,
+        } => {
+            assert_eq!(t, link_topic);
+            assert_eq!(cid, claim.id);
+            assert_eq!(n, claim.neuron);
+            assert_eq!(c.links.len(), 2);
+            assert_eq!(c.links[0].amount, 8_000);
+            assert_eq!(c.links[1].amount, 500);
+            assert_eq!(c.links[1].from, to);
+            assert_eq!(c.links[1].to, from);
+        }
+        _ => panic!("expected ClaimAnnounce variant"),
+    }
 
     tokio::try_join!(node_a.shutdown(), node_b.shutdown())?;
     Ok(())

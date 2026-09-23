@@ -12,6 +12,8 @@ iroh-gossip = { path = "../../iroh-gossip" }
 iroh-docs = { path = "../../iroh-docs" }
 hemera = { package = "cyber-hemera", version = "0.1" }
 cyber-bao = { path = "../../cyber-bao" }
+foculus = { version = "0.1", path = "../../../foculus" }
+tru = { package = "cyber-tru", version = "0.1", path = "../../../tru/rs" }
 
 tokio = { version = "1", features = ["full"] }
 anyhow = "1"
