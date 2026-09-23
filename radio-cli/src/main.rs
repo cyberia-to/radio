@@ -8,7 +8,7 @@ use clap::{Parser, Subcommand};
 use futures_lite::StreamExt;
 use iroh::{Endpoint, RelayMode, SecretKey};
 use iroh::protocol::Router;
-use iroh_blobs::{BlobsProtocol, Hash, store::mem::MemStore};
+use iroh_blobs::{BlobsProtocol, Hash, HashAndFormat, store::mem::MemStore};
 use iroh_gossip::net::{Gossip, GOSSIP_ALPN};
 use iroh_gossip::proto::TopicId;
 
@@ -352,6 +352,12 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
             let conn = endpoint.connect(peer, iroh_blobs::ALPN).await?;
             store.remote().fetch(conn, blob_hash).await?;
 
+            // `remote().fetch()` writes the content but creates no tag, so it would be
+            // invisible to `list` (and eligible for GC) despite being on disk; name it
+            // by hex hash, the same identity the caller fetched it by.
+            store.tags().set(hash.as_bytes(), HashAndFormat::raw(blob_hash)).await
+                .with_context(|| format!("tagging fetched blob {hash}"))?;
+
             let data = store.blobs().get_bytes(blob_hash).await?;
             fs::write(&out, &data)
                 .with_context(|| format!("writing {}", out.display()))?;
@@ -372,6 +378,60 @@ async fn cmd_blob(action: BlobAction) -> Result<()> {
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod blob_tag_tests {
+    use super::*;
+
+    // `remote().fetch()` writes blob content into the store's content-addressed
+    // storage but registers no tag for it — tags are a separate layer that `list`
+    // and GC both key off. Deleting the auto-tag that `add_bytes` creates leaves
+    // the store in exactly that state (content present, no tag) without needing
+    // a real two-endpoint transfer, and lets this test isolate the fix in
+    // `BlobAction::Get`: tagging the hash after fetch.
+    #[tokio::test]
+    async fn fetched_blob_is_untagged_until_named_by_hash() -> Result<()> {
+        let store = MemStore::new();
+        let tag = store.blobs().add_bytes(b"radio blob".to_vec()).await?;
+        let hash = tag.hash;
+
+        let untagged_names = list_tag_names(&store).await?;
+        assert!(
+            untagged_names.contains(&tag.name.as_ref().to_vec()),
+            "add_bytes must auto-tag, or this test no longer models the fetch gap"
+        );
+
+        store.tags().delete(tag.name.as_ref()).await?;
+        let names_after_delete = list_tag_names(&store).await?;
+        assert!(
+            names_after_delete.is_empty(),
+            "content with its tag deleted must not be listed, mirroring an untagged fetch"
+        );
+
+        let hex = hash.to_string();
+        store.tags().set(hex.as_bytes(), HashAndFormat::raw(hash)).await?;
+
+        let names_after_set = list_tag_names(&store).await?;
+        assert!(
+            names_after_set.contains(&hex.as_bytes().to_vec()),
+            "tagging by hex hash, as BlobAction::Get now does, must make the blob listable"
+        );
+
+        let data = store.blobs().get_bytes(hash).await?;
+        assert_eq!(data.as_ref(), b"radio blob", "tagging must not disturb the stored content");
+
+        Ok(())
+    }
+
+    async fn list_tag_names(store: &MemStore) -> Result<Vec<Vec<u8>>> {
+        let mut stream = store.tags().list().await?;
+        let mut names = Vec::new();
+        while let Some(item) = stream.next().await {
+            names.push(item?.name.as_ref().to_vec());
+        }
+        Ok(names)
+    }
 }
 
 // ── Gossip implementation ──────────────────────────────────────────────
