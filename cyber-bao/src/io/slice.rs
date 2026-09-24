@@ -7,6 +7,7 @@
 
 use std::ops::Range;
 
+#[cfg(test)]
 use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
@@ -15,6 +16,7 @@ use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, CHUNK_SIZE};
 use crate::{ChunkRanges, ChunkRangesRef};
 
 /// Size of a hash pair (two hashes concatenated).
+#[cfg(test)]
 const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Extract a slice (proof + data) for the given byte range.

@@ -9,6 +9,7 @@
 //! Parent nodes appear before their children, so the decoder can verify
 //! each piece as it arrives without buffering the entire file.
 
+#[cfg(test)]
 use hemera::OUTPUT_BYTES;
 
 use crate::hash::HashBackend;
@@ -16,6 +17,7 @@ use crate::io::outboard;
 use crate::tree::{BaoChunk, BlockSize, CHUNK_SIZE};
 
 /// Size of a hash pair (two hashes concatenated).
+#[cfg(test)]
 const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Encode data into the combined (pre-order) format.
