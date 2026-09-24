@@ -4,6 +4,10 @@ Iroh is a library to establish direct connectivity between peers.
 It's built on peer-to-peer [QUIC](https://en.wikipedia.org/wiki/QUIC) using both relays and holepunching.
 The main structure for connection is the `Endpoint` entrypoint.
 
+`radio::files` adds [file streams through injected storage](../specs/file-stream.md)
+to the existing router. Hosts authorize each requested file and supply its source
+and sink capabilities; Cybergraph's adapter performs durable writes through BBG.
+
 Peer to peer connectivity is established with the help of a _relay server_. The relay server provides [QUIC Address Discovery](https://www.ietf.org/archive/id/draft-ietf-quic-address-discovery-00.html) (QAD) and hole-punching assistance for the peers. If no direct connection can be established, the connection is relayed via the server.
 
 Peers must know and do verify the PeerID of each other before they can connect. When using a relay server to aid the connection establishment they will register with a home relay server using their PublicKey.  Other peers which can not establish a direct connection can then establish connection via this relay server.  This will try to assist establishing a direct connection using QAD and holepunching but continue relaying if not possible.

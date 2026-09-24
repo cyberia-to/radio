@@ -264,6 +264,7 @@ pub mod defaults;
 #[cfg(not(wasm_browser))]
 pub mod dns;
 pub mod endpoint;
+pub mod files;
 pub mod metrics;
 mod net_report;
 pub mod protocol;

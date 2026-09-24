@@ -1,5 +1,16 @@
 # radio
 
+The active [file-stream API](specs/file-stream.md) sends bounded ranges through
+host-authorized sources and sinks over Radio's existing QUIC transport. The
+[[cybergraph/specs/file-transfer|Cybergraph adapter]] retains bytes and resumable
+progress in the selected BBG owner. Register this protocol on the existing router;
+it opens no blob store. Full Blob verification precedes application publication.
+
+The port rationale and parameter notes below describe the earlier BAO-based
+path. Its storage/identity migration is tracked in
+[[soft3/roadmap/storage/README|the storage project]]. Current file identity and
+range-proof decisions are tracked in [[soft3/roadmap/storage/identity|S1]].
+
 Verified content streaming over Poseidon2.
 
 Radio is a fork of [iroh](https://github.com/n0-computer/iroh) where every hash — content identifiers, verified streaming trees, relay handshakes — runs through Poseidon2 over the Goldilocks field instead of BLAKE3.
@@ -70,7 +81,7 @@ Radio preserves iroh's networking layer — QUIC connections, hole-punching, rel
 | `iroh-willow` | Willow protocol implementation. |
 | `iroh-dns-server` | DNS-based endpoint discovery. |
 
-## Hemera Parameters
+## Legacy port parameter notes
 
 Frozen at deployment. These never change — changing them changes every content identifier in the network.
 
@@ -88,7 +99,7 @@ Frozen at deployment. These never change — changing them changes every content
 | Output | 8 elements = 64 bytes |
 | Security | 256-bit collision resistance |
 
-## Migration Status
+## Legacy port migration notes
 
 Complete. Zero BLAKE3 dependencies remain in any Cargo.toml or Cargo.lock. 395 tests pass across all crates.
 
