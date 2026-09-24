@@ -9,6 +9,10 @@ The `radio` executable composes the shared Cybergraph/BBG owner with Radio
 transport. `--database` and `--namespace` explicitly select the local owner and
 scope. `--backend ssd|hdd` selects Fjall or redb. There is one BBG store;
 network protocol handlers receive scoped source/sink capabilities.
+Recognized legacy Radio directories (`blobs.db`, `docs.redb` or nested
+`blobs/blobs.db`) are rejected before opening BBG, preserving their source data
+for explicit import. This recognition covers known layouts rather than arbitrary
+foreign database formats.
 
 `file` (also accepted as `blob`) provides add, list, get and export operations.
 Add streams exact bytes into BBG, verifies the existing Blob particle and prints

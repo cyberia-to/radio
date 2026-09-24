@@ -46,6 +46,15 @@ impl Storage {
         let namespace = self
             .namespace
             .context("file operations require --namespace")?;
+        if path.is_dir() {
+            for legacy in ["blobs.db", "docs.redb", "blobs/blobs.db"] {
+                if path.join(legacy).try_exists()? {
+                    bail!(
+                        "legacy Radio storage requires a verified import into a separate BBG owner"
+                    );
+                }
+            }
+        }
         let backend = match self.backend {
             Profile::Ssd => Backend::Ssd,
             Profile::Hdd => Backend::Hdd,

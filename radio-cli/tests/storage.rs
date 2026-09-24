@@ -315,3 +315,22 @@ fn private_serving_is_explicit_and_unauthorized_reads_leave_no_sealed_file() {
         );
     }
 }
+
+#[test]
+fn recognized_legacy_directories_are_preserved_before_bbg_is_opened() {
+    for marker in ["blobs.db", "docs.redb", "blobs/blobs.db"] {
+        let temp = tempfile::tempdir().unwrap();
+        let original = temp.path().join(marker);
+        std::fs::create_dir_all(original.parent().unwrap()).unwrap();
+        std::fs::write(&original, b"original legacy bytes").unwrap();
+        let result = command(temp.path(), "ssd")
+            .args(["file", "list"])
+            .output()
+            .unwrap();
+        assert!(!result.status.success());
+        assert!(String::from_utf8_lossy(&result.stderr).contains("verified import"));
+        assert_eq!(std::fs::read(&original).unwrap(), b"original legacy bytes");
+        assert!(!temp.path().join("bbg.lock").exists());
+        assert_eq!(std::fs::read_dir(temp.path()).unwrap().count(), 1);
+    }
+}
