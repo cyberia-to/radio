@@ -2,7 +2,7 @@
 name = "radio-cli"
 version = "0.1.0"
 edition = "2021"
-description = "Radio network CLI — hash, node, blob, gossip"
+description = "Radio network CLI — transport over shared Cybergraph storage"
 license = "MIT OR Apache-2.0"
 
 [[bin]]
@@ -16,7 +16,8 @@ workspace = true
 clap = { version = "4", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 iroh = { package = "cyber-radio", path = "../iroh" }
-iroh-blobs = { path = "../iroh-blobs" }
+cybergraph = { path = "../../cybergraph", features = ["local-storage", "legacy-redb-migration"] }
+cybergraph-radio = { path = "../../cybergraph/radio", features = ["hdd"] }
 iroh-gossip = { path = "../iroh-gossip" }
 hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
 cyber-bao = { path = "../cyber-bao" }
@@ -26,3 +27,6 @@ tracing-subscriber = "0.3"
 data-encoding = "2"
 bytes = "1"
 rand = "0.9"
+
+[dev-dependencies]
+tempfile = "3"

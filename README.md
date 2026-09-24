@@ -6,6 +6,14 @@ host-authorized sources and sinks over Radio's existing QUIC transport. The
 progress in the selected BBG owner. Register this protocol on the existing router;
 it opens no blob store. Full Blob verification precedes application publication.
 
+The [CLI file service](specs/cli-storage.md) now uses the same BBG owner for
+add/list/serve/get/export, with explicit database, namespace and SSD/HDD profile.
+[Name commands](specs/cli-names.md) expose atomic rename and retained local
+revisions. [CLI examples](docs/file-storage-cli.md) exercise the working path.
+The [extraction inventory](audit/storage/extraction-2026-09-24.md) tracks the
+remaining legacy packages; complete removal is a
+[[soft3/roadmap/storage/radio-removal|separate delivery milestone]].
+
 The port rationale and parameter notes below describe the earlier BAO-based
 path. Its storage/identity migration is tracked in
 [[soft3/roadmap/storage/README|the storage project]]. Current file identity and

@@ -1,15 +1,17 @@
 use std::fs;
-use std::io::{self, Read, Write as _};
+use std::io::{self, Write as _};
 use std::path::PathBuf;
 
 use anyhow::{Context, Result, bail};
 use bytes::Bytes;
 use clap::{Parser, Subcommand};
 use futures_lite::StreamExt;
-use iroh::{Endpoint, RelayMode, SecretKey};
 use iroh::protocol::Router;
-use iroh_blobs::{BlobsProtocol, Hash, store::mem::MemStore};
-use iroh_gossip::net::{Gossip, GOSSIP_ALPN};
+use iroh::{Endpoint, RelayMode, SecretKey};
+mod files;
+mod names;
+use files::{FileAction, Storage};
+use iroh_gossip::net::{GOSSIP_ALPN, Gossip};
 use iroh_gossip::proto::TopicId;
 
 use cyber_bao::hash::Poseidon2Backend;
@@ -19,6 +21,8 @@ use cyber_bao::tree::BlockSize;
 #[derive(Parser)]
 #[command(name = "radio", about = "Radio network CLI", version)]
 struct Cli {
+    #[command(flatten)]
+    storage: Storage,
     #[command(subcommand)]
     command: Commands,
 }
@@ -35,10 +39,16 @@ enum Commands {
         #[command(subcommand)]
         action: NodeAction,
     },
-    /// Content-addressed blob storage and transfer
-    Blob {
+    /// Durable files over the shared Cybergraph/BBG owner
+    #[command(name = "file", visible_alias = "blob")]
+    File {
         #[command(subcommand)]
-        action: BlobAction,
+        action: FileAction,
+    },
+    /// Versioned file names in the selected BBG namespace
+    Name {
+        #[command(subcommand)]
+        action: names::NameAction,
     },
     /// Pub/sub messaging over gossip
     Gossip {
@@ -56,26 +66,26 @@ enum HashAction {
         /// Files to hash (reads stdin if none)
         files: Vec<PathBuf>,
     },
-    /// Verify a file against an expected root hash
+    /// Verify exact bytes against the same particle as hash sum
     Verify {
         /// File to verify
         file: PathBuf,
         /// Expected hash (64 hex chars)
         hash: String,
     },
-    /// BAO encode a file (writes to stdout)
+    /// Legacy BAO encode a file (writes to stdout)
     BaoEncode {
         /// File to encode
         file: PathBuf,
     },
-    /// BAO decode and verify (writes to stdout)
+    /// Legacy BAO decode and verify (writes to stdout)
     BaoDecode {
         /// Encoded file
         file: PathBuf,
         /// Root hash (64 hex chars)
         hash: String,
     },
-    /// Print outboard hash tree info
+    /// Print legacy BAO outboard hash tree info
     Outboard {
         /// File to inspect
         file: PathBuf,
@@ -88,31 +98,22 @@ enum HashAction {
 enum NodeAction {
     /// Generate and print a new endpoint ID
     Id,
-    /// Start a node with blobs + gossip (Ctrl-C to stop)
-    Start,
-}
-
-// ── Blob ───────────────────────────────────────────────────────────────
-
-#[derive(Subcommand)]
-enum BlobAction {
-    /// Import a file into the blob store and print its hash
-    Add {
-        /// File to import
-        path: PathBuf,
+    /// Serve authorized BBG files and gossip (Ctrl-C to stop)
+    Start {
+        /// Explicitly allow public reads in the selected namespace
+        #[arg(
+            long,
+            conflicts_with = "allow_peer",
+            required_unless_present = "allow_peer"
+        )]
+        public: bool,
+        /// Transport peers authorized to read the selected namespace
+        #[arg(long, num_args = 1.., conflicts_with = "public")]
+        allow_peer: Vec<iroh::EndpointId>,
+        /// Disable relays and discovery (direct connections only)
+        #[arg(long)]
+        local: bool,
     },
-    /// Download a blob from a peer
-    Get {
-        /// Hash of the blob (hex)
-        hash: String,
-        /// Endpoint ID of the peer
-        peer: iroh::EndpointId,
-        /// Output file path
-        #[arg(short, long)]
-        out: PathBuf,
-    },
-    /// List stored blobs
-    List,
 }
 
 // ── Gossip ─────────────────────────────────────────────────────────────
@@ -140,24 +141,19 @@ fn main() -> Result<()> {
 
     match cli.command {
         Commands::Hash { action } => cmd_hash(action),
-        Commands::Node { action } => {
-            tokio::runtime::Builder::new_multi_thread()
-                .enable_all()
-                .build()?
-                .block_on(cmd_node(action))
-        }
-        Commands::Blob { action } => {
-            tokio::runtime::Builder::new_multi_thread()
-                .enable_all()
-                .build()?
-                .block_on(cmd_blob(action))
-        }
-        Commands::Gossip { action } => {
-            tokio::runtime::Builder::new_multi_thread()
-                .enable_all()
-                .build()?
-                .block_on(cmd_gossip(action))
-        }
+        Commands::Name { action } => names::run(action, cli.storage),
+        Commands::Node { action } => tokio::runtime::Builder::new_multi_thread()
+            .enable_all()
+            .build()?
+            .block_on(cmd_node(action, cli.storage)),
+        Commands::File { action } => tokio::runtime::Builder::new_multi_thread()
+            .enable_all()
+            .build()?
+            .block_on(files::run(action, cli.storage)),
+        Commands::Gossip { action } => tokio::runtime::Builder::new_multi_thread()
+            .enable_all()
+            .build()?
+            .block_on(cmd_gossip(action)),
     }
 }
 
@@ -167,15 +163,15 @@ fn cmd_hash(action: HashAction) -> Result<()> {
     match action {
         HashAction::Sum { files } => {
             if files.is_empty() {
-                let mut data = Vec::new();
-                io::stdin().read_to_end(&mut data)?;
-                let h = hemera::hash(&data);
+                let h = files::hash_reader(io::stdin().lock())?.0;
                 println!("{h}");
             } else {
                 for path in &files {
-                    let data = fs::read(path)
-                        .with_context(|| format!("reading {}", path.display()))?;
-                    let h = hemera::hash(&data);
+                    let h = files::hash_reader(
+                        fs::File::open(path)
+                            .with_context(|| format!("reading {}", path.display()))?,
+                    )?
+                    .0;
                     if files.len() > 1 {
                         println!("{h}  {}", path.display());
                     } else {
@@ -185,23 +181,18 @@ fn cmd_hash(action: HashAction) -> Result<()> {
             }
         }
         HashAction::Verify { file, hash } => {
-            let data = fs::read(&file)
-                .with_context(|| format!("reading {}", file.display()))?;
             let expected = parse_poseidon_hash(&hash)?;
-            let backend = Poseidon2Backend;
-            let ob = outboard::outboard(&backend, &data, BlockSize::ZERO);
-            if ob.root == expected {
-                println!("OK — root hash matches");
-            } else {
-                eprintln!("FAILED — hash mismatch");
-                eprintln!("  expected: {expected}");
-                eprintln!("  actual:   {}", ob.root);
-                std::process::exit(1);
+            let actual = files::hash_reader(
+                fs::File::open(&file).with_context(|| format!("reading {}", file.display()))?,
+            )?
+            .0;
+            if actual != expected {
+                bail!("particle mismatch: expected {expected}, actual {actual}");
             }
+            println!("OK — particle matches");
         }
         HashAction::BaoEncode { file } => {
-            let data = fs::read(&file)
-                .with_context(|| format!("reading {}", file.display()))?;
+            let data = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
             let backend = Poseidon2Backend;
             let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
             io::stdout().write_all(&encoded)?;
@@ -209,8 +200,7 @@ fn cmd_hash(action: HashAction) -> Result<()> {
             eprintln!("encoded size: {} bytes", encoded.len());
         }
         HashAction::BaoDecode { file, hash } => {
-            let encoded = fs::read(&file)
-                .with_context(|| format!("reading {}", file.display()))?;
+            let encoded = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
             let root = parse_poseidon_hash(&hash)?;
             let backend = Poseidon2Backend;
             match decode::decode(&backend, &encoded, &root, BlockSize::ZERO) {
@@ -225,8 +215,7 @@ fn cmd_hash(action: HashAction) -> Result<()> {
             }
         }
         HashAction::Outboard { file } => {
-            let data = fs::read(&file)
-                .with_context(|| format!("reading {}", file.display()))?;
+            let data = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
             let backend = Poseidon2Backend;
             let ob = outboard::outboard(&backend, &data, BlockSize::ZERO);
             println!("root hash:      {}", ob.root);
@@ -241,7 +230,10 @@ fn cmd_hash(action: HashAction) -> Result<()> {
 fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
     let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
     if bytes.len() != 32 {
-        bail!("hash must be 32 bytes (64 hex chars), got {} bytes", bytes.len());
+        bail!(
+            "hash must be 32 bytes (64 hex chars), got {} bytes",
+            bytes.len()
+        );
     }
     let mut arr = [0u8; 32];
     arr.copy_from_slice(&bytes);
@@ -249,128 +241,37 @@ fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
 }
 
 fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {
-    if hex.len() % 2 != 0 {
-        bail!("odd-length hex string");
+    if !hex.is_ascii() || !hex.len().is_multiple_of(2) {
+        bail!("expected an even number of ASCII hex digits");
     }
-    (0..hex.len())
-        .step_by(2)
-        .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).context("invalid hex digit"))
-        .collect()
+    data_encoding::HEXLOWER
+        .decode(hex.to_ascii_lowercase().as_bytes())
+        .context("invalid hex digit")
 }
 
 // ── Node implementation ────────────────────────────────────────────────
 
-async fn cmd_node(action: NodeAction) -> Result<()> {
+async fn cmd_node(action: NodeAction, storage: Storage) -> Result<()> {
     tracing_subscriber::fmt::init();
 
     match action {
         NodeAction::Id => {
             let secret_key = SecretKey::generate(&mut rand::rng());
-            println!("secret key:   {}", data_encoding::HEXLOWER.encode(&secret_key.to_bytes()));
+            println!(
+                "secret key:   {}",
+                data_encoding::HEXLOWER.encode(&secret_key.to_bytes())
+            );
             println!("endpoint id:  {}", secret_key.public());
         }
-        NodeAction::Start => {
-            let secret_key = match std::env::var("RADIO_SECRET") {
-                Ok(s) => s.parse().context("invalid RADIO_SECRET")?,
-                Err(_) => {
-                    let sk = SecretKey::generate(&mut rand::rng());
-                    eprintln!("generated new secret key (set RADIO_SECRET to reuse):");
-                    eprintln!("  RADIO_SECRET={}", data_encoding::HEXLOWER.encode(&sk.to_bytes()));
-                    sk
-                }
-            };
-
-            let store = MemStore::new();
-            let endpoint = Endpoint::builder()
-                .secret_key(secret_key)
-                .relay_mode(RelayMode::Default)
-                .bind()
-                .await?;
-
-            let blobs = BlobsProtocol::new(&store, None);
-            let gossip = Gossip::builder().spawn(endpoint.clone());
-
-            let router = Router::builder(endpoint.clone())
-                .accept(iroh_blobs::ALPN, blobs)
-                .accept(GOSSIP_ALPN, gossip)
-                .spawn();
-
-            endpoint.online().await;
-            let addr = endpoint.addr();
-            println!("node started");
-            println!("endpoint id:  {}", endpoint.id());
-            println!("address:      {addr:?}");
-
-            tokio::signal::ctrl_c().await?;
-            eprintln!("\nshutting down...");
-            router.shutdown().await?;
+        NodeAction::Start {
+            public,
+            allow_peer,
+            local,
+        } => {
+            files::serve(storage, public, allow_peer, local).await?;
         }
     }
-    Ok(())
-}
 
-// ── Blob implementation ────────────────────────────────────────────────
-
-async fn cmd_blob(action: BlobAction) -> Result<()> {
-    tracing_subscriber::fmt::init();
-
-    match action {
-        BlobAction::Add { path } => {
-            let store = MemStore::new();
-            let endpoint = Endpoint::builder()
-                .relay_mode(RelayMode::Default)
-                .bind()
-                .await?;
-            let blobs = BlobsProtocol::new(&store, None);
-            let _router = Router::builder(endpoint)
-                .accept(iroh_blobs::ALPN, blobs)
-                .spawn();
-
-            let tag = store.blobs().add_path(&path).await
-                .with_context(|| format!("importing {}", path.display()))?;
-            println!("{}", tag.hash);
-        }
-        BlobAction::Get { hash, peer, out } => {
-            let hash_bytes = hex_to_bytes(&hash)?;
-            if hash_bytes.len() != 32 {
-                bail!("blob hash must be 32 bytes (64 hex chars)");
-            }
-            let mut arr = [0u8; 32];
-            arr.copy_from_slice(&hash_bytes);
-            let blob_hash = Hash::from_bytes(arr);
-
-            let store = MemStore::new();
-            let endpoint = Endpoint::builder()
-                .relay_mode(RelayMode::Default)
-                .bind()
-                .await?;
-            let blobs = BlobsProtocol::new(&store, None);
-            let _router = Router::builder(endpoint.clone())
-                .accept(iroh_blobs::ALPN, blobs)
-                .spawn();
-
-            let conn = endpoint.connect(peer, iroh_blobs::ALPN).await?;
-            store.remote().fetch(conn, blob_hash).await?;
-
-            let data = store.blobs().get_bytes(blob_hash).await?;
-            fs::write(&out, &data)
-                .with_context(|| format!("writing {}", out.display()))?;
-            println!("downloaded {} bytes to {}", data.len(), out.display());
-        }
-        BlobAction::List => {
-            let store = MemStore::new();
-            let mut stream = store.tags().list().await?;
-            let mut count = 0u64;
-            while let Some(item) = stream.next().await {
-                let info = item?;
-                println!("{}  {:?}  {}", info.hash, info.format, String::from_utf8_lossy(info.name.as_ref()));
-                count += 1;
-            }
-            if count == 0 {
-                println!("(no blobs stored)");
-            }
-        }
-    }
     Ok(())
 }
 
