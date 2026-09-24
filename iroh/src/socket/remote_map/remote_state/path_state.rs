@@ -283,7 +283,7 @@ fn prune_ip_paths(paths: &mut FxHashMap<transports::Addr, PathState>) {
     }
 
     // sort the potentially prunable from most recently closed to least recently closed
-    inactive.sort_by(|a, b| b.1.cmp(&a.1));
+    inactive.sort_by_key(|path| std::cmp::Reverse(path.1));
 
     // Prune the "oldest" closed paths.
     let old_inactive = inactive.split_off(inactive.len().saturating_sub(MAX_INACTIVE_IP_PATHS));
