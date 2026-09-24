@@ -1,0 +1,114 @@
+[
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target-cli cargo test -p radio-cli --release --tests --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-cli-final-tests.log",
+    "sha256": "b3519653dfe4c0c307e02f0edf6efc4974d9ee69aacb1c4ec819e21237cd51d1",
+    "raw_sha256": "669306a323ef92d2d85f6603d6a35ca3e9db8d7d1d8707793a736a6b7c95eaf2",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": [
+      {
+        "passed": 0,
+        "failed": 0
+      },
+      {
+        "passed": 2,
+        "failed": 0
+      },
+      {
+        "passed": 4,
+        "failed": 0
+      }
+    ]
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target-cli cargo clippy -p radio-cli --all-targets --locked --offline --no-deps -- -D warnings",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-cli-clippy.log",
+    "sha256": "849077cc9bb7f34ba061e25182cdc14a604071c026a54599a302c6e22dc60e8c",
+    "raw_sha256": "849077cc9bb7f34ba061e25182cdc14a604071c026a54599a302c6e22dc60e8c",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": []
+  },
+  {
+    "command": "python3 scripts/check-cli-storage.py",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-cli-closure.log",
+    "sha256": "5c60995f71fff29aef30ccc163b2eb9dc019df4a55e3de50296f14c0949a29dd",
+    "raw_sha256": "5c60995f71fff29aef30ccc163b2eb9dc019df4a55e3de50296f14c0949a29dd",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": []
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo test -p cyber-radio --release --test file_stream --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-describe-tests.log",
+    "sha256": "7e0040e391d7c810417289058b1e408b9cb0b030cdd45b2768eff6f31fad6a0b",
+    "raw_sha256": "f572467893183c7e3fc51dc1687d79f1fe97a83b1de9e6b967a6a7b053b739c5",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": [
+      {
+        "passed": 5,
+        "failed": 0
+      }
+    ]
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo clippy -p cyber-radio --lib --test file_stream --locked --offline --no-deps -- -D warnings",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-describe-clippy.log",
+    "sha256": "b2a3c93965bfeaa9b6efa7919f719c2978b5e04f06ff2c1ca27ae743bbff7362",
+    "raw_sha256": "b2a3c93965bfeaa9b6efa7919f719c2978b5e04f06ff2c1ca27ae743bbff7362",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": []
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo test -p iroh-gossip --release --lib gossip_net_smoke --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-gossip-regression.log",
+    "sha256": "a842ed2bb85e7b2782315ec36d37f2d1b62a2ac39aa08c52913aa0b1f2ab0638",
+    "raw_sha256": "bf5080e584b7bc12deb25f8ad9479cb29de588aba2373e32c9d24f92eea80c86",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": [
+      {
+        "passed": 1,
+        "failed": 0
+      }
+    ]
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target-cli cargo test -p cyber-bao --lib --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "db8cf0e5ac3dc49a84ace1450f58af0c2188f894",
+    "exit_code": 0,
+    "log": "logs/radio-bao-tests.log",
+    "sha256": "4d29e0efff5b666eaf9d036e41a554fe3fedd29966f5052c444e8e3d0d571617",
+    "raw_sha256": "0a09631c43a5dae995d7d04136c6e181d076a59cc7f3f869464d03ad49d8487f",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "warnings": 0,
+    "test_summaries": [
+      {
+        "passed": 67,
+        "failed": 0
+      }
+    ]
+  }
+]

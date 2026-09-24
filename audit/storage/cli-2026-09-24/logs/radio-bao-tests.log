@@ -1,0 +1,76 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling cyber-bao v0.1.0 (/private/tmp/cyber-content-storage-20260924/radio/cyber-bao)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.75s
+     Running unittests src/lib.rs (/tmp/cyber-content-storage-20260924/target-cli/debug/deps/cyber_bao-21c8c388c595baaa)
+
+running 67 tests
+test hash::tests::hash_size ... ok
+test hash::tests::poseidon2_backend_counter ... ok
+test io::decode::tests::decode_empty ... ok
+test hash::tests::poseidon2_backend_basic ... ok
+test hash::tests::poseidon2_backend_root_differs ... ok
+test hash::tests::poseidon2_backend_parent ... ok
+test io::decode::tests::decode_partial_block ... ok
+test io::encode::tests::encode_empty ... ok
+test io::encode::tests::encode_partial_block ... ok
+test io::decode::tests::decode_wrong_root_fails ... ok
+test io::encode::tests::encode_deterministic ... ok
+test io::decode::tests::decode_single_block ... ok
+test io::decode::tests::decode_truncated_fails ... ok
+test io::outboard::tests::outboard_deterministic ... ok
+test io::outboard::tests::outboard_empty ... ok
+test io::encode::tests::encode_single_block ... ok
+test io::outboard::tests::outboard_different_data_different_root ... ok
+test io::decode::tests::decode_tampered_data_fails ... ok
+test io::decode::tests::decode_two_blocks ... ok
+test io::encode::tests::encode_two_blocks ... ok
+test io::outboard::tests::outboard_single_block ... ok
+test io::decode::tests::decode_four_blocks ... ok
+test io::pre_order::tests::post_order_mem_outboard_create ... ok
+test io::encode::tests::encode_block_size_nonzero ... ok
+test io::outboard::tests::outboard_partial_last_block ... ok
+test io::outboard::tests::outboard_four_blocks ... ok
+test io::encode::tests::encode_block_size_default ... ok
+test io::outboard::tests::outboard_two_blocks ... ok
+test io::pre_order::tests::pre_order_mem_outboard_create ... ok
+test io::slice::tests::decode_slice_wrong_root_fails ... ok
+test io::slice::tests::single_block_slice_roundtrip ... ok
+test io::pre_order::tests::post_order_can_validate_via_encode_ranges ... ok
+test io::pre_order::tests::pre_order_outboard_roundtrip ... ok
+test io::slice::tests::decode_slice_partial_range ... ok
+test io::slice::tests::decode_slice_full_range_roundtrip ... ok
+test io::slice::tests::multi_range_slice_extract_and_verify ... ok
+test io::slice::tests::slice_full_range_matches_encode ... ok
+test io::pre_order::tests::pre_order_outboard_block_size_nonzero ... ok
+test tree::tests::bao_tree_basic ... ok
+test io::sync::tests::valid_ranges_empty_data ... ok
+test tree::tests::bao_tree_empty ... ok
+test tree::tests::bao_tree_large ... ok
+test io::pre_order::tests::post_order_matches_pre_order_block_size_nonzero ... ok
+test io::slice::tests::slice_partial_range_is_smaller ... ok
+test io::sync::tests::encode_ranges_validated_full ... ok
+test tree::tests::bao_tree_two_blocks ... ok
+test tree::tests::block_size_bytes ... ok
+test tree::tests::block_size_from_bytes ... ok
+test tree::tests::post_order_two_blocks ... ok
+test tree::tests::pre_order_four_blocks ... ok
+test tree::tests::pre_order_single_block ... ok
+test io::pre_order::tests::post_order_outboard_all_nodes_match_pre_order ... ok
+test tree::tests::pre_order_two_blocks ... ok
+test tree::tests::tree_node_children ... ok
+test tree::tests::tree_node_chunk_range ... ok
+test tree::tests::tree_node_is_leaf ... ok
+test tree::tests::tree_node_level ... ok
+test io::sync::tests::valid_ranges_all_valid ... ok
+test io::sync::tests::encode_then_valid_ranges_roundtrip ... ok
+test io::slice::tests::slice_root_hash_independent_of_range ... ok
+test io::sync::tests::encode_ranges_block_size_nonzero ... ok
+test io::slice::tests::slice_roundtrip_block_size_nonzero ... ok
+test io::sync::tests::valid_ranges_block_size_nonzero ... ok
+test io::decode::tests::roundtrip_various_sizes ... ok
+test io::sync::tests::encode_ranges_partial_large_block ... ok
+test io::decode::tests::roundtrip_block_size_default ... ok
+test io::decode::tests::roundtrip_block_size_nonzero ... ok
+
+test result: ok. 67 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s

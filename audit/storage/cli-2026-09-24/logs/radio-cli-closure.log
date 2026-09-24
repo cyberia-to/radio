@@ -1,0 +1,3 @@
+PASS: radio-cli uses Cybergraph/BBG; legacy blob/docs stores absent from its production closure
+Remaining legacy workspace packages: iroh-blobs, iroh-docs, iroh-willow
+This checks CLI cutover only; full Radio storage extraction remains open.

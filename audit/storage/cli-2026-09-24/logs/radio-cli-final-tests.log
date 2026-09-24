@@ -1,0 +1,25 @@
+   Compiling radio-cli v0.1.0 (/private/tmp/cyber-content-storage-20260924/radio/radio-cli)
+    Finished `release` profile [optimized + debuginfo] target(s) in 4.01s
+     Running unittests src/main.rs (/tmp/cyber-content-storage-20260924/target-cli/release/deps/radio-bbe4c2a055523d7d)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/names.rs (/tmp/cyber-content-storage-20260924/target-cli/release/deps/names-9af2d132fc43f39a)
+
+running 2 tests
+test names_reject_bad_paths_missing_payloads_and_unknown_history_without_publishing ... ok
+test names_preserve_revisions_and_retries_across_real_cli_processes ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.46s
+
+     Running tests/storage.rs (/tmp/cyber-content-storage-20260924/target-cli/release/deps/storage-aff4b8b35bb532b0)
+
+running 4 tests
+test recognized_legacy_directories_are_preserved_before_bbg_is_opened ... ok
+test add_list_export_and_hash_agree_across_invocations_for_both_profiles ... ok
+test private_serving_is_explicit_and_unauthorized_reads_leave_no_sealed_file ... ok
+test command_line_transfer_uses_bbg_across_profiles_and_survives_server_exit ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 16.93s
