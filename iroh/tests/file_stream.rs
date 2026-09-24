@@ -32,6 +32,7 @@ async fn endpoint(n: u8) -> Endpoint {
 }
 fn request(offset: u64, length: u32) -> Vec<u8> {
     [
+        &[0],
         descriptor().file.particle.as_slice(),
         descriptor().file.profile.as_slice(),
         &descriptor().length.to_be_bytes(),
@@ -74,7 +75,11 @@ async fn malformed_requests_are_rejected_before_provider_access() {
     let client = endpoint(22).await;
     let mut trailing = request(0, 4);
     trailing.push(0);
-    let truncated = request(0, 4)[..83].to_vec();
+    let truncated = request(0, 4)[..84].to_vec();
+    let mut unknown = request(0, 4);
+    unknown[0] = 2;
+    let mut invalid_description = request(0, 0);
+    invalid_description[0] = 1; // nonzero total length is not canonical
     for bytes in [
         request(0, 0),
         request(0, MAX_RANGE_BYTES as u32 + 1),
@@ -82,6 +87,8 @@ async fn malformed_requests_are_rejected_before_provider_access() {
         request(u64::MAX, 1),
         trailing,
         truncated,
+        unknown,
+        invalid_description,
     ] {
         let connection = client
             .connect(router.endpoint().addr(), ALPN)
@@ -108,7 +115,7 @@ struct Reply(Vec<u8>);
 impl ProtocolHandler for Reply {
     async fn accept(&self, connection: Connection) -> Result<(), AcceptError> {
         let (mut send, mut recv) = connection.accept_bi().await?;
-        recv.read_to_end(84).await.map_err(AcceptError::from_err)?;
+        recv.read_to_end(85).await.map_err(AcceptError::from_err)?;
         send.write_all(&self.0)
             .await
             .map_err(AcceptError::from_err)?;
@@ -142,7 +149,7 @@ struct Partial(Arc<tokio::sync::Notify>);
 impl ProtocolHandler for Partial {
     async fn accept(&self, connection: Connection) -> Result<(), AcceptError> {
         let (mut send, mut recv) = connection.accept_bi().await?;
-        recv.read_to_end(84).await.map_err(AcceptError::from_err)?;
+        recv.read_to_end(85).await.map_err(AcceptError::from_err)?;
         send.write_all(&[0, 7, 7])
             .await
             .map_err(AcceptError::from_err)?;
@@ -214,6 +221,10 @@ async fn each_range_rechecks_authorization_and_connection_admission_is_bounded()
     );
     allowed.store(false, Ordering::SeqCst);
     assert_eq!(
+        client.describe(descriptor().file).await.unwrap_err().kind(),
+        io::ErrorKind::PermissionDenied
+    );
+    assert_eq!(
         client
             .read_range(descriptor(), 0, 4)
             .await
@@ -222,6 +233,10 @@ async fn each_range_rechecks_authorization_and_connection_admission_is_bounded()
         io::ErrorKind::PermissionDenied
     );
     allowed.store(true, Ordering::SeqCst);
+    assert_eq!(
+        client.describe(descriptor().file).await.unwrap(),
+        descriptor()
+    );
     assert_eq!(
         client.read_range(descriptor(), 0, 4).await.unwrap(),
         vec![7; 4]
@@ -238,4 +253,50 @@ async fn each_range_rechecks_authorization_and_connection_admission_is_bounded()
     router.shutdown().await.unwrap();
     ep1.close().await;
     ep2.close().await;
+}
+
+struct Empty;
+impl Source for Empty {
+    fn descriptor(&self) -> Descriptor {
+        Descriptor {
+            length: 0,
+            ..descriptor()
+        }
+    }
+    async fn read(&self, _: u64, _: usize) -> io::Result<Vec<u8>> {
+        panic!("describing a file must never read payload bytes")
+    }
+}
+#[tokio::test]
+async fn describe_handles_empty_files_and_rejects_wrong_identity_and_malformed_frames() {
+    let router = Router::builder(endpoint(30).await)
+        .accept(
+            ALPN,
+            FileProtocol::new(|_, _| async { Ok(Empty) }, 1, DEADLINE).unwrap(),
+        )
+        .spawn();
+    let ep = endpoint(31).await;
+    let mut client = Client::connect(&ep, router.endpoint().addr(), DEADLINE)
+        .await
+        .unwrap();
+    assert_eq!(client.describe(descriptor().file).await.unwrap().length, 0);
+    let wrong = FileId {
+        particle: [9; 32],
+        ..descriptor().file
+    };
+    assert!(client.describe(wrong).await.is_err());
+    drop(client);
+    router.shutdown().await.unwrap();
+    for reply in [vec![0; 8], vec![0; 10], vec![1, 0], vec![2]] {
+        let router = Router::builder(endpoint(32).await)
+            .accept(ALPN, Reply(reply))
+            .spawn();
+        let mut client = Client::connect(&ep, router.endpoint().addr(), DEADLINE)
+            .await
+            .unwrap();
+        assert!(client.describe(descriptor().file).await.is_err());
+        drop(client);
+        router.shutdown().await.unwrap();
+    }
+    ep.close().await;
 }

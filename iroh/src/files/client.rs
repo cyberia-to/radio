@@ -1,5 +1,5 @@
 use super::{
-    ALPN, Descriptor, Sink, invalid, transport,
+    ALPN, Descriptor, FileId, Sink, invalid, transport,
     wire::{OK, Request, UNAVAILABLE},
 };
 use crate::{Endpoint, EndpointAddr, endpoint::Connection};
@@ -59,11 +59,35 @@ impl Client {
         length: usize,
     ) -> io::Result<Vec<u8>> {
         let header = Request {
+            describe: false,
             descriptor,
             offset,
             length,
         }
         .encode()?;
+        self.request(header, length).await
+    }
+
+    /// Obtain an authorized descriptor without fetching payload bytes. The
+    /// reported length remains untrusted until the host verifies the full file.
+    pub async fn describe(&mut self, file: FileId) -> io::Result<Descriptor> {
+        let header = Request {
+            describe: true,
+            descriptor: Descriptor { file, length: 0 },
+            offset: 0,
+            length: 0,
+        }
+        .encode()?;
+        let bytes = self.request(header, 8).await?;
+        let length = u64::from_be_bytes(bytes.try_into().map_err(|_| invalid())?);
+        Ok(Descriptor { file, length })
+    }
+
+    async fn request(
+        &mut self,
+        header: [u8; super::wire::HEADER_BYTES],
+        length: usize,
+    ) -> io::Result<Vec<u8>> {
         tokio::time::timeout(self.timeout, async {
             let (mut send, mut recv) = self.connection.open_bi().await.map_err(transport)?;
             send.write_all(&header).await.map_err(transport)?;

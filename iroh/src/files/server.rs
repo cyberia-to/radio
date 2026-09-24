@@ -54,6 +54,12 @@ impl<P: Provider> FileProtocol<P> {
                 .provider
                 .open(connection.remote_id(), request.descriptor.file)
                 .await?;
+            if source.descriptor().file != request.descriptor.file {
+                return Err(invalid());
+            }
+            if request.describe {
+                return Ok(source.descriptor().length.to_be_bytes().to_vec());
+            }
             if source.descriptor() != request.descriptor {
                 return Err(invalid());
             }

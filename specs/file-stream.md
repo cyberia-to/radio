@@ -32,10 +32,20 @@ range requires a new authorization decision.
 ## transfer framing
 
 The opt-in ALPN is `/cyber/file-stream`. One connection carries sequential
-bidirectional streams, each with one range request. The fixed request contains
-particle, verifier profile, total length, byte offset and range length, followed
-by FIN. Integers use unsigned big-endian encoding. The response contains a
-status byte and, on success, exactly the requested bytes followed by FIN.
+bidirectional streams, each with one request. The fixed 85-byte request contains
+an operation byte, particle (32 bytes), verifier profile (32 bytes), total length
+(8 bytes), byte offset (8 bytes) and range length (4 bytes), followed by FIN.
+Integers use unsigned big-endian encoding. Operation 0 reads a range; its response
+contains a status byte and exactly the requested bytes followed by FIN.
+
+Operation 1 describes an authorized file. Its length, offset and range length
+fields MUST be zero; the response is status 0, the 8-byte total length and FIN.
+The provider repeats the same authorization used for ranges and the returned
+source MUST match the requested particle/profile. Descriptor lookup performs no
+payload read. Status 1 means unavailable for either operation. Other operations,
+statuses and noncanonical fields fail. Descriptor length is an untrusted staging
+claim until complete identity verification succeeds; obtaining it grants no
+retention or publication authority.
 
 The request length is bounded independently of total file length. Both parties
 validate offset/length arithmetic, the range budget and exact stream termination.
