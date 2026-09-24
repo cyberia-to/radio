@@ -1,0 +1,75 @@
+{
+  "scope": "Local feature-branch implementation validation; synthetic loopback peers and temporary BBG stores.",
+  "root_package": "cyber-radio",
+  "repositories": {
+    "hemera": {
+      "revision": "2bb9bb623cd97fb685acd7b9882518a2901723af",
+      "tree": "84d75cb13103474cfd6001accc214e74251f2251",
+      "origin": "https://github.com/cyberia-to/hemera.git",
+      "packages": [
+        {
+          "name": "cyber-hemera",
+          "version": "0.3.1",
+          "manifest": "rs/Cargo.toml"
+        }
+      ]
+    },
+    "radio": {
+      "revision": "fe72dbd2f15370bfc333709d4870cb2f2b1d0d15",
+      "tree": "b889487d2ff8b591b64a717c917920e1f6e78798",
+      "origin": "https://github.com/cyberia-to/radio.git",
+      "packages": [
+        {
+          "name": "cyber-radio",
+          "version": "0.1.0",
+          "manifest": "iroh/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-base",
+          "version": "0.1.1",
+          "manifest": "iroh-base/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-netwatch",
+          "version": "0.1.0",
+          "manifest": "nettools/netwatch/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-portmapper",
+          "version": "0.1.0",
+          "manifest": "nettools/portmapper/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-quinn",
+          "version": "0.1.0",
+          "manifest": "quinn/quinn/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-quinn-proto",
+          "version": "0.1.0",
+          "manifest": "quinn/quinn-proto/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-quinn-udp",
+          "version": "0.1.0",
+          "manifest": "quinn/quinn-udp/Cargo.toml"
+        },
+        {
+          "name": "cyber-radio-relay",
+          "version": "0.1.0",
+          "manifest": "iroh-relay/Cargo.toml"
+        }
+      ]
+    }
+  },
+  "dependency_lock": "Cargo.lock",
+  "lock_sha256": "295b21c8804e3885a195511ffca6fcf368e7c762c5b411374aecf20ba4d14052",
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14) (Homebrew)",
+    "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21) (Homebrew)",
+    "transport": "Authenticated loopback QUIC; relay and external discovery disabled",
+    "filesystem": "APFS on the local solid-state volume; both backend profiles use this hardware",
+    "filesystem_evidence": "../content-2026-09-24/sources.json in cybergraph"
+  }
+}

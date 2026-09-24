@@ -1,0 +1,11 @@
+   Compiling cyber-radio v0.1.0 (/private/tmp/cyber-content-storage-20260924/radio/iroh)
+    Finished `release` profile [optimized + debuginfo] target(s) in 12.99s
+     Running tests/file_stream.rs (/tmp/cyber-content-storage-20260924/target/release/deps/file_stream-2c482d53ae8e4b34)
+
+running 4 tests
+test malformed_requests_are_rejected_before_provider_access ... ok
+test each_range_rechecks_authorization_and_connection_admission_is_bounded ... ok
+test truncated_trailing_and_invalid_responses_never_reach_the_sink ... ok
+test interrupted_frames_and_expired_deadlines_do_not_acknowledge_a_sink_write ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.17s

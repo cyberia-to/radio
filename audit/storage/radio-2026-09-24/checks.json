@@ -1,0 +1,48 @@
+[
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo test -p cyber-radio --release --test file_stream --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "fe72dbd2f15370bfc333709d4870cb2f2b1d0d15",
+    "exit_code": 0,
+    "log": "logs/radio-files-tests.log",
+    "sha256": "fbfe7a875c96b99631d6ecae29afe863ce12c38ed80b3d085077403cb1aa8e95",
+    "raw_sha256": "d90c0a919e69cbea1baf6bce679680bcd044a0986cf250c52a7e25c965af63c9",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "test_summaries": [
+      {
+        "passed": 4,
+        "failed": 0
+      }
+    ],
+    "warnings": 0
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo test -p cyber-radio --release --lib path_state::tests --locked --offline",
+    "cwd_repository": "radio",
+    "revision": "fe72dbd2f15370bfc333709d4870cb2f2b1d0d15",
+    "exit_code": 0,
+    "log": "logs/radio-files-regression.log",
+    "sha256": "78b914cf8bde9ef078e09cbc397c9da2f2f027584ea209206f1dc74dfca13b53",
+    "raw_sha256": "d79747415848f033df07c1a284da46ef5e9f92135e78663931eaf8955da6145f",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "test_summaries": [
+      {
+        "passed": 10,
+        "failed": 0
+      }
+    ],
+    "warnings": 0
+  },
+  {
+    "command": "CARGO_TARGET_DIR=/tmp/cyber-content-storage-20260924/target cargo clippy -p cyber-radio --lib --test file_stream --locked --offline --no-deps -- -D warnings",
+    "cwd_repository": "radio",
+    "revision": "fe72dbd2f15370bfc333709d4870cb2f2b1d0d15",
+    "exit_code": 0,
+    "log": "logs/radio-files-clippy.log",
+    "sha256": "03045f8b7fe532a9baf0af3d03c0c77cc7653b315ff223e4705f9a9fa2cfbb1c",
+    "raw_sha256": "03045f8b7fe532a9baf0af3d03c0c77cc7653b315ff223e4705f9a9fa2cfbb1c",
+    "normalization": "Trailing empty lines removed; test output unchanged.",
+    "test_summaries": [],
+    "warnings": 0
+  }
+]

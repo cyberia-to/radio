@@ -1,0 +1,20 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling cyber-radio v0.1.0 (/private/tmp/cyber-content-storage-20260924/radio/iroh)
+    Finished `release` profile [optimized + debuginfo] target(s) in 21.32s
+     Running unittests src/lib.rs (/tmp/cyber-content-storage-20260924/target/release/deps/radio-826354973f3caffa)
+
+running 10 tests
+test socket::remote_map::remote_state::path_state::tests::test_prune_under_max_paths ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_preserves_never_dialed ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_mixed_must_and_can_prune ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_keeps_most_recent_inactive ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_all_paths_failed ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_failed_holepunch ... ok
+test socket::remote_map::remote_state::path_state::tests::test_insert_open_path ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_at_max_paths_no_prunable ... ok
+test socket::remote_map::remote_state::path_state::tests::test_abandoned_path ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_non_ip_paths_not_counted ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 81 filtered out; finished in 0.00s
