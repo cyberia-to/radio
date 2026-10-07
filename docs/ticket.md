@@ -7,7 +7,7 @@ crystal-domain: cyber
 
 # ticket
 
-a serialized token containing everything needed to fetch a [[radio/blob]]
+a serialized token containing everything needed to fetch a [[radio/blob]] or join a [[radio/docs]] replica
 
 ## contents
 
@@ -23,7 +23,7 @@ share a single file with a blob ticket in raw format. share a collection with a 
 
 ## sharing
 
-tickets serialize to a string that works anywhere text works — paste in a chat, embed in a QR code, publish as a [[cyberlink]]
+tickets serialize to a string that works anywhere text works — paste in a chat, embed in a QR code, publish as a [[cyberlink]], store in a [[radio/docs]] entry
 
 ## role in cyber
 

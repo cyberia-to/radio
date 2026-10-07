@@ -29,6 +29,6 @@ uses the ALPN identifier "gossip" over QUIC bidirectional streams routed through
 
 ## role in cyber
 
-gossip is how [[neurons]] learn about new [[cyberlinks]] in real time. when a neuron creates a link, it broadcasts to the relevant topic. subscribers update their local view of the [[cybergraph]] without polling. it is also the propagation layer [[foculus]] reconciliation rides on — when a signal lands, gossip carries it
+gossip is how [[neurons]] learn about new [[cyberlinks]] in real time. when a neuron creates a link, it broadcasts to the relevant topic. subscribers update their local view of the [[cybergraph]] without polling. also serves as the notification layer for [[radio/docs]] synchronization — when a replica entry changes, gossip carries the signal
 
 crate: iroh-gossip

@@ -9,6 +9,7 @@ iroh = { package = "cyber-radio", path = "../../iroh" }
 iroh-base = { package = "cyber-radio-base", path = "../../iroh-base" }
 iroh-blobs = { path = "../../iroh-blobs" }
 iroh-gossip = { path = "../../iroh-gossip" }
+iroh-docs = { path = "../../iroh-docs" }
 hemera = { package = "cyber-hemera", version = "0.1" }
 cyber-bao = { path = "../../cyber-bao" }
 

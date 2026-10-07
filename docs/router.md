@@ -19,7 +19,7 @@ each protocol registers a unique ALPN string. when a connection arrives, the rou
 
 ## protocol handlers
 
-a handler is any code implementing an accept method that receives a Connection and processes it according to that protocol's rules. [[radio/blob]], [[radio/gossip]], and  each register their own ALPN and handler
+a handler is any code implementing an accept method that receives a Connection and processes it according to that protocol's rules. [[radio/blob]], [[radio/gossip]], [[radio/docs]], and [[radio/willow]] each register their own ALPN and handler
 
 ## extensibility
 
@@ -27,4 +27,4 @@ custom protocols register their ALPN with the router and handle connections inde
 
 ## role in cyber
 
-the router is how a single [[radio/endpoint]] serves multiple protocols simultaneously — transferring [[radio/blob]], broadcasting via [[radio/gossip]], all on the same QUIC socket, multiplexed by ALPN. one port, many protocols, zero coordination overhead
+the router is how a single [[radio/endpoint]] serves multiple protocols simultaneously — transferring [[radio/blob]], syncing [[radio/docs]], broadcasting via [[radio/gossip]], all on the same QUIC socket, multiplexed by ALPN. one port, many protocols, zero coordination overhead

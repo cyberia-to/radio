@@ -5,14 +5,16 @@ use iroh::{
     address_lookup::MemoryLookup, protocol::Router, Endpoint, EndpointId, RelayMode, SecretKey,
 };
 use iroh_blobs::{store::mem::MemStore, BlobsProtocol};
+use iroh_docs::{api::DocsApi, protocol::Docs};
 use iroh_gossip::net::Gossip;
 use rand::{CryptoRng, Rng, SeedableRng};
 
-/// A test node wrapping the transport protocols: blobs and gossip.
+/// A test node wrapping all protocols: blobs, gossip, docs.
 pub struct TestNode {
     pub router: Router,
     pub store: MemStore,
     pub gossip: Gossip,
+    pub docs_api: DocsApi,
 }
 
 impl TestNode {
@@ -49,8 +51,13 @@ fn spawn_one(
         let store = MemStore::new();
         let blobs_store = (*store).clone(); // iroh_blobs::api::Store
         let gossip = Gossip::builder().spawn(ep.clone());
+        let docs = Docs::memory()
+            .spawn(ep.clone(), blobs_store.clone(), gossip.clone())
+            .await?;
+
         let router = Router::builder(ep)
             .accept(iroh_blobs::ALPN, BlobsProtocol::new(&blobs_store, None))
+            .accept(iroh_docs::ALPN, docs.clone())
             .accept(iroh_gossip::ALPN, gossip.clone())
             .spawn();
 
@@ -58,6 +65,7 @@ fn spawn_one(
             router,
             store,
             gossip,
+            docs_api: docs.api().clone(),
         })
     }
 }
