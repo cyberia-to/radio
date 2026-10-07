@@ -19,7 +19,7 @@ each protocol registers a unique ALPN string. when a connection arrives, the rou
 
 ## protocol handlers
 
-a handler is any code implementing an accept method that receives a Connection and processes it according to that protocol's rules. [[radio/blob]], [[radio/gossip]], [[radio/docs]], and [[radio/willow]] each register their own ALPN and handler
+a handler is any code implementing an accept method that receives a Connection and processes it according to that protocol's rules. [[radio/blob]], [[radio/gossip]], and  each register their own ALPN and handler
 
 ## extensibility
 
