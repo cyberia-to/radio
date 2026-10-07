@@ -27,4 +27,4 @@ custom protocols register their ALPN with the router and handle connections inde
 
 ## role in cyber
 
-the router is how a single [[radio/endpoint]] serves multiple protocols simultaneously — transferring [[radio/blob]], syncing [[radio/docs]], broadcasting via [[radio/gossip]], all on the same QUIC socket, multiplexed by ALPN. one port, many protocols, zero coordination overhead
+the router is how a single [[radio/endpoint]] serves multiple protocols simultaneously — transferring [[radio/blob]], broadcasting via [[radio/gossip]], all on the same QUIC socket, multiplexed by ALPN. one port, many protocols, zero coordination overhead

@@ -36,8 +36,8 @@ Radio preserves iroh's networking layer — QUIC connections, hole-punching, rel
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                        Protocols                             │
-│   iroh-blobs    iroh-docs    iroh-gossip    iroh-willow      │
-│   (content)     (key-value)  (pub-sub)      (sync)           │
+│          iroh-blobs              iroh-gossip                 │
+│          (content)               (pub-sub)                   │
 ├──────────────────────────────────────────────────────────────┤
 │                    Verified Streaming                         │
 │                       cyber-bao                               │
@@ -64,10 +64,8 @@ Radio preserves iroh's networking layer — QUIC connections, hole-punching, rel
 | `iroh-relay` | Relay server with Poseidon2-based handshake. |
 | `iroh-base` | Common types — `Hash` (Poseidon2 digest), keys, `RelayUrl`. |
 | `iroh-blobs` | Content-addressed blob transfer with Poseidon2 verified streaming. Scales from kilobytes to terabytes. |
-| `iroh-docs` | Eventually-consistent key-value store over iroh-blobs. |
 | `iroh-gossip` | Publish-subscribe overlay networks. |
 | `iroh-car` | CAR (Content Addressable aRchive) format support. |
-| `iroh-willow` | Willow protocol implementation. |
 | `iroh-dns-server` | DNS-based endpoint discovery. |
 
 ## Hemera Parameters
@@ -88,6 +86,19 @@ Frozen at deployment. These never change — changing them changes every content
 | Output | 8 elements = 64 bytes |
 | Security | 256-bit collision resistance |
 
+## Boundary
+
+radio **transmits**. it dials, hole-punches, relays, gossips and pipes verified streams. it does not reconcile, hash, frame or encrypt on its own account:
+
+| concern | owner | radio's part |
+|---|---|---|
+| content identity, tree rules, the verified-streaming *format* | [hemera](../hemera) — `hemera::tree`, `hemera::stream` | `cyber-bao` is the ranged adapter iroh-blobs needs (block sizes, partial ranges, slices, async fsm); its whole-tree encoding is byte-identical to `hemera::stream` and a test pins that (`cyber-bao/tests/hemera_format.rs`) |
+| reconciliation, CRDT merge, ordering | [foculus](../foculus) — `reconcile`, `store`, `chain` | none. the vendored `iroh-docs` and `iroh-willow` engines were removed on 2026-10-07; nothing in the stack used them |
+| framing | [tade](../tade) | per-protocol postcard framing stays inside the vendored iroh protocols until a tade codec replaces it |
+| transport crypto | [mudra](../mudra) — seal / stealth | **open.** the QUIC handshake runs on vendored rustls + ring and endpoints sign with ed25519 — classical. routing it through mudra needs a post-quantum KEM that mudra has specified but not implemented (`mudra/specs/seal.md`); until a seal implementation exists this row cannot move and should not pretend to be scheduled |
+
+the ledger these rows come from is `soft3/roadmap/component-boundaries.md`.
+
 ## Migration Status
 
 Complete. Zero BLAKE3 dependencies remain in any Cargo.toml or Cargo.lock. 395 tests pass across all crates.
@@ -98,7 +109,7 @@ Complete. Zero BLAKE3 dependencies remain in any Cargo.toml or Cargo.lock. 395 t
 | cyber-bao (verified streaming) | Done |
 | iroh-blobs (content addressing) | Done |
 | iroh-relay (handshake) | Done |
-| iroh-docs, iroh-gossip, iroh-car | Done |
+| iroh-gossip, iroh-car | Done |
 | Blake3 removal | Done |
 | Validation (395 tests, 0 failures) | Done |
 

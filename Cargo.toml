@@ -10,9 +10,7 @@ members = [
   "particle",
   "iroh-blobs",
   "iroh-gossip",
-  "iroh-docs",
   "iroh-car",
-  "iroh-willow",
   "tests/integration",
   "radio-cli",
 ]
