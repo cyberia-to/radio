@@ -171,4 +171,60 @@ order: 1 → 2 → 3 → 5 → 4 → 6 → 7 → 8 → 9. steps 1–3 and 5–6 
 
 exit state: `radio` = endpoint · paths · relay · observe · gossip · stream · fetch · custody, ~14K own lines, cyber-bao beside it, quinn and nettools as vendored dependencies, ~80 crates, one of everything.
 
+## 8. after QUIC — the wire the stack would build if the internet were not in the way
+
+QUIC is the best transport the IP internet has, and it is a legacy transport: it carries TCP's abstractions — a connection between two addresses, ordered reliable byte streams, ACKs of byte offsets, a handshake per peer — into UDP, because the applications it was built for (HTTP) think in connections and streams. cyber does not. its unit is not a connection; it is a signal or a particle, self-certifying, addressed by name, forwarded by whoever holds it, verified by whoever receives it. strip QUIC to what the stack would keep and three of its four pillars fall away.
+
+| QUIC pillar | what it exists for | what cyber already has instead |
+|---|---|---|
+| ordered reliable streams, ACKs of byte offsets | the application cannot tell a good byte from a bad one, so the transport must deliver all of them in order | every chunk is verifiable against its particle (hemera tree); signals order themselves (`prev`, `step`); loss is "a chunk I lack", recovered from any peer by re-asking — reliability is reconciliation, and foculus owns it |
+| connection + handshake per peer | identity is the address; two parties must agree who they are before any byte means anything | identity is the neuron, in the graph; a request for public bytes needs no prior agreement with anyone — any holder answers, and the answer proves itself |
+| per-connection congestion control | shared paths with no information about distance or price | the location proof gives the RTT floor; locus gives distance; forwarding is paid in focus — rate is pressure and price, measurable and settled, not a probe for a number nobody knows |
+| per-packet TLS crypto with key levels | protect a byte stream between two addresses | integrity is the hash; confidentiality where it matters is at the payload (seal, veil); what the wire needs is traffic-analysis resistance between two neurons — a pairwise AEAD channel after one PQ KEM exchange, WireGuard-shaped, not TLS |
+
+what remains is a different animal, and it has a name in the literature: named-data networking — interests and data, no connections, data cached by forwarders, routed by name. NDN never deployed for three reasons, and cyber has all three: name-based routing tables that explode at scale (cyber routes greedily by *locus*, O(degree) state, no table — `soft3/specs/routing.md`); no incentive to forward or cache (relay receipts paid in focus); no global naming authority (the cybergraph is the name graph, and a particle is its own authority).
+
+### the native wire
+
+```
+L1  wire     a pairwise channel: PQ KEM (mudra seal, hybrid) → AEAD per packet, rekey by counter.
+             no handshake state beyond one round; no streams; no ACKs.                       ~1,500
+L2  packet   tade frames, datagram-sized:
+             INTEREST(particle, range, hops, min_dist, visited)
+             DATA(chunk, proof path)        SIGNAL(frame)
+             PLACE(challenge | response)    RECEIPT(forwarded, signed)                        ~500
+L3  forward  greedy by locus over FOLLOW, gravity-pressure at minima, cache at forwarders,
+             interest aggregation (one upstream ask for many downstream asks), receipts;
+             rate control = pressure: a forwarder sheds interests it cannot pay for          ~2,000
+L4  custody  interests persist across dark paths; data waits for the path; DTN-native        ~1,000
+L5  observe  addresses, loci, RTT evidence from PLACE                                          ~500
+                                                                               own code ≈ 5,500
+legacy era   quinn as the convergence layer over IP (QNT for NATs), until the links are ours  (dep)
+```
+
+no connection, no stream, no ACK: only interests and data, the receiver drives reliability by re-expressing what it lacks (the BitTorrent and NDN model), and a forwarder is a cache with a locus. the hemera chunk (4 KiB) spans three or four datagrams and is verified at the chunk, like a QUIC packet is verified at the packet — one level up.
+
+### why it is faster, concretely
+
+- first packet is the request: a public particle is fetched with no handshake, and the nearest holder answers — latency is distance to the closest copy, not RTT to the origin plus a TLS round trip;
+- every fetch is multi-source by construction, since any holder of the range may answer the interest;
+- no head-of-line blocking because there is no line: chunks are independent;
+- forwarding decision is a fixed-point comparison of loci — no table lookup, no routing protocol, no convergence time;
+- verification at line rate on the accelerator: a DATA packet lands in unified memory and its proof path is checked where it lies (the honeycrisp mandate), the same buffer the application reads;
+- across light-minutes it is the only design that works at all: an interest that waits is normal, a cache en route is the point, and nothing times out because nothing was promised.
+
+### what the stack is missing to build it
+
+in order of how hard the absence bites:
+
+1. **locus with proof** — `tru/specs/locus.md` and `mudra/specs/place.md` are specs on a branch with no code. without a proven coordinate per neuron there is no metric, and greedy forwarding degenerates to flooding. this is the keystone; PLACE frames (§7 step 8) are the measurement, locus is the number.
+2. **seal** — the PQ KEM is specified (ML-KEM-768) and not implemented; the native wire's channel is one KEM exchange and an AEAD, and it cannot be built on TLS.
+3. **forwarding economics** — receipts → focus in tok. without payment, caching and forwarding are charity, which is why NDN stayed in the lab.
+4. **pressure as rate control** — `routing.md` has gravity-pressure as a routing fallback; the same quantity must become the flow-control law: a spec of how a forwarder prices and sheds interests, and how that stays TCP-tolerable on shared internet paths during the legacy era.
+5. **reconciliation as reliability** — foculus's ranger/CRDT engines are the retransmission layer; they must take the interest/data shape, not the stream shape.
+6. **the chunk/MTU decision** — 4 KiB hemera chunks over 1,200-byte datagrams: fragment at the wire, or make the hemera leaf 1 KiB. a hemera decision, before genesis if the leaf changes.
+7. **a physical radio** — "sovereign transport" is still the IP internet. the native wire is designed for links we own (mesh, satellite, interplanetary); nothing in the stack touches RF yet, and that is the one place where "radio" could become literal.
+
+none of this is on the phase-1 path. all of it is why the phase-1 radio must be *transmit only*: a QUIC-era module that holds no address, no identity, no store and no reliability of its own is the one that can be swapped for the native wire without touching anything above it.
+
 see `soft3/roadmap/component-boundaries.md` · `soft3/specs/routing.md` · `foculus/specs/gossip.md` · `cyb/decide/wire.md` · `radio/specs/neuron-context.md` · `cyber/launch.md` §critical dependencies 3
