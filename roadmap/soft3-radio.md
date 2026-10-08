@@ -225,6 +225,26 @@ in order of how hard the absence bites:
 6. **the chunk/MTU decision** — 4 KiB hemera chunks over 1,200-byte datagrams: fragment at the wire, or make the hemera leaf 1 KiB. a hemera decision, before genesis if the leaf changes.
 7. **a physical radio** — "sovereign transport" is still the IP internet. the native wire is designed for links we own (mesh, satellite, interplanetary); nothing in the stack touches RF yet, and that is the one place where "radio" could become literal.
 
+### the IP era, precisely — what quinn is for and for how long
+
+the native wire bypasses IP's *routing model* (connections, address-based forwarding), not IP's packets: over the internet it runs in UDP datagrams, IP as a dumb link layer, and it earns most of its speed right there — first-packet requests, nearest copy, multi-source, no head-of-line. physically leaving IP needs links we own, and the stack has none yet.
+
+what the IP era actually needs from the wire, and who provides it:
+
+| need | quinn (zero own lines) | the native wire could |
+|---|---|---|
+| NAT traversal | QNT inside QUIC — the best available | an ICE-shaped dance with candidates from the graph, ~500 lines (WireGuard's model) |
+| a relay path when traversal fails | multipath backup path | INTEREST/DATA through a peer — already in the design |
+| fair congestion control on *shared* paths | cubic / BBR, a decade of interop | pressure-based rate control — research, unproven |
+| looking like HTTPS on hostile networks (UDP blocked) | **no** — iroh did this with the HTTP/WS relay this roadmap deletes | no |
+| browsers (WebTransport) | yes | unneeded: cyb is native on macOS and Android |
+
+so quinn covers three of four real needs for free and supplies the one thing the native wire still lacks a proof for — a congestion controller that behaves on shared links. the fourth need belongs to neither and must be remembered when the WebSocket relay goes: hostile networks will want ~300 lines of "DATA inside an HTTPS stream", not a relay fleet.
+
+there is no long-term dual stack. the native wire over UDP makes quinn unnecessary entirely (traversal ~500, congestion control ~1,000 once proven, relay already there). the trajectory: phase 1 — QUIC *is* the wire, transmit only so it can be pulled; then the native wire over UDP and quinn leaves; then the same wire over links we own. during the transition quinn is a bridge to older nodes — version coexistence, not a fallback.
+
+three measurements decide whether "radically better" is a number, and all three can start before quinn is touched: greedy locus routing on the burial graph against the row-42 gate (≥ 97% of targets within 2·log₂N hops, stretch ≤ 1.1); receiver-driven rate control against TCP flows on a shared emulated link; location proofs against a fast man-in-the-middle on the open internet (the lower RTT bound is physics, the upper is attackable).
+
 none of this is on the phase-1 path. all of it is why the phase-1 radio must be *transmit only*: a QUIC-era module that holds no address, no identity, no store and no reliability of its own is the one that can be swapped for the native wire without touching anything above it.
 
 see `soft3/roadmap/component-boundaries.md` · `soft3/specs/routing.md` · `foculus/specs/gossip.md` · `cyb/decide/wire.md` · `radio/specs/neuron-context.md` · `cyber/launch.md` §critical dependencies 3
