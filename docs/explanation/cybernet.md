@@ -1,5 +1,5 @@
 ---
-alias: soft3 internet, the soft3 internet, native wire, post-ip internet
+alias: cybernet, the cybernet, soft3 internet, native wire, post-ip internet
 tags: cyber, radio, soft3, article
 crystal-type: pattern
 crystal-domain: cyber
@@ -7,9 +7,9 @@ status: draft
 date: 2026-10-08
 ---
 
-# the soft3 internet
+# cybernet
 
-> the internet moves bytes between addresses. the soft3 internet moves knowledge between minds, and the wire obeys the graph.
+> the internet moves bytes between addresses. cybernet moves knowledge between minds, and the wire obeys the graph.
 
 the internet was built on one decision in 1974: a packet carries a destination address, and routers forward it there. everything since — TCP, TLS, DNS, NAT, CDNs, QUIC — repairs a consequence of that decision. addresses are not identities, so we bolted on certificates. addresses are not names, so we bolted on DNS. addresses are not content, so we bolted on caches that lie. a packet proves nothing about itself, so the transport must deliver every byte in order and the application must trust the pipe. a connection must exist before a byte means anything, so every exchange begins with a round trip to agree who is talking.
 
@@ -19,7 +19,7 @@ the internet was built on one decision in 1974: a packet carries a destination a
 
 ## the four replacements
 
-| the internet | the soft3 internet | why it follows |
+| the internet | cybernet | why it follows |
 |---|---|---|
 | address → ip:port | address → neuron or [[particle]] | a neuron publishes where it answers as cyberlinks on its own book: ANTENNA, SOCKET, LOCUS. "no address book, no peer list, no config: the routing table is the graph" |
 | route → a table in every router, converged by a protocol | route → the [[locus]]: a proven coordinate; forward greedily toward the target's locus over FOLLOW links | a geometric metric needs no table and no convergence; state per node is O(degree); a sybil sits on the rim where nobody forwards to it |

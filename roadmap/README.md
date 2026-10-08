@@ -9,7 +9,7 @@ radio transmits. it dials, hole-punches, relays through a peer, gossips, and pip
 
 | proposal | status | target |
 |---|---|---|
-| [[soft3-radio]] | draft | transmit only: cut the IPFS era (−78K), tade binding, graph addressing, relay through a peer, PQ KEX by provider, PLACE frames in QUIC's extension points, custody — ~14K own lines in nine gated steps (issues #22–#30); §8 the native wire after QUIC: interests and data over locus, ~5.5K, and what the stack is missing to build it |
+| [[soft3-radio]] | draft | transmit only: cut the IPFS era (−78K), tade binding, graph addressing, relay through a peer, PQ KEX by provider, PLACE frames in QUIC's extension points, custody — ~14K own lines in nine gated steps (issues #22–#30); §8 cybernet, the native wire after QUIC: interests and data over locus, ~5.5K ([[cybernet]]), and what the stack is missing to build it |
 
 ## lifecycle
 

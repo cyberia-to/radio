@@ -171,7 +171,7 @@ order: 1 → 2 → 3 → 5 → 4 → 6 → 7 → 8 → 9. steps 1–3 and 5–6 
 
 exit state: `radio` = endpoint · paths · relay · observe · gossip · stream · fetch · custody, ~14K own lines, cyber-bao beside it, quinn and nettools as vendored dependencies, ~80 crates, one of everything.
 
-## 8. after QUIC — the wire the stack would build if the internet were not in the way
+## 8. after QUIC — cybernet, the wire the stack would build if the internet were not in the way
 
 QUIC is the best transport the IP internet has, and it is a legacy transport: it carries TCP's abstractions — a connection between two addresses, ordered reliable byte streams, ACKs of byte offsets, a handshake per peer — into UDP, because the applications it was built for (HTTP) think in connections and streams. cyber does not. its unit is not a connection; it is a signal or a particle, self-certifying, addressed by name, forwarded by whoever holds it, verified by whoever receives it. strip QUIC to what the stack would keep and three of its four pillars fall away.
 
@@ -184,7 +184,7 @@ QUIC is the best transport the IP internet has, and it is a legacy transport: it
 
 what remains is a different animal, and it has a name in the literature: named-data networking — interests and data, no connections, data cached by forwarders, routed by name. NDN never deployed for three reasons, and cyber has all three: name-based routing tables that explode at scale (cyber routes greedily by *locus*, O(degree) state, no table — `soft3/specs/routing.md`); no incentive to forward or cache (relay receipts paid in focus); no global naming authority (the cybergraph is the name graph, and a particle is its own authority).
 
-### the native wire
+### the native wire — cybernet
 
 ```
 L1  wire     a pairwise channel: PQ KEM (mudra seal, hybrid) → AEAD per packet, rekey by counter.
