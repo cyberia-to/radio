@@ -1,0 +1,89 @@
+clippy: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565126
+2026-10-09T22:39:09.2731887Z error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:09.2735180Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:09.2783826Z   No such file or directory (os error 2)
+2026-10-09T22:39:09.3030923Z ##[error]Process completed with exit code 101.
+
+fmt: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056564719
+2026-10-09T22:39:11.3689559Z [cargo-make] WARN - Unable to parse Cargo.toml via cargo-metadata, fallbacking. `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:11.3692541Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:11.3693013Z   No such file or directory (os error 2)
+2026-10-09T22:39:12.0966537Z `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:12.0969277Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:12.0969675Z   No such file or directory (os error 2)
+2026-10-09T22:39:12.0987757Z ##[error]Process completed with exit code 105.
+
+semver: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056564917
+2026-10-09T22:39:12.7463554Z error: `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:12.7466396Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:12.7466853Z   No such file or directory (os error 2)
+2026-10-09T22:39:12.7494186Z ##[error]The process '/home/runner/.cargo/bin/cargo' failed with exit code 101
+
+docs: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565181
+2026-10-09T22:39:22.0057106Z error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:22.0062166Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:22.0063060Z   No such file or directory (os error 2)
+2026-10-09T22:39:22.0078015Z ##[error]Process completed with exit code 101.
+
+msrv: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565186
+2026-10-09T22:39:12.3620301Z error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:12.3624654Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:12.3625413Z   No such file or directory (os error 2)
+2026-10-09T22:39:12.3639513Z ##[error]Process completed with exit code 101.
+
+deny: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565111
+2026-10-09T22:39:21.4823216Z 2026-10-09 22:39:21 [ERROR] failed to fetch crates: error: failed to load manifest for workspace member `/github/workspace/iroh-dns-server`
+2026-10-09T22:39:21.4829127Z   failed to read `/github/hemera/rs/Cargo.toml`
+2026-10-09T22:39:21.4829983Z   No such file or directory (os error 2)
+2026-10-09T22:39:22.3398448Z 2026-10-09 22:39:21 [ERROR] `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/github/workspace/iroh-dns-server`
+2026-10-09T22:39:22.3406176Z   failed to read `/github/hemera/rs/Cargo.toml`
+2026-10-09T22:39:22.3408470Z   No such file or directory (os error 2)
+
+wasm: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565023
+2026-10-09T22:39:21.6322609Z error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:21.6327468Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:21.6328215Z   No such file or directory (os error 2)
+2026-10-09T22:39:21.6350330Z ##[error]Process completed with exit code 101.
+
+preview: https://github.com/cyberia-to/radio/actions/runs/38000323294/job/114056555390
+2026-10-09T22:39:14.2797884Z error: failed to load manifest for workspace member `/home/runner/work/radio/radio/iroh-dns-server`
+2026-10-09T22:39:14.2802110Z   failed to read `/home/runner/work/radio/hemera/rs/Cargo.toml`
+2026-10-09T22:39:14.2802863Z   No such file or directory (os error 2)
+2026-10-09T22:39:14.2816191Z ##[error]Process completed with exit code 101.
+
+codespell: https://github.com/cyberia-to/radio/actions/runs/38000324106/job/114056565017
+2026-10-09T22:39:07.2211225Z ./quinn/quinn-proto/src/frame.rs:1703: te ==> the, be, we, to
+2026-10-09T22:39:07.2211636Z ./quinn/quinn-proto/src/frame.rs:1704: te ==> the, be, we, to
+2026-10-09T22:39:07.2212052Z ./quinn/quinn-proto/src/frame.rs:1705: te ==> the, be, we, to
+2026-10-09T22:39:07.2212346Z ./quinn/quinn-proto/src/shared.rs:167: ECT ==> ETC
+2026-10-09T22:39:07.2212620Z ./quinn/quinn-proto/src/shared.rs:169: ECT ==> ETC
+2026-10-09T22:39:07.2212912Z ./quinn/quinn-proto/src/connection/spaces.rs:347: ECT ==> ETC
+2026-10-09T22:39:07.2213234Z ./quinn/quinn-proto/src/connection/spaces.rs:351: ECT ==> ETC
+2026-10-09T22:39:07.2213519Z ./quinn/quinn-udp/src/lib.rs:238: ECT ==> ETC
+2026-10-09T22:39:07.2213772Z ./quinn/quinn-udp/src/lib.rs:240: ECT ==> ETC
+2026-10-09T22:39:07.2214283Z ./iroh-ffi/iroh-js/src/blob.rs:439: colletion ==> collection
+2026-10-09T22:39:07.2214595Z ./iroh-ffi/iroh-js/src/doc.rs:980: successfull ==> successful
+2026-10-09T22:39:07.2214888Z ./iroh-ffi/iroh-js/src/doc.rs:1231: wit ==> with
+2026-10-09T22:39:07.2215175Z ./iroh-ffi/iroh-js/src/endpoint.rs:103: BiStream ==> bitstream
+2026-10-09T22:39:07.2215507Z ./iroh-ffi/iroh-js/src/endpoint.rs:105: BiStream ==> bitstream
+2026-10-09T22:39:07.2215863Z ./iroh-ffi/iroh-js/src/endpoint.rs:112: BiStream ==> bitstream
+2026-10-09T22:39:07.2216142Z ./iroh-ffi/iroh-js/src/endpoint.rs:114: BiStream ==> bitstream
+2026-10-09T22:39:07.2216357Z ./iroh-ffi/iroh-js/src/endpoint.rs:200: BiStream ==> bitstream
+2026-10-09T22:39:07.2216570Z ./iroh-ffi/iroh-js/src/endpoint.rs:206: BiStream ==> bitstream
+2026-10-09T22:39:07.2216811Z ./iroh-ffi/iroh-js/src/lib.rs:71: appened ==> append, appended, happened
+2026-10-09T22:39:07.2217062Z ./iroh-ffi/iroh-js/src/ticket.rs:141: capabillity ==> capability
+2026-10-09T22:39:07.2217274Z ./iroh-ffi/src/blob.rs:497: colletion ==> collection
+2026-10-09T22:39:07.2217465Z ./iroh-ffi/src/blob.rs:512: colletion ==> collection
+2026-10-09T22:39:07.2217661Z ./iroh-ffi/src/doc.rs:1136: successfull ==> successful
+2026-10-09T22:39:07.2217838Z ./iroh-ffi/src/doc.rs:1446: wit ==> with
+2026-10-09T22:39:07.2217994Z ./iroh-ffi/src/doc.rs:1622: ndoe ==> node
+2026-10-09T22:39:07.2218172Z ./iroh-ffi/src/endpoint.rs:101: BiStream ==> bitstream
+2026-10-09T22:39:07.2218366Z ./iroh-ffi/src/endpoint.rs:103: BiStream ==> bitstream
+2026-10-09T22:39:07.2218555Z ./iroh-ffi/src/endpoint.rs:110: BiStream ==> bitstream
+2026-10-09T22:39:07.2218741Z ./iroh-ffi/src/endpoint.rs:112: BiStream ==> bitstream
+2026-10-09T22:39:07.2218927Z ./iroh-ffi/src/endpoint.rs:200: BiStream ==> bitstream
+2026-10-09T22:39:07.2219113Z ./iroh-ffi/src/endpoint.rs:206: BiStream ==> bitstream
+2026-10-09T22:39:07.2219323Z ./iroh-ffi/src/lib.rs:73: appened ==> append, appended, happened
+2026-10-09T22:39:07.2219553Z ./iroh-ffi/kotlin/lib/build.gradle.kts:45: optIn ==> option
+2026-10-09T22:39:07.2219749Z ./docs/endpoint.md:21: BiStream ==> bitstream
+2026-10-09T22:39:07.2280134Z ##[error]Process completed with exit code 65.
