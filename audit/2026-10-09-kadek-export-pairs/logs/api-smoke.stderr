@@ -1,0 +1,877 @@
+    Updating crates.io index
+     Locking 451 packages to latest compatible versions
+      Adding curve25519-dalek v5.0.0-pre.1 (available: v5.0.0)
+      Adding der v0.8.0-rc.10 (available: v0.8.2)
+      Adding digest v0.11.0-rc.10 (available: v0.11.3)
+      Adding ed25519 v3.0.0-rc.4 (available: v3.0.0)
+      Adding ed25519-dalek v3.0.0-pre.1 (available: v3.0.0)
+      Adding pkcs8 v0.11.0-rc.10 (available: v0.11.0)
+      Adding sha2 v0.11.0-rc.2 (available: v0.11.0)
+      Adding signature v3.0.0-rc.10 (available: v3.0.0)
+      Adding spki v0.8.0-rc.4 (available: v0.8.1)
+    Building iroh-blobs v0.98.0 (current)
+    Blocking waiting for file lock on package cache
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.190
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+    Checking cfg-if v1.0.5
+    Checking pin-project-lite v0.2.17
+    Checking futures-core v0.3.34
+   Compiling portable-atomic v1.15.0
+   Compiling cfg_aliases v0.2.2
+    Checking critical-section v1.2.0
+   Compiling find-msvc-tools v0.1.14
+    Checking futures-io v0.3.34
+   Compiling shlex v2.0.1
+    Checking stable_deref_trait v1.2.1
+    Checking memchr v2.8.3
+    Checking slab v0.4.12
+    Checking log v0.4.34
+    Checking futures-sink v0.3.34
+    Checking futures-task v0.3.34
+   Compiling dunce v1.0.5
+   Compiling pkg-config v0.3.34
+   Compiling fs_extra v1.3.0
+    Checking futures-channel v0.3.34
+   Compiling getrandom v0.3.4
+    Checking subtle v2.6.1
+   Compiling aws-lc-rs v1.18.1
+    Checking litemap v0.8.3
+    Checking equivalent v1.0.2
+    Checking untrusted v0.9.0
+    Checking writeable v0.6.4
+    Checking itoa v1.0.18
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+    Checking bitflags v2.13.2
+   Compiling rustversion v1.0.23
+    Checking utf8_iter v1.0.4
+    Checking percent-encoding v2.3.2
+   Compiling rustls v0.23.45
+   Compiling semver v1.0.28
+   Compiling zerocopy v0.8.62
+   Compiling unicode-segmentation v1.13.3
+    Checking hashbrown v0.17.1
+   Compiling thiserror v2.0.21
+    Checking form_urlencoded v1.2.2
+   Compiling rustc_version v0.4.1
+   Compiling unicode-xid v0.2.6
+    Checking base64 v0.23.1
+   Compiling convert_case v0.10.0
+    Checking core-foundation-sys v0.8.7
+   Compiling ident_case v1.0.1
+    Checking indexmap v2.14.2
+   Compiling strsim v0.11.1
+    Checking atomic-waker v1.1.2
+   Compiling fnv v1.0.7
+    Checking const-oid v0.10.2
+    Checking typenum v1.20.1
+   Compiling httparse v1.10.1
+    Checking ipnet v2.12.2
+    Checking fastrand v2.5.0
+    Checking base64ct v1.8.3
+    Checking tower-service v0.3.3
+    Checking parking v2.2.1
+    Checking httpdate v1.0.3
+   Compiling objc2 v0.6.5
+    Checking pem-rfc7468 v1.0.0
+    Checking try-lock v0.2.5
+    Checking want v0.3.2
+    Checking futures-lite v2.6.1
+    Checking objc2-encode v4.1.0
+    Checking hybrid-array v0.4.15
+   Compiling libm v0.2.16
+   Compiling heck v0.5.0
+   Compiling anyhow v1.0.104
+   Compiling curve25519-dalek v5.0.0-pre.1
+    Checking crypto-common v0.2.2
+    Checking block-buffer v0.11.0
+   Compiling heapless v0.7.17
+    Checking num-conv v0.2.2
+    Checking byteorder v1.5.0
+    Checking digest v0.11.0-rc.10
+    Checking spin v0.10.1
+   Compiling version_check v0.9.5
+    Checking tinyvec v1.13.3
+   Compiling winnow v1.0.4
+    Checking time-core v0.1.9
+    Checking powerfmt v0.2.1
+    Checking cordyceps v0.3.5
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+    Checking diatomic-waker v0.2.3
+    Checking deranged v0.5.8
+   Compiling toml_parser v1.1.5+spec-1.1.0
+    Checking time v0.3.55
+    Checking futures-buffered v0.2.13
+    Checking socket2 v0.6.5
+    Checking errno v0.3.14
+    Checking mio v1.2.4
+    Checking signal-hook-registry v1.4.8
+   Compiling jobserver v0.1.35
+    Checking getrandom v0.2.17
+    Checking security-framework-sys v2.17.0
+   Compiling cc v1.6.0
+    Checking rand_core v0.9.5
+    Checking core-foundation v0.10.1
+    Checking cpufeatures v0.2.17
+    Checking hash32 v0.2.1
+    Checking security-framework v3.7.0
+   Compiling n0-future v0.3.2
+    Checking siphasher v1.0.4
+   Compiling crossbeam-utils v0.8.23
+   Compiling cmake v0.1.58
+   Compiling darling_core v0.20.11
+   Compiling getrandom v0.4.3
+   Compiling synstructure v0.14.0
+   Compiling syn v1.0.109
+   Compiling toml_datetime v1.1.2+spec-1.1.0
+    Checking signature v3.0.0-rc.10
+   Compiling aws-lc-sys v0.45.0
+   Compiling ring v0.17.14
+    Checking tower-layer v0.3.3
+   Compiling toml_edit v0.25.17+spec-1.1.0
+   Compiling zeroize_derive v1.5.0
+   Compiling tracing-attributes v0.1.31
+   Compiling serde_derive v1.0.229
+   Compiling tokio-macros v2.7.2
+   Compiling zerofrom-derive v0.1.8
+   Compiling futures-macro v0.3.34
+    Checking zeroize v1.9.1
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+    Checking futures-util v0.3.34
+   Compiling displaydoc v0.2.7
+    Checking zerofrom v0.1.8
+   Compiling thiserror-impl v2.0.21
+   Compiling derive_more-impl v2.1.1
+   Compiling darling_macro v0.20.11
+   Compiling darling v0.20.11
+   Compiling n0-error-macros v0.1.3
+   Compiling spez v0.1.2
+   Compiling pin-project-internal v1.1.13
+    Checking n0-error v0.1.3
+    Checking pin-project v1.1.13
+    Checking ppv-lite86 v0.2.21
+    Checking derive_more v2.1.1
+    Checking rand_chacha v0.9.0
+    Checking rand v0.9.5
+   Compiling vergen-lib v9.1.0
+    Checking block2 v0.6.2
+    Checking dispatch2 v0.3.1
+    Checking fastbloom v0.14.1
+   Compiling enum-assoc v1.4.1
+   Compiling vergen v9.1.0
+   Compiling vergen-lib v0.1.6
+   Compiling postcard-derive v0.2.2
+    Checking rustls-pki-types v1.15.1
+    Checking der v0.8.0-rc.10
+    Checking spki v0.8.0-rc.4
+    Checking pkcs8 v0.11.0-rc.10
+    Checking yoke v0.8.3
+   Compiling derive_builder_core v0.20.2
+    Checking sha2 v0.11.0-rc.2
+   Compiling derive_builder_macro v0.20.2
+   Compiling cyber-radio-quinn-udp v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn-udp)
+   Compiling derive_builder v0.20.2
+    Checking bytes v1.12.1
+    Checking smallvec v1.16.2
+    Checking tokio v1.53.2
+    Checking http v1.5.0
+    Checking once_cell v1.21.4
+    Checking tracing-core v0.1.36
+    Checking tracing v0.1.44
+    Checking http-body v1.1.0
+    Checking http-body-util v0.1.5
+    Checking cobs v0.3.0
+    Checking ed25519 v3.0.0-rc.4
+    Checking sync_wrapper v1.0.2
+   Compiling parking_lot_core v0.9.12
+    Checking lru-slab v0.1.3
+    Checking rustc-hash v2.1.3
+    Checking base64 v0.22.1
+    Checking identity-hash v0.1.0
+    Checking sorted-index-buffer v0.2.1
+    Checking data-encoding v2.11.1
+    Checking ed25519-dalek v3.0.0-pre.1
+    Checking postcard v1.1.3
+    Checking webpki-roots v1.0.9
+    Checking objc2-core-foundation v0.3.2
+   Compiling async-trait v0.1.92
+   Compiling vergen-gitcl v1.0.8
+   Compiling proc-macro-crate v3.5.0
+   Compiling num_threads v0.1.7
+   Compiling proc-macro-error-attr v0.4.12
+   Compiling crossbeam-epoch v0.9.21
+    Checking ryu v1.0.23
+    Checking zerovec v0.11.8
+    Checking zerotrie v0.2.5
+    Checking scopeguard v1.2.0
+    Checking lock_api v0.4.14
+    Checking objc2-security v0.3.2
+   Compiling syn-mid v0.5.4
+   Compiling proc-macro-error v0.4.12
+    Checking quick-xml v0.42.0
+   Compiling proc-macro-hack v0.5.20+deprecated
+    Checking foldhash v0.2.0
+    Checking allocator-api2 v0.2.21
+   Compiling litrs v1.0.0
+    Checking hashbrown v0.16.1
+    Checking plist v1.10.1
+   Compiling document-features v0.2.12
+    Checking parking_lot v0.12.5
+    Checking objc2-system-configuration v0.3.2
+   Compiling num_enum_derive v0.7.6
+    Checking crossbeam-channel v0.5.17
+    Checking uuid v1.27.0
+    Checking futures-executor v0.3.34
+   Compiling iroh-metrics-derive v0.4.1
+   Compiling enum-as-inner v0.6.1
+   Compiling iroh-quinn-udp v0.8.0
+    Checking tokio-util v0.7.20
+    Checking tower v0.5.3
+   Compiling pkarr v5.0.3
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn)
+   Compiling cyber-radio-netwatch v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/nettools/netwatch)
+   Compiling ref-cast v1.0.27
+    Checking xml-rs v0.8.29
+    Checking mac-addr v0.3.0
+    Checking tagptr v0.2.0
+    Checking base32 v0.5.1
+   Compiling autocfg v1.5.1
+    Checking ntimestamp v1.0.0
+    Checking h2 v0.4.20
+    Checking tokio-stream v0.1.19
+    Checking n0-watcher v0.6.1
+    Checking xmltree v0.10.3
+   Compiling num-traits v0.2.19
+    Checking netdev v0.40.1
+    Checking iroh-metrics v0.38.3
+    Checking num_enum v0.7.6
+    Checking hyper v1.12.0
+    Checking hyper-util v0.1.21
+    Checking tinystr v0.8.4
+    Checking icu_locale_core v2.3.0
+    Checking potential_utf v0.1.6
+    Checking icu_collections v2.3.0
+    Checking async-compat v0.2.6
+    Checking futures v0.3.34
+    Checking lru v0.16.4
+    Checking icu_provider v2.3.1
+    Checking serde_urlencoded v0.7.1
+    Checking cyber-hemera v0.3.1 (/private/tmp/radio-export-pairs.FbuGlp/candidate/hemera/rs)
+    Checking icu_normalizer v2.3.0
+    Checking icu_properties v2.3.0
+   Compiling ref-cast-impl v1.0.27
+    Checking moka v0.12.16
+   Compiling strum_macros v0.27.2
+    Checking simple-dns v0.9.3
+    Checking idna_adapter v1.2.2
+    Checking idna v1.1.0
+   Compiling iroh-quinn v0.16.1
+    Checking url v2.5.8
+    Checking sha1_smol v1.0.1
+    Checking dyn-clone v1.0.20
+    Checking resolv-conf v0.7.6
+    Checking simdutf8 v0.1.5
+    Checking self_cell v1.3.0
+    Checking tower-http v0.6.11
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-relay)
+    Checking attohttpc v0.30.1
+    Checking strum v0.27.2
+    Checking igd-next v0.16.2
+    Checking cyber-radio-base v0.1.1 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-base)
+    Checking inplace-vec-builder v0.1.1
+    Checking yasna v0.6.0
+    Checking serde_bytes v0.11.19
+    Checking pem v4.0.0
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh)
+    Checking z32 v1.3.0
+   Compiling redb v2.6.4
+    Checking genawaiter-macro v0.99.1
+    Checking binary-merge v0.1.2
+    Checking seize v0.5.1
+    Checking papaya v0.2.5
+    Checking rcgen v0.14.10
+    Checking iroh-base v0.96.1
+    Checking iroh-io v0.6.2
+    Checking backon v1.6.0
+   Compiling irpc-derive v0.9.0
+    Checking iana-time-zone v0.1.65
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+    Checking iroh-tickets v0.3.0
+   Compiling nested_enum_utils v0.2.3
+    Checking reflink-copy v0.1.30
+    Checking arrayvec v0.7.8
+    Checking hex v0.4.3
+    Checking chrono v0.4.45
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+    Checking cyber-radio-portmapper v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/nettools/portmapper)
+   Compiling genawaiter-proc-macro v0.99.1
+    Checking range-collections v0.4.6
+    Checking genawaiter v0.99.1
+    Checking rustls-webpki v0.103.15
+    Checking cyber-bao v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/cyber-bao)
+    Checking tokio-rustls v0.26.6
+    Checking rustls-platform-verifier v0.7.1
+    Checking cyber-radio-quinn-proto v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn-proto)
+    Checking rustls-platform-verifier v0.6.2
+    Checking iroh-quinn-proto v0.15.1
+    Checking hyper-rustls v0.27.10
+    Checking hickory-proto v0.25.2
+    Checking tokio-websockets v0.12.3
+    Checking reqwest v0.13.5
+    Checking reqwest v0.12.28
+    Checking hickory-resolver v0.25.2
+    Checking irpc v0.12.0
+ Documenting iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 51.91s
+       Built [  51.948s] (current)
+     Parsing iroh-blobs v0.98.0 (current)
+      Parsed [   0.062s] (current)
+    Updating crates.io index
+     Locking 451 packages to latest compatible versions
+      Adding curve25519-dalek v5.0.0-pre.1 (available: v5.0.0)
+      Adding der v0.8.0-rc.10 (available: v0.8.2)
+      Adding digest v0.11.0-rc.10 (available: v0.11.3)
+      Adding ed25519 v3.0.0-rc.4 (available: v3.0.0)
+      Adding ed25519-dalek v3.0.0-pre.1 (available: v3.0.0)
+      Adding pkcs8 v0.11.0-rc.10 (available: v0.11.0)
+      Adding sha2 v0.11.0-rc.2 (available: v0.11.0)
+      Adding signature v3.0.0-rc.10 (available: v3.0.0)
+      Adding spki v0.8.0-rc.4 (available: v0.8.1)
+    Building iroh-blobs v0.98.0 (baseline)
+    Blocking waiting for file lock on package cache
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.190
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+    Checking pin-project-lite v0.2.17
+    Checking cfg-if v1.0.5
+    Checking futures-core v0.3.34
+   Compiling portable-atomic v1.15.0
+   Compiling cfg_aliases v0.2.2
+    Checking critical-section v1.2.0
+    Checking futures-io v0.3.34
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+    Checking stable_deref_trait v1.2.1
+    Checking memchr v2.8.3
+    Checking slab v0.4.12
+    Checking log v0.4.34
+    Checking futures-sink v0.3.34
+    Checking futures-task v0.3.34
+   Compiling fs_extra v1.3.0
+   Compiling pkg-config v0.3.34
+   Compiling dunce v1.0.5
+    Checking futures-channel v0.3.34
+   Compiling getrandom v0.3.4
+    Checking subtle v2.6.1
+   Compiling aws-lc-rs v1.18.1
+    Checking equivalent v1.0.2
+    Checking itoa v1.0.18
+    Checking litemap v0.8.3
+    Checking untrusted v0.9.0
+    Checking writeable v0.6.4
+    Checking utf8_iter v1.0.4
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+    Checking bitflags v2.13.2
+   Compiling rustversion v1.0.23
+    Checking percent-encoding v2.3.2
+   Compiling rustls v0.23.45
+   Compiling zerocopy v0.8.62
+   Compiling semver v1.0.28
+    Checking hashbrown v0.17.1
+   Compiling unicode-segmentation v1.13.3
+   Compiling thiserror v2.0.21
+    Checking form_urlencoded v1.2.2
+   Compiling rustc_version v0.4.1
+   Compiling unicode-xid v0.2.6
+    Checking base64 v0.23.1
+    Checking const-oid v0.10.2
+   Compiling convert_case v0.10.0
+    Checking core-foundation-sys v0.8.7
+    Checking atomic-waker v1.1.2
+   Compiling fnv v1.0.7
+   Compiling ident_case v1.0.1
+    Checking indexmap v2.14.2
+   Compiling strsim v0.11.1
+    Checking typenum v1.20.1
+    Checking ipnet v2.12.2
+   Compiling httparse v1.10.1
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+    Checking fastrand v2.5.0
+    Checking base64ct v1.8.3
+    Checking httpdate v1.0.3
+    Checking try-lock v0.2.5
+   Compiling objc2 v0.6.5
+    Checking pem-rfc7468 v1.0.0
+    Checking tower-service v0.3.3
+    Checking parking v2.2.1
+    Checking want v0.3.2
+    Checking futures-lite v2.6.1
+   Compiling anyhow v1.0.104
+    Checking objc2-encode v4.1.0
+   Compiling libm v0.2.16
+    Checking hybrid-array v0.4.15
+   Compiling heck v0.5.0
+   Compiling curve25519-dalek v5.0.0-pre.1
+    Checking socket2 v0.6.5
+    Checking errno v0.3.14
+   Compiling jobserver v0.1.35
+    Checking signal-hook-registry v1.4.8
+   Compiling cc v1.6.0
+    Checking mio v1.2.4
+    Checking getrandom v0.2.17
+    Checking block-buffer v0.11.0
+    Checking crypto-common v0.2.2
+    Checking core-foundation v0.10.1
+    Checking rand_core v0.9.5
+    Checking security-framework-sys v2.17.0
+   Compiling heapless v0.7.17
+    Checking deranged v0.5.8
+    Checking time-core v0.1.9
+    Checking security-framework v3.7.0
+    Checking powerfmt v0.2.1
+    Checking diatomic-waker v0.2.3
+    Checking digest v0.11.0-rc.10
+    Checking byteorder v1.5.0
+    Checking cordyceps v0.3.5
+   Compiling version_check v0.9.5
+   Compiling winnow v1.0.4
+    Checking spin v0.10.1
+    Checking num-conv v0.2.2
+    Checking tinyvec v1.13.3
+   Compiling cmake v0.1.58
+    Checking futures-buffered v0.2.13
+   Compiling vergen-lib v9.1.0
+    Checking hash32 v0.2.1
+    Checking cpufeatures v0.2.17
+    Checking time v0.3.55
+   Compiling n0-future v0.3.2
+    Checking signature v3.0.0-rc.10
+    Checking siphasher v1.0.4
+   Compiling getrandom v0.4.3
+    Checking tower-layer v0.3.3
+   Compiling aws-lc-sys v0.45.0
+   Compiling ring v0.17.14
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling toml_datetime v1.1.2+spec-1.1.0
+   Compiling syn v1.0.109
+   Compiling crossbeam-utils v0.8.23
+   Compiling synstructure v0.14.0
+   Compiling darling_core v0.20.11
+   Compiling toml_edit v0.25.17+spec-1.1.0
+   Compiling zeroize_derive v1.5.0
+   Compiling serde_derive v1.0.229
+   Compiling tokio-macros v2.7.2
+   Compiling zerofrom-derive v0.1.8
+    Checking zeroize v1.9.1
+   Compiling futures-macro v0.3.34
+   Compiling yoke-derive v0.8.4
+    Checking futures-util v0.3.34
+    Checking zerofrom v0.1.8
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling tracing-attributes v0.1.31
+   Compiling thiserror-impl v2.0.21
+    Checking ppv-lite86 v0.2.21
+   Compiling derive_more-impl v2.1.1
+    Checking rand_chacha v0.9.0
+    Checking rand v0.9.5
+   Compiling darling_macro v0.20.11
+   Compiling spez v0.1.2
+   Compiling n0-error-macros v0.1.3
+   Compiling darling v0.20.11
+   Compiling pin-project-internal v1.1.13
+    Checking n0-error v0.1.3
+    Checking pin-project v1.1.13
+    Checking dispatch2 v0.3.1
+    Checking block2 v0.6.2
+    Checking fastbloom v0.14.1
+   Compiling enum-assoc v1.4.1
+   Compiling postcard-derive v0.2.2
+    Checking derive_more v2.1.1
+    Checking sha2 v0.11.0-rc.2
+   Compiling vergen v9.1.0
+   Compiling vergen-lib v0.1.6
+    Checking sync_wrapper v1.0.2
+   Compiling cyber-radio-quinn-udp v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn-udp)
+    Checking rustc-hash v2.1.3
+    Checking identity-hash v0.1.0
+    Checking data-encoding v2.11.1
+    Checking lru-slab v0.1.3
+    Checking sorted-index-buffer v0.2.1
+    Checking rustls-pki-types v1.15.1
+    Checking der v0.8.0-rc.10
+   Compiling parking_lot_core v0.9.12
+    Checking base64 v0.22.1
+    Checking webpki-roots v1.0.9
+    Checking yoke v0.8.3
+    Checking spki v0.8.0-rc.4
+    Checking pkcs8 v0.11.0-rc.10
+    Checking bytes v1.12.1
+    Checking once_cell v1.21.4
+    Checking tokio v1.53.2
+    Checking smallvec v1.16.2
+    Checking tracing-core v0.1.36
+    Checking tracing v0.1.44
+    Checking http v1.5.0
+    Checking http-body v1.1.0
+    Checking http-body-util v0.1.5
+   Compiling derive_builder_core v0.20.2
+    Checking cobs v0.3.0
+   Compiling derive_builder_macro v0.20.2
+    Checking ed25519 v3.0.0-rc.4
+   Compiling derive_builder v0.20.2
+    Checking postcard v1.1.3
+    Checking ed25519-dalek v3.0.0-pre.1
+    Checking objc2-core-foundation v0.3.2
+   Compiling async-trait v0.1.92
+   Compiling proc-macro-crate v3.5.0
+   Compiling proc-macro-error-attr v0.4.12
+   Compiling vergen-gitcl v1.0.8
+   Compiling num_threads v0.1.7
+    Checking scopeguard v1.2.0
+    Checking ryu v1.0.23
+   Compiling crossbeam-epoch v0.9.21
+    Checking lock_api v0.4.14
+    Checking objc2-security v0.3.2
+   Compiling syn-mid v0.5.4
+   Compiling proc-macro-error v0.4.12
+    Checking quick-xml v0.42.0
+    Checking allocator-api2 v0.2.21
+    Checking foldhash v0.2.0
+   Compiling proc-macro-hack v0.5.20+deprecated
+   Compiling litrs v1.0.0
+    Checking hashbrown v0.16.1
+   Compiling document-features v0.2.12
+    Checking plist v1.10.1
+    Checking zerovec v0.11.8
+    Checking zerotrie v0.2.5
+    Checking parking_lot v0.12.5
+    Checking objc2-system-configuration v0.3.2
+   Compiling num_enum_derive v0.7.6
+    Checking uuid v1.27.0
+    Checking futures-executor v0.3.34
+    Checking crossbeam-channel v0.5.17
+   Compiling enum-as-inner v0.6.1
+   Compiling iroh-metrics-derive v0.4.1
+   Compiling cyber-radio-netwatch v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/nettools/netwatch)
+   Compiling iroh-quinn-udp v0.8.0
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn)
+   Compiling pkarr v5.0.3
+   Compiling ref-cast v1.0.27
+   Compiling autocfg v1.5.1
+    Checking base32 v0.5.1
+    Checking xml-rs v0.8.29
+    Checking tagptr v0.2.0
+    Checking mac-addr v0.3.0
+   Compiling num-traits v0.2.19
+    Checking netdev v0.40.1
+    Checking ntimestamp v1.0.0
+    Checking xmltree v0.10.3
+    Checking tokio-util v0.7.20
+    Checking tower v0.5.3
+    Checking async-compat v0.2.6
+    Checking h2 v0.4.20
+    Checking tokio-stream v0.1.19
+    Checking hyper v1.12.0
+    Checking hyper-util v0.1.21
+    Checking iroh-metrics v0.38.3
+    Checking moka v0.12.16
+    Checking n0-watcher v0.6.1
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-relay)
+    Checking num_enum v0.7.6
+    Checking futures v0.3.34
+    Checking lru v0.16.4
+    Checking serde_urlencoded v0.7.1
+    Checking cyber-hemera v0.3.1 (/private/tmp/radio-export-pairs.FbuGlp/parent/hemera/rs)
+   Compiling ref-cast-impl v1.0.27
+   Compiling strum_macros v0.27.2
+    Checking simple-dns v0.9.3
+   Compiling iroh-quinn v0.16.1
+    Checking resolv-conf v0.7.6
+    Checking self_cell v1.3.0
+    Checking simdutf8 v0.1.5
+    Checking sha1_smol v1.0.1
+    Checking dyn-clone v1.0.20
+    Checking strum v0.27.2
+    Checking tinystr v0.8.4
+    Checking icu_locale_core v2.3.0
+    Checking potential_utf v0.1.6
+    Checking icu_collections v2.3.0
+    Checking inplace-vec-builder v0.1.1
+    Checking yasna v0.6.0
+    Checking icu_provider v2.3.1
+    Checking icu_properties v2.3.0
+    Checking icu_normalizer v2.3.0
+    Checking serde_bytes v0.11.19
+    Checking pem v4.0.0
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh)
+    Checking seize v0.5.1
+    Checking idna_adapter v1.2.2
+    Checking idna v1.1.0
+    Checking binary-merge v0.1.2
+    Checking genawaiter-macro v0.99.1
+    Checking z32 v1.3.0
+   Compiling redb v2.6.4
+    Checking papaya v0.2.5
+    Checking url v2.5.8
+    Checking tower-http v0.6.11
+    Checking attohttpc v0.30.1
+    Checking igd-next v0.16.2
+    Checking cyber-radio-base v0.1.1 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-base)
+    Checking iroh-base v0.96.1
+    Checking rcgen v0.14.10
+    Checking iroh-io v0.6.2
+    Checking backon v1.6.0
+   Compiling irpc-derive v0.9.0
+    Checking iana-time-zone v0.1.65
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-blobs)
+    Checking iroh-tickets v0.3.0
+   Compiling nested_enum_utils v0.2.3
+    Checking reflink-copy v0.1.30
+    Checking hex v0.4.3
+    Checking arrayvec v0.7.8
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+    Checking chrono v0.4.45
+   Compiling genawaiter-proc-macro v0.99.1
+    Checking range-collections v0.4.6
+    Checking cyber-radio-portmapper v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/nettools/portmapper)
+    Checking rustls-webpki v0.103.15
+    Checking genawaiter v0.99.1
+    Checking tokio-rustls v0.26.6
+    Checking rustls-platform-verifier v0.7.1
+    Checking cyber-radio-quinn-proto v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn-proto)
+    Checking rustls-platform-verifier v0.6.2
+    Checking iroh-quinn-proto v0.15.1
+    Checking hyper-rustls v0.27.10
+    Checking hickory-proto v0.25.2
+    Checking tokio-websockets v0.12.3
+    Checking reqwest v0.13.5
+    Checking reqwest v0.12.28
+    Checking cyber-bao v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/cyber-bao)
+    Checking hickory-resolver v0.25.2
+    Checking irpc v0.12.0
+ Documenting iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-blobs)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1m 09s
+       Built [  69.434s] (baseline)
+     Parsing iroh-blobs v0.98.0 (baseline)
+      Parsed [   0.064s] (baseline)
+    Checking iroh-blobs v0.98.0 -> v0.98.0 (no change; assume minor)
+    Starting 202 checks, 58 unnecessary on 16 threads
+        PASS [   0.000s]       major        attribute_proc_macro_missing
+        PASS [   0.023s]       major        auto_trait_impl_removed
+        PASS [   0.001s]       major        constructible_struct_adds_field
+        PASS [   0.003s]       major        constructible_struct_adds_private_field
+        PASS [   0.001s]       major        constructible_struct_changed_type
+        PASS [   0.026s]       major        copy_impl_added
+        PASS [   0.000s]       major        declarative_macro_missing
+        PASS [   0.000s]       major        derive_helper_attr_removed
+        PASS [   0.000s]       major        derive_proc_macro_missing
+        PASS [   0.029s]       major        derive_trait_impl_removed
+        PASS [   0.001s]       major        enum_changed_kind
+        PASS [   0.001s]       major        enum_discriminants_undefined_non_exhaustive_variant
+        PASS [   0.001s]       major        enum_discriminants_undefined_non_unit_variant
+        PASS [   0.000s]       major        enum_marked_non_exhaustive
+        PASS [   0.001s]       major        enum_missing
+        PASS [   0.004s]       major        enum_no_repr_variant_discriminant_changed
+        PASS [   0.000s]       major        enum_non_exhaustive_tuple_variant_changed_kind
+        PASS [   0.000s]       major        enum_now_doc_hidden
+        PASS [   0.002s]       major        enum_repr_int_changed
+        PASS [   0.001s]       major        enum_repr_int_removed
+        PASS [   0.006s]       major        enum_repr_transparent_removed
+        PASS [   0.002s]       major        enum_repr_variant_discriminant_changed
+        PASS [   0.001s]       major        enum_struct_variant_changed_kind
+        PASS [   0.001s]       major        enum_struct_variant_field_added
+        PASS [   0.001s]       major        enum_struct_variant_field_missing
+        PASS [   0.002s]       major        enum_struct_variant_field_now_doc_hidden
+        PASS [   0.002s]       major        enum_tuple_variant_changed_kind
+        PASS [   0.001s]       major        enum_tuple_variant_field_added
+        PASS [   0.002s]       major        enum_tuple_variant_field_missing
+        PASS [   0.001s]       major        enum_tuple_variant_field_now_doc_hidden
+        PASS [   0.001s]       major        enum_unit_variant_changed_kind
+        PASS [   0.004s]       major        enum_variant_added
+        PASS [   0.001s]       major        enum_variant_marked_non_exhaustive
+        PASS [   0.001s]       major        enum_variant_missing
+        PASS [   0.000s]       major        exported_function_abi_no_longer_unwind
+        PASS [   0.000s]       major        exported_function_abi_now_unwind
+        PASS [   0.000s]       major        exported_function_changed_abi
+        PASS [   0.000s]       major        exported_function_now_returns_unit
+        PASS [   0.000s]       major        exported_function_parameter_count_changed
+        PASS [   0.000s]       major        exported_function_requires_more_target_features
+        PASS [   0.000s]       major        exported_function_return_value_added
+        PASS [   0.000s]       major        exported_function_target_feature_added
+        PASS [   0.000s]       major        feature_missing
+        PASS [   0.000s]       major        feature_no_longer_enables_feature
+        PASS [   0.000s]       major        feature_not_enabled_by_default
+        PASS [   0.000s]       major        function_abi_no_longer_unwind
+        PASS [   0.000s]       major        function_abi_now_unwind
+        PASS [   0.000s]       major        function_changed_abi
+        PASS [   0.000s]       major        function_const_generic_reordered
+        PASS [   0.000s]       major        function_const_removed
+        PASS [   0.007s]       major        function_export_name_changed
+        PASS [   0.000s]       major        function_generic_type_reordered
+        PASS [   0.000s]       major        function_like_proc_macro_missing
+        PASS [   0.000s]       major        function_missing
+        PASS [   0.000s]       major        function_no_longer_variadic
+        PASS [   0.000s]       major        function_now_doc_hidden
+        PASS [   0.000s]       major        function_now_returns_unit
+        PASS [   0.001s]       major        function_now_variadic
+        PASS [   0.000s]       major        function_parameter_count_changed
+        PASS [   0.000s]       major        function_requires_different_const_generic_params
+        PASS [   0.000s]       major        function_requires_different_generic_type_params
+        PASS [   0.000s]       major        function_unsafe_added
+        PASS [   0.006s]       major        inherent_associated_const_now_doc_hidden
+        PASS [   0.001s]       major        inherent_associated_pub_const_missing
+        PASS [   0.003s]       major        inherent_method_changed_abi
+        PASS [   0.002s]       major        inherent_method_const_generic_reordered
+        PASS [   0.001s]       major        inherent_method_const_removed
+        PASS [   0.003s]       major        inherent_method_generic_type_reordered
+        PASS [   0.009s]       major        inherent_method_missing
+        PASS [   0.001s]       major        inherent_method_no_longer_unwind
+        PASS [   0.002s]       major        inherent_method_no_longer_variadic
+        PASS [   0.004s]       major        inherent_method_now_doc_hidden
+        PASS [   0.002s]       major        inherent_method_now_returns_unit
+        PASS [   0.003s]       major        inherent_method_now_unwind
+        PASS [   0.018s]       major        inherent_method_now_variadic
+        PASS [   0.006s]       major        inherent_method_unsafe_added
+        PASS [   0.000s]       major        macro_no_longer_exported
+        PASS [   0.000s]       major        macro_now_doc_hidden
+        PASS [   0.001s]       major        method_export_name_changed
+        PASS [   0.004s]       major        method_no_longer_has_receiver
+        PASS [   0.008s]       major        method_parameter_count_changed
+        PASS [   0.001s]       major        method_receiver_mut_ref_became_owned
+        PASS [   0.003s]       major        method_receiver_ref_became_mut
+        PASS [   0.002s]       major        method_receiver_ref_became_owned
+        PASS [   0.002s]       major        method_receiver_type_changed
+        PASS [   0.006s]       major        method_requires_different_const_generic_params
+        PASS [   0.005s]       major        method_requires_different_generic_type_params
+        PASS [   0.000s]       major        module_missing
+        PASS [   0.000s]       major        non_exhaustive_struct_changed_type
+        PASS [   0.003s]       major        partial_ord_enum_struct_variant_fields_reordered
+        PASS [   0.006s]       major        partial_ord_enum_variants_reordered
+        PASS [   0.006s]       major        partial_ord_struct_fields_reordered
+        PASS [   0.000s]       major        proc_macro_now_doc_hidden
+        PASS [   0.000s]       major        pub_api_sealed_trait_method_receiver_added
+        PASS [   0.000s]       major        pub_api_sealed_trait_method_receiver_mut_ref_became_ref
+        PASS [   0.000s]       major        pub_api_sealed_trait_method_return_value_added
+        PASS [   0.000s]       major        pub_api_sealed_trait_method_target_feature_removed
+        PASS [   0.000s]       major        pub_module_level_const_missing
+        PASS [   0.000s]       major        pub_module_level_const_now_doc_hidden
+        PASS [   0.000s]       major        pub_static_missing
+        PASS [   0.000s]       major        pub_static_mut_now_immutable
+        PASS [   0.008s]       major        pub_static_now_doc_hidden
+        PASS [   0.000s]       major        pub_static_now_mutable
+        PASS [   0.001s]       major        repr_align_added
+        PASS [   0.000s]       major        repr_align_changed
+        PASS [   0.000s]       major        repr_align_removed
+        PASS [   0.000s]       major        repr_c_enum_struct_variant_fields_reordered
+        PASS [   0.000s]       major        repr_c_plain_struct_fields_reordered
+        PASS [   0.000s]       major        repr_c_removed
+        PASS [   0.000s]       major        repr_packed_added
+        PASS [   0.000s]       major        repr_packed_changed
+        PASS [   0.000s]       major        repr_packed_removed
+        PASS [   0.000s]       major        safe_function_requires_more_target_features
+        PASS [   0.000s]       major        safe_function_target_feature_added
+        PASS [   0.001s]       major        safe_inherent_method_requires_more_target_features
+        PASS [   0.001s]       major        safe_inherent_method_target_feature_added
+        PASS [   0.007s]       major        sized_impl_removed
+        PASS [   0.000s]       major        static_became_unsafe
+        PASS [   0.000s]       major        struct_marked_non_exhaustive
+        PASS [   0.004s]       major        struct_missing
+        PASS [   0.000s]       major        struct_now_doc_hidden
+        PASS [   0.001s]       major        struct_pub_field_missing
+        PASS [   0.001s]       major        struct_pub_field_now_doc_hidden
+        PASS [   0.001s]       major        struct_repr_transparent_removed
+        PASS [   0.001s]       major        struct_with_no_pub_fields_changed_type
+        PASS [   0.000s]       major        struct_with_pub_fields_changed_type
+        PASS [   0.000s]       major        trait_added_supertrait
+        PASS [   0.000s]       major        trait_allows_fewer_const_generic_params
+        PASS [   0.000s]       major        trait_allows_fewer_generic_type_params
+        PASS [   0.000s]       major        trait_associated_const_added
+        PASS [   0.000s]       major        trait_associated_const_default_removed
+        PASS [   0.000s]       major        trait_associated_const_now_doc_hidden
+        PASS [   0.000s]       major        trait_associated_type_added
+        PASS [   0.000s]       major        trait_associated_type_default_removed
+        PASS [   0.000s]       major        trait_associated_type_now_doc_hidden
+        PASS [   0.000s]       major        trait_changed_kind
+        PASS [   0.000s]       major        trait_const_generic_reordered
+        PASS [   0.000s]       major        trait_generic_type_reordered
+        PASS [   0.001s]       major        trait_method_added
+        PASS [   0.001s]       major        trait_method_changed_abi
+        PASS [   0.000s]       major        trait_method_const_generic_reordered
+        PASS [   0.000s]       major        trait_method_default_impl_removed
+        PASS [   0.000s]       major        trait_method_generic_type_reordered
+        PASS [   0.000s]       major        trait_method_missing
+        PASS [   0.000s]       major        trait_method_no_longer_has_receiver
+        PASS [   0.000s]       major        trait_method_no_longer_unwind
+        PASS [   0.000s]       major        trait_method_no_longer_variadic
+        PASS [   0.000s]       major        trait_method_now_doc_hidden
+        PASS [   0.000s]       major        trait_method_now_returns_unit
+        PASS [   0.000s]       major        trait_method_now_unwind
+        PASS [   0.000s]       major        trait_method_now_variadic
+        PASS [   0.004s]       major        trait_method_parameter_count_changed
+        PASS [   0.000s]       major        trait_method_receiver_added
+        PASS [   0.001s]       major        trait_method_receiver_mut_ref_became_owned
+        PASS [   0.001s]       major        trait_method_receiver_mut_ref_became_ref
+        PASS [   0.000s]       major        trait_method_receiver_owned_became_mut_ref
+        PASS [   0.000s]       major        trait_method_receiver_owned_became_ref
+        PASS [   0.000s]       major        trait_method_receiver_ref_became_mut
+        PASS [   0.000s]       major        trait_method_receiver_ref_became_owned
+        PASS [   0.000s]       major        trait_method_receiver_type_changed
+        PASS [   0.001s]       major        trait_method_requires_different_const_generic_params
+        PASS [   0.001s]       major        trait_method_requires_different_generic_type_params
+        PASS [   0.000s]       major        trait_method_return_value_added
+        PASS [   0.000s]       major        trait_method_target_feature_removed
+        PASS [   0.000s]       major        trait_method_unsafe_added
+        PASS [   0.000s]       major        trait_method_unsafe_removed
+        PASS [   0.000s]       major        trait_mismatched_generic_lifetimes
+        PASS [   0.000s]       major        trait_missing
+        PASS [   0.000s]       major        trait_newly_sealed
+        PASS [   0.000s]       major        trait_no_longer_dyn_compatible
+        PASS [   0.000s]       major        trait_now_doc_hidden
+        PASS [   0.000s]       major        trait_removed_associated_constant
+        PASS [   0.000s]       major        trait_removed_associated_type
+        PASS [   0.000s]       major        trait_removed_supertrait
+        PASS [   0.001s]       major        trait_requires_more_const_generic_params
+        PASS [   0.001s]       major        trait_requires_more_generic_type_params
+        PASS [   0.000s]       major        trait_unsafe_added
+        PASS [   0.000s]       major        trait_unsafe_removed
+        PASS [   0.000s]       major        tuple_struct_to_plain_struct
+        PASS [   0.002s]       major        type_allows_fewer_const_generic_params
+        PASS [   0.002s]       major        type_allows_fewer_generic_type_params
+        PASS [   0.001s]       major        type_const_generic_reordered
+        PASS [   0.001s]       major        type_generic_type_reordered
+        PASS [   0.002s]       major        type_mismatched_generic_lifetimes
+        PASS [   0.001s]       major        type_requires_more_const_generic_params
+        PASS [   0.001s]       major        type_requires_more_generic_type_params
+        PASS [   0.000s]       major        union_changed_kind
+        PASS [   0.000s]       major        union_changed_to_incompatible_struct
+        PASS [   0.000s]       major        union_field_added_with_all_pub_fields
+        PASS [   0.000s]       major        union_field_added_with_non_pub_fields
+        PASS [   0.000s]       major        union_field_missing
+        PASS [   0.000s]       major        union_missing
+        PASS [   0.000s]       major        union_now_doc_hidden
+        PASS [   0.000s]       major        union_pub_field_now_doc_hidden
+        PASS [   0.000s]       major        union_with_multiple_pub_fields_changed_to_struct
+        PASS [   0.000s]       major        unit_struct_changed_kind
+        PASS [   0.000s]       major        unsafe_function_requires_more_target_features
+        PASS [   0.000s]       major        unsafe_function_target_feature_added
+        PASS [   0.001s]       major        unsafe_inherent_method_requires_more_target_features
+        PASS [   0.001s]       major        unsafe_inherent_method_target_feature_added
+        PASS [   0.000s]       major        unsafe_trait_method_requires_more_target_features
+        PASS [   0.000s]       major        unsafe_trait_method_target_feature_added
+     Checked [   0.031s] 202 checks: 202 pass, 58 skip
+     Summary no semver update required
+    Finished [ 141.443s] iroh-blobs

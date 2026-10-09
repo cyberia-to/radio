@@ -1,0 +1,394 @@
+﻿2026-10-09T23:50:45.5806165Z Current runner version: '2.337.0'
+2026-10-09T23:50:45.5831768Z ##[group]Runner Image Provisioner
+2026-10-09T23:50:45.5832743Z Hosted Compute Agent
+2026-10-09T23:50:45.5833337Z Version: 20261002.596
+2026-10-09T23:50:45.5834077Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-09T23:50:45.5834829Z Build Date: 2026-10-02T22:28:27Z
+2026-10-09T23:50:45.5835806Z Worker ID: {eb54625f-47f1-4b4f-a8a7-6046d5a294f1}
+2026-10-09T23:50:45.5836655Z Region: northcentralus
+2026-10-09T23:50:45.5837300Z Cloud: Azure
+2026-10-09T23:50:45.5837931Z ##[endgroup]
+2026-10-09T23:50:45.5839853Z ##[group]Operating System
+2026-10-09T23:50:45.5840695Z Ubuntu
+2026-10-09T23:50:45.5841327Z 24.04.5
+2026-10-09T23:50:45.5841863Z LTS
+2026-10-09T23:50:45.5842464Z ##[endgroup]
+2026-10-09T23:50:45.5843164Z ##[group]Runner Image
+2026-10-09T23:50:45.5843777Z Image: ubuntu-24.04
+2026-10-09T23:50:45.5844444Z Version: 20261004.327.1
+2026-10-09T23:50:45.5845942Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-09T23:50:45.5847587Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-09T23:50:45.5848591Z ##[endgroup]
+2026-10-09T23:50:45.5849948Z ##[group]GITHUB_TOKEN Permissions
+2026-10-09T23:50:45.5852223Z Contents: read
+2026-10-09T23:50:45.5852970Z Metadata: read
+2026-10-09T23:50:45.5853593Z Packages: read
+2026-10-09T23:50:45.5854233Z ##[endgroup]
+2026-10-09T23:50:45.5856684Z Secret source: Actions
+2026-10-09T23:50:45.5857696Z Cache mode: write
+2026-10-09T23:50:45.5858662Z Prepare workflow directory
+2026-10-09T23:50:45.6263492Z Prepare all required actions
+2026-10-09T23:50:45.6312295Z Getting action download info
+2026-10-09T23:50:45.8831822Z Download action repository 'actions/checkout@v6' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-10-09T23:50:46.0115260Z Download action repository 'EmbarkStudios/cargo-deny-action@v2' (SHA:3c6349835b2b7b196a839186cb8b78e02f7b5f25)
+2026-10-09T23:50:46.2745786Z Complete job name: cargo deny
+2026-10-09T23:50:46.3227990Z ##[group]Build container for action use: '/home/runner/work/_actions/EmbarkStudios/cargo-deny-action/v2/Dockerfile'.
+2026-10-09T23:50:46.3335977Z ##[command]/usr/bin/docker build -t f50f7c:a0eb9be856314e9f9712fe7760556774 -f "/home/runner/work/_actions/EmbarkStudios/cargo-deny-action/v2/Dockerfile" "/home/runner/work/_actions/EmbarkStudios/cargo-deny-action/v2"
+2026-10-09T23:50:49.5991657Z #0 building with "default" instance using docker driver
+2026-10-09T23:50:49.5992710Z 
+2026-10-09T23:50:49.5993133Z #1 [internal] load build definition from Dockerfile
+2026-10-09T23:50:49.5994146Z #1 transferring dockerfile: 508B 0.0s done
+2026-10-09T23:50:49.5995029Z #1 DONE 0.0s
+2026-10-09T23:50:49.5995414Z 
+2026-10-09T23:50:49.5996255Z #2 [auth] library/rust:pull token for registry-1.docker.io
+2026-10-09T23:50:49.7487271Z #2 DONE 0.0s
+2026-10-09T23:50:49.7487855Z 
+2026-10-09T23:50:49.7489369Z #3 [internal] load metadata for docker.io/library/rust:1.85.0-alpine3.20@sha256:f0cef6c65992995b1c7816cb667de95799852e3fbed9d06f95855cbc512a0fd0
+2026-10-09T23:50:50.0468889Z #3 DONE 0.5s
+2026-10-09T23:50:50.1580466Z 
+2026-10-09T23:50:50.1581172Z #4 [internal] load .dockerignore
+2026-10-09T23:50:50.1584063Z #4 transferring context: 2B done
+2026-10-09T23:50:50.1585449Z #4 DONE 0.0s
+2026-10-09T23:50:50.1585931Z 
+2026-10-09T23:50:50.1586129Z #5 [internal] load build context
+2026-10-09T23:50:50.1586700Z #5 transferring context: 1.12kB done
+2026-10-09T23:50:50.1587186Z #5 DONE 0.0s
+2026-10-09T23:50:50.1587418Z 
+2026-10-09T23:50:50.1588069Z #6 [1/3] FROM docker.io/library/rust:1.85.0-alpine3.20@sha256:f0cef6c65992995b1c7816cb667de95799852e3fbed9d06f95855cbc512a0fd0
+2026-10-09T23:50:50.1589530Z #6 resolve docker.io/library/rust:1.85.0-alpine3.20@sha256:f0cef6c65992995b1c7816cb667de95799852e3fbed9d06f95855cbc512a0fd0 done
+2026-10-09T23:50:50.1590772Z #6 extracting sha256:0a9a5dfd008f05ebc27e4790db0709a29e527690c21bcbcd01481eaeb6bb49dc
+2026-10-09T23:50:50.2607210Z #6 sha256:d0430b4a2b30329b0c06034d1df61c2f3533c436834a54b76def8756d804d888 1.05MB / 55.32MB 0.1s
+2026-10-09T23:50:50.2609175Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 11.53MB / 239.16MB 0.1s
+2026-10-09T23:50:50.2610339Z #6 sha256:f0cef6c65992995b1c7816cb667de95799852e3fbed9d06f95855cbc512a0fd0 2.63kB / 2.63kB done
+2026-10-09T23:50:50.2611852Z #6 sha256:6d824fef86a8532aecead5889d49d432d19e0dd58b958266c994cca9eb7a3357 1.54kB / 1.54kB done
+2026-10-09T23:50:50.2613423Z #6 sha256:7c38e59fb99c1014ea6d250d396bb9bf55981f1d69fe17ed05047b90cd119ca9 2.53kB / 2.53kB done
+2026-10-09T23:50:50.2614940Z #6 sha256:0a9a5dfd008f05ebc27e4790db0709a29e527690c21bcbcd01481eaeb6bb49dc 3.63MB / 3.63MB 0.1s done
+2026-10-09T23:50:50.3897152Z #6 extracting sha256:0a9a5dfd008f05ebc27e4790db0709a29e527690c21bcbcd01481eaeb6bb49dc 0.1s done
+2026-10-09T23:50:50.3921398Z #6 sha256:d0430b4a2b30329b0c06034d1df61c2f3533c436834a54b76def8756d804d888 55.32MB / 55.32MB 0.2s done
+2026-10-09T23:50:50.3929919Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 70.25MB / 239.16MB 0.3s
+2026-10-09T23:50:50.4890420Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 106.95MB / 239.16MB 0.4s
+2026-10-09T23:50:50.4891497Z #6 extracting sha256:d0430b4a2b30329b0c06034d1df61c2f3533c436834a54b76def8756d804d888
+2026-10-09T23:50:50.6154686Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 137.36MB / 239.16MB 0.5s
+2026-10-09T23:50:50.7447850Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 164.63MB / 239.16MB 0.6s
+2026-10-09T23:50:50.8870079Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 192.94MB / 239.16MB 0.7s
+2026-10-09T23:50:50.9890232Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 239.16MB / 239.16MB 0.9s
+2026-10-09T23:50:51.3020423Z #6 sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 239.16MB / 239.16MB 1.2s done
+2026-10-09T23:50:51.5014636Z #6 extracting sha256:d0430b4a2b30329b0c06034d1df61c2f3533c436834a54b76def8756d804d888 0.9s done
+2026-10-09T23:50:51.6709811Z #6 extracting sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28
+2026-10-09T23:50:54.8576784Z #6 extracting sha256:8fda7dd06f6e434e3727cd86155430a51568846533e3824548334e20f1078e28 3.0s done
+2026-10-09T23:50:56.1678856Z #6 DONE 6.1s
+2026-10-09T23:50:56.3187514Z 
+2026-10-09T23:50:56.3190002Z #7 [2/3] RUN set -eux;     apk update;     apk add bash curl git tar openssh;     curl --silent -L https://github.com/EmbarkStudios/cargo-deny/releases/download/0.20.2/cargo-deny-0.20.2-x86_64-unknown-linux-musl.tar.gz | tar -xzv -C /usr/bin --strip-components=1;
+2026-10-09T23:50:56.3415951Z #7 0.173 + apk update
+2026-10-09T23:50:56.5778650Z #7 0.180 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/x86_64/APKINDEX.tar.gz
+2026-10-09T23:50:56.5779848Z #7 0.259 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz
+2026-10-09T23:50:56.7341372Z #7 0.566 v3.20.10-114-ga410d2306e5 [https://dl-cdn.alpinelinux.org/alpine/v3.20/main]
+2026-10-09T23:50:56.7342218Z #7 0.566 v3.20.10-106-gcfb1a4769c3 [https://dl-cdn.alpinelinux.org/alpine/v3.20/community]
+2026-10-09T23:50:56.7342707Z #7 0.566 OK: 24182 distinct packages available
+2026-10-09T23:50:56.9550632Z #7 0.636 + apk add bash curl git tar openssh
+2026-10-09T23:50:57.0972800Z #7 0.929 (1/26) Installing ncurses-terminfo-base (6.4_p20240420-r2)
+2026-10-09T23:50:57.2007933Z #7 0.960 (2/26) Installing libncursesw (6.4_p20240420-r2)
+2026-10-09T23:50:57.2008495Z #7 0.971 (3/26) Installing readline (8.2.10-r0)
+2026-10-09T23:50:57.2008926Z #7 0.978 (4/26) Installing bash (5.2.26-r0)
+2026-10-09T23:50:57.2009398Z #7 0.993 Executing bash-5.2.26-r0.post-install
+2026-10-09T23:50:57.2009935Z #7 0.996 (5/26) Installing brotli-libs (1.1.0-r2)
+2026-10-09T23:50:57.2010407Z #7 1.006 (6/26) Installing c-ares (1.33.1-r0)
+2026-10-09T23:50:57.2010908Z #7 1.011 (7/26) Installing libunistring (1.2-r0)
+2026-10-09T23:50:57.2011360Z #7 1.023 (8/26) Installing libidn2 (2.3.7-r0)
+2026-10-09T23:50:57.2012260Z #7 1.028 (9/26) Installing nghttp2-libs (1.62.1-r0)
+2026-10-09T23:50:57.2012723Z #7 1.033 (10/26) Installing libpsl (0.21.5-r1)
+2026-10-09T23:50:57.3012652Z #7 1.036 (11/26) Installing libcurl (8.14.1-r2)
+2026-10-09T23:50:57.3013170Z #7 1.047 (12/26) Installing curl (8.14.1-r2)
+2026-10-09T23:50:57.3013574Z #7 1.053 (13/26) Installing libexpat (2.8.1-r0)
+2026-10-09T23:50:57.3014015Z #7 1.058 (14/26) Installing pcre2 (10.43-r0)
+2026-10-09T23:50:57.3014420Z #7 1.066 (15/26) Installing git (2.45.4-r0)
+2026-10-09T23:50:57.3014877Z #7 1.133 (16/26) Installing git-init-template (2.45.4-r0)
+2026-10-09T23:50:57.4562204Z #7 1.137 (17/26) Installing openssh-keygen (9.7_p1-r5)
+2026-10-09T23:50:57.4563005Z #7 1.143 (18/26) Installing libedit (20240517.3.1-r0)
+2026-10-09T23:50:57.4576719Z #7 1.147 (19/26) Installing openssh-client-common (9.7_p1-r5)
+2026-10-09T23:50:57.4577269Z #7 1.165 (20/26) Installing openssh-client-default (9.7_p1-r5)
+2026-10-09T23:50:57.4577678Z #7 1.173 (21/26) Installing openssh-sftp-server (9.7_p1-r5)
+2026-10-09T23:50:57.4578070Z #7 1.176 (22/26) Installing openssh-server-common (9.7_p1-r5)
+2026-10-09T23:50:57.4578417Z #7 1.181 (23/26) Installing openssh-server (9.7_p1-r5)
+2026-10-09T23:50:57.4578733Z #7 1.190 (24/26) Installing openssh (9.7_p1-r5)
+2026-10-09T23:50:57.4579035Z #7 1.195 (25/26) Installing libacl (2.3.2-r0)
+2026-10-09T23:50:57.4579321Z #7 1.197 (26/26) Installing tar (1.35-r2)
+2026-10-09T23:50:57.4579612Z #7 1.204 Executing busybox-1.36.1-r29.trigger
+2026-10-09T23:50:57.4580088Z #7 1.210 OK: 167 MiB in 53 packages
+2026-10-09T23:50:57.4581182Z #7 1.288 + curl --silent -L https://github.com/EmbarkStudios/cargo-deny/releases/download/0.20.2/cargo-deny-0.20.2-x86_64-unknown-linux-musl.tar.gz
+2026-10-09T23:50:57.6520718Z #7 1.288 + tar -xzv -C /usr/bin '--strip-components=1'
+2026-10-09T23:50:57.6521531Z #7 1.369 cargo-deny-0.20.2-x86_64-unknown-linux-musl/README.md
+2026-10-09T23:50:57.6522351Z #7 1.369 cargo-deny-0.20.2-x86_64-unknown-linux-musl/LICENSE-APACHE
+2026-10-09T23:50:57.6523145Z #7 1.369 cargo-deny-0.20.2-x86_64-unknown-linux-musl/cargo-deny
+2026-10-09T23:50:57.6523559Z #7 1.484 cargo-deny-0.20.2-x86_64-unknown-linux-musl/LICENSE-MIT
+2026-10-09T23:50:57.8534683Z #7 DONE 1.5s
+2026-10-09T23:50:57.8534978Z 
+2026-10-09T23:50:57.8535162Z #8 [3/3] COPY entrypoint.sh /entrypoint.sh
+2026-10-09T23:50:57.8535821Z #8 DONE 0.0s
+2026-10-09T23:50:57.8535999Z 
+2026-10-09T23:50:57.8536145Z #9 exporting to image
+2026-10-09T23:50:57.8536497Z #9 exporting layers
+2026-10-09T23:50:58.0056875Z #9 exporting layers 0.3s done
+2026-10-09T23:50:58.0193519Z #9 writing image sha256:a58a6f198c62cb746eefbf27cee45f98ad7af1a46b3bbbac2ef24be113a43eaa done
+2026-10-09T23:50:58.0194532Z #9 naming to docker.io/library/f50f7c:a0eb9be856314e9f9712fe7760556774 done
+2026-10-09T23:50:58.0195233Z #9 DONE 0.3s
+2026-10-09T23:50:58.0299507Z ##[endgroup]
+2026-10-09T23:50:58.0595394Z ##[group]Run actions/checkout@v6
+2026-10-09T23:50:58.0596100Z with:
+2026-10-09T23:50:58.0596334Z   repository: cyberia-to/radio
+2026-10-09T23:50:58.0598816Z   token: ***
+2026-10-09T23:50:58.0599036Z   ssh-strict: true
+2026-10-09T23:50:58.0599257Z   ssh-user: git
+2026-10-09T23:50:58.0599486Z   persist-credentials: true
+2026-10-09T23:50:58.0599728Z   clean: true
+2026-10-09T23:50:58.0599946Z   sparse-checkout-cone-mode: true
+2026-10-09T23:50:58.0600206Z   fetch-depth: 1
+2026-10-09T23:50:58.0600422Z   fetch-tags: false
+2026-10-09T23:50:58.0600643Z   show-progress: true
+2026-10-09T23:50:58.0600862Z   lfs: false
+2026-10-09T23:50:58.0601051Z   submodules: false
+2026-10-09T23:50:58.0601264Z   set-safe-directory: true
+2026-10-09T23:50:58.0601516Z   allow-unsafe-pr-checkout: false
+2026-10-09T23:50:58.0601957Z env:
+2026-10-09T23:50:58.0602155Z   RUST_BACKTRACE: 1
+2026-10-09T23:50:58.0602422Z   RUSTFLAGS: -Dwarnings
+2026-10-09T23:50:58.0602658Z   RUSTDOCFLAGS: -Dwarnings
+2026-10-09T23:50:58.0602934Z   MSRV: 1.89
+2026-10-09T23:50:58.0603146Z   SCCACHE_CACHE_SIZE: 10G
+2026-10-09T23:50:58.0603385Z   IROH_FORCE_STAGING_RELAYS: 1
+2026-10-09T23:50:58.0603621Z ##[endgroup]
+2026-10-09T23:50:58.1594915Z Syncing repository: cyberia-to/radio
+2026-10-09T23:50:58.1596796Z ##[group]Getting Git version info
+2026-10-09T23:50:58.1597303Z Working directory is '/home/runner/work/radio/radio'
+2026-10-09T23:50:58.1598003Z [command]/usr/bin/git version
+2026-10-09T23:50:58.1631458Z git version 2.55.0
+2026-10-09T23:50:58.1656716Z ##[endgroup]
+2026-10-09T23:50:58.1672157Z Temporarily overriding HOME='/home/runner/work/_temp/b0481515-b2eb-4664-b3b3-86dbc5575185' before making global git config changes
+2026-10-09T23:50:58.1673405Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-09T23:50:58.1678667Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/radio/radio
+2026-10-09T23:50:58.1726034Z Deleting the contents of '/home/runner/work/radio/radio'
+2026-10-09T23:50:58.1731742Z ##[group]Determining repository object format
+2026-10-09T23:50:58.1734241Z ##[endgroup]
+2026-10-09T23:50:58.1735297Z ##[group]Initializing the repository
+2026-10-09T23:50:58.1739936Z [command]/usr/bin/git init /home/runner/work/radio/radio
+2026-10-09T23:50:58.1821505Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-09T23:50:58.1822658Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-09T23:50:58.1823764Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-09T23:50:58.1825009Z hint: call:
+2026-10-09T23:50:58.1825336Z hint:
+2026-10-09T23:50:58.1826017Z hint: 	git config --global init.defaultBranch <name>
+2026-10-09T23:50:58.1826525Z hint:
+2026-10-09T23:50:58.1826990Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-09T23:50:58.1827825Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-09T23:50:58.1828447Z hint:
+2026-10-09T23:50:58.1828785Z hint: 	git branch -m <name>
+2026-10-09T23:50:58.1829146Z hint:
+2026-10-09T23:50:58.1829619Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-09T23:50:58.1830421Z Initialized empty Git repository in /home/runner/work/radio/radio/.git/
+2026-10-09T23:50:58.1837946Z [command]/usr/bin/git remote add origin https://github.com/cyberia-to/radio
+2026-10-09T23:50:58.1884623Z ##[endgroup]
+2026-10-09T23:50:58.1885245Z ##[group]Disabling automatic garbage collection
+2026-10-09T23:50:58.1890805Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-09T23:50:58.1925391Z ##[endgroup]
+2026-10-09T23:50:58.1926105Z ##[group]Setting up auth
+2026-10-09T23:50:58.1926865Z Removing SSH command configuration
+2026-10-09T23:50:58.1933209Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-09T23:50:58.1971210Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-09T23:50:58.2305356Z Removing HTTP extra header
+2026-10-09T23:50:58.2314422Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-09T23:50:58.2359093Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-09T23:50:58.2623034Z Removing includeIf entries pointing to credentials config files
+2026-10-09T23:50:58.2630465Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-09T23:50:58.2752512Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-09T23:50:58.2929559Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-09T23:50:58.2975301Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/radio/radio/.git.path /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:50:58.3011501Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/radio/radio/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:50:58.3055328Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:50:58.3092065Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:50:58.3126529Z ##[endgroup]
+2026-10-09T23:50:58.3127126Z ##[group]Fetching the repository
+2026-10-09T23:50:58.3135744Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +95469ec63d8db6dac6d3821c73db1b7bb286288b:refs/remotes/pull/32/merge
+2026-10-09T23:51:05.0938198Z From https://github.com/cyberia-to/radio
+2026-10-09T23:51:05.0938886Z  * [new ref]         95469ec63d8db6dac6d3821c73db1b7bb286288b -> pull/32/merge
+2026-10-09T23:51:05.0945111Z ##[endgroup]
+2026-10-09T23:51:05.0945918Z ##[group]Determining the checkout info
+2026-10-09T23:51:05.0946656Z ##[endgroup]
+2026-10-09T23:51:05.0953609Z [command]/usr/bin/git sparse-checkout disable
+2026-10-09T23:51:05.1043304Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-09T23:51:05.1077710Z ##[group]Checking out the ref
+2026-10-09T23:51:05.1082614Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/32/merge
+2026-10-09T23:51:06.1812901Z Updating files:  49% (2234/4507)
+2026-10-09T23:51:06.5593106Z Updating files:  50% (2254/4507)
+2026-10-09T23:51:06.7952389Z Updating files:  51% (2299/4507)
+2026-10-09T23:51:07.1284995Z Updating files:  52% (2344/4507)
+2026-10-09T23:51:07.3217396Z Updating files:  52% (2375/4507)
+2026-10-09T23:51:07.5142788Z Updating files:  53% (2389/4507)
+2026-10-09T23:51:07.5501694Z Updating files:  54% (2434/4507)
+2026-10-09T23:51:07.5799340Z Updating files:  55% (2479/4507)
+2026-10-09T23:51:07.5899896Z Updating files:  56% (2524/4507)
+2026-10-09T23:51:07.5982458Z Updating files:  57% (2569/4507)
+2026-10-09T23:51:07.6064973Z Updating files:  58% (2615/4507)
+2026-10-09T23:51:07.6178982Z Updating files:  59% (2660/4507)
+2026-10-09T23:51:07.6381824Z Updating files:  60% (2705/4507)
+2026-10-09T23:51:07.6475457Z Updating files:  61% (2750/4507)
+2026-10-09T23:51:07.6588264Z Updating files:  62% (2795/4507)
+2026-10-09T23:51:07.6663684Z Updating files:  63% (2840/4507)
+2026-10-09T23:51:07.6802484Z Updating files:  64% (2885/4507)
+2026-10-09T23:51:07.7430005Z Updating files:  65% (2930/4507)
+2026-10-09T23:51:07.7607665Z Updating files:  66% (2975/4507)
+2026-10-09T23:51:07.7710848Z Updating files:  67% (3020/4507)
+2026-10-09T23:51:07.7853298Z Updating files:  68% (3065/4507)
+2026-10-09T23:51:07.8033451Z Updating files:  69% (3110/4507)
+2026-10-09T23:51:07.8209958Z Updating files:  70% (3155/4507)
+2026-10-09T23:51:07.8338003Z Updating files:  71% (3200/4507)
+2026-10-09T23:51:07.8548907Z Updating files:  72% (3246/4507)
+2026-10-09T23:51:07.8901382Z Updating files:  73% (3291/4507)
+2026-10-09T23:51:07.9698926Z Updating files:  74% (3336/4507)
+2026-10-09T23:51:07.9926734Z Updating files:  75% (3381/4507)
+2026-10-09T23:51:07.9993837Z Updating files:  76% (3426/4507)
+2026-10-09T23:51:08.0177475Z Updating files:  77% (3471/4507)
+2026-10-09T23:51:08.0367685Z Updating files:  78% (3516/4507)
+2026-10-09T23:51:08.0465946Z Updating files:  79% (3561/4507)
+2026-10-09T23:51:08.0537464Z Updating files:  80% (3606/4507)
+2026-10-09T23:51:08.0623242Z Updating files:  81% (3651/4507)
+2026-10-09T23:51:08.1164765Z Updating files:  82% (3696/4507)
+2026-10-09T23:51:08.1250752Z Updating files:  82% (3717/4507)
+2026-10-09T23:51:08.1340193Z Updating files:  83% (3741/4507)
+2026-10-09T23:51:08.1434625Z Updating files:  84% (3786/4507)
+2026-10-09T23:51:08.1536126Z Updating files:  85% (3831/4507)
+2026-10-09T23:51:08.1704075Z Updating files:  86% (3877/4507)
+2026-10-09T23:51:08.1841241Z Updating files:  87% (3922/4507)
+2026-10-09T23:51:08.2002470Z Updating files:  88% (3967/4507)
+2026-10-09T23:51:08.2769414Z Updating files:  89% (4012/4507)
+2026-10-09T23:51:08.3148045Z Updating files:  90% (4057/4507)
+2026-10-09T23:51:08.3355201Z Updating files:  91% (4102/4507)
+2026-10-09T23:51:08.3477513Z Updating files:  92% (4147/4507)
+2026-10-09T23:51:08.4280332Z Updating files:  93% (4192/4507)
+2026-10-09T23:51:08.4306821Z Updating files:  94% (4237/4507)
+2026-10-09T23:51:08.4338442Z Updating files:  95% (4282/4507)
+2026-10-09T23:51:08.4384570Z Updating files:  96% (4327/4507)
+2026-10-09T23:51:08.4433965Z Updating files:  97% (4372/4507)
+2026-10-09T23:51:08.4484600Z Updating files:  98% (4417/4507)
+2026-10-09T23:51:08.4521220Z Updating files:  99% (4462/4507)
+2026-10-09T23:51:08.4521628Z Updating files: 100% (4507/4507)
+2026-10-09T23:51:08.4522102Z Updating files: 100% (4507/4507), done.
+2026-10-09T23:51:08.4577635Z Note: switching to 'refs/remotes/pull/32/merge'.
+2026-10-09T23:51:08.4577995Z 
+2026-10-09T23:51:08.4578330Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-09T23:51:08.4578984Z changes and commit them, and you can discard any commits you make in this
+2026-10-09T23:51:08.4579456Z state without impacting any branches by switching back to a branch.
+2026-10-09T23:51:08.4579731Z 
+2026-10-09T23:51:08.4579916Z If you want to create a new branch to retain commits you create, you may
+2026-10-09T23:51:08.4580356Z do so (now or later) by using -c with the switch command. Example:
+2026-10-09T23:51:08.4580620Z 
+2026-10-09T23:51:08.4580740Z   git switch -c <new-branch-name>
+2026-10-09T23:51:08.4580917Z 
+2026-10-09T23:51:08.4581029Z Or undo this operation with:
+2026-10-09T23:51:08.4581187Z 
+2026-10-09T23:51:08.4581292Z   git switch -
+2026-10-09T23:51:08.4581417Z 
+2026-10-09T23:51:08.4581637Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-09T23:51:08.4581950Z 
+2026-10-09T23:51:08.4582296Z HEAD is now at 95469ec Merge 3c291e511cb1c5457a5bd1945c45681f263bd064 into 764d732ac38fb9116c4cf525a6d1bb463d409a06
+2026-10-09T23:51:08.4677074Z ##[endgroup]
+2026-10-09T23:51:08.4733555Z [command]/usr/bin/git log -1 --format=%H
+2026-10-09T23:51:08.4763321Z 95469ec63d8db6dac6d3821c73db1b7bb286288b
+2026-10-09T23:51:08.5020651Z ##[group]Run EmbarkStudios/cargo-deny-action@v2
+2026-10-09T23:51:08.5021068Z with:
+2026-10-09T23:51:08.5021301Z   arguments: --workspace --all-features
+2026-10-09T23:51:08.5021579Z   command: check
+2026-10-09T23:51:08.5021802Z   command-arguments: -Dwarnings
+2026-10-09T23:51:08.5022070Z   manifest-path: ./Cargo.toml
+2026-10-09T23:51:08.5022326Z   log-level: warn
+2026-10-09T23:51:08.5022536Z   use-git-cli: false
+2026-10-09T23:51:08.5022748Z env:
+2026-10-09T23:51:08.5022933Z   RUST_BACKTRACE: 1
+2026-10-09T23:51:08.5023148Z   RUSTFLAGS: -Dwarnings
+2026-10-09T23:51:08.5023380Z   RUSTDOCFLAGS: -Dwarnings
+2026-10-09T23:51:08.5023605Z   MSRV: 1.89
+2026-10-09T23:51:08.5023832Z   SCCACHE_CACHE_SIZE: 10G
+2026-10-09T23:51:08.5024070Z   IROH_FORCE_STAGING_RELAYS: 1
+2026-10-09T23:51:08.5024308Z ##[endgroup]
+2026-10-09T23:51:08.5134855Z ##[command]/usr/bin/docker run --name f50f7ca0eb9be856314e9f9712fe7760556774_437110 --label f50f7c --workdir /github/workspace --rm -e "RUST_BACKTRACE" -e "RUSTFLAGS" -e "RUSTDOCFLAGS" -e "MSRV" -e "SCCACHE_CACHE_SIZE" -e "IROH_FORCE_STAGING_RELAYS" -e "INPUT_ARGUMENTS" -e "INPUT_COMMAND" -e "INPUT_COMMAND-ARGUMENTS" -e "INPUT_MANIFEST-PATH" -e "INPUT_LOG-LEVEL" -e "INPUT_RUST-VERSION" -e "INPUT_CREDENTIALS" -e "INPUT_SSH-KEY" -e "INPUT_SSH-KNOWN-HOSTS" -e "INPUT_USE-GIT-CLI" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "GITHUB_ARTIFACTS" -e "GITHUB_ARTIFACTS_LIST" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_CACHE_MODE" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/radio/radio":"/github/workspace" f50f7c:a0eb9be856314e9f9712fe7760556774  "" "" "" "" "--log-level" "warn" "--manifest-path" "./Cargo.toml" "--workspace --all-features" "check" "-Dwarnings"
+2026-10-09T23:51:11.1984298Z Default host: x86_64-unknown-linux-musl
+2026-10-09T23:51:11.1984691Z rustup home:  /usr/local/rustup
+2026-10-09T23:51:11.1984883Z 
+2026-10-09T23:51:11.2556494Z installed toolchains
+2026-10-09T23:51:11.2556853Z --------------------
+2026-10-09T23:51:11.2557271Z 1.85.0-x86_64-unknown-linux-musl (active, default)
+2026-10-09T23:51:11.2557616Z 
+2026-10-09T23:51:11.2557749Z active toolchain
+2026-10-09T23:51:11.2558044Z ----------------
+2026-10-09T23:51:11.2558368Z name: 1.85.0-x86_64-unknown-linux-musl
+2026-10-09T23:51:11.2558665Z active because: it's the default toolchain
+2026-10-09T23:51:11.2558938Z installed targets:
+2026-10-09T23:51:11.2559159Z   x86_64-unknown-linux-musl
+2026-10-09T23:51:11.2998274Z 2026-10-09 23:51:11 [[31mERROR[0m] failed to fetch crates: [1m[31merror[0m[1m:[0m failed to load manifest for workspace member `/github/workspace/iroh-dns-server`
+2026-10-09T23:51:11.2999758Z referenced by workspace at `/github/workspace/Cargo.toml`
+2026-10-09T23:51:11.3000426Z 
+2026-10-09T23:51:11.3001314Z Caused by:
+2026-10-09T23:51:11.3001890Z   failed to load manifest for dependency `cyber-radio`
+2026-10-09T23:51:11.3002415Z 
+2026-10-09T23:51:11.3002694Z Caused by:
+2026-10-09T23:51:11.3003242Z   failed to load manifest for dependency `cyber-radio-relay`
+2026-10-09T23:51:11.3003766Z 
+2026-10-09T23:51:11.3004064Z Caused by:
+2026-10-09T23:51:11.3004627Z   failed to load manifest for dependency `cyber-hemera`
+2026-10-09T23:51:11.3005193Z 
+2026-10-09T23:51:11.3005472Z Caused by:
+2026-10-09T23:51:11.3006213Z   failed to read `/github/hemera/rs/Cargo.toml`
+2026-10-09T23:51:11.3006779Z 
+2026-10-09T23:51:11.3007072Z Caused by:
+2026-10-09T23:51:11.3007557Z   No such file or directory (os error 2)
+2026-10-09T23:51:11.3008346Z [0m
+2026-10-09T23:51:12.0618945Z 2026-10-09 23:51:11 [[31mERROR[0m] `cargo metadata` exited with an error: [1m[31merror[0m[1m:[0m failed to load manifest for workspace member `/github/workspace/iroh-dns-server`
+2026-10-09T23:51:12.0620450Z referenced by workspace at `/github/workspace/Cargo.toml`
+2026-10-09T23:51:12.0621011Z 
+2026-10-09T23:51:12.0621243Z Caused by:
+2026-10-09T23:51:12.0621597Z   failed to load manifest for dependency `cyber-radio`
+2026-10-09T23:51:12.0621914Z 
+2026-10-09T23:51:12.0622134Z Caused by:
+2026-10-09T23:51:12.0622438Z   failed to load manifest for dependency `cyber-radio-relay`
+2026-10-09T23:51:12.0622707Z 
+2026-10-09T23:51:12.0622785Z Caused by:
+2026-10-09T23:51:12.0623032Z   failed to load manifest for dependency `cyber-hemera`
+2026-10-09T23:51:12.0623254Z 
+2026-10-09T23:51:12.0623382Z Caused by:
+2026-10-09T23:51:12.0623712Z   failed to read `/github/hemera/rs/Cargo.toml`
+2026-10-09T23:51:12.0624029Z 
+2026-10-09T23:51:12.0624158Z Caused by:
+2026-10-09T23:51:12.0624837Z   No such file or directory (os error 2)
+2026-10-09T23:51:12.0625334Z [0m
+2026-10-09T23:51:12.3119544Z Post job cleanup.
+2026-10-09T23:51:12.3982753Z [command]/usr/bin/git version
+2026-10-09T23:51:12.4026553Z git version 2.55.0
+2026-10-09T23:51:12.4065264Z Temporarily overriding HOME='/home/runner/work/_temp/eba48fb1-84fd-4022-b738-e211203a7e97' before making global git config changes
+2026-10-09T23:51:12.4066714Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-09T23:51:12.4070727Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/radio/radio
+2026-10-09T23:51:12.4104935Z Removing SSH command configuration
+2026-10-09T23:51:12.4112009Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-09T23:51:12.4149881Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-09T23:51:12.4425816Z Removing HTTP extra header
+2026-10-09T23:51:12.4433173Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-09T23:51:12.4475060Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-09T23:51:12.4778131Z Removing includeIf entries pointing to credentials config files
+2026-10-09T23:51:12.4785924Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-09T23:51:12.4824850Z includeif.gitdir:/home/runner/work/radio/radio/.git.path
+2026-10-09T23:51:12.4825888Z includeif.gitdir:/home/runner/work/radio/radio/.git/worktrees/*.path
+2026-10-09T23:51:12.4826866Z includeif.gitdir:/github/workspace/.git.path
+2026-10-09T23:51:12.4827729Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-09T23:51:12.4837515Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/radio/radio/.git.path
+2026-10-09T23:51:12.4866657Z /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.4879026Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/radio/radio/.git.path /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.4926421Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/radio/radio/.git/worktrees/*.path
+2026-10-09T23:51:12.4957761Z /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.4969274Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/radio/radio/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.5011466Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-09T23:51:12.5056529Z /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.5073748Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.5108576Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-09T23:51:12.5157121Z /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.5166396Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config
+2026-10-09T23:51:12.5211124Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-09T23:51:12.5484044Z Removing credentials config '/home/runner/work/_temp/git-credentials-678422be-b790-4217-8bfe-7365e7d0bc4d.config'
+2026-10-09T23:51:12.5634951Z Cleaning up orphan processes

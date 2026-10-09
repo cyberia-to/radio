@@ -1,0 +1,16 @@
+
+running 11 tests
+test api::blobs::export_pairs::geometry_pins ... ok
+test api::blobs::export_pairs::payload_progress_failure ... ok
+test api::blobs::export_pairs::encoded_error_propagates ... ok
+test api::blobs::export_pairs::partial_parent_failure ... ok
+test api::blobs::export_pairs::writer_failure_accounting ... ok
+test api::blobs::export_pairs::literal_parent_progress ... ok
+test api::blobs::export_pairs::literal_parent_write ... ok
+test api::blobs::export_pairs::literal_parent_byte_stream ... ok
+test api::blobs::export_pairs::readonly_store_missing ... ok
+test api::blobs::export_pairs::readonly_store_parent_free ... ok
+test api::blobs::export_pairs::readonly_store_right_block ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 99 filtered out; finished in 0.04s
+

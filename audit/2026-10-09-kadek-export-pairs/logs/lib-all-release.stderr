@@ -1,0 +1,9 @@
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+    Finished `release` profile [optimized + debuginfo] target(s) in 23.62s
+     Running unittests src/lib.rs (target/release/deps/iroh_blobs-2e8248c274e2fae6)
+error: test failed, to rerun pass `--lib`
+
+Caused by:
+  process didn't exit successfully: `/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/target/release/deps/iroh_blobs-2e8248c274e2fae6` (signal: 15, SIGTERM: termination signal)

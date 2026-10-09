@@ -32,6 +32,8 @@ use range_collections::{range_set::RangeSetRange, RangeSet2};
 use ref_cast::RefCast;
 use serde::{Deserialize, Serialize};
 use tracing::trace;
+#[cfg(test)]
+mod export_pairs;
 mod reader;
 pub use reader::BlobReader;
 
@@ -1008,6 +1010,14 @@ impl fmt::Debug for ExportBaoProgress {
     }
 }
 
+fn encode_parent_pair(pair: &(hemera::Hash, hemera::Hash)) -> [u8; 2 * hemera::OUTPUT_BYTES] {
+    let mut data = [0; 2 * hemera::OUTPUT_BYTES];
+    let (left, right) = data.split_at_mut(hemera::OUTPUT_BYTES);
+    left.copy_from_slice(pair.0.as_bytes());
+    right.copy_from_slice(pair.1.as_bytes());
+    data
+}
+
 impl ExportBaoProgress {
     fn new(
         fut: impl Future<Output = irpc::Result<mpsc::Receiver<EncodedItem>>> + Send + 'static,
@@ -1116,9 +1126,7 @@ impl ExportBaoProgress {
                     target.write(&size.to_le_bytes()).await?;
                 }
                 EncodedItem::Parent(parent) => {
-                    let mut data = vec![0u8; 128];
-                    data[..64].copy_from_slice(parent.pair.0.as_bytes());
-                    data[64..].copy_from_slice(parent.pair.1.as_bytes());
+                    let data = encode_parent_pair(&parent.pair);
                     target.write(&data).await?;
                 }
                 EncodedItem::Leaf(leaf) => {
@@ -1148,11 +1156,9 @@ impl ExportBaoProgress {
                     progress.log_other_write(8);
                 }
                 EncodedItem::Parent(parent) => {
-                    let mut data = [0u8; 128];
-                    data[..64].copy_from_slice(parent.pair.0.as_bytes());
-                    data[64..].copy_from_slice(parent.pair.1.as_bytes());
+                    let data = encode_parent_pair(&parent.pair);
                     writer.send(&data).await?;
-                    progress.log_other_write(128);
+                    progress.log_other_write(data.len());
                 }
                 EncodedItem::Leaf(leaf) => {
                     let len = leaf.data.len();
@@ -1175,10 +1181,8 @@ impl ExportBaoProgress {
                 Some(Ok(size))
             }
             EncodedItem::Parent(parent) => {
-                let mut data = vec![0u8; 128];
-                data[..64].copy_from_slice(parent.pair.0.as_bytes());
-                data[64..].copy_from_slice(parent.pair.1.as_bytes());
-                Some(Ok(data.into()))
+                let data = encode_parent_pair(&parent.pair);
+                Some(Ok(Bytes::copy_from_slice(&data)))
             }
             EncodedItem::Leaf(leaf) => Some(Ok(leaf.data)),
             EncodedItem::Done => None,
