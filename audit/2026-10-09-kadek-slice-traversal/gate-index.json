@@ -1,0 +1,421 @@
+{
+  "date": "2026-10-09",
+  "purpose": "narrow sync traversal source-fix receipt; no green upstream/release/row-4 verdict",
+  "source": {
+    "radio_base": "db1d62e2cd1e4b2f309fa19bcc158bd29b44753d",
+    "implementation": "590e69ea0eebcea4c21320a88eed214dc5459de1",
+    "source_patch_sha256": "5a66daaadff2c20afb9a902f15f9141c50b92552b3615403a6329cc9c01cff62",
+    "patch_command": "git diff db1d62e2cd1e4b2f309fa19bcc158bd29b44753d 590e69ea0eebcea4c21320a88eed214dc5459de1 -- cyber-bao",
+    "source_freeze_sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065",
+    "hemera_source": "23f3bbcff910ea6d504ceb505680a539260869da",
+    "hemera_registry": "=0.3.1",
+    "hemera_registry_checksum": "ebcf7ffcd69170adde7e792826d7cececda962ea220b9834c6535bbc71e5a6df",
+    "semver_baseline": "v0.1.0 = f2b1298daa9f635c821d53996c4d1dc4f1042b3d",
+    "identical_baseline_package_tree": "dce9cffd78068afd50daf408aa2f9be9b33f81e1",
+    "published_probe_source": "kadek 16b53f7b85640be5a68a07787815a44ec6559377:audit/2026-10-09-bao-source-repro",
+    "historical_original_rust_blob_matches": 15,
+    "scope_A_lock_sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8",
+    "scope_B_lock_sha256": "295b21c8804e3885a195511ffca6fcf368e7c762c5b411374aecf20ba4d14052"
+  },
+  "scopes": {
+    "A": "fresh cyber-bao archive, registry Hemera substitution only, receipt workspace lints/lock",
+    "B": "fresh complete radio + exact-source Hemera archives, committed lock, tracked nettools/target excluded",
+    "observed_before_commit": "All original gates used frozen patch bytes later committed unchanged as implementation.",
+    "original_dirty_worktrees_used": false,
+    "local_packages": [
+      {
+        "name": "cyber-bao",
+        "version": "0.1.0",
+        "manifest": "radio/cyber-bao/Cargo.toml"
+      },
+      {
+        "name": "cyber-hemera",
+        "version": "0.3.1",
+        "manifest": "hemera/rs/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio",
+        "version": "0.1.0",
+        "manifest": "radio/iroh/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-base",
+        "version": "0.1.1",
+        "manifest": "radio/iroh-base/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-netwatch",
+        "version": "0.1.0",
+        "manifest": "radio/nettools/netwatch/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-portmapper",
+        "version": "0.1.0",
+        "manifest": "radio/nettools/portmapper/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-quinn",
+        "version": "0.1.0",
+        "manifest": "radio/quinn/quinn/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-quinn-proto",
+        "version": "0.1.0",
+        "manifest": "radio/quinn/quinn-proto/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-quinn-udp",
+        "version": "0.1.0",
+        "manifest": "radio/quinn/quinn-udp/Cargo.toml"
+      },
+      {
+        "name": "cyber-radio-relay",
+        "version": "0.1.0",
+        "manifest": "radio/iroh-relay/Cargo.toml"
+      },
+      {
+        "name": "iroh-bench",
+        "version": "0.96.1",
+        "manifest": "radio/iroh/bench/Cargo.toml"
+      },
+      {
+        "name": "iroh-blobs",
+        "version": "0.98.0",
+        "manifest": "radio/iroh-blobs/Cargo.toml"
+      },
+      {
+        "name": "iroh-car",
+        "version": "0.5.0",
+        "manifest": "radio/iroh-car/Cargo.toml"
+      },
+      {
+        "name": "iroh-dns-server",
+        "version": "0.96.1",
+        "manifest": "radio/iroh-dns-server/Cargo.toml"
+      },
+      {
+        "name": "iroh-docs",
+        "version": "0.96.0",
+        "manifest": "radio/iroh-docs/Cargo.toml"
+      },
+      {
+        "name": "iroh-gossip",
+        "version": "0.96.0",
+        "manifest": "radio/iroh-gossip/Cargo.toml"
+      },
+      {
+        "name": "iroh-willow",
+        "version": "0.28.0",
+        "manifest": "radio/iroh-willow/Cargo.toml"
+      },
+      {
+        "name": "particle",
+        "version": "0.1.0",
+        "manifest": "radio/particle/Cargo.toml"
+      },
+      {
+        "name": "radio-cli",
+        "version": "0.1.0",
+        "manifest": "radio/radio-cli/Cargo.toml"
+      },
+      {
+        "name": "radio-integration-tests",
+        "version": "0.1.0",
+        "manifest": "radio/tests/integration/Cargo.toml"
+      }
+    ]
+  },
+  "toolchains": {
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14) (Homebrew)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.3\n",
+    "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21) (Homebrew)\nrelease: 1.95.0\ncommit-hash: f2d3ce0bd7f24a49f8f72d9000448f8838c4e850\ncommit-date: 2026-03-21\nhost: aarch64-apple-darwin\nlibgit2: 1.9.2 (sys:0.20.4 system)\nlibcurl: 8.7.1 (sys:0.4.83+curl-8.15.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nos: Mac OS 26.4.1 [64-bit]\n",
+    "nushell": "0.112.2",
+    "semver_checks": "0.51.0",
+    "msrv": "1.89.0",
+    "format": "nightly-2025-11-26"
+  },
+  "reviews": [
+    {
+      "stage": "plan",
+      "vendor": "Claude Opus",
+      "verdict": "APPROVE",
+      "mode": "source-only; no executed gate or soundness certification",
+      "sha256": "aff8970786abf5eec04202ed3225c35af299e7955981fde9bb51d0b07f66eb4c"
+    },
+    {
+      "stage": "code",
+      "vendor": "Claude Opus",
+      "verdict": "APPROVE",
+      "mode": "source-only; no executed gate or soundness certification",
+      "sha256": "1a4671d339e5644a69d5b9ae5a23769d70061b2531d6187bd2de31e0735bdf18"
+    }
+  ],
+  "outcomes": [
+    {
+      "name": "historical-probe",
+      "scope": "A-base",
+      "command": "cargo run --offline --locked --bin kadek-bao-source-repro",
+      "exit": 0,
+      "result": "stdout matches published receipt; all three fixture SHA256 checks pass; reproduces defects, not a product gate"
+    },
+    {
+      "name": "red-debug",
+      "scope": "A-base-plus-new-test",
+      "command": "cargo test -p cyber-bao --test slice_traversal literal_right_subtree_is_authenticated --offline --locked",
+      "exit": 101,
+      "result": "valid-proof assertion fails with Truncated"
+    },
+    {
+      "name": "red-release",
+      "scope": "A-base-plus-new-test",
+      "command": "cargo test -p cyber-bao --test slice_traversal literal_right_subtree_is_authenticated --release --offline --locked",
+      "exit": 101,
+      "result": "same valid-proof assertion fails with Truncated"
+    },
+    {
+      "name": "focused-debug",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --test slice_traversal --offline --locked",
+      "exit": 0,
+      "result": "9 integration pass"
+    },
+    {
+      "name": "focused-release",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --test slice_traversal --release --offline --locked",
+      "exit": 0,
+      "result": "9 integration pass"
+    },
+    {
+      "name": "test-default",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --offline --locked",
+      "exit": 0,
+      "result": "67 library + 9 integration pass; 0 doctests"
+    },
+    {
+      "name": "test-all-v2",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --all-features --offline --locked",
+      "exit": 0,
+      "result": "69 library + 9 integration pass; 0 doctests"
+    },
+    {
+      "name": "test-all-release-v2",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --all-features --release --offline --locked",
+      "exit": 0,
+      "result": "69 library + 9 integration pass; 0 doctests"
+    },
+    {
+      "name": "exact-source-test-all",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --all-features --offline --locked",
+      "exit": 0,
+      "result": "69 library + 9 integration pass; exact committed Hemera"
+    },
+    {
+      "name": "check-no-default",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo check -p cyber-bao --all-targets --no-default-features --offline --locked",
+      "exit": 0,
+      "result": "pass"
+    },
+    {
+      "name": "check-lib-all",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo check -p cyber-bao --lib --all-features --offline --locked",
+      "exit": 0,
+      "result": "pass"
+    },
+    {
+      "name": "doc-all",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo doc -p cyber-bao --all-features --no-deps --offline --locked",
+      "exit": 0,
+      "result": "strict docs pass"
+    },
+    {
+      "name": "msrv-scoped",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings rustup run 1.89.0 cargo check -p cyber-bao --all-features --all-targets --offline --locked",
+      "exit": 0,
+      "result": "scoped Rust 1.89 pass"
+    },
+    {
+      "name": "semver",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings cargo semver-checks check-release -p cyber-bao --baseline-root ../baseline",
+      "exit": 0,
+      "result": "202 checks pass, 58 skip; no update required"
+    },
+    {
+      "name": "clippy-default",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-targets --offline --locked -- -D warnings",
+      "exit": 101,
+      "result": "baseline clone_on_copy at io/mixed.rs:115 first"
+    },
+    {
+      "name": "clippy-no-default",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-targets --no-default-features --offline --locked -- -D warnings",
+      "exit": 101,
+      "result": "baseline clone_on_copy at io/mixed.rs:115 first"
+    },
+    {
+      "name": "clippy-all-v2",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-features --all-targets --offline --locked -- -D warnings",
+      "exit": 101,
+      "result": "16 unique remaining baseline diagnostic sites"
+    },
+    {
+      "name": "clippy-pristine-baseline",
+      "scope": "A",
+      "command": "RUSTFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-features --all-targets --offline --locked -- -D warnings",
+      "exit": 101,
+      "result": "20 unique sites: same 16 plus three unused PAIR_SIZE constants and unused encoded"
+    },
+    {
+      "name": "full-check-v2",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo check --workspace --all-features --all-targets --offline --locked",
+      "exit": 101,
+      "result": "bench unresolved radio imports (5 diagnostics), gossip test Result.add (1)"
+    },
+    {
+      "name": "full-test-default",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test --workspace --lib --bins --tests --offline --locked",
+      "exit": 101,
+      "result": "bench unresolved radio imports (5), docs Endpoint/PublicKey identity mismatch (9)"
+    },
+    {
+      "name": "full-format-expanded",
+      "scope": "B",
+      "command": "rustup run nightly-2025-11-26 cargo fmt --all --check -- --config unstable_features=true --config imports_granularity=Crate,group_imports=StdExternalCrate,reorder_imports=true,format_code_in_doc_comments=true",
+      "exit": 1,
+      "result": "existing drift; first iroh-blobs/examples/get-blob.rs:1"
+    },
+    {
+      "name": "full-format-make",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo make format-check",
+      "exit": 101,
+      "result": "cargo-make unavailable"
+    },
+    {
+      "name": "full-nextest",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo nextest run --workspace --lib --bins --tests --offline --locked",
+      "exit": 101,
+      "result": "cargo-nextest unavailable"
+    },
+    {
+      "name": "full-deny",
+      "scope": "B",
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo deny -D warnings check",
+      "exit": 101,
+      "result": "cargo-deny unavailable"
+    }
+  ],
+  "diagnostic_logs": [
+    {
+      "path": "diagnostics/clippy-pristine-baseline.stderr",
+      "sha256": "d987a817b961264448ea814e30e7700ad1d8d622d381cbb54e99e06f2580d466"
+    },
+    {
+      "path": "diagnostics/clippy-all-v2.stderr",
+      "sha256": "95d8747ab6b8c1dd38767b32a6fc92ae94dca29e29728911d994093cdf464b95"
+    },
+    {
+      "path": "diagnostics/full-check-v2.stderr",
+      "sha256": "a292ffc6f45018ee3055495ec0a9353c8dca807e7d3d72e7e3637c586f2fddf6"
+    }
+  ],
+  "baseline_classification": {
+    "clippy": "Executed pristine baseline confirms all remaining 16 sites. Four additional compiler-warning sites were fixed in implementation.",
+    "workspace": "Pristine full build was not rerun. Observed error sources and manifests match base blobs: bench dependency alias, gossip Result API, docs local/registry type split.",
+    "unexecuted": "Full-workspace no-default/all tests, full MSRV, CI-pinned strict nightly docs, cross/Android/wasm/netsim, remote workflows.",
+    "archive_warnings": "vergen cannot find Git worktree metadata; warnings preserved without fake metadata"
+  },
+  "recipe_validation": {
+    "command": "nu reproduce.nu --implementation-revision 590e69ea0eebcea4c21320a88eed214dc5459de1 --radio-repo /Users/master/cyber/radio-kadek-slice-traversal --hemera-repo /Users/master/cyber/hemera",
+    "exit": 1,
+    "result": "Scoped replay completed; expected baseline/red-first failures and candidate Clippy failures recorded. Product failures remain nonzero.",
+    "script_sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50",
+    "optional_full_recipe_reexecuted": false,
+    "outcomes": [
+      {
+        "name": "candidate-2",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --all-features --release --offline --locked",
+        "exit": 0
+      },
+      {
+        "name": "msrv",
+        "command": "RUSTFLAGS=-Dwarnings rustup run 1.89.0 cargo check -p cyber-bao --all-features --all-targets --offline --locked",
+        "exit": 0
+      },
+      {
+        "name": "candidate-3",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo check -p cyber-bao --all-targets --no-default-features --offline --locked",
+        "exit": 0
+      },
+      {
+        "name": "candidate-8",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo semver-checks check-release -p cyber-bao --baseline-root ../baseline",
+        "exit": 0
+      },
+      {
+        "name": "pristine-clippy",
+        "command": "RUSTFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-features --all-targets --offline --locked -- -D warnings",
+        "exit": 101
+      },
+      {
+        "name": "candidate-4",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-targets --offline --locked -- -D warnings",
+        "exit": 101
+      },
+      {
+        "name": "candidate-5",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-targets --no-default-features --offline --locked -- -D warnings",
+        "exit": 101
+      },
+      {
+        "name": "red-debug",
+        "command": "cargo test -p cyber-bao --test slice_traversal literal_right_subtree_is_authenticated  --offline --locked",
+        "exit": 101
+      },
+      {
+        "name": "candidate-6",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo clippy -p cyber-bao --all-targets --all-features --offline --locked -- -D warnings",
+        "exit": 101
+      },
+      {
+        "name": "candidate-7",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo doc -p cyber-bao --all-features --no-deps --offline --locked",
+        "exit": 0
+      },
+      {
+        "name": "historical-probe",
+        "command": "cargo run --offline --locked --bin kadek-bao-source-repro",
+        "exit": 0
+      },
+      {
+        "name": "candidate-0",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --offline --locked",
+        "exit": 0
+      },
+      {
+        "name": "red-release",
+        "command": "cargo test -p cyber-bao --test slice_traversal literal_right_subtree_is_authenticated --release --offline --locked",
+        "exit": 101
+      },
+      {
+        "name": "candidate-1",
+        "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo test -p cyber-bao --all-features --offline --locked",
+        "exit": 0
+      }
+    ]
+  }
+}

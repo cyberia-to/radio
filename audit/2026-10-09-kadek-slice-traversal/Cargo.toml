@@ -1,0 +1,20 @@
+[package]
+name = "kadek-bao-source-repro"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+members = ["cyber-bao"]
+resolver = "2"
+
+[workspace.lints.rust]
+missing_debug_implementations = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(iroh_docsrs)", "cfg(iroh_loom)"] }
+
+[workspace.lints.clippy]
+unused-async = "warn"
+
+[dependencies]
+cyber-bao = { path = "cyber-bao" }
+hemera = { package = "cyber-hemera", version = "=0.3.1" }
