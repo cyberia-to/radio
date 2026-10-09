@@ -1,0 +1,61 @@
+## Verdict: **APPROVE**
+
+Fresh different-vendor code review of the frozen candidate (`/tmp/radio-export-pairs.FbuGlp/SOURCE-FREEZE.json`: `blobs.rs` → `7cd0b1bc`, `export_pairs.rs` → `7c0193ee`, `support.rs` → `ef368971`). The patch's index lines (`49e44cda..7cd0b1bc`, `00000000..7c0193ee`, `00000000..ef368971`) and added-line counts (+344 / +184) agree with the freeze record and with the pasted file bodies, so the reviewed bytes are the frozen bytes. No blocking defect found.
+
+---
+
+## Production correctness
+
+**`encode_parent_pair` (`iroh-blobs/src/api/blobs.rs`, module-level private fn above `impl ExportBaoProgress`)**
+
+```rust
+let mut data = [0; 2 * hemera::OUTPUT_BYTES];
+let (left, right) = data.split_at_mut(hemera::OUTPUT_BYTES);
+left.copy_from_slice(pair.0.as_bytes());
+right.copy_from_slice(pair.1.as_bytes());
+```
+
+Correct and width-derived, not width-hardcoded. The array type is fixed by the return annotation; both halves are exactly `OUTPUT_BYTES`, so each `copy_from_slice` is length-matched by construction — the exact failure mode the baseline exhibited. Order is `left || right`, matching the consumer: `cyber-bao/src/io/slice.rs::decode_slice` reads `left_bytes = &slice[cursor..cursor+hash_size]`, `right_bytes = &slice[cursor+hash_size..cursor+pair_size]` with `pair_size = backend.hash_size()*2`, and `cyber-bao/src/tree.rs` sizes the outboard with `PAIR_SIZE = OUTPUT_BYTES*2`. The exporter is now consistent with the decoder rather than with a 128-byte phantom layout.
+
+**Three integrations.** All three parent arms are reduced to one call, and nothing else in the arms changed:
+
+- `write`: `target.write(&data)` — `&[u8; 64]` coerces to `&[u8]`; byte count on the wire is 64.
+- `write_with_progress`: `writer.send(&data).await?;` **then** `progress.log_other_write(data.len())`. Credit is 64, is derived from the buffer rather than a literal, and is reached only after a successful send — so a failed or partially-accepted parent write credits nothing. This is the precise 128→64 accounting defect, fixed in the right order.
+- `into_byte_stream`: `Bytes::copy_from_slice(&data)` yields a 64-byte chunk; the previous `vec![0u8;128].into()` padding is gone.
+
+`EncodedItem::Size` still emits `size.to_le_bytes()` (LE64) and credits 8; leaf arms, `Done`/`Error` arms, and the `?`-based error mapping (`io::Error` → `ExportBaoError::ExportBaoIo`, `EncodeError` → `ExportBaoInner`, `ProgressError` → `ClientError`, per `api.rs`) are untouched. `data_to_bytes`/`data_to_vec` still ignore parents. Scope is exactly: one private fn, three call sites, one `#[cfg(test)] mod export_pairs;` declaration. No public API, hash domain, root, storage, manifest or lock change — consistent with the semver run reporting 202 pass / 58 skip, "no semver update required".
+
+**Regression risk from the change itself is structurally bounded**: the baseline arms panicked *unconditionally* on any `Parent` (confirmed by `logs/red-debug.stdout` at `blobs.rs:1122`, `:1154`, `:1181`), so no previously-green test could have depended on the 128-byte width. This fix can only unbreak parent-bearing paths — which materially reduces the exposure created by the unfinished broad unit suites.
+
+## Independent oracle: geometry and root
+
+`support.rs::geometry()` pins `CHUNK_SIZE == 4096` and `IROH_BLOCK_SIZE.bytes() == 65536` with distinct messages, then derives `C = 16`. Checked against source: `tree.rs` gives `CHUNK_SIZE: usize = 4096`, `from_chunk_log(log) -> Self(log)`, `bytes() -> CHUNK_SIZE << self.0`, and `store/mod.rs` selects `from_chunk_log(4)` ⇒ 65536. So body `2*B = 131072` = 32 chunks = 2 blocks, query `ChunkNum(16)..ChunkNum(32)` = exactly the right block ⇒ one `Parent` plus the right `Leaf`, and `8 + 2*32 + 65536 = 65608` with overhead `8 + 64 = 72`. Every number in the tests follows from the pinned constants.
+
+`right_fixture()` is genuinely independent of radio's traversal: 32 `chunk_cv(bytes, i, false)` with absolute counters, each 16-leaf half reduced by four explicit `parent_cv(..., false)` levels in `half_root`, then `root = parent_cv(left, right, true)`, and the wire assembled by hand as `LE64 || left || right || data[B..]`. Two independent facts are then checked at once: (a) the store accepts that root at all — it must match `CompleteStorage::create`'s `PreOrderMemOutboard` root or `export_bao` would take the `None` arm in `readonly_mem.rs` and fail with `UnexpectedEof`; (b) all three exporter methods reproduce the hand-assembled bytes. The `decode_slice` cross-check is sound for this shape: `pre_order_chunks_filtered` emits `Parent { is_root: true, left: false, right: true }` for the root, pushes only `right_hash`, and `hash_block_for_verify` reduces 16 chunk CVs (counters 16..32, `is_single_chunk == false`) through the same 16→8→4→2→1 `parent_hash(..., false)` ladder as `half_root` — so the expected `[(65536, data[65536..])]` is right, not an accidental agreement.
+
+The parent-free control is also correct: 4096 bytes ⇒ `blocks() == 1`, `outboard_size() == 0`, single root leaf, `chunk_cv(data, 0, true)` as root, wire `LE64(4096) || data`, overhead 8, no `Parent`. Together with `readonly_store_missing` and `geometry_pins` these are the three baseline passes (`3 passed; 8 failed`), which is exactly the control/trigger split a red-first unit should show.
+
+## Error and progress assertions
+
+Each assertion traces to actual source:
+
+- **`writer_failure_accounting`** — `send_transfer_started` is awaited *before* `writer.send` in the Size arm, so asserting a non-empty `starts` with `overhead == 0` for the header-failure case is correct, not a laxity. Overheads 0 / 8 / 72 for header / parent / leaf failure match credit placement precisely, and `payloads.is_empty()` holds because `notify_payload_write` follows `send_bytes`.
+- **`partial_parent_failure`** — `8 + 17 = 25` bytes retained, `calls == 2`, completed-write credit stays 8, no rollback claimed. Matches the trait contracts (partial writes permitted, no rollback promised).
+- **`encoded_error_propagates`** — 72 bytes written then `ExportBaoInner { source: EncodeError::Io }`; byte stream yields the 8- and 64-byte prefixes, then `api::Error::Io` preserving `InvalidData` / `"encoded sentinel"` via `impl From<EncodeError> for Error`'s `EncodeError::Io(cause) => Self::Io(cause)` arm, then terminates. Exactly the documented mapping.
+- **`readonly_store_missing`** — the store's `None` arm sends the `Error` item *before* `Size`, so `starts.is_empty()`, `overhead == 0`, `bytes.is_empty()` and `UnexpectedEof` / `"export task ended unexpectedly"` across all three methods is the correct expectation, and the byte-stream variant correctly retains kind *and* detail.
+- **`payload_progress_failure`** — `ProgressError::Permission {}` and `From<AbortReason>` are as supplied in `provider/events.rs`; `ClientResult = Result<(), ProgressError>` converts through `ExportBaoError::ClientError`. Leaf on the wire, `calls == 3`, overhead 72, one callback attempt, second scripted leaf unreached — all match the `?` return point.
+
+Harness hygiene checks out: `Sink` implements both `AsyncStreamWriter` and `util::SendStream`, unused methods `panic!` loudly rather than silently succeeding; `scripted()` uses capacity ≥ 3 and closes the sender; stores are retained and `shutdown().await` is honored; no network fixture; `clippy::unused_async` cannot fire because every await-free `async fn` is a trait-impl item (the lint skips trait impls), consistent with the `-Dwarnings` runs passing.
+
+---
+
+## Optional nits — do **not** expand scope
+
+1. **Receipt labeling of the API smoke run.** `logs/api-smoke.json` ran `--baseline-root /tmp/.../parent/radio/iroh-blobs`, i.e. the **base commit** tree, not the plan's `<tag>/radio/iroh-blobs`; and its stderr shows `Updating crates.io index` / `Locking 451 packages`, i.e. a tool-generated scratch resolution, while `logs/tag-metadata` legitimately refused (`cannot update the lock file ... because --locked was passed`). Your summary already disclaims this; make sure the audit prose says *base-vs-candidate, unlocked scratch resolution* and never "tag conformance".
+2. **Evidence gaps in this bundle.** No `cargo clippy --all-targets` or `rustup run 1.89.0 cargo check` log was supplied here. Include them in `audit/` or mark them unexecuted/baseline-red explicitly; do not imply a green owning-gate set.
+3. **Symmetry.** `progress.log_other_write(8)` in the Size arm could read `size.to_le_bytes().len()` to match the new `data.len()` style. Cosmetic only.
+4. **Stale neighbors to keep named as open, not fixed here.** `store/mod.rs`'s `/// Block size used by iroh, 2^4*1024 = 16KiB` is off by 4× (actual 65536); `api.rs`'s `ExportBaoError::MpscRecv` carries a garbled `#[error("mpsc recv e api.acp.pro-channelsrror")]` string; and per research the mutable-import pair stride (`store/mem.rs`), partial-storage checksum widths and `print_outboard` retain 64-byte-era assumptions. This patch makes the **exporter** wire correct; it does not make the crate width-correct, and the receipt should say so.
+5. **Fixture side effect.** `readonly_store_right_block`'s `RADIO_EXPORT_PAIRS_FIXTURE_DIR` branch writes files with `unwrap()`. Inert by default and useful for the audit artifact; acceptable as written.
+6. `half_root` hardcodes `assert_eq!(leaves.len(), 16)` while `geometry()` derives C. Guarded by `geometry_pins` firing first with a named message, as planned.
+
+Root owns the commit, PR, merge and ring/rung adjudication. No network-integration, rung, or complete-conformance claim is implied by this approval.

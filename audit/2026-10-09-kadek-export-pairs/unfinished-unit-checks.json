@@ -1,0 +1,25 @@
+{
+  "reason": "Stopped broad unit suites after matching unchanged fs import test remained pending; not product passes",
+  "baseline": {
+    "pid": 45353,
+    "observed_elapsed": "10:13",
+    "test": "store::fs::tests::test_import_bao_ranges",
+    "tests": [
+      "store::fs::tests::test_import_bao_ranges",
+      "tests::two_nodes_push_blobs_fs",
+      "tests::two_nodes_push_blobs_mem"
+    ]
+  },
+  "candidate": {
+    "pid": 70994,
+    "observed_elapsed": "03:53",
+    "test": "store::fs::tests::test_import_bao_ranges",
+    "tests": [
+      "store::fs::tests::test_import_bao_ranges",
+      "tests::two_nodes_push_blobs_fs",
+      "tests::two_nodes_push_blobs_mem"
+    ]
+  },
+  "signal": "SIGTERM",
+  "timestamp": "2026-10-09T23:31:51.191120+00:00"
+}

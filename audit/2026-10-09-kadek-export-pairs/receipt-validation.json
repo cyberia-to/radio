@@ -1,0 +1,58 @@
+{
+  "command": "nu audit/2026-10-09-kadek-export-pairs/reproduce.nu --radio-repo /Users/master/cyber/radio-kadek-export-pairs --hemera-repo /Users/master/cyber/hemera --prepare-only",
+  "cwd": "/Users/master/cyber/radio-kadek-export-pairs",
+  "exit": 0,
+  "meaning": "Receipt preparation succeeded; tag metadata still red, not a product-gate pass",
+  "run": "/tmp/radio-export-pairs-replay.iKDOHU",
+  "script_sha256": "bc78dac1c46e337452e84694c3b01a09a2f559bcd0281d33035daaf9eee706c1",
+  "outcomes": [
+    {
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo metadata --format-version 1 --all-features --offline --locked",
+      "cwd": "/tmp/radio-export-pairs-replay.iKDOHU/baseline/radio",
+      "started": "2026-10-09T23:46:26.903849+00:00",
+      "ended": "2026-10-09T23:46:27.788231+00:00",
+      "exit": 0,
+      "name": "baseline-metadata"
+    },
+    {
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo metadata --format-version 1 --all-features --offline --locked",
+      "cwd": "/tmp/radio-export-pairs-replay.iKDOHU/candidate/radio",
+      "started": "2026-10-09T23:46:27.853453+00:00",
+      "ended": "2026-10-09T23:46:28.131086+00:00",
+      "exit": 0,
+      "name": "candidate-metadata"
+    },
+    {
+      "command": "RUSTFLAGS=-Dwarnings RUSTDOCFLAGS=-Dwarnings cargo metadata --format-version 1 --all-features --offline --locked",
+      "cwd": "/tmp/radio-export-pairs-replay.iKDOHU/tag/radio",
+      "started": "2026-10-09T23:46:28.190101+00:00",
+      "ended": "2026-10-09T23:46:28.319463+00:00",
+      "exit": 101,
+      "name": "tag-metadata"
+    }
+  ],
+  "candidate_packages": 20,
+  "baseline_packages": 20,
+  "syntax": {
+    "command": "nu -c 'nu-check reproduce.nu'",
+    "exit": 0,
+    "stdout": "true"
+  },
+  "source_changed": false,
+  "builds": "none; parent independently verifies default replay",
+  "implementation": "62e7f53f237ceaf0f5037a396e79ff70f2c735cd",
+  "source_inputs": {
+    "radio_base": "764d732ac38fb9116c4cf525a6d1bb463d409a06",
+    "candidate_archive": "62e7f53f237ceaf0f5037a396e79ff70f2c735cd",
+    "candidate_overlay": null,
+    "hemera": "23f3bbcff910ea6d504ceb505680a539260869da",
+    "tag": "f2b1298daa9f635c821d53996c4d1dc4f1042b3d"
+  },
+  "archives": [
+    "605f5a45da4e85773579b36008d6a9d56b8437aedce69a016e02ecc69deec2d6  /tmp/radio-export-pairs-replay.iKDOHU/candidate-radio.tar",
+    "b6c347f8a93904ed10de20a9d1ce17fd092038b14d4fdec8ba5a6218788ad833  /tmp/radio-export-pairs-replay.iKDOHU/hemera.tar",
+    "338aac39177cbcda50451383dcceb54fd46b03a0ca80dcb45f5df3a821211ef5  /tmp/radio-export-pairs-replay.iKDOHU/tag-radio.tar",
+    "fb02b8c2160162ff2e3a94b82ffffffd8712d093e21936f4223ddea385c1320a  /tmp/radio-export-pairs-replay.iKDOHU/baseline-radio.tar"
+  ],
+  "tag_stderr": "error: cannot update the lock file /private/tmp/radio-export-pairs-replay.iKDOHU/tag/radio/Cargo.lock because --locked was passed to prevent this\nhelp: to generate the lock file without accessing the network, remove the --locked flag and use --offline instead.\n"
+}

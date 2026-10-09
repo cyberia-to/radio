@@ -1,0 +1,16 @@
+[package]
+name = "placeholder"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+members = []
+
+[dependencies.iroh-blobs]
+path = "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-blobs"
+features = ["default", "fs-store", "hide-proto-docs", "metrics", "rpc"]
+
+[lib]
+path = "lib.rs"
+required-features = []

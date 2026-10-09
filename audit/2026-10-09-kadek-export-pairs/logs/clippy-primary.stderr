@@ -1,0 +1,245 @@
+    Checking hyper v1.8.1
+    Checking hickory-proto v0.25.2
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-relay)
+    Checking cyber-radio-quinn v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn)
+    Checking cyber-radio-base v0.1.1 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-base)
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh)
+    Checking iroh-quinn v0.16.1
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+    Checking cyber-bao v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/cyber-bao)
+    Checking irpc v0.12.0
+    Checking hyper-util v0.1.20
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+    Checking hyper-rustls v0.27.7
+    Checking igd-next v0.16.2
+    Checking reqwest v0.12.28
+    Checking hickory-resolver v0.25.2
+    Checking swarm-discovery v0.5.0
+    Checking cyber-radio-portmapper v0.1.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/nettools/portmapper)
+    Checking pkarr v5.0.2
+error: this loop could be written as a `while let` loop
+   --> iroh-blobs/src/api/remote.rs:327:13
+    |
+327 | /             loop {
+328 | |                 let Some((offset, range)) = iter.next() else {
+329 | |                     break;
+330 | |                 };
+...   |
+351 | |             }
+    | |_____________^ help: try: `while let Some((offset, range)) = iter.next() { .. }`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#while_let_loop
+    = note: `-D clippy::while-let-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::while_let_loop)]`
+
+error: this loop could be written as a `while let` loop
+   --> iroh-blobs/src/api/remote.rs:375:9
+    |
+375 | /         loop {
+376 | |             let Some((offset, requested)) = iter.next() else {
+377 | |                 break;
+378 | |             };
+...   |
+393 | |         }
+    | |_________^ help: try: `while let Some((offset, requested)) = iter.next() { .. }`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#while_let_loop
+
+error: large size difference between variants
+   --> iroh-blobs/src/get.rs:727:5
+    |
+727 | /      pub enum BlobContentNext<R: RecvStream> {
+728 | |          /// We expect more content
+729 | |/         More(
+730 | ||             (
+731 | ||                 AtBlobContent<R>,
+732 | ||                 result::Result<BaoContentItem, DecodeError>,
+733 | ||             ),
+734 | ||         ),
+    | ||_________- the largest variant contains at least 512 bytes
+735 | |          /// We are done with this blob
+736 | |          Done(AtEndBlob<R>),
+    | |          ------------------ the second-largest variant contains at least 8 bytes
+737 | |      }
+    | |______^ the entire enum is at least 512 bytes
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#large_enum_variant
+    = note: `-D clippy::large-enum-variant` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::large_enum_variant)]`
+help: consider boxing the large fields or introducing indirection in some other way to reduce the total size of the enum
+    |
+730 ~             Box<(
+731 +                 AtBlobContent<R>,
+732 +                 result::Result<BaoContentItem, DecodeError>,
+733 ~             )>,
+    |
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> iroh-blobs/src/util.rs:288:43
+    |
+288 |                     outboard.save(node, &(left_hash.clone(), right_hash.clone()))?;
+    |                                           ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `left_hash`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+    = note: `-D clippy::clone-on-copy` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::clone_on_copy)]`
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> iroh-blobs/src/util.rs:288:62
+    |
+288 |                     outboard.save(node, &(left_hash.clone(), right_hash.clone()))?;
+    |                                                              ^^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `right_hash`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/store/fs.rs:633:5
+    |
+633 | /     async fn new(
+634 | |         db_path: PathBuf,
+635 | |         rt: RtWrapper,
+636 | |         cmd_rx: tokio::sync::mpsc::Receiver<Command>,
+...   |
+675 | |         })
+676 | |     }
+    | |_____^
+    |
+    = help: consider removing the `async` from this function
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+    = note: `-D clippy::unused-async` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unused_async)]`
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/api/blobs.rs:263:5
+    |
+263 | /     pub async fn add_stream(
+264 | |         &self,
+265 | |         data: impl Stream<Item = io::Result<Bytes>> + Send + Sync + 'static,
+266 | |     ) -> AddProgress<'_> {
+...   |
+302 | |         AddProgress::new(self, stream)
+303 | |     }
+    | |_____^
+    |
+    = help: consider removing the `async` from this function
+note: `await` used in an async block, which does not require the enclosing function to be `async`
+   --> iroh-blobs/src/api/blobs.rs:273:85
+    |
+273 |             let (sender, mut receiver) = match client.bidi_streaming(inner, 32, 32).await {
+    |                                                                                     ^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/api/blobs.rs:696:5
+    |
+696 | /     pub async fn stream(self) -> impl Stream<Item = AddProgressItem> {
+697 | |         self.inner
+698 | |     }
+    | |_____^
+    |
+    = help: consider removing the `async` from this function
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/api/blobs.rs:809:5
+    |
+809 | /     pub async fn stream(self) -> impl Stream<Item = ExportProgressItem> {
+810 | |         Gen::new(|co| async move {
+811 | |             let mut rx = match self.inner.await {
+812 | |                 Ok(rx) => rx,
+...   |
+821 | |         })
+822 | |     }
+    | |_____^
+    |
+    = help: consider removing the `async` from this function
+note: `await` used in an async block, which does not require the enclosing function to be `async`
+   --> iroh-blobs/src/api/blobs.rs:811:43
+    |
+811 |             let mut rx = match self.inner.await {
+    |                                           ^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/provider.rs:327:1
+    |
+327 | / async fn handle_read_request_result<R: RecvStream, W: SendStream, T, E: HasErrorCode>(
+328 | |     pair: &mut StreamPair<R, W>,
+329 | |     r: Result<T, E>,
+330 | | ) -> Result<T, E> {
+...   |
+338 | | }
+    | |_^
+    |
+    = help: consider removing the `async` from this function
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: could not compile `iroh-blobs` (lib) due to 10 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: the borrowed expression implements the required traits
+   --> iroh-blobs/src/hash.rs:464:34
+    |
+464 |             let hash = Hash::new(&[i]);
+    |                                  ^^^^ help: change this to: `[i]`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#needless_borrows_for_generic_args
+    = note: `-D clippy::needless-borrows-for-generic-args` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_borrows_for_generic_args)]`
+
+error: the borrowed expression implements the required traits
+   --> iroh-blobs/src/format/collection.rs:330:38
+    |
+330 |                     crate::Hash::new(&[i as u8]),
+    |                                      ^^^^^^^^^^ help: change this to: `[i as u8]`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#needless_borrows_for_generic_args
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/store/fs/util/entity_manager.rs:880:13
+    |
+880 | /             async fn with_value(&self, f: impl FnOnce(&mut u128)) -> Result<(), &'static str> {
+881 | |                 let mut state = self.state.0.borrow_mut();
+882 | |                 // lazily load the data from the database
+883 | |                 if state.value.is_none() {
+...   |
+899 | |                 Ok(())
+900 | |             }
+    | |_____________^
+    |
+    = help: consider removing the `async` from this function
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+    = note: `-D clippy::unused-async` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unused_async)]`
+
+error: unused `async` for function with no await statements
+    --> iroh-blobs/src/store/fs/util/entity_manager.rs:1106:13
+     |
+1106 | /             async fn with_value(&self, f: impl FnOnce(&mut u128)) -> Result<(), &'static str> {
+1107 | |                 let Ok(mut r) = self.state.0.try_borrow_mut() else {
+1108 | |                     panic!("failed to borrow state mutably");
+1109 | |                 };
+...    |
+1139 | |                 Ok(())
+1140 | |             }
+     | |_____________^
+     |
+     = help: consider removing the `async` from this function
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: unused `async` for function with no await statements
+   --> iroh-blobs/src/store/fs.rs:633:5
+    |
+633 | /     async fn new(
+634 | |         db_path: PathBuf,
+635 | |         rt: RtWrapper,
+636 | |         cmd_rx: tokio::sync::mpsc::Receiver<Command>,
+...   |
+675 | |         })
+676 | |     }
+    | |_____^
+    |
+    = help: consider removing the `async` from this function
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unused_async
+
+error: could not compile `iroh-blobs` (lib test) due to 14 previous errors

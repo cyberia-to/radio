@@ -1,0 +1,13 @@
+diff --git a/iroh-blobs/src/api/blobs.rs b/iroh-blobs/src/api/blobs.rs
+index 49e44cda..6e5ce237 100644
+--- a/iroh-blobs/src/api/blobs.rs
++++ b/iroh-blobs/src/api/blobs.rs
+@@ -33,6 +33,8 @@ use ref_cast::RefCast;
+ use serde::{Deserialize, Serialize};
+ use tracing::trace;
+ mod reader;
++#[cfg(test)]
++mod export_pairs;
+ pub use reader::BlobReader;
+ 
+ // Public reexports from the proto module.
