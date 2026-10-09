@@ -96,7 +96,13 @@ Archive-related vergen build-script warnings remain visible and unsuppressed.
 The baseline-vs-candidate Clippy and default-package failures were reproduced.
 Broader workspace classifications refer to diagnostics in unchanged source;
 they are not a claim that an entire pristine workspace run completed.
-Cross/Android/wasm/netsim and remote CI were not run for this task.
+Cross/Android/wasm/netsim were not run locally. A later [remote snapshot](remote-ci/README.md)
+at receipt head `3c291e511cb1c5457a5bd1945c45681f263bd064`, observed
+`2026-10-09T23:52:59Z`, records 8 failed CI jobs and 17 queued self-hosted jobs;
+CI remains incomplete. Docs Preview completed with failure. Cargo-based jobs
+could not load the absent sibling Hemera manifest; codespell's 68 findings are
+in 16 byte-unchanged paths, none touched by this change. These remote failures
+remain red; later-head reruns cannot replace this exact-head snapshot.
 
 Two broad library runs were manually terminated with SIGTERM, exit101/signal15:
 `baseline-lib` (default/debug, observed at10:13) and `lib-all-release` (candidate
