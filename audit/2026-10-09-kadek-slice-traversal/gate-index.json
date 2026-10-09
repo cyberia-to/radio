@@ -417,5 +417,26 @@
         "exit": 0
       }
     ]
+  },
+  "remote_ci": {
+    "head": "9cd70949984088557f66aa63d6db787d17959367",
+    "run": 38000324106,
+    "jobs": {
+      "clippy": 114056565126,
+      "fmt": 114056564719,
+      "semver": 114056564917,
+      "docs": 114056565181,
+      "msrv": 114056565186,
+      "deny": 114056565111,
+      "wasm": 114056565023,
+      "preview": 114056555390,
+      "codespell": 114056565017
+    },
+    "commands": [
+      "gh api repos/cyberia-to/radio/actions/runs/38000324106/jobs --paginate",
+      "gh api repos/cyberia-to/radio/actions/jobs/<id>/logs"
+    ],
+    "result": "metadata fails before compilation: missing sibling hemera/rs/Cargo.toml; codespell 34 findings in 15 unchanged paths; native/cross/netsim jobs queued at snapshot",
+    "diagnostics_sha256": "aa6fe44ec9fe164798f954acfcc0483200d242256c0bacd680b158a10ba26acd"
   }
 }

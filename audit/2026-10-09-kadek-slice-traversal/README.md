@@ -102,8 +102,27 @@ Tag v0.1.0 is f2b1298daa9f635c821d53996c4d1dc4f1042b3d; its cyber-bao tree and t
 base's are identical: `dce9cffd78068afd50daf408aa2f9be9b33f81e1`.
 
 Unexecuted: full-workspace no-default/all test variants, full-workspace MSRV and
-strict docs on CI's pinned nightly, cross/Android/wasm/netsim and remote CI.
+strict docs on CI's pinned nightly and cross/Android/netsim execution.
 Scoped success does not substitute for these upstream gates.
+
+## Remote CI snapshot
+
+PR #31 head `9cd70949984088557f66aa63d6db787d17959367`,
+[CI run 38000324106](https://github.com/cyberia-to/radio/actions/runs/38000324106):
+`gh api repos/cyberia-to/radio/actions/runs/38000324106/jobs --paginate` and
+`gh api repos/cyberia-to/radio/actions/jobs/<id>/logs` were read on 2026-10-09.
+Clippy, format, semver, docs, MSRV, deny and wasm jobs fail while loading Cargo
+metadata: the workflow has no sibling Hemera checkout (`../hemera/rs/Cargo.toml`).
+The separate Docs Preview run fails at the same step. None establishes a compiler,
+format, semver, policy or wasm-test result for this source revision. Job IDs and
+excerpts are retained in the gate index and [remote diagnostics](diagnostics/remote-ci.txt).
+
+Codespell exits 65 with 34 findings across 15 unchanged paths; `git diff --exit-code
+<base> <head> -- <reported paths> .github/workflows` is empty. These are separate
+from the local baseline Clippy/source failures. Native test, cross and netsim jobs
+were still queued when observed; a superseded push run was cancelled. Queued and
+cancelled jobs are not executed gates. This snapshot preserves remote reds without
+substituting scoped local success for the upstream workspace gates.
 
 ## Replay
 
