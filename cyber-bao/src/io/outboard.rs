@@ -6,13 +6,8 @@
 
 use std::collections::HashMap;
 
-use hemera::OUTPUT_BYTES;
-
 use crate::hash::HashBackend;
 use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
-
-/// Size of a hash pair (two hashes concatenated).
-const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Result of computing the outboard for a blob.
 #[derive(Debug, Clone)]
@@ -161,8 +156,12 @@ fn hash_block<B: HashBackend>(
 
 #[cfg(test)]
 mod tests {
+    use hemera::OUTPUT_BYTES;
+
     use super::*;
     use crate::hash::Poseidon2Backend;
+
+    const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
     #[test]
     fn outboard_single_block() {

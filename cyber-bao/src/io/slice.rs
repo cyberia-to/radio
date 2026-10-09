@@ -7,15 +7,10 @@
 
 use std::ops::Range;
 
-use hemera::OUTPUT_BYTES;
-
 use crate::hash::HashBackend;
 use crate::io::outboard;
 use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, CHUNK_SIZE};
 use crate::{ChunkRanges, ChunkRangesRef};
-
-/// Size of a hash pair (two hashes concatenated).
-const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Extract a slice (proof + data) for the given byte range.
 ///
@@ -127,37 +122,39 @@ pub fn decode_slice<B: HashBackend>(
         return Ok(results);
     }
 
-    let pre_order = tree.pre_order_chunks();
+    let pre_order = tree.pre_order_chunks_filtered(ranges);
+    // For in-file requests, only pending visited nodes have expected hashes.
     let mut expected_stack: Vec<B::Hash> = vec![root_hash.clone()];
 
     for chunk in &pre_order {
         match chunk {
-            BaoChunk::Parent { node, is_root, .. } => {
-                let actual_range = tree.node_actual_chunk_range(*node);
-                let node_chunks = ChunkRanges::from(actual_range.start..actual_range.end);
-                let included = !node_chunks.is_disjoint(ranges);
+            BaoChunk::Parent {
+                node,
+                is_root,
+                left,
+                right,
+            } => {
+                if cursor + pair_size > slice.len() {
+                    return Err(SliceDecodeError::Truncated);
+                }
+                let left_bytes = &slice[cursor..cursor + hash_size];
+                let right_bytes = &slice[cursor + hash_size..cursor + pair_size];
+                cursor += pair_size;
 
-                if included {
-                    if cursor + pair_size > slice.len() {
-                        return Err(SliceDecodeError::Truncated);
-                    }
-                    let left_bytes = &slice[cursor..cursor + hash_size];
-                    let right_bytes = &slice[cursor + hash_size..cursor + pair_size];
-                    cursor += pair_size;
+                let left_hash = backend.hash_from_bytes(left_bytes);
+                let right_hash = backend.hash_from_bytes(right_bytes);
 
-                    let left_hash = backend.hash_from_bytes(left_bytes);
-                    let right_hash = backend.hash_from_bytes(right_bytes);
+                let computed = backend.parent_hash(&left_hash, &right_hash, *is_root);
+                let expected = expected_stack.pop().ok_or(SliceDecodeError::Truncated)?;
+                if computed != expected {
+                    return Err(SliceDecodeError::ParentMismatch { node: node.0 });
+                }
 
-                    let computed = backend.parent_hash(&left_hash, &right_hash, *is_root);
-                    let expected = expected_stack.pop().ok_or(SliceDecodeError::Truncated)?;
-                    if computed != expected {
-                        return Err(SliceDecodeError::ParentMismatch { node: node.0 });
-                    }
-
+                if *right {
                     expected_stack.push(right_hash);
+                }
+                if *left {
                     expected_stack.push(left_hash);
-                } else {
-                    let _ = expected_stack.pop();
                 }
             }
             BaoChunk::Leaf {
@@ -165,35 +162,23 @@ pub fn decode_slice<B: HashBackend>(
                 size,
                 is_root,
             } => {
-                let chunks_per_block = 1u64 << block_size.chunk_log();
-                let block_idx = *start_chunk / chunks_per_block;
-                let leaf_start = block_idx * chunks_per_block;
-                let leaf_end = leaf_start + chunks_per_block;
-                let leaf_range =
-                    ChunkRanges::from(ChunkNum(leaf_start)..ChunkNum(leaf_end));
-                let included = !leaf_range.is_disjoint(ranges);
-
-                if included {
-                    if cursor + *size > slice.len() {
-                        return Err(SliceDecodeError::Truncated);
-                    }
-                    let leaf_data = &slice[cursor..cursor + *size];
-                    cursor += *size;
-
-                    let computed =
-                        hash_block_for_verify(backend, leaf_data, *start_chunk, *is_root, bs);
-                    let expected = expected_stack.pop().ok_or(SliceDecodeError::Truncated)?;
-                    if computed != expected {
-                        return Err(SliceDecodeError::LeafMismatch {
-                            start_chunk: *start_chunk,
-                        });
-                    }
-
-                    let byte_offset = *start_chunk * CHUNK_SIZE as u64;
-                    results.push((byte_offset, leaf_data.to_vec()));
-                } else {
-                    let _ = expected_stack.pop();
+                if cursor + *size > slice.len() {
+                    return Err(SliceDecodeError::Truncated);
                 }
+                let leaf_data = &slice[cursor..cursor + *size];
+                cursor += *size;
+
+                let computed =
+                    hash_block_for_verify(backend, leaf_data, *start_chunk, *is_root, bs);
+                let expected = expected_stack.pop().ok_or(SliceDecodeError::Truncated)?;
+                if computed != expected {
+                    return Err(SliceDecodeError::LeafMismatch {
+                        start_chunk: *start_chunk,
+                    });
+                }
+
+                let byte_offset = *start_chunk * CHUNK_SIZE as u64;
+                results.push((byte_offset, leaf_data.to_vec()));
             }
         }
     }
@@ -273,8 +258,12 @@ fn hash_block_for_verify<B: HashBackend>(
 
 #[cfg(test)]
 mod tests {
+    use hemera::OUTPUT_BYTES;
+
     use super::*;
     use crate::hash::Poseidon2Backend;
+
+    const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
     #[test]
     fn slice_full_range_matches_encode() {
