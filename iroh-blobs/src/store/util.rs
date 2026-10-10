@@ -17,6 +17,16 @@ pub use size_info::SizeInfo;
 mod partial_mem_storage;
 pub use partial_mem_storage::PartialMemStorage;
 
+pub(super) const HASH_PAIR_BYTES: usize = 2 * hemera::OUTPUT_BYTES;
+
+pub(super) fn encode_parent_pair(pair: &(hemera::Hash, hemera::Hash)) -> [u8; HASH_PAIR_BYTES] {
+    let mut bytes = [0; HASH_PAIR_BYTES];
+    let (left, right) = bytes.split_at_mut(hemera::OUTPUT_BYTES);
+    left.copy_from_slice(pair.0.as_bytes());
+    right.copy_from_slice(pair.1.as_bytes());
+    bytes
+}
+
 #[cfg(feature = "fs-store")]
 mod mem_or_file;
 #[cfg(feature = "fs-store")]

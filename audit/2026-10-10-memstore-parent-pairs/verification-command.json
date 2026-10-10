@@ -1,0 +1,33 @@
+{
+  "command": [
+    "nu",
+    "audit/2026-10-10-memstore-parent-pairs/verify.nu",
+    "--source-root",
+    "/Users/master/cyber/radio-kadek-memstore-pairs"
+  ],
+  "cwd": "/Users/master/cyber/radio-kadek-memstore-pairs",
+  "exit": 0,
+  "observed_stdout": {
+    "capsule_sha256": "2dc88c1d8cab82eb0848371b71853bcc55d6eae818fb668debbf18b7cbfeb412",
+    "payload_files": 769,
+    "command_receipts": 202,
+    "raw_streams": 404,
+    "checked_source_files": 6,
+    "extraction": "/tmp/radio-pairs-audit-check.WvZKYe"
+  },
+  "source_freeze_sha256": "d7c6cc1560eeeadc1b0c880cca79a3e2b09a2379489bac37706b0603db7069ca",
+  "unchanged_code_execution_sha256": "41a89e11ecf7f050d58f5c04d91f29f961dd21d5d85bebdcf1f095708c150cac",
+  "checksum_list_matches_inventory": true,
+  "capsule_bytes": 1788880,
+  "note": "The command exited 0; the retained extraction was fresh. No recorded test or review command was executed by the verifier.",
+  "capsule_delta": {
+    "unchanged_members": 768,
+    "added": [
+      {
+        "path": "reviews/plan-v1.txt",
+        "bytes": 14399,
+        "sha256": "1a4ecf9dbb76b2a4f100a96bc4a6ca9cffafd8cdf240f8b15635c4381d09a1f2"
+      }
+    ]
+  }
+}

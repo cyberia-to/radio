@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-10-10T05:46:17Z",
+  "committed_export_paths": {
+    "radio": 1023,
+    "hemera": 88
+  },
+  "explicit_export_filters": [
+    {
+      "repository": "radio",
+      "path": "iroh-ffi/kotlin/gradlew.bat",
+      "source_attribute": "iroh-ffi/kotlin/gradlew.bat: text: set\niroh-ffi/kotlin/gradlew.bat: eol: crlf\n",
+      "operation": "LF to CRLF"
+    }
+  ],
+  "overlay_paths": 6,
+  "gate_records": 202,
+  "raw_streams": 404,
+  "exit_distribution": {
+    "0": 158,
+    "101": 28,
+    "100": 4,
+    "1": 7,
+    "13": 2,
+    "105": 3
+  },
+  "source_freeze_sha256": "d7c6cc1560eeeadc1b0c880cca79a3e2b09a2379489bac37706b0603db7069ca",
+  "byte_exact": true
+}

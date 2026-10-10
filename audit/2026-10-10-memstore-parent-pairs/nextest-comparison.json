@@ -1,0 +1,622 @@
+[
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::encoded_error_propagates",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::geometry_pins",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::literal_parent_byte_stream",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::literal_parent_progress",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::literal_parent_write",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::partial_parent_failure",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::payload_progress_failure",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::readonly_store_missing",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::readonly_store_parent_free",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::readonly_store_right_block",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::root_policy_mutable_memory_key_and_wire",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::root_policy_readonly_memory_key_and_wire",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::root_policy_tiny_and_streamed_fs_import_agree",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::export_pairs::writer_failure_accounting",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::reader::tests::reader_partial_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::blobs::reader::tests::reader_partial_memory",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::blobs::reader::tests::reader_smoke_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::blobs::reader::tests::reader_smoke_memory",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::downloader::tests::downloader_get_all",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs api::downloader::tests::downloader_get_smoke",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs api::proto::bitfield::tests::test_combine_empty",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::proto::bitfield::tests::test_combine_order",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::proto::bitfield::tests::test_complete_normalized",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_local_info_complex_request",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_local_info_hash_seq",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_local_info_hash_seq_large",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_local_info_raw",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_observe_partial_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs api::remote::tests::test_observe_partial_mem",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs format::collection::tests::collection_store_load",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs format::collection::tests::roundtrip_blob",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs format::collection::tests::roundtrip_collection_meta",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::root_policy::canonical_key_and_legacy_ticket_bytes",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::root_policy::published_tree_anchors",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::hash_and_format_redb",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::hash_redb",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::hash_wire_format",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_display_parse_roundtrip",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_empty_hash",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_and_format_json",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_and_format_parse",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_and_format_postcard",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_json",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_postcard",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs hash::tests::test_hash_serde",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::builder::tests::chunk_ranges_ext",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs protocol::builder::tests::get_many_request_builder",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::builder::tests::get_request_builder",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_roundtrip",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_seq_bytes_roundtrip",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_seq_canonical",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_seq_roundtrip",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_seq_roundtrip_cases",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_seq_wire_format",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::range_spec::tests::range_spec_wire_format",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::tests::request_type_size",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs protocol::tests::request_wire_format",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::import::tests::smoke",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::smoke",
+    "parent": "FAIL",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_batch_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_export_path",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_minimal",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_persistence_full",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_persistence_just_size",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_persistence_observe",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_persistence_recover",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_persistence_two_stages",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_ranges",
+    "parent": "TIMEOUT",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bao_simple",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_byte_stream",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bytes_persistence_full",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_bytes_simple",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_import_path",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs store::fs::tests::test_observe",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::fs::util::entity_manager::tests::mem::test_busy",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::util::entity_manager::tests::mem::test_dead",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::util::entity_manager::tests::test_counters_manager_proptest_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::fs::util::entity_manager::tests::test_counters_manager_proptest_mem",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::gc::tests::gc_check_deletion_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::gc::tests::gc_check_deletion_mem",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::gc::tests::gc_smoke_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs store::gc::tests::gc_smoke_mem",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::corrupted_leaf_rejected_then_valid_retry",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::corrupted_parent_rejected_then_valid_retry",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::diagnostic_one_pair",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::diagnostic_rejects_partial_pair",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::diagnostic_two_pairs",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::fs_complete_memory_batch_and_reopen",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::literal_pair_storage",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::parent_free_control",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::right_partial_then_complete_and_repeat",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::short_pair_reader_error",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::parent_pairs::three_group_nonzero_parent_ordinal",
+    "parent": null,
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs store::mem::tests::smoke",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::export_ranges_smoke_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::export_ranges_smoke_mem",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::node_serve_blobs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::node_serve_hash_seq",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::node_smoke_fs",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::node_smoke_mem",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::test_export_chunk",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_get_blobs_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_get_blobs_mem",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_get_many_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_get_many_mem",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_hash_seq_fs",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_hash_seq_mem",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_hash_seq_progress",
+    "parent": "FAIL",
+    "candidate": "FAIL"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_observe_fs",
+    "parent": "TIMEOUT",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_observe_mem",
+    "parent": "FAIL",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_push_blobs_fs",
+    "parent": "TIMEOUT",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs tests::two_nodes_push_blobs_mem",
+    "parent": "TIMEOUT",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs ticket::tests::test_ticket_base32",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs ticket::tests::test_ticket_json",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs ticket::tests::test_ticket_postcard",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::connection_pool_errors",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::connection_pool_idle",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::connection_pool_smoke",
+    "parent": "PASS",
+    "candidate": "TIMEOUT"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::on_connected_direct",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::on_connected_error",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::connection_pool::tests::watch_close",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::outboard_with_progress::tests::init_outboard_with_progress",
+    "parent": "PASS",
+    "candidate": "PASS"
+  },
+  {
+    "name": "iroh-blobs util::serde::tests::test_roundtrip_error_kinds",
+    "parent": "PASS",
+    "candidate": "PASS"
+  }
+]
