@@ -36,7 +36,7 @@ use range_collections::range_set::RangeSetRange;
 use tokio::sync::watch;
 use tracing::{error, info, instrument, trace, Instrument};
 
-use super::util::{BaoTreeSender, PartialMemStorage};
+use super::util::{encode_parent_pair, BaoTreeSender, PartialMemStorage, HASH_PAIR_BYTES};
 use crate::{
     api::{
         self,
@@ -645,12 +645,10 @@ async fn import_bao(
             match item {
                 BaoContentItem::Parent(parent) => {
                     if let Some(offset) = tree.pre_order_offset(parent.node) {
-                        let mut pair = [0u8; 128];
-                        pair[..64].copy_from_slice(parent.pair.0.as_bytes());
-                        pair[64..].copy_from_slice(parent.pair.1.as_bytes());
+                        let pair = encode_parent_pair(&parent.pair);
                         partial
                             .outboard
-                            .write_at(offset * 128, &pair)
+                            .write_at(offset * HASH_PAIR_BYTES as u64, &pair)
                             .expect("writing to mem can never fail");
                     }
                     false
@@ -881,19 +879,19 @@ impl Outboard for OutboardReader {
         let Some(offset) = self.tree.pre_order_offset(node) else {
             return Ok(None);
         };
-        let mut buf = [0u8; 64];
+        let mut buf = [0u8; HASH_PAIR_BYTES];
         let size = self
             .data
             .0
             .state
             .borrow()
             .outboard()
-            .read_at(offset * 64, &mut buf)?;
-        if size != 64 {
+            .read_at(offset * HASH_PAIR_BYTES as u64, &mut buf)?;
+        if size != HASH_PAIR_BYTES {
             return Err(io::Error::new(io::ErrorKind::UnexpectedEof, "short read"));
         }
-        let left: [u8; 32] = buf[..32].try_into().unwrap();
-        let right: [u8; 32] = buf[32..].try_into().unwrap();
+        let left: [u8; hemera::OUTPUT_BYTES] = buf[..hemera::OUTPUT_BYTES].try_into().unwrap();
+        let right: [u8; hemera::OUTPUT_BYTES] = buf[hemera::OUTPUT_BYTES..].try_into().unwrap();
         Ok(Some((left.into(), right.into())))
     }
 }
@@ -1024,10 +1022,10 @@ impl CompleteStorage {
 
 #[allow(dead_code)]
 fn print_outboard(hashes: &[u8]) {
-    assert!(hashes.len().is_multiple_of(128));
-    for chunk in hashes.chunks(128) {
-        let left = Hash::from_bytes(chunk[..64].try_into().unwrap());
-        let right = Hash::from_bytes(chunk[64..].try_into().unwrap());
+    assert!(hashes.len().is_multiple_of(HASH_PAIR_BYTES));
+    for chunk in hashes.chunks(HASH_PAIR_BYTES) {
+        let left = Hash::from_bytes(chunk[..hemera::OUTPUT_BYTES].try_into().unwrap());
+        let right = Hash::from_bytes(chunk[hemera::OUTPUT_BYTES..].try_into().unwrap());
         println!("l: {left:?}, r: {right:?}");
     }
 }
@@ -1085,6 +1083,9 @@ impl BaoFileStorageSubscriber {
         }
     }
 }
+
+#[cfg(test)]
+mod parent_pairs;
 
 #[cfg(test)]
 mod tests {

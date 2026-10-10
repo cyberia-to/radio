@@ -1,0 +1,22 @@
+{
+  "base_revision": "0d11468503c052aa5dcefb0dabc4602bd8efdc60",
+  "test_files": [
+    {
+      "path": "iroh-blobs/src/store/mem/parent_pairs.rs",
+      "sha256": "bace8a587b9b5ba105e1e73faf9470f9b1b87078b3a31335898ee9df49753309"
+    },
+    {
+      "path": "iroh-blobs/src/store/mem/parent_pairs/fixtures.rs",
+      "sha256": "e893d13817a05a8cf8c5fd95c43634c32bae7fb74d9893e813be7583fc2e24d8"
+    },
+    {
+      "path": "iroh-blobs/src/store/mem/parent_pairs/right-proof.bin",
+      "sha256": "108022aa95ee61a1058d6d4bb53979a95bc46de114b036fcc6620fbd65648a51"
+    }
+  ],
+  "parent_mem_sha256": "bf077532ec029b106af8ae6bab480e2f74f9df4622e261e9c2f37e3512a5e7a8",
+  "witness_mem_sha256": "8c46478013f899741c99054cdb62e247ad5b0772a4c6327e0b800c54a3bc4ecf",
+  "mem_change": "Exactly one cfg(test) module declaration; all other bytes equal exact parent.",
+  "production_check": "util.rs, partial_mem_storage.rs and lock exactly match parent; no repaired serializer in witness.",
+  "final_candidate_manifest_sha256": "d7c6cc1560eeeadc1b0c880cca79a3e2b09a2379489bac37706b0603db7069ca"
+}

@@ -1,0 +1,15 @@
+{
+  "old_manifest_sha256": "1649829898538dffa626d81dc83be4fcc7deddb137a188f64dd277a3b0b414dd",
+  "new_manifest_sha256": "d7c6cc1560eeeadc1b0c880cca79a3e2b09a2379489bac37706b0603db7069ca",
+  "changed_path": "iroh-blobs/src/store/mem/parent_pairs.rs",
+  "change": "Only move fixtures import into the named formatter group; production and fixture bytes unchanged.",
+  "exact_unchanged_paths": [
+    "iroh-blobs/src/store/mem.rs",
+    "iroh-blobs/src/store/util.rs",
+    "iroh-blobs/src/store/util/partial_mem_storage.rs",
+    "iroh-blobs/src/store/mem/parent_pairs/fixtures.rs",
+    "iroh-blobs/src/store/mem/parent_pairs/right-proof.bin"
+  ],
+  "old_test_sha256": "e46d76f33518bc55855aa7cf63d8db76e6961f58e906b6cfc13c74fe96ac6a28",
+  "new_test_sha256": "bace8a587b9b5ba105e1e73faf9470f9b1b87078b3a31335898ee9df49753309"
+}

@@ -1,0 +1,15 @@
+{
+  "code_bundle": {
+    "bytes": 920750,
+    "sha256": "13d04d07b1147592b4b2ee56d2a4d42d3dcc0dd2a55ce3fc7dd44d3856043b95",
+    "index_sha256": "8652310e3532683bcf687d16ce8f1967c2bb47a0ae5cfcfb2386e9c4faa8e1b6",
+    "full_text_sections": 81,
+    "committed_git_bodies": 59
+  },
+  "plan_v2_review_sha256": "c5e312bff11c0b82b40a39732773dd82c9c714df28fe6ba0e0c0fd14e81e3edb",
+  "code_review_sha256": "febd681521c3edf05186e5342a043b659023690ac93a568b12983f3a63f36f4d",
+  "plan_verdict": "APPROVE",
+  "code_verdict": "APPROVE",
+  "reviewer": "Claude Opus, fresh CLI invocation, no tools",
+  "root_correction": "See root-review.md: only the ten selected timeout cases passed serially on both revisions; FS smoke and observation have separate outcomes."
+}

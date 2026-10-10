@@ -1,0 +1,23 @@
+{
+  "root": "d0b89aa52d29c4c2c4146ce679dc1db8d6f4aa89fd851046f349f9584987fddf",
+  "files": [
+    {
+      "path": "/tmp/radio-memstore-pairs.pJDTXk/fixtures/three-full.bin",
+      "bytes": 196744,
+      "sha256": "de6311917383059becab3b826f82c56346c06d5a8308234b30e700b154f9b59c"
+    },
+    {
+      "path": "/tmp/radio-memstore-pairs.pJDTXk/fixtures/three-middle.bin",
+      "bytes": 65672,
+      "sha256": "a853f8d753bdb40c7d7e3c5c72a51e1ea470d221da13dfbcecd26d124d4b13c5"
+    },
+    {
+      "path": "/tmp/radio-memstore-pairs.pJDTXk/fixtures/three-root.txt",
+      "bytes": 64,
+      "sha256": "c39929ee0a8b646d2224e9b0abdf286e9f1f5eddd21e25c78f661d01d3a35aa3"
+    }
+  ],
+  "generator_sha256": "e893d13817a05a8cf8c5fd95c43634c32bae7fb74d9893e813be7583fc2e24d8",
+  "golden_sha256": "108022aa95ee61a1058d6d4bb53979a95bc46de114b036fcc6620fbd65648a51",
+  "source_freeze_sha256": "1649829898538dffa626d81dc83be4fcc7deddb137a188f64dd277a3b0b414dd"
+}
