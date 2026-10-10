@@ -32,6 +32,79 @@ fn geometry_pins() {
 }
 
 #[tokio::test]
+async fn root_policy_readonly_memory_key_and_wire() {
+    let (data, root, wire) = root_policy_fixture();
+    let store = ReadonlyMemStore::new([&data]);
+    let keys = store.list().hashes().await.unwrap();
+    assert_eq!(keys, [root]);
+    assert_eq!(root, crate::Hash::new(&data));
+    assert_eq!(
+        store
+            .export_bao(keys[0], ranges(0, 2))
+            .bao_to_vec()
+            .await
+            .unwrap(),
+        wire
+    );
+    assert_eq!(store.get_bytes(keys[0]).await.unwrap().as_ref(), data);
+    store.shutdown().await.unwrap();
+}
+
+#[tokio::test]
+async fn root_policy_mutable_memory_key_and_wire() {
+    let (data, root, wire) = root_policy_fixture();
+    let store = crate::store::mem::MemStore::new();
+    let added = store.add_bytes(data.clone()).await.unwrap();
+    assert_eq!(added.hash, root);
+    assert_eq!(store.list().hashes().await.unwrap(), [root]);
+    assert_eq!(root, crate::Hash::new(&data));
+    assert_eq!(
+        store
+            .export_bao(added.hash, ranges(0, 2))
+            .bao_to_vec()
+            .await
+            .unwrap(),
+        wire
+    );
+    assert_eq!(store.get_bytes(added.hash).await.unwrap().as_ref(), data);
+    store.shutdown().await.unwrap();
+}
+
+#[cfg(feature = "fs-store")]
+#[tokio::test]
+async fn root_policy_tiny_and_streamed_fs_import_agree() {
+    use crate::store::fs::{options::Options, FsStore};
+
+    let (data, root, wire) = root_policy_fixture();
+    let mut keys = Vec::new();
+    for (max_data_inlined, inlined) in [(32768, true), (4096, false)] {
+        let dir = tempfile::tempdir().unwrap();
+        let mut options = Options::new(dir.path());
+        options.inline.max_data_inlined = max_data_inlined;
+        options.inline.max_outboard_inlined = 16384;
+        assert_eq!(options.is_inlined_all(8192), inlined);
+        let store = FsStore::load_with_opts(dir.path().join("blobs.db"), options)
+            .await
+            .unwrap();
+        let added = store.add_bytes(data.clone()).await.unwrap();
+        keys.push(added.hash);
+        assert_eq!(added.hash, root);
+        assert_eq!(store.get_bytes(added.hash).await.unwrap().as_ref(), data);
+        assert_eq!(
+            store
+                .export_bao(added.hash, ranges(0, 2))
+                .bao_to_vec()
+                .await
+                .unwrap(),
+            wire
+        );
+        store.shutdown().await.unwrap();
+    }
+    assert_eq!(keys, [root, root]);
+    assert_eq!(root, crate::Hash::new(&data));
+}
+
+#[tokio::test]
 async fn literal_parent_write() {
     let mut bytes = Vec::new();
     scripted(literal_items())

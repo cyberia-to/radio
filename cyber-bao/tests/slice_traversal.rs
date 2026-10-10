@@ -284,16 +284,14 @@ fn multiblock_empty_and_outside_queries_preserve_existing_behavior() {
 }
 
 #[test]
-fn grouped_single_block_root_nonconformance_is_unchanged() {
-    // Observed non-conformance, not a root/profile acceptance requirement.
-    // This traversal fix must not silently change existing root identities.
+fn grouped_single_block_has_canonical_root_finalization() {
     let data = body(2 * CHUNK_SIZE);
     let h: [Hash; 2] = leaves(&data);
     let internal = parent_cv(&h[0], &h[1], false);
     let canonical = parent_cv(&h[0], &h[1], true);
     let grouped = PreOrderMemOutboard::create(&data, BlockSize::from_chunk_log(4));
     let ungrouped = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
-    assert_eq!(grouped.root, internal);
+    assert_eq!(grouped.root, canonical);
     assert_eq!(ungrouped.root, canonical);
     assert_eq!(fixed_chunk_root(&data), canonical);
     assert_ne!(internal, canonical);

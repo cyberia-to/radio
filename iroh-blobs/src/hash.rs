@@ -10,7 +10,7 @@ use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::store::{util::DD, IROH_BLOCK_SIZE};
 
-/// Compute the BAO tree hash of data using Poseidon2.
+/// Compute the canonical fixed-chunk BAO tree root using Poseidon2.
 ///
 /// This delegates to the outboard builder to ensure Hash::new(data) equals
 /// the root hash from PreOrderMemOutboard::create for the same data.
@@ -37,11 +37,12 @@ impl Hash {
     /// It is set to a placeholder; the test_empty_hash test will verify correctness.
     pub const EMPTY: Hash = Hash::from_bytes([0u8; OUTPUT_BYTES]);
 
-    /// Calculate the hash of the provided bytes using the BAO tree hash.
+    /// Calculate the canonical fixed-chunk BAO tree root of the provided bytes.
     ///
     /// This computes the hash using the same tree structure as the BAO
-    /// outboard, ensuring that `Hash::new(data)` equals the root hash
-    /// produced by the outboard builder for the same data.
+    /// outboard, with 4096-byte leaves and ROOT finalization on the final node.
+    /// Grouping leaves for transport preserves this root. This is the tree-hash
+    /// domain; a plain Hemera particle is computed in its own domain.
     pub fn new(buf: impl AsRef<[u8]>) -> Self {
         let data = buf.as_ref();
         let val = tree_hash(data);
@@ -73,6 +74,9 @@ impl Hash {
         res
     }
 }
+
+#[cfg(test)]
+mod root_policy;
 
 impl AsRef<[u8]> for Hash {
     fn as_ref(&self) -> &[u8] {
