@@ -149,46 +149,6 @@ fn combine_hash_pair(l: &hemera::Hash, r: &hemera::Hash) -> [u8; PAIR_SIZE] {
     res
 }
 
-/// Hash a subtree (one or more chunks) using Poseidon2.
-fn hash_subtree(
-    backend: &Poseidon2Backend,
-    start_chunk: u64,
-    data: &[u8],
-    is_root: bool,
-) -> hemera::Hash {
-    const CHUNK_LEN: usize = CHUNK_SIZE;
-    if data.len() <= CHUNK_LEN {
-        return backend.chunk_hash(data, start_chunk, is_root);
-    }
-    // Multiple chunks: build a binary tree of hashes
-    let mut chunk_hashes: Vec<hemera::Hash> = Vec::new();
-    let mut offset = 0usize;
-    let mut counter = start_chunk;
-    while offset < data.len() {
-        let end = (offset + CHUNK_LEN).min(data.len());
-        let chunk_data = &data[offset..end];
-        chunk_hashes.push(backend.chunk_hash(chunk_data, counter, false));
-        offset += CHUNK_LEN;
-        counter += 1;
-    }
-    // Build the tree bottom-up
-    let mut level = chunk_hashes;
-    while level.len() > 1 {
-        let mut next = Vec::with_capacity(level.len().div_ceil(2));
-        let mut i = 0;
-        while i < level.len() {
-            if i + 1 < level.len() {
-                next.push(backend.parent_hash(&level[i], &level[i + 1], false));
-            } else {
-                next.push(level[i].clone());
-            }
-            i += 2;
-        }
-        level = next;
-    }
-    level.into_iter().next().unwrap()
-}
-
 // ---- valid_ranges implementation ----
 
 /// Validate ranges by recursively walking the tree.
@@ -219,7 +179,7 @@ where
         if data.read_exact_at(0, &mut tmp).is_err() {
             return Ok(());
         }
-        let actual = hash_subtree(&backend, 0, &tmp, true);
+        let actual = super::hash_group(&backend, &tmp, 0, true);
         if actual == outboard.root() {
             co.yield_(Ok(ChunkNum(0)..tree.chunks())).await;
         }
@@ -277,7 +237,7 @@ where
         if data.read_exact_at(start_byte, &mut buf).is_err() {
             return; // Can't read data — skip this leaf
         }
-        let actual = hash_subtree(backend, start_chunk, &buf, is_root);
+        let actual = super::hash_group(backend, &buf, start_chunk, is_root);
         if actual == expected_hash {
             let chunks_per_block = 1u64 << tree.block_size().chunk_log();
             let leaf_end_chunk = start_chunk + chunks_per_block;

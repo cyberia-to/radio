@@ -1,0 +1,47 @@
+{
+  "radio_base": "258724bd8ab797ad8d2ef43c6a4a2e07f1fc9e24",
+  "hemera": "23f3bbcff910ea6d504ceb505680a539260869da",
+  "freeze": "/tmp/kadek-bao-root-policy-source-v4.json",
+  "freeze_sha256": "9ce51f8d84e5f6e9f601f5979cb36d99b65af5966300ec646c952fdbf3d0b886",
+  "radio_parent_files": 989,
+  "radio_candidate_files": 991,
+  "changed": [
+    "cyber-bao/src/io/decode.rs",
+    "cyber-bao/src/io/mod.rs",
+    "cyber-bao/src/io/outboard.rs",
+    "cyber-bao/src/io/slice.rs",
+    "cyber-bao/src/io/sync.rs",
+    "cyber-bao/tests/root_policy.rs",
+    "cyber-bao/tests/slice_traversal.rs",
+    "iroh-blobs/src/api/blobs/export_pairs.rs",
+    "iroh-blobs/src/api/blobs/export_pairs/support.rs",
+    "iroh-blobs/src/hash.rs",
+    "iroh-blobs/src/hash/root_policy.rs"
+  ],
+  "hemera_files_unchanged": true,
+  "lock_sha256": "295b21c8804e3885a195511ffca6fcf368e7c762c5b411374aecf20ba4d14052",
+  "diff_check": {
+    "argv": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio-kadek-root-policy",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "new_files": [
+    {
+      "path": "cyber-bao/tests/root_policy.rs",
+      "lines": 268,
+      "sha256": "779a5b92d158c5b370d0c01e1692cf3585e0c39f31fc730794f77f115d9a84f3"
+    },
+    {
+      "path": "iroh-blobs/src/hash/root_policy.rs",
+      "lines": 46,
+      "sha256": "8f92e68f3b3440ebec2d9ce8fcfbcf884f2e4717915430b09674b74d53509af4"
+    }
+  ]
+}

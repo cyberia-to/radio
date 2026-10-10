@@ -107,14 +107,13 @@ pub fn decode_slice<B: HashBackend>(
     let tree = BaoTree::new(declared_size, block_size);
     let hash_size = backend.hash_size();
     let pair_size = hash_size * 2;
-    let bs = block_size.bytes();
 
     let mut cursor = 8usize;
     let mut results = Vec::new();
 
     if tree.blocks() <= 1 {
         let leaf_data = &slice[cursor..];
-        let computed = hash_block_for_verify(backend, leaf_data, 0, true, bs);
+        let computed = super::hash_group(backend, leaf_data, 0, true);
         if computed != *root_hash {
             return Err(SliceDecodeError::LeafMismatch { start_chunk: 0 });
         }
@@ -168,8 +167,7 @@ pub fn decode_slice<B: HashBackend>(
                 let leaf_data = &slice[cursor..cursor + *size];
                 cursor += *size;
 
-                let computed =
-                    hash_block_for_verify(backend, leaf_data, *start_chunk, *is_root, bs);
+                let computed = super::hash_group(backend, leaf_data, *start_chunk, *is_root);
                 let expected = expected_stack.pop().ok_or(SliceDecodeError::Truncated)?;
                 if computed != expected {
                     return Err(SliceDecodeError::LeafMismatch {
@@ -209,52 +207,6 @@ impl std::fmt::Display for SliceDecodeError {
 }
 
 impl std::error::Error for SliceDecodeError {}
-
-fn hash_block_for_verify<B: HashBackend>(
-    backend: &B,
-    data: &[u8],
-    start_chunk: u64,
-    is_root: bool,
-    _block_bytes: usize,
-) -> B::Hash {
-    if data.is_empty() {
-        return backend.chunk_hash(&[], start_chunk, is_root);
-    }
-
-    let mut chunk_hashes: Vec<B::Hash> = Vec::new();
-    let mut offset = 0usize;
-    let mut counter = start_chunk;
-    while offset < data.len() {
-        let end = (offset + CHUNK_SIZE).min(data.len());
-        let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
-        chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += CHUNK_SIZE;
-        counter += 1;
-    }
-
-    if chunk_hashes.len() == 1 {
-        return chunk_hashes.into_iter().next().unwrap();
-    }
-
-    let mut level = chunk_hashes;
-    while level.len() > 1 {
-        let mut next = Vec::with_capacity(level.len().div_ceil(2));
-        let mut i = 0;
-        while i < level.len() {
-            if i + 1 < level.len() {
-                let parent = backend.parent_hash(&level[i], &level[i + 1], false);
-                next.push(parent);
-            } else {
-                next.push(level[i].clone());
-            }
-            i += 2;
-        }
-        level = next;
-    }
-
-    level.into_iter().next().unwrap()
-}
 
 #[cfg(test)]
 mod tests {

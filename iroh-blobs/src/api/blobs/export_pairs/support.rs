@@ -15,6 +15,22 @@ use crate::{
     Hash,
 };
 
+/// Independent affected-length root and parent-free wire, not an encoder oracle.
+pub(super) fn root_policy_fixture() -> (Vec<u8>, crate::Hash, Vec<u8>) {
+    let data = body(8192);
+    let left = chunk_cv(&data[..4096], 0, false);
+    let right = chunk_cv(&data[4096..], 1, false);
+    let root = parent_cv(&left, &right, true);
+    assert_eq!(
+        root.to_string(),
+        "2abf65dd26465a7352707d79d18ff3aab9ee5d97614a774619c79ed527e20190"
+    );
+    assert_eq!(root, hemera::tree::fixed_chunk_root(&data));
+    let mut wire = 8192u64.to_le_bytes().to_vec();
+    wire.extend_from_slice(&data);
+    (data, root.into(), wire)
+}
+
 pub(super) const INDEX: u64 = 7;
 pub(super) const OFFSET: u64 = 19;
 pub(super) const PAYLOAD: &[u8] = b"payload";
