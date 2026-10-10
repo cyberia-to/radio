@@ -87,7 +87,6 @@ rpc = ["dep:quinn", "irpc/rpc", "irpc/quinn_endpoint_setup"]
 name = "expiring-tags"
 required-features = ["fs-store"]
 
-# [[example]]
-# name = "random_store"
-# required-features = ["fs-store"]
-# disabled: requires iroh-tickets which has a version conflict with local iroh-base
+[[example]]
+name = "random_store"
+required-features = ["fs-store"]
