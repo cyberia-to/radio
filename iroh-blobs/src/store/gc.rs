@@ -331,7 +331,9 @@ mod tests {
         {
             let a = store
                 .blobs()
-                .add_slice(vec![0u8; 8000000])
+                // 17 MB: 260 blocks of 64 KiB, so the outboard (259 pairs × 64 B)
+                // exceeds the 16 KiB inline limit and lives in its own file.
+                .add_slice(vec![0u8; 17_000_000])
                 .temp_tag()
                 .await?;
             let ah = a.hash();

@@ -22,6 +22,12 @@ exclude = ["quinn", "nettools"]
 [profile.release]
 debug = true
 
+# Hemera is the hash under every blob, BAO tree and ticket. Unoptimized it makes the
+# two-node tests (8 MB blobs) take minutes and starve their QUIC paths into idle
+# timeouts; optimizing just the hash keeps debug builds debuggable everywhere else.
+[profile.dev.package.cyber-hemera]
+opt-level = 3
+
 [profile.dev-ci]
 inherits = 'dev'
 opt-level = 1
