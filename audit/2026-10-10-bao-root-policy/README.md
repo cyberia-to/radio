@@ -95,6 +95,16 @@ all test targets, so the new tests have no complete all-target Clippy certificat
 The first failure remains “error: using `clone` on type `Hash` which implements
 the `Copy` trait”.
 
+[Remote CI snapshot](remote-ci.md) records PR33 source commit
+`f2b42c0674c586599b7defa72150ca2c5f8c4655` and its actual synthetic merge checkout.
+Eight hosted checks stop at the missing sibling Hemera manifest, with the same
+failure blocks as PR32; codespell adds one finding from the intervening base
+roadmap page. Seventeen self-hosted jobs remain queued without an assigned runner
+at the recorded snapshot. These are red/nonterminal checks, not platform passes.
+[Raw API responses and completed-job logs](remote-ci.tar.gz) retain all command
+receipts; after extracting into an empty directory, verify its SHA256SUMS.
+This subsequent receipt-only commit changes no executable source or tested input.
+
 Workspace/consumer/MSRV compilation and installed nextest retain the nine
 existing iroh-docs PublicKey type errors. Formatting remains red on the unchanged
 baseline findings. Installed cargo-make returns 105 around the failed format

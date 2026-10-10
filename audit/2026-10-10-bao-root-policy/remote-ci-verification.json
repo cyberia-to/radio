@@ -1,0 +1,7 @@
+{
+  "archive_sha256": "39ec1783768a4769880cfec7158605dc2e708b122fed56899ce2c6aeaa2b0e92",
+  "payload_manifest_sha256": "084af7c33732d14d1772a58c35c645187aaf016dfbca47c5db2e6715479cc18f",
+  "verified_extraction": "/tmp/radio-bao-root-remote-check.gjoxtr",
+  "source_commit": "f2b42c0674c586599b7defa72150ca2c5f8c4655",
+  "verification_exit": 0
+}
