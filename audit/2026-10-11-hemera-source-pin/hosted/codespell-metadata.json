@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "gh",
+    "api",
+    "repos/cyberia-to/radio/actions/jobs/114582766443"
+  ],
+  "started": "2026-10-11T21:53:27Z",
+  "finished": "2026-10-11T21:53:27Z",
+  "exit": 0,
+  "stdout_bytes": 2270,
+  "stdout_sha256": "ecdf3d678c64269595d860544b428a92139e577b12075c538dff57ee49df06df",
+  "stdout_gzip_sha256": "37df85cb240f6698c24013169908ce273294102e5f80649322f3537f14575a28",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

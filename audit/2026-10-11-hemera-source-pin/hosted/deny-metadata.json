@@ -1,0 +1,21 @@
+{
+  "job_id": 114582766560,
+  "label": "deny",
+  "kind": "metadata",
+  "argv": [
+    "gh",
+    "api",
+    "repos/cyberia-to/radio/actions/jobs/114582766560"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "started": "2026-10-11T21:50:42Z",
+  "finished": "2026-10-11T21:50:43Z",
+  "exit": 0,
+  "signal": null,
+  "stdout_bytes": 1877,
+  "stdout_sha256": "a669e9208b926fafe3bc9aff7ab93ea4ad865ba0e069e52ea19e710764f260c0",
+  "stdout_gzip_sha256": "181320914e2c5946cae09d9f08ce2577a56d175a9d3b53c33293c00a7f0c3c59",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hosted_head": "d90a784fa6a7f410492cc6c6d5242527e221c399"
+}
