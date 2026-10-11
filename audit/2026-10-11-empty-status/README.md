@@ -103,3 +103,7 @@ Git objects: it reproduces the three archives, checks all seven exported source
 pairs, raw streams, exact counterpart mappings and both SIGKILL follow-ups.
 `closure-verification.json` and its raw streams record that replay. This auxiliary
 check establishes identities; the red gate verdicts remain red.
+
+After the source push, [hosted checks](hosted-checks.md) exposed missing sibling
+Hemera checkout and existing spelling findings; platform jobs were queued.
+Those observations remain separate from the local gates above.
