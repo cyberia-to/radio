@@ -1130,6 +1130,7 @@ dependencies = [
 [[package]]
 name = "cyber-hemera"
 version = "0.3.1"
+source = "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a09539360934fb32db9b2e15a91995607db6"
 dependencies = [
  "serde",
 ]
