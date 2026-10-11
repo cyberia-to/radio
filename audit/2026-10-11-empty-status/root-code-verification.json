@@ -1,0 +1,11 @@
+{
+  "verified_at": "2026-10-11T17:41:44Z",
+  "sections": 64,
+  "full_git_sources": 21,
+  "exact_excerpts": 10,
+  "full_candidate_sources": 5,
+  "sha256": "1a96aace2ec93c9f882387a88433b25b8515da78ce88119e8e169ba4ad6f1e61",
+  "index_sha256": "80bf39e645fb78ab5c6d5d2bd2fa1ab2c56566ea8736f3afcfc2125e7ada7181",
+  "bytes": 516871,
+  "candidate_sources_match_both": true
+}

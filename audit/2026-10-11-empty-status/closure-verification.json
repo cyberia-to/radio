@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "nu",
+    "/Users/master/cyber/radio-kadek-empty-status/audit/2026-10-11-empty-status/verify-closure.nu"
+  ],
+  "started": "2026-10-11T17:44:47.565994+00:00",
+  "ended": "2026-10-11T17:44:49.565415+00:00",
+  "exit": 0,
+  "stdout_sha256": "f7afd0004367865be10e2b56247db423f8738585d733fa9ac3b1b869c0ba051a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "note": "Read-only integrity replay after immutable capsule freeze; no product gate or source changed."
+}

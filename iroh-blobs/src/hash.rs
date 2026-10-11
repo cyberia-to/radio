@@ -80,6 +80,8 @@ impl Hash {
 }
 
 #[cfg(test)]
+mod empty_root;
+#[cfg(test)]
 mod root_policy;
 
 impl AsRef<[u8]> for Hash {

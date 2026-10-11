@@ -1,0 +1,28 @@
+{
+  "code_status": "APPROVE",
+  "plan": {
+    "sections": 58,
+    "full_git_sources": 23,
+    "exact_current_excerpts": 10,
+    "proposed_test_files": 3,
+    "bytes": 470736,
+    "sha256": "30b95c091fe590ac8a9af504085922b45f801ef3149939bf277e4e0a6a672dd1",
+    "index_sha256": "34ebdc916aefb3e40a90c60cefe76ee4b709ad4f9bfddf14ac687f506cd05c0d",
+    "radio": "bc8b6331d3c76cbc011210e13f81e6ea351ef06f",
+    "hemera": "d5f0a09539360934fb32db9b2e15a91995607db6"
+  },
+  "code": {
+    "bytes": 516871,
+    "sha256": "1a96aace2ec93c9f882387a88433b25b8515da78ce88119e8e169ba4ad6f1e61",
+    "index_sha256": "80bf39e645fb78ab5c6d5d2bd2fa1ab2c56566ea8736f3afcfc2125e7ada7181",
+    "sections": 64,
+    "full_git_sources": 21,
+    "exact_excerpts": 10,
+    "full_candidate_sources": 5,
+    "candidate_freeze_sha256": "751d7471250a7899ed4a7a6af35df9200c404448dc08633208d74fc96852213d",
+    "source_base": "bc8b6331d3c76cbc011210e13f81e6ea351ef06f",
+    "hemera": "d5f0a09539360934fb32db9b2e15a91995607db6"
+  },
+  "note": "Current PLAN and CODE approved; current CODE response and root disposition are outer sidecars. The immutable capsule preserves its earlier pending snapshot. Historical old approval only covers superseded344.",
+  "code_review_raw_sha256": "e15bc576ba04efc803915470ff2293be69c98eb34e173df87821116fc19f1911"
+}
