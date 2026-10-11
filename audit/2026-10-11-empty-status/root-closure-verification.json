@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "nu",
+    "audit/2026-10-11-empty-status/verify-closure.nu"
+  ],
+  "cwd": "/Users/master/cyber/radio-kadek-empty-status",
+  "started": "2026-10-11T17:56:52Z",
+  "finished": "2026-10-11T17:56:54Z",
+  "exit": 0,
+  "stdout_sha256": "f7afd0004367865be10e2b56247db423f8738585d733fa9ac3b1b869c0ba051a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
