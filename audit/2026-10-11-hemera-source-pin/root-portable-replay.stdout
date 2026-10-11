@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "logical_files": 5845,
+  "objects": 1742,
+  "code_sections": [
+    62,
+    63
+  ],
+  "original_plan_sections": 73,
+  "policy_plan_sections": 28,
+  "production_files": 11,
+  "unchanged_rust_git_blobs": 511,
+  "corrected_tag_git_blobs": 854,
+  "historical_tag_deviations": 2,
+  "records": 96,
+  "streams": 192,
+  "full_metadata_variants": 3,
+  "gates_rerun": false,
+  "live_git_required": false,
+  "scope": "Saved evidence integrity and explicit historical epochs. API, repository and product gates retain their recorded red/unverified boundaries."
+}

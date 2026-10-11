@@ -1,0 +1,21 @@
+{
+  "job_id": 114582766550,
+  "label": "semver",
+  "kind": "logs",
+  "argv": [
+    "gh",
+    "api",
+    "repos/cyberia-to/radio/actions/jobs/114582766550/logs"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "started": "2026-10-11T21:50:43Z",
+  "finished": "2026-10-11T21:50:45Z",
+  "exit": 0,
+  "signal": null,
+  "stdout_bytes": 42038,
+  "stdout_sha256": "cf8bfe8b69d2c6f574415a3a7c5210046158fd2cf7afd8d8afd8eb72fd7f8b6c",
+  "stdout_gzip_sha256": "dadea2fba5b2032e2e900fd4be2d8d370c3efc9574c4a29c15c540d5940fb2f6",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hosted_head": "d90a784fa6a7f410492cc6c6d5242527e221c399"
+}
