@@ -1,0 +1,17 @@
+{
+  "created": "2026-10-12T23:26:59Z",
+  "parent": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "code_sha256": "a06d3318e3593bfc86a13289b12f6b1d237cbb930c9b93829a58141b4d947616",
+  "code_sections": 144,
+  "source_sha256": "53f29b5b1cf4d609ecb98c7b482198f87160fb56fdb229466bff8f33568a90eb",
+  "current_sources": 696,
+  "records": 84,
+  "streams": 168,
+  "logical_payloads": 3967,
+  "unique_objects": 934,
+  "archive_bytes": 4077953,
+  "archive_sha256": "161c9301cc5acb3900376bdaee371c01f2bbbe608fb7e053349d9c273509626b",
+  "index_sha256": "1ca47bea4aee90a49cc7f83bfa58b56283e78aec197e3168d59f02878bbf70f7",
+  "plan_archive_sha256": "650f33a771f6524adc2d1808e30d41aa04f3857686ff0c9949cac5935e3942e6",
+  "omissions": "No compiled targets, nested prior capsule or full API baseline archive. Exact API tag/Hemera Git object inventory is retained; omitted archive bodies are not claimed portable. Original research and approved PLAN stay in the unchanged sibling/parent capsules. Fresh CODE verdict is pending at this freeze."
+}
