@@ -1,3 +1,4 @@
+#![cfg(feature = "std")]
 //! Literal tree/proof decompositions, independent of radio's traversal/extractor.
 use cyber_bao::{
     BlockSize, CHUNK_SIZE, ChunkNum, ChunkRanges, Poseidon2Backend,

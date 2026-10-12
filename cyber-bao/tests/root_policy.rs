@@ -1,3 +1,4 @@
+#![cfg(feature = "std")]
 //! Independent fixed-tree roots, literal proofs, and public verification paths.
 use std::convert::Infallible;
 

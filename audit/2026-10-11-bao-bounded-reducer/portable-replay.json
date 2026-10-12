@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/opt/homebrew/bin/nu",
+    "/Users/master/cyber/radio-bao-bounded-reducer/audit/2026-10-11-bao-bounded-reducer/verify.nu",
+    "/Users/master/cyber/radio-bao-bounded-reducer/audit/2026-10-11-bao-bounded-reducer"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-reducer",
+  "started": "2026-10-12T21:53:53Z",
+  "finished": "2026-10-12T21:54:03Z",
+  "exit": 0,
+  "verifier_sha256": "ca4f96c8ada3d9b22e208585f3eb72332efbfba93535039d043c182cc24a1f08",
+  "archive_sha256": "6154cb8e2af01ccce71c7104cde9ad9fedb06cc1c830a01025cac7cffcb6acc0",
+  "index_sha256": "4035f801cd9a489a7a2bf78c561a1163a7799f83abdf681e70c870c518a7f5a3",
+  "stdout_sha256": "c3c6b13610d9dc1032950f63ae7d7679587b66baeb40fce784be07ab613bbae5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
