@@ -1,0 +1,12 @@
+Error: nu::parser::extra_positional
+
+  x Extra positional argument.
+    ,-[/Users/master/cyber/radio-bao-bounded-traversal/audit/2026-10-11-bao-bounded-traversal/verify.nu:36:71]
+ 35 |             let blob = ([($'blob ($row.bytes)' | into binary) 0x[00] $bytes] | bytes collect)
+ 36 |             if ($bytes | hash sha256) != $row.sha256 or ($blob | hash sha1) != $row.git_oid { error make {msg: 'Git blob identity'} }
+    :                                                                       ^^|^
+    :                                                                         `-- extra positional argument
+ 37 |         }
+    `----
+  help: Usage: hash
+

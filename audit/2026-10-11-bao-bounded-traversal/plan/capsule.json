@@ -1,0 +1,18 @@
+{
+  "created": "2026-10-12T22:26:16Z",
+  "parent": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "plan_sha256": "de51738909d904d29d5a927f8b8e32ac0a2716081344f5d2fa645983fbec0510",
+  "plan_sections": 53,
+  "records": 6,
+  "streams": 12,
+  "bridge_records": 11,
+  "bridge_streams": 22,
+  "current_sources": 26,
+  "primary_sources": 27,
+  "logical_payloads": 324,
+  "unique_objects": 126,
+  "archive_bytes": 469116,
+  "archive_sha256": "650f33a771f6524adc2d1808e30d41aa04f3857686ff0c9949cac5935e3942e6",
+  "index_sha256": "a927461bdc840eeca88f62d4b798d3916695b5a772d72492a029a181ed2b9cdb",
+  "omissions": "Compiled targets are excluded. The original dacd research remains in the unchanged parent audit capsule; this supplement includes no nested prior archive. PLAN review verdict was pending at freeze."
+}

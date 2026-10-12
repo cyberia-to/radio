@@ -1,0 +1,22 @@
+{
+  "started": "2026-10-12T23:36:33.607216Z",
+  "finished": "2026-10-12T23:36:33.654827Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-traversal",
+  "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "argv": [
+    "ruby",
+    "/tmp/radio-bao-traversal-root-doc-check.rb"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-traversal-root-doc-check-v1.stdout",
+    "bytes": 3445,
+    "sha256": "073e5aa8fe38328706cf8083e52678ccf250b6043a30bd4af868c5515a43bfec"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-traversal-root-doc-check-v1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
