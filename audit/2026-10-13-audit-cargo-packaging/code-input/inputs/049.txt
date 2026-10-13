@@ -1,0 +1,46 @@
+    Updating git repository `file:///tmp/radio-audit-packaging-pair-v3/source.git`
+From file:///tmp/radio-audit-packaging-pair-v3/source
+ * [new branch]        feat/bao-bounded-reducer -> origin/feat/bao-bounded-reducer
+ * [new branch]        feat/bao-hemera-pin    -> origin/feat/bao-hemera-pin
+ * [new branch]        feat/bbg-content       -> origin/feat/bbg-content
+ * [new branch]        fix/audit-cargo-packaging -> origin/fix/audit-cargo-packaging
+ * [new branch]        fix/bao-empty-root     -> origin/fix/bao-empty-root
+ * [new branch]        fix/bao-empty-status   -> origin/fix/bao-empty-status
+ * [new branch]        fix/bao-root-policy    -> origin/fix/bao-root-policy
+ * [new branch]        fix/kadek-export-pairs -> origin/fix/kadek-export-pairs
+ * [new branch]        fix/kadek-memstore-pairs -> origin/fix/kadek-memstore-pairs
+ * [new branch]        fix/kadek-slice-traversal -> origin/fix/kadek-slice-traversal
+ * [new branch]        launch/100-bao-decode-size-dos -> origin/launch/100-bao-decode-size-dos
+ * [new branch]        launch/101-bao-slice-decode-size-dos -> origin/launch/101-bao-slice-decode-size-dos
+ * [new branch]        launch/176-bao-mixed-coverage -> origin/launch/176-bao-mixed-coverage
+ * [new branch]        launch/205-outboard-release-invariant -> origin/launch/205-outboard-release-invariant
+ * [new branch]        launch/21-3-claim-announce-envelope -> origin/launch/21-3-claim-announce-envelope
+ * [new branch]        launch/21-4-cluster-acc-envelope -> origin/launch/21-4-cluster-acc-envelope
+ * [new branch]        launch/21-gossip-multihop-relay -> origin/launch/21-gossip-multihop-relay
+ * [new branch]        launch/21-signal-envelope -> origin/launch/21-signal-envelope
+ * [new branch]        launch/22-blob-get-tag -> origin/launch/22-blob-get-tag
+ * [new branch]        launch/22-cli-lib-target -> origin/launch/22-cli-lib-target
+ * [new branch]        launch/22-node-persistent-store -> origin/launch/22-node-persistent-store
+ * [new branch]        launch/22-particle-cli-verified-streaming-tests -> origin/launch/22-particle-cli-verified-streaming-tests
+ * [new branch]        launch/22-particle-index -> origin/launch/22-particle-index
+ * [new branch]        launch/225-util-fold-invariant-release -> origin/launch/225-util-fold-invariant-release
+ * [new branch]        launch/55-bench-radio-name -> origin/launch/55-bench-radio-name
+ * [new branch]        launch/59-particle-hex-panic -> origin/launch/59-particle-hex-panic
+ * [new branch]        launch/60-radio-cli-hex-panic -> origin/launch/60-radio-cli-hex-panic
+ * [new branch]        launch/73-blob-cli-persist -> origin/launch/73-blob-cli-persist
+ * [new branch]        main                   -> origin/main
+ * [new branch]        packaging-witness      -> origin/packaging-witness
+ * [new branch]        refactor/transmit-only -> origin/refactor/transmit-only
+ * [new branch]        research/bao-bounded-proof -> origin/research/bao-bounded-proof
+ * [new branch]        research/bao-bounded-traversal -> origin/research/bao-bounded-traversal
+ * [new branch]        roadmap/soft3-radio    -> origin/roadmap/soft3-radio
+ * [new ref]           HEAD                   -> origin/HEAD
+ * [new tag]           v0.1.0                 -> v0.1.0
+warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:
+  /tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml
+in favor of /tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/Cargo.toml
+
+    Updating git repository `https://github.com/cyberia-to/hemera`
+From file:///tmp/radio-audit-packaging-pair-v3/hemera
+ * [new ref]         d5f0a09539360934fb32db9b2e15a91995607db6 -> refs/commit/d5f0a09539360934fb32db9b2e15a91995607db6
+     Locking 2 packages to latest Rust 1.95.0 compatible versions

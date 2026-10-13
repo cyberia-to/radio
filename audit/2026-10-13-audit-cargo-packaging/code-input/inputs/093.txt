@@ -1,0 +1,3 @@
+parent reader control passed; warnings=4
+candidate reader control passed; warnings=0
+{"status":"pass","snapshot":"e22c5b472a0979ad382d241b9706de5b82fed9a9","source_files":63,"reader_stdout_sha256":"ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99"}

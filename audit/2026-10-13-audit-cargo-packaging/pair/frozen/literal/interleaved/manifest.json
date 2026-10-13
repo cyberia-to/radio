@@ -1,0 +1,13 @@
+{
+  "file_len": 16384,
+  "request": [4095, 8193],
+  "group_log": 0,
+  "particle": "c79a928e4bb2c54e54ad845163194f6457404d8dec5f09ee56daee498130b699",
+  "root": "e621f66b42fb61b260200dfa649d3f16d35cde5af2e8c04cc2551c109f00c6f6",
+  "wire_bytes": 12488,
+  "groups": [[136, 0, 4096], [4232, 4096, 4096], [8392, 8192, 4096]],
+  "parent_offsets": [8, 72, 8328],
+  "derived_verification_actions": 11,
+  "derived_output_actions": 73,
+  "derived_total_actions": 84
+}

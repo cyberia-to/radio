@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "nu",
+    "/tmp/radio-audit-packaging-staging-tests-v2/cli-2/audit/2026-10-12-bao-bounded-proof/verify.nu"
+  ],
+  "exit": 0,
+  "stdout_sha256": "1228416c5960ad6413c784f61fae3626d3096d1e77bb4cf3feecd6757a1bba28",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
