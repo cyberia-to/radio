@@ -1,0 +1,8 @@
+{
+  "name": "nostd-library",
+  "kind": "candidate",
+  "source_before": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "source_after": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "record_sha256": "16f83469cc7c7bebeac509f6474c965f72f78a436285fe6cc39839772c792a80",
+  "runner_sha256": "f561854dfb0615d0f141fdd069778cfb05546e38766423c500c35d66f3132380"
+}

@@ -1,0 +1,24 @@
+Diff in /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/src/proof.rs:7:
+ //! roots. Legacy std carrier APIs have their own, unchanged admission behavior.
+ 
+ use core::{fmt, ops::Range};
++
+ use hemera::{Hash, OUTPUT_BYTES, OUTPUT_ELEMENTS, field::P};
+ 
+ use crate::{
+Diff in /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/tests/proof_allocation.rs:2:
+ #[path = "support/proof.rs"]
+ mod support;
+ 
+-use cyber_bao::{BlockSize, proof::ProofVerifier};
+ use std::{
+     alloc::{GlobalAlloc, Layout, System},
+     cell::Cell,
+Diff in /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/tests/proof_allocation.rs:9:
+     hint::black_box,
+ };
++
++use cyber_bao::{BlockSize, proof::ProofVerifier};
+ 
+ thread_local! {
+     static ACTIVE: Cell<bool> = const { Cell::new(false) };

@@ -1,0 +1,13 @@
+{
+  "from": "source-ready.json",
+  "to": "source-complete.json",
+  "changed": [
+    {
+      "path": "cyber-bao/tests/proof.rs",
+      "local": "source-complete/cyber-bao/tests/proof.rs",
+      "bytes": 10191,
+      "sha256": "9c7a06da1f77d9966e940c29aee04184c958f5513224128ba19b7113b28c4eb9"
+    }
+  ],
+  "production_unchanged": true
+}

@@ -1,0 +1,5 @@
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `release` profile [optimized + debuginfo] target(s) in 1.48s
+     Running tests/proof.rs (/tmp/radio-bao-proof-target/release/deps/proof-91ce2c27c094291b)
+     Running tests/proof_allocation.rs (/tmp/radio-bao-proof-target/release/deps/proof_allocation-0cae73f705039265)
+     Running tests/proof_failures.rs (/tmp/radio-bao-proof-target/release/deps/proof_failures-9008161f41418dec)

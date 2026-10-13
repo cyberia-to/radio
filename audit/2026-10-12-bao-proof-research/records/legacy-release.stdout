@@ -1,0 +1,7 @@
+single declared=0 payload=5 accepted=true
+single declared=4 payload=5 accepted=true
+single declared=5 payload=5 accepted=true
+single declared=6 payload=5 accepted=true
+single declared=4096 payload=5 accepted=true
+multi original=8264 suffix=6 accepted=true
+empty single_wire=13 multi_wire=8 multi_wrong_root_accepted=true

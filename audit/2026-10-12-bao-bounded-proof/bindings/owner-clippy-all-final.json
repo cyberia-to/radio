@@ -1,0 +1,8 @@
+{
+  "name": "owner-clippy-all-final",
+  "kind": "candidate",
+  "source_before": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "source_after": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "record_sha256": "09fed4f5d8e067996d4365f80de421cd2345b165036c37a9fe9fb807ed9b0dc8",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

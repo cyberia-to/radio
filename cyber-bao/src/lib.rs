@@ -17,6 +17,7 @@ pub mod group;
 pub mod hash;
 #[cfg(feature = "std")]
 pub mod io;
+pub mod proof;
 pub mod traversal;
 pub mod tree;
 

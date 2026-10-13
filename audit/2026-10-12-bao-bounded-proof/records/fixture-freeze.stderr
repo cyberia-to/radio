@@ -1,0 +1,7 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+   Compiling bao-proof-fixture-freeze v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/fixture-probe)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.13s
+     Running `/tmp/radio-bao-proof-research-target/debug/bao-proof-fixture-freeze audit/2026-10-12-bao-bounded-proof/fixtures`

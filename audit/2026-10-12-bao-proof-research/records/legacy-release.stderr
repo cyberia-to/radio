@@ -1,0 +1,38 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling version_check v0.9.5
+   Compiling syn v1.0.109
+   Compiling proc-macro-error-attr v0.4.12
+   Compiling proc-macro-error v0.4.12
+   Compiling proc-macro-hack v0.5.20+deprecated
+   Compiling serde_core v1.0.229
+   Compiling syn-mid v0.5.4
+   Compiling syn v2.0.119
+   Compiling syn v3.0.8
+   Compiling futures-core v0.3.34
+   Compiling smallvec v1.16.3
+   Compiling ref-cast v1.0.27
+   Compiling serde v1.0.229
+   Compiling pin-project-lite v0.2.17
+   Compiling pin-project-internal v1.1.13
+   Compiling ref-cast-impl v1.0.27
+   Compiling parking v2.2.1
+   Compiling futures-io v0.3.34
+   Compiling bytes v1.12.1
+   Compiling fastrand v2.5.0
+   Compiling futures-lite v2.6.1
+   Compiling tokio v1.53.2
+   Compiling genawaiter-proc-macro v0.99.1
+   Compiling pin-project v1.1.13
+   Compiling inplace-vec-builder v0.1.1
+   Compiling genawaiter-macro v0.99.1
+   Compiling binary-merge v0.1.2
+   Compiling range-collections v0.4.6
+   Compiling genawaiter v0.99.1
+   Compiling iroh-io v0.6.2
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+   Compiling bao-proof-carrier-probe v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-proof-research/probe)
+    Finished `release` profile [optimized] target(s) in 10.73s
+     Running `/tmp/radio-bao-proof-research-target/release/bao-proof-carrier-probe`

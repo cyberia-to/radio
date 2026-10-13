@@ -1,0 +1,9 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling tokio v1.49.0
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.42s
+     Running tests/proof.rs (/tmp/radio-bao-proof-candidate-final-target/debug/deps/proof-873adb4f67b440e7)
+     Running tests/proof_allocation.rs (/tmp/radio-bao-proof-candidate-final-target/debug/deps/proof_allocation-b9dcb0336452a9c6)
+     Running tests/proof_failures.rs (/tmp/radio-bao-proof-candidate-final-target/debug/deps/proof_failures-001f290dacd18d81)

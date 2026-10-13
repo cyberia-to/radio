@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "files": 601,
+  "source_epochs": 4,
+  "original_git_source_records": 2777,
+  "candidate_source_records": 21,
+  "raw_records": 115,
+  "gate_bindings": 85,
+  "counterpart_mappings": 20,
+  "initial_seed_fixtures": 17,
+  "supplemental_interleaved_carriers": 1,
+  "cargo_rerun": false,
+  "hemera_recomputed": false,
+  "requires_exact_parent_git_objects": true
+}

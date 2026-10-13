@@ -1,0 +1,35 @@
+{
+  "started": "2026-10-13T00:09:14.417053Z",
+  "finished": "2026-10-13T00:09:23.496996Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "PATH=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin:/Users/master/.cargo/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "RUSTFLAGS=-Dwarnings",
+    "RUSTDOCFLAGS=-Dwarnings",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-target",
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "cyber-bao",
+    "--no-default-features",
+    "--release"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-owner-release-none-v1.stdout",
+    "bytes": 3901,
+    "sha256": "c75e65172d690a4d83d66f07d11722796b8c053f1abd287ee46044c923aa7e69"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-owner-release-none-v1.stderr",
+    "bytes": 1501,
+    "sha256": "0687c939d354beec4bb6bf3625304189fadcdb8eb4ac922767806bcb96abd6e5"
+  }
+}
