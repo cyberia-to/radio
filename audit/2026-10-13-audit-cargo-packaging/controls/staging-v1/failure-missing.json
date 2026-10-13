@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "nu",
+    "/tmp/radio-audit-packaging-staging-tests-v1/missing/audit/2026-10-12-bao-proof-research/verify.nu",
+    "--repo",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "--siblings",
+    "/Users/master/cyber"
+  ],
+  "exit": 1,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "0ec9c07168a8227d68d3b71f8d41d1c50475e1de8b911e82edab44a45488e8e9"
+}

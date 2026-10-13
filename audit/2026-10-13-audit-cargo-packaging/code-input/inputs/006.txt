@@ -1,0 +1,55 @@
+# Archived Cargo manifest packaging
+
+The seven archived harness `Cargo.toml` files are renamed losslessly to
+`Cargo.toml.txt`. Three historical replay entries now stage their original layout
+outside the repository and execute the exact preserved scripts. Production Rust,
+normal manifests, locks, versions and specifications are unchanged.
+
+Fresh same-session Rust 1.95 controls used one local Git URL and independent
+consumer/cache/target directories. Parent `ce0fb312…` reproduced the duplicate
+package warning in lock generation, metadata and both reader profiles. Temporary
+committed candidate `e22c5b47…` emitted zero warnings in those four commands.
+Eight literal reader cases produce byte-identical debug/release output in both
+arms and the historical control. All 63 selected crate files and three-node
+metadata agree after 34 explicit identifier/path substitutions per arm. The
+external historical manifest causing the warning stayed identical before,
+between and after the runs. See `pair/` for exact revisions, argv and raw streams.
+This is a local packaging witness, not an origin or release input.
+
+The original research, proof and CODE-input replays pass. Staging reproduces
+exactly 13/90/620 original capsule files and both historical `prepare-crate`
+exports. Missing/collision controls fail before execution and leave the actual
+audit tree unchanged. Default CLI resolution is preserved. Historical `--live`
+checks correctly fail because ce0 differs from their original b933 parent;
+these failures are retained, not waived. A child status-77 witness verifies
+stream forwarding without inserted newlines, status propagation and retained
+failure staging. Successful staging is removed.
+
+`inputs/historical-index-bindings.json` maps 19 historical index entries to their
+preserved archives. Historical indices and raw receipts are unchanged; their
+physical paths deliberately differ until staging. One pre-CODE verifier variant
+already had a distinct retained body before this repair. No nested historical
+audit archive is duplicated here.
+
+Replay (requires the original Radio Git objects, including ce0; Nu and Git):
+
+```sh
+nu audit/2026-10-13-audit-cargo-packaging/verify.nu --repo /path/to/radio
+```
+
+The verifier checks retained hashes, exact historical Git inputs, the incremental
+local candidate bundle, full tree allowlist, archived index bindings, raw record
+streams, metadata substitutions and reader/source equality. It does not rebuild
+or re-run Cargo. `--live` additionally compares the reviewed packaging files and
+final explicit path set with the supplied repository. Original executable replay
+commands remain at their historical paths. The external absolute parent harness
+path remains a historical reference; its bytes are retained, but its existence
+is not a requirement for this replay.
+
+PLAN v2 was independently approved; CODE review is pending. The initial missing
+retained-path notice, bare-index setup failure and deliberately interrupted first
+pair setup are preserved as earlier execution epochs. The completed pair and
+final wrapper controls are separate. Previous broad Radio gates, rung and
+last-tag results remain unrefreshed; the warning-free claim is limited to the
+four final candidate consumer commands. No API or semver change, release, tag,
+registry publication or Kadek dependency update occurs in this unit.

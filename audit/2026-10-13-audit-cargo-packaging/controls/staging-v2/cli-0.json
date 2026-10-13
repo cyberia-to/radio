@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "nu",
+    "/tmp/radio-audit-packaging-staging-tests-v2/cli-0/audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+    "--implementation-revision",
+    "literal-revision",
+    "--fetch",
+    "--full-workspace"
+  ],
+  "exit": 0,
+  "stdout_sha256": "b23957177d8882f24921adfaa632e8ae8b87e3d726a723325815e04c915ae8bf",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

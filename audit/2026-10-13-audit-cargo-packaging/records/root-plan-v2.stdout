@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 223056,
+  "sha256": "364132b75dbb5c251ea507ea8b71a7baff6c896a888e3a743ea317affa070d58",
+  "sections": 56,
+  "full_git_sections": 20,
+  "selected_index_sections": 2,
+  "primary_excerpts": 1,
+  "retained_sections": 32,
+  "source_identity_records": 21,
+  "archived_manifests": 7,
+  "raw_records": 5,
+  "historical_index_bindings": 19,
+  "original_prepare_calls": 2,
+  "production_changed": false
+}

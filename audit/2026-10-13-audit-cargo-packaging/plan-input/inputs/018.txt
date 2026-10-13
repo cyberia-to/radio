@@ -1,0 +1,17 @@
+[
+  {
+    "path": "primary-probe/Cargo.toml",
+    "bytes": 377,
+    "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+  },
+  {
+    "path": "probe/Cargo.toml",
+    "bytes": 217,
+    "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+  },
+  {
+    "path": "verify.nu",
+    "bytes": 4241,
+    "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+  }
+]

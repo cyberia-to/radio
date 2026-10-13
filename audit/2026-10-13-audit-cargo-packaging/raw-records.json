@@ -1,0 +1,182 @@
+[
+  {
+    "path": "pair/candidate/debug.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/candidate/lock.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/candidate/metadata.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/candidate/release.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/hemera-acquire.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/parent/debug.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/parent/lock.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/parent/metadata.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/parent/release.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/source-acquire.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/tool-cargo.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/tool-rustc.json",
+    "exit_code": 0
+  },
+  {
+    "path": "pair/tool-rustdoc.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/child-exit-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/code-input-after-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/code-verify-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/consumer-ce0-debug.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/consumer-ce0-lock.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/consumer-ce0-metadata.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/consumer-ce0-release.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/final-verify-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/final-verify-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/final-verify-v3.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/metadata-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/original-prepare-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/pair-run-v1.json",
+    "exit_code": 1
+  },
+  {
+    "path": "records/pair-run-v2.json",
+    "exit_code": null
+  },
+  {
+    "path": "records/pair-run-v3.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/plan-verification-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/plan-verification.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/proof-after-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/proof-after-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/proof-before.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/proof-live-after-v1.json",
+    "exit_code": 1
+  },
+  {
+    "path": "records/proof-live-after-v2.json",
+    "exit_code": 1
+  },
+  {
+    "path": "records/research-after-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/research-after-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/research-before.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/research-live-after-v1.json",
+    "exit_code": 1
+  },
+  {
+    "path": "records/research-live-after-v2.json",
+    "exit_code": 1
+  },
+  {
+    "path": "records/root-code-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/root-plan-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/root-plan-v2.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/staging-tests-v1.json",
+    "exit_code": 0
+  },
+  {
+    "path": "records/staging-tests-v2.json",
+    "exit_code": 0
+  }
+]

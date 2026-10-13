@@ -1,0 +1,11 @@
+{
+  "repository": "soft3",
+  "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+  "path": "release/components.toml",
+  "bytes": 16783,
+  "sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e",
+  "first": 250,
+  "last": 260,
+  "excerpt_sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+  "excerpt_bytes": 149
+}

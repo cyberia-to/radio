@@ -1,0 +1,27 @@
+{
+  "started": "2026-10-13T02:16:37.089354Z",
+  "finished": "2026-10-13T02:16:41.921895Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "argv": [
+    "nu",
+    "audit/2026-10-12-bao-proof-research/verify.nu",
+    "--repo",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "--siblings",
+    "/Users/master/cyber",
+    "--live"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 1,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-research-live-after-v2.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-research-live-after-v2.stderr",
+    "bytes": 661,
+    "sha256": "0adef1143bce6e3f032afb7305d97390b151da9d0d0c2a1dacf10358ef14d3fa"
+  }
+}

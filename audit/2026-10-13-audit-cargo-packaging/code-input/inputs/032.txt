@@ -1,0 +1,192 @@
+[
+  {
+    "index": "audit/2026-10-12-bao-proof-research/files.json",
+    "index_sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94",
+    "pointer": "/36",
+    "logical_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "bytes": 377,
+    "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-proof-research/files.json",
+    "index_sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94",
+    "pointer": "/52",
+    "logical_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "bytes": 217,
+    "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-proof-research/files.json",
+    "index_sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94",
+    "pointer": "/88",
+    "logical_path": "audit/2026-10-12-bao-proof-research/verify.nu",
+    "archived_path": "audit/2026-10-12-bao-proof-research/verify.original.nu.txt",
+    "bytes": 4241,
+    "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78",
+    "planned_direct_check": "wrapper_differs_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-proof-research/inputs.json",
+    "index_sha256": "4995cc059ec39e366af5086da72b6a2f30881414b177972e969c5c018829ffe6",
+    "pointer": "/probe_inputs/1",
+    "logical_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "bytes": 217,
+    "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-proof-research/primary-inputs.json",
+    "index_sha256": "902b084cb6ec74fe81964d0921f65653e0672d739cb60f3033c4eb512d964de2",
+    "pointer": "/files/1",
+    "logical_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "bytes": 377,
+    "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "index_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+    "pointer": "/105",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+    "bytes": 375,
+    "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "index_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+    "pointer": "/138",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+    "bytes": 246,
+    "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "index_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+    "pointer": "/142",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+    "bytes": 222,
+    "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "index_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+    "pointer": "/557",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "index_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+    "pointer": "/618",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt",
+    "bytes": 10975,
+    "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a",
+    "planned_direct_check": "wrapper_differs_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/seals-first.json",
+    "index_sha256": "92b2ed0b9e6e76af96eb5430be22f723db143d974f282433bdaa72bb3c12d074",
+    "pointer": "/1",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/seals-final-inputs.json",
+    "index_sha256": "1cba283247dd2f5ed2b56b1f2624506b61debf6f56610d56c3af34f7cf089f49",
+    "pointer": "/1",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/review/code/files-before-code.json",
+    "index_sha256": "84e0ce036b269180f151c7c7bf26ccdc7b6becfb2d49851f98dde334bd3edea6",
+    "pointer": "/105",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+    "bytes": 375,
+    "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/review/code/files-before-code.json",
+    "index_sha256": "84e0ce036b269180f151c7c7bf26ccdc7b6becfb2d49851f98dde334bd3edea6",
+    "pointer": "/138",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+    "bytes": 246,
+    "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/review/code/files-before-code.json",
+    "index_sha256": "84e0ce036b269180f151c7c7bf26ccdc7b6becfb2d49851f98dde334bd3edea6",
+    "pointer": "/142",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+    "bytes": 222,
+    "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/review/code/files-before-code.json",
+    "index_sha256": "84e0ce036b269180f151c7c7bf26ccdc7b6becfb2d49851f98dde334bd3edea6",
+    "pointer": "/539",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/review/code/files-before-code.json",
+    "index_sha256": "84e0ce036b269180f151c7c7bf26ccdc7b6becfb2d49851f98dde334bd3edea6",
+    "pointer": "/600",
+    "logical_path": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+    "archived_path": "audit/2026-10-12-bao-bounded-proof/review/code/verify-before-code.nu",
+    "bytes": 7381,
+    "sha256": "d77a7df5d0040d204006e141dfdc9b326a42a68dd27f33ad4d85c2e34c45b1d0",
+    "planned_direct_check": "already_historical_variant_before_packaging"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/plan-input/manifest.json",
+    "index_sha256": "05517e88017ad6f948c4fd64c176d3c119bb16df0f96fd56b703024bf2cad52b",
+    "pointer": "/sections/14",
+    "logical_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "bytes": 217,
+    "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  },
+  {
+    "index": "audit/2026-10-12-bao-bounded-proof/plan-input/manifest.json",
+    "index_sha256": "05517e88017ad6f948c4fd64c176d3c119bb16df0f96fd56b703024bf2cad52b",
+    "pointer": "/sections/15",
+    "logical_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "archived_path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "bytes": 377,
+    "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+    "planned_direct_check": "logical_path_absent_deliberately"
+  }
+]
