@@ -1,0 +1,347 @@
+   Compiling derive_more-impl v2.1.1
+   Compiling serde_json v1.0.149
+   Compiling reqwest v0.12.28
+   Compiling derive_more v2.1.1
+   Compiling n0-future v0.3.2
+   Compiling iroh-metrics v0.38.2
+   Compiling pkarr v5.0.2
+   Compiling n0-watcher v0.6.1
+   Compiling rustix v1.1.3
+   Compiling tempfile v3.24.0
+   Compiling tokio-rustls-acme v0.9.0
+   Compiling cyber-radio-quinn-proto v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto)
+   Compiling cyber-radio-base v0.1.1 (/private/tmp/radio-bao-proof-parent-b933/iroh-base)
+   Compiling axum v0.8.8
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn)
+   Compiling cyber-radio-netwatch v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/netwatch)
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-relay)
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh)
+   Compiling cyber-radio-portmapper v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/portmapper)
+   Compiling iroh-quinn-proto v0.15.1
+   Compiling iroh-quinn v0.16.1
+   Compiling iroh-base v0.96.1
+   Compiling rusty-fork v0.3.1
+   Compiling irpc v0.12.0
+   Compiling proptest v1.10.0
+   Compiling iroh-tickets v0.3.0
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-blobs)
+   Compiling iroh-base v0.95.1
+   Compiling iroh-tickets v0.2.0
+   Compiling netwatch v0.14.0
+   Compiling cargo_metadata v0.14.2
+   Compiling portmapper v0.14.0
+   Compiling iroh-relay v0.96.1
+   Compiling iroh-gossip v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-gossip)
+   Compiling iroh-docs v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-docs)
+   Compiling testdir v0.7.3
+   Compiling radio-integration-tests v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/tests/integration)
+   Compiling iroh v0.96.1
+   Compiling tower_governor v0.8.0
+   Compiling tinytemplate v1.2.1
+   Compiling criterion v0.7.0
+   Compiling iroh-dns-server v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh-dns-server)
+   Compiling iroh-blobs v0.98.0
+   Compiling iroh-bench v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh/bench)
+   Compiling iroh-willow v0.28.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-willow)
+   Compiling iroh-car v0.5.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-car)
+   Compiling radio-cli v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/radio-cli)
+   Compiling cyber-bao v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/cyber-bao)
+   Compiling particle v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/particle)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 46s
+------------
+ Nextest run ID 826ab07c-5ae0-4609-b4d4-ff211676a696 with nextest profile: ci
+    Starting 5 tests across 2 binaries (92 tests and 37 binaries skipped)
+        FAIL [   5.016s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ---
+
+running 1 test
+2026-10-13T00:45:03.726790Z DEBUG mdns_publish_expire: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:03.728893Z DEBUG mdns_publish_expire: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:03.729892Z DEBUG mdns_publish_expire: radio::address_lookup::mdns::tests::run_in_isolation: 639: Discovering endpoint id b endpoint_id_b=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:45:03.730412Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:03.730489Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:45:03.730520Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:03.730574Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:03.730681Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("")) }
+2026-10-13T00:45:03.730873Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.01s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:645:22)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:645:22)
+
+        FAIL [   5.012s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ---
+
+running 1 test
+2026-10-13T00:45:08.741734Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:08.742215Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:08.742395Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns::tests::run_in_isolation: 596: Discovering endpoint id b endpoint_id_b=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:45:08.742545Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:08.742568Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:45:08.742580Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:08.742591Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:45:08.742600Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:08.742634Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:08.742661Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("foobar")) }
+2026-10-13T00:45:08.742701Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.00s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:604:18)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:604:18)
+
+        FAIL [   5.014s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ---
+
+running 1 test
+2026-10-13T00:45:13.754509Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.755136Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.755473Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.755699Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.755850Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.755998Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:13.756170Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756192Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:45:13.756203Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756230Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756257Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint0")) }
+2026-10-13T00:45:13.756292Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756316Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756327Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint1")) }
+2026-10-13T00:45:13.756340Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756365Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756376Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint2")) }
+2026-10-13T00:45:13.756389Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756411Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756423Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint3")) }
+2026-10-13T00:45:13.756436Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756458Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:13.756470Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint4")) }
+2026-10-13T00:45:13.756481Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.00s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:730:18)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:730:18)
+
+        FAIL [   2.093s] cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ---
+
+running 1 test
+2026-10-13T00:45:18.768236Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:18.768753Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:18.768973Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:18.769284Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:18.769325Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(28833a25d511f2e03efca77d87ddc3eedd5f5181adb947143d17e2e87e2fa685)
+2026-10-13T00:45:18.769508Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:18.769548Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:18.769581Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:18.769609Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:22222)}, user_data: None }
+2026-10-13T00:45:18.769638Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 2.08s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ---
+
+thread 'address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered' (177452003) panicked at iroh/src/address_lookup/mdns.rs:752:13:
+Advertising endpoint should be discoverable
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/panicking.rs:689:5
+   1: core::panicking::panic_fmt
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/panicking.rs:80:14
+   2: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered::{{closure}}
+             at ./src/address_lookup/mdns.rs:752:13
+   3: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/future/future.rs:133:9
+   4: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/future/future.rs:133:9
+   5: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:70
+   6: tokio::task::coop::with_budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:167:5
+   7: tokio::task::coop::budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:133:5
+   8: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:25
+   9: tokio::runtime::scheduler::current_thread::Context::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:442:19
+  10: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:752:44
+  11: tokio::runtime::scheduler::current_thread::CoreGuard::enter::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:68
+  12: tokio::runtime::context::scoped::Scoped<T>::set
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/scoped.rs:40:9
+  13: tokio::runtime::context::set_scheduler::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:38
+  14: std::thread::local::LocalKey<T>::try_with
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/thread/local.rs:513:12
+  15: std::thread::local::LocalKey<T>::with
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/thread/local.rs:477:20
+  16: tokio::runtime::context::set_scheduler
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:17
+  17: tokio::runtime::scheduler::current_thread::CoreGuard::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:27
+  18: tokio::runtime::scheduler::current_thread::CoreGuard::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:740:24
+  19: tokio::runtime::scheduler::current_thread::CurrentThread::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:200:33
+  20: tokio::runtime::context::runtime::enter_runtime
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/runtime.rs:65:16
+  21: tokio::runtime::scheduler::current_thread::CurrentThread::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:188:9
+  22: tokio::runtime::runtime::Runtime::block_on_inner
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:368:52
+  23: tokio::runtime::runtime::Runtime::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:342:18
+  24: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+             at ./src/address_lookup/mdns.rs:764:15
+  25: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered::{{closure}}
+             at ./src/address_lookup/mdns.rs:735:63
+  26: core::ops::function::FnOnce::call_once
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5
+  27: <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+        FAIL [   4.061s] cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names ---
+
+running 1 test
+2026-10-13T00:45:20.861655Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:20.862128Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:20.862308Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:45:20.862552Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862583Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:45:20.862631Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862656Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: None }
+2026-10-13T00:45:20.862683Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862720Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862732Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:22222)}, user_data: None }
+2026-10-13T00:45:20.862746Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862773Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:20.862786Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:33333)}, user_data: None }
+2026-10-13T00:45:20.862798Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:45:22.865481Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(28833a25d511f2e03efca77d87ddc3eedd5f5181adb947143d17e2e87e2fa685)
+2026-10-13T00:45:22.865535Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::test_service_names ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::test_service_names
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 4.05s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names ---
+
+thread 'address_lookup::mdns::tests::run_in_isolation::test_service_names' (177452866) panicked at iroh/src/address_lookup/mdns.rs:812:13:
+Endpoint on the same service should be discoverable
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/panicking.rs:689:5
+   1: core::panicking::panic_fmt
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/panicking.rs:80:14
+   2: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names::{{closure}}
+             at ./src/address_lookup/mdns.rs:812:13
+   3: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/future/future.rs:133:9
+   4: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/future/future.rs:133:9
+   5: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:70
+   6: tokio::task::coop::with_budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:167:5
+   7: tokio::task::coop::budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:133:5
+   8: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:25
+   9: tokio::runtime::scheduler::current_thread::Context::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:442:19
+  10: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:752:44
+  11: tokio::runtime::scheduler::current_thread::CoreGuard::enter::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:68
+  12: tokio::runtime::context::scoped::Scoped<T>::set
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/scoped.rs:40:9
+  13: tokio::runtime::context::set_scheduler::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:38
+  14: std::thread::local::LocalKey<T>::try_with
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/thread/local.rs:513:12
+  15: std::thread::local::LocalKey<T>::with
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/thread/local.rs:477:20
+  16: tokio::runtime::context::set_scheduler
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:17
+  17: tokio::runtime::scheduler::current_thread::CoreGuard::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:27
+  18: tokio::runtime::scheduler::current_thread::CoreGuard::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:740:24
+  19: tokio::runtime::scheduler::current_thread::CurrentThread::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:200:33
+  20: tokio::runtime::context::runtime::enter_runtime
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/runtime.rs:65:16
+  21: tokio::runtime::scheduler::current_thread::CurrentThread::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:188:9
+  22: tokio::runtime::runtime::Runtime::block_on_inner
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:368:52
+  23: tokio::runtime::runtime::Runtime::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:342:18
+  24: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names
+             at ./src/address_lookup/mdns.rs:824:15
+  25: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names::{{closure}}
+             at ./src/address_lookup/mdns.rs:769:42
+  26: core::ops::function::FnOnce::call_once
+             at /Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5
+  27: <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+------------
+     Summary [  21.197s] 5 tests run: 0 passed, 5 failed, 92 skipped
+        FAIL [   5.016s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+        FAIL [   5.012s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+        FAIL [   5.014s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+        FAIL [   2.093s] cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+        FAIL [   4.061s] cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names
+error: test run failed

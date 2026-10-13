@@ -1,0 +1,61 @@
+   Compiling unicode-segmentation v1.12.0
+   Compiling serde_json v1.0.149
+   Compiling convert_case v0.10.0
+   Compiling derive_more-impl v2.1.1
+   Compiling reqwest v0.12.28
+   Compiling derive_more v2.1.1
+   Compiling n0-future v0.3.2
+   Compiling rustix v1.1.3
+   Compiling iroh-metrics v0.38.2
+   Compiling pkarr v5.0.2
+   Compiling tempfile v3.24.0
+   Compiling cyber-radio-quinn-udp v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/quinn/quinn-udp)
+   Compiling n0-watcher v0.6.1
+   Compiling cyber-radio-quinn v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/quinn/quinn)
+   Compiling tokio-rustls-acme v0.9.0
+   Compiling cyber-radio-quinn-proto v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/quinn/quinn-proto)
+   Compiling cyber-radio-base v0.1.1 (/Users/master/cyber/radio-bao-bounded-proof/iroh-base)
+   Compiling axum v0.8.8
+   Compiling cyber-radio-netwatch v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/nettools/netwatch)
+   Compiling cyber-radio-relay v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-relay)
+   Compiling cyber-radio v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh)
+   Compiling cyber-radio-portmapper v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/nettools/portmapper)
+   Compiling iroh-quinn-proto v0.15.1
+   Compiling rusty-fork v0.3.1
+   Compiling iroh-quinn v0.16.1
+   Compiling proptest v1.10.0
+   Compiling iroh-base v0.96.1
+   Compiling irpc v0.12.0
+   Compiling iroh-tickets v0.3.0
+   Compiling iroh-blobs v0.98.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-blobs)
+   Compiling iroh-base v0.95.1
+   Compiling iroh-tickets v0.2.0
+   Compiling netwatch v0.14.0
+   Compiling cargo_metadata v0.14.2
+   Compiling portmapper v0.14.0
+   Compiling iroh-relay v0.96.1
+   Compiling iroh-gossip v0.96.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-gossip)
+   Compiling iroh-docs v0.96.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-docs)
+   Compiling testdir v0.7.3
+   Compiling radio-integration-tests v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/tests/integration)
+   Compiling iroh v0.96.1
+   Compiling tower_governor v0.8.0
+   Compiling tinytemplate v1.2.1
+   Compiling criterion v0.7.0
+   Compiling iroh-dns-server v0.96.1 (/Users/master/cyber/radio-bao-bounded-proof/iroh-dns-server)
+   Compiling iroh-blobs v0.98.0
+   Compiling iroh-bench v0.96.1 (/Users/master/cyber/radio-bao-bounded-proof/iroh/bench)
+   Compiling iroh-willow v0.28.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-willow)
+   Compiling iroh-car v0.5.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-car)
+   Compiling radio-cli v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/radio-cli)
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+error[E0432]: unresolved import `cyber_bao::proof`
+ --> cyber-bao/tests/proof_failures.rs:7:5
+  |
+7 |     proof::{ProofError, ProofVerifier},
+  |     ^^^^^ could not find `proof` in `cyber_bao`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `cyber-bao` (test "proof_failures") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: command `/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo test --no-run --message-format json-render-diagnostics --workspace --lib --bins --tests --locked --offline` exited with code 101

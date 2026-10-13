@@ -1,0 +1,56 @@
+# PLAN Review — bounded whole-buffer Poseidon2 BAO proof verifier
+
+**Verdict: APPROVE**
+
+Reviewed from the supplied frozen brief only: `plan.md`, `finite-cases.md`, `research.md`, archive README, measurement/bridge/fixture/input manifests, both probe sources, all raw stdout/stderr and command receipts, the merged `traversal.rs` and its two test files, parent `group.rs`/`hash.rs`/`tree.rs`/`io/slice.rs`/`root_policy.rs`/`lib.rs`, the Hemera `field.rs`/`encoding.rs`/`params.rs` and spec/kernel excerpts, Kadek `anchor.rs`/manifest/runtime excerpt, Radio CI/manifest/consumer files, and the prior traversal CODE verdict. I ran no tools and did not read the hash-indexed omitted bodies (historical capsules, bulk lock, Hemera sponge/permutation/tree remainder, compiled targets, full metadata stdout).
+
+## What I verified independently
+
+**The action oracle is arithmetically correct.** `2 + P + L + Σ(2·N_g − 1)` with `Σ N_g = C` gives `2 + P + L + 2C − L = 2 + P + 2C`. Each fixture row checks out against the measured `expected_actions` in both raw stdouts:
+
+- `hello`: P=0, C=1 → 4 ✓ (H S K E)
+- `three-right`: P=1, C=1 → 5 ✓
+- `three-interior`: P=2, C=1 → 6 ✓
+- `three-boundary`: P=2, C=2 → 8 ✓ (H P P S K S K E)
+- `grouped-left`: P=1, C=2 → 2+1+4 = 7 ✓; the single 8192-byte group needs 2·2−1 = 3 kernels, so H P S K K K E = 7 ✓
+- `final-short`: log 1, size 8193 → groups {0..8192}, {8192..8193}; P=1, selected group has 1 byte → N=1, C=1 → 5 ✓
+- `sole-group`: P=0, one 8192-byte group → 3 kernels, 1+1+3+1 = 6 ✓
+- empty: 4 ✓ with the synthetic zero-length ROOT setup.
+
+The bound `P ≤ groups−1 ≤ N−1` and `total ≤ 3N+1 < 2^54` holds since `N ≤ 2^52`. Nothing overflows u64.
+
+**The canonical-wire tightening is grounded in real evidence, not speculation.** Hemera `field.rs:21` keeps the raw `value` in `[0, 2^64)`; `Goldilocks::new` is a bare `const fn` with no reduction; `encoding.rs::bytes_to_cv` calls `Goldilocks::new` on each LE u64 without reducing; `hash_to_bytes` reduces only on *output*. So two distinct 32-byte encodings can produce identical parent output. The primary stdout confirms exactly this: four alias words, `raw_equal=false parent_equal=true legacy_accept=true`, all under the same synthetic root `9fa00cab…`. The research correctly retracts the earlier "constructor reduces" shorthand. The rejection offsets 40/48/56/64 are right: header 8 + left 32 = 40 is the right child's word 0, and the first pair's left words sit at 8+word·8. `research.md` also correctly refuses to call this a particle bypass — no complete file with root `9fa00cab…` is witnessed, and `measurements.json` records `whole_file_synthetic_root_witnessed: false`.
+
+**ROOT/grouping authority is preserved.** `root_policy.rs` already pins `2abf65dd…` as the canonical D8192 ROOT and `11890a7e…` as the non-ROOT internal CV, and already asserts `LeafMismatch { start_chunk: 0 }` for the historical value across `decode`, `decode_slice`, `encode_ranges_validated` and `valid_ranges`. The PLAN's sole-group rejection requirement is consistent with that existing contract, and `grouping_preserves_fixed_tree_at_boundaries` already witnesses root invariance across logs 0/1/2/4. The primary probe re-derives both literals independently (`assert_ne!(root, p01)`).
+
+**The traversal composition is sound.** Merged `traversal.rs` gives exactly one item per `next`, `is_root` only on the first frame, leaf clipping via `size - start` (no `(first+1)*g` overflow), and 53 frames with pop-before-push. The PLAN's 53-slot expected stack mirrors that frontier bound correctly: at most 52 deferred siblings plus one current expectation. `GroupHasher` is one kernel per pending `step`, `2N−1` total, ROOT only on the completing kernel — matching the Group-kernel row. The PLAN's claim that `GroupHasher::new` cannot fail after checked traversal is correct against `group.rs`: `InputTooLarge` needs `len > u64::MAX` (impossible from a usize slice on ≤64-bit), and `CounterOverflow` needs `start + leaves − 1 > u64::MAX`, excluded by `start_chunk ≤ 2^52−1` from traversal geometry. Using an internal assertion rather than a new public variant is the right call.
+
+**Legacy gaps are real and bounded.** `io/slice.rs::decode_slice` confirms every characterized weakness: the single-block shortcut hashes `&slice[cursor..]` with no length check against `declared_size`; there is no EOF/trailing check; `tree.blocks() <= 1` returns before touching the expected stack, and the multi-group path with an empty filtered traversal never pops the root — hence `multi_wrong_root_accepted=true`. The 321-byte debug/release stdouts are byte-identical. These are correctly labeled as existing-API semantics left unchanged.
+
+**Error precedence is complete and consistent.** Constructor Geometry → EmptyRequest → NonCanonicalRoot (ascending word) places all cheap scalar checks before any byte read, and the constructor reads nothing — so the "no successful mode with an unchecked root" invariant holds. Per-stage Truncated-before-canonical and canonical-before-arithmetic is specified in both directions, including the subtle "noncanonical left followed by incomplete right pair → Truncated wins" case. `TrailingBytes { offset: consumed length }` on a matching last group is the one case legacy gets wrong, and `finite-cases.md` tests both the 1-byte suffix and the concatenated-valid-proof variant.
+
+**Scope and authority boundaries hold.** Kadek `anchor.rs` is committed and self-contained: `BaoAnchor` has private fields, only `BaoAnchorJob::pull` constructs it, and it binds particle + len + root + `HemeraFixed4096V1`. Nothing in this PLAN touches it, and the PLAN explicitly denies minting `VerifiedRange` from a Radio view. `kadek-ifac/Cargo.toml` pins `cyber-bao` at a96d with `default-features = false`, so an additive `pub mod proof` under `#![cfg_attr(not(feature = "std"), no_std)]` is reachable there — the ring-1 / minor-semver framing is honest, not inflated. The bridge shows 38/39 unchanged inputs with the single `lib.rs` module-wiring delta and `candidate_traversal_identical: true`.
+
+**Gate discipline is correct.** No inheritance from the traversal gates is claimed; the prior CODE verdict's disclosure of red repository gates (workspace Clippy, nightly docs, cargo-deny, all-features nextest `iroh-gossip` E0599, last-tag no-default exit 100) is carried forward rather than laundered. The PLAN requires exact-parent comparison with identical env/profile and forbids stale-ancestor reds and a gratuitous second matrix. Local `--locked/--offline/jobs=2/incremental=0` is labeled local strengthening, consistent with the receipts. `.config/nextest.toml` `terminate-after = 3` is in the retained support set, satisfying "read CI profile termination from actual config."
+
+## Blockers
+
+None.
+
+## Advice (non-blocking)
+
+1. **`BlockSize` admission crosses an unchecked boundary.** The prior CODE review already flagged that `BaoTree::blocks()`/`shifted()` use unchecked `1u64 << block_size.0`. Your constructor delegates to `RangeTraversal`, so logs up to 51 are admitted, and the PLAN says "No unchecked BaoTree byte helpers are used for large geometry" — good. Make that an explicit rustdoc non-claim on `ProofVerifier::new` too: admitting log 51 here is not a statement that the same `BlockSize` is safe in `tree.rs`.
+
+2. **`ProofItem::Parent` carries no coordinate.** `Leaf` gets `file_offset`/`proof_offset`/`bytes`; `Parent` is a unit variant. A consumer replaying for retransmission or progress accounting cannot tell *which* parent it just consumed, and the error table already materializes `TreeNode` for `ParentMismatch`. Consider `Parent { node: TreeNode, proof_offset: usize }` — it is free (both are already in the cursor), keeps `ProofItem` `Copy`-ish in spirit, and removes the only asymmetry in the output surface. If you keep it unit, document that parents are deliberately opaque and that consumers must count them positionally.
+
+3. **`VerifiedProof::request` returning a cloned `Range<u64>` prevents `Copy`.** Everything else in the view is `Copy` by value. `Range` is not `Copy`; returning `(u64, u64)` or exposing `request_start()`/`request_end()` would let `VerifiedProof` derive `Copy` and remove a borrow-vs-move wart for callers that pass the view into a copy loop. Minor, but decide before freezing names.
+
+4. **Display-string freeze deserves a single oracle test.** `finite-cases.md` lists eight exact strings and says "do not make diagnostic strings the only oracle" — correct. Add the converse guard: one test that asserts all eight strings *and* that `ProofError` implements `core::error::Error` via a `fn core_error<E: core::error::Error>()` witness, exactly as `range_traversal.rs` does. Cheap, and it caught nothing only because the traversal unit already did it.
+
+5. **The 52-level synthetic prefix needs an explicit cost note.** `finite-cases.md` says "compute only those explicit synthetic commitments with zero deferred sibling CVs." That is 52 parent kernels plus one 4096-byte leaf — fine. But the fixture is ~3.4 KB of pairs plus a 4096-byte group, and the test asserts `Truncated` with a *large* `needed`. State the exact expected `needed` value in the table rather than "exact large needed", so the test cannot be written to accept any large number.
+
+6. **`items()` starting its proof cursor at 8 is an unstated invariant coupling.** The replay cursor re-derives geometry and assumes the header occupied exactly bytes 0..8. That is guaranteed by successful verification, but it means `VerifiedProof` must retain enough state to prove it (or assert it). Make the retained private fields explicit in the implementation doc so a later refactor cannot silently let `items()` start from a stale offset.
+
+7. **Allocation observer: exclude fixture *construction* as well as deallocation.** The brief already says to build and retain fixture storage outside observation and exclude later deallocation. `range_traversal_allocation.rs` shows the pattern works; note that the 8328-byte `three-boundary` and 8264-byte `grouped-left` fixtures must be built before `ACTIVE` flips, or the counter will attribute their `Vec` growth to the verifier.
+
+Scope held: three production paths (one `pub mod` line, two new files), four test files, no dependency/feature/lock/wire-producer/kernel change, no consumer migration, no Kadek source change. Nothing here claims a verifier implementation, measured new-API work, an allocator-free final link, first-partial authentication, row-4 closure, or any rung/release acceptance.

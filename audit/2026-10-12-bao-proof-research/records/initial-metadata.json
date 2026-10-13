@@ -1,0 +1,32 @@
+{
+  "started": "2026-10-12T23:16:25.022228Z",
+  "finished": "2026-10-12T23:16:25.076178Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "argv": [
+    "env",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-research-target",
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "metadata",
+    "--locked",
+    "--offline",
+    "--format-version",
+    "1",
+    "--manifest-path",
+    "audit/2026-10-12-bao-proof-research/probe/Cargo.toml"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-legacy-metadata-v1.stdout",
+    "bytes": 202392,
+    "sha256": "307f704b2b52f25f7879d1487ee0ad6f33563a28ee270b4834769bf3e4254cfd"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-legacy-metadata-v1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

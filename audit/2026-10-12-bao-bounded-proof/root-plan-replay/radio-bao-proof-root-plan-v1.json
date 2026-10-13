@@ -1,0 +1,27 @@
+{
+  "started": "2026-10-12T23:46:27.762969Z",
+  "finished": "2026-10-12T23:46:28.092346Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "nu",
+    "/tmp/radio-bao-proof-plan-v1/verify.nu",
+    "--repo",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "--siblings",
+    "/Users/master/cyber",
+    "--live"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-root-plan-v1.stdout",
+    "bytes": 214,
+    "sha256": "132e116dfe3ec18453745643d41748f18b62a67296a1a255adb6c677b91bbb91"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-root-plan-v1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

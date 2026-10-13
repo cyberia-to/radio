@@ -1,0 +1,8 @@
+{
+  "name": "parent-workspace-clippy-default",
+  "kind": "parent",
+  "source_before": "e6e61e071923ec01bfb5401a1b73a9a1e45a7d7a178c8dd01d537e368812cde8",
+  "source_after": "e6e61e071923ec01bfb5401a1b73a9a1e45a7d7a178c8dd01d537e368812cde8",
+  "record_sha256": "e57becae5c21b4c5cd73b500946a00f3caece75e27e40394f76fe205f46c0b97",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

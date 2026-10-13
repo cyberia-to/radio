@@ -1,0 +1,20 @@
+    Checking bao-proof-seal-probes v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/seals)
+error[E0624]: associated function `new` is private
+  --> src/bin/constructor.rs:1:54
+   |
+ 1 |   fn main() { let _ = cyber_bao::proof::VerifiedProof::new(&[], [0; 32], 0, cyber_bao::BlockSize(0), 0..0); }
+   |                                                        ^^^ private associated function
+   |
+  ::: /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/src/proof/output.rs:18:5
+   |
+18 | /     pub(super) fn new(
+19 | |         proof: &'a [u8],
+20 | |         root: [u8; 32],
+21 | |         size: u64,
+22 | |         block: BlockSize,
+23 | |         request: Range<u64>,
+24 | |     ) -> Self {
+   | |_____________- private associated function defined here
+
+For more information about this error, try `rustc --explain E0624`.
+error: could not compile `bao-proof-seal-probes` (bin "constructor") due to 1 previous error

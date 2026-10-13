@@ -1,0 +1,114 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 27 tests
+test iroh/src/address_lookup.rs - address_lookup (line 61) - compile ... ok
+test iroh/src/address_lookup/mdns.rs - address_lookup::mdns (line 8) - compile ... ok
+test iroh/src/address_lookup.rs - address_lookup (line 80) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Builder::bind_addr (line 277) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Builder::bind_addr_with_opts (line 354) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1280) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::net_report (line 1141) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::watch_addr (line 970) - compile ... ok
+test iroh/src/endpoint/presets.rs - endpoint::presets (line 5) - compile ... ok
+test iroh/src/lib.rs - (line 10) - compile ... ok
+test iroh/src/lib.rs - (line 172) - compile ... ok
+test iroh/src/lib.rs - (line 197) - compile ... ok
+test iroh/src/lib.rs - (line 28) - compile ... ok
+test iroh/src/protocol.rs - protocol (line 5) - compile ... ok
+test iroh/src/protocol.rs - protocol::Router (line 71) - compile ... ok
+test iroh/src/socket/remote_map/remote_state/remote_info.rs - socket::remote_map::remote_state::remote_info::RemoteInfo::into_addrs (line 36) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::closed (line 1437) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfigBuilder::congestion_controller_factory (line 409) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::watch_addr (line 1005) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfig (line 116) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1258) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1234) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfigBuilder::max_idle_timeout (line 191) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1217) ... ok
+test iroh/src/endpoint.rs - endpoint::RelayMode::custom (line 1626) ... ok
+test iroh/src/address_lookup/memory.rs - address_lookup::memory::MemoryLookup::from_endpoint_info (line 122) ... ok
+test iroh/src/address_lookup/memory.rs - address_lookup::memory::MemoryLookup (line 39) ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+all doctests ran in 2.39s; merged doctests compilation took 0.97s
+
+running 1 test
+test iroh-base/src/key.rs - key::SecretKey::generate (line 281) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.52s; merged doctests compilation took 0.19s
+
+running 5 tests
+test iroh-relay/src/server/http_server.rs - server::http_server::RelayService::handle_connection (line 821) - compile ... ok
+test iroh-relay/src/relay_map.rs - relay_map::RelayMap::try_from_iter (line 59) ... ok
+test iroh-relay/src/relay_map.rs - relay_map::RelayMap (line 21) ... ok
+test iroh-relay/src/server/http_server.rs - server::http_server::TlsConfig (line 158) ... ok
+test iroh-relay/src/server/http_server.rs - server::http_server::TlsConfig::new (line 203) ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.71s; merged doctests compilation took 0.38s
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 16 tests
+test iroh-blobs/src/lib.rs - (line 35) - compile ... ok
+test iroh-blobs/src/api/blobs.rs - api::blobs::Blobs::reader (line 116) ... ok
+test iroh-blobs/src/net_protocol.rs - net_protocol (line 7) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 168) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 239) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 257) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 114) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 144) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 132) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 271) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 208) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 342) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 157) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 220) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 282) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 354) ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.97s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test iroh-docs/src/lib.rs - (line 44) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.14s
+
+
+running 1 test
+test iroh-gossip/src/lib.rs - (line 20) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

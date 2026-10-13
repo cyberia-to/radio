@@ -1,0 +1,12 @@
+    Building cyber-bao v0.1.0 (current)
+       Built [   0.290s] (current)
+     Parsing cyber-bao v0.1.0 (current)
+      Parsed [   0.001s] (current)
+    Building cyber-bao v0.1.0 (baseline)
+       Built [   0.133s] (baseline)
+     Parsing cyber-bao v0.1.0 (baseline)
+      Parsed [   0.001s] (baseline)
+    Checking cyber-bao v0.1.0 -> v0.1.0 (no change; assume minor)
+     Checked [   0.007s] 202 checks: 202 pass, 58 skip
+     Summary no semver update required
+    Finished [   0.544s] cyber-bao
