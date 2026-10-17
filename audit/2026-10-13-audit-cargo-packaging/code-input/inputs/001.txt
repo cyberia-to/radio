@@ -1,0 +1,33 @@
+Fresh CODE review of an approved packaging-only fix at exact Radio parent ce0fb312faa8770e80efe9afa864106ae6b51552.
+PLAN v2 APPROVE raw and full result are supplied. Seven archived Cargo.toml bodies are renamed losslessly;
+three replay entries become thin wrappers around preserved exact originals. One shared Nu staging helper
+reconstructs historical logical names only in unique disposable directories. No production Rust, normal
+manifest/lock, version, specification, license, BAO API or Kadek pin change. Parent owns final merge.
+
+Review failure/collision handling, byte/hash preservation, original CLI/default semantics, explicit nonzero
+child handling, complete-tree source allowlist and the causally controlled Git-consumer differential.
+A wrapper-v1 error path omitted the retained-stage notice because Nu terminated at child nonzero; final
+wrappers use complete plus print --no-newline for both streams and exact exit_code. A status-77 literal
+control verifies this. Earlier passing/failing epochs remain separate. Temporary pair setup v1 failed at
+bare-index deletion; v2 was deliberately interrupted on wrapper change; v3 completed both arms. No green
+assertion is made from either earlier attempt. Historical --live HEAD failures remain required failures.
+
+Fresh isolated local-Git ce0/candidate lock, metadata, debug and release controls reproduce four duplicate
+warnings in the parent and zero candidate warnings. External historical manifest unchanged at three
+points. Reader stdout identical across all four runs and earlier frozen HTTPS control. 63 exact crate
+source tuples and normalized three-node graph match; 34 explicit parsed-JSON substitutions per arm.
+The incremental temporary candidate e22c5b47 is a local measured witness, never an origin/release input.
+Later final audit/report additions are outside its tree; its 14 final packaging files are separately
+frozen and match the reviewed live files. No new Cargo.toml basename may exist under audit.
+
+Supplied in full: all changed executable packaging scripts, seven archived manifest bodies, all three
+original replay contracts, approved PLAN and response, raw approval, execution report, exact independent
+reader, final control orchestrators, raw paired command receipts/streams, explicit identity maps and
+replay code. The current BAO kernels and unrelated runtime Rust are unchanged and omitted. Also omitted:
+binary carrier bodies (exact manifest/hash-retained support), whole historical capsules, complete source
+snapshots/caches/build output, old full vendor contexts, large lock/metadata snapshots beyond the two
+exact current metadata outputs, and final noncritical evidence-copy bookkeeping. Their identities remain
+indexed in capsule files.json; the reviewer has not been supplied those omitted bodies. Neither this
+review nor the focused controls refresh previous broad red gates, rung or last-tag acceptance. Review
+only this packaging change; no release claim. The codepack verifier and outer evidence verifier require
+exact historical Git objects; neither claims cache-free Cargo reproduction or archive-only source replay.

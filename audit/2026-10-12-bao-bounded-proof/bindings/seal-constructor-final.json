@@ -1,0 +1,8 @@
+{
+  "name": "seal-constructor-final",
+  "kind": "candidate",
+  "source_before": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "source_after": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "record_sha256": "e7656f7fb2762ea574c43e05b88e9429951578ae460e5165ee48a79b00e72a64",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

@@ -1,0 +1,4 @@
+/tmp/radio-audit-packaging-pair-v1.rb:34:in 'Object#git': git failed ["--git-dir", "/tmp/radio-audit-packaging-pair-v1/source.git", "update-index", "--force-remove", "audit/2026-10-09-kadek-slice-traversal/Cargo.toml"]: fatal: this operation must be run in a work tree (RuntimeError)
+	from /tmp/radio-audit-packaging-pair-v1.rb:56:in 'block in <main>'
+	from /tmp/radio-audit-packaging-pair-v1.rb:48:in 'Array#map'
+	from /tmp/radio-audit-packaging-pair-v1.rb:48:in '<main>'

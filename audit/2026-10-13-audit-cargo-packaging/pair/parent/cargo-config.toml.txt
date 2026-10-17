@@ -1,0 +1,6 @@
+[net]
+git-fetch-with-cli = true
+[source.crates-io]
+replace-with = "cached-registry"
+[source.cached-registry]
+directory = "/tmp/kadek-bao-anchor-registry"

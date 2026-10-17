@@ -1,0 +1,9 @@
+warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:
+  /tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml
+in favor of /tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/Cargo.toml
+
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)
+   Compiling kadek-bao-reader-control v0.0.0 (/tmp/radio-audit-packaging-pair-v3/parent/consumer)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.07s
+     Running `/tmp/radio-audit-packaging-pair-v3/parent/target/debug/reader-control /tmp/radio-audit-packaging-pair-v3/frozen/literal`

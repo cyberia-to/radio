@@ -1,0 +1,8 @@
+{
+  "name": "ci-selector-iroh-dns-server",
+  "kind": "candidate",
+  "source_before": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "source_after": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "record_sha256": "582dfb81241b3839c5410d6b6e0e51fddd0402116166b5e9d01b51e9259c716c",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

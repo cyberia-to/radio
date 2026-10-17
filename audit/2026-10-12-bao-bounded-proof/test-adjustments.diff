@@ -1,0 +1,79 @@
+diff --git a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof.rs b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof.rs
+index fe564bf8..104f2f6c 100644
+--- a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof.rs
++++ b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof.rs
+@@ -145,19 +145,22 @@ fn caller_quotas_and_total_are_not_renewed_by_groups_or_yields() {
+ fn jobs_can_interleave_and_views_outlive_verifiers_and_cursors() {
+     let a = named("three-boundary");
+     let b = named("grouped-left");
+-    let mut ja =
+-        ProofVerifier::new(&a.wire, a.root, a.size, BlockSize(a.log), a.request.clone()).unwrap();
+-    let mut jb =
+-        ProofVerifier::new(&b.wire, b.root, b.size, BlockSize(b.log), b.request.clone()).unwrap();
+-    for _ in 1..b.actions {
++    let (va, vb) = {
++        let mut ja =
++            ProofVerifier::new(&a.wire, a.root, a.size, BlockSize(a.log), a.request.clone())
++                .unwrap();
++        let mut jb =
++            ProofVerifier::new(&b.wire, b.root, b.size, BlockSize(b.log), b.request.clone())
++                .unwrap();
++        for _ in 1..b.actions {
++            assert!(ja.step().unwrap().is_none());
++            assert!(jb.step().unwrap().is_none());
++        }
++        let vb = jb.step().unwrap().unwrap();
+         assert!(ja.step().unwrap().is_none());
+-        assert!(jb.step().unwrap().is_none());
+-    }
+-    let vb = jb.step().unwrap().unwrap();
+-    assert!(ja.step().unwrap().is_none());
+-    let va = ja.step().unwrap().unwrap();
+-    drop(ja);
+-    drop(jb);
++        let va = ja.step().unwrap().unwrap();
++        (va, vb)
++    };
+     output(&a, &va);
+     output(&b, &vb);
+     let kept = {
+@@ -182,7 +185,6 @@ fn cancelling_at_each_pending_stage_publishes_nothing() {
+                 assert!(job.step().unwrap().is_none());
+             }
+             assert!(!job.is_finished());
+-            drop(job);
+         }
+     }
+ }
+diff --git a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof_failures.rs b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof_failures.rs
+index 4b69fafa..98416172 100644
+--- a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof_failures.rs
++++ b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof_failures.rs
+@@ -34,6 +34,7 @@ fn failure(c: &Case, expected: ProofError, action: usize) {
+ }
+ 
+ #[test]
++#[allow(clippy::reversed_empty_ranges)] // Intentionally invalid request geometry.
+ fn geometry_precedes_empty_request_and_root_canonicality() {
+     for log in 0..=255 {
+         let admitted = match usize::BITS {
+diff --git a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof_allocation.rs b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof_allocation.rs
+index 3855e374..d43167aa 100644
+--- a/audit/2026-10-12-bao-bounded-proof/tests-first/cyber-bao/tests/proof_allocation.rs
++++ b/audit/2026-10-12-bao-bounded-proof/source-ready/cyber-bao/tests/proof_allocation.rs
+@@ -2,13 +2,14 @@
+ #[path = "support/proof.rs"]
+ mod support;
+ 
+-use cyber_bao::{BlockSize, proof::ProofVerifier};
+ use std::{
+     alloc::{GlobalAlloc, Layout, System},
+     cell::Cell,
+     hint::black_box,
+ };
+ 
++use cyber_bao::{BlockSize, proof::ProofVerifier};
++
+ thread_local! {
+     static ACTIVE: Cell<bool> = const { Cell::new(false) };
+     static COUNT: Cell<usize> = const { Cell::new(0) };

@@ -1,0 +1,1656 @@
+{
+  "parent": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "candidate": "e22c5b472a0979ad382d241b9706de5b82fed9a9",
+  "tree": "ac8fe6203580ac4135723126eb68ad32f7ecb33b",
+  "url": "file:///tmp/radio-audit-packaging-pair-v3/source.git",
+  "explicit_paths": [
+    {
+      "path": ".claude/tasks/audit-cargo-packaging/execution.md",
+      "mode": "100644",
+      "blob": "32bbcbb061317d1e66fd5ef8162d8ae2ce74ff41",
+      "bytes": 1416,
+      "sha256": "faabc22a749c11e183f3bc63aea1d04e18f3dfc95a9d942f2f0b9c840befe72a"
+    },
+    {
+      "path": ".claude/tasks/audit-cargo-packaging/plan.md",
+      "mode": "100644",
+      "blob": "3c991c837c171368f206f8793dbcbca2da5f778a",
+      "bytes": 11425,
+      "sha256": "86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620"
+    },
+    {
+      "path": ".claude/tasks/audit-cargo-packaging/research.md",
+      "mode": "100644",
+      "blob": "cfd096aa74d166753a6234b1a5a9269acdffaeef",
+      "bytes": 5509,
+      "sha256": "f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b"
+    },
+    {
+      "path": ".claude/tasks/audit-cargo-packaging/response-v1.md",
+      "mode": "100644",
+      "blob": "cd352f1f60b6e24e3e0d5eb14aff5099a1d70809",
+      "bytes": 2722,
+      "sha256": "d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc"
+    },
+    {
+      "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "4d1c5cd6535b401778401041fd0efaa524a870ca",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+      "mode": "100644",
+      "blob": "795aa4023a337aeb455562da82c5ad537aa235b9",
+      "bytes": 916,
+      "sha256": "794bbec41c38771fe666ebc40d5b8bbe8cf844632000654289fcc5ed65c7533e"
+    },
+    {
+      "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt",
+      "mode": "100644",
+      "blob": "31585cbaf9aa815cef0fbbdfc434d721d5387df1",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "a6a0ac066c2b42fca01f4470e06920dfc5fda804",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "085a827f3df192f9acda9fd945b602bf82141930",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "3029e4216aeac2d746afd71a26c531eff5a60c28",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "35e6fe4630633080ee9b00f5cd8d24fe3c0093c5",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+      "mode": "100644",
+      "blob": "a56fb2a514cf034c1aead6c4b962968c3aa3ca6c",
+      "bytes": 628,
+      "sha256": "ad4154daeb25c641ccd571905edf4870899e160f7b7d4e0cb3fe6231684f54d2"
+    },
+    {
+      "path": "audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt",
+      "mode": "100644",
+      "blob": "ca3f0a1b554a46cbca7c31b692cb20201c3de279",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "fc72a33f07ca11352c4a0308e4ca17e23ba5a8d3",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+      "deleted": true
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "beeb272e00bc24f0c15ce96e3f01e2a942cdfa22",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/verify.nu",
+      "mode": "100644",
+      "blob": "cccae561695d385568a3e5bebdd4d6aed63ee2ae",
+      "bytes": 719,
+      "sha256": "fd64cf8a7aed61ce88c336497c05f805a885c9ef3325ea38f09f0ed1cffcc30f"
+    },
+    {
+      "path": "audit/2026-10-12-bao-proof-research/verify.original.nu.txt",
+      "mode": "100644",
+      "blob": "2405d5ba053a3afb95c0e16593ea30897fd5b90c",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-after-runs.json",
+      "mode": "100644",
+      "blob": "5ff290c66138e625510a7cd39962d9d3e5b3ba2a",
+      "bytes": 32027,
+      "sha256": "5451033572e43aef4c467b61963a41a79250f81025846f51779fb47900ac6bd1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-before-runs.json",
+      "mode": "100644",
+      "blob": "6be715018591b1e53f949355ad5f21d876827639",
+      "bytes": 32027,
+      "sha256": "fc853a924b7ded1effe7f1d839fb6bc908999e395abc297d2b9e1b9d2904e8f1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json",
+      "mode": "100644",
+      "blob": "58c9787c97b2bb3d2b46db55dbc9c8533d4ff46c",
+      "bytes": 9834,
+      "sha256": "4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/observation.json",
+      "mode": "100644",
+      "blob": "592b0aa9106ef7482738a7cae39ef5ada2b04f95",
+      "bytes": 704,
+      "sha256": "fcc5784b19fef093b12276568b3e392f2930504183a2b9bf4276610c878c330c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-child-code.nu.txt",
+      "mode": "100644",
+      "blob": "ea5fe817b76028f7f1db5e0c955a034dd5522e07",
+      "bytes": 666,
+      "sha256": "a32f6f23ba0ac47ac73dee6d04a0cc6c4fdb54bf7095a970ee41813b1d8fb3b4"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-measurement.json",
+      "mode": "100644",
+      "blob": "4815d6c8446130e159a2ced2b333cd53998f71a8",
+      "bytes": 2782,
+      "sha256": "28daa5cdb02010d3613da34cf92a0740daf8b8b90b64fc4db966c8f76e5de0c9"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt",
+      "mode": "100644",
+      "blob": "79d3b7844ba32c144522c1a44d23b8c9d5dff829",
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/registry.json",
+      "mode": "100644",
+      "blob": "66dca08e5423d419c9d76ae5840fe495f3f25dac",
+      "bytes": 364,
+      "sha256": "161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/renames.json",
+      "mode": "100644",
+      "blob": "cfd513d344bece417f2560c35752bc0f086a18ee",
+      "bytes": 3469,
+      "sha256": "887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/source.json",
+      "mode": "100644",
+      "blob": "ddf83924c5f0932dc33de5f3d73d7d741f062cd2",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inputs/v2-additional-source.json",
+      "mode": "100644",
+      "blob": "b843160ecc5e8f526826821799275c0259114e1a",
+      "bytes": 1703,
+      "sha256": "855cc9a34bac26628a31790d826acd30370bd2fe7a4d899300874bef1ecd7c93"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/inventory.rb",
+      "mode": "100644",
+      "blob": "7db217039a25e1cb3fb73339df63427fb5b56722",
+      "bytes": 2751,
+      "sha256": "8689fb2fa53870627d00ffb4aa8c76561c83ea8a59865c2343078e18d8e7c5fd"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/Cargo.lock",
+      "mode": "100644",
+      "blob": "b43a31e515e5cf92be0c2205eca23ffb348fd86d",
+      "bytes": 15956,
+      "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "4d1c5cd6535b401778401041fd0efaa524a870ca",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+      "mode": "100644",
+      "blob": "ad2a0193dada9cabb7c16af48011fa98e154fa45",
+      "bytes": 275,
+      "sha256": "ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+      "mode": "100644",
+      "blob": "b621c5d5348adf1e7217036b60239df3961de235",
+      "bytes": 1038,
+      "sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+      "mode": "100644",
+      "blob": "8ad5cb666c5a070c868a44b9c7d514d6c0e5f870",
+      "bytes": 1106,
+      "sha256": "b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/probe.rs",
+      "mode": "100644",
+      "blob": "adfb121382733693a3ae0091f35215f88b2c1a63",
+      "bytes": 5265,
+      "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/reproduce.nu",
+      "mode": "100644",
+      "blob": "31585cbaf9aa815cef0fbbdfc434d721d5387df1",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/code-input/verify.nu",
+      "mode": "100644",
+      "blob": "c32192bf0501babe16a2a4a9b8df152bd90f732a",
+      "bytes": 2833,
+      "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/files.json",
+      "mode": "100644",
+      "blob": "13c5d110975647b73831810c11a0c4b9b09bcbec",
+      "bytes": 98759,
+      "sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "a6a0ac066c2b42fca01f4470e06920dfc5fda804",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "085a827f3df192f9acda9fd945b602bf82141930",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "3029e4216aeac2d746afd71a26c531eff5a60c28",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "35e6fe4630633080ee9b00f5cd8d24fe3c0093c5",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/verify.nu",
+      "mode": "100644",
+      "blob": "ca3f0a1b554a46cbca7c31b692cb20201c3de279",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/files.json",
+      "mode": "100644",
+      "blob": "e4cced8ebd7ced3cf19db65bd38ac2b5ed474ce9",
+      "bytes": 13350,
+      "sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "fc72a33f07ca11352c4a0308e4ca17e23ba5a8d3",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "beeb272e00bc24f0c15ce96e3f01e2a942cdfa22",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/verify.nu",
+      "mode": "100644",
+      "blob": "2405d5ba053a3afb95c0e16593ea30897fd5b90c",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/Cargo.lock",
+      "mode": "100644",
+      "blob": "6109397327ed10573758d9e1aa4c6d22ee98532a",
+      "bytes": 186712,
+      "sha256": "90d5aa88f4fb507434036ad5ec0ca7a3897741fe810fdf16a080bff006130d65"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "256cddb6f22fef290df3536dd2eb1ede2f1f6035",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/original/cyber-bao/Cargo.toml.txt",
+      "mode": "100644",
+      "blob": "d7980bede3f5e0d38f267ef889e8d183b8ee6de2",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/context.txt",
+      "mode": "100644",
+      "blob": "6638b27ecf01f54a79b773970252b5aba3ea3f0a",
+      "bytes": 223056,
+      "sha256": "364132b75dbb5c251ea507ea8b71a7baff6c896a888e3a743ea317affa070d58"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/files.json",
+      "mode": "100644",
+      "blob": "72e2a4b290fc7e742a8fd17e5e94dfa4b3381995",
+      "bytes": 8467,
+      "sha256": "99bdaae8dd3da0cb4bab5ca1b4b65b2d011ddcf5b2b54c0291fa112174b5af62"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/001.txt",
+      "mode": "100644",
+      "blob": "cfd096aa74d166753a6234b1a5a9269acdffaeef",
+      "bytes": 5509,
+      "sha256": "f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/002.txt",
+      "mode": "100644",
+      "blob": "3c991c837c171368f206f8793dbcbca2da5f778a",
+      "bytes": 11425,
+      "sha256": "86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/003.txt",
+      "mode": "100644",
+      "blob": "cd352f1f60b6e24e3e0d5eb14aff5099a1d70809",
+      "bytes": 2722,
+      "sha256": "d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/004.txt",
+      "mode": "100644",
+      "blob": "4d1c5cd6535b401778401041fd0efaa524a870ca",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/005.txt",
+      "mode": "100644",
+      "blob": "a6a0ac066c2b42fca01f4470e06920dfc5fda804",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/006.txt",
+      "mode": "100644",
+      "blob": "085a827f3df192f9acda9fd945b602bf82141930",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/007.txt",
+      "mode": "100644",
+      "blob": "3029e4216aeac2d746afd71a26c531eff5a60c28",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/008.txt",
+      "mode": "100644",
+      "blob": "35e6fe4630633080ee9b00f5cd8d24fe3c0093c5",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/009.txt",
+      "mode": "100644",
+      "blob": "fc72a33f07ca11352c4a0308e4ca17e23ba5a8d3",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/010.txt",
+      "mode": "100644",
+      "blob": "beeb272e00bc24f0c15ce96e3f01e2a942cdfa22",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/011.txt",
+      "mode": "100644",
+      "blob": "31585cbaf9aa815cef0fbbdfc434d721d5387df1",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/012.txt",
+      "mode": "100644",
+      "blob": "2405d5ba053a3afb95c0e16593ea30897fd5b90c",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/013.txt",
+      "mode": "100644",
+      "blob": "ca3f0a1b554a46cbca7c31b692cb20201c3de279",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/014.txt",
+      "mode": "100644",
+      "blob": "c32192bf0501babe16a2a4a9b8df152bd90f732a",
+      "bytes": 2833,
+      "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/015.txt",
+      "mode": "100644",
+      "blob": "256cddb6f22fef290df3536dd2eb1ede2f1f6035",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/016.txt",
+      "mode": "100644",
+      "blob": "d7980bede3f5e0d38f267ef889e8d183b8ee6de2",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/017.txt",
+      "mode": "100644",
+      "blob": "b43a31e515e5cf92be0c2205eca23ffb348fd86d",
+      "bytes": 15956,
+      "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/018.txt",
+      "mode": "100644",
+      "blob": "adfb121382733693a3ae0091f35215f88b2c1a63",
+      "bytes": 5265,
+      "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/019.txt",
+      "mode": "100644",
+      "blob": "b621c5d5348adf1e7217036b60239df3961de235",
+      "bytes": 1038,
+      "sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/020.txt",
+      "mode": "100644",
+      "blob": "ad2a0193dada9cabb7c16af48011fa98e154fa45",
+      "bytes": 275,
+      "sha256": "ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/021.txt",
+      "mode": "100644",
+      "blob": "8ad5cb666c5a070c868a44b9c7d514d6c0e5f870",
+      "bytes": 1106,
+      "sha256": "b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/022.txt",
+      "mode": "100644",
+      "blob": "c7edc9fff2baf277d2f796df3a9fc85dbf90d69b",
+      "bytes": 1048,
+      "sha256": "f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/023.txt",
+      "mode": "100644",
+      "blob": "885ed2846ee03e243cbdd6769336769fbfb4be7e",
+      "bytes": 10831,
+      "sha256": "903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/024.txt",
+      "mode": "100644",
+      "blob": "0b1f60fec599bdcd49d9454edac1b0960d1a2930",
+      "bytes": 425,
+      "sha256": "cd473d3bfc4802a305204d101e7802974526392dafdb74391ca690cf4c954562"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/025.txt",
+      "mode": "100644",
+      "blob": "d5dcdc4bec0bb6aaa4a5c204c6147e1c7eae04bf",
+      "bytes": 858,
+      "sha256": "1d4e7da4914f54110878d8260170cb42e154560c99dd9026d6cdacbbff79cbc0"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/026.txt",
+      "mode": "100644",
+      "blob": "ddf83924c5f0932dc33de5f3d73d7d741f062cd2",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/027.txt",
+      "mode": "100644",
+      "blob": "cfd513d344bece417f2560c35752bc0f086a18ee",
+      "bytes": 3469,
+      "sha256": "887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/028.txt",
+      "mode": "100644",
+      "blob": "592b0aa9106ef7482738a7cae39ef5ada2b04f95",
+      "bytes": 704,
+      "sha256": "fcc5784b19fef093b12276568b3e392f2930504183a2b9bf4276610c878c330c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/029.txt",
+      "mode": "100644",
+      "blob": "6be715018591b1e53f949355ad5f21d876827639",
+      "bytes": 32027,
+      "sha256": "fc853a924b7ded1effe7f1d839fb6bc908999e395abc297d2b9e1b9d2904e8f1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/030.txt",
+      "mode": "100644",
+      "blob": "5ff290c66138e625510a7cd39962d9d3e5b3ba2a",
+      "bytes": 32027,
+      "sha256": "5451033572e43aef4c467b61963a41a79250f81025846f51779fb47900ac6bd1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/031.txt",
+      "mode": "100644",
+      "blob": "66dca08e5423d419c9d76ae5840fe495f3f25dac",
+      "bytes": 364,
+      "sha256": "161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/032.txt",
+      "mode": "100644",
+      "blob": "b843160ecc5e8f526826821799275c0259114e1a",
+      "bytes": 1703,
+      "sha256": "855cc9a34bac26628a31790d826acd30370bd2fe7a4d899300874bef1ecd7c93"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/033.txt",
+      "mode": "100644",
+      "blob": "58c9787c97b2bb3d2b46db55dbc9c8533d4ff46c",
+      "bytes": 9834,
+      "sha256": "4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/034.txt",
+      "mode": "100644",
+      "blob": "4815d6c8446130e159a2ced2b333cd53998f71a8",
+      "bytes": 2782,
+      "sha256": "28daa5cdb02010d3613da34cf92a0740daf8b8b90b64fc4db966c8f76e5de0c9"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/035.txt",
+      "mode": "100644",
+      "blob": "79d3b7844ba32c144522c1a44d23b8c9d5dff829",
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/036.txt",
+      "mode": "100644",
+      "blob": "85f79b1543c87eb24eb367580323154b5af2edb5",
+      "bytes": 1231,
+      "sha256": "7bae398813416deb30860425fe81910f88543a6c432d3ed3d1ca021f2962931a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/037.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/038.txt",
+      "mode": "100644",
+      "blob": "241cd78364eec83d73fd1d16bf4715e55283d942",
+      "bytes": 382,
+      "sha256": "69528359025d2f3b1a3c01b1467936af11a4548419aea2b7098d793df03a7173"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/039.txt",
+      "mode": "100644",
+      "blob": "68e686dcf8bc2ce651c8771e1a2ece83b716994c",
+      "bytes": 1255,
+      "sha256": "65d4733ac8f24c1398e19d1cd0b24bb9f7bdac4e58d87b8389f32676a1738b3f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/040.txt",
+      "mode": "100644",
+      "blob": "d17a5082bd10b338fe21c3c6a51f9d301753d689",
+      "bytes": 11661,
+      "sha256": "d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/041.txt",
+      "mode": "100644",
+      "blob": "db8627445f9e5c6fb7fa9df1a63e4d4bd39e542a",
+      "bytes": 316,
+      "sha256": "fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/042.txt",
+      "mode": "100644",
+      "blob": "33131638ecd9e7d464e15314be17a392186a9007",
+      "bytes": 870,
+      "sha256": "997212d2bfa8aa7f3c939d661d7a9c709d14dde2fba451317d02383cecca2c07"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/043.txt",
+      "mode": "100644",
+      "blob": "b67cf06efe930b7a78ec1c29aa60019867aaacae",
+      "bytes": 267,
+      "sha256": "d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/044.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/045.txt",
+      "mode": "100644",
+      "blob": "768317fe10e0df4bea74a3dbf734899d81f16a9c",
+      "bytes": 818,
+      "sha256": "d06549ac9223df84d22e4e8c25f7b8372b8e8e173a264c96437feb4390172c4a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/046.txt",
+      "mode": "100644",
+      "blob": "5a46722fbf427d93485ffcc90b0f7e9ac1f29c07",
+      "bytes": 496,
+      "sha256": "756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/047.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/048.txt",
+      "mode": "100644",
+      "blob": "93cae9c2034210f2257d4c05e7a933e457e1a71c",
+      "bytes": 1411,
+      "sha256": "f6f82cad75670edffdb046e4b01b1c934b7ad7f4fba740ab1dd7cf437f3ebb6f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/049.txt",
+      "mode": "100644",
+      "blob": "9eb0045f832b95f86200669f43949983de01112b",
+      "bytes": 72,
+      "sha256": "22c3676876af3c07a6921ad725e6f8d4781c4087e79eefed29825a2dd77fe31c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/050.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/051.txt",
+      "mode": "100644",
+      "blob": "f44d7ec28cf4809e47f5ee8f06ac11ed93f811d1",
+      "bytes": 8924,
+      "sha256": "4f9bbdf74f2b8a94ac410c4a097415a63d5e17173499ac11475025ad405630c1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/052.txt",
+      "mode": "100644",
+      "blob": "dcb912a060bcf7a397ed1835c6b4cb60c627bce1",
+      "bytes": 1223,
+      "sha256": "b76f9e1bf74867d0ee9bd508a9273d1ad33fbfa2de6c6b24548fdbc85a99946f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/053.txt",
+      "mode": "100644",
+      "blob": "277dc704bcd630ae7c45ef644737b0affd0f350b",
+      "bytes": 240,
+      "sha256": "0e36b4447e9cdbf6c2a1787a2e32bd66d0e4d6c6bb755cfe43782ed0bea4cf6b"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/054.txt",
+      "mode": "100644",
+      "blob": "ea5fe817b76028f7f1db5e0c955a034dd5522e07",
+      "bytes": 666,
+      "sha256": "a32f6f23ba0ac47ac73dee6d04a0cc6c4fdb54bf7095a970ee41813b1d8fb3b4"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/055.txt",
+      "mode": "100644",
+      "blob": "6d3faa3ba801313f0f830ac0808b104d7a095996",
+      "bytes": 872,
+      "sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/056.txt",
+      "mode": "100644",
+      "blob": "144accbd61c11185c9c139041fc4119fe904e527",
+      "bytes": 1499,
+      "sha256": "39f471e0454a6275130141a3dd823bdb45120b609b665c7be9cf595ad0479ca3"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/manifest.json",
+      "mode": "100644",
+      "blob": "0c8bc3f3d243d4e217331e9045dbb63c0668ba3d",
+      "bytes": 37274,
+      "sha256": "bc7e3192a232cb0000e8a5df16f5bf29dfe17ee395aaf7d1f783e3e1157845f7"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/previous-review-raw.json",
+      "mode": "100644",
+      "blob": "2638fc723e94dbd3aa40f01bc67135e12c7ccf06",
+      "bytes": 10983,
+      "sha256": "c253af5655b79f1fbdfa4fae0cd4baf6cd2ae42d741b63e178be6aa496bd3b94"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/source-identities.json",
+      "mode": "100644",
+      "blob": "ced14490cc33a01fcdd1035bb72dcaa5d2b866d6",
+      "bytes": 6880,
+      "sha256": "3286a4205aa9d311ed2f3009eb673733d9cf6b2a2d4c12973933a892235afb7e"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/verify.nu",
+      "mode": "100644",
+      "blob": "e2c89dbab83b88306434a63707e2452df27b9dbc",
+      "bytes": 7883,
+      "sha256": "36a69e0a8ac19edcfcff856def7f9e4b2759eecb8653a744d8e1208b7b2bf697"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/context.txt",
+      "mode": "100644",
+      "blob": "d6d31db1f41e219006a5f1079db9aa3da13ca4db",
+      "bytes": 161217,
+      "sha256": "6a686de7be0829a0aec37baaf33cf4f40b12ca5b919a39786399c9bcff616869"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/files.json",
+      "mode": "100644",
+      "blob": "379ecb567f43ba45b87752fccaab30ce8bcf7433",
+      "bytes": 6099,
+      "sha256": "53a4e981eb62b0e8f720a9ecde4e8188d439fe2b3c68375b0bccdd8f533fcc2a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/001.txt",
+      "mode": "100644",
+      "blob": "93ea189f9447987dcc545199d57e1704e706603a",
+      "bytes": 4343,
+      "sha256": "f6d8324b791bca2d30875be3221cafa927ce983478344d167acc8f50dc8dc313"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/002.txt",
+      "mode": "100644",
+      "blob": "e9ab8db82bd6f4cf873be718ff2d39e6f5cd839a",
+      "bytes": 7574,
+      "sha256": "1314b721a7cb24ad42b5d95c163a8b59c4d19c57aec753380bcd6233ec2a1f71"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/003.txt",
+      "mode": "100644",
+      "blob": "4d1c5cd6535b401778401041fd0efaa524a870ca",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/004.txt",
+      "mode": "100644",
+      "blob": "a6a0ac066c2b42fca01f4470e06920dfc5fda804",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/005.txt",
+      "mode": "100644",
+      "blob": "085a827f3df192f9acda9fd945b602bf82141930",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/006.txt",
+      "mode": "100644",
+      "blob": "3029e4216aeac2d746afd71a26c531eff5a60c28",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/007.txt",
+      "mode": "100644",
+      "blob": "35e6fe4630633080ee9b00f5cd8d24fe3c0093c5",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/008.txt",
+      "mode": "100644",
+      "blob": "fc72a33f07ca11352c4a0308e4ca17e23ba5a8d3",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/009.txt",
+      "mode": "100644",
+      "blob": "beeb272e00bc24f0c15ce96e3f01e2a942cdfa22",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/010.txt",
+      "mode": "100644",
+      "blob": "31585cbaf9aa815cef0fbbdfc434d721d5387df1",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/011.txt",
+      "mode": "100644",
+      "blob": "2405d5ba053a3afb95c0e16593ea30897fd5b90c",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/012.txt",
+      "mode": "100644",
+      "blob": "ca3f0a1b554a46cbca7c31b692cb20201c3de279",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/013.txt",
+      "mode": "100644",
+      "blob": "c32192bf0501babe16a2a4a9b8df152bd90f732a",
+      "bytes": 2833,
+      "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/014.txt",
+      "mode": "100644",
+      "blob": "256cddb6f22fef290df3536dd2eb1ede2f1f6035",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/015.txt",
+      "mode": "100644",
+      "blob": "d7980bede3f5e0d38f267ef889e8d183b8ee6de2",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/016.txt",
+      "mode": "100644",
+      "blob": "c7edc9fff2baf277d2f796df3a9fc85dbf90d69b",
+      "bytes": 1048,
+      "sha256": "f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/017.txt",
+      "mode": "100644",
+      "blob": "885ed2846ee03e243cbdd6769336769fbfb4be7e",
+      "bytes": 10831,
+      "sha256": "903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/018.txt",
+      "mode": "100644",
+      "blob": "0b1f60fec599bdcd49d9454edac1b0960d1a2930",
+      "bytes": 425,
+      "sha256": "cd473d3bfc4802a305204d101e7802974526392dafdb74391ca690cf4c954562"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/019.txt",
+      "mode": "100644",
+      "blob": "d5dcdc4bec0bb6aaa4a5c204c6147e1c7eae04bf",
+      "bytes": 858,
+      "sha256": "1d4e7da4914f54110878d8260170cb42e154560c99dd9026d6cdacbbff79cbc0"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/020.txt",
+      "mode": "100644",
+      "blob": "ddf83924c5f0932dc33de5f3d73d7d741f062cd2",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/021.txt",
+      "mode": "100644",
+      "blob": "cfd513d344bece417f2560c35752bc0f086a18ee",
+      "bytes": 3469,
+      "sha256": "887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/022.txt",
+      "mode": "100644",
+      "blob": "592b0aa9106ef7482738a7cae39ef5ada2b04f95",
+      "bytes": 704,
+      "sha256": "fcc5784b19fef093b12276568b3e392f2930504183a2b9bf4276610c878c330c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/023.txt",
+      "mode": "100644",
+      "blob": "6be715018591b1e53f949355ad5f21d876827639",
+      "bytes": 32027,
+      "sha256": "fc853a924b7ded1effe7f1d839fb6bc908999e395abc297d2b9e1b9d2904e8f1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/024.txt",
+      "mode": "100644",
+      "blob": "5ff290c66138e625510a7cd39962d9d3e5b3ba2a",
+      "bytes": 32027,
+      "sha256": "5451033572e43aef4c467b61963a41a79250f81025846f51779fb47900ac6bd1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/025.txt",
+      "mode": "100644",
+      "blob": "66dca08e5423d419c9d76ae5840fe495f3f25dac",
+      "bytes": 364,
+      "sha256": "161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/026.txt",
+      "mode": "100644",
+      "blob": "79d3b7844ba32c144522c1a44d23b8c9d5dff829",
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/027.txt",
+      "mode": "100644",
+      "blob": "85f79b1543c87eb24eb367580323154b5af2edb5",
+      "bytes": 1231,
+      "sha256": "7bae398813416deb30860425fe81910f88543a6c432d3ed3d1ca021f2962931a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/028.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/029.txt",
+      "mode": "100644",
+      "blob": "241cd78364eec83d73fd1d16bf4715e55283d942",
+      "bytes": 382,
+      "sha256": "69528359025d2f3b1a3c01b1467936af11a4548419aea2b7098d793df03a7173"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/030.txt",
+      "mode": "100644",
+      "blob": "68e686dcf8bc2ce651c8771e1a2ece83b716994c",
+      "bytes": 1255,
+      "sha256": "65d4733ac8f24c1398e19d1cd0b24bb9f7bdac4e58d87b8389f32676a1738b3f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/031.txt",
+      "mode": "100644",
+      "blob": "d17a5082bd10b338fe21c3c6a51f9d301753d689",
+      "bytes": 11661,
+      "sha256": "d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/032.txt",
+      "mode": "100644",
+      "blob": "db8627445f9e5c6fb7fa9df1a63e4d4bd39e542a",
+      "bytes": 316,
+      "sha256": "fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/033.txt",
+      "mode": "100644",
+      "blob": "33131638ecd9e7d464e15314be17a392186a9007",
+      "bytes": 870,
+      "sha256": "997212d2bfa8aa7f3c939d661d7a9c709d14dde2fba451317d02383cecca2c07"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/034.txt",
+      "mode": "100644",
+      "blob": "b67cf06efe930b7a78ec1c29aa60019867aaacae",
+      "bytes": 267,
+      "sha256": "d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/035.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/036.txt",
+      "mode": "100644",
+      "blob": "768317fe10e0df4bea74a3dbf734899d81f16a9c",
+      "bytes": 818,
+      "sha256": "d06549ac9223df84d22e4e8c25f7b8372b8e8e173a264c96437feb4390172c4a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/037.txt",
+      "mode": "100644",
+      "blob": "5a46722fbf427d93485ffcc90b0f7e9ac1f29c07",
+      "bytes": 496,
+      "sha256": "756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/038.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/039.txt",
+      "mode": "100644",
+      "blob": "6d3faa3ba801313f0f830ac0808b104d7a095996",
+      "bytes": 872,
+      "sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/040.txt",
+      "mode": "100644",
+      "blob": "0fc954fc6ed1d74607e41ad8096d9196f20a037c",
+      "bytes": 1374,
+      "sha256": "d86062e753ba6fca94573eff8ad11d05e1d9cf99fec52e673d54717f1064c52b"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/manifest.json",
+      "mode": "100644",
+      "blob": "2c7138389c79cfe9f15514843096b899d2c19645",
+      "bytes": 26623,
+      "sha256": "d1a3bb112f3049cb9b67960640011d9f3d68b9ba7753dbb2e06a6fced8c17b2d"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/source-identities.json",
+      "mode": "100644",
+      "blob": "ddf83924c5f0932dc33de5f3d73d7d741f062cd2",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-input/verify.nu",
+      "mode": "100644",
+      "blob": "fc3e7e2b9e9ce3e7ee0d0b96149789f44f346ddb",
+      "bytes": 5198,
+      "sha256": "f05df7ffc78e84905079547ed581d2bcbeb90da1a1a6cc63e870fb5622a2a1b4"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-pack-v2.rb",
+      "mode": "100644",
+      "blob": "a6e385bcfbb951e89f089e24be2f726361c70658",
+      "bytes": 5389,
+      "sha256": "422f7d82c1ddf7a4ebbde214e072de29d4e33bc2b7973dc83af2bfb3db72ce8a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/plan-pack.rb",
+      "mode": "100644",
+      "blob": "99be5cf8d63b6f4367d2e46b04f06a62f2d2c100",
+      "bytes": 4583,
+      "sha256": "bb1c3f19fd08e5eda0d49f823061ab42f899bd41f70f91f6f5997649ebf6cddd"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/capture.rb",
+      "mode": "100644",
+      "blob": "6d3faa3ba801313f0f830ac0808b104d7a095996",
+      "bytes": 872,
+      "sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.json",
+      "mode": "100644",
+      "blob": "4161dba2e4c5e651069c49b9e56d3f516c784d66",
+      "bytes": 1397,
+      "sha256": "ab10fb7c19f08c03ff4e5d4f03ef9f328a0b12351fe7a34bd2309998399cb1b8"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.stderr",
+      "mode": "100644",
+      "blob": "6d30f4e28f8cc054308e781198ef0b52cd06fb93",
+      "bytes": 888,
+      "sha256": "cc41d04be3ee732368d8a6b1d7e7cf026bdd545d1c0d515d4509c54a0df1ecc3"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.stdout",
+      "mode": "100644",
+      "blob": "d6f28acc2a85cc9669ffaa58e930a7d8ef01ca16",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.json",
+      "mode": "100644",
+      "blob": "85f79b1543c87eb24eb367580323154b5af2edb5",
+      "bytes": 1231,
+      "sha256": "7bae398813416deb30860425fe81910f88543a6c432d3ed3d1ca021f2962931a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stderr",
+      "mode": "100644",
+      "blob": "241cd78364eec83d73fd1d16bf4715e55283d942",
+      "bytes": 382,
+      "sha256": "69528359025d2f3b1a3c01b1467936af11a4548419aea2b7098d793df03a7173"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stdout",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.json",
+      "mode": "100644",
+      "blob": "68e686dcf8bc2ce651c8771e1a2ece83b716994c",
+      "bytes": 1255,
+      "sha256": "65d4733ac8f24c1398e19d1cd0b24bb9f7bdac4e58d87b8389f32676a1738b3f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stderr",
+      "mode": "100644",
+      "blob": "db8627445f9e5c6fb7fa9df1a63e4d4bd39e542a",
+      "bytes": 316,
+      "sha256": "fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stdout",
+      "mode": "100644",
+      "blob": "d17a5082bd10b338fe21c3c6a51f9d301753d689",
+      "bytes": 11661,
+      "sha256": "d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.json",
+      "mode": "100644",
+      "blob": "95a93f6094467317ff76106eda3b78acddb24b4b",
+      "bytes": 1418,
+      "sha256": "a4f83cad9fbd0fe05b5a2298025a48ab5b00345481d563d00a90e33e1700ed23"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.stderr",
+      "mode": "100644",
+      "blob": "a7c43a7fd8257c191cebb1bd9b8a746029a853a9",
+      "bytes": 880,
+      "sha256": "cfed4936eb359ec52d37bfcae564e43a485a5547751c841b94b42e4380c5a36c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.stdout",
+      "mode": "100644",
+      "blob": "d6f28acc2a85cc9669ffaa58e930a7d8ef01ca16",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.json",
+      "mode": "100644",
+      "blob": "93cae9c2034210f2257d4c05e7a933e457e1a71c",
+      "bytes": 1411,
+      "sha256": "f6f82cad75670edffdb046e4b01b1c934b7ad7f4fba740ab1dd7cf437f3ebb6f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stderr",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stdout",
+      "mode": "100644",
+      "blob": "9eb0045f832b95f86200669f43949983de01112b",
+      "bytes": 72,
+      "sha256": "22c3676876af3c07a6921ad725e6f8d4781c4087e79eefed29825a2dd77fe31c"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.json",
+      "mode": "100644",
+      "blob": "290d4ee5abb57606482836c8ccd0131db4cc6ce9",
+      "bytes": 896,
+      "sha256": "2cee21d3aaaa26ac5cf27b2789b92d60a99f6dc2ecf17f70ba717b55e8e1165e"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.stderr",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.stdout",
+      "mode": "100644",
+      "blob": "28955b0a1e19072004546475834e30ce1b6d2af5",
+      "bytes": 428,
+      "sha256": "cca14b47f51c945ada6cc9d18013bfacad8aa8c146aac5431b7b3f537654c061"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.json",
+      "mode": "100644",
+      "blob": "65252988584736aaf777d525662ffa46d5c1486b",
+      "bytes": 896,
+      "sha256": "5291f50bdb00569cc123232ff83952b9a6f950937dbbb0e3207c17c79f5bcbaf"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.stderr",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.stdout",
+      "mode": "100644",
+      "blob": "1be1b81c3f4c370f1a2f360a0684a36c13e4bda0",
+      "bytes": 362,
+      "sha256": "75e7ef849be52b5f6ed47761ad0a486dfa49e4717745ab9cafd78e43f4872370"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.json",
+      "mode": "100644",
+      "blob": "768317fe10e0df4bea74a3dbf734899d81f16a9c",
+      "bytes": 818,
+      "sha256": "d06549ac9223df84d22e4e8c25f7b8372b8e8e173a264c96437feb4390172c4a"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stderr",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stdout",
+      "mode": "100644",
+      "blob": "5a46722fbf427d93485ffcc90b0f7e9ac1f29c07",
+      "bytes": 496,
+      "sha256": "756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.json",
+      "mode": "100644",
+      "blob": "33131638ecd9e7d464e15314be17a392186a9007",
+      "bytes": 870,
+      "sha256": "997212d2bfa8aa7f3c939d661d7a9c709d14dde2fba451317d02383cecca2c07"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.stderr",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.stdout",
+      "mode": "100644",
+      "blob": "b67cf06efe930b7a78ec1c29aa60019867aaacae",
+      "bytes": 267,
+      "sha256": "d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/replay.nu",
+      "mode": "100644",
+      "blob": "fd666f6d39fee23308cbb6214662a52c30c27d7d",
+      "bytes": 1795,
+      "sha256": "a8f26e4ce221fa18ddd99eb622015e6327e8df2f480386c747ab163619f3b151"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/completion.json",
+      "mode": "100644",
+      "blob": "277dc704bcd630ae7c45ef644737b0affd0f350b",
+      "bytes": 240,
+      "sha256": "0e36b4447e9cdbf6c2a1787a2e32bd66d0e4d6c6bb755cfe43782ed0bea4cf6b"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/invocation.json",
+      "mode": "100644",
+      "blob": "dcb912a060bcf7a397ed1835c6b4cb60c627bce1",
+      "bytes": 1223,
+      "sha256": "b76f9e1bf74867d0ee9bd508a9273d1ad33fbfa2de6c6b24548fdbc85a99946f"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/launcher.rb",
+      "mode": "100644",
+      "blob": "2619fe55e82d53efec69c4affa26b6c6dec56983",
+      "bytes": 1736,
+      "sha256": "a60044a087e3b792a9a4c0413bb5eed258ae6ac7201c1c3a752a81306a608fa3"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/result.md",
+      "mode": "100644",
+      "blob": "f44d7ec28cf4809e47f5ee8f06ac11ed93f811d1",
+      "bytes": 8924,
+      "sha256": "4f9bbdf74f2b8a94ac410c4a097415a63d5e17173499ac11475025ad405630c1"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/stderr.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/stdout.json",
+      "mode": "100644",
+      "blob": "2638fc723e94dbd3aa40f01bc67135e12c7ccf06",
+      "bytes": 10983,
+      "sha256": "c253af5655b79f1fbdfa4fae0cd4baf6cd2ae42d741b63e178be6aa496bd3b94"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json",
+      "mode": "100644",
+      "blob": "16eed545d554daf464ef364157d8606725303f89",
+      "bytes": 240,
+      "sha256": "e4bc2332413f64460b78b29577a23c9aa7019ae7f37197279e44b2a7c7228bd0"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json",
+      "mode": "100644",
+      "blob": "7f5742e64d44d5d3d01ba10eb9bbec6bfbac3c83",
+      "bytes": 1223,
+      "sha256": "84ed4a38c954d7a0ed6155c823090d978ae1e3a88544f5bd4e4d8f47c81683b3"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/launcher.rb",
+      "mode": "100644",
+      "blob": "2619fe55e82d53efec69c4affa26b6c6dec56983",
+      "bytes": 1736,
+      "sha256": "a60044a087e3b792a9a4c0413bb5eed258ae6ac7201c1c3a752a81306a608fa3"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md",
+      "mode": "100644",
+      "blob": "6299f4bf57800dccde93bc3f686cec39c3374aa8",
+      "bytes": 8517,
+      "sha256": "9397ff948d59b5736c6fce0322913a71dd4aea3b7364934f9a30eeb767205544"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stderr.txt",
+      "mode": "100644",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json",
+      "mode": "100644",
+      "blob": "ddd54d575f85285fd5e40d412a4730f0f41fa8b3",
+      "bytes": 10552,
+      "sha256": "27a51f83e0ea67a2fbd7951f8bf83a2572ea4fe859a95d99a33d90f233a7dec4"
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/v2-evidence.rb",
+      "mode": "100644",
+      "blob": "0ea01a909aaf2e52686c60023be044afb71714d9",
+      "bytes": 5041,
+      "sha256": "a9107bd1e7fedb6ea24286f653a5ba4134de85f835ca7f36c8a099d0a682acb3"
+    }
+  ],
+  "changed_paths": [
+    ".claude/tasks/audit-cargo-packaging/execution.md",
+    ".claude/tasks/audit-cargo-packaging/plan.md",
+    ".claude/tasks/audit-cargo-packaging/research.md",
+    ".claude/tasks/audit-cargo-packaging/response-v1.md",
+    "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+    "audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+    "audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+    "audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt",
+    "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+    "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+    "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+    "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "audit/2026-10-12-bao-bounded-proof/verify.nu",
+    "audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt",
+    "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+    "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "audit/2026-10-12-bao-proof-research/verify.nu",
+    "audit/2026-10-12-bao-proof-research/verify.original.nu.txt",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-after-runs.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-before-runs.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/observation.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-child-code.nu.txt",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-measurement.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/registry.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/renames.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/source.json",
+    "audit/2026-10-13-audit-cargo-packaging/inputs/v2-additional-source.json",
+    "audit/2026-10-13-audit-cargo-packaging/inventory.rb",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/probe.rs",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-09-kadek-slice-traversal/reproduce.nu",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/code-input/verify.nu",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/files.json",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-bounded-proof/verify.nu",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/files.json",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/2026-10-12-bao-proof-research/verify.nu",
+    "audit/2026-10-13-audit-cargo-packaging/original/Cargo.lock",
+    "audit/2026-10-13-audit-cargo-packaging/original/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/original/cyber-bao/Cargo.toml.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/context.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/files.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/001.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/002.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/003.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/004.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/005.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/006.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/007.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/008.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/009.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/010.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/011.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/012.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/013.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/014.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/015.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/016.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/017.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/018.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/019.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/020.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/021.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/022.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/023.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/024.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/025.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/026.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/027.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/028.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/029.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/030.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/031.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/032.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/033.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/034.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/035.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/036.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/037.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/038.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/039.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/040.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/041.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/042.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/043.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/044.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/045.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/046.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/047.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/048.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/049.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/050.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/051.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/052.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/053.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/054.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/055.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/inputs/056.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/manifest.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/previous-review-raw.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/source-identities.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input-v2/verify.nu",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/context.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/files.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/001.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/002.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/003.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/004.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/005.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/006.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/007.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/008.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/009.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/010.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/011.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/012.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/013.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/014.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/015.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/016.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/017.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/018.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/019.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/020.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/021.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/022.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/023.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/024.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/025.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/026.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/027.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/028.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/029.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/030.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/031.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/032.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/033.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/034.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/035.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/036.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/037.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/038.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/039.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/inputs/040.txt",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/manifest.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/source-identities.json",
+    "audit/2026-10-13-audit-cargo-packaging/plan-input/verify.nu",
+    "audit/2026-10-13-audit-cargo-packaging/plan-pack-v2.rb",
+    "audit/2026-10-13-audit-cargo-packaging/plan-pack.rb",
+    "audit/2026-10-13-audit-cargo-packaging/records/capture.rb",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-debug.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-release.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification-v2.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/plan-verification.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/proof-before.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/records/research-before.json",
+    "audit/2026-10-13-audit-cargo-packaging/records/research-before.stderr",
+    "audit/2026-10-13-audit-cargo-packaging/records/research-before.stdout",
+    "audit/2026-10-13-audit-cargo-packaging/replay.nu",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/completion.json",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/invocation.json",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/launcher.rb",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/result.md",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/stderr.txt",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/stdout.json",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/launcher.rb",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stderr.txt",
+    "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json",
+    "audit/2026-10-13-audit-cargo-packaging/v2-evidence.rb"
+  ],
+  "unchanged_normal_paths": 4419,
+  "archive_manifest_count": 0,
+  "scope": "Independent local committed witness; real index and branch untouched."
+}

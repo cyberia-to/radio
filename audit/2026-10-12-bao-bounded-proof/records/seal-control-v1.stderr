@@ -1,0 +1,7 @@
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+   Compiling bao-proof-seal-probes v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/seals)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.03s
+     Running `/tmp/radio-bao-proof-target/debug/control`

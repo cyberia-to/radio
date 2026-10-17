@@ -1,0 +1,20 @@
+    Blocking waiting for file lock on package cache
+    Checking postcard v1.1.3
+    Checking plist v1.8.0
+    Checking hickory-proto v0.25.2
+   Compiling cyber-radio-quinn v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/quinn/quinn)
+    Checking mainline v6.0.1
+    Checking netdev v0.40.0
+    Checking rcgen v0.14.7
+    Checking iroh-metrics v0.38.2
+    Checking tracing-subscriber v0.3.22
+    Checking pkarr v5.0.2
+    Checking acto v0.8.0
+    Checking hickory-resolver v0.25.2
+    Checking cyber-radio-netwatch v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/nettools/netwatch)
+    Checking tokio-rustls-acme v0.9.0
+    Checking cyber-radio-portmapper v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/nettools/portmapper)
+    Checking cyber-radio-relay v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-relay)
+    Checking swarm-discovery v0.5.0
+    Checking cyber-radio v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.93s

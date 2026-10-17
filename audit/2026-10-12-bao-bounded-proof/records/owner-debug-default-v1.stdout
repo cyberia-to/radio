@@ -1,0 +1,173 @@
+
+running 70 tests
+test hash::tests::hash_size ... ok
+test hash::tests::poseidon2_backend_counter ... ok
+test hash::tests::poseidon2_backend_root_differs ... ok
+test hash::tests::poseidon2_backend_basic ... ok
+test group::tests::u64_geometry_is_bounded_without_oversized_slices ... ok
+test hash::tests::poseidon2_backend_parent ... ok
+test io::decode::tests::decode_empty ... ok
+test io::decode::tests::decode_partial_block ... ok
+test io::encode::tests::encode_empty ... ok
+test io::encode::tests::encode_partial_block ... ok
+test io::decode::tests::decode_wrong_root_fails ... ok
+test io::decode::tests::decode_single_block ... ok
+test io::decode::tests::decode_tampered_data_fails ... ok
+test io::decode::tests::decode_truncated_fails ... ok
+test io::outboard::tests::outboard_different_data_different_root ... ok
+test io::encode::tests::encode_deterministic ... ok
+test io::outboard::tests::outboard_empty ... ok
+test io::encode::tests::encode_single_block ... ok
+test io::decode::tests::decode_two_blocks ... ok
+test io::outboard::tests::outboard_deterministic ... ok
+test io::outboard::tests::outboard_single_block ... ok
+test io::outboard::tests::outboard_partial_last_block ... ok
+test io::encode::tests::encode_two_blocks ... ok
+test io::pre_order::tests::post_order_mem_outboard_create ... ok
+test io::root_policy_tests::empty_and_single_leaf_preserve_absolute_counter_and_root ... ok
+test io::root_policy_tests::finalization_and_odd_promotion_are_independent_of_group_position ... ok
+test io::outboard::tests::outboard_four_blocks ... ok
+test io::outboard::tests::outboard_two_blocks ... ok
+test io::decode::tests::decode_four_blocks ... ok
+test io::slice::tests::single_block_slice_roundtrip ... ok
+test io::slice::tests::decode_slice_wrong_root_fails ... ok
+test io::encode::tests::encode_block_size_default ... ok
+test io::pre_order::tests::pre_order_outboard_roundtrip ... ok
+test io::pre_order::tests::pre_order_mem_outboard_create ... ok
+test io::slice::tests::decode_slice_full_range_roundtrip ... ok
+test io::encode::tests::encode_block_size_nonzero ... ok
+test io::pre_order::tests::post_order_can_validate_via_encode_ranges ... ok
+test io::slice::tests::decode_slice_partial_range ... ok
+test io::slice::tests::slice_full_range_matches_encode ... ok
+test io::pre_order::tests::pre_order_outboard_block_size_nonzero ... ok
+test io::sync::tests::valid_ranges_empty_data ... ok
+test tree::tests::bao_tree_basic ... ok
+test tree::tests::bao_tree_empty ... ok
+test tree::tests::bao_tree_large ... ok
+test tree::tests::bao_tree_two_blocks ... ok
+test tree::tests::block_size_bytes ... ok
+test tree::tests::block_size_from_bytes ... ok
+test tree::tests::post_order_two_blocks ... ok
+test io::sync::tests::encode_ranges_validated_full ... ok
+test tree::tests::pre_order_four_blocks ... ok
+test tree::tests::pre_order_single_block ... ok
+test tree::tests::pre_order_two_blocks ... ok
+test tree::tests::tree_node_children ... ok
+test tree::tests::tree_node_chunk_range ... ok
+test tree::tests::tree_node_is_leaf ... ok
+test io::slice::tests::multi_range_slice_extract_and_verify ... ok
+test tree::tests::tree_node_level ... ok
+test io::sync::tests::valid_ranges_all_valid ... ok
+test io::slice::tests::slice_partial_range_is_smaller ... ok
+test io::pre_order::tests::post_order_matches_pre_order_block_size_nonzero ... ok
+test io::sync::tests::encode_then_valid_ranges_roundtrip ... ok
+test io::pre_order::tests::post_order_outboard_all_nodes_match_pre_order ... ok
+test io::slice::tests::slice_root_hash_independent_of_range ... ok
+test io::sync::tests::encode_ranges_block_size_nonzero ... ok
+test io::slice::tests::slice_roundtrip_block_size_nonzero ... ok
+test io::sync::tests::valid_ranges_block_size_nonzero ... ok
+test io::sync::tests::encode_ranges_partial_large_block ... ok
+test io::decode::tests::roundtrip_various_sizes ... ok
+test io::decode::tests::roundtrip_block_size_default ... ok
+test io::decode::tests::roundtrip_block_size_nonzero ... ok
+
+test result: ok. 70 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 5 tests
+test absolute_counter_bounds_are_checked_before_any_backend_call ... ok
+test caller_total_and_one_action_calls_pause_at_every_boundary ... ok
+test nonzero_counter_internal_cv_uses_literal_partitions ... ok
+test sixty_literal_cases_have_one_kernel_per_step_and_move_only_hashes ... ok
+test concrete_roots_match_frozen_literals_and_pinned_complete_left_oracle ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 1 test
+test concrete_reducer_construction_steps_poll_and_drop_do_not_allocate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 5 tests
+test debug_does_not_print_payload ... ok
+test jobs_can_interleave_and_views_outlive_verifiers_and_cursors ... ok
+test literal_schedules_and_exact_borrowed_coordinates ... ok
+test cancelling_at_each_pending_stage_publishes_nothing ... ok
+test caller_quotas_and_total_are_not_renewed_by_groups_or_yields ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 1 test
+test concrete_verifier_all_stages_output_failure_and_cancel_allocate_nothing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 11 tests
+test diagnostic_strings_and_core_error_trait_are_frozen ... ok
+test each_expected_root_word_has_exact_canonical_boundary ... ok
+test largest_group_width_is_geometry_not_allocation_admission ... ok
+test geometry_precedes_empty_request_and_root_canonicality ... ok
+test maximum_frontier_prefix_uses_literal_small_missing_leaf ... ok
+test representation_aliases_are_not_normalized ... ok
+test absolute_chunk_counter_is_not_relative_to_the_selected_group ... ok
+test canonical_parent_and_payload_corruption_never_publish ... ok
+test exact_eof_is_a_separate_required_commit ... ok
+test header_size_is_trusted_input_and_every_truncation_is_exact ... ok
+test both_children_all_words_reject_noncanonical_before_hashing ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 8 tests
+test caller_pauses_and_interleaving_preserve_progress ... ok
+test exact_admission_errors_and_geometry_precedence ... ok
+test literal_half_open_selection_flags_and_root_placement ... ok
+test maximum_file_final_path_uses_literal_remainder ... ok
+test maximum_left_prefix_requires_fifty_three_pending_slots ... ok
+test tiny_lengths_and_empty_requests_are_geometric ... ok
+test literal_complete_left_shapes_and_partial_last_groups ... ok
+test finite_eager_compatibility_is_supplemental ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test construction_steps_terminal_polls_and_drop_allocate_nothing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 7 tests
+test mixed_canonical_success_and_old_root_terminal_error ... ok
+test published_empty_and_hello_tree_vectors_are_unchanged ... ok
+test literal_proof_accepts_canonical_root ... ok
+test literal_root_reaches_every_producer ... ok
+test literal_proof_rejects_the_old_internal_cv ... ok
+test non_root_partial_and_odd_groups_verify_with_absolute_counters ... ok
+test grouping_preserves_fixed_tree_at_boundaries ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+
+running 9 tests
+test grouped_single_block_has_canonical_root_finalization ... ok
+test literal_partial_fifth_leaf_and_mixed_outside_query ... ok
+test literal_left_and_full_controls ... ok
+test right_proof_rejects_corruption_and_truncation ... ok
+test literal_sparse_leaves ... ok
+test literal_right_subtree_is_authenticated ... ok
+test literal_grouped_right_blocks ... ok
+test multiblock_empty_and_outside_queries_preserve_existing_behavior ... ok
+test literal_nested_right_subtree ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

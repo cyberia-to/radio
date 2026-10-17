@@ -1,0 +1,9 @@
+{
+  "time": "2026-10-13T00:26:41Z",
+  "path": "/tmp/radio-bao-proof-workspace-target",
+  "kibibytes": 9467408,
+  "active_compilers_or_tests": [],
+  "reason": "completed mixed-tree cache retired; raw receipts and source epochs retained",
+  "exists_after": false,
+  "prior_inline_guard": "matched its own source argv and refused cleanup; no bytes removed by that attempt"
+}

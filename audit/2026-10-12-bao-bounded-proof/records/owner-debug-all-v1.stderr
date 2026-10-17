@@ -1,0 +1,21 @@
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling serde_derive v1.0.228
+   Compiling bytes v1.11.1
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling tokio v1.49.0
+   Compiling iroh-io v0.6.2
+   Compiling range-collections v0.4.6
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.74s
+     Running unittests src/lib.rs (/tmp/radio-bao-proof-target/debug/deps/cyber_bao-d2e17691fa71ca69)
+     Running tests/group.rs (/tmp/radio-bao-proof-target/debug/deps/group-1510ee0905d7365b)
+     Running tests/group_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/group_allocation-54b1eb3290621df9)
+     Running tests/proof.rs (/tmp/radio-bao-proof-target/debug/deps/proof-4ed29e7d960009cd)
+     Running tests/proof_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/proof_allocation-3230997a0ae14445)
+     Running tests/proof_failures.rs (/tmp/radio-bao-proof-target/debug/deps/proof_failures-f1e8bfbb4174dfc6)
+     Running tests/range_traversal.rs (/tmp/radio-bao-proof-target/debug/deps/range_traversal-ebb4963c42561958)
+     Running tests/range_traversal_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/range_traversal_allocation-7fa4886b0f8210e9)
+     Running tests/root_policy.rs (/tmp/radio-bao-proof-target/debug/deps/root_policy-ea6723068cf243d9)
+     Running tests/slice_traversal.rs (/tmp/radio-bao-proof-target/debug/deps/slice_traversal-15a3356857b7138e)
+   Doc-tests cyber_bao

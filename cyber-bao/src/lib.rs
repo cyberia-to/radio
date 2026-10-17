@@ -11,18 +11,30 @@
 //! - **`hash`**: Pluggable hash backend trait with Poseidon2 implementation
 //! - **`io`**: Encoding, decoding, outboard creation, and slice extraction
 
+#![cfg_attr(not(feature = "std"), no_std)]
+
+pub mod group;
 pub mod hash;
+#[cfg(feature = "std")]
 pub mod io;
+pub mod proof;
+pub mod traversal;
 pub mod tree;
 
 pub use hash::{HashBackend, Poseidon2Backend};
-pub use tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, PostOrderChunkIter, TreeNode, CHUNK_SIZE};
+pub use tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum, TreeNode};
+
+#[cfg(feature = "std")]
+pub use tree::PostOrderChunkIter;
 
 /// A set of chunk ranges (used for partial downloads, range requests, etc.).
+#[cfg(feature = "std")]
 pub type ChunkRanges = range_collections::RangeSet2<ChunkNum>;
 
 /// Borrowed reference to chunk ranges.
+#[cfg(feature = "std")]
 pub type ChunkRangesRef = range_collections::RangeSetRef<ChunkNum>;
 
 /// A set of byte ranges.
+#[cfg(feature = "std")]
 pub type ByteRanges = range_collections::RangeSet2<u64>;

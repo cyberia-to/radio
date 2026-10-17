@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "path": "cyber-bao/tests/proof.rs",
+      "first_sha256": "5781a521bd60fffac480b1a93dd39b269a6d68fdd677087b05485aef61f78eca",
+      "ready_sha256": "01298d186800bfda4ba5db19f69e0c3291ab33528c323a9f551a677c54cd7baa",
+      "unchanged": false
+    },
+    {
+      "path": "cyber-bao/tests/proof_failures.rs",
+      "first_sha256": "0b56c6426a0628d66fbc4fe61846045d60db7252dbe3ed5c96654706641007ad",
+      "ready_sha256": "9a89df71bbdd17dec76b9907dd026a3b4104cfe77d12367b12a86140f67e1af7",
+      "unchanged": false
+    },
+    {
+      "path": "cyber-bao/tests/proof_allocation.rs",
+      "first_sha256": "f0ca1f2bdec25b517c4c475a185f3d3ee5cc902facdfa79985f748a6be9bc920",
+      "ready_sha256": "b8dc7985cc0cf68e68530d19cc8040b8ed28773c67965b5170ad571645b45df5",
+      "unchanged": false
+    },
+    {
+      "path": "cyber-bao/tests/support/proof.rs",
+      "first_sha256": "a28d04cb2d1cee78f950b895956830fe849cfe97256649b3a2088200994c5ddd",
+      "ready_sha256": "a28d04cb2d1cee78f950b895956830fe849cfe97256649b3a2088200994c5ddd",
+      "unchanged": true
+    }
+  ],
+  "diff_sha256": "60b0577d6c0ff94999fe201d5765cb11644864a64a63cba37155091391da5895",
+  "changes": "lexical cancellation/lifetime scope, one scoped reversed-range lint allowance, std/external import grouping; literal expected values unchanged"
+}

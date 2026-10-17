@@ -18,6 +18,7 @@ use cyber_bao::tree::BlockSize;
 
 mod particle_index;
 use particle_index::ParticleIndex;
+use radio_cli::{hex_to_bytes, parse_poseidon_hash};
 
 #[derive(Parser)]
 #[command(name = "radio", about = "Radio network CLI", version)]
@@ -103,7 +104,7 @@ enum BlobAction {
     Add {
         /// File to import
         path: PathBuf,
-        /// Record the particle (Poseidon2) → blob-hash (BLAKE3) mapping in
+        /// Record the particle (flat Hemera hash) → blob-hash (BAO tree root) mapping in
         /// this index file, so the blob can later be fetched by particle
         #[arg(long)]
         index: Option<PathBuf>,
@@ -257,26 +258,6 @@ fn cmd_hash(action: HashAction) -> Result<()> {
         }
     }
     Ok(())
-}
-
-fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
-    let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
-    if bytes.len() != 32 {
-        bail!("hash must be 32 bytes (64 hex chars), got {} bytes", bytes.len());
-    }
-    let mut arr = [0u8; 32];
-    arr.copy_from_slice(&bytes);
-    Ok(hemera::Hash::from_bytes(arr))
-}
-
-fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {
-    if hex.len() % 2 != 0 {
-        bail!("odd-length hex string");
-    }
-    (0..hex.len())
-        .step_by(2)
-        .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).context("invalid hex digit"))
-        .collect()
 }
 
 // ── Node implementation ────────────────────────────────────────────────

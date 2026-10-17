@@ -10,7 +10,7 @@ use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::store::{util::DD, IROH_BLOCK_SIZE};
 
-/// Compute the BAO tree hash of data using Poseidon2.
+/// Compute the canonical fixed-chunk BAO tree root using Poseidon2.
 ///
 /// This delegates to the outboard builder to ensure Hash::new(data) equals
 /// the root hash from PreOrderMemOutboard::create for the same data.
@@ -31,17 +31,22 @@ impl fmt::Debug for Hash {
 }
 
 impl Hash {
-    /// The hash for the empty byte range (`b""`).
+    /// The hash for the empty byte range (`b""`): the tree root `Hash::new(b"")`,
+    /// `ea57b2e6b1ec7d2de11b15cb6d7060dd61d247fe0fbf5f7d3fb97a7be9328552`.
     ///
-    /// NOTE: This constant must be recomputed after any parameter change.
-    /// It is set to a placeholder; the test_empty_hash test will verify correctness.
-    pub const EMPTY: Hash = Hash::from_bytes([0u8; OUTPUT_BYTES]);
+    /// Recompute after any Hemera or tree parameter change; `test_empty_hash` pins it.
+    pub const EMPTY: Hash = Hash::from_bytes([
+        0xea, 0x57, 0xb2, 0xe6, 0xb1, 0xec, 0x7d, 0x2d, 0xe1, 0x1b, 0x15, 0xcb, 0x6d, 0x70, 0x60,
+        0xdd, 0x61, 0xd2, 0x47, 0xfe, 0x0f, 0xbf, 0x5f, 0x7d, 0x3f, 0xb9, 0x7a, 0x7b, 0xe9, 0x32,
+        0x85, 0x52,
+    ]);
 
-    /// Calculate the hash of the provided bytes using the BAO tree hash.
+    /// Calculate the canonical fixed-chunk BAO tree root of the provided bytes.
     ///
     /// This computes the hash using the same tree structure as the BAO
-    /// outboard, ensuring that `Hash::new(data)` equals the root hash
-    /// produced by the outboard builder for the same data.
+    /// outboard, with 4096-byte leaves and ROOT finalization on the final node.
+    /// Grouping leaves for transport preserves this root. This is the tree-hash
+    /// domain; a plain Hemera particle is computed in its own domain.
     pub fn new(buf: impl AsRef<[u8]>) -> Self {
         let data = buf.as_ref();
         let val = tree_hash(data);
@@ -73,6 +78,11 @@ impl Hash {
         res
     }
 }
+
+#[cfg(test)]
+mod empty_root;
+#[cfg(test)]
+mod root_policy;
 
 impl AsRef<[u8]> for Hash {
     fn as_ref(&self) -> &[u8] {
@@ -483,10 +493,8 @@ mod tests {
 
     #[test]
     fn test_empty_hash() {
-        // Hash::EMPTY is a placeholder; verify actual empty hash is deterministic
-        let hash = Hash::new(b"");
-        let hash2 = Hash::new(b"");
-        assert_eq!(hash, hash2);
+        // Hash::EMPTY is a literal and must stay the tree root of `b""`.
+        assert_eq!(Hash::new(b""), Hash::EMPTY, "{}", Hash::new(b"").to_hex());
     }
 
     #[test]

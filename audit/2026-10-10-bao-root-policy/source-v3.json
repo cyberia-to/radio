@@ -1,0 +1,46 @@
+[
+  {
+    "path": "cyber-bao/src/io/mod.rs",
+    "sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a"
+  },
+  {
+    "path": "cyber-bao/src/io/outboard.rs",
+    "sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06"
+  },
+  {
+    "path": "cyber-bao/src/io/decode.rs",
+    "sha256": "334bfbe8e731a7b2b863c36b6a8f95562206c14ed2b944492897b5920837589d"
+  },
+  {
+    "path": "cyber-bao/src/io/slice.rs",
+    "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7"
+  },
+  {
+    "path": "cyber-bao/src/io/sync.rs",
+    "sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a"
+  },
+  {
+    "path": "cyber-bao/tests/slice_traversal.rs",
+    "sha256": "c63b206b11b17c81ab36543180a3c59a2022ecf8966375f24d87069d764f48b4"
+  },
+  {
+    "path": "cyber-bao/tests/root_policy.rs",
+    "sha256": "779a5b92d158c5b370d0c01e1692cf3585e0c39f31fc730794f77f115d9a84f3"
+  },
+  {
+    "path": "iroh-blobs/src/hash.rs",
+    "sha256": "50d1b2fd83c0c986d13941b35d2b38bd6d9749b462e3f5ff6b576d3acfb5748e"
+  },
+  {
+    "path": "iroh-blobs/src/hash/root_policy.rs",
+    "sha256": "8f92e68f3b3440ebec2d9ce8fcfbcf884f2e4717915430b09674b74d53509af4"
+  },
+  {
+    "path": "iroh-blobs/src/api/blobs/export_pairs.rs",
+    "sha256": "96914dc66c602b6e0bc9cf29a5287a84214b514be367ca96eef0b637079eb9c2"
+  },
+  {
+    "path": "iroh-blobs/src/api/blobs/export_pairs/support.rs",
+    "sha256": "6fea117f35e8ae4b121ddc7e2679b01ca9fb9e67ed4ac19c702e10c6ac7b8c3a"
+  }
+]

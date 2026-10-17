@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-13T00:26:06Z",
+  "driver_pid": 36606,
+  "signals": [
+    "TERM",
+    "CONT"
+  ],
+  "active_child_command_completed": "2026-10-13T00:25:08.411787Z",
+  "receipt": "radio-bao-proof-parent-workspace-nextest-default",
+  "exit_code": 100,
+  "next_candidate_none_started": false,
+  "accepted_as_clean_isolated_baseline": false
+}

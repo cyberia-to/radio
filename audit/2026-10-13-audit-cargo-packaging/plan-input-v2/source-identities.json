@@ -1,0 +1,170 @@
+[
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+    "local": "original/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+    "bytes": 454,
+    "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "local": "original/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+    "bytes": 375,
+    "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+    "local": "original/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+    "bytes": 246,
+    "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+    "local": "original/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+    "bytes": 222,
+    "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "local": "original/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "local": "original/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+    "bytes": 377,
+    "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+    "local": "original/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+    "bytes": 217,
+    "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+    "local": "original/2026-10-09-kadek-slice-traversal/reproduce.nu",
+    "bytes": 11037,
+    "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-proof-research/verify.nu",
+    "local": "original/2026-10-12-bao-proof-research/verify.nu",
+    "bytes": 4241,
+    "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+    "local": "original/2026-10-12-bao-bounded-proof/verify.nu",
+    "bytes": 10975,
+    "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/code-input/verify.nu",
+    "local": "original/2026-10-12-bao-bounded-proof/code-input/verify.nu",
+    "bytes": 2833,
+    "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-proof-research/files.json",
+    "local": "original/2026-10-12-bao-proof-research/files.json",
+    "bytes": 13350,
+    "sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-12-bao-bounded-proof/files.json",
+    "local": "original/2026-10-12-bao-bounded-proof/files.json",
+    "bytes": 98759,
+    "sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "Cargo.toml",
+    "local": "original/Cargo.toml.txt",
+    "bytes": 2085,
+    "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "cyber-bao/Cargo.toml",
+    "local": "original/cyber-bao/Cargo.toml.txt",
+    "bytes": 1078,
+    "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "Cargo.lock",
+    "local": "original/Cargo.lock",
+    "bytes": 186712,
+    "sha256": "90d5aa88f4fb507434036ad5ec0ca7a3897741fe810fdf16a080bff006130d65"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "local": "original/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "bytes": 15956,
+    "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+    "local": "original/2026-10-09-kadek-slice-traversal/probe.rs",
+    "bytes": 5265,
+    "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "local": "original/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "bytes": 1038,
+    "sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "local": "original/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "bytes": 275,
+    "sha256": "ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+    "local": "original/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+    "bytes": 1106,
+    "sha256": "b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb"
+  }
+]

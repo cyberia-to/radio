@@ -17,6 +17,16 @@ pub use size_info::SizeInfo;
 mod partial_mem_storage;
 pub use partial_mem_storage::PartialMemStorage;
 
+pub(super) const HASH_PAIR_BYTES: usize = 2 * hemera::OUTPUT_BYTES;
+
+pub(super) fn encode_parent_pair(pair: &(hemera::Hash, hemera::Hash)) -> [u8; HASH_PAIR_BYTES] {
+    let mut bytes = [0; HASH_PAIR_BYTES];
+    let (left, right) = bytes.split_at_mut(hemera::OUTPUT_BYTES);
+    left.copy_from_slice(pair.0.as_bytes());
+    right.copy_from_slice(pair.1.as_bytes());
+    bytes
+}
+
 #[cfg(feature = "fs-store")]
 mod mem_or_file;
 #[cfg(feature = "fs-store")]
@@ -215,16 +225,16 @@ mod fs {
 
     pub fn write_checksummed<P: AsRef<Path>, T: Serialize>(path: P, data: &T) -> io::Result<()> {
         // Build Vec with space for hash
-        let mut buffer = Vec::with_capacity(64 + 128);
-        buffer.extend_from_slice(&[0u8; 64]);
+        let mut buffer = Vec::with_capacity(hemera::OUTPUT_BYTES + 128);
+        buffer.extend_from_slice(&[0u8; hemera::OUTPUT_BYTES]);
 
         // Serialize directly into buffer
         postcard::to_io(data, &mut buffer).map_err(io::Error::other)?;
 
-        // Compute hash over data (skip first 64 bytes)
-        let data_slice = &buffer[64..];
+        // Compute hash over data (skip the leading hash)
+        let data_slice = &buffer[hemera::OUTPUT_BYTES..];
         let hash = hemera::hash(data_slice);
-        buffer[..64].copy_from_slice(hash.as_bytes());
+        buffer[..hemera::OUTPUT_BYTES].copy_from_slice(hash.as_bytes());
 
         // Write all at once
         let mut file = File::create(&path)?;
@@ -255,12 +265,12 @@ mod fs {
             ));
         }
 
-        if buffer.len() < 64 {
+        if buffer.len() < hemera::OUTPUT_BYTES {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "File too short"));
         }
 
-        let stored_hash = &buffer[..64];
-        let data = &buffer[64..];
+        let stored_hash = &buffer[..hemera::OUTPUT_BYTES];
+        let data = &buffer[hemera::OUTPUT_BYTES..];
 
         let computed_hash = hemera::hash(data);
         if computed_hash.as_bytes() != stored_hash {
@@ -293,12 +303,12 @@ mod fs {
             ));
         }
 
-        if buffer.len() < 64 {
+        if buffer.len() < hemera::OUTPUT_BYTES {
             return Err(io::Error::new(io::ErrorKind::InvalidData, "File too short"));
         }
 
-        let stored_hash = &buffer[..64];
-        let data = &buffer[64..];
+        let stored_hash = &buffer[..hemera::OUTPUT_BYTES];
+        let data = &buffer[hemera::OUTPUT_BYTES..];
 
         let computed_hash = hemera::hash(data);
         if computed_hash.as_bytes() != stored_hash {

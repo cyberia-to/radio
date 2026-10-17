@@ -1,0 +1,73 @@
+{
+  "observed_at": "2026-10-09T23:52:59Z",
+  "repository": "cyberia-to/radio",
+  "local_git_cwd": "/Users/master/cyber/radio-kadek-export-pairs",
+  "status": [
+    {
+      "command": "gh run view 38006379058 --json databaseId,workflowName,headSha,status,conclusion,createdAt,updatedAt,url,jobs",
+      "exit": 0
+    },
+    {
+      "command": "gh run view 38006378962 --json databaseId,workflowName,headSha,status,conclusion,createdAt,updatedAt,url,jobs",
+      "exit": 0
+    }
+  ],
+  "logs": [
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022203/logs",
+      "exit": 0,
+      "file": "job-114076022203.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022216/logs",
+      "exit": 0,
+      "file": "job-114076022216.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022242/logs",
+      "exit": 0,
+      "file": "job-114076022242.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022248/logs",
+      "exit": 0,
+      "file": "job-114076022248.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022258/logs",
+      "exit": 0,
+      "file": "job-114076022258.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022271/logs",
+      "exit": 0,
+      "file": "job-114076022271.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022274/logs",
+      "exit": 0,
+      "file": "job-114076022274.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076022305/logs",
+      "exit": 0,
+      "file": "job-114076022305.log"
+    },
+    {
+      "command": "gh api repos/cyberia-to/radio/actions/jobs/114076014812/logs",
+      "exit": 0,
+      "file": "job-114076014812.log"
+    }
+  ],
+  "comparisons": [
+    {
+      "command": "git diff --name-only 764d732ac38fb9116c4cf525a6d1bb463d409a06 3c291e511cb1c5457a5bd1945c45681f263bd064",
+      "exit": 0
+    },
+    {
+      "command": "git diff --exit-code 764d732ac38fb9116c4cf525a6d1bb463d409a06 3c291e511cb1c5457a5bd1945c45681f263bd064 -- .github/workflows Cargo.toml iroh/Cargo.toml iroh-relay/Cargo.toml cyber-bao/Cargo.toml",
+      "exit": 0
+    }
+  ],
+  "codespell_blob_comparison": "For each codespell path: git rev-parse <base>:<path> and git rev-parse <head>:<path>; exact outputs in codespell-file-comparison.json"
+}

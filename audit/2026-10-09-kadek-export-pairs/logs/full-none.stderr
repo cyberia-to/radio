@@ -1,0 +1,107 @@
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+error[E0432]: unresolved import `iroh_blobs::store::fs`
+ --> iroh-blobs/examples/random_store.rs:9:12
+  |
+9 |     store::fs::FsStore,
+  |            ^^ could not find `fs` in `store`
+  |
+note: found an item that was configured out
+ --> iroh-blobs/src/store/mod.rs:9:9
+  |
+8 | #[cfg(feature = "fs-store")]
+  |       -------------------- the item is gated behind the `fs-store` feature
+9 | pub mod fs;
+  |         ^^
+
+error[E0277]: the trait bound `EndpointTicket: From<EndpointAddr>` is not satisfied
+   --> iroh-blobs/examples/random_store.rs:246:18
+    |
+246 |     let ticket = EndpointTicket::from(addr.clone());
+    |                  ^^^^^^^^^^^^^^ the trait `From<EndpointAddr>` is not implemented for `EndpointTicket`
+    |
+help: the trait `From<EndpointAddr>` is not implemented for `EndpointTicket`
+      but trait `From<iroh_base::endpoint_addr::EndpointAddr>` is implemented for it
+   --> /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iroh-tickets-0.3.0/src/endpoint.rs:91:1
+    |
+ 91 | impl From<EndpointAddr> for EndpointTicket {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for that trait implementation, expected `iroh_base::endpoint_addr::EndpointAddr`, found `EndpointAddr`
+
+error[E0277]: the trait bound `EndpointInfo: From<iroh_base::endpoint_addr::EndpointAddr>` is not satisfied
+   --> iroh-blobs/examples/random_store.rs:275:30
+    |
+275 |         sp.add_endpoint_info(ticket.endpoint_addr().clone());
+    |            ----------------- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `From<iroh_base::endpoint_addr::EndpointAddr>` is not implemented for `EndpointInfo`
+    |            |
+    |            required by a bound introduced by this call
+    |
+help: the following other types implement trait `From<T>`
+   --> iroh/src/address_lookup.rs:404:1
+    |
+404 | impl From<Item> for EndpointInfo {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `EndpointInfo` implements `From<radio::address_lookup::Item>`
+    |
+   ::: iroh-relay/src/endpoint_info.rs:291:1
+    |
+291 | impl From<TxtAttrs<IrohAttr>> for EndpointInfo {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `EndpointInfo` implements `From<endpoint_info::TxtAttrs<endpoint_info::IrohAttr>>`
+...
+297 | impl From<&TxtAttrs<IrohAttr>> for EndpointInfo {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `EndpointInfo` implements `From<&endpoint_info::TxtAttrs<endpoint_info::IrohAttr>>`
+...
+334 | impl From<EndpointAddr> for EndpointInfo {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `EndpointInfo` implements `From<EndpointAddr>`
+    = note: required for `iroh_base::endpoint_addr::EndpointAddr` to implement `Into<EndpointInfo>`
+note: required by a bound in `MemoryLookup::add_endpoint_info`
+   --> iroh/src/address_lookup/memory.rs:175:57
+    |
+175 |     pub fn add_endpoint_info(&self, endpoint_info: impl Into<EndpointInfo>) {
+    |                                                         ^^^^^^^^^^^^^^^^^^ required by this bound in `MemoryLookup::add_endpoint_info`
+
+error[E0308]: mismatched types
+   --> iroh-blobs/examples/custom-protocol.rs:305:37
+    |
+305 |         let hash = Hash::from_bytes(hash_bytes);
+    |                    ---------------- ^^^^^^^^^^ expected an array with a size of 32, found one with a size of 64
+    |                    |
+    |                    arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> iroh-blobs/src/hash.rs:57:18
+    |
+ 57 |     pub const fn from_bytes(bytes: [u8; OUTPUT_BYTES]) -> Self {
+    |                  ^^^^^^^^^^
+
+error[E0308]: mismatched types
+   --> iroh-blobs/examples/random_store.rs:284:46
+    |
+284 |             .download(content, Shuffled::new(nodes.clone()))
+    |                                ------------- ^^^^^^^^^^^^^ expected `radio::PublicKey`, found `iroh_base::key::PublicKey`
+    |                                |
+    |                                arguments to this function are incorrect
+    |
+note: there are multiple different versions of crate `iroh_base` in the dependency graph
+   --> iroh-base/src/key.rs:24:1
+    |
+ 24 | pub struct PublicKey(CompressedEdwardsY);
+    | ^^^^^^^^^^^^^^^^^^^^ this is the expected type
+    |
+   ::: /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iroh-base-0.96.1/src/key.rs:24:1
+    |
+ 24 | pub struct PublicKey(CompressedEdwardsY);
+    | -------------------- this is the found type
+    = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+   --> iroh-blobs/src/api/downloader.rs:517:12
+    |
+517 |     pub fn new(nodes: Vec<EndpointId>) -> Self {
+    |            ^^^
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `iroh-blobs` (example "custom-protocol") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+Some errors have detailed explanations: E0277, E0308, E0432.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `iroh-blobs` (example "random_store") due to 4 previous errors

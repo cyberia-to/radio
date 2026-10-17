@@ -1,0 +1,10 @@
+[[component]]
+name = "kadek"
+kind = "part"
+repo = "kadek"
+verb = "decode"
+facet = "play"
+layer = 8
+part_of = "cyb"
+phase = "1"
+state = "pure rust media: decode what a file renders to; specs aligned with soft3 2026-09-25"

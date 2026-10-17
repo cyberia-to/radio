@@ -1,0 +1,11 @@
+{
+  "sha256": "2a4eca60f6784d2dbfb8041e0354956f6111a1c496e1d9237e5bfe53004d80c3",
+  "bytes": 23946511,
+  "payload_files": 979,
+  "payload_bytes": 63594168,
+  "command_records": 196,
+  "raw_streams": 392,
+  "source_files": 5,
+  "source_freeze_sha256": "751d7471250a7899ed4a7a6af35df9200c404448dc08633208d74fc96852213d",
+  "historical_capsule_sha256": "fc654a17f3c820877e8af14f143abd34188836840a33d6959fd0d98eecd54884"
+}

@@ -1,0 +1,92 @@
+{
+  "created": "2026-10-13T00:00:37Z",
+  "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "files": [
+    {
+      "path": "fixtures/empty-log0.bin",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "path": "fixtures/final-short-log1.bin",
+      "bytes": 73,
+      "sha256": "77a2744c2afa90a5d1e8c1d2d96412d9780ffae5cd0e63ff114c03224e7cbaa5"
+    },
+    {
+      "path": "fixtures/five-interior-log0.bin",
+      "bytes": 4296,
+      "sha256": "165b8541da1adfedc50e2f7dcc58b6baf83e85bfbd7e5bce4d6aa48c7c6d8a05"
+    },
+    {
+      "path": "fixtures/five-right-log0.bin",
+      "bytes": 4168,
+      "sha256": "4916195d7234c1a3053cb9d3d268f9d56c97f1e65689647aa3c36e24698e2201"
+    },
+    {
+      "path": "fixtures/full-three-log0.bin",
+      "bytes": 12424,
+      "sha256": "cf349076256feafe973bcc30a5912fff0887e87535a64d56e6c12959cd8c884c"
+    },
+    {
+      "path": "fixtures/full-three-log1.bin",
+      "bytes": 12360,
+      "sha256": "0cc624f135a03e100d1a6c92139f25ab70c7d31b72863c980fb612a2b12b133e"
+    },
+    {
+      "path": "fixtures/full-three-log2.bin",
+      "bytes": 12296,
+      "sha256": "8188f5f51e897f2c8e60b184abb4fb38aef6d9a09a93b20bc80d563226c1ddca"
+    },
+    {
+      "path": "fixtures/full-three-log4.bin",
+      "bytes": 12296,
+      "sha256": "8188f5f51e897f2c8e60b184abb4fb38aef6d9a09a93b20bc80d563226c1ddca"
+    },
+    {
+      "path": "fixtures/grouped-left-log1.bin",
+      "bytes": 8264,
+      "sha256": "7c512483a57fb4d7e82c69ff44859d68433dec8cd1d61a96463e0f16444deef5"
+    },
+    {
+      "path": "fixtures/hello-log0.bin",
+      "bytes": 13,
+      "sha256": "fe745503750fdbf3e6ef676d16d85ee0d63626c594222f7e991908bdffef7ac9"
+    },
+    {
+      "path": "fixtures/seven-interior-log0.bin",
+      "bytes": 4296,
+      "sha256": "c4a6c1645b8ae310af8e14ff3e0330e9980b9e0ac2bda0626eca23289ad147d9"
+    },
+    {
+      "path": "fixtures/seven-right-log0.bin",
+      "bytes": 4232,
+      "sha256": "4699a0e669d8618eb10a646f8046060d7b1657f7a167b4ca5dbb9a408abab5f8"
+    },
+    {
+      "path": "fixtures/sole-group-log1.bin",
+      "bytes": 8200,
+      "sha256": "ad31d4c9d0040256379a6ebf3437beed5eaa6117e14b208f53ceacaa13bbd57a"
+    },
+    {
+      "path": "fixtures/synthetic-deep-prefix.bin",
+      "bytes": 7432,
+      "sha256": "4d7be59d5cc517c2b3f63cd7eb1bb6131ba80200ebb97ea26c7cc4d4072fbf19"
+    },
+    {
+      "path": "fixtures/three-boundary-log0.bin",
+      "bytes": 8328,
+      "sha256": "f58ca31c3f1eb4c9a28d216a8dcd745e4019d94e16a71142b16919a87b11471d"
+    },
+    {
+      "path": "fixtures/three-interior-log0.bin",
+      "bytes": 4232,
+      "sha256": "5bace76142c12c4cffebcf8d287ab109a7453ed2875191625a6f1a18b536019f"
+    },
+    {
+      "path": "fixtures/three-right-log0.bin",
+      "bytes": 4168,
+      "sha256": "708ab4a235f6b8f0a796304e6155f57107b2b293f9b3d693309b0d15e658fd35"
+    }
+  ],
+  "production_exists": false
+}

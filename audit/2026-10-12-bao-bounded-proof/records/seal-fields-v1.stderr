@@ -1,0 +1,17 @@
+    Checking serde_core v1.0.229
+    Checking cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+    Checking cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Checking serde v1.0.229
+    Checking bao-proof-seal-probes v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/seals)
+error[E0451]: fields `proof`, `root`, `size`, `block` and `request` of struct `VerifiedProof` are private
+ --> src/bin/fields.rs:2:47
+  |
+2 |     let _ = cyber_bao::proof::VerifiedProof { proof: &[], root: [0; 32], size: 0, block: cyber_bao::BlockSize(0), request: 0..0 };
+  |                                               ^^^^^       ^^^^           ^^^^     ^^^^^ private field             ^^^^^^^ private field
+  |                                               |           |              |
+  |                                               |           |              private field
+  |                                               |           private field
+  |                                               private field
+
+For more information about this error, try `rustc --explain E0451`.
+error: could not compile `bao-proof-seal-probes` (bin "fields") due to 1 previous error

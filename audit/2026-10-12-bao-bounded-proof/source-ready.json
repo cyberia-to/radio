@@ -1,0 +1,48 @@
+{
+  "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "created": "2026-10-13T00:21:56Z",
+  "files": [
+    {
+      "path": "cyber-bao/src/lib.rs",
+      "local": "source-ready/cyber-bao/src/lib.rs",
+      "bytes": 1345,
+      "sha256": "9e82621f1a213a4943c2d8e5b313621ce0e5cee811f86975fe9bff20195c472a"
+    },
+    {
+      "path": "cyber-bao/src/proof.rs",
+      "local": "source-ready/cyber-bao/src/proof.rs",
+      "bytes": 11816,
+      "sha256": "82e5aed5b71ab1263d05df7808046a614991ec5daeab2e30b88a12b970c395b7"
+    },
+    {
+      "path": "cyber-bao/src/proof/output.rs",
+      "local": "source-ready/cyber-bao/src/proof/output.rs",
+      "bytes": 5054,
+      "sha256": "b2f4ec894d5f28524ebad8e60e6129ee15f2282aeeb51c347f4e8471072989d6"
+    },
+    {
+      "path": "cyber-bao/tests/proof.rs",
+      "local": "source-ready/cyber-bao/tests/proof.rs",
+      "bytes": 7146,
+      "sha256": "01298d186800bfda4ba5db19f69e0c3291ab33528c323a9f551a677c54cd7baa"
+    },
+    {
+      "path": "cyber-bao/tests/proof_failures.rs",
+      "local": "source-ready/cyber-bao/tests/proof_failures.rs",
+      "bytes": 11662,
+      "sha256": "9a89df71bbdd17dec76b9907dd026a3b4104cfe77d12367b12a86140f67e1af7"
+    },
+    {
+      "path": "cyber-bao/tests/proof_allocation.rs",
+      "local": "source-ready/cyber-bao/tests/proof_allocation.rs",
+      "bytes": 4240,
+      "sha256": "b8dc7985cc0cf68e68530d19cc8040b8ed28773c67965b5170ad571645b45df5"
+    },
+    {
+      "path": "cyber-bao/tests/support/proof.rs",
+      "local": "source-ready/cyber-bao/tests/support/proof.rs",
+      "bytes": 7549,
+      "sha256": "a28d04cb2d1cee78f950b895956830fe849cfe97256649b3a2088200994c5ddd"
+    }
+  ]
+}

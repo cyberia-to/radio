@@ -1,0 +1,8 @@
+{
+  "name": "complete-clippy-none",
+  "kind": "candidate",
+  "source_before": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "source_after": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "record_sha256": "da8c640ea15f8267591e2bf0a8f4eb96160b824adbaf46b81832d8a7d4807982",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

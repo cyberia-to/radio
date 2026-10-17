@@ -1,0 +1,35 @@
+{
+  "started": "2026-10-13T00:08:08.985233Z",
+  "finished": "2026-10-13T00:08:09.017662Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "PATH=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin:/Users/master/.cargo/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "RUSTFLAGS=-Dwarnings",
+    "RUSTDOCFLAGS=-Dwarnings",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-target",
+    "cargo",
+    "check",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "--bin",
+    "drop_proof"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 101,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-seal-drop_proof-v1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-seal-drop_proof-v1.stderr",
+    "bytes": 970,
+    "sha256": "58559bcdf6fd710e64158163c333a0fe93c86c1690a5d1ebeae578571c277ce4"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "nu",
+    "--no-config-file",
+    "audit/2026-10-11-hemera-source-pin/verify.nu",
+    "audit/2026-10-11-hemera-source-pin"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "started": "2026-10-11T21:38:35Z",
+  "finished": "2026-10-11T21:38:58Z",
+  "exit": 0,
+  "verifier_sha256": "23b579e71d8027560e88efd8440f17f9078035bc7d830cabfbb910fdcf90fd62",
+  "checksums_sha256_at_run": "bf010d5bd2127aa62c015289cb0281f3b72c0cb776331e58815b07c103076fc4",
+  "stdout_sha256": "94883b4efb3b66d9afe087b47d5e73a02ad7f94410f5458d9b2b55a5231590b0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

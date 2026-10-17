@@ -1,0 +1,70 @@
+
+running 11 tests
+test api::blobs::export_pairs::geometry_pins ... ok
+test api::blobs::export_pairs::literal_parent_progress ... FAILED
+test api::blobs::export_pairs::payload_progress_failure ... FAILED
+test api::blobs::export_pairs::partial_parent_failure ... FAILED
+test api::blobs::export_pairs::literal_parent_write ... FAILED
+test api::blobs::export_pairs::writer_failure_accounting ... FAILED
+test api::blobs::export_pairs::literal_parent_byte_stream ... FAILED
+test api::blobs::export_pairs::encoded_error_propagates ... FAILED
+test api::blobs::export_pairs::readonly_store_missing ... ok
+test api::blobs::export_pairs::readonly_store_parent_free ... ok
+test api::blobs::export_pairs::readonly_store_right_block ... FAILED
+
+failures:
+
+---- api::blobs::export_pairs::literal_parent_progress stdout ----
+
+thread 'api::blobs::export_pairs::literal_parent_progress' (56906542) panicked at iroh-blobs/src/api/blobs.rs:1154:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- api::blobs::export_pairs::payload_progress_failure stdout ----
+
+thread 'api::blobs::export_pairs::payload_progress_failure' (56906545) panicked at iroh-blobs/src/api/blobs.rs:1154:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::partial_parent_failure stdout ----
+
+thread 'api::blobs::export_pairs::partial_parent_failure' (56906544) panicked at iroh-blobs/src/api/blobs.rs:1122:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::literal_parent_write stdout ----
+
+thread 'api::blobs::export_pairs::literal_parent_write' (56906543) panicked at iroh-blobs/src/api/blobs.rs:1122:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::writer_failure_accounting stdout ----
+
+thread 'api::blobs::export_pairs::writer_failure_accounting' (56906549) panicked at iroh-blobs/src/api/blobs.rs:1122:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::literal_parent_byte_stream stdout ----
+
+thread 'api::blobs::export_pairs::literal_parent_byte_stream' (56906541) panicked at iroh-blobs/src/api/blobs.rs:1181:28:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::encoded_error_propagates stdout ----
+
+thread 'api::blobs::export_pairs::encoded_error_propagates' (56906539) panicked at iroh-blobs/src/api/blobs.rs:1122:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+---- api::blobs::export_pairs::readonly_store_right_block stdout ----
+
+thread 'api::blobs::export_pairs::readonly_store_right_block' (56906548) panicked at iroh-blobs/src/api/blobs.rs:1122:32:
+copy_from_slice: source slice length (32) does not match destination slice length (64)
+
+
+failures:
+    api::blobs::export_pairs::encoded_error_propagates
+    api::blobs::export_pairs::literal_parent_byte_stream
+    api::blobs::export_pairs::literal_parent_progress
+    api::blobs::export_pairs::literal_parent_write
+    api::blobs::export_pairs::partial_parent_failure
+    api::blobs::export_pairs::payload_progress_failure
+    api::blobs::export_pairs::readonly_store_right_block
+    api::blobs::export_pairs::writer_failure_accounting
+
+test result: FAILED. 3 passed; 8 failed; 0 ignored; 0 measured; 99 filtered out; finished in 0.04s
+

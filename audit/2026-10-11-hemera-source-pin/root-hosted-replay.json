@@ -1,0 +1,24 @@
+{
+  "started": "2026-10-11T21:56:07.650598Z",
+  "finished": "2026-10-11T21:56:07.716135Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "revision": "d90a784fa6a7f410492cc6c6d5242527e221c399",
+  "argv": [
+    "nu",
+    "--no-config-file",
+    "audit/2026-10-11-hemera-source-pin/hosted/verify.nu",
+    "audit/2026-10-11-hemera-source-pin/hosted"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-hemera-pin-root-hosted-replay.stdout",
+    "bytes": 337,
+    "sha256": "93425cb9f1c08bcbebe03a5daa68e5dc1939f57bb90337712c78b650ea178bfd"
+  },
+  "stderr": {
+    "path": "/tmp/radio-hemera-pin-root-hosted-replay.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

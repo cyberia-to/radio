@@ -1,8 +1,9 @@
-//! Maps a cyber particle hash (Poseidon2/hemera, the identity `cyb` and the
-//! rest of the graph address a file by) to the iroh-blobs content hash
-//! (BLAKE3) of the same bytes, so a blob can be requested from a peer by
-//! particle instead of by the transport's own hash. The two hashes are
-//! computed independently over identical bytes and never coincide, so
+//! Maps a cyber particle hash (flat Hemera hash, the identity `cyb` and the
+//! rest of the graph address a file by) to the iroh-blobs content hash (the
+//! Hemera BAO tree root over 4 KiB leaves, a separate domain) of the same
+//! bytes, so a blob can be requested from a peer by particle instead of by
+//! the transport's own hash. The two hashes are computed independently over
+//! identical bytes and do not coincide, so
 //! resolving "fetch this particle" into "fetch this blob hash" needs this
 //! translation step before the standard `iroh_blobs` get protocol can run.
 //!
@@ -30,6 +31,7 @@ impl ParticleIndex {
         self.0.get(&particle.to_string())?.parse().ok()
     }
 
+    #[cfg(test)]
     pub fn len(&self) -> usize {
         self.0.len()
     }

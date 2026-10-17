@@ -1,0 +1,330 @@
+{
+  "radio_parent": "764d732ac38fb9116c4cf525a6d1bb463d409a06",
+  "hemera": "23f3bbcff910ea6d504ceb505680a539260869da",
+  "tag": "f2b1298daa9f635c821d53996c4d1dc4f1042b3d",
+  "radio_archive_sha256": "fb02b8c2160162ff2e3a94b82ffffffd8712d093e21936f4223ddea385c1320a",
+  "hemera_archive_sha256": "b6c347f8a93904ed10de20a9d1ce17fd092038b14d4fdec8ba5a6218788ad833",
+  "parent_lock_blob": "8ea933dfbb9aec54002213be4883b9829112b7c4",
+  "parent_lock_sha256": "295b21c8804e3885a195511ffca6fcf368e7c762c5b411374aecf20ba4d14052",
+  "tag_lock_blob": "e10b128ee7148d7273756ae6e4d1ef06c4ff1ff1",
+  "tag_lock_sha256": "c29de94e4a4998b3b66963b2e1a7974d17154e4eed4d9a15afef576fa46c59f6",
+  "baseline_local_packages": [
+    {
+      "name": "cyber-bao",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/cyber-bao/Cargo.toml"
+    },
+    {
+      "name": "cyber-hemera",
+      "version": "0.3.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/hemera/rs/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-base",
+      "version": "0.1.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-base/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-netwatch",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/nettools/netwatch/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-portmapper",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/nettools/portmapper/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/quinn/quinn/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-proto",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/quinn/quinn-proto/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-udp",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/quinn/quinn-udp/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-relay",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-relay/Cargo.toml"
+    },
+    {
+      "name": "iroh-bench",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh/bench/Cargo.toml"
+    },
+    {
+      "name": "iroh-blobs",
+      "version": "0.98.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-blobs/Cargo.toml"
+    },
+    {
+      "name": "iroh-car",
+      "version": "0.5.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-car/Cargo.toml"
+    },
+    {
+      "name": "iroh-dns-server",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-dns-server/Cargo.toml"
+    },
+    {
+      "name": "iroh-docs",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-docs/Cargo.toml"
+    },
+    {
+      "name": "iroh-gossip",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-gossip/Cargo.toml"
+    },
+    {
+      "name": "iroh-willow",
+      "version": "0.28.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/iroh-willow/Cargo.toml"
+    },
+    {
+      "name": "particle",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/particle/Cargo.toml"
+    },
+    {
+      "name": "radio-cli",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/radio-cli/Cargo.toml"
+    },
+    {
+      "name": "radio-integration-tests",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/baseline/radio/tests/integration/Cargo.toml"
+    }
+  ],
+  "candidate_local_packages": [
+    {
+      "name": "cyber-bao",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/cyber-bao/Cargo.toml"
+    },
+    {
+      "name": "cyber-hemera",
+      "version": "0.3.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/hemera/rs/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-base",
+      "version": "0.1.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-base/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-netwatch",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/nettools/netwatch/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-portmapper",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/nettools/portmapper/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-proto",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn-proto/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-udp",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/quinn/quinn-udp/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-relay",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-relay/Cargo.toml"
+    },
+    {
+      "name": "iroh-bench",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh/bench/Cargo.toml"
+    },
+    {
+      "name": "iroh-blobs",
+      "version": "0.98.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs/Cargo.toml"
+    },
+    {
+      "name": "iroh-car",
+      "version": "0.5.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-car/Cargo.toml"
+    },
+    {
+      "name": "iroh-dns-server",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-dns-server/Cargo.toml"
+    },
+    {
+      "name": "iroh-docs",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-docs/Cargo.toml"
+    },
+    {
+      "name": "iroh-gossip",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-gossip/Cargo.toml"
+    },
+    {
+      "name": "iroh-willow",
+      "version": "0.28.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-willow/Cargo.toml"
+    },
+    {
+      "name": "particle",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/particle/Cargo.toml"
+    },
+    {
+      "name": "radio-cli",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/radio-cli/Cargo.toml"
+    },
+    {
+      "name": "radio-integration-tests",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/tests/integration/Cargo.toml"
+    }
+  ],
+  "parent_local_packages": [
+    {
+      "name": "cyber-bao",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/cyber-bao/Cargo.toml"
+    },
+    {
+      "name": "cyber-hemera",
+      "version": "0.3.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/hemera/rs/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-base",
+      "version": "0.1.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-base/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-netwatch",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/nettools/netwatch/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-portmapper",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/nettools/portmapper/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-proto",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn-proto/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-quinn-udp",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/quinn/quinn-udp/Cargo.toml"
+    },
+    {
+      "name": "cyber-radio-relay",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-relay/Cargo.toml"
+    },
+    {
+      "name": "iroh-bench",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh/bench/Cargo.toml"
+    },
+    {
+      "name": "iroh-blobs",
+      "version": "0.98.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-blobs/Cargo.toml"
+    },
+    {
+      "name": "iroh-car",
+      "version": "0.5.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-car/Cargo.toml"
+    },
+    {
+      "name": "iroh-dns-server",
+      "version": "0.96.1",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-dns-server/Cargo.toml"
+    },
+    {
+      "name": "iroh-docs",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-docs/Cargo.toml"
+    },
+    {
+      "name": "iroh-gossip",
+      "version": "0.96.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-gossip/Cargo.toml"
+    },
+    {
+      "name": "iroh-willow",
+      "version": "0.28.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/iroh-willow/Cargo.toml"
+    },
+    {
+      "name": "particle",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/particle/Cargo.toml"
+    },
+    {
+      "name": "radio-cli",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/radio-cli/Cargo.toml"
+    },
+    {
+      "name": "radio-integration-tests",
+      "version": "0.1.0",
+      "manifest_path": "/private/tmp/radio-export-pairs.FbuGlp/parent/radio/tests/integration/Cargo.toml"
+    }
+  ],
+  "semver_tool": {
+    "version": "0.51.0",
+    "executable": "/Users/master/.cargo/bin/cargo-semver-checks",
+    "sha256": "a4fcf9eae2dd1ee88f91dc71f1236b49faa7d90165d9c326dbf2f1fb7dd41c18",
+    "scope": "parent versus candidate; tool-generated scratch resolution, not tag or source lock",
+    "scratch_hashes": [
+      "a5ede8aa211c20dfacad2079843071b9b15dcf4c8bf56fb3c66c6e8eca8280cb  /tmp/radio-export-pairs.FbuGlp/api-smoke/candidate-Cargo.toml",
+      "8300ac95c7b4a2cf9aca33a5b3c779846381716e398b7dece1cf712b5ccedf05  /tmp/radio-export-pairs.FbuGlp/api-smoke/candidate-Cargo.lock",
+      "d301dd4307e112b7e8a67f49d74c2a0caefd7f9f9cda4e23a7f4c6020f4e26ab  /tmp/radio-export-pairs.FbuGlp/api-smoke/parent-Cargo.toml",
+      "8300ac95c7b4a2cf9aca33a5b3c779846381716e398b7dece1cf712b5ccedf05  /tmp/radio-export-pairs.FbuGlp/api-smoke/parent-Cargo.lock"
+    ]
+  },
+  "implementation": "62e7f53f237ceaf0f5037a396e79ff70f2c735cd"
+}

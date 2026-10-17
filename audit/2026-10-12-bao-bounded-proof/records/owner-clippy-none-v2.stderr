@@ -1,0 +1,29 @@
+    Checking cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+error: this range is empty so it will yield no values
+  --> cyber-bao/tests/proof_failures.rs:57:21
+   |
+57 |     for request in [2..1, 0..6] {
+   |                     ^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#reversed_empty_ranges
+   = note: `#[deny(clippy::reversed_empty_ranges)]` on by default
+help: consider using the following if you are attempting to iterate over this range in reverse
+   |
+57 -     for request in [2..1, 0..6] {
+57 +     for request in [(1..2).rev(), 0..6] {
+   |
+
+error: this range is empty so it will yield no values
+  --> cyber-bao/tests/proof_failures.rs:64:63
+   |
+64 |         ProofVerifier::new(&[], [255; 32], 0, BlockSize(255), 1..0).unwrap_err(),
+   |                                                               ^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#reversed_empty_ranges
+help: consider using the following if you are attempting to iterate over this range in reverse
+   |
+64 -         ProofVerifier::new(&[], [255; 32], 0, BlockSize(255), 1..0).unwrap_err(),
+64 +         ProofVerifier::new(&[], [255; 32], 0, BlockSize(255), (0..1).rev()).unwrap_err(),
+   |
+
+error: could not compile `cyber-bao` (test "proof_failures") due to 2 previous errors

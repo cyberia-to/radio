@@ -1,0 +1,9 @@
+{
+  "logical_files": 5845,
+  "unique_objects": 1742,
+  "logical_bytes": 149823634,
+  "unique_bytes": 50338120,
+  "archive_bytes": 8757824,
+  "scope": "Both frozen CODE packs, complete original and policy PLAN packs and approvals, raw 96 implementation records/192 streams, final and historical source epochs. Large derived rustdoc bodies, redundant original archives and external product trees remain explicitly inventoried omissions, not silently reconstructed evidence.",
+  "dependencies": "Portable verifier uses Nushell 0.112.2, tar, mktemp and shasum; no Ruby or Python needed for verification. This Ruby file only records capsule construction."
+}
