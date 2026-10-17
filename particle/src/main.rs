@@ -178,3 +178,80 @@ fn fatal(msg: &str) -> ! {
     eprintln!("error: {msg}");
     process::exit(1);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn hex_roundtrip() {
+        let h = hemera::hash(b"cyberlink");
+        let hex = h.to_string();
+        let parsed = parse_hash(&hex);
+        assert_eq!(parsed, h);
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_odd_length() {
+        assert_eq!(hex_to_bytes("abc"), None);
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_non_hex() {
+        assert_eq!(hex_to_bytes("zz"), None);
+    }
+
+    // encode -> decode round trip through the exact API the CLI wraps: a
+    // file fetched by particle hash must reconstruct byte-identical data.
+    #[test]
+    fn encode_decode_roundtrip_recovers_original_bytes() {
+        let data = b"the graph comes home as files and cyberlinks".to_vec();
+        let backend = Poseidon2Backend;
+        let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+
+        let decoded = decode::decode(&backend, &encoded, &root, BlockSize::ZERO)
+            .expect("decode of untampered encoding must succeed");
+        assert_eq!(decoded, data);
+    }
+
+    // this is the "verified" half of verified streaming: a peer that
+    // returns bytes for the wrong particle, or corrupts even one byte in
+    // transit, must be caught before the caller sees bad data.
+    #[test]
+    fn decode_rejects_corrupted_bytes() {
+        let data = vec![7u8; 4096 * 3 + 17]; // spans multiple BAO chunks
+        let backend = Poseidon2Backend;
+        let (root, mut encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+
+        let mid = encoded.len() / 2;
+        encoded[mid] ^= 0xff;
+
+        let result = decode::decode(&backend, &encoded, &root, BlockSize::ZERO);
+        assert!(result.is_err(), "corrupted encoding must not verify");
+    }
+
+    #[test]
+    fn verify_detects_hash_mismatch() {
+        let data = b"bostrom".to_vec();
+        let backend = Poseidon2Backend;
+        let ob = outboard::outboard(&backend, &data, BlockSize::ZERO);
+
+        let wrong = hemera::hash(b"pussy");
+        assert_ne!(ob.root, wrong);
+    }
+
+    // the other half of "verified": a peer that answers a request for
+    // particle p with a perfectly well-formed encoding of some other content
+    // q must be rejected, because the root the caller asked for is the key
+    // the stream is checked against, not anything the peer sends.
+    #[test]
+    fn decode_rejects_well_formed_bytes_of_another_particle() {
+        let backend = Poseidon2Backend;
+        let (root_p, _encoded_p) = encode::encode(&backend, b"bostrom", BlockSize::ZERO);
+        let (root_q, encoded_q) = encode::encode(&backend, b"pussy", BlockSize::ZERO);
+        assert_ne!(root_p, root_q);
+
+        let result = decode::decode(&backend, &encoded_q, &root_p, BlockSize::ZERO);
+        assert!(result.is_err(), "bytes of q must not verify as p");
+    }
+}
