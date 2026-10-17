@@ -1,0 +1,25 @@
+{
+  "started": "2026-10-13T02:16:25.460945Z",
+  "finished": "2026-10-13T02:16:25.495176Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "argv": [
+    "git",
+    "clone",
+    "--bare",
+    "--shared",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "/tmp/radio-audit-packaging-pair-v3/source.git"
+  ],
+  "env": {},
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/source-acquire.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/source-acquire.stderr",
+    "bytes": 86,
+    "sha256": "e29be0e94125007c416104746826c098508a42f0926fa74849659aef1137b5e1"
+  }
+}

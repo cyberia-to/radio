@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "snapshot": "e22c5b472a0979ad382d241b9706de5b82fed9a9",
+  "arms": [
+    {
+      "label": "parent",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "source_count": 63,
+      "stable_inputs": 102,
+      "warnings": {
+        "lock": [
+          "warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:\n"
+        ],
+        "metadata": [
+          "warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:\n"
+        ],
+        "debug": [
+          "warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:\n"
+        ],
+        "release": [
+          "warning: skipping duplicate package `cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:\n"
+        ]
+      },
+      "source_manifest": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/Cargo.toml"
+    },
+    {
+      "label": "candidate",
+      "revision": "e22c5b472a0979ad382d241b9706de5b82fed9a9",
+      "source_count": 63,
+      "stable_inputs": 102,
+      "warnings": {
+        "lock": [],
+        "metadata": [],
+        "debug": [],
+        "release": []
+      },
+      "source_manifest": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/Cargo.toml"
+    }
+  ],
+  "external_stable": true,
+  "stdout_sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99",
+  "source_tuples_equal": 63,
+  "scope": "Only eight-case consumer commands; metadata normalization checked separately."
+}

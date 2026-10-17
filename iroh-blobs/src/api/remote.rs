@@ -294,7 +294,9 @@ impl LocalInfo {
     /// Number of children in this hash sequence
     pub fn children(&self) -> Option<u64> {
         if self.children.is_some() {
-            self.bitfield.validated_size().map(|x| x / 64)
+            self.bitfield
+                .validated_size()
+                .map(|x| x / hemera::OUTPUT_BYTES as u64)
         } else {
             Some(0)
         }
@@ -323,7 +325,10 @@ impl LocalInfo {
         }
         if let Some(children) = self.children.as_ref() {
             let mut iter = self.request.ranges.iter_non_empty_infinite();
-            let max_child = self.bitfield.validated_size().map(|x| x / 64);
+            let max_child = self
+                .bitfield
+                .validated_size()
+                .map(|x| x / hemera::OUTPUT_BYTES as u64);
             loop {
                 let Some((offset, range)) = iter.next() else {
                     break;
@@ -371,7 +376,10 @@ impl LocalInfo {
             .next_back()
             .map(|x| *x + 1)
             .unwrap_or_default();
-        let max_offset = self.bitfield.validated_size().map(|x| x / 64);
+        let max_offset = self
+            .bitfield
+            .validated_size()
+            .map(|x| x / hemera::OUTPUT_BYTES as u64);
         loop {
             let Some((offset, requested)) = iter.next() else {
                 break;
@@ -998,7 +1006,7 @@ impl IntoIterator for HashSeqChunk {
 
 impl HashSeqChunk {
     pub fn base(&self) -> u64 {
-        self.offset / 64
+        self.offset / hemera::OUTPUT_BYTES as u64
     }
 
     #[allow(dead_code)]
@@ -1044,7 +1052,7 @@ impl LazyHashSeq {
         // load the chunk covering the offset
         let leaf = self
             .blobs
-            .export_chunk(self.hash, child_offset * 64)
+            .export_chunk(self.hash, child_offset * hemera::OUTPUT_BYTES as u64)
             .await?;
         // return the hash if it is in the chunk, otherwise we are behind the end
         let hs = HashSeqChunk::try_from(leaf)?;
@@ -1144,13 +1152,19 @@ mod tests {
 
     #[tokio::test]
     async fn test_local_info_hash_seq_large() -> TestResult<()> {
-        let sizes = (0..1024 + 5).collect::<Vec<_>>();
-        let relevant_sizes = sizes[16 * 16..16 * 32]
+        // Imports are whole blocks, so the present range of the hash seq is its second
+        // block: IROH_BLOCK_SIZE / OUTPUT_BYTES child hashes per block.
+        use crate::store::IROH_BLOCK_SIZE;
+        let block_bytes = IROH_BLOCK_SIZE.bytes();
+        let chunks_per_block = 1u64 << IROH_BLOCK_SIZE.chunk_log();
+        let per_block = block_bytes / hemera::OUTPUT_BYTES;
+        let sizes = (0..2 * per_block + 5).collect::<Vec<_>>();
+        let relevant_sizes = sizes[per_block..2 * per_block]
             .iter()
             .map(|x| *x as u64)
             .sum::<u64>();
         let td = tempfile::tempdir()?;
-        let hash_seq_ranges = ChunkRanges::chunks(16..32);
+        let hash_seq_ranges = ChunkRanges::chunks(chunks_per_block..2 * chunks_per_block);
         let store = FsStore::load(td.path().join("blobs.db")).await?;
         {
             // only add the hash seq itself, and only the first chunk of the children
@@ -1165,7 +1179,7 @@ mod tests {
             let info = store.remote().local(content).await?;
             assert_eq!(info.bitfield.ranges, hash_seq_ranges);
             assert!(!info.is_complete());
-            assert_eq!(info.local_bytes(), relevant_sizes + 16 * 1024);
+            assert_eq!(info.local_bytes(), relevant_sizes + block_bytes as u64);
         }
 
         Ok(())
@@ -1214,7 +1228,7 @@ mod tests {
     async fn test_local_info_hash_seq() -> TestResult<()> {
         let sizes = INTERESTING_SIZES;
         let total_size = sizes.iter().map(|x| *x as u64).sum::<u64>();
-        let hash_seq_size = (sizes.len() as u64) * 64;
+        let hash_seq_size = (sizes.len() * hemera::OUTPUT_BYTES) as u64;
         let td = tempfile::tempdir()?;
         let store = FsStore::load(td.path().join("blobs.db")).await?;
         {
@@ -1252,8 +1266,8 @@ mod tests {
         }
         {
             // only add the hash seq itself, and only the first chunk of the children.
-            // With block_size=4, importing chunk 0 imports the entire first block
-            // (16 chunks = 16384 bytes). So the actual imported data is min(size, 16384).
+            // Importing chunk 0 imports the entire first block (IROH_BLOCK_SIZE: 16 chunks
+            // of CHUNK_SIZE), so the imported data is min(size, block_bytes).
             use crate::store::IROH_BLOCK_SIZE;
             let block_bytes = IROH_BLOCK_SIZE.bytes();
             let chunks_per_block = 1u64 << IROH_BLOCK_SIZE.chunk_log();
@@ -1266,27 +1280,28 @@ mod tests {
             };
             let content = add_test_hash_seq_incomplete(&store, sizes, present).await?;
             let info = store.remote().local(content).await?;
-            let first_block_size = sizes.into_iter().map(|x| x.min(block_bytes) as u64).sum::<u64>();
+            let first_block_size = sizes
+                .into_iter()
+                .map(|x| x.min(block_bytes) as u64)
+                .sum::<u64>();
             assert_eq!(info.bitfield.ranges, ChunkRanges::all());
             assert_eq!(info.local_bytes(), hash_seq_size + first_block_size);
             assert!(!info.is_complete());
+            // we have the hash seq itself; a child that fits in one block is complete,
+            // a larger child misses everything after its first block
+            let expected =
+                std::iter::once(ChunkRanges::empty()).chain(sizes.into_iter().map(|size| {
+                    if size <= block_bytes {
+                        ChunkRanges::empty()
+                    } else {
+                        ChunkRanges::chunks(chunks_per_block..)
+                    }
+                }));
             assert_eq!(
                 info.missing(),
-                GetRequest::new(
-                    content.hash,
-                    ChunkRangesSeq::from_ranges([
-                        ChunkRanges::empty(),    // we have the hash seq itself
-                        ChunkRanges::empty(),    // we always have the empty blob
-                        ChunkRanges::empty(),    // size=1, fits in one block
-                        ChunkRanges::empty(),    // size=1024, fits in one block
-                        ChunkRanges::empty(),    // size=16383, fits in one block
-                        ChunkRanges::empty(),    // size=16384, fits in one block
-                        ChunkRanges::chunks(chunks_per_block..), // size=16385, missing from chunk 16
-                        ChunkRanges::chunks(chunks_per_block..), // size=1MB, missing from chunk 16
-                        ChunkRanges::chunks(chunks_per_block..), // size=8MB, missing from chunk 16
-                    ])
-                )
+                GetRequest::new(content.hash, ChunkRangesSeq::from_ranges(expected))
             );
+            store.tags().delete_all().await?;
         }
         {
             let content = add_test_hash_seq(&store, sizes).await?;
@@ -1305,7 +1320,7 @@ mod tests {
     #[tokio::test]
     async fn test_local_info_complex_request() -> TestResult<()> {
         let sizes = INTERESTING_SIZES;
-        let hash_seq_size = (sizes.len() as u64) * 64;
+        let hash_seq_size = (sizes.len() * hemera::OUTPUT_BYTES) as u64;
         let td = tempfile::tempdir()?;
         let store = FsStore::load(td.path().join("blobs.db")).await?;
         // only add the hash seq itself, and only the first chunk of the children
@@ -1335,7 +1350,7 @@ mod tests {
             let expected_child_sizes = sizes
                 .into_iter()
                 .take(1)
-                .map(|x| 1024.min(x as u64))
+                .map(|x| (cyber_bao::CHUNK_SIZE as u64).min(x as u64))
                 .sum::<u64>();
             assert_eq!(info.bitfield.ranges, ChunkRanges::all());
             assert_eq!(info.local_bytes(), hash_seq_size + expected_child_sizes);
@@ -1351,7 +1366,7 @@ mod tests {
             let expected_child_sizes = sizes
                 .into_iter()
                 .take(2)
-                .map(|x| 1024.min(x as u64))
+                .map(|x| (cyber_bao::CHUNK_SIZE as u64).min(x as u64))
                 .sum::<u64>();
             assert_eq!(info.bitfield.ranges, ChunkRanges::all());
             assert_eq!(info.local_bytes(), hash_seq_size + expected_child_sizes);
@@ -1363,7 +1378,10 @@ mod tests {
                 .next(ChunkRanges::chunk(0))
                 .build_open(content.hash);
             let info = store.remote().local_for_request(request).await?;
-            let expected_child_sizes = sizes.into_iter().map(|x| 1024.min(x as u64)).sum::<u64>();
+            let expected_child_sizes = sizes
+                .into_iter()
+                .map(|x| (cyber_bao::CHUNK_SIZE as u64).min(x as u64))
+                .sum::<u64>();
             assert_eq!(info.bitfield.ranges, ChunkRanges::all());
             assert_eq!(info.local_bytes(), hash_seq_size + expected_child_sizes);
             assert!(info.is_complete());

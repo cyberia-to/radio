@@ -1,0 +1,145 @@
+[
+  {
+    "path": "primary/hemera-tree-contract.md",
+    "bytes": 4738,
+    "sha256": "8f5d0d260b564d9efbf1cdc1da5b7fb0a994d412e43938001838d43ad8ee72f6",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "specs/tree.md",
+    "source_sha256": "28d2336a9d040f28f635df706850a02750652d3e8231bdedfd0038ce3761fe5e",
+    "first": 8,
+    "last": 113
+  },
+  {
+    "path": "primary/hemera-output-contract.md",
+    "bytes": 646,
+    "sha256": "363137dc01965e7f856c3e70005fd0cfc5706a23fda1e52ae85b90600542bf82",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "specs/encoding.md",
+    "source_sha256": "5486943c44cc427382c09520581766d4b7d153cb2cf171b342bc91af53b43849",
+    "first": 29,
+    "last": 42
+  },
+  {
+    "path": "primary/hemera-capacity-contract.md",
+    "bytes": 1342,
+    "sha256": "1211c21b4e65c077476581faf6a4b353a064483593280d2e71a65c0a55ebb311",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "specs/capacity.md",
+    "source_sha256": "5f6d008183b9a570515c4ef465693ce6f2ff6bdb4c9f0499cf519791523b84cb",
+    "first": 11,
+    "last": 48
+  },
+  {
+    "path": "primary/hemera-field.rs",
+    "bytes": 964,
+    "sha256": "454a53173d2f33e639acfdc8b7ff9c0a2a5556cc11d391932992dde26f42e03c",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "rs/src/field.rs",
+    "source_sha256": "7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a",
+    "first": 10,
+    "last": 44
+  },
+  {
+    "path": "primary/hemera-encoding.rs",
+    "bytes": 1132,
+    "sha256": "816c01ae13817285054db8500ee1f80f6d3250d4f6d650800ee5e6b33a22cea4",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "rs/src/encoding.rs",
+    "source_sha256": "4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e",
+    "first": 47,
+    "last": 79
+  },
+  {
+    "path": "primary/hemera-hash.rs",
+    "bytes": 697,
+    "sha256": "e12b1722dacbc3910760480cf1c5e2daf9bb6c753a3b9b8ada926069b4007df0",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "rs/src/sponge.rs",
+    "source_sha256": "e4152c73ca942140fc82575a3d68c6538d323a6355842210b4b40302d7b8daa9",
+    "first": 22,
+    "last": 43
+  },
+  {
+    "path": "primary/hemera-parent.rs",
+    "bytes": 1908,
+    "sha256": "d9cfe6eb1f01008be0503e13e2b68657599d4cbd521ce15f63fd305732951756",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "rs/src/tree.rs",
+    "source_sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6",
+    "first": 95,
+    "last": 148
+  },
+  {
+    "path": "primary/hemera-kernel-aliases.rs",
+    "bytes": 402,
+    "sha256": "19a3aab1d05dab34ce97703deedbb2f3d202b0c51e82ff6062cf1e00ba3cc14b",
+    "repository": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "source": "rs/src/tree.rs",
+    "source_sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6",
+    "first": 870,
+    "last": 884
+  },
+  {
+    "path": "primary/radio-rung.toml",
+    "bytes": 149,
+    "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+    "repository": "soft3",
+    "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+    "source": "release/components.toml",
+    "source_sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e",
+    "first": 250,
+    "last": 260
+  },
+  {
+    "path": "primary/kadek-rung.toml",
+    "bytes": 221,
+    "sha256": "c4476d92f9f50efd9080cad9bdd24f49845b274d9376e3a0eb4ce0686b6d5aac",
+    "repository": "soft3",
+    "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+    "source": "release/components.toml",
+    "source_sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e",
+    "first": 653,
+    "last": 662
+  },
+  {
+    "path": "primary/export-pair.rs",
+    "bytes": 316,
+    "sha256": "6d551f1b8f840ae0b99e44c4e71ba605a38e1bbc07343fc733858871a55f5652",
+    "repository": "radio",
+    "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+    "source": "iroh-blobs/src/api/blobs.rs",
+    "source_sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286",
+    "first": 1011,
+    "last": 1020
+  },
+  {
+    "path": "primary/export-test-boundary.rs",
+    "bytes": 619,
+    "sha256": "c70793944bf4f0bff427176b97a7c1140822794e5ba34d24d38257791e762be8",
+    "repository": "radio",
+    "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+    "source": "iroh-blobs/src/api/blobs.rs",
+    "source_sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286",
+    "first": 14,
+    "last": 38
+  },
+  {
+    "path": "primary/kadek-authority.md",
+    "bytes": 1529,
+    "sha256": "50e3fadc2a6d1bd5b6f70f78d0705a157251f3442ceb535ea119ab9053f7a3f1",
+    "repository": "kadek",
+    "revision": "4d9ca9ab3498238b9c1e03f6d6f160e1ec729912",
+    "source": "specs/runtime.md",
+    "source_sha256": "025d6dd6cd9e6adccdc80872923f4535f500a717f938e30771bea07d9b774841",
+    "first": 36,
+    "last": 57
+  }
+]

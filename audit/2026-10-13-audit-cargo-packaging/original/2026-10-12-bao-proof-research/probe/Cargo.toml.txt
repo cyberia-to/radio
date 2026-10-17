@@ -1,0 +1,13 @@
+[package]
+name = "bao-proof-carrier-probe"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+cyber-bao = { path = "../../../cyber-bao" }
+
+[profile.dev.package.cyber-hemera]
+opt-level = 3

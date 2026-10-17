@@ -1,0 +1,21 @@
+{
+  "started": "2026-10-13T02:16:32.371960Z",
+  "finished": "2026-10-13T02:16:32.384876Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "argv": [
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "-Vv"
+  ],
+  "env": {},
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/tool-cargo.stdout",
+    "bytes": 336,
+    "sha256": "ee160b529f7bd437f0af4e5746f93889a63adaed0a2e3f2a537fd8d9bb0a5203"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/tool-cargo.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

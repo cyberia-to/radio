@@ -1,0 +1,32 @@
+[
+  {
+    "path": "code-input/verify.nu",
+    "bytes": 2833,
+    "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587"
+  },
+  {
+    "path": "fixture-probe/Cargo.toml",
+    "bytes": 375,
+    "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570"
+  },
+  {
+    "path": "nostd-parent/Cargo.toml",
+    "bytes": 246,
+    "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36"
+  },
+  {
+    "path": "nostd/Cargo.toml",
+    "bytes": 222,
+    "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d"
+  },
+  {
+    "path": "seals/Cargo.toml",
+    "bytes": 250,
+    "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f"
+  },
+  {
+    "path": "verify.nu",
+    "bytes": 10975,
+    "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a"
+  }
+]

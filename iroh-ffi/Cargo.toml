@@ -14,7 +14,7 @@ documentation = "https://iroh.computer/docs"
 rust-version = "1.83"
 
 [workspace]
-members = ["iroh-js"]
+members = []
 
 [package.metadata.maturin]
 name = "iroh"

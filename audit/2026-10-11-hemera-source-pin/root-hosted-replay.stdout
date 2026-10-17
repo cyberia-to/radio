@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "retrievals": 14,
+  "original_root_retrieval": 1,
+  "jobs": 7,
+  "format_sections": 300,
+  "format_unchanged_paths": 131,
+  "spelling": {
+    "total": 157,
+    "unchanged": 139,
+    "introduced": 18
+  },
+  "gates_rerun": false,
+  "scope": "Saved hosted evidence only; no green CI or hosted-parent run claimed."
+}

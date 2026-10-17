@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "nu",
+    "-c",
+    "source \"/tmp/radio-audit-replay.12g0Fn/capsule/reproduce.nu\"; prepare-crate \"/Users/master/cyber/radio-bao-bounded-proof\" \"590e69ea0eebcea4c21320a88eed214dc5459de1\" \"/tmp/radio-audit-packaging-staging-tests-v1/export-implementation\" \"/tmp/radio-audit-replay.12g0Fn/capsule\""
+  ],
+  "exit": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

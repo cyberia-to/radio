@@ -1,0 +1,132 @@
+Updating a96d86e2..b933829c
+Fast-forward
+ .claude/tasks/bao-bounded-traversal/code-review.md |    29 +
+ .claude/tasks/bao-bounded-traversal/execution.md   |    57 +
+ .../tasks/bao-bounded-traversal/implementation.md  |    83 +
+ .../tasks/bao-bounded-traversal/literal-cases.md   |    68 +
+ .claude/tasks/bao-bounded-traversal/plan.md        |   189 +
+ .claude/tasks/bao-bounded-traversal/research.md    |    96 +
+ .../tasks/bao-bounded-traversal/review-status.md   |    10 +
+ audit/2026-10-11-bao-bounded-traversal/README.md   |    82 +
+ audit/2026-10-11-bao-bounded-traversal/SHA256SUMS  |    16 +
+ .../2026-10-11-bao-bounded-traversal/capsule.json  |     8 +
+ .../code/README.md                                 |    50 +
+ .../code/SHA256SUMS                                |    27 +
+ .../code/capsule.json                              |    17 +
+ .../code/evidence-index.json                       | 19837 +++++++++++++++++++
+ .../code/evidence.tar.gz                           |   Bin 0 -> 4077953 bytes
+ .../code/replay/command.json                       |    14 +
+ .../code/replay/local-doc-check.json               |    11 +
+ .../code/replay/stderr                             |     0
+ .../code/replay/stdout                             |     1 +
+ .../code/review/completion.json                    |     6 +
+ .../code/review/invocation.json                    |    27 +
+ .../code/review/launcher.rb                        |    16 +
+ .../code/review/result.md                          |    54 +
+ .../code/review/stderr.txt                         |     0
+ .../code/review/stdout.json                        |     1 +
+ .../code/root-replay/code-execution-v4.json        |    19 +
+ .../code/root-replay/code-v4.json                  |    25 +
+ .../code/root-replay/code-v4.stderr                |     0
+ .../code/root-replay/code-v4.stdout                |     1 +
+ .../code/root-replay/code-verification-v4.json     |    31 +
+ .../code/root-replay/docs-check.rb.txt             |    22 +
+ .../code/root-replay/docs-v1.json                  |    22 +
+ .../code/root-replay/docs-v1.stderr                |     0
+ .../code/root-replay/docs-v1.stdout                |    98 +
+ .../code/root-replay/portable-v1.json              |    23 +
+ .../code/root-replay/portable-v1.stderr            |     0
+ .../code/root-replay/portable-v1.stdout            |     1 +
+ .../code/verify.nu                                 |   110 +
+ .../evidence-index.json                            |   172 +
+ .../evidence.tar.gz                                |   Bin 0 -> 98040 bytes
+ .../package.rb.txt                                 |    20 +
+ .../plan-review/completion.json                    |     6 +
+ .../plan-review/invocation.json                    |    27 +
+ .../plan-review/stdout.txt                         |    11 +
+ .../plan/README.md                                 |    44 +
+ .../plan/SHA256SUMS                                |     5 +
+ .../plan/capsule.json                              |    18 +
+ .../plan/evidence-index.json                       |  1622 ++
+ .../plan/evidence.tar.gz                           |   Bin 0 -> 469116 bytes
+ .../plan/verify.nu                                 |   113 +
+ .../portable/attempt1.json                         |    23 +
+ .../portable/attempt1.stderr                       |    10 +
+ .../portable/attempt1.stdout                       |     0
+ .../portable/attempt2.json                         |    23 +
+ .../portable/attempt2.stderr                       |    12 +
+ .../portable/attempt2.stdout                       |     0
+ .../portable/attempt3.json                         |    23 +
+ .../portable/attempt3.stderr                       |     0
+ .../portable/attempt3.stdout                       |    10 +
+ .../verify-attempt1.nu.txt                         |    69 +
+ audit/2026-10-11-bao-bounded-traversal/verify.nu   |    69 +
+ cyber-bao/src/lib.rs                               |     1 +
+ cyber-bao/src/traversal.rs                         |   172 +
+ cyber-bao/tests/range_traversal.rs                 |   415 +
+ cyber-bao/tests/range_traversal_allocation.rs      |   100 +
+ 65 files changed, 24016 insertions(+)
+ create mode 100644 .claude/tasks/bao-bounded-traversal/code-review.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/execution.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/implementation.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/literal-cases.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/plan.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/research.md
+ create mode 100644 .claude/tasks/bao-bounded-traversal/review-status.md
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/README.md
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/SHA256SUMS
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/capsule.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/README.md
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/SHA256SUMS
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/capsule.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/evidence-index.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/evidence.tar.gz
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/replay/command.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/replay/local-doc-check.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/replay/stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/replay/stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/completion.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/invocation.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/launcher.rb
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/result.md
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/stderr.txt
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/review/stdout.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/code-execution-v4.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/code-verification-v4.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-check.rb.txt
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/code/verify.nu
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/evidence-index.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/evidence.tar.gz
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/package.rb.txt
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan-review/completion.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan-review/invocation.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan-review/stdout.txt
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/README.md
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/SHA256SUMS
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/capsule.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/evidence-index.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/evidence.tar.gz
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/plan/verify.nu
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt1.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt1.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt1.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt2.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt2.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt2.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt3.json
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt3.stderr
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/portable/attempt3.stdout
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/verify-attempt1.nu.txt
+ create mode 100644 audit/2026-10-11-bao-bounded-traversal/verify.nu
+ create mode 100644 cyber-bao/src/traversal.rs
+ create mode 100644 cyber-bao/tests/range_traversal.rs
+ create mode 100644 cyber-bao/tests/range_traversal_allocation.rs

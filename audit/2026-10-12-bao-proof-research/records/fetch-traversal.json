@@ -1,0 +1,23 @@
+{
+  "started": "2026-10-12T23:39:32.524015Z",
+  "finished": "2026-10-12T23:39:33.259147Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "argv": [
+    "git",
+    "fetch",
+    "origin"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-fetch-traversal-v1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-fetch-traversal-v1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

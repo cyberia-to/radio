@@ -1,0 +1,10 @@
+Error: nu::shell::io::file_not_found
+
+  x File not found
+   ,-[<commandline>:1:4]
+ 1 | nu audit/2026-10-11-bounded-traversal/verify.nu audit/2026-10-11-bounded-traversal
+   :    ^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^
+   :                          `-- File not found
+   `----
+  help: 'audit/2026-10-11-bounded-traversal/verify.nu' does not exist
+

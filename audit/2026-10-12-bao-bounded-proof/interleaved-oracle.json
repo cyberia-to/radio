@@ -1,0 +1,34 @@
+{
+  "created": "2026-10-13T00:41:40Z",
+  "origin": "root independent literal assembler, committed a96 Radio kernels; no encoder/traversal/verifier",
+  "files": [
+    {
+      "path": "interleaved-oracle/body.bin",
+      "bytes": 16384,
+      "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+    },
+    {
+      "path": "interleaved-oracle/fixture_oracle.rs",
+      "bytes": 2995,
+      "sha256": "e1ec0b572fab8b77b74e4dbde16365243618d1c231edbc32fa9d2b5167412552"
+    },
+    {
+      "path": "interleaved-oracle/interleaved.bao",
+      "bytes": 12488,
+      "sha256": "674ac7f2fa42c1d25fa7083c8d0d46b3459cfd6a82dcd16e20445a1479dfc7ad"
+    },
+    {
+      "path": "interleaved-oracle/manifest.json",
+      "bytes": 458,
+      "sha256": "889d3b761aeeaec5aa0be3c631ad530dab4723e9f9362ef855fb25203ccd4420"
+    },
+    {
+      "path": "interleaved-oracle/selected.bin",
+      "bytes": 4098,
+      "sha256": "b68e6889a7d56daccc9ea0e19d8cdf3e7b2ee4363f1b13858c60b7e96d1a5950"
+    }
+  ],
+  "output_items": 6,
+  "verification_actions": 11,
+  "note": "Original manifest output_actions=73 is Kadek adapter copy/planning arithmetic, not Radio iterator item count. This unit asserts 6 output events."
+}

@@ -1,0 +1,271 @@
+{
+  "observed_at": "2026-10-09T23:52:59Z",
+  "head": "3c291e511cb1c5457a5bd1945c45681f263bd064",
+  "source": "62e7f53f237ceaf0f5037a396e79ff70f2c735cd",
+  "base": "764d732ac38fb9116c4cf525a6d1bb463d409a06",
+  "ci": {
+    "conclusion": "",
+    "createdAt": "2026-10-09T23:50:40Z",
+    "databaseId": 38006379058,
+    "headSha": "3c291e511cb1c5457a5bd1945c45681f263bd064",
+    "status": "queued",
+    "updatedAt": "2026-10-09T23:50:43Z",
+    "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058",
+    "workflowName": "CI"
+  },
+  "docs": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-09T23:50:40Z",
+    "databaseId": 38006378962,
+    "headSha": "3c291e511cb1c5457a5bd1945c45681f263bd064",
+    "status": "completed",
+    "updatedAt": "2026-10-09T23:51:15Z",
+    "url": "https://github.com/cyberia-to/radio/actions/runs/38006378962",
+    "workflowName": "Docs Preview"
+  },
+  "ci_completed_failure": 8,
+  "ci_queued": 17,
+  "jobs": [
+    {
+      "id": 114076022102,
+      "name": "Cross Build Only (x86_64-unknown-freebsd)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022102",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022145,
+      "name": "CI Test Suite / minimal-crates (ubuntu-latest)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022145",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022150,
+      "name": "CI Test Suite / Minimal Crates (Windows) (windows-latest, stable, x86_64-pc-windows-msvc)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022150",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022153,
+      "name": "Cross Test (i686-unknown-linux-gnu)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022153",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022166,
+      "name": "CI Test Suite / Tests (windows-latest, stable, all, x86_64-pc-windows-msvc)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022166",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022192,
+      "name": "CI Test Suite / Tests (macOS-arm-latest, stable, default)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022192",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022203,
+      "name": "Minimal Supported Rust Version",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022203",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022203.log"
+    },
+    {
+      "id": 114076022214,
+      "name": "CI Test Suite / Tests (ubuntu-latest, stable, default)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022214",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022216,
+      "name": "Build & test wasm32 for browsers",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022216",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022216.log"
+    },
+    {
+      "id": 114076022222,
+      "name": "CI Test Suite / Tests (windows-latest, stable, none, x86_64-pc-windows-msvc)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022222",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022223,
+      "name": "CI Test Suite / Tests (ubuntu-latest, stable, all)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022223",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022230,
+      "name": "CI Test Suite / Tests (ubuntu-latest, stable, none)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022230",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022242,
+      "name": "cargo deny",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022242",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022242.log"
+    },
+    {
+      "id": 114076022248,
+      "name": "Checking fmt",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022248",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022248.log"
+    },
+    {
+      "id": 114076022256,
+      "name": "CI Test Suite / Tests (macOS-arm-latest, stable, all)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022256",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022258,
+      "name": "check_semver",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022258",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022258.log"
+    },
+    {
+      "id": 114076022271,
+      "name": "codespell",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022271",
+      "reason": "68 findings in 16 unchanged files; no touched path",
+      "log": "job-114076022271.log"
+    },
+    {
+      "id": 114076022274,
+      "name": "clippy_check",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022274",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022274.log"
+    },
+    {
+      "id": 114076022289,
+      "name": "Android Build Only (armv7-linux-androideabi)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022289",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022297,
+      "name": "CI Test Suite / Tests (macOS-arm-latest, stable, none)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022297",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022305,
+      "name": "Checking docs",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022305",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076022305.log"
+    },
+    {
+      "id": 114076022312,
+      "name": "netsim-integration-tests / Netsim",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022312",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022315,
+      "name": "CI Test Suite / Tests (windows-latest, stable, default, x86_64-pc-windows-msvc)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022315",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022423,
+      "name": "Android Build Only (aarch64-linux-android)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022423",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076022460,
+      "name": "CI Test Suite / minimal-crates (macOS-arm-latest)",
+      "status": "queued",
+      "conclusion": "",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006379058/job/114076022460",
+      "reason": "queued; no executed steps; self-hosted runner required by unchanged workflow",
+      "log": null
+    },
+    {
+      "id": 114076014812,
+      "name": "Docs preview",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/cyberia-to/radio/actions/runs/38006378962/job/114076014812",
+      "reason": "missing sibling cyber-hemera manifest; Cargo setup failure before exporter compilation",
+      "log": "job-114076014812.log"
+    }
+  ],
+  "codespell": {
+    "findings": 68,
+    "files": 16,
+    "touched": 0,
+    "changed": 0
+  },
+  "limitation": "CI workflow incomplete; queued jobs have no result; later-head runs cannot change this snapshot verdict"
+}

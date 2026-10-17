@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-12T23:27:06Z",
+  "status": "PASS",
+  "records": 84,
+  "streams": 168,
+  "source_snapshots": 5,
+  "source_files": 3476,
+  "current_sources": 696,
+  "current_parent_git_inputs": 693,
+  "current_source_sha256": "53f29b5b1cf4d609ecb98c7b482198f87160fb56fdb229466bff8f33568a90eb",
+  "delta": [
+    "cyber-bao/src/lib.rs",
+    "cyber-bao/src/traversal.rs",
+    "cyber-bao/tests/range_traversal.rs",
+    "cyber-bao/tests/range_traversal_allocation.rs"
+  ],
+  "verifier_sha256": "ae13bb6734b6c329b4f56c8e953c2c85360f5c97b0e2574cb79113b35947bea4",
+  "scope": "Evidence/source/raw identity replay; gate red statuses remain red."
+}

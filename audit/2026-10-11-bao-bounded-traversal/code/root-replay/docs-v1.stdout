@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "scope": "Owned task and audit Markdown local file links; no network or anchor resolution claim. Tracked whitespace only; staged check follows separately.",
+  "files": [
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/code-review.md",
+      "sha256": "094d6c46d2da82a937499cd3015dc2289d54a4abf02f8d3fe3d6d502ea28b94a"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/execution.md",
+      "sha256": "f86c950b40ba0afe32c30f1c3c95d63a62d97f8cf35e95d77544f08b6c3d36c7"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/implementation.md",
+      "sha256": "d1fc5528b07d39d213b2fc7733cb5c994aeb176cb58d813ca19c4d28ffccb740"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/literal-cases.md",
+      "sha256": "8b38796bc96b1ace037f85a10ed27ae415a1e7da4c1304bbc776b524b0fcd69e"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/plan.md",
+      "sha256": "5b45173f013772e19dd324167d449cdc076e672b9a12cfdad64b3b3c0d8b8f88"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/research.md",
+      "sha256": "cd7e8d433ba0145ac4bb8800f6a1da19eecca45cbdf46781f62af6c54af16fbf"
+    },
+    {
+      "path": ".claude/tasks/bao-bounded-traversal/review-status.md",
+      "sha256": "63836329cd5eb3da35b973a84e67f3b564f8db69176de5c34547f9c98a257b51"
+    },
+    {
+      "path": "audit/2026-10-11-bao-bounded-traversal/README.md",
+      "sha256": "53d037eed5d8dc4bd7c4cec2267502a90eea69fea3ac6456baa51dc3b4def8a9"
+    },
+    {
+      "path": "audit/2026-10-11-bao-bounded-traversal/code/README.md",
+      "sha256": "cfded72e413108cdd74a607f5a2663b0226e51ebbc4fdef137ca8693dad00db5"
+    },
+    {
+      "path": "audit/2026-10-11-bao-bounded-traversal/code/review/result.md",
+      "sha256": "42a737b1963d82f27bd13349bdd049cc535848890531a9af64cb91b11deb98d0"
+    },
+    {
+      "path": "audit/2026-10-11-bao-bounded-traversal/plan/README.md",
+      "sha256": "4cb3730944b3230fb1ce3106caa96d7dac4d96f6c7597f5da6328db0af33d134"
+    }
+  ],
+  "local_links": [
+    [
+      ".claude/tasks/bao-bounded-traversal/implementation.md",
+      "review-status.md"
+    ],
+    [
+      ".claude/tasks/bao-bounded-traversal/plan.md",
+      "research.md"
+    ],
+    [
+      ".claude/tasks/bao-bounded-traversal/plan.md",
+      "literal-cases.md"
+    ],
+    [
+      ".claude/tasks/bao-bounded-traversal/research.md",
+      "plan.md"
+    ],
+    [
+      ".claude/tasks/bao-bounded-traversal/research.md",
+      "../../../audit/2026-10-11-bao-bounded-traversal/README.md"
+    ],
+    [
+      ".claude/tasks/bao-bounded-traversal/review-status.md",
+      "../../../audit/2026-10-11-bao-bounded-traversal/plan-review/stdout.txt"
+    ],
+    [
+      "audit/2026-10-11-bao-bounded-traversal/code/README.md",
+      "review/result.md"
+    ],
+    [
+      "audit/2026-10-11-bao-bounded-traversal/code/README.md",
+      "../../../.claude/tasks/bao-bounded-traversal/code-review.md"
+    ],
+    [
+      "audit/2026-10-11-bao-bounded-traversal/code/README.md",
+      "../../../.claude/tasks/bao-bounded-traversal/implementation.md"
+    ],
+    [
+      "audit/2026-10-11-bao-bounded-traversal/plan/README.md",
+      "../../../.claude/tasks/bao-bounded-traversal/plan.md"
+    ],
+    [
+      "audit/2026-10-11-bao-bounded-traversal/plan/README.md",
+      "../../../.claude/tasks/bao-bounded-traversal/execution.md"
+    ]
+  ],
+  "tracked_diff_check": 0
+}

@@ -6,13 +6,8 @@
 
 use std::collections::HashMap;
 
-use hemera::OUTPUT_BYTES;
-
 use crate::hash::HashBackend;
 use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
-
-/// Size of a hash pair (two hashes concatenated).
-const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
 /// Result of computing the outboard for a blob.
 #[derive(Debug, Clone)]
@@ -36,10 +31,9 @@ pub fn outboard<B: HashBackend>(
 ) -> Outboard<B::Hash> {
     let tree = BaoTree::new(data.len() as u64, block_size);
     let blocks = tree.blocks();
-    let bs = block_size.bytes();
 
     if blocks <= 1 {
-        let root = hash_block(backend, data, 0, true, bs);
+        let root = super::hash_group(backend, data, 0, true);
         return Outboard {
             root,
             data: Vec::new(),
@@ -68,7 +62,7 @@ pub fn outboard<B: HashBackend>(
                 } else {
                     &[]
                 };
-                let block_cv = hash_block(backend, chunk_data, *start_chunk, *is_root, bs);
+                let block_cv = super::hash_group(backend, chunk_data, *start_chunk, *is_root);
                 hash_stack.push(block_cv);
             }
             BaoChunk::Parent { node, is_root, .. } => {
@@ -106,63 +100,14 @@ pub fn outboard<B: HashBackend>(
     }
 }
 
-/// Hash a single block of data (may contain multiple chunks).
-///
-/// For BlockSize::ZERO (1 chunk per block), this is just `chunk_hash`.
-/// For larger blocks, we hash individual chunks and combine them into
-/// a mini-tree within the block.
-fn hash_block<B: HashBackend>(
-    backend: &B,
-    data: &[u8],
-    start_chunk: u64,
-    is_root: bool,
-    block_bytes: usize,
-) -> B::Hash {
-    if data.is_empty() {
-        return backend.chunk_hash(&[], start_chunk, is_root);
-    }
-
-    let mut chunk_hashes: Vec<B::Hash> = Vec::new();
-    let mut offset = 0usize;
-    let mut counter = start_chunk;
-    while offset < data.len() {
-        let end = (offset + CHUNK_SIZE).min(data.len());
-        let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
-        chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += CHUNK_SIZE;
-        counter += 1;
-    }
-
-    if chunk_hashes.len() == 1 {
-        return chunk_hashes.into_iter().next().unwrap();
-    }
-
-    // Combine into a mini-tree (bottom-up)
-    let _ = block_bytes;
-    let mut level = chunk_hashes;
-    while level.len() > 1 {
-        let mut next = Vec::with_capacity(level.len().div_ceil(2));
-        let mut i = 0;
-        while i < level.len() {
-            if i + 1 < level.len() {
-                let parent = backend.parent_hash(&level[i], &level[i + 1], false);
-                next.push(parent);
-            } else {
-                next.push(level[i].clone());
-            }
-            i += 2;
-        }
-        level = next;
-    }
-
-    level.into_iter().next().unwrap()
-}
-
 #[cfg(test)]
 mod tests {
+    use hemera::OUTPUT_BYTES;
+
     use super::*;
     use crate::hash::Poseidon2Backend;
+
+    const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
 
     #[test]
     fn outboard_single_block() {

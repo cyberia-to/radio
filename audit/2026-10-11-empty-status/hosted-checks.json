@@ -1,0 +1,57 @@
+{
+  "captured_at": "2026-10-11T18:18:04Z",
+  "head": "4da5651316382b3d5a58766074a42fa132f60330",
+  "archive_sha256": "59ef8e6ab1efd1f1b0c34bcdd9a5140d3dc994c928daffd75e78dbf5b95d31bd",
+  "argv": [
+    "tar",
+    "-czf",
+    "/Users/master/cyber/radio-kadek-empty-status/audit/2026-10-11-empty-status/hosted-checks.tar.gz",
+    "-C",
+    "/private/tmp/radio-empty-status-hosted",
+    "clippy.json",
+    "clippy.stdout",
+    "clippy.stderr",
+    "codespell.json",
+    "codespell.stdout",
+    "codespell.stderr",
+    "jobs.json"
+  ],
+  "payloads": [
+    {
+      "path": "clippy.json",
+      "bytes": 417,
+      "sha256": "bf675daf6bb83c6f93e1d92066cecc080c937c2f8030cad6831d8ede101e5b92"
+    },
+    {
+      "path": "clippy.stdout",
+      "bytes": 47709,
+      "sha256": "3e4d5c13bc4795db29bf6281518fe67b29b57df3e57a35cf443226ef14580300"
+    },
+    {
+      "path": "clippy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "codespell.json",
+      "bytes": 417,
+      "sha256": "64d2d63e21e4cc95e6083101977968405219442a5dc9b5e9dde2f6b844994a17"
+    },
+    {
+      "path": "codespell.stdout",
+      "bytes": 36560,
+      "sha256": "3eee168d52be0ce4447dec77a60232da0a1f7f592acc0f9c95220be9ddcc1b39"
+    },
+    {
+      "path": "codespell.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "jobs.json",
+      "bytes": 34238,
+      "sha256": "b3166c3af06fc2a8081dafb9a424a869fd929ec6e345f82eda91ce4a85fb28fc"
+    }
+  ],
+  "note": "Raw selected GitHub job logs and list, retained after source commit. No hosted gate passes implied. Other local scratch labels were not authoritative job names; these two retained job IDs match jobs.json."
+}

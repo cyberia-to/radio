@@ -944,13 +944,13 @@ pub mod builder {
         fn chunk_ranges_ext() {
             let ranges = ChunkRanges::bytes(1..2)
                 | ChunkRanges::chunks(100..=200)
-                | ChunkRanges::offset(1024 * 10)
+                | ChunkRanges::offset(cyber_bao::CHUNK_SIZE as u64 * 10)
                 | ChunkRanges::chunk(1024)
                 | ChunkRanges::last_chunk();
             assert_eq!(
                 ranges,
                 ChunkRanges::from(ChunkNum(0)..ChunkNum(1)) // byte range 1..2
-                    | ChunkRanges::from(ChunkNum(10)..ChunkNum(11)) // chunk at byte offset 1024*10
+                    | ChunkRanges::from(ChunkNum(10)..ChunkNum(11)) // chunk at byte offset CHUNK_SIZE*10
                     | ChunkRanges::from(ChunkNum(100)..ChunkNum(201)) // chunk range 100..=200
                     | ChunkRanges::from(ChunkNum(1024)..ChunkNum(1025)) // chunk 1024
                     | ChunkRanges::last_chunk() // last chunk
@@ -1045,7 +1045,7 @@ mod tests {
                 Request::from(GetRequest::blob(hash)),
                 r"
                     00 # enum variant for GetRequest
-                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
+                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
                     020001000100 # the ChunkRangesSeq
             ",
             ),
@@ -1053,7 +1053,7 @@ mod tests {
                 Request::from(GetRequest::all(hash)),
                 r"
                     00 # enum variant for GetRequest
-                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
+                    dadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada # the hash
                     01000100 # the ChunkRangesSeq
             ",
             ),

@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "created": "2026-10-12T21:52:18Z",
+  "parent": "dacd030c9d6301b316a96b5bc6e4ea1e1cec79f1",
+  "code_pack_sha256": "e600e1861bf2ee57efd094317f5a7118192be5f083537212828a1de44f9d6a7d",
+  "code_sections": 78,
+  "records": 101,
+  "streams": 202,
+  "logical_payloads": 3571,
+  "unique_objects": 966,
+  "archive_bytes": 3691263,
+  "archive_sha256": "6154cb8e2af01ccce71c7104cde9ad9fedb06cc1c830a01025cac7cffcb6acc0",
+  "index_sha256": "4035f801cd9a489a7a2bf78c561a1163a7799f83abdf681e70c870c518a7f5a3",
+  "omissions": "No compiled targets, nested prior audit capsules, or full last-tag archive. Exact API tag/Hemera Git object inventory is retained in execution/api/inputs.json; source bodies needed for current review are retained separately. No omitted archive body is claimed portable."
+}

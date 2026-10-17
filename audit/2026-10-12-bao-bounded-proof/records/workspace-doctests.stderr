@@ -1,0 +1,21 @@
+   Compiling cyber-radio-relay v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-relay)
+   Compiling cyber-radio v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh)
+   Compiling iroh-blobs v0.98.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-blobs)
+   Compiling iroh-gossip v0.96.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-gossip)
+   Compiling iroh-docs v0.96.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-docs)
+   Compiling radio-integration-tests v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/tests/integration)
+   Compiling iroh-willow v0.28.0 (/Users/master/cyber/radio-bao-bounded-proof/iroh-willow)
+   Compiling iroh-bench v0.96.1 (/Users/master/cyber/radio-bao-bounded-proof/iroh/bench)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.72s
+   Doc-tests cyber_bao
+   Doc-tests radio
+   Doc-tests iroh_base
+   Doc-tests iroh_relay
+   Doc-tests iroh_bench
+   Doc-tests iroh_blobs
+   Doc-tests iroh_car
+   Doc-tests iroh_dns_server
+   Doc-tests iroh_docs
+   Doc-tests iroh_gossip
+   Doc-tests iroh_willow
+   Doc-tests radio_integration_tests

@@ -1,0 +1,42 @@
+[
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "local": "original/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "bytes": 15956,
+    "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+    "local": "original/2026-10-09-kadek-slice-traversal/probe.rs",
+    "bytes": 5265,
+    "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "local": "original/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "bytes": 1038,
+    "sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "local": "original/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "bytes": 275,
+    "sha256": "ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823"
+  },
+  {
+    "repository": "radio",
+    "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+    "path": "audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+    "local": "original/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+    "bytes": 1106,
+    "sha256": "b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb"
+  }
+]

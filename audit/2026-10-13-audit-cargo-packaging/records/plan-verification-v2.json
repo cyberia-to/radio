@@ -1,0 +1,27 @@
+{
+  "started": "2026-10-13T01:54:16.179948Z",
+  "finished": "2026-10-13T01:54:16.908520Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "argv": [
+    "nu",
+    "/tmp/radio-audit-cargo-packaging-plan-v2/verify.nu",
+    "--repo",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "--soft3",
+    "/Users/master/cyber/soft3",
+    "--live"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-plan-verification-v2.stdout",
+    "bytes": 428,
+    "sha256": "cca14b47f51c945ada6cc9d18013bfacad8aa8c146aac5431b7b3f537654c061"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-plan-verification-v2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

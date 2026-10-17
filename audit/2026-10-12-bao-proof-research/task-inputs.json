@@ -1,0 +1,20 @@
+[
+  {
+    "path": ".claude/tasks/bao-bounded-proof/finite-cases.md",
+    "local": "task/finite-cases.md",
+    "bytes": 8731,
+    "sha256": "93056283cc10f6fe9310aa8493c533557b5f96876b357dc8039a7b87b879a24c"
+  },
+  {
+    "path": ".claude/tasks/bao-bounded-proof/plan.md",
+    "local": "task/plan.md",
+    "bytes": 14878,
+    "sha256": "6a104b42977d594a0ac1e05cd999ec750c896f4d4e24865a0eb1718cfba34350"
+  },
+  {
+    "path": ".claude/tasks/bao-bounded-proof/research.md",
+    "local": "task/research.md",
+    "bytes": 9092,
+    "sha256": "956ea7addb3dba2a6f16771958dd1746fd737679ca9d3de527f3a074d29ed8e7"
+  }
+]

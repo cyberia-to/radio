@@ -1,0 +1,23 @@
+{
+  "started": "2026-10-11T22:38:17.903942Z",
+  "finished": "2026-10-11T22:38:18.116745Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-traversal",
+  "revision": "dacd030c9d6301b316a96b5bc6e4ea1e1cec79f1",
+  "argv": [
+    "nu",
+    "audit/2026-10-11-bao-bounded-traversal/verify.nu",
+    "audit/2026-10-11-bao-bounded-traversal"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-bounded-traversal-portable-replay-3.stdout",
+    "bytes": 265,
+    "sha256": "09be10639ad756a56d30b7003d55db7798a2ac654a7b1537a24a16da5757e72c"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-bounded-traversal-portable-replay-3.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

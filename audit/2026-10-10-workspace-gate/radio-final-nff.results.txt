@@ -1,0 +1,688 @@
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/cyber_bao-4e9a37aad70d1df5)
+test hash::tests::poseidon2_backend_basic ... ok
+test hash::tests::hash_size ... ok
+test hash::tests::poseidon2_backend_counter ... ok
+test hash::tests::poseidon2_backend_root_differs ... ok
+test io::decode::tests::decode_empty ... ok
+test io::decode::tests::decode_partial_block ... ok
+test io::decode::tests::decode_single_block ... ok
+test io::decode::tests::decode_wrong_root_fails ... ok
+test io::decode::tests::decode_truncated_fails ... ok
+test io::decode::tests::decode_tampered_data_fails ... ok
+test io::encode::tests::encode_empty ... ok
+test hash::tests::poseidon2_backend_parent ... ok
+test io::encode::tests::encode_partial_block ... ok
+test io::encode::tests::encode_deterministic ... ok
+test io::decode::tests::decode_two_blocks ... ok
+test io::encode::tests::encode_single_block ... ok
+test io::decode::tests::decode_four_blocks ... ok
+test io::encode::tests::encode_two_blocks ... ok
+test io::outboard::tests::outboard_empty ... ok
+test io::outboard::tests::outboard_partial_last_block ... ok
+test io::outboard::tests::outboard_different_data_different_root ... ok
+test io::outboard::tests::outboard_deterministic ... ok
+test io::outboard::tests::outboard_single_block ... ok
+test io::encode::tests::encode_block_size_nonzero ... ok
+test io::encode::tests::encode_block_size_default ... ok
+test io::fsm::tests::fsm_decode_two_blocks ... ok
+test io::root_policy_tests::empty_and_single_leaf_preserve_absolute_counter_and_root ... ok
+test io::outboard::tests::outboard_four_blocks ... ok
+test io::root_policy_tests::finalization_and_odd_promotion_are_independent_of_group_position ... ok
+test io::pre_order::tests::pre_order_mem_outboard_create ... ok
+test io::outboard::tests::outboard_two_blocks ... ok
+test io::pre_order::tests::post_order_mem_outboard_create ... ok
+test io::slice::tests::single_block_slice_roundtrip ... ok
+test io::slice::tests::decode_slice_wrong_root_fails ... ok
+test io::pre_order::tests::post_order_can_validate_via_encode_ranges ... ok
+test io::pre_order::tests::pre_order_outboard_roundtrip ... ok
+test io::slice::tests::slice_full_range_matches_encode ... ok
+test io::pre_order::tests::pre_order_outboard_block_size_nonzero ... ok
+test io::fsm::tests::fsm_decode_with_range_filter ... ok
+test io::slice::tests::decode_slice_full_range_roundtrip ... ok
+test io::slice::tests::multi_range_slice_extract_and_verify ... ok
+test io::slice::tests::decode_slice_partial_range ... ok
+test io::sync::tests::valid_ranges_empty_data ... ok
+test io::sync::tests::encode_ranges_validated_full ... ok
+test io::pre_order::tests::post_order_matches_pre_order_block_size_nonzero ... ok
+test io::sync::tests::valid_ranges_all_valid ... ok
+test tree::tests::bao_tree_basic ... ok
+test tree::tests::bao_tree_empty ... ok
+test io::slice::tests::slice_partial_range_is_smaller ... ok
+test io::sync::tests::encode_then_valid_ranges_roundtrip ... ok
+test io::pre_order::tests::post_order_outboard_all_nodes_match_pre_order ... ok
+test tree::tests::bao_tree_two_blocks ... ok
+test tree::tests::block_size_bytes ... ok
+test tree::tests::block_size_from_bytes ... ok
+test tree::tests::post_order_two_blocks ... ok
+test tree::tests::pre_order_four_blocks ... ok
+test tree::tests::pre_order_two_blocks ... ok
+test tree::tests::bao_tree_large ... ok
+test tree::tests::pre_order_single_block ... ok
+test tree::tests::tree_node_children ... ok
+test tree::tests::tree_node_chunk_range ... ok
+test tree::tests::tree_node_is_leaf ... ok
+test tree::tests::tree_node_level ... ok
+test io::slice::tests::slice_roundtrip_block_size_nonzero ... ok
+test io::sync::tests::valid_ranges_block_size_nonzero ... ok
+test io::slice::tests::slice_root_hash_independent_of_range ... ok
+test io::sync::tests::encode_ranges_block_size_nonzero ... ok
+test io::decode::tests::roundtrip_various_sizes ... ok
+test io::decode::tests::roundtrip_block_size_default ... ok
+test io::decode::tests::roundtrip_block_size_nonzero ... ok
+test io::sync::tests::encode_ranges_partial_large_block ... ok
+test result: ok. 71 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+     Running tests/root_policy.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/root_policy-c74c1a1666e61006)
+test published_empty_and_hello_tree_vectors_are_unchanged ... ok
+test fsm_literal_canonical_leaf_and_old_root_error ... ok
+test mixed_canonical_success_and_old_root_terminal_error ... ok
+test literal_proof_accepts_canonical_root ... ok
+test literal_proof_rejects_the_old_internal_cv ... ok
+test literal_root_reaches_every_producer ... ok
+test non_root_partial_and_odd_groups_verify_with_absolute_counters ... ok
+test grouping_preserves_fixed_tree_at_boundaries ... ok
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+     Running tests/slice_traversal.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/slice_traversal-f469877b30ccbe1e)
+test grouped_single_block_has_canonical_root_finalization ... ok
+test right_proof_rejects_corruption_and_truncation ... ok
+test literal_sparse_leaves ... ok
+test literal_right_subtree_is_authenticated ... ok
+test multiblock_empty_and_outside_queries_preserve_existing_behavior ... ok
+test literal_partial_fifth_leaf_and_mixed_outside_query ... ok
+test literal_left_and_full_controls ... ok
+test literal_grouped_right_blocks ... ok
+test literal_nested_right_subtree ... ok
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/radio-e839eb86c8b7e68c)
+test address_lookup::memory::tests::test_provenance ... ok
+test address_lookup::test_dns_pkarr::dns_resolve ... ok
+test address_lookup::test_dns_pkarr::pkarr_publish_dns_resolve ... ok
+test address_lookup::memory::tests::test_basic ... ok
+test address_lookup::test_dns_pkarr::pkarr_publish_dns_address_lookup ... ok
+test dns::tests::test_dns_lookup_ipv4_ipv6 ... ok
+test endpoint::connection::tests::test_0rtt ... ok
+test address_lookup::tests::address_lookup_simple_shared ... ok
+test endpoint::tests::connect_via_relay_becomes_direct_and_sends_direct ... ignored, flaky
+test address_lookup::tests::address_lookup_combined_with_empty_and_right ... ok
+test address_lookup::tests::address_lookup_simple_shared_with_arc ... ok
+test endpoint::connection::tests::test_0rtt_after_server_restart ... ok
+test endpoint::tests::endpoint_bidi_send_recv ... ok
+test endpoint::connection::tests::test_0rtt_non_consecutive ... ok
+test endpoint::tests::connect_multiple_alpn_negotiated ... ok
+test endpoint::tests::endpoint_two_direct_only ... ok
+test endpoint::tests::endpoint_connect_close ... ok
+test endpoint::tests::connect_multi_time ... ok
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ... FAILED
+test address_lookup::mdns::tests::run_in_isolation::test_service_names ... FAILED
+test endpoint::tests::metrics_smoke ... ok
+test endpoint::tests::test_bind_addr_badport ... ok
+test endpoint::tests::test_bind_addr_badport_default_notrequired ... ok
+test endpoint::tests::test_bind_addr_badport_notrequired ... ok
+test endpoint::tests::test_bind_addr_badport_notrequired_no_other_transports ... ok
+test endpoint::tests::test_bind_addr_clear ... ok
+test endpoint::tests::test_bind_addr_default ... ok
+test endpoint::tests::test_bind_addr_no_clear ... ok
+test endpoint::tests::test_bind_addr_nonzero_prefix ... ok
+test endpoint::tests::test_bind_addr_prefix_len_0_not_default ... ok
+test endpoint::tests::test_closed_endpoint_behaviour ... ok
+test endpoint::tests::test_closed_endpoint_polled_accept_fut ... ok
+test endpoint::tests::test_closed_endpoint_unpolled_accept_fut ... ok
+test endpoint::tests::test_connect_self ... ok
+test endpoint::tests::test_custom_relay ... ok
+test endpoint::tests::test_direct_addresses_no_qad_relay ... ok
+test address_lookup::tests::address_lookup_with_wrong_existing_addr ... ok
+test metrics::tests::test_serde ... ok
+test net_report::probes::tests::test_initial_probeplan ... ok
+test net_report::probes::tests::test_initial_probeplan_some_protocols ... ok
+test net_report::reportgen::tests::test_measure_https_latency ... ok
+test endpoint::tests::endpoint_two_relay_only_no_ip ... ok
+test net_report::tests::test_add_report_history_set_preferred_relay ... ok
+test address_lookup::tests::address_lookup_combined_with_empty_and_wrong ... ok
+test net_report::reportgen::tests::test_qad_probe_v4 ... ok
+test protocol::tests::test_limiter_hook ... ok
+test endpoint::tests::watch_net_report ... ok
+test protocol::tests::test_shutdown ... ok
+test socket::remote_map::remote_state::path_state::tests::test_abandoned_path ... ok
+test socket::remote_map::remote_state::path_state::tests::test_insert_open_path ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_all_paths_failed ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_at_max_paths_no_prunable ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_failed_holepunch ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_keeps_most_recent_inactive ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_mixed_must_and_can_prune ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_non_ip_paths_not_counted ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_preserves_never_dialed ... ok
+test socket::remote_map::remote_state::path_state::tests::test_prune_under_max_paths ... ok
+test socket::remote_map::remote_state::tests::test_available_wins_over_backup_regardless_of_rtt ... ok
+test socket::remote_map::remote_state::tests::test_empty_paths_returns_none ... ok
+test socket::remote_map::remote_state::tests::test_ipv6_wins_over_ipv4_within_bias ... ok
+test socket::remote_map::remote_state::tests::test_no_current_path_selects_best ... ok
+test socket::remote_map::remote_state::tests::test_same_category_only_switches_with_significant_rtt_diff ... ok
+test socket::tests::test_direct_addresses ... ok
+test protocol::tests::test_limiter_router ... ok
+test endpoint::tests::same_endpoint_id_relay ... ok
+test protocol::tests::test_graceful_shutdown ... ok
+test net_report::tests::test_basic ... ok
+test socket::tests::test_try_send_no_send_addr ... ok
+test address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ... FAILED
+test socket::tests::test_regression_network_change_rebind_wakes_connection_driver ... ok
+test address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ... ok
+test socket::transports::ip::tests::test_bind_sorting ... ok
+test socket::tests::test_two_devices_setup_teardown ... ok
+test socket::transports::relay::actor::tests::test_active_relay_reconnect ... ok
+test socket::transports::relay::actor::tests::test_ping_tracker ... ok
+test socket::transports::relay::actor::tests::test_active_relay_inactive ... ok
+test test_utils::pkarr_dns_state::tests::test_endpoint_id_from_domain_name ... ok
+test tls::name::tests::test_roundtrip ... ok
+test tls::name::tests::test_snapshot ... ok
+test socket::transports::relay::tests::test_relay_datagram_queue ... ok
+test util::tests::test_maybefuture_poll_after_use ... ok
+test address_lookup::tests::address_lookup_combined_wrong_only ... ok
+test endpoint::tests::endpoint_send_relay ... ok
+test endpoint::tests::endpoint_relay_map_change ... ok
+test endpoint::connection::tests::test_paths_watcher ... ok
+test endpoint::tests::graceful_close ... ok
+test endpoint::tests::endpoint_two_direct_add_relay ... ok
+test endpoint::tests::endpoint_two_relay_only_becomes_direct ... ok
+test socket::tests::test_try_send_no_udp_addr_or_relay_url ... ok
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ... ok
+test socket::tests::test_two_devices_roundtrip_network_change_a_and_b ... ok
+test socket::tests::test_two_devices_roundtrip_network_change_only_a ... ok
+test socket::tests::test_two_devices_roundtrip_quinn_large ... ok
+test socket::tests::test_two_devices_roundtrip_quinn_small ... ok
+test endpoint::tests::endpoint_relay_connect_loop ... ok
+test result: FAILED. 92 passed; 3 failed; 1 ignored; 0 measured; 0 filtered out; finished in 15.98s
+error: test failed, to rerun pass `-p cyber-radio --lib`
+     Running tests/integration.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/integration-ed8eec88c0f40ed5)
+test simple_endpoint_id_based_connection_transfer ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.28s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_base-3520a82dc76041fc)
+test key::tests::public_key_postcard ... ok
+test key::tests::test_regression_parse_endpoint_id_panic ... ok
+test key::tests::test_public_key_postcard ... ok
+test key::tests::public_key_json ... ok
+test key::tests::test_from_str ... ok
+test relay_url::tests::test_relay_url_debug_display ... ok
+test relay_url::tests::test_relay_url_absolute ... ok
+test endpoint_addr::tests::test_roundtrip_new_addr_type ... ok
+test key::tests::signature_postcard ... ok
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_relay-2e9433725d973e03)
+test protos::handshake::tests::test_challenge_verification ... ok
+test protos::handshake::tests::test_client_auth_roundtrip ... ok
+test dns::tests::jitter_test_zero ... ok
+test dns::tests::jitter_test_nonzero_upper_bound ... ok
+test protos::handshake::tests::test_key_material_verification ... ok
+test dns::tests::jitter_test_nonzero_lower_bound ... ok
+test protos::handshake::tests::test_km_client_auth_roundtrip ... ok
+test endpoint_info::tests::txt_attr_roundtrip ... ok
+test dns::tests::custom_resolver ... ok
+test endpoint_info::tests::test_from_hickory_lookup ... ok
+test protos::relay::tests::test_client_server_frames_snapshot ... ok
+test protos::handshake::tests::test_handshake_via_shared_secret_with_auth_negative ... ok
+test endpoint_info::tests::signed_packet_roundtrip ... ok
+test protos::relay::tests::test_server_client_frames_snapshot ... ok
+test protos::handshake::tests::test_handshake_via_shared_secrets ... ok
+test protos::handshake::tests::test_handshake_with_auth_negative ... ok
+test protos::handshake::tests::test_handshake_challenge_fallback ... ok
+test protos::handshake::tests::test_handshake_mismatching_shared_secrets ... ok
+test protos::handshake::tests::test_handshake_with_auth_positive ... ok
+test relay_map::tests::relay_map_extend ... ok
+test protos::handshake::tests::test_handshake_via_challenge ... ok
+test server::client::tests::test_rate_limit ... ok
+test server::client::tests::test_client_actor_basic ... ok
+test quic::tests::test_qad_client_closes_unresponsive_fast ... ok
+test server::streams::tests::test_bucket_high_refill ... ok
+test dns::tests::stagger_basic ... ok
+test server::tests::test_captive_portal_service ... ok
+test server::tests::test_conflicting_bind ... ok
+test server::tests::test_no_services ... ok
+test server::http_server::tests::test_http_clients_and_server ... ok
+test server::streams::tests::smoke_test_bucket_high_consume ... ok
+test server::http_server::tests::test_https_clients_and_server ... ok
+test server::tests::test_root_handler ... ok
+test server::tests::test_relay_clients ... ok
+test server::tests::test_relay_access_control ... ok
+test server::tests::test_relay_clients_full ... ok
+test quic::tests::quic_endpoint_basic ... ok
+test server::clients::tests::test_clients ... ok
+test server::clients::tests::test_clients_same_endpoint_id ... ok
+test server::streams::tests::test_ratelimiter ... ok
+test server::http_server::tests::test_server_basic ... ok
+test protos::relay::proptests::client_server_frame_roundtrip ... ok
+test protos::relay::proptests::client_server_frame_encoded_len ... ok
+test server::http_server::tests::test_server_replace_client ... ok
+test quic::tests::test_qad_connect_delayed ... ok
+test protos::relay::proptests::datagrams_encoded_len ... ok
+test protos::relay::proptests::server_client_frame_encoded_len ... ok
+test protos::relay::proptests::server_client_frame_roundtrip ... ok
+test result: ok. 48 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.04s
+     Running unittests src/main.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/cyber_radio_relay-7f4e5ba0e8edbba1)
+test tests::test_rate_limit_default ... ok
+test tests::test_enable_relay_config ... ok
+test tests::test_rate_limit_config ... ok
+test tests::test_access_config ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_bench-1153b3f3cdce49b4)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/bin/bulk.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/bulk-0f7d6f41f8c17cbf)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_blobs-ffcee716c43213b0)
+test api::blobs::export_pairs::geometry_pins ... ok
+test api::blobs::export_pairs::literal_parent_write ... ok
+test api::blobs::export_pairs::payload_progress_failure ... ok
+test api::blobs::export_pairs::literal_parent_progress ... ok
+test api::downloader::tests::downloader_get_many_smoke ... ignored, todo
+test api::blobs::export_pairs::partial_parent_failure ... ok
+test api::blobs::export_pairs::writer_failure_accounting ... ok
+test api::blobs::export_pairs::encoded_error_propagates ... ok
+test api::blobs::export_pairs::literal_parent_byte_stream ... ok
+test api::blobs::export_pairs::readonly_store_missing ... ok
+test api::blobs::export_pairs::readonly_store_parent_free ... ok
+test api::blobs::export_pairs::root_policy_readonly_memory_key_and_wire ... ok
+test api::blobs::export_pairs::root_policy_mutable_memory_key_and_wire ... ok
+test api::proto::bitfield::tests::test_complete_normalized ... ok
+test api::proto::bitfield::tests::test_combine_order ... ok
+test format::collection::tests::collection_store_load ... ok
+test format::collection::tests::roundtrip_blob ... ok
+test format::collection::tests::roundtrip_collection_meta ... ok
+test hash::root_policy::canonical_key_and_legacy_ticket_bytes ... ok
+test hash::root_policy::published_tree_anchors ... ok
+test hash::tests::hash_and_format_redb ... ok
+test hash::tests::hash_redb ... ok
+test hash::tests::hash_wire_format ... ok
+test hash::tests::test_display_parse_roundtrip ... ok
+test hash::tests::test_empty_hash ... ok
+test hash::tests::test_hash ... ok
+test hash::tests::test_hash_and_format_json ... ok
+test hash::tests::test_hash_and_format_parse ... ok
+test hash::tests::test_hash_and_format_postcard ... ok
+test hash::tests::test_hash_json ... ok
+test hash::tests::test_hash_postcard ... ok
+test hash::tests::test_hash_serde ... ok
+test protocol::builder::tests::chunk_ranges_ext ... ok
+test protocol::builder::tests::get_many_request_builder ... ok
+test protocol::builder::tests::get_request_builder ... ok
+test api::proto::bitfield::tests::test_combine_empty ... ok
+test api::blobs::export_pairs::readonly_store_right_block ... ok
+test protocol::range_spec::tests::range_spec_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_seq_canonical ... ok
+test protocol::range_spec::tests::range_spec_seq_roundtrip_cases ... ok
+test protocol::range_spec::tests::range_spec_seq_wire_format ... ok
+test protocol::range_spec::tests::range_spec_seq_bytes_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_seq_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_wire_format ... ok
+test protocol::tests::request_type_size ... ok
+test protocol::tests::request_wire_format ... ok
+test api::remote::tests::test_local_info_raw ... ok
+test store::fs::tests::test_batch_fs ... ok
+test api::blobs::reader::tests::reader_smoke_memory ... ok
+test api::blobs::reader::tests::reader_partial_memory ... ok
+test api::remote::tests::test_observe_partial_mem ... ok
+test api::blobs::export_pairs::root_policy_tiny_and_streamed_fs_import_agree ... ok
+test store::fs::tests::test_import_bao_minimal ... ok
+test api::blobs::reader::tests::reader_smoke_fs ... ok
+test api::remote::tests::test_local_info_complex_request ... ok
+test api::remote::tests::test_observe_partial_fs ... ok
+test store::fs::tests::test_import_bao_ranges ... ok
+test api::blobs::reader::tests::reader_partial_fs ... ok
+test store::fs::tests::test_import_bao_simple ... ok
+test store::fs::tests::test_export_path ... ok
+test api::remote::tests::test_local_info_hash_seq ... ok
+test store::fs::tests::test_roundtrip_bytes_small ... ignored, flaky. I need a reliable way to keep the handle alive
+test store::fs::util::entity_manager::tests::mem::test_busy ... ok
+test store::fs::util::entity_manager::tests::mem::test_dead ... ok
+test store::fs::tests::test_import_bao_persistence_recover ... ok
+test store::fs::tests::test_import_bao_persistence_observe ... ok
+test store::fs::tests::test_import_bao_persistence_just_size ... ok
+test store::gc::tests::gc_check_deletion_mem ... ok
+test store::gc::tests::gc_check_deletion_fs ... ok
+test store::gc::tests::gc_smoke_mem ... ok
+test store::mem::parent_pairs::corrupted_leaf_rejected_then_valid_retry ... ok
+test store::mem::parent_pairs::corrupted_parent_rejected_then_valid_retry ... ok
+test store::mem::parent_pairs::diagnostic_one_pair ... ok
+test store::mem::parent_pairs::diagnostic_rejects_partial_pair - should panic ... ok
+test store::mem::parent_pairs::diagnostic_two_pairs ... ok
+test store::mem::parent_pairs::fs_complete_memory_batch_and_reopen ... ok
+test store::mem::parent_pairs::literal_pair_storage ... ok
+test store::mem::parent_pairs::parent_free_control ... ok
+test store::mem::parent_pairs::right_partial_then_complete_and_repeat ... ok
+test store::mem::parent_pairs::short_pair_reader_error ... ok
+test store::mem::parent_pairs::three_group_nonzero_parent_ordinal ... ok
+test store::mem::tests::smoke ... ok
+test store::fs::import::tests::smoke ... ok
+test store::fs::tests::test_import_path ... ok
+test store::fs::tests::test_import_bytes_simple ... ok
+test store::fs::tests::test_import_bytes_persistence_full ... ok
+test tests::export_ranges_smoke_fs ... ok
+test tests::node_smoke_mem ... ok
+test store::fs::tests::test_observe ... ok
+test tests::node_smoke_fs ... ok
+test store::fs::tests::test_import_byte_stream ... ok
+test tests::test_export_chunk ... ok
+test store::fs::util::entity_manager::tests::test_counters_manager_proptest_mem ... ok
+test tests::export_ranges_smoke_mem ... ok
+test store::fs::tests::test_import_bao_persistence_full ... ok
+test api::remote::tests::test_local_info_hash_seq_large ... ok
+test api::downloader::tests::downloader_get_all ... ok
+test store::fs::tests::smoke ... ok
+test tests::node_serve_hash_seq ... ok
+test store::gc::tests::gc_smoke_fs ... ok
+test ticket::tests::test_ticket_base32 ... ok
+test ticket::tests::test_ticket_json ... ok
+test ticket::tests::test_ticket_postcard ... ok
+test api::downloader::tests::downloader_get_smoke ... ok
+test store::fs::tests::test_import_bao_persistence_two_stages ... ok
+test util::connection_pool::tests::connection_pool_errors ... ok
+test store::fs::util::entity_manager::tests::test_counters_manager_proptest_fs ... ok
+test util::connection_pool::tests::on_connected_direct ... ok
+test tests::two_nodes_observe_mem ... ok
+test util::outboard_with_progress::tests::init_outboard_with_progress ... ok
+test util::serde::tests::test_roundtrip_error_kinds ... ok
+test util::connection_pool::tests::on_connected_error ... ok
+test tests::two_nodes_hash_seq_fs ... ok
+test tests::two_nodes_hash_seq_progress ... ok
+test tests::two_nodes_get_many_fs ... ok
+test util::connection_pool::tests::watch_close ... ok
+test tests::two_nodes_push_blobs_fs ... ok
+test tests::two_nodes_get_blobs_fs ... ok
+test tests::node_serve_blobs ... ok
+test tests::two_nodes_hash_seq_mem ... ok
+test tests::two_nodes_push_blobs_mem ... ok
+test tests::two_nodes_get_blobs_mem ... ok
+test util::connection_pool::tests::connection_pool_idle ... ok
+test tests::two_nodes_get_many_mem ... ok
+test util::connection_pool::tests::connection_pool_smoke ... ok
+test tests::two_nodes_observe_fs ... ok
+test result: ok. 124 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 39.72s
+     Running tests/blobs.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/blobs-dc69ec6672d7bbf0)
+test blobs_smoke_mem ... ok
+test blobs_smoke_fs ... ok
+test blobs_smoke_fs_rpc ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+     Running tests/tags.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/tags-1fafe0ce4cc2d56e)
+test tags_smoke_mem ... ok
+test tags_smoke_fs ... ok
+test tags_smoke_fs_rpc ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_car-8468acae6a14e34f)
+test header::tests::symmetric_header_v1 ... ok
+test util::tests::ld_read_write_good ... ok
+test reader::tests::car_write_read ... ok
+test util::tests::ld_read_write_fail ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/car_file_test.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/car_file_test-9eb5f2a2a8f68fd9)
+test roundtrip_carv1_test_file ... ok
+test roundtrip_carv1_basic_fixtures_file ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/car_writer_bytes_test.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/car_writer_bytes_test-d0080b7f34ac31ba)
+test write_returns_bytes_written ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.68s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_dns_server-5c84b95d410ce10b)
+test tests::integration_mainline ... ignored, flaky
+test tests::pkarr_publish_dns_resolve ... ok
+test http::tests::test_doh ... ok
+test tests::integration_smoke ... ok
+test tests::store_eviction ... ok
+test result: ok. 4 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.03s
+     Running unittests src/main.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_dns_server-4398cfb766802742)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_docs-171add640689047e)
+test heads::tests::author_heads_compare ... ok
+test ranger::tests::simple_store_sync_1 ... ok
+test ranger::tests::simple_store_sync_2 ... ok
+test ranger::tests::simple_store_sync_x ... ok
+test ranger::tests::test_limits ... ok
+test ranger::tests::simple_store_sync_3 ... ok
+test heads::tests::author_heads_encode_decode ... ok
+test engine::live::tests::test_sync_remove ... ok
+test ranger::tests::store_get_range ... ok
+test ranger::tests::test_equal_key_higher_value ... ok
+test ranger::tests::test_multikey ... ok
+test ranger::tests::test_paper_1 ... ok
+test ranger::tests::test_paper_2 ... ok
+test ranger::tests::test_prefixes_empty_bob ... ok
+test ranger::tests::test_prefixes_empty_alice ... ok
+test ranger::tests::test_prefixes_simple ... ok
+test ranger::tests::test_paper_3 ... ok
+test store::fs::bounds::tests::records_bounds ... ok
+test store::fs::bounds::tests::by_key_bounds ... ok
+test ranger::tests::test_validate_cb ... ok
+test store::tests::test_filter_kind_encode_decode ... ok
+test ranger::tests::simple_store_get_ranges ... ok
+test ranger::tests::simple_store_sync ... ok
+test ranger::tests::simple_store_sync_u8 ... ok
+test actor::tests::open_close ... ok
+test sync::tests::test_actor_capability_memory ... ok
+test sync::tests::test_basics_memory ... ok
+test sync::tests::test_content_hashes_iterator_memory ... ok
+test net::codec::tests::test_sync_timestamps_memory ... ok
+test net::codec::tests::test_sync_simple ... ok
+test sync::tests::test_dl_policies_mem ... ok
+test sync::tests::test_multikey ... ok
+test sync::tests::test_future_timestamp ... ok
+test store::fs::tests::test_basics ... ok
+test sync::tests::test_actor_capability_fs ... ok
+test store::fs::tests::test_migration_004_populate_by_key_index ... ok
+test store::fs::tests::test_ranges ... ok
+test sync::tests::test_insert_empty ... ok
+test sync::tests::test_basics_fs ... ok
+test sync::tests::test_latest_iter_memory ... ok
+test sync::tests::test_prefix_delete_memory ... ok
+test sync::tests::test_content_hashes_iterator_fs ... ok
+test sync::tests::test_dl_policies_fs ... ok
+test sync::tests::test_replica_byte_keys_memory ... ok
+test sync::tests::test_replica_capability_memory ... ok
+test sync::tests::test_replica_delete_edge_cases_memory ... ok
+test store::fs::tests::test_migration_001_populate_latest_table ... ok
+test sync::tests::test_replica_queries_mem ... ok
+test sync::tests::test_latest_iter_fs ... ok
+test net::codec::tests::test_sync_timestamps_fs ... ok
+test sync::tests::test_replica_no_wrong_remote_insert_events ... ok
+test sync::tests::test_replica_remove_memory ... ok
+test sync::tests::test_prefix_delete_fs ... ok
+test ticket::tests::test_ticket_base32 ... ok
+test sync::tests::test_replica_capability_fs ... ok
+test sync::tests::test_replica_byte_keys_fs ... ok
+test sync::tests::test_timestamps_memory ... ok
+test sync::tests::test_replica_sync_delete_memory ... ok
+test sync::tests::test_replica_delete_edge_cases_fs ... ok
+test sync::tests::test_replica_queries_fs ... ok
+test sync::tests::test_replica_sync_memory ... ok
+test sync::tests::test_replica_timestamp_sync_memory ... ok
+test sync::tests::test_replica_remove_fs ... ok
+test sync::tests::test_timestamps_fs ... ok
+test sync::tests::test_replica_sync_delete_fs ... ok
+test sync::tests::test_replica_timestamp_sync_fs ... ok
+test sync::tests::test_replica_sync_fs ... ok
+test net::codec::tests::test_sync_many_authors_memory ... ok
+test net::codec::tests::test_sync_many_authors_fs ... ok
+test result: ok. 69 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.33s
+     Running tests/client.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/client-3a9c2844db5d915e)
+test test_authors ... ok
+test test_default_author_memory ... ok
+test test_doc_import_export ... ok
+test test_doc_close ... ok
+test test_default_author_persist ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.24s
+     Running tests/gc.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/gc-f012ba96ba3f58dc)
+test redb_doc_import_stress ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.66s
+     Running tests/sync.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/sync-0bcbae9bacf03dce)
+test sync_big ... ignored, flaky
+test sync_full_basic ... ignored, flaky
+test sync_restart_node ... ignored, flaky
+test sync_open_close ... ok
+test sync_drop_doc ... ok
+test sync_subscribe_no_sync ... ok
+test sync_subscribe_stop_close ... ok
+test test_download_policies ... ok
+test test_list_docs_stream ... ok
+test test_sync_via_relay ... ok
+test sync_gossip_bulk ... ok
+test doc_delete ... ok
+test sync_simple ... ok
+test result: ok. 10 passed; 0 failed; 3 ignored; 0 measured; 0 filtered out; finished in 3.28s
+     Running tests/util.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/util-9dc913a50e18f221)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_gossip-2d8402086478c760)
+test api::tests::ensure_gossip_topic_is_sync ... ok
+test proto::util::test::hex ... ok
+test proto::util::test::time_bound_cache ... ok
+test proto::plumtree::test::cache_is_evicted ... ok
+test proto::plumtree::test::spoofed_messages_are_ignored ... ok
+test proto::plumtree::test::optimize_tree ... ok
+test proto::util::test::timer_map ... ok
+test proto::util::test::indexset ... ok
+test proto::test::hyparview_smoke ... ok
+test proto::test::quit ... ok
+test proto::test::plumtree_smoke ... ok
+test net::test::can_die_and_reconnect ... ok
+test net::test::gossip_net_smoke ... ok
+test net::address_lookup::tests::test_retention ... ok
+test net::test::can_reconnect ... ok
+test net::test::subscription_cleanup ... ok
+test net::test::gossip_change_alpn ... ok
+test net::test::topic_stays_alive_after_sender_drop ... ok
+test net::test::gossip_rely_on_gossip_address_lookup ... ok
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.14s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/iroh_willow-84e3eb0edf5d17b3)
+test proto::grouping::tests::area_eq ... ok
+test session::pai_finder::tests::pai_smoke ... ok
+test session::pai_finder::tests::pai_subspace ... ok
+test store::willow_store_glue::tests::prop_stored_timestamp_ord_matches_u64_ord ... ok
+test net::tests::net_smoke ... ok
+test net::tests::net_live_data ... ok
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.15s
+     Running tests/basic.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/basic-a475c40341581356)
+test owned_namespace_subspace_write_sync ... ignored, flaky
+test read_back_write ... ok
+test peer_manager_shutdown_immediate ... ok
+test peer_manager_empty_payload ... ok
+test peer_manager_two_intents ... ok
+test peer_manager_shutdown_timeout ... ok
+test peer_manager_big_payload ... ok
+test peer_manager_update_intent ... ok
+test peer_manager_twoway_loop ... ok
+test result: ok. 8 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 3.46s
+     Running tests/spaces.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/spaces-77dfd0f0c6062811)
+test test_restricted_area ... ignored, flaky
+test spaces_subscription ... ok
+test spaces_smoke ... ok
+test prop_sync_simulation_matches_model ... ok
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 41.95s
+     Running unittests src/main.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/particle-fc5ccdd0e6e4a35d)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/main.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/radio-3f17c7374a970969)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/radio_integration_tests-6d160ead43dde45f)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/blob_transfer.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/blob_transfer-5409e4566f48951e)
+test blob_empty ... ok
+test blob_add_and_fetch_small ... ok
+test blob_chunk_boundary ... ok
+test blob_fetch_via_downloader ... ok
+test blob_multiple_sequential ... ok
+test blob_three_nodes_relay ... ok
+test blob_add_and_fetch_1mb ... ok
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.77s
+     Running tests/doc_sync.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/doc_sync-b726a9439576dc1c)
+test doc_sync_simple ... ok
+test doc_sync_bidirectional ... ok
+test doc_sync_large_value ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.63s
+     Running tests/full_pipeline.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/full_pipeline-abd787c485ec0d44)
+test multi_blob_doc_sync ... ok
+test pin_then_doc_sync_then_download ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.40s
+     Running tests/gossip_broadcast.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/gossip_broadcast-9bdf7e87be3916ea)
+test gossip_two_nodes ... ok
+test gossip_bidirectional ... ok
+test gossip_three_nodes_fan_out ... ok
+test gossip_multihop_relay ... ok
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.64s
+     Running tests/hash_verify.rs (/Users/master/cyber/.stands/G3/_target/debug/deps/hash_verify-d0c28d036ddfe6a7)
+test poseidon2_keyed_hash_differs ... ok
+test poseidon2_hash_deterministic ... ok
+test poseidon2_hash_different_inputs ... ok
+test poseidon2_derive_key ... ok
+test poseidon2_streaming_consistency ... ok
+test blob_store_hash_matches_iroh_blobs_hash ... ok
+test blob_store_hash_round_trip ... ok
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests cyber_bao
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests radio
+test iroh/src/address_lookup/mdns.rs - address_lookup::mdns (line 8) - compile ... ok
+test iroh/src/address_lookup.rs - address_lookup (line 61) - compile ... ok
+test iroh/src/address_lookup.rs - address_lookup (line 80) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Builder::bind_addr_with_opts (line 354) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Builder::bind_addr (line 277) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1280) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::watch_addr (line 970) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::net_report (line 1141) - compile ... ok
+test iroh/src/lib.rs - (line 172) - compile ... ok
+test iroh/src/lib.rs - (line 197) - compile ... ok
+test iroh/src/endpoint/presets.rs - endpoint::presets (line 5) - compile ... ok
+test iroh/src/lib.rs - (line 10) - compile ... ok
+test iroh/src/lib.rs - (line 28) - compile ... ok
+test iroh/src/protocol.rs - protocol (line 5) - compile ... ok
+test iroh/src/protocol.rs - protocol::Router (line 71) - compile ... ok
+test iroh/src/socket/remote_map/remote_state/remote_info.rs - socket::remote_map::remote_state::remote_info::RemoteInfo::into_addrs (line 36) - compile ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1217) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::closed (line 1437) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfig (line 116) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::watch_addr (line 1005) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1234) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfigBuilder::congestion_controller_factory (line 409) ... ok
+test iroh/src/endpoint.rs - endpoint::Endpoint::metrics (line 1258) ... ok
+test iroh/src/endpoint/quic.rs - endpoint::quic::QuicTransportConfigBuilder::max_idle_timeout (line 191) ... ok
+test iroh/src/endpoint.rs - endpoint::RelayMode::custom (line 1626) ... ok
+test iroh/src/address_lookup/memory.rs - address_lookup::memory::MemoryLookup (line 39) ... ok
+test iroh/src/address_lookup/memory.rs - address_lookup::memory::MemoryLookup::from_endpoint_info (line 122) ... ok
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+   Doc-tests iroh_base
+test iroh-base/src/key.rs - key::SecretKey::generate (line 281) ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests iroh_relay
+test iroh-relay/src/server/http_server.rs - server::http_server::RelayService::handle_connection (line 821) - compile ... ok
+test iroh-relay/src/relay_map.rs - relay_map::RelayMap (line 21) ... ok
+test iroh-relay/src/relay_map.rs - relay_map::RelayMap::try_from_iter (line 59) ... ok
+test iroh-relay/src/server/http_server.rs - server::http_server::TlsConfig::new (line 203) ... ok
+test iroh-relay/src/server/http_server.rs - server::http_server::TlsConfig (line 158) ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+   Doc-tests iroh_bench
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests iroh_blobs
+test iroh-blobs/src/lib.rs - (line 35) - compile ... ok
+test iroh-blobs/src/net_protocol.rs - net_protocol (line 7) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 282) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 114) ... ok
+test iroh-blobs/src/api/blobs.rs - api::blobs::Blobs::reader (line 116) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 239) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 208) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 271) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 220) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 257) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 168) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 132) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 157) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 342) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 144) ... ok
+test iroh-blobs/src/protocol.rs - protocol (line 354) ... ok
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.73s
+   Doc-tests iroh_car
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests iroh_dns_server
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests iroh_docs
+test iroh-docs/src/lib.rs - (line 44) ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.27s
+   Doc-tests iroh_gossip
+test iroh-gossip/src/lib.rs - (line 20) - compile ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+   Doc-tests iroh_willow
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests radio_integration_tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+error: 1 target failed:
+real 211.45
+exit=101

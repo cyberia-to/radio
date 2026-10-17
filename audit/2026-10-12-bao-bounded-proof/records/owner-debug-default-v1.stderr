@@ -1,0 +1,13 @@
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.91s
+     Running unittests src/lib.rs (/tmp/radio-bao-proof-target/debug/deps/cyber_bao-885be67a1465c152)
+     Running tests/group.rs (/tmp/radio-bao-proof-target/debug/deps/group-6222a848508cc46f)
+     Running tests/group_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/group_allocation-c90ab9a6d15cc3f8)
+     Running tests/proof.rs (/tmp/radio-bao-proof-target/debug/deps/proof-c2167c17a176c683)
+     Running tests/proof_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/proof_allocation-ebd9298fd274c91f)
+     Running tests/proof_failures.rs (/tmp/radio-bao-proof-target/debug/deps/proof_failures-4a9fdd12460fbdac)
+     Running tests/range_traversal.rs (/tmp/radio-bao-proof-target/debug/deps/range_traversal-6ad231f7cc780394)
+     Running tests/range_traversal_allocation.rs (/tmp/radio-bao-proof-target/debug/deps/range_traversal_allocation-6c107cbd4cee9d5f)
+     Running tests/root_policy.rs (/tmp/radio-bao-proof-target/debug/deps/root_policy-202a04d21e90bc0e)
+     Running tests/slice_traversal.rs (/tmp/radio-bao-proof-target/debug/deps/slice_traversal-92b292100a2e4fc7)
+   Doc-tests cyber_bao

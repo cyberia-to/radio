@@ -1,0 +1,11 @@
+[package]
+name = "bao-proof-seal-probes"
+version = "0.0.0"
+edition = "2024"
+publish = false
+[workspace]
+[dependencies]
+cyber-bao = { path = "../../../cyber-bao", default-features = false }
+serde = "1"
+[profile.dev.package.cyber-hemera]
+opt-level = 3
