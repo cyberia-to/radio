@@ -1,0 +1,27 @@
+{
+  "candidate": "workspace-nextest-default-isolated",
+  "parent": "parent-workspace-nextest-default-failing-cases",
+  "scope": "only exact failed cases under same workspace feature/profile/env/config; not a second full parent matrix",
+  "cases": [
+    [
+      "cyber-radio",
+      "address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire"
+    ],
+    [
+      "cyber-radio",
+      "address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve"
+    ],
+    [
+      "cyber-radio",
+      "address_lookup::mdns::tests::run_in_isolation::mdns_subscribe"
+    ],
+    [
+      "cyber-radio",
+      "address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered"
+    ],
+    [
+      "cyber-radio",
+      "address_lookup::mdns::tests::run_in_isolation::test_service_names"
+    ]
+  ]
+}

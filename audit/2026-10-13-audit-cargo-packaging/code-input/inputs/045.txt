@@ -1,0 +1,449 @@
+{
+  "status": "pass",
+  "scope": "Parsed JSON only; exact identifiers and path-boundary substitutions. All other values and array order equal.",
+  "arms": [
+    {
+      "arm": "parent",
+      "exact_map": {
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312faa8770e80efe9afa864106ae6b51552": "RADIO-SOURCE",
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0": "RADIO-ID",
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552": "RADIO-DEPENDENCY",
+        "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0": "CONSUMER-ID"
+      },
+      "path_prefix_map": {
+        "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao": "RADIO-CHECKOUT/cyber-bao",
+        "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs": "HEMERA-CHECKOUT/rs",
+        "/tmp/radio-audit-packaging-pair-v3/parent/consumer": "CONSUMER",
+        "/tmp/radio-audit-packaging-pair-v3/parent/target": "TARGET"
+      },
+      "substitutions": [
+        {
+          "pointer": "/packages/0/id",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/0/source",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312faa8770e80efe9afa864106ae6b51552",
+          "new": "RADIO-SOURCE",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/0/targets/0/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/lib.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/src/lib.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/1/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/group.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/group.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/2/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/group_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/group_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/3/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/4/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/5/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof_failures.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof_failures.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/6/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/range_traversal.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/7/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/range_traversal_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/8/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/root_policy.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/root_policy.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/9/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/slice_traversal.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/slice_traversal.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/Cargo.toml",
+          "new": "RADIO-CHECKOUT/cyber-bao/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/0/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/lib.rs",
+          "new": "HEMERA-CHECKOUT/rs/src/lib.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/1/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/bench.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/bench.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/2/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/neon_mul.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/neon_mul.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/3/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/split.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/split.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/4/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/constant_time.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/constant_time.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/5/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/differential.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/differential.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/6/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/vectors.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/vectors.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/Cargo.toml",
+          "new": "HEMERA-CHECKOUT/rs/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/2/id",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/2/dependencies/0/source",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552",
+          "new": "RADIO-DEPENDENCY",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/2/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/consumer/Cargo.toml",
+          "new": "CONSUMER/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/workspace_members/0",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/workspace_default_members/0",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/0/id",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/id",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/dependencies/0",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/deps/0/pkg",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/root",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/parent/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/target_directory",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/target",
+          "new": "TARGET",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/build_directory",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/target",
+          "new": "TARGET",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/workspace_root",
+          "old": "/tmp/radio-audit-packaging-pair-v3/parent/consumer",
+          "new": "CONSUMER",
+          "kind": "validated-path-boundary"
+        }
+      ]
+    },
+    {
+      "arm": "candidate",
+      "exact_map": {
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#e22c5b472a0979ad382d241b9706de5b82fed9a9": "RADIO-SOURCE",
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#cyber-bao@0.1.0": "RADIO-ID",
+        "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9": "RADIO-DEPENDENCY",
+        "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0": "CONSUMER-ID"
+      },
+      "path_prefix_map": {
+        "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao": "RADIO-CHECKOUT/cyber-bao",
+        "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs": "HEMERA-CHECKOUT/rs",
+        "/tmp/radio-audit-packaging-pair-v3/candidate/consumer": "CONSUMER",
+        "/tmp/radio-audit-packaging-pair-v3/candidate/target": "TARGET"
+      },
+      "substitutions": [
+        {
+          "pointer": "/packages/0/id",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/0/source",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#e22c5b472a0979ad382d241b9706de5b82fed9a9",
+          "new": "RADIO-SOURCE",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/0/targets/0/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/src/lib.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/src/lib.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/1/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/group.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/group.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/2/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/group_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/group_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/3/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/proof.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/4/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/proof_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/5/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/proof_failures.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/proof_failures.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/6/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/range_traversal.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/7/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/range_traversal_allocation.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal_allocation.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/8/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/root_policy.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/root_policy.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/targets/9/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/tests/slice_traversal.rs",
+          "new": "RADIO-CHECKOUT/cyber-bao/tests/slice_traversal.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/0/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/source-029023e212e163c1/e22c5b4/cyber-bao/Cargo.toml",
+          "new": "RADIO-CHECKOUT/cyber-bao/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/0/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/lib.rs",
+          "new": "HEMERA-CHECKOUT/rs/src/lib.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/1/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/bench.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/bench.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/2/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/neon_mul.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/neon_mul.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/3/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/split.rs",
+          "new": "HEMERA-CHECKOUT/rs/examples/split.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/4/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/constant_time.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/constant_time.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/5/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/differential.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/differential.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/targets/6/src_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/vectors.rs",
+          "new": "HEMERA-CHECKOUT/rs/tests/vectors.rs",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/1/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/Cargo.toml",
+          "new": "HEMERA-CHECKOUT/rs/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/packages/2/id",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/2/dependencies/0/source",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9",
+          "new": "RADIO-DEPENDENCY",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/packages/2/manifest_path",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/consumer/Cargo.toml",
+          "new": "CONSUMER/Cargo.toml",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/workspace_members/0",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/workspace_default_members/0",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/0/id",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/id",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/dependencies/0",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/nodes/2/deps/0/pkg",
+          "old": "git+file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#cyber-bao@0.1.0",
+          "new": "RADIO-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/resolve/root",
+          "old": "path+file:///tmp/radio-audit-packaging-pair-v3/candidate/consumer#kadek-bao-reader-control@0.0.0",
+          "new": "CONSUMER-ID",
+          "kind": "exact-identifier"
+        },
+        {
+          "pointer": "/target_directory",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/target",
+          "new": "TARGET",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/build_directory",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/target",
+          "new": "TARGET",
+          "kind": "validated-path-boundary"
+        },
+        {
+          "pointer": "/workspace_root",
+          "old": "/tmp/radio-audit-packaging-pair-v3/candidate/consumer",
+          "new": "CONSUMER",
+          "kind": "validated-path-boundary"
+        }
+      ]
+    }
+  ],
+  "normalized_sha256": "6cc33ab97bb478ab222ed92f893740e8a8f6279f35635f937f4200944e6e03cd"
+}

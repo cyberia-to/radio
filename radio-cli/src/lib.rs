@@ -9,10 +9,13 @@
 
 use anyhow::{Context, Result, bail};
 
-/// Decode a hex string into bytes. `odd-length` and non-hex digits are
-/// rejected with a message naming the problem, not a panic.
+/// Decode a hex string into bytes. Non-ASCII input, odd length and non-hex
+/// digits are rejected with a message naming the problem, not a panic.
 pub fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {
-    if hex.len() % 2 != 0 {
+    if !hex.is_ascii() {
+        bail!("non-ASCII hex string");
+    }
+    if !hex.len().is_multiple_of(2) {
         bail!("odd-length hex string");
     }
     (0..hex.len())
@@ -49,6 +52,16 @@ mod tests {
     #[test]
     fn hex_to_bytes_rejects_non_hex_digits() {
         assert!(hex_to_bytes("zz").is_err());
+    }
+
+    #[test]
+    fn hex_to_bytes_rejects_non_ascii_without_panicking() {
+        // 31 ASCII bytes + 'é' (2 bytes) + 1 ASCII byte = 34 bytes, an even
+        // length that used to reach the byte-indexed slice loop and panic
+        // when a step boundary landed inside 'é'.
+        let s = format!("{}é{}", "a".repeat(31), "a");
+        assert_eq!(s.len(), 34);
+        assert!(hex_to_bytes(&s).is_err());
     }
 
     #[test]

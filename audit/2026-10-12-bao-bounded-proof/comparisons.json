@@ -1,0 +1,87 @@
+[
+  {
+    "candidate": "ci-selector-iroh-relay",
+    "parent": "parent-ci-selector-iroh-relay",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "ci-selector-iroh",
+    "parent": "parent-ci-selector-iroh",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "owner-clippy-all-final",
+    "parent": "parent-owner-clippy-all-final",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "owner-msrv",
+    "parent": "parent-owner-msrv",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "semver-tag-default",
+    "parent": "parent-semver-tag-default",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "semver-tag-none",
+    "parent": "parent-semver-tag-none",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-clippy-all",
+    "parent": "parent-workspace-clippy-all",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-clippy-default",
+    "parent": "parent-workspace-clippy-default",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-clippy-none",
+    "parent": "parent-workspace-clippy-none",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-deny",
+    "parent": "parent-workspace-deny",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-format",
+    "parent": "parent-workspace-format",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-nextest-all-isolated",
+    "parent": "parent-workspace-nextest-all-isolated",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-nextest-all",
+    "parent": "parent-workspace-nextest-all",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-nextest-default-isolated",
+    "parent": "parent-workspace-nextest-default-failing-cases",
+    "scope": "exact failing runtime cases only; same workspace features/profile/env; candidate full matrix"
+  },
+  {
+    "candidate": "workspace-nextest-default",
+    "parent": "parent-workspace-nextest-default",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  },
+  {
+    "candidate": "workspace-nextest-none-isolated",
+    "parent": "parent-workspace-nextest-none-failing-cases",
+    "scope": "exact failing runtime cases only; same workspace features/profile/env; candidate full matrix"
+  },
+  {
+    "candidate": "workspace-nightly-docs",
+    "parent": "parent-workspace-nightly-docs",
+    "scope": "same requested command scope on exact current parent; inspect raw diagnostics, scheduling may reveal different subsets"
+  }
+]

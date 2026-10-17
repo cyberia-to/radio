@@ -1,0 +1,3 @@
+Verified 81 source/artifact hashes and exact included bytes; 53 unchanged full Git pins (excerpts retain full source pins).
+Bundle 791000 bytes SHA256 2cd76f7d656b485718a24dc800e8aaa7ff809d14d5ad3a262ef2a92e385451d2
+Index SHA256 637ee9378f557cd605aa9aba3dbac1a137ea6141fa456bc0c6375f23bb0b0ced

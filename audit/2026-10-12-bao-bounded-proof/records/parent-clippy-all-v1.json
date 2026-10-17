@@ -1,0 +1,38 @@
+{
+  "started": "2026-10-13T00:09:37.872824Z",
+  "finished": "2026-10-13T00:09:38.327222Z",
+  "cwd": "/private/tmp/radio-bao-proof-parent-b933",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "PATH=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin:/Users/master/.cargo/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "RUSTFLAGS=-Dwarnings",
+    "RUSTDOCFLAGS=-Dwarnings",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-clippy-target",
+    "cargo",
+    "clippy",
+    "--locked",
+    "--offline",
+    "-p",
+    "cyber-bao",
+    "--all-features",
+    "--all-targets",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 101,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-parent-clippy-all-v1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-parent-clippy-all-v1.stderr",
+    "bytes": 8191,
+    "sha256": "d6f5e30ba20b1f4d17b2f396fdaa4af38a07085a9426aa938a93c6ebba5ad5ef"
+  }
+}

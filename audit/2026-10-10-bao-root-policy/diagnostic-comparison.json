@@ -1,0 +1,237 @@
+[
+  {
+    "name": "bao-clippy",
+    "parent_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-cyber-bao-clippy.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-clippy.stderr",
+    "parent_sha256": "3b46984f991aa58a7cf884bb115099306a08f6d5ab33c772c44031035a7428d0",
+    "candidate_sha256": "8778a20550ee5038100cb1e3802c57cfbdacebfbbbe6a4c2dd311ca14794bd78",
+    "parent_count": 13,
+    "candidate_count": 11,
+    "removed": [
+      {
+        "error": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "source": [
+          "|                 next.push(level[i].clone());"
+        ]
+      },
+      {
+        "error": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mod.rs",
+        "source": [
+          "|                 next.push(level[i].clone());"
+        ]
+      }
+    ],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "native-clippy",
+    "parent_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-iroh-blobs-clippy.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-clippy.stderr",
+    "parent_sha256": "294a6b211237e6332c642e166e4594dd4d478a6aec769c6fb8259b544119143b",
+    "candidate_sha256": "5a9748aeacc3e18446fbe50108728738715c15afd78b5b571d431d1bb02cb0d1",
+    "parent_count": 14,
+    "candidate_count": 12,
+    "removed": [
+      {
+        "error": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "source": [
+          "|                 next.push(level[i].clone());"
+        ]
+      },
+      {
+        "error": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mod.rs",
+        "source": [
+          "|                 next.push(level[i].clone());"
+        ]
+      }
+    ],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "workspace",
+    "parent_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-workspace-test-compile.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-workspace-no-run.stderr",
+    "parent_sha256": "4012718d88ba87ad33243a7379578a60d60da3fb0dd321600823b9d26faa56fc",
+    "candidate_sha256": "9495d00faf42b396d8cb83160712533b524ccad6dc167fadea9b2dd5a2bd8022",
+    "parent_count": 9,
+    "candidate_count": 9,
+    "removed": [],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "consumers",
+    "parent_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-local-consumers-test-compile.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-consumers-no-run.stderr",
+    "parent_sha256": "2eb13b83e5e98c5802a2d3ada6fadda7cc494e5a6dc00563b40dc8568ba3da3a",
+    "candidate_sha256": "d3e3acae291b6e574114c536588f37d6e2597415948b0934b18dbdf299e84141",
+    "parent_count": 9,
+    "candidate_count": 9,
+    "removed": [],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "msrv-workspace",
+    "parent_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-named-msrv-workspace.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-workspace-check.stderr",
+    "parent_sha256": "5effc3887730bba42d91c389240ebc3c1d2ea68e7f0e9a46772d0cd3ea3b9db8",
+    "candidate_sha256": "bf5f69f32191411c147b76810bcc97b483467b0bf0a9ef0ce2bb44e1c3fef427",
+    "parent_count": 9,
+    "candidate_count": 9,
+    "removed": [],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "named-nextest",
+    "parent_log": "/tmp/radio-gate-tools/logs/parent-nextest-installed.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-nextest-all.stderr",
+    "parent_sha256": "7db8ed9fbf305f0baf0dcea81d2475ae66364e7713738a492a38ec815cb46eda",
+    "candidate_sha256": "58178d6a872907d36f4c2f8924a36a6b283ca12c3da95e2f9db7393bdbbd0052",
+    "parent_count": 9,
+    "candidate_count": 9,
+    "removed": [],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  },
+  {
+    "name": "named-nightly-docs",
+    "parent_log": "/tmp/radio-gate-tools/logs/parent-nightly-docs-installed.stderr",
+    "candidate_log": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-nightly-docs.stderr",
+    "parent_sha256": "eb80d2ab80da04cc78f20c86c8b69edb42c5a799948047e5cfe11a2cc61245df",
+    "candidate_sha256": "859707d91aaf07678e11868ced362b3d6ca93d7a3989473a26e6d394102d95b2",
+    "parent_count": 27,
+    "candidate_count": 13,
+    "removed": [
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|         .map_or(RelayMode::Disabled, |url| RelayMode::Custom(url.into()));",
+          "|         .map_or(RelayMode::Disabled, |url: /* Type */| RelayMode::Custom(url.into()));"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|       let endpoint = builder",
+          "| |         .alpns(vec![ALPN.to_vec()])",
+          "| |         .relay_mode(relay_mode)",
+          "| |         .transport_config(transport_config(opt.max_streams, opt.initial_mtu))",
+          "| |         .bind()",
+          "| |         .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|       let connection = endpoint",
+          "| |         .connect(server_addr, ALPN)",
+          "| |         .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|         while let Some(chunk) = stream.read_chunk(usize::MAX).await.anyerr()? {"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|         while let Some(n) = stream.read_chunks(&mut bufs[..]).await.anyerr()? {"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "| /         stream",
+          "| |             .write_chunk(bytes_data.clone())",
+          "| |             .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "| /         stream",
+          "| |             .write_chunk(bytes_data.slice(0..remaining))",
+          "| |             .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "| /     stream",
+          "| |         .stopped()",
+          "| |         .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|       let (mut send_stream, recv_stream) = connection",
+          "| |         .open_bi()",
+          "| |         .await"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|         let incoming = endpoint.accept().await.unwrap();"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|         let connection = accepting.await.context(\"handshake failed\")?;"
+        ]
+      },
+      {
+        "error": "error[E0433]: failed to resolve: use of unresolved module or unlinked crate `radio`",
+        "path": "iroh/bench/src/lib.rs",
+        "source": [
+          "|                     radio::handle_client_stream(connection, opt.upload_size, opt.read_unordered)"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|             .map_or(RelayMode::Disabled, |url| RelayMode::Custom(url.into()));",
+          "|             .map_or(RelayMode::Disabled, |url: /* Type */| RelayMode::Custom(url.into()));"
+        ]
+      },
+      {
+        "error": "error[E0282]: type annotations needed",
+        "path": "iroh/bench/src/iroh.rs",
+        "source": [
+          "|           let ep = builder",
+          "| |             .alpns(vec![ALPN.to_vec()])",
+          "| |             .relay_mode(relay_mode)",
+          "| |             .transport_config(transport_config(opt.max_streams, opt.initial_mtu))",
+          "| |             .bind()",
+          "| |             .await"
+        ]
+      }
+    ],
+    "added": [],
+    "method": "Compare error header, source path and quoted Rust source lines; strip line numbers only. Full raw stderr retained. Only source-located diagnostics; command/documentation summaries excluded. Warnings retained in raw logs and gate index."
+  }
+]

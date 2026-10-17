@@ -1,0 +1,32 @@
+
+running 5 tests
+test debug_does_not_print_payload ... ok
+test jobs_can_interleave_and_views_outlive_verifiers_and_cursors ... ok
+test literal_schedules_and_exact_borrowed_coordinates ... ok
+test cancelling_at_each_pending_stage_publishes_nothing ... ok
+test caller_quotas_and_total_are_not_renewed_by_groups_or_yields ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 1 test
+test concrete_verifier_all_stages_output_failure_and_cancel_allocate_nothing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 11 tests
+test diagnostic_strings_and_core_error_trait_are_frozen ... ok
+test each_expected_root_word_has_exact_canonical_boundary ... ok
+test largest_group_width_is_geometry_not_allocation_admission ... ok
+test geometry_precedes_empty_request_and_root_canonicality ... ok
+test maximum_frontier_prefix_uses_literal_small_missing_leaf ... ok
+test representation_aliases_are_not_normalized ... ok
+test absolute_chunk_counter_is_not_relative_to_the_selected_group ... ok
+test canonical_parent_and_payload_corruption_never_publish ... ok
+test exact_eof_is_a_separate_required_commit ... ok
+test header_size_is_trusted_input_and_every_truncation_is_exact ... ok
+test both_children_all_words_reject_noncanonical_before_hashing ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

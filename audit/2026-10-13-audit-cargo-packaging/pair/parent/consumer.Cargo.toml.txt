@@ -1,0 +1,11 @@
+[package]
+name = "kadek-bao-reader-control"
+version = "0.0.0"
+edition = "2024"
+publish = false
+[workspace]
+[[bin]]
+name = "reader-control"
+path = "/tmp/radio-audit-packaging-pair-v3/frozen/reader_probe.rs"
+[dependencies]
+cyber-bao = { git = "file:///tmp/radio-audit-packaging-pair-v3/source.git", rev = "ce0fb312faa8770e80efe9afa864106ae6b51552", default-features = false }

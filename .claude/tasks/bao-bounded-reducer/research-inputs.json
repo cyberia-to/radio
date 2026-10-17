@@ -1,0 +1,572 @@
+[
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/Cargo.toml",
+    "bytes": 872,
+    "sha256": "2615df35dd589ce44a74d99c640aeaf5f2dccbe1ba86ea36cde4f8427ad97352",
+    "git_blob": "ade32ccf04c4997454127660860f44ff9e971cf7",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/Cargo.toml"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/lib.rs",
+    "bytes": 1117,
+    "sha256": "515b6da9bc4ab527e9a5e2cca01e7c3b6bf3d0447a09fa8aa18b684a145bfe84",
+    "git_blob": "bd2bb3a7488098f032e918b354b1d07a40d67c64",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/lib.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/hash.rs",
+    "bytes": 3998,
+    "sha256": "a26a9f45657d1f72eed21121809d0eea628824d4292703f8c409f63b75bf7ed2",
+    "git_blob": "62616453d21ce7a56df10eec4425ffbbe949cf62",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/hash.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/tree.rs",
+    "bytes": 29244,
+    "sha256": "c81e0df05e6b19031858b6a3b8c6cfd6bcd620a7ca8c078de4a740ce3bab2aa4",
+    "git_blob": "b96b6e199d832d7181fe92cbe4381d6e1e433505",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/tree.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/io/mod.rs",
+    "bytes": 8630,
+    "sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a",
+    "git_blob": "0df4d5831d0e77d3548d9f36d32130558a8a624f",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/io/mod.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/io/slice.rs",
+    "bytes": 13041,
+    "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7",
+    "git_blob": "b1444f2fc09835307e312db93c1ddaaee955eee6",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/io/slice.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/io/fsm.rs",
+    "bytes": 10938,
+    "sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f",
+    "git_blob": "a89199cb144549aaa75242bbe420ce03cbba7959",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/io/fsm.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/io/sync.rs",
+    "bytes": 13540,
+    "sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a",
+    "git_blob": "14c6ab3d257c5a346644ca8cab153dcdbb76bbc4",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/io/sync.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/src/io/outboard.rs",
+    "bytes": 6220,
+    "sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06",
+    "git_blob": "c6abe398f2e5ed79298bd38eead7a3eb728980d4",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/src/io/outboard.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/tests/root_policy.rs",
+    "bytes": 8692,
+    "sha256": "779a5b92d158c5b370d0c01e1692cf3585e0c39f31fc730794f77f115d9a84f3",
+    "git_blob": "e3c25254053a6b73d31c432cf641e91e451d9475",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/tests/root_policy.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "cyber-bao/tests/slice_traversal.rs",
+    "bytes": 9030,
+    "sha256": "c63b206b11b17c81ab36543180a3c59a2022ecf8966375f24d87069d764f48b4",
+    "git_blob": "ebab0e7db54020ec11f3beebbee8f7ed630733ea",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:cyber-bao/tests/slice_traversal.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "iroh-blobs/src/hash.rs",
+    "bytes": 17121,
+    "sha256": "3fada4afcb8384dd47e8fda26005e1831da375ca95c43707ad3b666dc7bdde5e",
+    "git_blob": "97e12d4b5e1a2e2db83f4f87584e5125e9fb6ae4",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:iroh-blobs/src/hash.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "iroh-blobs/src/get.rs",
+    "bytes": 33765,
+    "sha256": "96edd9a10a27502f8b88aee025dd9339e3269d1664c4543419b2e601e9b0bf40",
+    "git_blob": "0d596fed34d1a764ecb0886a180330b04281d6b1",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:iroh-blobs/src/get.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "iroh-blobs/src/store/mod.rs",
+    "bytes": 607,
+    "sha256": "70e59ec1ab000747d19fd828af8024ba6da4d019c07754536584f8bd30f9a89b",
+    "git_blob": "5bf80cc12ca3eb7c461ba3825dc635dafdb693c9",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:iroh-blobs/src/store/mod.rs"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": ".claude/tasks/bao-root-policy/execution.md",
+    "bytes": 1477,
+    "sha256": "489ad4e650446779e8f21fda043d7c68999e6f7588018e0d25efd27c72f5ea77",
+    "git_blob": "453333d42166d9f214ec1284bafb83488318ff9b",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:.claude/tasks/bao-root-policy/execution.md"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": ".claude/tasks/bao-empty-status/execution.md",
+    "bytes": 9936,
+    "sha256": "1c633d7c446d72348c35dabdf2de490d0790833afa2432a72eacbd2b0134fb8c",
+    "git_blob": "1b7d56c282ed18940ca9b7c489db7148f0a497b3",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:.claude/tasks/bao-empty-status/execution.md"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/Cargo.toml",
+    "bytes": 970,
+    "sha256": "351913fa05ec28a0fce1078fd03c0fe84b957435b970c9dd122f140983fcdd75",
+    "git_blob": "db90e91b3a5e4edad247c591aaa6f4ce3ddc31ad",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/Cargo.toml"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/src/lib.rs",
+    "bytes": 10109,
+    "sha256": "597a5690eb43fde59265d0055152c185cee2e719ff2059719e148ce2fc3c077d",
+    "git_blob": "c1f3baa6fb916a3c5876b0cc069497be620f9a80",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/src/lib.rs"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/src/tree.rs",
+    "bytes": 53162,
+    "sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6",
+    "git_blob": "785148aabc984b7db5c12d06b83e0dcadc00f19d",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/src/tree.rs"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/src/sponge.rs",
+    "bytes": 29369,
+    "sha256": "e4152c73ca942140fc82575a3d68c6538d323a6355842210b4b40302d7b8daa9",
+    "git_blob": "ff630ab7a0c97c6216f08d31b7af73c211887cc3",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/src/sponge.rs"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/src/step_sponge.rs",
+    "bytes": 5892,
+    "sha256": "64ec167940782c5f83b684965ee06bcb88f001f2baccdc3be189aa57b6fc5922",
+    "git_blob": "dee66dbe2fd1e87075b1d75e01ef657147cfab72",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/src/step_sponge.rs"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "specs/tree.md",
+    "bytes": 24383,
+    "sha256": "28d2336a9d040f28f635df706850a02750652d3e8231bdedfd0038ce3761fe5e",
+    "git_blob": "b5a13f1ede9f2031e24859b4142915271ad2971d",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:specs/tree.md"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "specs/api.md",
+    "bytes": 6167,
+    "sha256": "74a157216b4ba2f6548db44b843ff14965e88e9e0d1f103ce59326a1811d5aad",
+    "git_blob": "b13ffc77d67282d3c9c2bc21921cb0ace5d94336",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:specs/api.md"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "specs/capacity.md",
+    "bytes": 4941,
+    "sha256": "5f6d008183b9a570515c4ef465693ce6f2ff6bdb4c9f0499cf519791523b84cb",
+    "git_blob": "9af450ec8d1d359e805b6a1974e10326819d46da",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:specs/capacity.md"
+    ]
+  },
+  {
+    "repo": "hemera",
+    "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+    "path": "rs/tests/vectors.rs",
+    "bytes": 1310,
+    "sha256": "9724feea2af43654e0670e813faae61e23072f345f0d73669e1a38a23aa9f620",
+    "git_blob": "75bbee0586375934c43754462c04f53bc948e5af",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/hemera",
+      "show",
+      "d5f0a09539360934fb32db9b2e15a91995607db6:rs/tests/vectors.rs"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "specs/runtime.md",
+    "bytes": 17582,
+    "sha256": "1e1e040062e38a6070b285e64b1d2cf9ce2bce0d62ff573717eda5ddab3c0842",
+    "git_blob": "74d55dbae3e6e962d9f9028e5584a0e317ae1482",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:specs/runtime.md"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "kadek-ifac/src/provenance.rs",
+    "bytes": 13222,
+    "sha256": "23abf442134c8669cbe89d7fa49516b8fba17a786b7f017e24872b513af97061",
+    "git_blob": "5a2fc810636036bba48852fe732696fb61ac4461",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:kadek-ifac/src/provenance.rs"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "kadek-ifac/src/work.rs",
+    "bytes": 4491,
+    "sha256": "63660fa862934055c4e192720110258d0611d8900000023c5c65601680014aca",
+    "git_blob": "119c86d3ea5e004be24b3e1b5c7fc14c105e21a7",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:kadek-ifac/src/work.rs"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "kadek-ifac/src/assembly.rs",
+    "bytes": 17747,
+    "sha256": "3b6c70ec19d83877652745399d90602470ce81e1825634fa60e02fac223fedfa",
+    "git_blob": "efccd475b40ae37ece846bbf33c5890fb26810b7",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:kadek-ifac/src/assembly.rs"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": ".claude/tasks/proof-provenance/research.md",
+    "bytes": 21309,
+    "sha256": "fb07ef1fa52994054371933223d01653e48e42d69ed393bf304987271f1e4967",
+    "git_blob": "461e22eac63e08d51bb899b7ec7691ed27e015b5",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:.claude/tasks/proof-provenance/research.md"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": ".claude/plans/foundation-closure.md",
+    "bytes": 7906,
+    "sha256": "40a59a52e34d847e4659cac9255f7ff831c30c25ff8ffce0880aba476299f3c1",
+    "git_blob": "db4c66c955cb17f4e726184d49065da03b463b98",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:.claude/plans/foundation-closure.md"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "Cargo.toml",
+    "bytes": 649,
+    "sha256": "4b566e235442b954358c013931da64b9c5bdd20d5e3d1a5e098c3628e153e44f",
+    "git_blob": "744eff2b81f07836899c1ca892a5d7660395cc00",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:Cargo.toml"
+    ]
+  },
+  {
+    "repo": "kadek",
+    "revision": "3db005002cc340b815f1c8d72fbfe73ad87cbc78",
+    "path": "Cargo.lock",
+    "bytes": 31683,
+    "sha256": "513b8b5966cdf92939585d55da59075a83be526f205cb852e0b8197767c0eb36",
+    "git_blob": "0c45dafa45523de8f17d3705f2b38dc277a9ac55",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/kadek",
+      "show",
+      "3db005002cc340b815f1c8d72fbfe73ad87cbc78:Cargo.lock"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "Cargo.toml",
+    "bytes": 1899,
+    "sha256": "783f8e8ed77f8af9b27c9e7eb896bef1752532ddfdef7992a92997d2d6fe9e91",
+    "git_blob": "7bee0b317d41ea0c76872d30ad62b04eb9e0e569",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:Cargo.toml"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "iroh-blobs/Cargo.toml",
+    "bytes": 3183,
+    "sha256": "47e683056ebdda2a3911f6d9a47e17e7b917dbeb26582e186f2bea8361795d06",
+    "git_blob": "b76243541ba32bc3f282d0c2d9dcc7209c18fe83",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:iroh-blobs/Cargo.toml"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "particle/Cargo.toml",
+    "bytes": 381,
+    "sha256": "55f86ddd945c9925db4baa5a421b0ea8be84bb44d6f65c2fcab4ad8f431baced",
+    "git_blob": "e1931d35e450dc2b71d93ceb6ba651a91cc32133",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:particle/Cargo.toml"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "radio-cli/Cargo.toml",
+    "bytes": 680,
+    "sha256": "9c574f3af7452888333295dfbe262fdffd8de59125d1ea0d77c42098a1e1b3fd",
+    "git_blob": "7771c015a84392e737275e00c88b104d9b2b3d9b",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:radio-cli/Cargo.toml"
+    ]
+  },
+  {
+    "repo": "radio",
+    "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+    "path": "tests/integration/Cargo.toml",
+    "bytes": 673,
+    "sha256": "ac74983dbeee09aed2222c0c6108e81f97a176e59a7b3db444b3d4e1e429b4a0",
+    "git_blob": "4552e032aa047676e1b5ce0c23c0a3eadfcf4aff",
+    "command": [
+      "git",
+      "-C",
+      "/Users/master/cyber/radio",
+      "show",
+      "a11d342594949d4ea542b26366f71d56ef21662d:tests/integration/Cargo.toml"
+    ]
+  }
+]

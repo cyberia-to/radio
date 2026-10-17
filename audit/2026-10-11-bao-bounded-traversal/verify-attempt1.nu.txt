@@ -1,0 +1,69 @@
+def payload [manifest: list, root: path, name: string] {
+    let rows = ($manifest | where path == $name)
+    if ($rows | length) != 1 { error make {msg: $'missing payload ($name)'} }
+    open --raw ($root | path join objects ($rows | first | get sha256))
+}
+
+def main [audit: path = '.'] {
+    let audit = ($audit | path expand)
+    let manifest = (open ($audit | path join evidence-index.json))
+    let capsule = (open ($audit | path join capsule.json))
+    let objects = ($manifest.sha256 | uniq | sort)
+    if ($manifest.path | uniq | length) != $capsule.logical_payloads or ($objects | length) != $capsule.unique_objects {
+        error make {msg: 'inventory count'}
+    }
+    if ($objects | any {|s| not ($s =~ '^[0-9a-f]{64}$')}) or ($manifest.path | any {|s| $s =~ '(^/|(^|/)\.\.(/|$))'}) { error make {msg: 'unsafe path'} }
+    let archive = ($audit | path join evidence.tar.gz)
+    if (open --raw $archive | hash sha256) != $capsule.archive_sha256 or (open --raw ($audit | path join evidence-index.json) | hash sha256) != $capsule.index_sha256 { error make {msg: 'capsule binding'} }
+    let listing = (^tar -tzf $archive | complete)
+    let types = (^tar -tvzf $archive | complete)
+    if $listing.exit_code != 0 or ($listing.stdout | lines | sort) != ($objects | each {|s| $'objects/($s)'}) or $types.exit_code != 0 or ($types.stdout | lines | any {|s| not ($s | str starts-with '-')}) { error make {msg: 'archive inventory/type'} }
+    let created = (^mktemp -d /tmp/bao-traversal-verify.XXXXXX | complete)
+    if $created.exit_code != 0 { error make {msg: $created.stderr} }
+    let dest = ($created.stdout | str trim)
+    try {
+        let extracted = (^tar -xzf $archive -C $dest | complete)
+        if $extracted.exit_code != 0 { error make {msg: $extracted.stderr} }
+        for row in $manifest {
+            let body = (payload $manifest $dest $row.path | into binary)
+            if ($body | hash sha256) != $row.sha256 or ($body | bytes length) != $row.bytes { error make {msg: $'body ($row.path)'} }
+        }
+        let frozen = (payload $manifest $dest source-freeze.json | from json)
+        if $frozen.revision != $capsule.revision or ($frozen.files | length) != 20 { error make {msg: 'source identity'} }
+        for row in $frozen.files {
+            let bytes = (payload $manifest $dest $'source/($row.path)' | into binary)
+            let blob = ([($'blob ($row.bytes)' | into binary) 0x[00] $bytes] | bytes collect)
+            if ($bytes | hash sha256) != $row.sha256 or ($blob | hash sha1) != $row.git_oid { error make {msg: 'Git blob identity'} }
+        }
+        for name in [resolve debug release] {
+            let record = (payload $manifest $dest $'($name)/command.json' | from json)
+            if $record.revision != $capsule.revision or $record.exit != 0 or not $record.source_unchanged_after or not $record.inputs_unchanged_after { error make {msg: 'command status'} }
+            if (payload $manifest $dest source-freeze.json | hash sha256) != $record.source_freeze_sha256 { error make {msg: 'record source'} }
+            for row in $record.inputs { if (payload $manifest $dest $row.path | hash sha256) != $row.sha256 { error make {msg: 'record input'} } }
+            for stream in [stdout stderr] { if (payload $manifest $dest $'($name)/($stream)' | hash sha256) != ($record | get $'($stream)_sha256') { error make {msg: 'record stream'} } }
+            let lock = (payload $manifest $dest probe/Cargo.lock | hash sha256)
+            if $lock != $record.lock_after or ($name != resolve and $lock != $record.lock_before) { error make {msg: 'lock epoch'} }
+        }
+        let debug = (payload $manifest $dest debug/stdout | into string)
+        let release = (payload $manifest $dest release/stdout | into string)
+        for output in [$debug $release] {
+            if not ($output | str contains 'postorder leaves=4096 total_items=8191 constructor_calls=12 constructor_requested_bytes=393120 first_next_calls=0 first_next_requested_bytes=0') or not ($output | str contains 'unchecked_log52_bytes: ok 0') { error make {msg: 'measured eager/width result'} }
+        }
+        if not ($debug | str contains 'u64max_last_group: panicked') or not ($release | str contains 'Leaf { start_chunk: 4503599627370495, size: 4096, is_root: false }') { error make {msg: 'maximum-length result'} }
+        # Long-divide literal hexadecimal u64::MAX without exceeding Nu's i64.
+        mut quotient = 0
+        mut remainder = 0
+        for digit in ('ffffffffffffffff' | split chars) {
+            if $digit != f { error make {msg: 'maximum literal'} }
+            let part = $remainder * 16 + 15
+            $quotient = $quotient * 16 + ($part // 4096)
+            $remainder = $part mod 4096
+        }
+        if $quotient != 4503599627370495 or $remainder != 4095 { error make {msg: 'maximum quotient/remainder'} }
+        rm -r $dest
+        {pass: true, revision: $capsule.revision, source_files: 20, records: 3, raw_streams: 6, logical_payloads: ($manifest | length), objects: ($objects | length), scope: 'Retained research and Git blob verification; no candidate or Cargo rerun'} | to json
+    } catch {|err|
+        rm -r $dest
+        error make {msg: $err.msg}
+    }
+}

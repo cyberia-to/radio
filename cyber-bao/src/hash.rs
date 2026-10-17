@@ -13,7 +13,7 @@ use hemera::{Hash, OUTPUT_BYTES};
 /// - Parent hashing: combine two child hashes into a parent hash
 pub trait HashBackend {
     /// The hash output type.
-    type Hash: AsRef<[u8]> + Clone + Eq + std::fmt::Debug;
+    type Hash: AsRef<[u8]> + Clone + Eq + core::fmt::Debug;
 
     /// Hash a data chunk (leaf node).
     ///
@@ -27,12 +27,7 @@ pub trait HashBackend {
     /// - `left`: left child hash
     /// - `right`: right child hash
     /// - `is_root`: true if this is the tree root
-    fn parent_hash(
-        &self,
-        left: &Self::Hash,
-        right: &Self::Hash,
-        is_root: bool,
-    ) -> Self::Hash;
+    fn parent_hash(&self, left: &Self::Hash, right: &Self::Hash, is_root: bool) -> Self::Hash;
 
     /// Size of the hash output in bytes.
     fn hash_size(&self) -> usize;

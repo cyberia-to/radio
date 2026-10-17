@@ -1,0 +1,22 @@
+{
+  "started": "2026-10-13T02:13:50.255891Z",
+  "finished": "2026-10-13T02:13:50.545234Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "argv": [
+    "ruby",
+    "/tmp/radio-audit-packaging-pair-v1.rb"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 1,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-pair-run-v1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-pair-run-v1.stderr",
+    "bytes": 473,
+    "sha256": "e3b6d8ff5ce90eaa2763c5c009cdfb73e40bfe26cd33c3df118c8e1d724b293b"
+  }
+}

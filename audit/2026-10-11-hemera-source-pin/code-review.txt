@@ -1,0 +1,14 @@
+APPROVE
+
+Blockers: none.
+
+The eleven-file delta matches both approvals. Root `hemera` is `cyber-hemera` git `https://github.com/cyberia-to/hemera` rev `d5f0a09539360934fb32db9b2e15a91995607db6` with `default-features = false`. All eight inheritors enable `std`; `iroh-blobs` also keeps `serde`; `cyber-bao` keeps `hemera/serde` forwarding. The lock change is the single `cyber-hemera` 0.3.1 source line (`186574` → `186712` bytes). Registry `cyber-hemera` 0.1.2 checksum `7b69554a…`, serde 1.0.228, and the willow revs `12d29767` / `b1c1bb90` stay. `deny.toml` adds only `"https://github.com/cyberia-to/hemera"` (`861` → `903` bytes). Patch totals are 13 additions and 8 removals; the inline patch sha256 is `90f284eb…`. No Rust or specification edit is in the delta. 511 Rust files stay on `bb92533a…`.
+
+Witnesses match the stated limits. Metadata default/none/all keep one git 0.3.1 edge, `uses_default_features: false`, explicit `std`, and `serde` on blobs; Hemera `default = ["std"]`. Parent probe 9 exits 0; candidate probe 11 exits 101 with E0308 across path and git `cyber_hemera`. That is the major source-identity floor. Deny 34’s new Hemera `source-not-allowed` is gone in 41/42: full check stays exit 13, sources-only stays exit 8, willow denials stay 4, Quinn remains unmatched at `deny.toml:31`, and the license/advisory headings stay. Advisory HEAD `7eebec69` is bound only to the post-amendment pair. The EOF bridge is two final LF bytes on `iroh-gossip` and `iroh-willow`; parsed TOML and the three locked metadata graphs compare equal, and earlier snapshots keep their old hashes. Tag runs 40 stay input-deviant; only runs 45 use the corrected export, and both still exit 101 on the `iroh-car`/`core2` helper. Soft3 run 38 exits 101 on missing `cybergraph` feature `local-storage`. Ring 1, ring 2, platforms, netsim, and minimal-versions stay unverified. Pre-existing reds stay red on both sources: all-features E0599, Clippy, format, private-doc `Self::persist`, and the mixed-target doc-cache failures. Fresh docs run 43 exits 0 with warnings.
+
+Optional:
+
+- Root disposition for merge is a decision: the path/git Hash floor is major, and ring 1/2 plus the preserved reds stay open. This unit contains no version bump, tag, or release.
+- The allow-git entry authorizes the repository by host and normalized path. The rev constraint is the Cargo rev and the lock source.
+- Soft3’s metadata failure is a cybergraph prerequisite on the named soft3 inputs. It is not a Radio integration result.
+- Run 43’s outcome cell records no error line; the warning boundary is the execution narrative.

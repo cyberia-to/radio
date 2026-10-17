@@ -1,0 +1,17 @@
+Fresh PLAN v2 review after six concrete v1 verification blockers. The full preceding verdict and response are supplied.
+  This is a packaging-only defect observed by the committed Kadek reader consumer.
+No existing Radio artifact or production source has changed. Review the proposed seven lossless
+Cargo.toml renames and preservation of the three historical replay scripts via disposable staging.
+Check archive discovery, exact byte/hash preservation, CLI/repo semantics, the temporary Git
+snapshot boundary, finite failure witnesses, and the deliberately scoped consumer verification.
+Existing broad gate reds remain unrefreshed. No version bump, API/spec change or release.
+
+This readable input includes the full proposed research/plan, every archived Cargo manifest,
+all three original entry scripts, the unchanged proof CODE verifier, both owning manifests,
+both licenses, exact selected historical index rows, current identity inventories, registry
+excerpt, and the full lock/metadata/baseline-replay raw receipts. It omits the full root Cargo.lock
+and historical files.json bodies (their exact Git identities are supplied and replayed),
+unrelated production Rust, old full audit bodies and earlier vendor reviews, and duplicated consumer
+debug/release output. Those omitted inputs were not supplied to this reviewer. The retained
+consumer before/after snapshots bind its source and runtime input identities; the package
+fix is not a fresh review of BAO arithmetic or consumer implementation.

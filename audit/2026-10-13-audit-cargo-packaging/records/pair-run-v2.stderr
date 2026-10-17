@@ -1,0 +1,15 @@
+#<Thread:0x0000000124dd9cd8 /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:664 run> terminated with exception (report_on_exception is true):
+/opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:664:in 'IO#read': stream closed in another thread (IOError)
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:664:in 'block (2 levels) in Open3.capture3'
+#<Thread:0x0000000124dd9bc0 /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:665 run> terminated with exception (report_on_exception is true):
+/opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:665:in 'IO#read': stream closed in another thread (IOError)
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:665:in 'block (2 levels) in Open3.capture3'
+/opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:675:in 'Thread#value': Interrupt
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:675:in 'block in Open3.capture3'
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:540:in 'Open3.popen_run'
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:235:in 'Open3.popen3'
+	from /opt/homebrew/Cellar/ruby/4.0.7/lib/ruby/4.0.0/open3.rb:658:in 'Open3.capture3'
+	from /tmp/radio-audit-packaging-pair-v2.rb:24:in 'Object#run'
+	from /tmp/radio-audit-packaging-pair-v2.rb:94:in 'block in <main>'
+	from /tmp/radio-audit-packaging-pair-v2.rb:86:in 'Array#each'
+	from /tmp/radio-audit-packaging-pair-v2.rb:86:in '<main>'

@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "nu",
+    "/tmp/radio-audit-packaging-child-exit-v1/audit/2026-10-12-bao-bounded-proof/verify.nu",
+    "--repo",
+    "/Users/master/cyber/radio-bao-bounded-proof",
+    "--live"
+  ],
+  "status": 77,
+  "stdout_sha256": "68962ba002f01ca8e6cb99c902d0b1717698df866ef144a4d51cc8292583defb",
+  "stderr_sha256": "0e1c5f283ebf77e94b747b6b4ec20e947c9e3112591ffc9a1ad02980051e2e5e",
+  "retained": "/tmp/radio-audit-replay.F2s4TY",
+  "scope": "Exact child streams, status77, retained directory; no added stream newline before explicit helper notice."
+}

@@ -1,0 +1,8 @@
+{
+  "name": "workspace-nextest-default",
+  "kind": "candidate",
+  "source_before": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "source_after": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "record_sha256": "3cb14e4f692e2faf77df78f89ecfa8e5f87ee4a8eeb1086bd814de6bdbccbf87",
+  "runner_sha256": "f561854dfb0615d0f141fdd069778cfb05546e38766423c500c35d66f3132380"
+}

@@ -1,0 +1,22 @@
+{
+  "started": "2026-10-11T21:31:23.837945Z",
+  "finished": "2026-10-11T21:31:25.554504Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "revision": "a11d342594949d4ea542b26366f71d56ef21662d",
+  "argv": [
+    "ruby",
+    "/tmp/radio-hemera-pin-code-v2/verify.rb"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-hemera-pin-root-code-v2-replay.stdout",
+    "bytes": 310,
+    "sha256": "0bfaba206aee6a70dfe211e9a1f914b63cb9e4b582a6b01e0c7b4135e14b82e8"
+  },
+  "stderr": {
+    "path": "/tmp/radio-hemera-pin-root-code-v2-replay.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

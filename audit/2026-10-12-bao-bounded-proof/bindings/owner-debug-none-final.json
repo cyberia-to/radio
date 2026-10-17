@@ -1,0 +1,8 @@
+{
+  "name": "owner-debug-none-final",
+  "kind": "candidate",
+  "source_before": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "source_after": "7c2462f6f3522fe617008de6a0db519431e564be9bb61b656d2c7b6061b90679",
+  "record_sha256": "bc8e2af4fa7d26bac8d117412a19c1b9a6a29d9bb7c22c5970f13cd1cd30baf6",
+  "runner_sha256": "f561854dfb0615d0f141fdd069778cfb05546e38766423c500c35d66f3132380"
+}

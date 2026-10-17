@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "sections": 63,
+  "support": 2920,
+  "records": 96,
+  "streams": 192,
+  "production_files": 11,
+  "unchanged_rust": 511,
+  "original_plan_sections": 73,
+  "policy_plan_sections": 28,
+  "corrected_tag_blobs": 854,
+  "historical_tag_deviations": 2,
+  "review_sha256": "ac39bbd31dc6c4e34dea84ae3094f23abc46f95522a544844b375b6efa7768cf"
+}

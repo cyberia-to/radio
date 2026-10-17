@@ -1,0 +1,26 @@
+{
+  "cargo": {
+    "identity": {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+      "bytes": 31232696,
+      "sha256": "c512bff73c86143b557463f021d0c3d5b0490d97d65040ba59ea2b3427784758"
+    },
+    "version": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\nrelease: 1.95.0\ncommit-hash: f2d3ce0bd7f24a49f8f72d9000448f8838c4e850\ncommit-date: 2026-03-21\nhost: aarch64-apple-darwin\nlibgit2: 1.9.2 (sys:0.20.4 vendored)\nlibcurl: 8.7.1 (sys:0.4.83+curl-8.15.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.5.4 30 Sep 2025\nos: Mac OS 26.4.1 [64-bit]\n"
+  },
+  "rustc": {
+    "identity": {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+      "bytes": 412504,
+      "sha256": "b829b733131d4e1673eeebd1f34d06ae1e9ff4977b051313cf42e2a9e79ecf1c"
+    },
+    "version": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.2\n"
+  },
+  "rustdoc": {
+    "identity": {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+      "bytes": 11710264,
+      "sha256": "59bc6a1caf617032284a2edc2aa03916396e70589c435a8b51e3957887f90ce5"
+    },
+    "version": "rustdoc 1.95.0 (59807616e 2026-04-14)\nbinary: rustdoc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.2\n"
+  }
+}

@@ -1,0 +1,140 @@
+
+running 99 tests
+test api::downloader::tests::downloader_get_many_smoke ... ignored, todo
+test format::collection::tests::collection_store_load ... ok
+test api::blobs::reader::tests::reader_partial_memory ... FAILED
+test api::remote::tests::test_observe_partial_mem ... FAILED
+test api::proto::bitfield::tests::test_combine_empty ... ok
+test format::collection::tests::roundtrip_collection_meta ... ok
+test hash::tests::hash_redb ... ok
+test format::collection::tests::roundtrip_blob ... ok
+test hash::tests::hash_and_format_redb ... ok
+test hash::tests::hash_wire_format ... ok
+test hash::tests::test_hash ... ok
+test hash::tests::test_empty_hash ... ok
+test api::proto::bitfield::tests::test_combine_order ... ok
+test api::proto::bitfield::tests::test_complete_normalized ... ok
+test hash::tests::test_hash_and_format_postcard ... ok
+test hash::tests::test_hash_and_format_parse ... ok
+test hash::tests::test_hash_postcard ... ok
+test hash::tests::test_hash_and_format_json ... ok
+test hash::tests::test_hash_json ... ok
+test hash::tests::test_hash_serde ... ok
+test protocol::builder::tests::get_many_request_builder ... ok
+test protocol::builder::tests::chunk_ranges_ext ... FAILED
+test hash::tests::test_display_parse_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_seq_canonical ... ok
+test protocol::range_spec::tests::range_spec_seq_roundtrip_cases ... ok
+test protocol::builder::tests::get_request_builder ... ok
+test protocol::tests::request_type_size ... ok
+test protocol::range_spec::tests::range_spec_wire_format ... ok
+test protocol::range_spec::tests::range_spec_seq_wire_format ... ok
+test protocol::tests::request_wire_format ... FAILED
+test protocol::range_spec::tests::range_spec_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_seq_roundtrip ... ok
+test protocol::range_spec::tests::range_spec_seq_bytes_roundtrip ... ok
+test api::remote::tests::test_observe_partial_fs ... FAILED
+test api::blobs::reader::tests::reader_partial_fs ... FAILED
+test api::remote::tests::test_local_info_hash_seq_large ... FAILED
+test api::remote::tests::test_local_info_complex_request ... FAILED
+test api::remote::tests::test_local_info_raw ... ok
+test store::fs::tests::test_batch_fs ... ok
+test store::fs::tests::test_import_bao_persistence_full ... FAILED
+test store::fs::tests::test_import_bao_minimal ... ok
+test store::fs::tests::test_import_bao_persistence_recover ... FAILED
+test store::fs::tests::test_import_bao_persistence_just_size ... FAILED
+test store::fs::tests::test_import_bao_persistence_observe ... FAILED
+test store::fs::tests::test_import_bao_persistence_two_stages ... FAILED
+test store::fs::tests::test_roundtrip_bytes_small ... ignored, flaky. I need a reliable way to keep the handle alive
+test store::fs::util::entity_manager::tests::mem::test_busy ... ok
+2026-10-09T23:21:23.416681Z ERROR iroh_blobs::store::fs::util::entity_manager::main_actor: Task failed: JoinError::Panic(Id(901), "Panic to kill the task", ...)
+2026-10-09T23:21:23.416735Z ERROR iroh_blobs::store::fs::util::entity_manager::main_actor: Entity actor inbox is closed, cannot send command to entity actor 1.
+test store::fs::util::entity_manager::tests::mem::test_dead ... ok
+test store::fs::tests::test_observe ... FAILED
+2026-10-09T23:21:23.670436Z ERROR iroh_blobs::store::fs: task failed: task 1035 panicked with message "copy_from_slice: source slice length (32) does not match destination slice length (64)"
+test store::fs::tests::test_import_bao_simple ... ok
+test store::gc::tests::gc_check_deletion_fs ... ok
+test store::gc::tests::gc_check_deletion_mem ... ok
+test store::fs::util::entity_manager::tests::test_counters_manager_proptest_mem ... ok
+test store::gc::tests::gc_smoke_mem ... ok
+test store::mem::tests::smoke ... ok
+test api::remote::tests::test_local_info_hash_seq ... FAILED
+test api::blobs::reader::tests::reader_smoke_memory ... ok
+test api::blobs::reader::tests::reader_smoke_fs ... ok
+test store::fs::tests::smoke ... FAILED
+2026-10-09T23:21:36.125465Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::node_smoke_fs ... ok
+2026-10-09T23:21:36.256314Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::node_smoke_mem ... ok
+test tests::test_export_chunk ... ok
+test store::gc::tests::gc_smoke_fs ... FAILED
+test store::fs::util::entity_manager::tests::test_counters_manager_proptest_fs ... ok
+test tests::export_ranges_smoke_fs ... ok
+test tests::export_ranges_smoke_mem ... ok
+2026-10-09T23:21:43.753800Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:43.754920Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::node_serve_hash_seq ... FAILED
+2026-10-09T23:21:44.083464Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:44.084135Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::node_serve_blobs ... FAILED
+test store::fs::tests::test_export_path ... ok
+2026-10-09T23:21:45.340521Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:45.340926Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:45.341325Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test api::downloader::tests::downloader_get_smoke ... ok
+2026-10-09T23:21:45.533965Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:45.534285Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:45.534662Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test api::downloader::tests::downloader_get_all ... ok
+2026-10-09T23:21:45.813429Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:45.813516Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_get_blobs_fs ... FAILED
+2026-10-09T23:21:46.135169Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:46.135224Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_get_blobs_mem ... FAILED
+test ticket::tests::test_ticket_base32 ... ok
+test ticket::tests::test_ticket_json ... ok
+test ticket::tests::test_ticket_postcard ... ok
+2026-10-09T23:21:46.477156Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:46.477499Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_get_many_fs ... FAILED
+2026-10-09T23:21:49.861864Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:49.861909Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_get_many_mem ... FAILED
+2026-10-09T23:21:51.142063Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::connection_pool_errors ... ok
+2026-10-09T23:21:52.545421Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:52.545497Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_hash_seq_fs ... FAILED
+test store::fs::tests::test_import_byte_stream ... ok
+test store::fs::tests::test_import_bytes_simple ... ok
+test util::outboard_with_progress::tests::init_outboard_with_progress ... ok
+test util::serde::tests::test_roundtrip_error_kinds ... ok
+2026-10-09T23:21:53.288629Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:53.288993Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_hash_seq_progress ... FAILED
+test store::fs::tests::test_import_path ... ok
+test store::fs::tests::test_import_bytes_persistence_full ... ok
+2026-10-09T23:21:53.635767Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:53.635820Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_hash_seq_mem ... FAILED
+2026-10-09T23:21:53.755603Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::on_connected_direct ... ok
+2026-10-09T23:21:54.764811Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::connection_pool_idle ... ok
+2026-10-09T23:21:55.205294Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::on_connected_error ... ok
+2026-10-09T23:21:55.242441Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::watch_close ... ok
+2026-10-09T23:21:59.205927Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test util::connection_pool::tests::connection_pool_smoke ... ok
+test store::fs::import::tests::smoke ... ok
+2026-10-09T23:21:59.959424Z ERROR iroh_blobs::store::mem: task failed: task 70038 panicked with message "copy_from_slice: source slice length (32) does not match destination slice length (64)"
+2026-10-09T23:21:59.959859Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+2026-10-09T23:21:59.959892Z ERROR radio::socket: Endpoint dropped without calling `Endpoint::close`. Aborting ungracefully.
+test tests::two_nodes_observe_mem ... FAILED
+test store::fs::tests::test_import_bao_ranges has been running for over 60 seconds
+test tests::two_nodes_observe_fs has been running for over 60 seconds
+test tests::two_nodes_push_blobs_fs has been running for over 60 seconds
+test tests::two_nodes_push_blobs_mem has been running for over 60 seconds
+test tests::two_nodes_observe_fs ... ok

@@ -1,0 +1,10 @@
+[package]
+name = "bao-proof-nostd-probe"
+version = "0.0.0"
+edition = "2024"
+[workspace]
+[dependencies]
+cyber-bao = { path = "/tmp/radio-bao-proof-parent-b933/cyber-bao", default-features = false }
+[[bin]]
+name = "link-probe"
+path = "src/main.rs"

@@ -1,0 +1,8 @@
+{
+  "name": "seal-fields-final",
+  "kind": "candidate",
+  "source_before": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "source_after": "ad2801623f451035cd58047109309a434872b47cca094c48cee7e8082d02d37a",
+  "record_sha256": "e3649b5b8d56952b9f5d186e45ac7c80cd2e40fcbc18b9ad81dd3d5efeb99512",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

@@ -5,7 +5,7 @@
 //! rejected immediately.
 
 use crate::hash::HashBackend;
-use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
+use crate::tree::{BaoChunk, BaoTree, BlockSize};
 
 /// Error during decoding / verification.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -54,10 +54,17 @@ pub fn decode<B: HashBackend>(
     }
 
     let declared_size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
+
+    // A valid encoding never needs more payload bytes than `encoded` has
+    // past the header: reject before `declared_size` drives any
+    // size-proportional allocation or recursion below.
+    if declared_size > (encoded.len() as u64).saturating_sub(8) {
+        return Err(DecodeError::Truncated);
+    }
+
     let tree = BaoTree::new(declared_size, block_size);
     let pre_order = tree.pre_order_chunks();
     let hash_size = backend.hash_size();
-    let bs = block_size.bytes();
 
     let mut cursor = 8usize;
     let mut data = Vec::with_capacity(declared_size as usize);
@@ -110,8 +117,7 @@ pub fn decode<B: HashBackend>(
                 let leaf_data = &encoded[cursor..cursor + *size];
                 cursor += *size;
 
-                let computed =
-                    hash_block_for_verify(backend, leaf_data, *start_chunk, *is_root, bs);
+                let computed = super::hash_group(backend, leaf_data, *start_chunk, *is_root);
                 let expected = expected_stack.pop().ok_or(DecodeError::Truncated)?;
                 if computed != expected {
                     return Err(DecodeError::LeafMismatch {
@@ -134,59 +140,12 @@ pub fn decode<B: HashBackend>(
     Ok(data)
 }
 
-/// Hash a block of data for verification (same logic as outboard's hash_block).
-fn hash_block_for_verify<B: HashBackend>(
-    backend: &B,
-    data: &[u8],
-    start_chunk: u64,
-    is_root: bool,
-    block_bytes: usize,
-) -> B::Hash {
-    if data.is_empty() {
-        return backend.chunk_hash(&[], start_chunk, is_root);
-    }
-
-    let mut chunk_hashes: Vec<B::Hash> = Vec::new();
-    let mut offset = 0usize;
-    let mut counter = start_chunk;
-    while offset < data.len() {
-        let end = (offset + CHUNK_SIZE).min(data.len());
-        let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
-        chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += CHUNK_SIZE;
-        counter += 1;
-    }
-
-    if chunk_hashes.len() == 1 {
-        return chunk_hashes.into_iter().next().unwrap();
-    }
-
-    let _ = block_bytes;
-    let mut level = chunk_hashes;
-    while level.len() > 1 {
-        let mut next = Vec::with_capacity(level.len().div_ceil(2));
-        let mut i = 0;
-        while i < level.len() {
-            if i + 1 < level.len() {
-                let parent = backend.parent_hash(&level[i], &level[i + 1], false);
-                next.push(parent);
-            } else {
-                next.push(level[i].clone());
-            }
-            i += 2;
-        }
-        level = next;
-    }
-
-    level.into_iter().next().unwrap()
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::hash::Poseidon2Backend;
     use crate::io::encode;
+    use crate::tree::CHUNK_SIZE;
 
     #[test]
     fn decode_single_block() {
@@ -250,6 +209,31 @@ mod tests {
         let truncated = &encoded[..encoded.len() - 100];
         let result = decode(&backend, truncated, &root, BlockSize::ZERO);
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn decode_huge_declared_size_rejected_not_oom() {
+        let backend = Poseidon2Backend;
+        // An 8-byte header claiming a near-u64::MAX size, no payload behind it.
+        let mut encoded = u64::MAX.to_le_bytes().to_vec();
+        encoded.extend_from_slice(&[0u8; 8]);
+        let root = backend.chunk_hash(&[], 0, true);
+        let result = decode(&backend, &encoded, &root, BlockSize::ZERO);
+        assert_eq!(result, Err(DecodeError::Truncated));
+    }
+
+    #[test]
+    fn decode_declared_size_past_buffer_rejected() {
+        let backend = Poseidon2Backend;
+        let data = vec![0x42u8; CHUNK_SIZE * 2];
+        let (root, mut encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+        // Claim one byte more payload than the buffer can possibly hold.
+        let real_size = u64::from_le_bytes(encoded[..8].try_into().unwrap());
+        let over = (encoded.len() as u64 - 8) + 1;
+        encoded[..8].copy_from_slice(&over.to_le_bytes());
+        let result = decode(&backend, &encoded, &root, BlockSize::ZERO);
+        assert_eq!(result, Err(DecodeError::Truncated));
+        assert_ne!(over, real_size);
     }
 
     #[test]

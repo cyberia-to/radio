@@ -1,0 +1,21 @@
+Diff in /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/src/lib.rs:15:
+ 
+ pub mod group;
+ pub mod hash;
+-pub mod proof;
+ #[cfg(feature = "std")]
+ pub mod io;
++pub mod proof;
+ pub mod traversal;
+ pub mod tree;
+ 
+Diff in /Users/master/cyber/radio-bao-bounded-proof/cyber-bao/src/lib.rs:24:
+ pub use hash::{HashBackend, Poseidon2Backend};
+-pub use tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum, TreeNode};
+-
+ #[cfg(feature = "std")]
+ pub use tree::PostOrderChunkIter;
++pub use tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum, TreeNode};
+ 
+ /// A set of chunk ranges (used for partial downloads, range requests, etc.).
+ #[cfg(feature = "std")]

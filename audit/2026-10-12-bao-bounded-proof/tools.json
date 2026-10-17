@@ -1,0 +1,158 @@
+[
+  {
+    "path": "/Users/master/.cargo/bin/cargo-semver-checks",
+    "bytes": 19588624,
+    "sha256": "a4fcf9eae2dd1ee88f91dc71f1236b49faa7d90165d9c326dbf2f1fb7dd41c18",
+    "version": "cargo-semver-checks 0.51.0"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/cargo",
+    "bytes": 28655992,
+    "sha256": "798a97c06e6fc3a63f1b7e3141f87e515e6bc8da1527bc32e19ba27d86bb89c5",
+    "version": "cargo 1.89.0 (c24e10642 2025-06-23)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/cargo-clippy",
+    "bytes": 1194880,
+    "sha256": "248c9dff4362afb090d5cf2c38a65673138ee57214f89db3022b29446813356e",
+    "version": "clippy 0.1.89 (29483883ee 2025-08-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/clippy-driver",
+    "bytes": 12354144,
+    "sha256": "d96c5d7a8e3fbb6920ade89d389f96d19003f654c75d96383d7b2fb21b883ab8",
+    "version": "clippy 0.1.89 (29483883ee 2025-08-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/rustc",
+    "bytes": 414776,
+    "sha256": "af4a9eb303553510e9d74220636dc4b21f8574ddeab73741bf6b892adc49c21c",
+    "version": "rustc 1.89.0 (29483883e 2025-08-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/rustdoc",
+    "bytes": 11456472,
+    "sha256": "1e65fe1796464bbe73ee53231852d8a779f144e8825c2711819435e0aad2213e",
+    "version": "rustdoc 1.89.0 (29483883e 2025-08-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.89.0-aarch64-apple-darwin/bin/rustfmt",
+    "bytes": 5119048,
+    "sha256": "a5127950ba832ec4a5ab8701f0e06dbae675271812c7462fd55d0ff5b1a07093",
+    "version": "rustfmt 1.8.0-stable (29483883ee 2025-08-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "bytes": 31232696,
+    "sha256": "c512bff73c86143b557463f021d0c3d5b0490d97d65040ba59ea2b3427784758",
+    "version": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo-clippy",
+    "bytes": 1129360,
+    "sha256": "2ea40177fa3012adef8b57c093ce114ace8030cc51958571cfb1a09f88efd641",
+    "version": "clippy 0.1.95 (59807616e1 2026-04-14)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/clippy-driver",
+    "bytes": 13213072,
+    "sha256": "5c769ecd068eed4aeec1265fd8777c4d2227ec1bb4b7775c800ec2961e2b8307",
+    "version": "clippy 0.1.95 (59807616e1 2026-04-14)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "bytes": 412504,
+    "sha256": "b829b733131d4e1673eeebd1f34d06ae1e9ff4977b051313cf42e2a9e79ecf1c",
+    "version": "rustc 1.95.0 (59807616e 2026-04-14)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "bytes": 11710264,
+    "sha256": "59bc6a1caf617032284a2edc2aa03916396e70589c435a8b51e3957887f90ce5",
+    "version": "rustdoc 1.95.0 (59807616e 2026-04-14)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustfmt",
+    "bytes": 4476008,
+    "sha256": "2462eda2ece5926a3b09538850c6c21ffd9100c3bc4573093c9e9b0f60785c6f",
+    "version": "rustfmt 1.9.0-stable (59807616e1 2026-04-14)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/cargo",
+    "bytes": 30419336,
+    "sha256": "6471b816b7c757fa2dc570f90d9abc16c1a18b8acf8c812eef322c4c51eb5182",
+    "version": "cargo 1.92.0-nightly (801d9b498 2025-10-04)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/rustc",
+    "bytes": 414776,
+    "sha256": "8a749ee7e10acc81b19e0e744ca43b5d4891f2f23665b1def0701d5207ba5b4f",
+    "version": "rustc 1.92.0-nightly (b6f0945e4 2025-10-08)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/rustdoc",
+    "bytes": 12078344,
+    "sha256": "2c6351da979b520c0745afc996ec486ec7421d655c37264f47f80f48c45525c4",
+    "version": "rustdoc 1.92.0-nightly (b6f0945e4 2025-10-08)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/cargo",
+    "bytes": 30497048,
+    "sha256": "a3794ef4e21297e1556e9d3b669f6ef07364fde29bea2cf22450b26392a0df25",
+    "version": "cargo 1.93.0-nightly (9fa462fe3 2025-11-21)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/cargo-clippy",
+    "bytes": 1110528,
+    "sha256": "f8c5a312d2cd4bb6602f8fb03ef282473f5e5725c0262f0954ef4719132ffdc2",
+    "version": "clippy 0.1.93 (80d8f292d8 2025-11-25)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/clippy-driver",
+    "bytes": 12769248,
+    "sha256": "0a782789e957cd097e4317e2b11b28210ad5fcc834135d192072a686bbc50ab0",
+    "version": "clippy 0.1.93 (80d8f292d8 2025-11-25)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/rustc",
+    "bytes": 414264,
+    "sha256": "85ff6b0a71b9a431b38537a0c10a42699678170b1438331d8a9b48fac5f88966",
+    "version": "rustc 1.93.0-nightly (80d8f292d 2025-11-25)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/rustdoc",
+    "bytes": 11588952,
+    "sha256": "f4ed620e30cbb26490fd485efb71a2bd02369b361d72542691c3f655e8ec890b",
+    "version": "rustdoc 1.93.0-nightly (80d8f292d 2025-11-25)"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/rustfmt",
+    "bytes": 4468200,
+    "sha256": "9331cd7075669074d9df66c4ba2e178b110da84e14f4fa98c09bd54b15f289b3",
+    "version": "rustfmt 1.8.0-nightly (80d8f292d8 2025-11-25)"
+  },
+  {
+    "path": "/tmp/radio-gate-tools/bin/cargo-deny",
+    "bytes": 13640488,
+    "sha256": "0b77ea8250f28068f2408f10dba5c8999e85115f0e13013055cdb52ed35ecdf8",
+    "version": "cargo-deny 0.18.9"
+  },
+  {
+    "path": "/tmp/radio-gate-tools/bin/cargo-make",
+    "bytes": 7298304,
+    "sha256": "14f4408b31dcee57819c64aa44a47f2e885697a8a03b897ca4cef0567e51a089",
+    "version": ""
+  },
+  {
+    "path": "/tmp/radio-gate-tools/bin/cargo-nextest",
+    "bytes": 24110816,
+    "sha256": "afed163ea8b77bb7b1e0fb512e7cacfd5f12170e8c44390fd7615f3408ce43a8",
+    "version": "cargo-nextest 0.9.80 (19c03ce27 2024-10-05)\nrelease: 0.9.80\ncommit-hash: 19c03ce27d861e12b73df4590881d1e97e5ea07f\ncommit-date: 2024-10-05\nhost: aarch64-apple-darwin"
+  },
+  {
+    "path": "/tmp/radio-gate-tools/bin/makers",
+    "bytes": 7298304,
+    "sha256": "cff62c8a38494f54244dc112830088177fbff6e4cbe13acff1bdc7d5e41dbb52",
+    "version": "cargo-make 0.37.24"
+  }
+]

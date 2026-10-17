@@ -1,0 +1,23 @@
+    Checking smallvec v1.15.1
+    Checking pin-project-lite v0.2.16
+    Checking futures-core v0.3.31
+    Checking serde_core v1.0.228
+    Checking futures-io v0.3.31
+    Checking fastrand v2.3.0
+    Checking bytes v1.11.1
+    Checking parking v2.2.1
+    Checking futures-lite v2.6.1
+    Checking tokio v1.49.0
+    Checking serde v1.0.228
+    Checking pin-project v1.1.10
+    Checking ref-cast v1.0.25
+    Checking inplace-vec-builder v0.1.1
+    Checking genawaiter-macro v0.99.1
+    Checking binary-merge v0.1.2
+    Checking range-collections v0.4.6
+    Checking genawaiter v0.99.1
+    Checking cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+    Checking iroh-io v0.6.2
+ Documenting cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.47s
+   Generated /tmp/radio-bao-proof-target/doc/cyber_bao/index.html

@@ -19,8 +19,17 @@ members = [
 resolver = "2"
 exclude = ["quinn", "nettools"]
 
+[workspace.dependencies]
+hemera = { package = "cyber-hemera", git = "https://github.com/cyberia-to/hemera", rev = "d5f0a09539360934fb32db9b2e15a91995607db6", default-features = false }
+
 [profile.release]
 debug = true
+
+# Hemera is the hash under every blob, BAO tree and ticket. Unoptimized it makes the
+# two-node tests (8 MB blobs) take minutes and starve their QUIC paths into idle
+# timeouts; optimizing just the hash keeps debug builds debuggable everywhere else.
+[profile.dev.package.cyber-hemera]
+opt-level = 3
 
 [profile.dev-ci]
 inherits = 'dev'

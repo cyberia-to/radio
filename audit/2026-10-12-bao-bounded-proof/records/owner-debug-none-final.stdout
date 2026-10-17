@@ -1,0 +1,100 @@
+
+running 16 tests
+test group::tests::u64_geometry_is_bounded_without_oversized_slices ... ok
+test hash::tests::hash_size ... ok
+test hash::tests::poseidon2_backend_basic ... ok
+test hash::tests::poseidon2_backend_parent ... ok
+test hash::tests::poseidon2_backend_counter ... ok
+test tree::tests::bao_tree_basic ... ok
+test hash::tests::poseidon2_backend_root_differs ... ok
+test tree::tests::bao_tree_large ... ok
+test tree::tests::bao_tree_empty ... ok
+test tree::tests::bao_tree_two_blocks ... ok
+test tree::tests::block_size_bytes ... ok
+test tree::tests::block_size_from_bytes ... ok
+test tree::tests::tree_node_children ... ok
+test tree::tests::tree_node_chunk_range ... ok
+test tree::tests::tree_node_is_leaf ... ok
+test tree::tests::tree_node_level ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test caller_total_and_one_action_calls_pause_at_every_boundary ... ok
+test absolute_counter_bounds_are_checked_before_any_backend_call ... ok
+test nonzero_counter_internal_cv_uses_literal_partitions ... ok
+test sixty_literal_cases_have_one_kernel_per_step_and_move_only_hashes ... ok
+test concrete_roots_match_frozen_literals_and_pinned_complete_left_oracle ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test debug_does_not_print_payload ... ok
+test jobs_can_interleave_and_views_outlive_verifiers_and_cursors ... ok
+test literal_schedules_and_exact_borrowed_coordinates ... ok
+test cancelling_at_each_pending_stage_publishes_nothing ... ok
+test caller_quotas_and_total_are_not_renewed_by_groups_or_yields ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 1 test
+test concrete_verifier_all_stages_output_failure_and_cancel_allocate_nothing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+
+running 11 tests
+test diagnostic_strings_and_core_error_trait_are_frozen ... ok
+test each_expected_root_word_has_exact_canonical_boundary ... ok
+test geometry_precedes_empty_request_and_root_canonicality ... ok
+test largest_group_width_is_geometry_not_allocation_admission ... ok
+test maximum_frontier_prefix_uses_literal_small_missing_leaf ... ok
+test representation_aliases_are_not_normalized ... ok
+test absolute_chunk_counter_is_not_relative_to_the_selected_group ... ok
+test canonical_parent_and_payload_corruption_never_publish ... ok
+test exact_eof_is_a_separate_required_commit ... ok
+test both_children_all_words_reject_noncanonical_before_hashing ... ok
+test header_size_is_trusted_input_and_every_truncation_is_exact ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 7 tests
+test exact_admission_errors_and_geometry_precedence ... ok
+test caller_pauses_and_interleaving_preserve_progress ... ok
+test maximum_file_final_path_uses_literal_remainder ... ok
+test maximum_left_prefix_requires_fifty_three_pending_slots ... ok
+test tiny_lengths_and_empty_requests_are_geometric ... ok
+test literal_half_open_selection_flags_and_root_placement ... ok
+test literal_complete_left_shapes_and_partial_last_groups ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

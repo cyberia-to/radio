@@ -1,0 +1,12 @@
+{
+  "before": "source-final.json",
+  "after": "source-ready.json",
+  "changes": [
+    {
+      "path": "cyber-bao/src/lib.rs",
+      "before": "098506adfe8f8fe7aee0130a4e134dcd85afbde0868bf9fea15939a91def641e",
+      "after": "9e82621f1a213a4943c2d8e5b313621ce0e5cee811f86975fe9bff20195c472a"
+    }
+  ],
+  "reason": "new pub mod proof moved after cfg-gated io for configured module order; all visibility and cfg semantics unchanged; existing parent re-export formatting remains untouched"
+}
