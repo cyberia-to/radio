@@ -1,0 +1,1165 @@
+{
+  "created": "2026-10-12T23:45:03Z",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "context_sha256": "8ae88f7dd21b5cc00228737e3cfb2abbb1e471810e5b524fd2f700cc7e45868f",
+  "context_bytes": 317504,
+  "sections": [
+    {
+      "number": 1,
+      "label": "review brief",
+      "file": "parts/001.txt",
+      "offset": 123,
+      "bytes": 2209,
+      "sha256": "30e0ec95a9600622234db11dcca0651cbe8017250c671d6a02e899037f3a17da",
+      "header": "\n===== 001 BEGIN review brief | 2209 bytes | SHA256 30e0ec95a9600622234db11dcca0651cbe8017250c671d6a02e899037f3a17da =====\n",
+      "footer": "\n===== 001 END =====\n",
+      "binding": {
+        "kind": "brief"
+      }
+    },
+    {
+      "number": 2,
+      "label": "task/plan.md",
+      "file": "parts/002.txt",
+      "offset": 2477,
+      "bytes": 14878,
+      "sha256": "6a104b42977d594a0ac1e05cd999ec750c896f4d4e24865a0eb1718cfba34350",
+      "header": "\n===== 002 BEGIN task/plan.md | 14878 bytes | SHA256 6a104b42977d594a0ac1e05cd999ec750c896f4d4e24865a0eb1718cfba34350 =====\n",
+      "footer": "\n===== 002 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "task/plan.md"
+      }
+    },
+    {
+      "number": 3,
+      "label": "task/finite-cases.md",
+      "file": "parts/003.txt",
+      "offset": 17507,
+      "bytes": 8731,
+      "sha256": "93056283cc10f6fe9310aa8493c533557b5f96876b357dc8039a7b87b879a24c",
+      "header": "\n===== 003 BEGIN task/finite-cases.md | 8731 bytes | SHA256 93056283cc10f6fe9310aa8493c533557b5f96876b357dc8039a7b87b879a24c =====\n",
+      "footer": "\n===== 003 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "task/finite-cases.md"
+      }
+    },
+    {
+      "number": 4,
+      "label": "task/research.md",
+      "file": "parts/004.txt",
+      "offset": 26386,
+      "bytes": 9092,
+      "sha256": "956ea7addb3dba2a6f16771958dd1746fd737679ca9d3de527f3a074d29ed8e7",
+      "header": "\n===== 004 BEGIN task/research.md | 9092 bytes | SHA256 956ea7addb3dba2a6f16771958dd1746fd737679ca9d3de527f3a074d29ed8e7 =====\n",
+      "footer": "\n===== 004 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "task/research.md"
+      }
+    },
+    {
+      "number": 5,
+      "label": "README.md",
+      "file": "parts/005.txt",
+      "offset": 35619,
+      "bytes": 3476,
+      "sha256": "46d04dd9718b8f1c5efb7bf8af78527e9fe0a8c26aa316f8dc85af186c2cd961",
+      "header": "\n===== 005 BEGIN README.md | 3476 bytes | SHA256 46d04dd9718b8f1c5efb7bf8af78527e9fe0a8c26aa316f8dc85af186c2cd961 =====\n",
+      "footer": "\n===== 005 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "README.md"
+      }
+    },
+    {
+      "number": 6,
+      "label": "measurements.json",
+      "file": "parts/006.txt",
+      "offset": 39243,
+      "bytes": 517,
+      "sha256": "2e4bf703dc2a42de12f63f9887b5405b47373b51fcbecb25bfe1fa8edc6a7195",
+      "header": "\n===== 006 BEGIN measurements.json | 517 bytes | SHA256 2e4bf703dc2a42de12f63f9887b5405b47373b51fcbecb25bfe1fa8edc6a7195 =====\n",
+      "footer": "\n===== 006 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "measurements.json"
+      }
+    },
+    {
+      "number": 7,
+      "label": "merged-bridge.json",
+      "file": "parts/007.txt",
+      "offset": 39911,
+      "bytes": 25353,
+      "sha256": "b91114934b55522a56180cb4a62804b63f2f84bd22315aabeb083ead9a5b7852",
+      "header": "\n===== 007 BEGIN merged-bridge.json | 25353 bytes | SHA256 b91114934b55522a56180cb4a62804b63f2f84bd22315aabeb083ead9a5b7852 =====\n",
+      "footer": "\n===== 007 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "merged-bridge.json"
+      }
+    },
+    {
+      "number": 8,
+      "label": "fixtures.json",
+      "file": "parts/008.txt",
+      "offset": 65409,
+      "bytes": 2661,
+      "sha256": "9bbf3e8081aba15edd426cd810096fe219b40e99596bfcd216bb4342c918dddc",
+      "header": "\n===== 008 BEGIN fixtures.json | 2661 bytes | SHA256 9bbf3e8081aba15edd426cd810096fe219b40e99596bfcd216bb4342c918dddc =====\n",
+      "footer": "\n===== 008 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "fixtures.json"
+      }
+    },
+    {
+      "number": 9,
+      "label": "inputs.json",
+      "file": "parts/009.txt",
+      "offset": 68214,
+      "bytes": 14411,
+      "sha256": "4995cc059ec39e366af5086da72b6a2f30881414b177972e969c5c018829ffe6",
+      "header": "\n===== 009 BEGIN inputs.json | 14411 bytes | SHA256 4995cc059ec39e366af5086da72b6a2f30881414b177972e969c5c018829ffe6 =====\n",
+      "footer": "\n===== 009 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "inputs.json"
+      }
+    },
+    {
+      "number": 10,
+      "label": "primary-inputs.json",
+      "file": "parts/010.txt",
+      "offset": 82775,
+      "bytes": 694,
+      "sha256": "902b084cb6ec74fe81964d0921f65653e0672d739cb60f3033c4eb512d964de2",
+      "header": "\n===== 010 BEGIN primary-inputs.json | 694 bytes | SHA256 902b084cb6ec74fe81964d0921f65653e0672d739cb60f3033c4eb512d964de2 =====\n",
+      "footer": "\n===== 010 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "primary-inputs.json"
+      }
+    },
+    {
+      "number": 11,
+      "label": "support-inputs.json",
+      "file": "parts/011.txt",
+      "offset": 83620,
+      "bytes": 8166,
+      "sha256": "66d0649ab0ef7c60f3149e224d1957495e4fcba30d0303950943972553ddcb98",
+      "header": "\n===== 011 BEGIN support-inputs.json | 8166 bytes | SHA256 66d0649ab0ef7c60f3149e224d1957495e4fcba30d0303950943972553ddcb98 =====\n",
+      "footer": "\n===== 011 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "support-inputs.json"
+      }
+    },
+    {
+      "number": 12,
+      "label": "historical-inventory-reference.json",
+      "file": "parts/012.txt",
+      "offset": 91953,
+      "bytes": 8725,
+      "sha256": "3be511c656596a18910a77a292b5166fddd23500d346114691205d48e51f7158",
+      "header": "\n===== 012 BEGIN historical-inventory-reference.json | 8725 bytes | SHA256 3be511c656596a18910a77a292b5166fddd23500d346114691205d48e51f7158 =====\n",
+      "footer": "\n===== 012 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "historical-inventory-reference.json"
+      }
+    },
+    {
+      "number": 13,
+      "label": "probe/src/main.rs",
+      "file": "parts/013.txt",
+      "offset": 100827,
+      "bytes": 2322,
+      "sha256": "5a6f0b73072d4d40075dbe57c26408a52a3634e898036eb452da0fe54436f526",
+      "header": "\n===== 013 BEGIN probe/src/main.rs | 2322 bytes | SHA256 5a6f0b73072d4d40075dbe57c26408a52a3634e898036eb452da0fe54436f526 =====\n",
+      "footer": "\n===== 013 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "probe/src/main.rs"
+      }
+    },
+    {
+      "number": 14,
+      "label": "primary-probe/src/main.rs",
+      "file": "parts/014.txt",
+      "offset": 103306,
+      "bytes": 7858,
+      "sha256": "6c274529c97ebc1e98ffd0bcb37e2e47abf02f5e1db7ca07480ff20ea432971f",
+      "header": "\n===== 014 BEGIN primary-probe/src/main.rs | 7858 bytes | SHA256 6c274529c97ebc1e98ffd0bcb37e2e47abf02f5e1db7ca07480ff20ea432971f =====\n",
+      "footer": "\n===== 014 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "primary-probe/src/main.rs"
+      }
+    },
+    {
+      "number": 15,
+      "label": "probe/Cargo.toml",
+      "file": "parts/015.txt",
+      "offset": 111311,
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+      "header": "\n===== 015 BEGIN probe/Cargo.toml | 217 bytes | SHA256 26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038 =====\n",
+      "footer": "\n===== 015 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "probe/Cargo.toml"
+      }
+    },
+    {
+      "number": 16,
+      "label": "primary-probe/Cargo.toml",
+      "file": "parts/016.txt",
+      "offset": 111683,
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+      "header": "\n===== 016 BEGIN primary-probe/Cargo.toml | 377 bytes | SHA256 eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd =====\n",
+      "footer": "\n===== 016 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "primary-probe/Cargo.toml"
+      }
+    },
+    {
+      "number": 17,
+      "label": "records/initial-debug.json",
+      "file": "parts/017.txt",
+      "offset": 112218,
+      "bytes": 1124,
+      "sha256": "8e9fbb3eeca3a7d3a763da790b6e7ee80ed2d2a1ba4b3512804111c9c729ce04",
+      "header": "\n===== 017 BEGIN records/initial-debug.json | 1124 bytes | SHA256 8e9fbb3eeca3a7d3a763da790b6e7ee80ed2d2a1ba4b3512804111c9c729ce04 =====\n",
+      "footer": "\n===== 017 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/initial-debug.json"
+      }
+    },
+    {
+      "number": 18,
+      "label": "records/initial-debug.stdout",
+      "file": "parts/018.txt",
+      "offset": 113501,
+      "bytes": 321,
+      "sha256": "f8d6893e760591b3ee6ce82d39b620cb6847309ae831276fe27fcbb99f82fb2c",
+      "header": "\n===== 018 BEGIN records/initial-debug.stdout | 321 bytes | SHA256 f8d6893e760591b3ee6ce82d39b620cb6847309ae831276fe27fcbb99f82fb2c =====\n",
+      "footer": "\n===== 018 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/initial-debug.stdout"
+      }
+    },
+    {
+      "number": 19,
+      "label": "records/initial-debug.stderr",
+      "file": "parts/019.txt",
+      "offset": 113982,
+      "bytes": 1592,
+      "sha256": "c131545b9bde8e42c1144a5657559568248727dd279618ec3cd633700c0f3b84",
+      "header": "\n===== 019 BEGIN records/initial-debug.stderr | 1592 bytes | SHA256 c131545b9bde8e42c1144a5657559568248727dd279618ec3cd633700c0f3b84 =====\n",
+      "footer": "\n===== 019 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/initial-debug.stderr"
+      }
+    },
+    {
+      "number": 20,
+      "label": "records/legacy-release.json",
+      "file": "parts/020.txt",
+      "offset": 115733,
+      "bytes": 1145,
+      "sha256": "99239687d886f2f236b93c6cd68b0b3402e6c2be74497316b0c4640771c72979",
+      "header": "\n===== 020 BEGIN records/legacy-release.json | 1145 bytes | SHA256 99239687d886f2f236b93c6cd68b0b3402e6c2be74497316b0c4640771c72979 =====\n",
+      "footer": "\n===== 020 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/legacy-release.json"
+      }
+    },
+    {
+      "number": 21,
+      "label": "records/legacy-release.stdout",
+      "file": "parts/021.txt",
+      "offset": 117038,
+      "bytes": 321,
+      "sha256": "f8d6893e760591b3ee6ce82d39b620cb6847309ae831276fe27fcbb99f82fb2c",
+      "header": "\n===== 021 BEGIN records/legacy-release.stdout | 321 bytes | SHA256 f8d6893e760591b3ee6ce82d39b620cb6847309ae831276fe27fcbb99f82fb2c =====\n",
+      "footer": "\n===== 021 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/legacy-release.stdout"
+      }
+    },
+    {
+      "number": 22,
+      "label": "records/legacy-release.stderr",
+      "file": "parts/022.txt",
+      "offset": 117520,
+      "bytes": 1585,
+      "sha256": "e2cb8d0a2da7eb7b765f1f81440473bf0526a952f9dfa2a3f2c9595fddb4442a",
+      "header": "\n===== 022 BEGIN records/legacy-release.stderr | 1585 bytes | SHA256 e2cb8d0a2da7eb7b765f1f81440473bf0526a952f9dfa2a3f2c9595fddb4442a =====\n",
+      "footer": "\n===== 022 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/legacy-release.stderr"
+      }
+    },
+    {
+      "number": 23,
+      "label": "records/primary-debug.json",
+      "file": "parts/023.txt",
+      "offset": 119263,
+      "bytes": 1196,
+      "sha256": "bb50494b19380ee7ffef7df470701d2289f9317d0e5769bcc8211d871b0c935b",
+      "header": "\n===== 023 BEGIN records/primary-debug.json | 1196 bytes | SHA256 bb50494b19380ee7ffef7df470701d2289f9317d0e5769bcc8211d871b0c935b =====\n",
+      "footer": "\n===== 023 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-debug.json"
+      }
+    },
+    {
+      "number": 24,
+      "label": "records/primary-debug.stdout",
+      "file": "parts/024.txt",
+      "offset": 120619,
+      "bytes": 2027,
+      "sha256": "f9a0230bf0df0f91e29b223d34a72ac2d3321349c4c1553a51874b4b1d6204a0",
+      "header": "\n===== 024 BEGIN records/primary-debug.stdout | 2027 bytes | SHA256 f9a0230bf0df0f91e29b223d34a72ac2d3321349c4c1553a51874b4b1d6204a0 =====\n",
+      "footer": "\n===== 024 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-debug.stdout"
+      }
+    },
+    {
+      "number": 25,
+      "label": "records/primary-debug.stderr",
+      "file": "parts/025.txt",
+      "offset": 122805,
+      "bytes": 339,
+      "sha256": "d6fed383ca7cd2b0c5c7088425c2e4942823cfe3498b965ddac79e53ce4063aa",
+      "header": "\n===== 025 BEGIN records/primary-debug.stderr | 339 bytes | SHA256 d6fed383ca7cd2b0c5c7088425c2e4942823cfe3498b965ddac79e53ce4063aa =====\n",
+      "footer": "\n===== 025 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-debug.stderr"
+      }
+    },
+    {
+      "number": 26,
+      "label": "records/primary-release.json",
+      "file": "parts/026.txt",
+      "offset": 123304,
+      "bytes": 1218,
+      "sha256": "b9d17ac3d8630f31a35e64e59ebb6a7be2d53dcabcfec2916ca78f5c1ea8c6a2",
+      "header": "\n===== 026 BEGIN records/primary-release.json | 1218 bytes | SHA256 b9d17ac3d8630f31a35e64e59ebb6a7be2d53dcabcfec2916ca78f5c1ea8c6a2 =====\n",
+      "footer": "\n===== 026 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-release.json"
+      }
+    },
+    {
+      "number": 27,
+      "label": "records/primary-release.stdout",
+      "file": "parts/027.txt",
+      "offset": 124684,
+      "bytes": 2027,
+      "sha256": "f9a0230bf0df0f91e29b223d34a72ac2d3321349c4c1553a51874b4b1d6204a0",
+      "header": "\n===== 027 BEGIN records/primary-release.stdout | 2027 bytes | SHA256 f9a0230bf0df0f91e29b223d34a72ac2d3321349c4c1553a51874b4b1d6204a0 =====\n",
+      "footer": "\n===== 027 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-release.stdout"
+      }
+    },
+    {
+      "number": 28,
+      "label": "records/primary-release.stderr",
+      "file": "parts/028.txt",
+      "offset": 126872,
+      "bytes": 332,
+      "sha256": "8e540185254d93b8c3d3cbcfdb02e35368db3646159abbea9e90d99eb150f09f",
+      "header": "\n===== 028 BEGIN records/primary-release.stderr | 332 bytes | SHA256 8e540185254d93b8c3d3cbcfdb02e35368db3646159abbea9e90d99eb150f09f =====\n",
+      "footer": "\n===== 028 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/primary-release.stderr"
+      }
+    },
+    {
+      "number": 29,
+      "label": "records/fetch-traversal.json",
+      "file": "parts/029.txt",
+      "offset": 127363,
+      "bytes": 721,
+      "sha256": "159350cba22014a985fd07095b33544de8ea3d1cbc5aa76ca80db1e7442a3a4f",
+      "header": "\n===== 029 BEGIN records/fetch-traversal.json | 721 bytes | SHA256 159350cba22014a985fd07095b33544de8ea3d1cbc5aa76ca80db1e7442a3a4f =====\n",
+      "footer": "\n===== 029 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/fetch-traversal.json"
+      }
+    },
+    {
+      "number": 30,
+      "label": "records/integrate-traversal.json",
+      "file": "parts/030.txt",
+      "offset": 128247,
+      "bytes": 783,
+      "sha256": "80b00239f601b7ae149a8205c7acb6a9fc698184f79ddc855e251dec89929791",
+      "header": "\n===== 030 BEGIN records/integrate-traversal.json | 783 bytes | SHA256 80b00239f601b7ae149a8205c7acb6a9fc698184f79ddc855e251dec89929791 =====\n",
+      "footer": "\n===== 030 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "records/integrate-traversal.json"
+      }
+    },
+    {
+      "number": 31,
+      "label": "Radio Cargo.toml",
+      "file": "parts/031.txt",
+      "offset": 129178,
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2",
+      "header": "\n===== 031 BEGIN Radio Cargo.toml | 2085 bytes | SHA256 3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2 =====\n",
+      "footer": "\n===== 031 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "Cargo.toml"
+      }
+    },
+    {
+      "number": 32,
+      "label": "Radio cyber-bao/Cargo.toml",
+      "file": "parts/032.txt",
+      "offset": 131421,
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+      "header": "\n===== 032 BEGIN Radio cyber-bao/Cargo.toml | 1078 bytes | SHA256 95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365 =====\n",
+      "footer": "\n===== 032 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/Cargo.toml"
+      }
+    },
+    {
+      "number": 33,
+      "label": "Radio cyber-bao/src/lib.rs",
+      "file": "parts/033.txt",
+      "offset": 132657,
+      "bytes": 1330,
+      "sha256": "2e054f65e05d5a47555e684cb339903972672e2f1077a2ee19ddd6648f88ac40",
+      "header": "\n===== 033 BEGIN Radio cyber-bao/src/lib.rs | 1330 bytes | SHA256 2e054f65e05d5a47555e684cb339903972672e2f1077a2ee19ddd6648f88ac40 =====\n",
+      "footer": "\n===== 033 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/lib.rs"
+      }
+    },
+    {
+      "number": 34,
+      "label": "Radio cyber-bao/src/group.rs",
+      "file": "parts/034.txt",
+      "offset": 134147,
+      "bytes": 6349,
+      "sha256": "948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf",
+      "header": "\n===== 034 BEGIN Radio cyber-bao/src/group.rs | 6349 bytes | SHA256 948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf =====\n",
+      "footer": "\n===== 034 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/group.rs"
+      }
+    },
+    {
+      "number": 35,
+      "label": "Radio cyber-bao/src/hash.rs",
+      "file": "parts/035.txt",
+      "offset": 140655,
+      "bytes": 3960,
+      "sha256": "1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f",
+      "header": "\n===== 035 BEGIN Radio cyber-bao/src/hash.rs | 3960 bytes | SHA256 1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f =====\n",
+      "footer": "\n===== 035 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/hash.rs"
+      }
+    },
+    {
+      "number": 36,
+      "label": "Radio cyber-bao/src/tree.rs",
+      "file": "parts/036.txt",
+      "offset": 144775,
+      "bytes": 12320,
+      "sha256": "458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a",
+      "header": "\n===== 036 BEGIN Radio cyber-bao/src/tree.rs | 12320 bytes | SHA256 458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a =====\n",
+      "footer": "\n===== 036 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/tree.rs"
+      }
+    },
+    {
+      "number": 37,
+      "label": "Radio cyber-bao/src/traversal.rs",
+      "file": "parts/037.txt",
+      "offset": 157259,
+      "bytes": 6067,
+      "sha256": "87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a",
+      "header": "\n===== 037 BEGIN Radio cyber-bao/src/traversal.rs | 6067 bytes | SHA256 87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a =====\n",
+      "footer": "\n===== 037 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/traversal.rs"
+      }
+    },
+    {
+      "number": 38,
+      "label": "Radio cyber-bao/src/io/slice.rs",
+      "file": "parts/038.txt",
+      "offset": 163490,
+      "bytes": 13041,
+      "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7",
+      "header": "\n===== 038 BEGIN Radio cyber-bao/src/io/slice.rs | 13041 bytes | SHA256 0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7 =====\n",
+      "footer": "\n===== 038 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/src/io/slice.rs"
+      }
+    },
+    {
+      "number": 39,
+      "label": "Radio cyber-bao/tests/range_traversal.rs",
+      "file": "parts/039.txt",
+      "offset": 176704,
+      "bytes": 12350,
+      "sha256": "e07530aa7035ccad8c75da53c50355efc03c503f2480189c32ac133ead883d25",
+      "header": "\n===== 039 BEGIN Radio cyber-bao/tests/range_traversal.rs | 12350 bytes | SHA256 e07530aa7035ccad8c75da53c50355efc03c503f2480189c32ac133ead883d25 =====\n",
+      "footer": "\n===== 039 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/tests/range_traversal.rs"
+      }
+    },
+    {
+      "number": 40,
+      "label": "Radio cyber-bao/tests/range_traversal_allocation.rs",
+      "file": "parts/040.txt",
+      "offset": 189237,
+      "bytes": 3083,
+      "sha256": "cc7b2cc32b710ee835be001d77887c5176e42e6719b3fc8c97d31ddec4fe6c59",
+      "header": "\n===== 040 BEGIN Radio cyber-bao/tests/range_traversal_allocation.rs | 3083 bytes | SHA256 cc7b2cc32b710ee835be001d77887c5176e42e6719b3fc8c97d31ddec4fe6c59 =====\n",
+      "footer": "\n===== 040 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/tests/range_traversal_allocation.rs"
+      }
+    },
+    {
+      "number": 41,
+      "label": "Radio cyber-bao/tests/root_policy.rs",
+      "file": "parts/041.txt",
+      "offset": 192488,
+      "bytes": 8717,
+      "sha256": "42737b5a4f3c3e6f9d19f91a5d14279e3f43a8e3eaaf8d4caf251b744944f94b",
+      "header": "\n===== 041 BEGIN Radio cyber-bao/tests/root_policy.rs | 8717 bytes | SHA256 42737b5a4f3c3e6f9d19f91a5d14279e3f43a8e3eaaf8d4caf251b744944f94b =====\n",
+      "footer": "\n===== 041 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "cyber-bao/tests/root_policy.rs"
+      }
+    },
+    {
+      "number": 42,
+      "label": "Radio iroh-blobs/Cargo.toml",
+      "file": "parts/042.txt",
+      "offset": 201364,
+      "bytes": 3156,
+      "sha256": "cbf2f94e32cb76f6976b9f271231077da1eadeb9a8fea69636180bec5441c011",
+      "header": "\n===== 042 BEGIN Radio iroh-blobs/Cargo.toml | 3156 bytes | SHA256 cbf2f94e32cb76f6976b9f271231077da1eadeb9a8fea69636180bec5441c011 =====\n",
+      "footer": "\n===== 042 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "iroh-blobs/Cargo.toml"
+      }
+    },
+    {
+      "number": 43,
+      "label": "Radio particle/Cargo.toml",
+      "file": "parts/043.txt",
+      "offset": 204676,
+      "bytes": 367,
+      "sha256": "a80402ad3fce896380f81f4a510e7ef081c1a881043970a81c7b24e203996969",
+      "header": "\n===== 043 BEGIN Radio particle/Cargo.toml | 367 bytes | SHA256 a80402ad3fce896380f81f4a510e7ef081c1a881043970a81c7b24e203996969 =====\n",
+      "footer": "\n===== 043 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "particle/Cargo.toml"
+      }
+    },
+    {
+      "number": 44,
+      "label": "Radio radio-cli/Cargo.toml",
+      "file": "parts/044.txt",
+      "offset": 205200,
+      "bytes": 666,
+      "sha256": "5d2e24decf543ba918766c57dd5bd3f3224b871933c3f4fc51d2420461cfccc0",
+      "header": "\n===== 044 BEGIN Radio radio-cli/Cargo.toml | 666 bytes | SHA256 5d2e24decf543ba918766c57dd5bd3f3224b871933c3f4fc51d2420461cfccc0 =====\n",
+      "footer": "\n===== 044 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "radio-cli/Cargo.toml"
+      }
+    },
+    {
+      "number": 45,
+      "label": "Radio tests/integration/Cargo.toml",
+      "file": "parts/045.txt",
+      "offset": 206031,
+      "bytes": 673,
+      "sha256": "ac74983dbeee09aed2222c0c6108e81f97a176e59a7b3db444b3d4e1e429b4a0",
+      "header": "\n===== 045 BEGIN Radio tests/integration/Cargo.toml | 673 bytes | SHA256 ac74983dbeee09aed2222c0c6108e81f97a176e59a7b3db444b3d4e1e429b4a0 =====\n",
+      "footer": "\n===== 045 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "tests/integration/Cargo.toml"
+      }
+    },
+    {
+      "number": 46,
+      "label": "Radio iroh-docs/Cargo.toml",
+      "file": "parts/046.txt",
+      "offset": 206862,
+      "bytes": 2490,
+      "sha256": "fc5de9598d40d5265bbc36c4bc6bd7f38f55ba206bf0f717bfdf9b8e0e8b07c6",
+      "header": "\n===== 046 BEGIN Radio iroh-docs/Cargo.toml | 2490 bytes | SHA256 fc5de9598d40d5265bbc36c4bc6bd7f38f55ba206bf0f717bfdf9b8e0e8b07c6 =====\n",
+      "footer": "\n===== 046 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "iroh-docs/Cargo.toml"
+      }
+    },
+    {
+      "number": 47,
+      "label": "Radio iroh-blobs/src/api/blobs/export_pairs.rs",
+      "file": "parts/047.txt",
+      "offset": 209531,
+      "bytes": 13409,
+      "sha256": "96914dc66c602b6e0bc9cf29a5287a84214b514be367ca96eef0b637079eb9c2",
+      "header": "\n===== 047 BEGIN Radio iroh-blobs/src/api/blobs/export_pairs.rs | 13409 bytes | SHA256 96914dc66c602b6e0bc9cf29a5287a84214b514be367ca96eef0b637079eb9c2 =====\n",
+      "footer": "\n===== 047 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "iroh-blobs/src/api/blobs/export_pairs.rs"
+      }
+    },
+    {
+      "number": 48,
+      "label": "Radio .config/nextest.toml",
+      "file": "parts/048.txt",
+      "offset": 223097,
+      "bytes": 594,
+      "sha256": "ef588b7e34ddd981c24a523ba359ec76a616a45b40f3f3f525692ae809aea590",
+      "header": "\n===== 048 BEGIN Radio .config/nextest.toml | 594 bytes | SHA256 ef588b7e34ddd981c24a523ba359ec76a616a45b40f3f3f525692ae809aea590 =====\n",
+      "footer": "\n===== 048 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": ".config/nextest.toml"
+      }
+    },
+    {
+      "number": 49,
+      "label": "Radio Makefile.toml",
+      "file": "parts/049.txt",
+      "offset": 223841,
+      "bytes": 662,
+      "sha256": "0f1e457aa4bb7c6e4674d2dfbd847b58344319a1242625c2f055241ebd048d8d",
+      "header": "\n===== 049 BEGIN Radio Makefile.toml | 662 bytes | SHA256 0f1e457aa4bb7c6e4674d2dfbd847b58344319a1242625c2f055241ebd048d8d =====\n",
+      "footer": "\n===== 049 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": "Makefile.toml"
+      }
+    },
+    {
+      "number": 50,
+      "label": "Radio .github/workflows/ci.yml",
+      "file": "parts/050.txt",
+      "offset": 224666,
+      "bytes": 11846,
+      "sha256": "ded5a95996283b54293810ab4938dadc1d589fab73be85397ad9c3435b203208",
+      "header": "\n===== 050 BEGIN Radio .github/workflows/ci.yml | 11846 bytes | SHA256 ded5a95996283b54293810ab4938dadc1d589fab73be85397ad9c3435b203208 =====\n",
+      "footer": "\n===== 050 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": ".github/workflows/ci.yml"
+      }
+    },
+    {
+      "number": 51,
+      "label": "Radio .github/workflows/tests.yaml",
+      "file": "parts/051.txt",
+      "offset": 236679,
+      "bytes": 10418,
+      "sha256": "749952dae052754d58ca44b060dac25431a507f5ddf9e854e2c54a91084b5a6b",
+      "header": "\n===== 051 BEGIN Radio .github/workflows/tests.yaml | 10418 bytes | SHA256 749952dae052754d58ca44b060dac25431a507f5ddf9e854e2c54a91084b5a6b =====\n",
+      "footer": "\n===== 051 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "path": ".github/workflows/tests.yaml"
+      }
+    },
+    {
+      "number": 52,
+      "label": "Kadek kadek-ifac/src/provenance/anchor.rs",
+      "file": "parts/052.txt",
+      "offset": 247270,
+      "bytes": 6443,
+      "sha256": "93ef654721a60df46d6bd716dfca483f30ac4c3e696d4c061d346bfab1b4188d",
+      "header": "\n===== 052 BEGIN Kadek kadek-ifac/src/provenance/anchor.rs | 6443 bytes | SHA256 93ef654721a60df46d6bd716dfca483f30ac4c3e696d4c061d346bfab1b4188d =====\n",
+      "footer": "\n===== 052 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "kadek",
+        "revision": "4d9ca9ab3498238b9c1e03f6d6f160e1ec729912",
+        "path": "kadek-ifac/src/provenance/anchor.rs"
+      }
+    },
+    {
+      "number": 53,
+      "label": "Kadek kadek-ifac/Cargo.toml",
+      "file": "parts/053.txt",
+      "offset": 253871,
+      "bytes": 429,
+      "sha256": "8ee668643ce9154222b83817ad1a332db824c846842ac828e87fea3394a51ea6",
+      "header": "\n===== 053 BEGIN Kadek kadek-ifac/Cargo.toml | 429 bytes | SHA256 8ee668643ce9154222b83817ad1a332db824c846842ac828e87fea3394a51ea6 =====\n",
+      "footer": "\n===== 053 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "kadek",
+        "revision": "4d9ca9ab3498238b9c1e03f6d6f160e1ec729912",
+        "path": "kadek-ifac/Cargo.toml"
+      }
+    },
+    {
+      "number": 54,
+      "label": "Hemera rs/src/params.rs",
+      "file": "parts/054.txt",
+      "offset": 254455,
+      "bytes": 6597,
+      "sha256": "bf5b2cb5a80697d272546425bddcdf2cb2bfe7e08367ae7c793a0922088f2a91",
+      "header": "\n===== 054 BEGIN Hemera rs/src/params.rs | 6597 bytes | SHA256 bf5b2cb5a80697d272546425bddcdf2cb2bfe7e08367ae7c793a0922088f2a91 =====\n",
+      "footer": "\n===== 054 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/params.rs"
+      }
+    },
+    {
+      "number": 55,
+      "label": "Hemera rs/src/field.rs",
+      "file": "parts/055.txt",
+      "offset": 261207,
+      "bytes": 12041,
+      "sha256": "7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a",
+      "header": "\n===== 055 BEGIN Hemera rs/src/field.rs | 12041 bytes | SHA256 7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a =====\n",
+      "footer": "\n===== 055 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/field.rs"
+      }
+    },
+    {
+      "number": 56,
+      "label": "Hemera rs/src/encoding.rs",
+      "file": "parts/056.txt",
+      "offset": 273405,
+      "bytes": 7759,
+      "sha256": "4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e",
+      "header": "\n===== 056 BEGIN Hemera rs/src/encoding.rs | 7759 bytes | SHA256 4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e =====\n",
+      "footer": "\n===== 056 END =====\n",
+      "binding": {
+        "kind": "git",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/encoding.rs"
+      }
+    },
+    {
+      "number": 57,
+      "label": "hemera specs/tree.md:8-113",
+      "file": "parts/057.txt",
+      "offset": 281322,
+      "bytes": 4738,
+      "sha256": "8f5d0d260b564d9efbf1cdc1da5b7fb0a994d412e43938001838d43ad8ee72f6",
+      "header": "\n===== 057 BEGIN hemera specs/tree.md:8-113 | 4738 bytes | SHA256 8f5d0d260b564d9efbf1cdc1da5b7fb0a994d412e43938001838d43ad8ee72f6 =====\n",
+      "footer": "\n===== 057 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "specs/tree.md",
+        "first": 8,
+        "last": 113,
+        "source_sha256": "28d2336a9d040f28f635df706850a02750652d3e8231bdedfd0038ce3761fe5e"
+      }
+    },
+    {
+      "number": 58,
+      "label": "hemera specs/encoding.md:29-42",
+      "file": "parts/058.txt",
+      "offset": 286221,
+      "bytes": 646,
+      "sha256": "363137dc01965e7f856c3e70005fd0cfc5706a23fda1e52ae85b90600542bf82",
+      "header": "\n===== 058 BEGIN hemera specs/encoding.md:29-42 | 646 bytes | SHA256 363137dc01965e7f856c3e70005fd0cfc5706a23fda1e52ae85b90600542bf82 =====\n",
+      "footer": "\n===== 058 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "specs/encoding.md",
+        "first": 29,
+        "last": 42,
+        "source_sha256": "5486943c44cc427382c09520581766d4b7d153cb2cf171b342bc91af53b43849"
+      }
+    },
+    {
+      "number": 59,
+      "label": "hemera specs/capacity.md:11-48",
+      "file": "parts/059.txt",
+      "offset": 287029,
+      "bytes": 1342,
+      "sha256": "1211c21b4e65c077476581faf6a4b353a064483593280d2e71a65c0a55ebb311",
+      "header": "\n===== 059 BEGIN hemera specs/capacity.md:11-48 | 1342 bytes | SHA256 1211c21b4e65c077476581faf6a4b353a064483593280d2e71a65c0a55ebb311 =====\n",
+      "footer": "\n===== 059 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "specs/capacity.md",
+        "first": 11,
+        "last": 48,
+        "source_sha256": "5f6d008183b9a570515c4ef465693ce6f2ff6bdb4c9f0499cf519791523b84cb"
+      }
+    },
+    {
+      "number": 60,
+      "label": "hemera rs/src/field.rs:10-44",
+      "file": "parts/060.txt",
+      "offset": 288530,
+      "bytes": 964,
+      "sha256": "454a53173d2f33e639acfdc8b7ff9c0a2a5556cc11d391932992dde26f42e03c",
+      "header": "\n===== 060 BEGIN hemera rs/src/field.rs:10-44 | 964 bytes | SHA256 454a53173d2f33e639acfdc8b7ff9c0a2a5556cc11d391932992dde26f42e03c =====\n",
+      "footer": "\n===== 060 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/field.rs",
+        "first": 10,
+        "last": 44,
+        "source_sha256": "7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a"
+      }
+    },
+    {
+      "number": 61,
+      "label": "hemera rs/src/encoding.rs:47-79",
+      "file": "parts/061.txt",
+      "offset": 289657,
+      "bytes": 1132,
+      "sha256": "816c01ae13817285054db8500ee1f80f6d3250d4f6d650800ee5e6b33a22cea4",
+      "header": "\n===== 061 BEGIN hemera rs/src/encoding.rs:47-79 | 1132 bytes | SHA256 816c01ae13817285054db8500ee1f80f6d3250d4f6d650800ee5e6b33a22cea4 =====\n",
+      "footer": "\n===== 061 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/encoding.rs",
+        "first": 47,
+        "last": 79,
+        "source_sha256": "4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e"
+      }
+    },
+    {
+      "number": 62,
+      "label": "hemera rs/src/sponge.rs:22-43",
+      "file": "parts/062.txt",
+      "offset": 290949,
+      "bytes": 697,
+      "sha256": "e12b1722dacbc3910760480cf1c5e2daf9bb6c753a3b9b8ada926069b4007df0",
+      "header": "\n===== 062 BEGIN hemera rs/src/sponge.rs:22-43 | 697 bytes | SHA256 e12b1722dacbc3910760480cf1c5e2daf9bb6c753a3b9b8ada926069b4007df0 =====\n",
+      "footer": "\n===== 062 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/sponge.rs",
+        "first": 22,
+        "last": 43,
+        "source_sha256": "e4152c73ca942140fc82575a3d68c6538d323a6355842210b4b40302d7b8daa9"
+      }
+    },
+    {
+      "number": 63,
+      "label": "hemera rs/src/tree.rs:95-148",
+      "file": "parts/063.txt",
+      "offset": 291806,
+      "bytes": 1908,
+      "sha256": "d9cfe6eb1f01008be0503e13e2b68657599d4cbd521ce15f63fd305732951756",
+      "header": "\n===== 063 BEGIN hemera rs/src/tree.rs:95-148 | 1908 bytes | SHA256 d9cfe6eb1f01008be0503e13e2b68657599d4cbd521ce15f63fd305732951756 =====\n",
+      "footer": "\n===== 063 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/tree.rs",
+        "first": 95,
+        "last": 148,
+        "source_sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6"
+      }
+    },
+    {
+      "number": 64,
+      "label": "hemera rs/src/tree.rs:870-884",
+      "file": "parts/064.txt",
+      "offset": 293874,
+      "bytes": 402,
+      "sha256": "19a3aab1d05dab34ce97703deedbb2f3d202b0c51e82ff6062cf1e00ba3cc14b",
+      "header": "\n===== 064 BEGIN hemera rs/src/tree.rs:870-884 | 402 bytes | SHA256 19a3aab1d05dab34ce97703deedbb2f3d202b0c51e82ff6062cf1e00ba3cc14b =====\n",
+      "footer": "\n===== 064 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/tree.rs",
+        "first": 870,
+        "last": 884,
+        "source_sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6"
+      }
+    },
+    {
+      "number": 65,
+      "label": "soft3 release/components.toml:250-260",
+      "file": "parts/065.txt",
+      "offset": 294444,
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+      "header": "\n===== 065 BEGIN soft3 release/components.toml:250-260 | 149 bytes | SHA256 c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984 =====\n",
+      "footer": "\n===== 065 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "soft3",
+        "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+        "path": "release/components.toml",
+        "first": 250,
+        "last": 260,
+        "source_sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e"
+      }
+    },
+    {
+      "number": 66,
+      "label": "soft3 release/components.toml:653-662",
+      "file": "parts/066.txt",
+      "offset": 294761,
+      "bytes": 221,
+      "sha256": "c4476d92f9f50efd9080cad9bdd24f49845b274d9376e3a0eb4ce0686b6d5aac",
+      "header": "\n===== 066 BEGIN soft3 release/components.toml:653-662 | 221 bytes | SHA256 c4476d92f9f50efd9080cad9bdd24f49845b274d9376e3a0eb4ce0686b6d5aac =====\n",
+      "footer": "\n===== 066 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "soft3",
+        "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+        "path": "release/components.toml",
+        "first": 653,
+        "last": 662,
+        "source_sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e"
+      }
+    },
+    {
+      "number": 67,
+      "label": "radio iroh-blobs/src/api/blobs.rs:1011-1020",
+      "file": "parts/067.txt",
+      "offset": 295156,
+      "bytes": 316,
+      "sha256": "6d551f1b8f840ae0b99e44c4e71ba605a38e1bbc07343fc733858871a55f5652",
+      "header": "\n===== 067 BEGIN radio iroh-blobs/src/api/blobs.rs:1011-1020 | 316 bytes | SHA256 6d551f1b8f840ae0b99e44c4e71ba605a38e1bbc07343fc733858871a55f5652 =====\n",
+      "footer": "\n===== 067 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "radio",
+        "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+        "path": "iroh-blobs/src/api/blobs.rs",
+        "first": 1011,
+        "last": 1020,
+        "source_sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286"
+      }
+    },
+    {
+      "number": 68,
+      "label": "radio iroh-blobs/src/api/blobs.rs:14-38",
+      "file": "parts/068.txt",
+      "offset": 295642,
+      "bytes": 619,
+      "sha256": "c70793944bf4f0bff427176b97a7c1140822794e5ba34d24d38257791e762be8",
+      "header": "\n===== 068 BEGIN radio iroh-blobs/src/api/blobs.rs:14-38 | 619 bytes | SHA256 c70793944bf4f0bff427176b97a7c1140822794e5ba34d24d38257791e762be8 =====\n",
+      "footer": "\n===== 068 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "radio",
+        "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+        "path": "iroh-blobs/src/api/blobs.rs",
+        "first": 14,
+        "last": 38,
+        "source_sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286"
+      }
+    },
+    {
+      "number": 69,
+      "label": "kadek specs/runtime.md:36-57",
+      "file": "parts/069.txt",
+      "offset": 296421,
+      "bytes": 1529,
+      "sha256": "50e3fadc2a6d1bd5b6f70f78d0705a157251f3442ceb535ea119ab9053f7a3f1",
+      "header": "\n===== 069 BEGIN kadek specs/runtime.md:36-57 | 1529 bytes | SHA256 50e3fadc2a6d1bd5b6f70f78d0705a157251f3442ceb535ea119ab9053f7a3f1 =====\n",
+      "footer": "\n===== 069 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "kadek",
+        "revision": "4d9ca9ab3498238b9c1e03f6d6f160e1ec729912",
+        "path": "specs/runtime.md",
+        "first": 36,
+        "last": 57,
+        "source_sha256": "025d6dd6cd9e6adccdc80872923f4535f500a717f938e30771bea07d9b774841"
+      }
+    },
+    {
+      "number": 70,
+      "label": "Hemera leaf/parent kernels complete region rs/src/tree.rs:1-143",
+      "file": "parts/070.txt",
+      "offset": 298145,
+      "bytes": 5344,
+      "sha256": "900dbe8002a35b2df11adf8fa2814bc262a896840f785005a544ff9d9f1e2228",
+      "header": "\n===== 070 BEGIN Hemera leaf/parent kernels complete region rs/src/tree.rs:1-143 | 5344 bytes | SHA256 900dbe8002a35b2df11adf8fa2814bc262a896840f785005a544ff9d9f1e2228 =====\n",
+      "footer": "\n===== 070 END =====\n",
+      "binding": {
+        "kind": "excerpt",
+        "repository": "hemera",
+        "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+        "path": "rs/src/tree.rs",
+        "first": 1,
+        "last": 143,
+        "source_sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6"
+      }
+    },
+    {
+      "number": 71,
+      "label": "Merged traversal result.md",
+      "file": "parts/071.txt",
+      "offset": 303648,
+      "bytes": 10113,
+      "sha256": "42a737b1963d82f27bd13349bdd049cc535848890531a9af64cb91b11deb98d0",
+      "header": "\n===== 071 BEGIN Merged traversal result.md | 10113 bytes | SHA256 42a737b1963d82f27bd13349bdd049cc535848890531a9af64cb91b11deb98d0 =====\n",
+      "footer": "\n===== 071 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "merged-prerequisite/result.md"
+      }
+    },
+    {
+      "number": 72,
+      "label": "Merged traversal invocation.json",
+      "file": "parts/072.txt",
+      "offset": 313925,
+      "bytes": 1218,
+      "sha256": "719f82d3af1f4bbcfb4e4dd8c73ff1409db72ac90effc1a18197be3bd6b08968",
+      "header": "\n===== 072 BEGIN Merged traversal invocation.json | 1218 bytes | SHA256 719f82d3af1f4bbcfb4e4dd8c73ff1409db72ac90effc1a18197be3bd6b08968 =====\n",
+      "footer": "\n===== 072 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "merged-prerequisite/invocation.json"
+      }
+    },
+    {
+      "number": 73,
+      "label": "Merged traversal completion.json",
+      "file": "parts/073.txt",
+      "offset": 315306,
+      "bytes": 240,
+      "sha256": "7a8fbbc20da54b3ddc82921a245e4eb10bb844384d7e5e94a7c823588ab9bd35",
+      "header": "\n===== 073 BEGIN Merged traversal completion.json | 240 bytes | SHA256 7a8fbbc20da54b3ddc82921a245e4eb10bb844384d7e5e94a7c823588ab9bd35 =====\n",
+      "footer": "\n===== 073 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "merged-prerequisite/completion.json"
+      }
+    },
+    {
+      "number": 74,
+      "label": "Merged traversal code-review.md",
+      "file": "parts/074.txt",
+      "offset": 315709,
+      "bytes": 1774,
+      "sha256": "094d6c46d2da82a937499cd3015dc2289d54a4abf02f8d3fe3d6d502ea28b94a",
+      "header": "\n===== 074 BEGIN Merged traversal code-review.md | 1774 bytes | SHA256 094d6c46d2da82a937499cd3015dc2289d54a4abf02f8d3fe3d6d502ea28b94a =====\n",
+      "footer": "\n===== 074 END =====\n",
+      "binding": {
+        "kind": "audit",
+        "path": "merged-prerequisite/code-review.md"
+      }
+    }
+  ]
+}

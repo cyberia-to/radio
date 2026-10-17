@@ -1,0 +1,170 @@
+    Checking cyber-radio-relay v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-relay)
+    Checking iroh-quinn v0.16.1
+    Checking arrayvec v0.7.6
+    Checking iroh-base v0.96.1
+   Compiling irpc-derive v0.9.0
+    Checking hex v0.4.3
+    Checking irpc v0.12.0
+    Checking cyber-radio v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh)
+    Checking cyber-bao v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/cyber-bao)
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> cyber-bao/src/io/mixed.rs:115:32
+    |
+115 |                     stack.push(pair.1.clone());
+    |                                ^^^^^^^^^^^^^^ help: try removing the `clone` call: `pair.1`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+    = note: `-D clippy::clone-on-copy` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::clone_on_copy)]`
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> cyber-bao/src/io/mixed.rs:118:32
+    |
+118 |                     stack.push(pair.0.clone());
+    |                                ^^^^^^^^^^^^^^ help: try removing the `clone` call: `pair.0`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+  --> cyber-bao/src/io/sync.rs:59:32
+   |
+59 |                     stack.push(r_hash.clone());
+   |                                ^^^^^^^^^^^^^^ help: try removing the `clone` call: `r_hash`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+  --> cyber-bao/src/io/sync.rs:62:32
+   |
+62 |                     stack.push(l_hash.clone());
+   |                                ^^^^^^^^^^^^^^ help: try removing the `clone` call: `l_hash`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: this function has too many arguments (9/7)
+   --> cyber-bao/src/io/sync.rs:199:1
+    |
+199 | / async fn validate_node_rec<O, D>(
+200 | |     outboard: &O,
+201 | |     data: &D,
+202 | |     backend: &Poseidon2Backend,
+...   |
+211 | |     O: Outboard<Hash = hemera::Hash>,
+212 | |     D: ReadAt,
+    | |______________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#too_many_arguments
+    = note: `-D clippy::too-many-arguments` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::too_many_arguments)]`
+
+error: large size difference between variants
+  --> cyber-bao/src/io/fsm.rs:53:1
+   |
+53 | /  pub enum ResponseDecoderNext<R> {
+54 | |      /// More items available. Contains the decoder and the next item/error.
+55 | |/     More(
+56 | ||         (
+57 | ||             ResponseDecoder<R>,
+58 | ||             Result<BaoContentItem<hemera::Hash>, DecodeError>,
+59 | ||         ),
+60 | ||     ),
+   | ||_____- the largest variant contains at least 504 bytes
+61 | |      /// Decoding is complete.
+62 | |      Done(R),
+   | |      ------- the second-largest variant contains at least 0 bytes
+63 | |  }
+   | |__^ the entire enum is at least 504 bytes
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#large_enum_variant
+   = note: `-D clippy::large-enum-variant` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::large_enum_variant)]`
+help: consider boxing the large fields or introducing indirection in some other way to reduce the total size of the enum
+   |
+56 ~         Box<(
+57 +             ResponseDecoder<R>,
+58 +             Result<BaoContentItem<hemera::Hash>, DecodeError>,
+59 ~         )>,
+   |
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> cyber-bao/src/io/fsm.rs:106:20
+    |
+106 |         stack.push(hash.clone());
+    |                    ^^^^^^^^^^^^ help: try removing the `clone` call: `hash`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> cyber-bao/src/io/fsm.rs:188:38
+    |
+188 |                     inner.stack.push(right.clone());
+    |                                      ^^^^^^^^^^^^^ help: try removing the `clone` call: `right`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: using `clone` on type `Hash` which implements the `Copy` trait
+   --> cyber-bao/src/io/fsm.rs:191:38
+    |
+191 |                     inner.stack.push(left.clone());
+    |                                      ^^^^^^^^^^^^ help: try removing the `clone` call: `left`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#clone_on_copy
+
+error: this `if` statement can be collapsed
+   --> cyber-bao/src/tree/traversal.rs:347:9
+    |
+347 | /         if left_overlaps {
+348 | |             if let Some(left) = left_child {
+349 | |                 self.pre_order_filtered_recurse(left, false, total_blocks, ranges, out);
+350 | |             }
+351 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+347 ~         if left_overlaps
+348 ~             && let Some(left) = left_child {
+349 |                 self.pre_order_filtered_recurse(left, false, total_blocks, ranges, out);
+350 ~             }
+    |
+
+error: this `if` statement can be collapsed
+   --> cyber-bao/src/tree/traversal.rs:352:9
+    |
+352 | /         if right_overlaps {
+353 | |             if let Some(right) = right_child {
+354 | |                 self.pre_order_filtered_recurse(right, false, total_blocks, ranges, out);
+355 | |             }
+356 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+352 ~         if right_overlaps
+353 ~             && let Some(right) = right_child {
+354 |                 self.pre_order_filtered_recurse(right, false, total_blocks, ranges, out);
+355 ~             }
+    |
+
+error: could not compile `cyber-bao` (lib) due to 11 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: consider using `sort_by_key`
+   --> iroh/src/socket/remote_map/remote_state/path_state.rs:286:5
+    |
+286 |     inactive.sort_by(|a, b| b.1.cmp(&a.1));
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unnecessary_sort_by
+    = note: `-D clippy::unnecessary-sort-by` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unnecessary_sort_by)]`
+help: try
+    |
+286 -     inactive.sort_by(|a, b| b.1.cmp(&a.1));
+286 +     inactive.sort_by_key(|b| std::cmp::Reverse(b.1));
+    |
+
+error: could not compile `cyber-radio` (lib) due to 1 previous error

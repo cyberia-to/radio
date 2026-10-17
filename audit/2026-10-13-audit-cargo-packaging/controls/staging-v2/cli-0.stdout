@@ -1,0 +1,7 @@
+{
+  "implementation": "literal-revision",
+  "radio": "/Users/master/cyber/radio",
+  "hemera": "/Users/master/cyber/hemera",
+  "fetch": true,
+  "full": true
+}

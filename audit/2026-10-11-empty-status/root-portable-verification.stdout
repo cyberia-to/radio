@@ -1,0 +1,11 @@
+{
+  "capsule_sha256": "2a4eca60f6784d2dbfb8041e0354956f6111a1c496e1d9237e5bfe53004d80c3",
+  "payload_files": 979,
+  "command_receipts": 196,
+  "raw_streams": 392,
+  "bounded_review_sections": 64,
+  "plan_sections": 58,
+  "historical_capsule_sha256": "fc654a17f3c820877e8af14f143abd34188836840a33d6959fd0d98eecd54884",
+  "checked_checkout_sources": 5,
+  "extraction_removed": true
+}

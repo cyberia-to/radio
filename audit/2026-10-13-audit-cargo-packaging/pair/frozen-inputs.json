@@ -1,0 +1,167 @@
+[
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/body.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/manifest.json",
+    "bytes": 279,
+    "sha256": "723cbcee3ee50b30e6e231d208f66e8427421f9c4eb979464f944b529d21fe69"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/proof.bao",
+    "bytes": 8,
+    "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/selected.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/manifest.json",
+    "bytes": 297,
+    "sha256": "1065424148bd2bf5fa7dddf6633108029763be66845433edae2eec28e38016dc"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/proof.bao",
+    "bytes": 16456,
+    "sha256": "5cacc9435844cb40994744c65497fd98ab618b9592fc7a4a6a2220aa129d0c58"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/selected.bin",
+    "bytes": 2,
+    "sha256": "dff0c047227d36b6e8175c4e2e67391c525cf066a5b44ff64e003b210958424b"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/interleaved.bao",
+    "bytes": 12488,
+    "sha256": "674ac7f2fa42c1d25fa7083c8d0d46b3459cfd6a82dcd16e20445a1479dfc7ad"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/manifest.json",
+    "bytes": 458,
+    "sha256": "889d3b761aeeaec5aa0be3c631ad530dab4723e9f9362ef855fb25203ccd4420"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/selected.bin",
+    "bytes": 4098,
+    "sha256": "b68e6889a7d56daccc9ea0e19d8cdf3e7b2ee4363f1b13858c60b7e96d1a5950"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/manifest.json",
+    "bytes": 286,
+    "sha256": "ca9a4610f80827cd09168d4e930bf3b2453bffbdb31d67445c9fc5cebd546b9d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/proof.bao",
+    "bytes": 4232,
+    "sha256": "879809f7022af32df196934ce49fc6a0b7d6e8461548588875db9d62879af8a8"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/selected.bin",
+    "bytes": 2,
+    "sha256": "049dd55c700c191303a99adaf952dbdd1ce028592a3dc250f67ff22f0a7a4b64"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/body.bin",
+    "bytes": 14,
+    "sha256": "ef1d4848669acc5eb2640c0a2aede8305987bf84478f41b6b927645d2e5f7a8d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/manifest.json",
+    "bytes": 280,
+    "sha256": "4370007e94bacc0cb18bd9a43cc47f7eab8ac8309b343b2c9bec3aca2b3c0de5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/proof.bao",
+    "bytes": 22,
+    "sha256": "3c16fd61ba57f93e03366c30992e93e845b73768432a0f8d93e68d926c5e55e3"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/selected.bin",
+    "bytes": 8,
+    "sha256": "96df61ec9b1c976bfe26379add192ce4bf9151ed9a380eebe133b76ca7faa41e"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/manifest.json",
+    "bytes": 295,
+    "sha256": "db373f983310a346f2bccdd86de20c9edb0245a22fd761fab8b4c51970b28520"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/proof.bao",
+    "bytes": 4232,
+    "sha256": "fd5b9f7592f21d10c41b1d1f75d907f5459cd1ccf299adea939c54c93d031b42"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/selected.bin",
+    "bytes": 3,
+    "sha256": "b625a35d1037280eb7b0a70017c9c52b6ed75de424658b5001b110452010218d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/body.bin",
+    "bytes": 4099,
+    "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/manifest.json",
+    "bytes": 299,
+    "sha256": "ff3b1ab0778546ec5d8f780af1994e2b69186dd379f27ddcce8c8083276085f2"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/proof.bao",
+    "bytes": 4107,
+    "sha256": "40d7d006a05a220f0876fa94cb8dd33fc73000bff019b54f4c77b6c66ebc1f53"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/selected.bin",
+    "bytes": 4,
+    "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/body.bin",
+    "bytes": 4099,
+    "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/manifest.json",
+    "bytes": 292,
+    "sha256": "d4b065575c2579b00336f1a996049071af34f1f28cdb10b567d9b6612c018a02"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/proof.bao",
+    "bytes": 4171,
+    "sha256": "d04ec3ff5cd522470236798445932cd40c7c3c63d3cbadec28933d3534ed7954"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/selected.bin",
+    "bytes": 4,
+    "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/reader_probe.rs",
+    "bytes": 9574,
+    "sha256": "c591a5f63d2a8079ed757fbcdf4a00d9f4b281f2ffe0abff657ebf7731058b15"
+  }
+]

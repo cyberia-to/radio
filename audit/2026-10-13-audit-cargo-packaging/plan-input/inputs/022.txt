@@ -1,0 +1,17 @@
+{
+  "captured": "2026-10-13T01:31:22Z",
+  "base": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "branch": "fix/audit-cargo-packaging",
+  "archived_manifests": [
+    "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+    "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+    "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+    "audit/2026-10-12-bao-proof-research/probe/Cargo.toml"
+  ],
+  "repository_AGENTS_present": false,
+  "repository_CLAUDE_present": false,
+  "no_source_edit": true
+}

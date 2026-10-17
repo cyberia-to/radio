@@ -1,0 +1,11 @@
+Error: nu::shell::error
+
+  x Logical Cargo path already exists: probe/Cargo.toml
+    ,-[/tmp/radio-audit-packaging-staging-tests-v1/collision/audit/2026-10-12-bao-proof-research/../2026-10-13-audit-cargo-packaging/replay.nu:10:12]
+  9 |   for p in $manifests {
+ 10 |     assert (not (($root | path join $p) | path exists)) $'Logical Cargo path already exists: ($p)'
+    :            ^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^
+    :                                  `-- It is not true.
+ 11 |   }
+    `----
+

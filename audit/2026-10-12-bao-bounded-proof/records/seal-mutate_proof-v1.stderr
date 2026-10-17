@@ -1,0 +1,13 @@
+    Checking bao-proof-seal-probes v0.0.0 (/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-bounded-proof/seals)
+error[E0502]: cannot borrow `proof` as mutable because it is also borrowed as immutable
+ --> src/bin/mutate_proof.rs:4:5
+  |
+3 |     let view = bao_proof_seal_probes::finish(&proof);
+  |                                              ------ immutable borrow occurs here
+4 |     proof[0] = 1;
+  |     ^^^^^ mutable borrow occurs here
+5 |     let _ = view.size();
+  |             ---- immutable borrow later used here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `bao-proof-seal-probes` (bin "mutate_proof") due to 1 previous error

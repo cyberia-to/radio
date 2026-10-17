@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-11T17:43:01Z",
+  "finished": "2026-10-11T17:43:02Z",
+  "cwd": "/Users/master/cyber/radio-kadek-empty-status",
+  "argv": [
+    "nu",
+    "audit/2026-10-11-empty-status/verify.nu",
+    "--source-root",
+    "/Users/master/cyber/radio-kadek-empty-status"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "a443dc1172eaa1eefcbbe271757019fa528aed8eac43b5c3e3cf4abfecadee42",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

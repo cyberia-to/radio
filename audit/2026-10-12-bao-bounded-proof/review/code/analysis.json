@@ -1,0 +1,290 @@
+{
+  "created": "2026-10-13T01:04:55Z",
+  "base": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "clippy": {
+    "candidate_diagnostics": [
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mixed.rs",
+        "line": 115,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mixed.rs",
+        "line": 118,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 59,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 62,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: this function has too many arguments (9/7)",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 199,
+        "column": 1,
+        "lint": "too_many_arguments"
+      },
+      {
+        "message": "error: large size difference between variants",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 53,
+        "column": 1,
+        "lint": "large_enum_variant"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 106,
+        "column": 20,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 188,
+        "column": 38,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 191,
+        "column": 38,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: this `if` statement can be collapsed",
+        "path": "cyber-bao/src/tree/traversal.rs",
+        "line": 347,
+        "column": 9,
+        "lint": "collapsible_if"
+      },
+      {
+        "message": "error: this `if` statement can be collapsed",
+        "path": "cyber-bao/src/tree/traversal.rs",
+        "line": 352,
+        "column": 9,
+        "lint": "collapsible_if"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/pre_order.rs",
+        "line": 353,
+        "column": 19,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: this loop could be written as a `while let` loop",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 268,
+        "column": 9,
+        "lint": "while_let_loop"
+      },
+      {
+        "message": "error: this loop could be written as a `while let` loop",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 307,
+        "column": 9,
+        "lint": "while_let_loop"
+      }
+    ],
+    "parent_diagnostics": [
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mixed.rs",
+        "line": 115,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/mixed.rs",
+        "line": 118,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 59,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 62,
+        "column": 32,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: this function has too many arguments (9/7)",
+        "path": "cyber-bao/src/io/sync.rs",
+        "line": 199,
+        "column": 1,
+        "lint": "too_many_arguments"
+      },
+      {
+        "message": "error: large size difference between variants",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 53,
+        "column": 1,
+        "lint": "large_enum_variant"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 106,
+        "column": 20,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 188,
+        "column": 38,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 191,
+        "column": 38,
+        "lint": "clone_on_copy"
+      },
+      {
+        "message": "error: this `if` statement can be collapsed",
+        "path": "cyber-bao/src/tree/traversal.rs",
+        "line": 347,
+        "column": 9,
+        "lint": "collapsible_if"
+      },
+      {
+        "message": "error: this `if` statement can be collapsed",
+        "path": "cyber-bao/src/tree/traversal.rs",
+        "line": 352,
+        "column": 9,
+        "lint": "collapsible_if"
+      }
+    ],
+    "first_11_equal": true,
+    "extra_candidate_lib_test": [
+      {
+        "message": "error: using `clone` on type `Hash` which implements the `Copy` trait",
+        "path": "cyber-bao/src/io/pre_order.rs",
+        "line": 353,
+        "column": 19,
+        "lint": "clone_on_copy",
+        "source_excerpt_first": 350,
+        "source_excerpt_last": 365,
+        "excerpt": "        let ob = outboard(&backend, &data, BlockSize::ZERO);\n\n        let pre = PreOrderOutboard {\n            root: ob.root.clone(),\n            tree: ob.tree,\n            data: ob.data.clone(),\n        };\n\n        assert_eq!(Outboard::root(&pre), ob.root);\n        assert_eq!(pre.tree(), ob.tree);\n\n        let root_node = ob.tree.root();\n        let pair = pre.load(root_node).unwrap();\n        assert!(pair.is_some());\n    }\n\n"
+      },
+      {
+        "message": "error: this loop could be written as a `while let` loop",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 268,
+        "column": 9,
+        "lint": "while_let_loop",
+        "source_excerpt_first": 265,
+        "source_excerpt_last": 280,
+        "excerpt": "\n        let mut current = decoder;\n        let mut leaf_data = Vec::new();\n        loop {\n            match current.next().await {\n                ResponseDecoderNext::More((dec, result)) => {\n                    let item = result.expect(\"decode should succeed\");\n                    if let BaoContentItem::Leaf(leaf) = item {\n                        leaf_data.extend_from_slice(&leaf.data);\n                    }\n                    current = dec;\n                }\n                ResponseDecoderNext::Done(_) => break,\n            }\n        }\n        assert_eq!(leaf_data, data);\n"
+      },
+      {
+        "message": "error: this loop could be written as a `while let` loop",
+        "path": "cyber-bao/src/io/fsm.rs",
+        "line": 307,
+        "column": 9,
+        "lint": "while_let_loop",
+        "source_excerpt_first": 304,
+        "source_excerpt_last": 319,
+        "excerpt": "\n        let mut current = decoder;\n        let mut leaf_data = Vec::new();\n        loop {\n            match current.next().await {\n                ResponseDecoderNext::More((dec, result)) => {\n                    let item = result.expect(\"decode should succeed\");\n                    if let BaoContentItem::Leaf(leaf) = item {\n                        leaf_data.extend_from_slice(&leaf.data);\n                    }\n                    current = dec;\n                }\n                ResponseDecoderNext::Done(_) => break,\n            }\n        }\n        assert_eq!(leaf_data.len(), CHUNK_SIZE);\n"
+      }
+    ],
+    "source_identities": [
+      {
+        "path": "cyber-bao/src/io/mixed.rs",
+        "bytes": 5019,
+        "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "parent_sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2",
+        "candidate_sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2"
+      },
+      {
+        "path": "cyber-bao/src/io/sync.rs",
+        "bytes": 13540,
+        "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "parent_sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a",
+        "candidate_sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a"
+      },
+      {
+        "path": "cyber-bao/src/io/fsm.rs",
+        "bytes": 10938,
+        "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "parent_sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f",
+        "candidate_sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f"
+      },
+      {
+        "path": "cyber-bao/src/tree/traversal.rs",
+        "bytes": 12053,
+        "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "parent_sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e",
+        "candidate_sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e"
+      },
+      {
+        "path": "cyber-bao/src/io/pre_order.rs",
+        "bytes": 14509,
+        "parent": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+        "parent_sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65",
+        "candidate_sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65"
+      }
+    ],
+    "limit": "Final parent command emitted only 11 library diagnostics; the three additional candidate library-test diagnostics are attributed to byte-identical old sources, not claimed to have appeared in that final parent run. No lint-allow rerun or all-feature lint-green claim."
+  },
+  "formatting": [
+    {
+      "candidate": "ready-format-lib-candidate",
+      "parent": "ready-format-lib-parent",
+      "candidate_bytes": 468,
+      "parent_bytes": 465,
+      "candidate_sha256": "7636f880e9d13c155b72e5599a49c5099a41110768ab596f77ac36b99f4ddeb8",
+      "parent_sha256": "936502117767c4449db5eee267a4cab9f9097c56dfafc8e1c59f0d2ffd4cd671",
+      "normalization": [
+        "replace only exact candidate and parent absolute repository roots with <REPO>",
+        "candidate lib.rs hunk line22 maps to parent line21 for the one added module declaration"
+      ],
+      "normalized_equal": true,
+      "normalized_sha256": "7d739468dc32f848c1403ff162e544d503aa81343257631be1abb69844749ad3",
+      "hunks": 1,
+      "stderr_equal": true
+    },
+    {
+      "candidate": "workspace-format",
+      "parent": "parent-workspace-format",
+      "candidate_bytes": 140749,
+      "parent_bytes": 139864,
+      "candidate_sha256": "7db6eb1866a3c50fcc14559aa225b849b297d170524441f40ef21acebf0230c1",
+      "parent_sha256": "15d8e4393306e32081e66d22f05c08a00f8ec44059d0365249abec81984d5f0a",
+      "normalization": [
+        "replace only exact candidate and parent absolute repository roots with <REPO>",
+        "candidate lib.rs hunk line22 maps to parent line21 for the one added module declaration"
+      ],
+      "normalized_equal": true,
+      "normalized_sha256": "594356d3b4656781989ed4a13e91806269c1307f580af9030d6fe150681bc65f",
+      "hunks": 295,
+      "stderr_equal": true
+    }
+  ]
+}

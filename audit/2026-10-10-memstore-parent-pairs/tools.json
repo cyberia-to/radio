@@ -1,0 +1,41 @@
+{
+  "binaries": [
+    {
+      "path": "/tmp/radio-gate-tools/bin/cargo-nextest",
+      "sha256": "afed163ea8b77bb7b1e0fb512e7cacfd5f12170e8c44390fd7615f3408ce43a8"
+    },
+    {
+      "path": "/tmp/radio-gate-tools/bin/cargo-make",
+      "sha256": "14f4408b31dcee57819c64aa44a47f2e885697a8a03b897ca4cef0567e51a089"
+    },
+    {
+      "path": "/tmp/radio-gate-tools/bin/cargo-deny",
+      "sha256": "0b77ea8250f28068f2408f10dba5c8999e85115f0e13013055cdb52ed35ecdf8"
+    },
+    {
+      "path": "/tmp/radio-gate-tools/bin/makers",
+      "sha256": "cff62c8a38494f54244dc112830088177fbff6e4cbe13acff1bdc7d5e41dbb52"
+    }
+  ],
+  "nightly": [
+    {
+      "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/cargo",
+      "sha256": "6471b816b7c757fa2dc570f90d9abc16c1a18b8acf8c812eef322c4c51eb5182"
+    },
+    {
+      "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/rustc",
+      "sha256": "8a749ee7e10acc81b19e0e744ca43b5d4891f2f23665b1def0701d5207ba5b4f"
+    },
+    {
+      "path": "/Users/master/.rustup/toolchains/nightly-2025-10-09-aarch64-apple-darwin/bin/rustdoc",
+      "sha256": "2c6351da979b520c0745afc996ec486ec7421d655c37264f47f80f48c45525c4"
+    }
+  ],
+  "advisory_db": {
+    "path": "/Users/master/.cargo/advisory-dbs/advisory-db-3157b0e258782691",
+    "revision": "7eebec69c352c7191b1f13eb95dd510eeca5d1de"
+  },
+  "installed_receipt_sha256": "e5be79d397b4eb3fcce67515046330e03f09da2e82de377c4916f40cfe26571b",
+  "installed_payload_check_sha256": "f82ef1e5751fae5643631301950ec49a6d9501f6f5fe0eab2489647cd6bebf54",
+  "note": "Historical acquisition dates retained in original ROOT receipt; exact frozen payloads verified here. No release claim."
+}

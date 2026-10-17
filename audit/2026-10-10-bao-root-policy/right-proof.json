@@ -1,0 +1,6 @@
+{
+  "root": "9ccd2809b2bcca875ee39f2c034c80969c176a5510a66d638b2c88c3cd7c7f0f",
+  "proof_bytes": 65608,
+  "proof_sha256": "108022aa95ee61a1058d6d4bb53979a95bc46de114b036fcc6620fbd65648a51",
+  "command_receipt": "logs/candidate-right-fixture.json"
+}

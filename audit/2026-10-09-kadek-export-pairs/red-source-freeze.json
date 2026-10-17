@@ -1,0 +1,20 @@
+[
+  {
+    "path": "iroh-blobs/src/api/blobs.rs",
+    "blob": "6e5ce237b8ba9807777524a4087cbb21bbc1129a",
+    "sha256": "aca82a7fe58f94293a9cc2020a964651d5afb9ef2a60e46dd09a771361671111",
+    "lines": 1217
+  },
+  {
+    "path": "iroh-blobs/src/api/blobs/export_pairs.rs",
+    "blob": "1116d8f5b5d1c1e9ba92e48fae59071ac8bbceef",
+    "sha256": "0bf4aada0bdbbd9f653d7af6452e501f3e88ca23321624086e46f3708b659888",
+    "lines": 344
+  },
+  {
+    "path": "iroh-blobs/src/api/blobs/export_pairs/support.rs",
+    "blob": "ef368971008842eb26890fd5127b0c8078d669a8",
+    "sha256": "54c0f2dfb695e64158966171abedb9c67e67bb661155643a105727892aa549ff",
+    "lines": 184
+  }
+]

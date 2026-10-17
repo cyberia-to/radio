@@ -1,0 +1,80 @@
+[
+  {
+    "path": "fixtures/empty.bin",
+    "bytes": 8,
+    "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/final-short.bin",
+    "bytes": 73,
+    "sha256": "77a2744c2afa90a5d1e8c1d2d96412d9780ffae5cd0e63ff114c03224e7cbaa5",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/grouped-left.bin",
+    "bytes": 8264,
+    "sha256": "7c512483a57fb4d7e82c69ff44859d68433dec8cd1d61a96463e0f16444deef5",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/hello.bin",
+    "bytes": 13,
+    "sha256": "fe745503750fdbf3e6ef676d16d85ee0d63626c594222f7e991908bdffef7ac9",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/sole-group.bin",
+    "bytes": 8200,
+    "sha256": "ad31d4c9d0040256379a6ebf3437beed5eaa6117e14b208f53ceacaa13bbd57a",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/synthetic-alias-0.bin",
+    "bytes": 4168,
+    "sha256": "8f7c882a3f95fa6e5ac9a9e03cbc496be87a57045926ba72f6932d2cd4038f10",
+    "kind": "synthetic parent encoding, not a complete-file witness"
+  },
+  {
+    "path": "fixtures/synthetic-alias-1.bin",
+    "bytes": 4168,
+    "sha256": "d37df99e36ad1e7dbbfa274f2d080b26e24dfff8ce92b08aa51da4076ed9fa02",
+    "kind": "synthetic parent encoding, not a complete-file witness"
+  },
+  {
+    "path": "fixtures/synthetic-alias-2.bin",
+    "bytes": 4168,
+    "sha256": "a57093440c5849056fa27f012891703ed9f4854c29e00fa2cdc04fd9f0bb8970",
+    "kind": "synthetic parent encoding, not a complete-file witness"
+  },
+  {
+    "path": "fixtures/synthetic-alias-3.bin",
+    "bytes": 4168,
+    "sha256": "2de4d22e2e54f125f60c5daa9cd5cfe0d04e64b5f3a49ba151d8b2291f752375",
+    "kind": "synthetic parent encoding, not a complete-file witness"
+  },
+  {
+    "path": "fixtures/synthetic-canonical.bin",
+    "bytes": 4168,
+    "sha256": "d6f0a7ef1554d256e020798f27ed2db632a3e949ddfc795e5f0683916e4f9014",
+    "kind": "synthetic parent encoding, not a complete-file witness"
+  },
+  {
+    "path": "fixtures/three-boundary.bin",
+    "bytes": 8328,
+    "sha256": "f58ca31c3f1eb4c9a28d216a8dcd745e4019d94e16a71142b16919a87b11471d",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/three-interior.bin",
+    "bytes": 4232,
+    "sha256": "5bace76142c12c4cffebcf8d287ab109a7453ed2875191625a6f1a18b536019f",
+    "kind": "manual complete-file carrier"
+  },
+  {
+    "path": "fixtures/three-right.bin",
+    "bytes": 4168,
+    "sha256": "708ab4a235f6b8f0a796304e6155f57107b2b293f9b3d693309b0d15e658fd35",
+    "kind": "manual complete-file carrier"
+  }
+]

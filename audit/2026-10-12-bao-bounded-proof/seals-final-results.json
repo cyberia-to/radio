@@ -1,0 +1,66 @@
+[
+  {
+    "bin": "fields",
+    "expected": "E0451",
+    "actual": [
+      "E0451"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "constructor",
+    "expected": "E0624",
+    "actual": [
+      "E0624"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "conversion",
+    "expected": "E0277",
+    "actual": [
+      "E0277"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "deserialize",
+    "expected": "E0277",
+    "actual": [
+      "E0277"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "deserialize_static",
+    "expected": "E0277",
+    "actual": [
+      "E0277"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "drop_proof",
+    "expected": "E0505",
+    "actual": [
+      "E0505"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "mutate_proof",
+    "expected": "E0502",
+    "actual": [
+      "E0502"
+    ],
+    "exit_code": 101
+  },
+  {
+    "bin": "mutate_leaf",
+    "expected": "E0594",
+    "actual": [
+      "E0594"
+    ],
+    "exit_code": 101
+  }
+]

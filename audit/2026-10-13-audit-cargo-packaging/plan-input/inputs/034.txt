@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "files": 89,
+  "git_input_records": 98,
+  "bridge_comparisons": 39,
+  "primary_excerpts": 13,
+  "raw_receipts": 9,
+  "fixtures": 13,
+  "production_implemented": false,
+  "cargo_rerun": false,
+  "historical_inventory_archive_replayed": false
+}

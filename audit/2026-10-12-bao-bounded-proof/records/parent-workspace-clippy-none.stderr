@@ -1,0 +1,39 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling serde_json v1.0.149
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn)
+    Checking reqwest v0.12.28
+    Checking cyber-radio-quinn-proto v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto)
+    Checking iroh-metrics v0.38.2
+    Checking pkarr v5.0.2
+    Checking tokio-rustls-acme v0.9.0
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-relay)
+    Checking axum v0.8.8
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh)
+    Checking cyber-radio-portmapper v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/portmapper)
+    Checking rustix v1.1.3
+    Checking tempfile v3.24.0
+   Compiling genawaiter-proc-macro v0.99.1
+    Checking genawaiter v0.99.1
+    Checking inplace-vec-builder v0.1.1
+    Checking range-collections v0.4.6
+    Checking iroh-io v0.6.2
+    Checking iroh-quinn-udp v0.8.0
+    Checking iroh-quinn-proto v0.15.1
+error: consider using `sort_by_key`
+   --> iroh/src/socket/remote_map/remote_state/path_state.rs:286:5
+    |
+286 |     inactive.sort_by(|a, b| b.1.cmp(&a.1));
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#unnecessary_sort_by
+    = note: `-D clippy::unnecessary-sort-by` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unnecessary_sort_by)]`
+help: try
+    |
+286 -     inactive.sort_by(|a, b| b.1.cmp(&a.1));
+286 +     inactive.sort_by_key(|b| std::cmp::Reverse(b.1));
+    |
+
+error: could not compile `cyber-radio` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

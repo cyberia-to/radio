@@ -1,0 +1,67 @@
+[workspace]
+members = [
+  "iroh-base",
+  "iroh-dns-server",
+  "iroh",
+  "iroh/bench",
+  "iroh-relay",
+
+  "cyber-bao",
+  "particle",
+  "iroh-blobs",
+  "iroh-gossip",
+  "iroh-docs",
+  "iroh-car",
+  "iroh-willow",
+  "tests/integration",
+  "radio-cli",
+]
+resolver = "2"
+exclude = ["quinn", "nettools"]
+
+[workspace.dependencies]
+hemera = { package = "cyber-hemera", git = "https://github.com/cyberia-to/hemera", rev = "d5f0a09539360934fb32db9b2e15a91995607db6", default-features = false }
+
+[profile.release]
+debug = true
+
+# Hemera is the hash under every blob, BAO tree and ticket. Unoptimized it makes the
+# two-node tests (8 MB blobs) take minutes and starve their QUIC paths into idle
+# timeouts; optimizing just the hash keeps debug builds debuggable everywhere else.
+[profile.dev.package.cyber-hemera]
+opt-level = 3
+
+[profile.dev-ci]
+inherits = 'dev'
+opt-level = 1
+
+[profile.optimized-release]
+inherits = 'release'
+debug = false
+lto = true
+debug-assertions = false
+opt-level = 3
+panic = 'abort'
+incremental = false
+
+[workspace.lints.rust]
+missing_debug_implementations = "warn"
+
+# We use this --cfg for documenting the cargo features on which an API
+# is available.  To preview this locally use: RUSTDOCFLAGS="--cfg
+# iroh_docsrs" cargo +nightly doc --all-features.  We use our own
+# iroh_docsrs instead of the common docsrs to avoid also enabling this
+# feature in any dependencies, because some indirect dependencies
+# require a feature enabled when using `--cfg docsrs` which we can not
+# do.  To enable for a crate set `#![cfg_attr(iroh_docsrs,
+# feature(doc_cfg))]` in the crate.
+# We also have our own `iroh_loom` cfg to enable tokio-rs/loom testing.
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(iroh_docsrs)", "cfg(iroh_loom)"] }
+
+[workspace.lints.clippy]
+unused-async = "warn"
+
+[patch.crates-io]
+willow-data-model = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
+willow-encoding = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }
+meadowcap = { git = "https://github.com/n0-computer/willow-rs.git", branch = "main" }

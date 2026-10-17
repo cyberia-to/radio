@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "rev-parse",
+    "d90a784fa6a7f410492cc6c6d5242527e221c399^{tree}"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-root",
+  "observed_at": "2026-10-11T21:55:24Z",
+  "exit": 0,
+  "stdout": "0f77ec947fb72f1ea9c4df3dd82514aa03294fb6\n",
+  "stderr": "",
+  "expected_merge_tree": "0f77ec947fb72f1ea9c4df3dd82514aa03294fb6"
+}

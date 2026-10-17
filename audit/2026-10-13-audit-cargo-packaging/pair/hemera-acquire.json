@@ -1,0 +1,25 @@
+{
+  "started": "2026-10-13T02:16:32.300526Z",
+  "finished": "2026-10-13T02:16:32.334587Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "argv": [
+    "git",
+    "clone",
+    "--bare",
+    "--shared",
+    "/tmp/kadek-bao-reader-cargo-home/git/db/hemera-63696198fb70e01e",
+    "/tmp/radio-audit-packaging-pair-v3/hemera.git"
+  ],
+  "env": {},
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/hemera-acquire.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/hemera-acquire.stderr",
+    "bytes": 142,
+    "sha256": "16dbdda9b4afe620abb065fa2b94bcb59a8bcbe860477cd63c0bd85ad4e1187a"
+  }
+}

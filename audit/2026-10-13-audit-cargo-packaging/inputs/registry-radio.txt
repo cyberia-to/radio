@@ -1,0 +1,11 @@
+[[component]]
+name = "radio"
+kind = "crate"
+repo = "radio"
+verb = "transmit"
+facet = "space"
+layer = 7
+part_of = "soft3"
+phase = "1"
+state = "live"
+

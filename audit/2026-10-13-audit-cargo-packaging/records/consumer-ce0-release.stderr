@@ -1,0 +1,9 @@
+warning: skipping duplicate package `cyber-bao v0.1.0 (https://github.com/cyberia-to/radio?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)`:
+  /tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml
+in favor of /tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/Cargo.toml
+
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling cyber-bao v0.1.0 (https://github.com/cyberia-to/radio?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#ce0fb312)
+   Compiling kadek-bao-reader-control v0.0.0 (/tmp/kadek-bao-reader-control-v1)
+    Finished `release` profile [optimized] target(s) in 2.13s
+     Running `/tmp/kadek-bao-reader-target/release/reader-control /Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal`

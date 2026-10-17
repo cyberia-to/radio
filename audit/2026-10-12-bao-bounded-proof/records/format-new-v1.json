@@ -1,0 +1,34 @@
+{
+  "started": "2026-10-13T00:10:28.682427Z",
+  "finished": "2026-10-13T00:10:28.799906Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "/Users/master/.rustup/toolchains/nightly-2025-11-26-aarch64-apple-darwin/bin/rustfmt",
+    "--check",
+    "--edition",
+    "2024",
+    "--config",
+    "unstable_features=true",
+    "--config",
+    "imports_granularity=Crate,group_imports=StdExternalCrate,reorder_imports=true,format_code_in_doc_comments=true",
+    "cyber-bao/src/proof.rs",
+    "cyber-bao/src/proof/output.rs",
+    "cyber-bao/tests/proof.rs",
+    "cyber-bao/tests/proof_failures.rs",
+    "cyber-bao/tests/proof_allocation.rs",
+    "cyber-bao/tests/support/proof.rs"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 1,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-format-new-v1.stdout",
+    "bytes": 782,
+    "sha256": "0ddef4fb269e6bdd99ddf9595aa7b6363c0d210ad4f6400db012900753415ddc"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-format-new-v1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

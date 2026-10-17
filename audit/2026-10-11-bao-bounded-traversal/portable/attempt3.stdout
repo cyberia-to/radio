@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "revision": "dacd030c9d6301b316a96b5bc6e4ea1e1cec79f1",
+  "source_files": 20,
+  "records": 3,
+  "raw_streams": 6,
+  "logical_payloads": 34,
+  "objects": 34,
+  "scope": "Retained research and Git blob verification; no candidate or Cargo rerun"
+}

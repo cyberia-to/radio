@@ -1,0 +1,31 @@
+{
+  "parent": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "reviewed_input_sha256": "7cb5148704360f37383ff2567e6f2b96b792ddeb75a156db6f9de290dd62711f",
+  "review_sha256": "6ae0759ac1d44661e5705914a672007374e17c31cd9b9090b3340b37437176e3",
+  "changed_reviewed_bodies": [
+    {
+      "path": ".claude/tasks/audit-cargo-packaging/execution.md",
+      "reviewed": {
+        "bytes": 3660,
+        "sha256": "d09975acf4aee60fdc358d204817c3d2a74f9706f482e60d99389fe107b8e84d"
+      },
+      "final": {
+        "bytes": 4298,
+        "sha256": "7061dbb0a48cbc0ea20326dda9ffc645c39eb7c2f447ac8d5d312d1673149f82"
+      }
+    },
+    {
+      "path": "audit/2026-10-13-audit-cargo-packaging/README.md",
+      "reviewed": {
+        "bytes": 3362,
+        "sha256": "66a9b8d1abbb7591d18399570029ae450a3fd32f4dc720bb91b81a979f70c858"
+      },
+      "final": {
+        "bytes": 4568,
+        "sha256": "eed01a591b03588822596beb6be68ec18be8a4e10acd43ea3118385fd4796a87"
+      }
+    }
+  ],
+  "unchanged_reviewed_packaging_files": 14,
+  "scope": "Documentation, review sidecars and outer indices only after CODE approval; frozen input remains unchanged."
+}

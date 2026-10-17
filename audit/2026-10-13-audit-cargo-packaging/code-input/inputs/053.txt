@@ -1,0 +1,42 @@
+{
+  "started": "2026-10-13T02:16:58.631119Z",
+  "finished": "2026-10-13T02:17:00.288340Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "argv": [
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "run",
+    "--manifest-path",
+    "/tmp/radio-audit-packaging-pair-v3/parent/consumer/Cargo.toml",
+    "--locked",
+    "--offline",
+    "--bin",
+    "reader-control",
+    "--",
+    "/tmp/radio-audit-packaging-pair-v3/frozen/literal"
+  ],
+  "env": {
+    "CARGO_HOME": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home",
+    "CARGO_TARGET_DIR": "/tmp/radio-audit-packaging-pair-v3/parent/target",
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_INCREMENTAL": "0",
+    "RUSTC": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "RUSTDOC": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "RUSTFLAGS": "-Dwarnings",
+    "GIT_CONFIG_GLOBAL": "/tmp/radio-audit-packaging-pair-v3/gitconfig",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_ALLOW_PROTOCOL": "file",
+    "CARGO_HTTP_TIMEOUT": "15",
+    "CARGO_NET_RETRY": "0"
+  },
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/debug.stdout",
+    "bytes": 2413,
+    "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99"
+  },
+  "stderr": {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/debug.stderr",
+    "bytes": 924,
+    "sha256": "8c4338bb58bf85d480f9578193a26079bda087304a4542710783b927777056a5"
+  }
+}

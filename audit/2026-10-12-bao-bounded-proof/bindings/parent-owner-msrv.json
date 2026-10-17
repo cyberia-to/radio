@@ -1,0 +1,8 @@
+{
+  "name": "parent-owner-msrv",
+  "kind": "parent",
+  "source_before": "e6e61e071923ec01bfb5401a1b73a9a1e45a7d7a178c8dd01d537e368812cde8",
+  "source_after": "e6e61e071923ec01bfb5401a1b73a9a1e45a7d7a178c8dd01d537e368812cde8",
+  "record_sha256": "1e5c606f87012f174f24cb7f201d625ac1d6c9a457595e8d593214386c84eb8d",
+  "runner_sha256": "f561854dfb0615d0f141fdd069778cfb05546e38766423c500c35d66f3132380"
+}

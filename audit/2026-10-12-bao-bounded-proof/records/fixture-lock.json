@@ -1,0 +1,28 @@
+{
+  "started": "2026-10-12T23:58:33.353408Z",
+  "finished": "2026-10-12T23:58:33.594702Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "generate-lockfile",
+    "--offline",
+    "--manifest-path",
+    "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-fixture-lock-v1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-fixture-lock-v1.stderr",
+    "bytes": 67,
+    "sha256": "a7f3e90e247f67ab336790cb3812b5145b2986016651cfc629f974577865f13e"
+  }
+}

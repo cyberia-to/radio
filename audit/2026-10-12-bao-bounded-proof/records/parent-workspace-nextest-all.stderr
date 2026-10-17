@@ -1,0 +1,45 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling cyber-radio-quinn-udp v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp)
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn)
+   Compiling cyber-radio-netwatch v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/netwatch)
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh)
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-relay)
+   Compiling cyber-radio-portmapper v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/portmapper)
+   Compiling cyber-bao v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/cyber-bao)
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-blobs)
+   Compiling iroh-car v0.5.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-car)
+   Compiling cyber-radio-base v0.1.1 (/private/tmp/radio-bao-proof-parent-b933/iroh-base)
+   Compiling iroh-gossip v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-gossip)
+   Compiling iroh-docs v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-docs)
+   Compiling iroh-willow v0.28.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-willow)
+   Compiling radio-integration-tests v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/tests/integration)
+   Compiling iroh-bench v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh/bench)
+   Compiling radio-cli v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/radio-cli)
+   Compiling iroh-dns-server v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh-dns-server)
+error[E0599]: no method named `add` found for enum `Result<T, E>` in the current scope
+   --> iroh-gossip/src/api.rs:468:44
+    |
+468 |         router.endpoint().address_lookup().add(memory_lookup);
+    |                                            ^^^
+    |
+note: the method `add` exists on the type `&ConcurrentAddressLookup`
+   --> iroh/src/address_lookup.rs:437:5
+    |
+437 |     pub fn add(&self, service: impl AddressLookup + 'static) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider using `Result::expect` to unwrap the `&ConcurrentAddressLookup` value, panicking if the value is a `Result::Err`
+    |
+468 |         router.endpoint().address_lookup().expect("REASON").add(memory_lookup);
+    |                                           +++++++++++++++++
+help: there is a method `and` with a similar name
+    |
+468 -         router.endpoint().address_lookup().add(memory_lookup);
+468 +         router.endpoint().address_lookup().and(memory_lookup);
+    |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `iroh-gossip` (lib test) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: command `/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo test --no-run --message-format json-render-diagnostics --workspace --lib --bins --tests --all-features --locked --offline` exited with code 101

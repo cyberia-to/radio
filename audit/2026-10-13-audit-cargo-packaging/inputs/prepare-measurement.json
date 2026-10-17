@@ -1,0 +1,73 @@
+{
+  "invocation": "/tmp/radio-audit-packaging-original-prepare-v2.json",
+  "inputs": [
+    "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+    "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+    "audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+    "audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+    "audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout"
+  ],
+  "exports": [
+    {
+      "revision": "db1d62e2cd1e4b2f309fa19bcc158bd29b44753d",
+      "export": "parent",
+      "path": "Cargo.toml",
+      "source": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "revision": "db1d62e2cd1e4b2f309fa19bcc158bd29b44753d",
+      "export": "parent",
+      "path": "Cargo.lock",
+      "source": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+      "bytes": 15956,
+      "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+    },
+    {
+      "revision": "db1d62e2cd1e4b2f309fa19bcc158bd29b44753d",
+      "export": "parent",
+      "path": "src/main.rs",
+      "source": "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+      "bytes": 5265,
+      "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+    },
+    {
+      "revision": "db1d62e2cd1e4b2f309fa19bcc158bd29b44753d",
+      "export": "parent",
+      "complete_cyber_bao_files_verified": 16,
+      "only_existing_manifest_substitution": "path = \"../../hemera/rs\" => version = \"=0.3.1\""
+    },
+    {
+      "revision": "590e69ea0eebcea4c21320a88eed214dc5459de1",
+      "export": "implementation",
+      "path": "Cargo.toml",
+      "source": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605"
+    },
+    {
+      "revision": "590e69ea0eebcea4c21320a88eed214dc5459de1",
+      "export": "implementation",
+      "path": "Cargo.lock",
+      "source": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+      "bytes": 15956,
+      "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8"
+    },
+    {
+      "revision": "590e69ea0eebcea4c21320a88eed214dc5459de1",
+      "export": "implementation",
+      "path": "src/main.rs",
+      "source": "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+      "bytes": 5265,
+      "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927"
+    },
+    {
+      "revision": "590e69ea0eebcea4c21320a88eed214dc5459de1",
+      "export": "implementation",
+      "complete_cyber_bao_files_verified": 17,
+      "only_existing_manifest_substitution": "path = \"../../hemera/rs\" => version = \"=0.3.1\""
+    }
+  ],
+  "cargo_executed": false
+}

@@ -1,0 +1,642 @@
+{
+  "packages": [
+    {
+      "name": "cyber-bao",
+      "version": "0.1.0",
+      "id": "RADIO-ID",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "description": "Poseidon2-BAO: verified streaming with Poseidon2 hash over Goldilocks",
+      "source": "RADIO-SOURCE",
+      "dependencies": [
+        {
+          "name": "bytes",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "genawaiter",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^0.99.1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "futures03"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "cyber-hemera",
+          "source": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6",
+          "req": "*",
+          "kind": null,
+          "rename": "hemera",
+          "optional": false,
+          "uses_default_features": false,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "iroh-io",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^0.6.1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "range-collections",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^0.4",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "serde",
+            "new_unchecked"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "serde",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "derive"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "smallvec",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "const_new"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "tokio",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "io-util"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "proptest",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": "dev",
+          "rename": null,
+          "optional": false,
+          "uses_default_features": true,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "tokio",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": "dev",
+          "rename": null,
+          "optional": false,
+          "uses_default_features": true,
+          "features": [
+            "macros",
+            "rt",
+            "io-util"
+          ],
+          "target": null,
+          "registry": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": [
+            "lib"
+          ],
+          "crate_types": [
+            "lib"
+          ],
+          "name": "cyber_bao",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/src/lib.rs",
+          "edition": "2024",
+          "doc": true,
+          "doctest": true,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "group",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/group.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "group_allocation",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/group_allocation.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "proof",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/proof.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "proof_allocation",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/proof_allocation.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "proof_failures",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/proof_failures.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "range_traversal",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "range_traversal_allocation",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/range_traversal_allocation.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "root_policy",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/root_policy.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "slice_traversal",
+          "src_path": "RADIO-CHECKOUT/cyber-bao/tests/slice_traversal.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        }
+      ],
+      "features": {
+        "default": [
+          "std"
+        ],
+        "serde": [
+          "std",
+          "dep:serde",
+          "hemera/serde",
+          "bytes/serde"
+        ],
+        "std": [
+          "hemera/std",
+          "dep:bytes",
+          "dep:smallvec",
+          "dep:range-collections",
+          "dep:iroh-io",
+          "dep:genawaiter"
+        ],
+        "tokio_fsm": [
+          "std",
+          "dep:tokio"
+        ]
+      },
+      "manifest_path": "RADIO-CHECKOUT/cyber-bao/Cargo.toml",
+      "metadata": null,
+      "publish": null,
+      "authors": [],
+      "categories": [],
+      "keywords": [],
+      "readme": null,
+      "repository": null,
+      "homepage": null,
+      "documentation": null,
+      "edition": "2024",
+      "links": null,
+      "default_run": null,
+      "rust_version": "1.89"
+    },
+    {
+      "name": "cyber-hemera",
+      "version": "0.3.1",
+      "id": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1",
+      "license": null,
+      "license_file": "../LICENSE",
+      "description": "Hemera — Poseidon2 hash over Goldilocks field",
+      "source": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a09539360934fb32db9b2e15a91995607db6",
+      "dependencies": [
+        {
+          "name": "serde",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": null,
+          "rename": null,
+          "optional": true,
+          "uses_default_features": true,
+          "features": [
+            "derive"
+          ],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "proptest",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": "dev",
+          "rename": null,
+          "optional": false,
+          "uses_default_features": true,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "serde_json",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": "dev",
+          "rename": null,
+          "optional": false,
+          "uses_default_features": true,
+          "features": [],
+          "target": null,
+          "registry": null
+        },
+        {
+          "name": "tokio",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "req": "^1",
+          "kind": "dev",
+          "rename": null,
+          "optional": false,
+          "uses_default_features": true,
+          "features": [
+            "macros",
+            "rt"
+          ],
+          "target": null,
+          "registry": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": [
+            "lib"
+          ],
+          "crate_types": [
+            "lib"
+          ],
+          "name": "cyber_hemera",
+          "src_path": "HEMERA-CHECKOUT/rs/src/lib.rs",
+          "edition": "2024",
+          "doc": true,
+          "doctest": true,
+          "test": true
+        },
+        {
+          "kind": [
+            "example"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "bench",
+          "src_path": "HEMERA-CHECKOUT/rs/examples/bench.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": false
+        },
+        {
+          "kind": [
+            "example"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "neon_mul",
+          "src_path": "HEMERA-CHECKOUT/rs/examples/neon_mul.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": false
+        },
+        {
+          "kind": [
+            "example"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "split",
+          "src_path": "HEMERA-CHECKOUT/rs/examples/split.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": false
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "constant_time",
+          "src_path": "HEMERA-CHECKOUT/rs/tests/constant_time.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "differential",
+          "src_path": "HEMERA-CHECKOUT/rs/tests/differential.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        },
+        {
+          "kind": [
+            "test"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "vectors",
+          "src_path": "HEMERA-CHECKOUT/rs/tests/vectors.rs",
+          "edition": "2024",
+          "doc": false,
+          "doctest": false,
+          "test": true
+        }
+      ],
+      "features": {
+        "async": [
+          "std"
+        ],
+        "default": [
+          "std"
+        ],
+        "serde": [
+          "dep:serde"
+        ],
+        "std": []
+      },
+      "manifest_path": "HEMERA-CHECKOUT/rs/Cargo.toml",
+      "metadata": null,
+      "publish": null,
+      "authors": [],
+      "categories": [
+        "cryptography",
+        "no-std"
+      ],
+      "keywords": [
+        "poseidon2",
+        "goldilocks",
+        "hash",
+        "zk",
+        "crypto"
+      ],
+      "readme": "../README.md",
+      "repository": "https://github.com/cyberia-to/hemera",
+      "homepage": "https://github.com/cyberia-to/hemera",
+      "documentation": "https://docs.rs/cyber-hemera",
+      "edition": "2024",
+      "links": null,
+      "default_run": null,
+      "rust_version": "1.89"
+    },
+    {
+      "name": "kadek-bao-reader-control",
+      "version": "0.0.0",
+      "id": "CONSUMER-ID",
+      "license": null,
+      "license_file": null,
+      "description": null,
+      "source": null,
+      "dependencies": [
+        {
+          "name": "cyber-bao",
+          "source": "RADIO-DEPENDENCY",
+          "req": "*",
+          "kind": null,
+          "rename": null,
+          "optional": false,
+          "uses_default_features": false,
+          "features": [],
+          "target": null,
+          "registry": null
+        }
+      ],
+      "targets": [
+        {
+          "kind": [
+            "bin"
+          ],
+          "crate_types": [
+            "bin"
+          ],
+          "name": "reader-control",
+          "src_path": "/tmp/radio-audit-packaging-pair-v3/frozen/reader_probe.rs",
+          "edition": "2024",
+          "doc": true,
+          "doctest": false,
+          "test": true
+        }
+      ],
+      "features": {},
+      "manifest_path": "CONSUMER/Cargo.toml",
+      "metadata": null,
+      "publish": [],
+      "authors": [],
+      "categories": [],
+      "keywords": [],
+      "readme": null,
+      "repository": null,
+      "homepage": null,
+      "documentation": null,
+      "edition": "2024",
+      "links": null,
+      "default_run": null,
+      "rust_version": null
+    }
+  ],
+  "workspace_members": [
+    "CONSUMER-ID"
+  ],
+  "workspace_default_members": [
+    "CONSUMER-ID"
+  ],
+  "resolve": {
+    "nodes": [
+      {
+        "id": "RADIO-ID",
+        "dependencies": [
+          "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1"
+        ],
+        "deps": [
+          {
+            "name": "hemera",
+            "pkg": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1",
+            "dep_kinds": [
+              {
+                "kind": null,
+                "target": null
+              }
+            ]
+          }
+        ],
+        "features": []
+      },
+      {
+        "id": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1",
+        "dependencies": [],
+        "deps": [],
+        "features": []
+      },
+      {
+        "id": "CONSUMER-ID",
+        "dependencies": [
+          "RADIO-ID"
+        ],
+        "deps": [
+          {
+            "name": "cyber_bao",
+            "pkg": "RADIO-ID",
+            "dep_kinds": [
+              {
+                "kind": null,
+                "target": null
+              }
+            ]
+          }
+        ],
+        "features": []
+      }
+    ],
+    "root": "CONSUMER-ID"
+  },
+  "target_directory": "TARGET",
+  "build_directory": "TARGET",
+  "version": 1,
+  "workspace_root": "CONSUMER",
+  "metadata": null
+}

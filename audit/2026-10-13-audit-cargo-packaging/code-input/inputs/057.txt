@@ -1,0 +1,20 @@
+{"case":"interleaved","leaf":1,"proof_offset":136,"file_offset":0,"bytes":4096}
+{"case":"interleaved","leaf":2,"proof_offset":4232,"file_offset":4096,"bytes":4096}
+{"case":"interleaved","leaf":3,"proof_offset":8392,"file_offset":8192,"bytes":4096}
+{"case":"interleaved","root":"e621f66b42fb61b260200dfa649d3f16d35cde5af2e8c04cc2551c109f00c6f6","verification_actions":11,"output_items":6,"leaves":3,"selected_bytes":4098,"status":"pass"}
+{"case":"left","leaf":1,"proof_offset":136,"file_offset":0,"bytes":4096}
+{"case":"left","root":"e621f66b42fb61b260200dfa649d3f16d35cde5af2e8c04cc2551c109f00c6f6","verification_actions":6,"output_items":3,"leaves":1,"selected_bytes":2,"status":"pass"}
+{"case":"right","leaf":1,"proof_offset":136,"file_offset":12288,"bytes":4096}
+{"case":"right","root":"e621f66b42fb61b260200dfa649d3f16d35cde5af2e8c04cc2551c109f00c6f6","verification_actions":6,"output_items":3,"leaves":1,"selected_bytes":3,"status":"pass"}
+{"case":"grouped","leaf":1,"proof_offset":72,"file_offset":0,"bytes":8192}
+{"case":"grouped","leaf":2,"proof_offset":8264,"file_offset":8192,"bytes":8192}
+{"case":"grouped","root":"e621f66b42fb61b260200dfa649d3f16d35cde5af2e8c04cc2551c109f00c6f6","verification_actions":11,"output_items":3,"leaves":2,"selected_bytes":2,"status":"pass"}
+{"case":"short","leaf":1,"proof_offset":72,"file_offset":0,"bytes":4096}
+{"case":"short","leaf":2,"proof_offset":4168,"file_offset":4096,"bytes":3}
+{"case":"short","root":"06001dbd4d71e5149839bed85cbe3fc979fcfc45ef711a6d9ad2fdc1499da3e3","verification_actions":7,"output_items":3,"leaves":2,"selected_bytes":4,"status":"pass"}
+{"case":"short-grouped","leaf":1,"proof_offset":8,"file_offset":0,"bytes":4099}
+{"case":"short-grouped","root":"06001dbd4d71e5149839bed85cbe3fc979fcfc45ef711a6d9ad2fdc1499da3e3","verification_actions":6,"output_items":1,"leaves":1,"selected_bytes":4,"status":"pass"}
+{"case":"empty","root":"ea57b2e6b1ec7d2de11b15cb6d7060dd61d247fe0fbf5f7d3fb97a7be9328552","verification_actions":4,"output_items":0,"leaves":0,"selected_bytes":0,"status":"pass"}
+{"case":"pcm","leaf":1,"proof_offset":8,"file_offset":0,"bytes":14}
+{"case":"pcm","root":"da570b332b3f2eac27cdaa83f58bd498ab7fc7736732ab9c1b8d4838c9e307a3","verification_actions":4,"output_items":1,"leaves":1,"selected_bytes":8,"status":"pass"}
+Eight committed-reader cases PASS; no encoder, traversal or root recomputation oracle; no Kadek adapter executed

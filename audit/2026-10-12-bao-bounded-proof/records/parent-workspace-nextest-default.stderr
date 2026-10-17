@@ -1,0 +1,877 @@
+   Compiling cyber-radio-quinn-udp v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp)
+   Compiling cyber-radio-quinn v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/quinn/quinn)
+   Compiling cyber-radio-netwatch v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/netwatch)
+   Compiling cyber-radio v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh)
+   Compiling cyber-radio-relay v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-relay)
+   Compiling cyber-radio-portmapper v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/nettools/portmapper)
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-blobs)
+   Compiling iroh-gossip v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-gossip)
+   Compiling iroh-docs v0.96.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-docs)
+   Compiling iroh-willow v0.28.0 (/private/tmp/radio-bao-proof-parent-b933/iroh-willow)
+   Compiling radio-integration-tests v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/tests/integration)
+   Compiling iroh-bench v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh/bench)
+   Compiling radio-cli v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/radio-cli)
+   Compiling iroh-dns-server v0.96.1 (/private/tmp/radio-bao-proof-parent-b933/iroh-dns-server)
+   Compiling cyber-bao v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/cyber-bao)
+   Compiling particle v0.1.0 (/private/tmp/radio-bao-proof-parent-b933/particle)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 14s
+------------
+ Nextest run ID e3beb02a-155d-4d40-8808-165f8407a9f3 with nextest profile: ci
+    Starting 563 tests across 39 binaries (9 tests skipped)
+        PASS [   0.006s] cyber-bao group::tests::u64_geometry_is_bounded_without_oversized_slices
+        PASS [   0.005s] cyber-bao hash::tests::hash_size
+        PASS [   0.005s] cyber-bao hash::tests::poseidon2_backend_basic
+        PASS [   0.005s] cyber-bao hash::tests::poseidon2_backend_counter
+        PASS [   0.005s] cyber-bao hash::tests::poseidon2_backend_parent
+        PASS [   0.005s] cyber-bao hash::tests::poseidon2_backend_root_differs
+        PASS [   0.005s] cyber-bao io::decode::tests::decode_empty
+        PASS [   0.006s] cyber-bao io::decode::tests::decode_four_blocks
+        PASS [   0.004s] cyber-bao io::decode::tests::decode_partial_block
+        PASS [   0.004s] cyber-bao io::decode::tests::decode_single_block
+        PASS [   0.005s] cyber-bao io::decode::tests::decode_tampered_data_fails
+        PASS [   0.004s] cyber-bao io::decode::tests::decode_truncated_fails
+        PASS [   0.005s] cyber-bao io::decode::tests::decode_two_blocks
+        PASS [   0.004s] cyber-bao io::decode::tests::decode_wrong_root_fails
+        PASS [   0.015s] cyber-bao io::decode::tests::roundtrip_block_size_default
+        PASS [   0.016s] cyber-bao io::decode::tests::roundtrip_block_size_nonzero
+        PASS [   0.014s] cyber-bao io::decode::tests::roundtrip_various_sizes
+        PASS [   0.006s] cyber-bao io::encode::tests::encode_block_size_default
+        PASS [   0.006s] cyber-bao io::encode::tests::encode_block_size_nonzero
+        PASS [   0.004s] cyber-bao io::encode::tests::encode_deterministic
+        PASS [   0.004s] cyber-bao io::encode::tests::encode_empty
+        PASS [   0.004s] cyber-bao io::encode::tests::encode_partial_block
+        PASS [   0.004s] cyber-bao io::encode::tests::encode_single_block
+        PASS [   0.005s] cyber-bao io::encode::tests::encode_two_blocks
+        PASS [   0.005s] cyber-bao io::fsm::tests::fsm_decode_two_blocks
+        PASS [   0.006s] cyber-bao io::fsm::tests::fsm_decode_with_range_filter
+        PASS [   0.005s] cyber-bao io::outboard::tests::outboard_deterministic
+        PASS [   0.004s] cyber-bao io::outboard::tests::outboard_different_data_different_root
+        PASS [   0.004s] cyber-bao io::outboard::tests::outboard_empty
+        PASS [   0.005s] cyber-bao io::outboard::tests::outboard_four_blocks
+        PASS [   0.005s] cyber-bao io::outboard::tests::outboard_partial_last_block
+        PASS [   0.004s] cyber-bao io::outboard::tests::outboard_single_block
+        PASS [   0.005s] cyber-bao io::outboard::tests::outboard_two_blocks
+        PASS [   0.006s] cyber-bao io::pre_order::tests::post_order_can_validate_via_encode_ranges
+        PASS [   0.007s] cyber-bao io::pre_order::tests::post_order_matches_pre_order_block_size_nonzero
+        PASS [   0.004s] cyber-bao io::pre_order::tests::post_order_mem_outboard_create
+        PASS [   0.007s] cyber-bao io::pre_order::tests::post_order_outboard_all_nodes_match_pre_order
+        PASS [   0.005s] cyber-bao io::pre_order::tests::pre_order_mem_outboard_create
+        PASS [   0.005s] cyber-bao io::pre_order::tests::pre_order_outboard_block_size_nonzero
+        PASS [   0.005s] cyber-bao io::pre_order::tests::pre_order_outboard_roundtrip
+        PASS [   0.004s] cyber-bao io::root_policy_tests::empty_and_single_leaf_preserve_absolute_counter_and_root
+        PASS [   0.004s] cyber-bao io::root_policy_tests::finalization_and_odd_promotion_are_independent_of_group_position
+        PASS [   0.005s] cyber-bao io::slice::tests::decode_slice_full_range_roundtrip
+        PASS [   0.005s] cyber-bao io::slice::tests::decode_slice_partial_range
+        PASS [   0.005s] cyber-bao io::slice::tests::decode_slice_wrong_root_fails
+        PASS [   0.005s] cyber-bao io::slice::tests::multi_range_slice_extract_and_verify
+        PASS [   0.004s] cyber-bao io::slice::tests::single_block_slice_roundtrip
+        PASS [   0.005s] cyber-bao io::slice::tests::slice_full_range_matches_encode
+        PASS [   0.005s] cyber-bao io::slice::tests::slice_partial_range_is_smaller
+        PASS [   0.006s] cyber-bao io::slice::tests::slice_root_hash_independent_of_range
+        PASS [   0.007s] cyber-bao io::slice::tests::slice_roundtrip_block_size_nonzero
+        PASS [   0.007s] cyber-bao io::sync::tests::encode_ranges_block_size_nonzero
+        PASS [   0.012s] cyber-bao io::sync::tests::encode_ranges_partial_large_block
+        PASS [   0.005s] cyber-bao io::sync::tests::encode_ranges_validated_full
+        PASS [   0.006s] cyber-bao io::sync::tests::encode_then_valid_ranges_roundtrip
+        PASS [   0.005s] cyber-bao io::sync::tests::valid_ranges_all_valid
+        PASS [   0.007s] cyber-bao io::sync::tests::valid_ranges_block_size_nonzero
+        PASS [   0.004s] cyber-bao io::sync::tests::valid_ranges_empty_data
+        PASS [   0.004s] cyber-bao tree::tests::bao_tree_basic
+        PASS [   0.004s] cyber-bao tree::tests::bao_tree_empty
+        PASS [   0.004s] cyber-bao tree::tests::bao_tree_large
+        PASS [   0.004s] cyber-bao tree::tests::bao_tree_two_blocks
+        PASS [   0.004s] cyber-bao tree::tests::block_size_bytes
+        PASS [   0.004s] cyber-bao tree::tests::block_size_from_bytes
+        PASS [   0.004s] cyber-bao tree::tests::post_order_two_blocks
+        PASS [   0.004s] cyber-bao tree::tests::pre_order_four_blocks
+        PASS [   0.004s] cyber-bao tree::tests::pre_order_single_block
+        PASS [   0.004s] cyber-bao tree::tests::pre_order_two_blocks
+        PASS [   0.004s] cyber-bao tree::tests::tree_node_children
+        PASS [   0.004s] cyber-bao tree::tests::tree_node_chunk_range
+        PASS [   0.004s] cyber-bao tree::tests::tree_node_is_leaf
+        PASS [   0.004s] cyber-bao tree::tests::tree_node_level
+        PASS [   0.004s] cyber-bao::group absolute_counter_bounds_are_checked_before_any_backend_call
+        PASS [   0.006s] cyber-bao::group caller_total_and_one_action_calls_pause_at_every_boundary
+        PASS [   0.028s] cyber-bao::group concrete_roots_match_frozen_literals_and_pinned_complete_left_oracle
+        PASS [   0.008s] cyber-bao::group nonzero_counter_internal_cv_uses_literal_partitions
+        PASS [   0.020s] cyber-bao::group sixty_literal_cases_have_one_kernel_per_step_and_move_only_hashes
+        PASS [   0.007s] cyber-bao::group_allocation concrete_reducer_construction_steps_poll_and_drop_do_not_allocate
+        PASS [   0.004s] cyber-bao::range_traversal caller_pauses_and_interleaving_preserve_progress
+        PASS [   0.004s] cyber-bao::range_traversal exact_admission_errors_and_geometry_precedence
+        PASS [   0.004s] cyber-bao::range_traversal finite_eager_compatibility_is_supplemental
+        PASS [   0.004s] cyber-bao::range_traversal literal_complete_left_shapes_and_partial_last_groups
+        PASS [   0.004s] cyber-bao::range_traversal literal_half_open_selection_flags_and_root_placement
+        PASS [   0.004s] cyber-bao::range_traversal maximum_file_final_path_uses_literal_remainder
+        PASS [   0.004s] cyber-bao::range_traversal maximum_left_prefix_requires_fifty_three_pending_slots
+        PASS [   0.004s] cyber-bao::range_traversal tiny_lengths_and_empty_requests_are_geometric
+        PASS [   0.004s] cyber-bao::range_traversal_allocation construction_steps_terminal_polls_and_drop_allocate_nothing
+        PASS [   0.006s] cyber-bao::root_policy fsm_literal_canonical_leaf_and_old_root_error
+        PASS [   0.105s] cyber-bao::root_policy grouping_preserves_fixed_tree_at_boundaries
+        PASS [   0.007s] cyber-bao::root_policy literal_proof_accepts_canonical_root
+        PASS [   0.006s] cyber-bao::root_policy literal_proof_rejects_the_old_internal_cv
+        PASS [   0.007s] cyber-bao::root_policy literal_root_reaches_every_producer
+        PASS [   0.006s] cyber-bao::root_policy mixed_canonical_success_and_old_root_terminal_error
+        PASS [   0.025s] cyber-bao::root_policy non_root_partial_and_odd_groups_verify_with_absolute_counters
+        PASS [   0.004s] cyber-bao::root_policy published_empty_and_hello_tree_vectors_are_unchanged
+        PASS [   0.006s] cyber-bao::slice_traversal grouped_single_block_has_canonical_root_finalization
+        PASS [   0.008s] cyber-bao::slice_traversal literal_grouped_right_blocks
+        PASS [   0.008s] cyber-bao::slice_traversal literal_left_and_full_controls
+        PASS [   0.008s] cyber-bao::slice_traversal literal_nested_right_subtree
+        PASS [   0.007s] cyber-bao::slice_traversal literal_partial_fifth_leaf_and_mixed_outside_query
+        PASS [   0.007s] cyber-bao::slice_traversal literal_right_subtree_is_authenticated
+        PASS [   0.006s] cyber-bao::slice_traversal literal_sparse_leaves
+        PASS [   0.007s] cyber-bao::slice_traversal multiblock_empty_and_outside_queries_preserve_existing_behavior
+        PASS [   0.005s] cyber-bao::slice_traversal right_proof_rejects_corruption_and_truncation
+        FAIL [   5.019s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ---
+
+running 1 test
+2026-10-13T00:20:00.205916Z DEBUG mdns_publish_expire: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:00.207645Z DEBUG mdns_publish_expire: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:00.208427Z DEBUG mdns_publish_expire: radio::address_lookup::mdns::tests::run_in_isolation: 639: Discovering endpoint id b endpoint_id_b=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:20:00.208847Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:00.208886Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:20:00.208917Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:00.208990Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:00.209080Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("")) }
+2026-10-13T00:20:00.209240Z TRACE mdns_publish_expire:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.01s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:645:22)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:645:22)
+
+        FAIL [   5.035s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ---
+
+running 1 test
+2026-10-13T00:20:05.244956Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:05.246000Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:05.246382Z DEBUG mdns_publish_resolve: radio::address_lookup::mdns::tests::run_in_isolation: 596: Discovering endpoint id b endpoint_id_b=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:20:05.246690Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:05.246730Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:20:05.246758Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:05.246795Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:20:05.246816Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:05.246885Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:05.246943Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("foobar")) }
+2026-10-13T00:20:05.247032Z TRACE mdns_publish_resolve:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.01s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:604:18)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:604:18)
+
+        FAIL [   5.040s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ---
+
+running 1 test
+2026-10-13T00:20:10.282838Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.284033Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.284589Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.285120Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.285481Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.285895Z DEBUG mdns_subscribe: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:10.286407Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286476Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 414: Mdns Message::Subscribe
+2026-10-13T00:20:10.286503Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286578Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286646Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint0")) }
+2026-10-13T00:20:10.286734Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286787Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286815Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint1")) }
+2026-10-13T00:20:10.286851Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286903Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.286929Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint2")) }
+2026-10-13T00:20:10.286960Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.287018Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.287044Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint3")) }
+2026-10-13T00:20:10.287075Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.287130Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:10.287156Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: Some(UserData("endpoint4")) }
+2026-10-13T00:20:10.287185Z TRACE mdns_subscribe:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 5.01s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe ---
+Error: timeout (iroh/src/address_lookup/mdns.rs:730:18)
+Caused by:
+    deadline has elapsed (iroh/src/address_lookup/mdns.rs:730:18)
+
+        FAIL [   2.186s] cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ---
+
+running 1 test
+2026-10-13T00:20:15.319926Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:15.320962Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:15.321347Z DEBUG non_advertising_endpoint_not_discovered: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:15.321948Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:15.322020Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(28833a25d511f2e03efca77d87ddc3eedd5f5181adb947143d17e2e87e2fa685)
+2026-10-13T00:20:15.322407Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:15.322494Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:15.322555Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:15.322612Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:22222)}, user_data: None }
+2026-10-13T00:20:15.322671Z TRACE non_advertising_endpoint_not_discovered:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 2.16s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered ---
+
+thread 'address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered' (176562392) panicked at iroh/src/address_lookup/mdns.rs:752:13:
+Advertising endpoint should be discoverable
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/panicking.rs:689:5
+   1: core::panicking::panic_fmt
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/panicking.rs:80:14
+   2: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered::{{closure}}
+             at ./src/address_lookup/mdns.rs:752:13
+   3: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/future/future.rs:133:9
+   4: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/future/future.rs:133:9
+   5: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:70
+   6: tokio::task::coop::with_budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:167:5
+   7: tokio::task::coop::budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:133:5
+   8: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:25
+   9: tokio::runtime::scheduler::current_thread::Context::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:442:19
+  10: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:752:44
+  11: tokio::runtime::scheduler::current_thread::CoreGuard::enter::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:68
+  12: tokio::runtime::context::scoped::Scoped<T>::set
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/scoped.rs:40:9
+  13: tokio::runtime::context::set_scheduler::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:38
+  14: std::thread::local::LocalKey<T>::try_with
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/thread/local.rs:513:12
+  15: std::thread::local::LocalKey<T>::with
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/thread/local.rs:477:20
+  16: tokio::runtime::context::set_scheduler
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:17
+  17: tokio::runtime::scheduler::current_thread::CoreGuard::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:27
+  18: tokio::runtime::scheduler::current_thread::CoreGuard::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:740:24
+  19: tokio::runtime::scheduler::current_thread::CurrentThread::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:200:33
+  20: tokio::runtime::context::runtime::enter_runtime
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/runtime.rs:65:16
+  21: tokio::runtime::scheduler::current_thread::CurrentThread::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:188:9
+  22: tokio::runtime::runtime::Runtime::block_on_inner
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:368:52
+  23: tokio::runtime::runtime::Runtime::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:342:18
+  24: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+             at ./src/address_lookup/mdns.rs:764:15
+  25: radio::address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered::{{closure}}
+             at ./src/address_lookup/mdns.rs:735:63
+  26: core::ops::function::FnOnce::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+  27: <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+        FAIL [   4.093s] cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names
+
+--- STDOUT:              cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names ---
+
+running 1 test
+2026-10-13T00:20:17.489980Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:17.490474Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:17.490662Z DEBUG test_service_names: radio::address_lookup::mdns: 253: Creating new Mdns service
+2026-10-13T00:20:17.490906Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.490939Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(563757f5310c035a30d16c33cc186474b07451e2434d1e573cd506bc3e22451e)
+2026-10-13T00:20:17.490989Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.491016Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:11111)}, user_data: None }
+2026-10-13T00:20:17.491044Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.491080Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.491092Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:22222)}, user_data: None }
+2026-10-13T00:20:17.491106Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.491135Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:17.491147Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 284: Mdns address changed data=EndpointData { addrs: {Ip(0.0.0.0:33333)}, user_data: None }
+2026-10-13T00:20:17.491159Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+2026-10-13T00:20:19.493647Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 381: Mdns Message::SendAddrs endpoint_id=PublicKey(28833a25d511f2e03efca77d87ddc3eedd5f5181adb947143d17e2e87e2fa685)
+2026-10-13T00:20:19.493784Z TRACE test_service_names:swarm-discovery.actor: radio::address_lookup::mdns: 278: Mdns Service loop tick endpoint_addrs={}
+test address_lookup::mdns::tests::run_in_isolation::test_service_names ... FAILED
+
+failures:
+
+failures:
+    address_lookup::mdns::tests::run_in_isolation::test_service_names
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 4.08s
+
+
+--- STDERR:              cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names ---
+
+thread 'address_lookup::mdns::tests::run_in_isolation::test_service_names' (176562455) panicked at iroh/src/address_lookup/mdns.rs:812:13:
+Endpoint on the same service should be discoverable
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/panicking.rs:689:5
+   1: core::panicking::panic_fmt
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/panicking.rs:80:14
+   2: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names::{{closure}}
+             at ./src/address_lookup/mdns.rs:812:13
+   3: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/future/future.rs:133:9
+   4: <core::pin::Pin<P> as core::future::future::Future>::poll
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/future/future.rs:133:9
+   5: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:70
+   6: tokio::task::coop::with_budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:167:5
+   7: tokio::task::coop::budget
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/task/coop/mod.rs:133:5
+   8: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:753:25
+   9: tokio::runtime::scheduler::current_thread::Context::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:442:19
+  10: tokio::runtime::scheduler::current_thread::CoreGuard::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:752:44
+  11: tokio::runtime::scheduler::current_thread::CoreGuard::enter::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:68
+  12: tokio::runtime::context::scoped::Scoped<T>::set
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/scoped.rs:40:9
+  13: tokio::runtime::context::set_scheduler::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:38
+  14: std::thread::local::LocalKey<T>::try_with
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/thread/local.rs:513:12
+  15: std::thread::local::LocalKey<T>::with
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/thread/local.rs:477:20
+  16: tokio::runtime::context::set_scheduler
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context.rs:176:17
+  17: tokio::runtime::scheduler::current_thread::CoreGuard::enter
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:840:27
+  18: tokio::runtime::scheduler::current_thread::CoreGuard::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:740:24
+  19: tokio::runtime::scheduler::current_thread::CurrentThread::block_on::{{closure}}
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:200:33
+  20: tokio::runtime::context::runtime::enter_runtime
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/context/runtime.rs:65:16
+  21: tokio::runtime::scheduler::current_thread::CurrentThread::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/scheduler/current_thread/mod.rs:188:9
+  22: tokio::runtime::runtime::Runtime::block_on_inner
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:368:52
+  23: tokio::runtime::runtime::Runtime::block_on
+             at /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.49.0/src/runtime/runtime.rs:342:18
+  24: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names
+             at ./src/address_lookup/mdns.rs:824:15
+  25: radio::address_lookup::mdns::tests::run_in_isolation::test_service_names::{{closure}}
+             at ./src/address_lookup/mdns.rs:769:42
+  26: core::ops::function::FnOnce::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+  27: <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/function.rs:250:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+        PASS [   0.016s] cyber-radio address_lookup::memory::tests::test_basic
+        PASS [   0.007s] cyber-radio address_lookup::memory::tests::test_provenance
+        PASS [   0.009s] cyber-radio address_lookup::test_dns_pkarr::dns_resolve
+        PASS [   0.038s] cyber-radio address_lookup::test_dns_pkarr::pkarr_publish_dns_address_lookup
+        PASS [   0.014s] cyber-radio address_lookup::test_dns_pkarr::pkarr_publish_dns_resolve
+        PASS [   0.227s] cyber-radio address_lookup::tests::address_lookup_combined_with_empty_and_right
+        PASS [   1.137s] cyber-radio address_lookup::tests::address_lookup_combined_with_empty_and_wrong
+        PASS [   3.141s] cyber-radio address_lookup::tests::address_lookup_combined_wrong_only
+        PASS [   0.251s] cyber-radio address_lookup::tests::address_lookup_simple_shared
+        PASS [   0.243s] cyber-radio address_lookup::tests::address_lookup_simple_shared_with_arc
+        PASS [   1.043s] cyber-radio address_lookup::tests::address_lookup_with_wrong_existing_addr
+        PASS [   0.276s] cyber-radio dns::tests::test_dns_lookup_ipv4_ipv6
+        PASS [   0.151s] cyber-radio endpoint::connection::tests::test_0rtt
+        PASS [   0.247s] cyber-radio endpoint::connection::tests::test_0rtt_after_server_restart
+        PASS [   0.244s] cyber-radio endpoint::connection::tests::test_0rtt_non_consecutive
+        PASS [   0.801s] cyber-radio endpoint::connection::tests::test_paths_watcher
+        PASS [   0.472s] cyber-radio endpoint::tests::connect_multi_time
+        PASS [   0.448s] cyber-radio endpoint::tests::connect_multiple_alpn_negotiated
+        PASS [   0.052s] cyber-radio endpoint::tests::endpoint_bidi_send_recv
+        PASS [   0.491s] cyber-radio endpoint::tests::endpoint_connect_close
+        PASS [   1.555s] cyber-radio endpoint::tests::endpoint_relay_connect_loop
+        PASS [   3.458s] cyber-radio endpoint::tests::endpoint_relay_map_change
+        PASS [   0.292s] cyber-radio endpoint::tests::endpoint_send_relay
+        PASS [   0.702s] cyber-radio endpoint::tests::endpoint_two_direct_add_relay
+        PASS [   0.025s] cyber-radio endpoint::tests::endpoint_two_direct_only
+        PASS [   0.414s] cyber-radio endpoint::tests::endpoint_two_relay_only_becomes_direct
+        PASS [   0.481s] cyber-radio endpoint::tests::endpoint_two_relay_only_no_ip
+        PASS [   0.133s] cyber-radio endpoint::tests::graceful_close
+        PASS [   0.042s] cyber-radio endpoint::tests::metrics_smoke
+        PASS [   0.616s] cyber-radio endpoint::tests::same_endpoint_id_relay
+        PASS [   0.018s] cyber-radio endpoint::tests::test_bind_addr_badport
+        PASS [   0.021s] cyber-radio endpoint::tests::test_bind_addr_badport_default_notrequired
+        PASS [   0.017s] cyber-radio endpoint::tests::test_bind_addr_badport_notrequired
+        PASS [   0.012s] cyber-radio endpoint::tests::test_bind_addr_badport_notrequired_no_other_transports
+        PASS [   0.014s] cyber-radio endpoint::tests::test_bind_addr_clear
+        PASS [   0.012s] cyber-radio endpoint::tests::test_bind_addr_default
+        PASS [   0.013s] cyber-radio endpoint::tests::test_bind_addr_no_clear
+        PASS [   0.012s] cyber-radio endpoint::tests::test_bind_addr_nonzero_prefix
+        PASS [   0.012s] cyber-radio endpoint::tests::test_bind_addr_prefix_len_0_not_default
+        PASS [   0.013s] cyber-radio endpoint::tests::test_closed_endpoint_behaviour
+        PASS [   0.023s] cyber-radio endpoint::tests::test_closed_endpoint_polled_accept_fut
+        PASS [   0.013s] cyber-radio endpoint::tests::test_closed_endpoint_unpolled_accept_fut
+        PASS [   0.012s] cyber-radio endpoint::tests::test_connect_self
+        PASS [   0.013s] cyber-radio endpoint::tests::test_custom_relay
+        PASS [   0.012s] cyber-radio endpoint::tests::test_direct_addresses_no_qad_relay
+        PASS [   0.369s] cyber-radio endpoint::tests::watch_net_report
+        PASS [   0.015s] cyber-radio metrics::tests::test_serde
+        PASS [   0.013s] cyber-radio net_report::probes::tests::test_initial_probeplan
+        PASS [   0.012s] cyber-radio net_report::probes::tests::test_initial_probeplan_some_protocols
+        PASS [   0.013s] cyber-radio net_report::reportgen::tests::test_measure_https_latency
+        PASS [   0.100s] cyber-radio net_report::reportgen::tests::test_qad_probe_v4
+        PASS [   0.010s] cyber-radio net_report::tests::test_add_report_history_set_preferred_relay
+        PASS [   0.309s] cyber-radio net_report::tests::test_basic
+        PASS [   0.228s] cyber-radio protocol::tests::test_graceful_shutdown
+        PASS [   0.023s] cyber-radio protocol::tests::test_limiter_hook
+        PASS [   0.114s] cyber-radio protocol::tests::test_limiter_router
+        PASS [   0.016s] cyber-radio protocol::tests::test_shutdown
+        PASS [   0.008s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_abandoned_path
+        PASS [   0.007s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_insert_open_path
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_all_paths_failed
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_at_max_paths_no_prunable
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_failed_holepunch
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_keeps_most_recent_inactive
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_mixed_must_and_can_prune
+        PASS [   0.007s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_non_ip_paths_not_counted
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_preserves_never_dialed
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::path_state::tests::test_prune_under_max_paths
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::tests::test_available_wins_over_backup_regardless_of_rtt
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::tests::test_empty_paths_returns_none
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::tests::test_ipv6_wins_over_ipv4_within_bias
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::tests::test_no_current_path_selects_best
+        PASS [   0.006s] cyber-radio socket::remote_map::remote_state::tests::test_same_category_only_switches_with_significant_rtt_diff
+        PASS [   0.010s] cyber-radio socket::tests::test_direct_addresses
+        PASS [   1.035s] cyber-radio socket::tests::test_regression_network_change_rebind_wakes_connection_driver
+        PASS [   0.545s] cyber-radio socket::tests::test_try_send_no_send_addr
+        PASS [   3.044s] cyber-radio socket::tests::test_try_send_no_udp_addr_or_relay_url
+        PASS [   0.254s] cyber-radio socket::tests::test_two_devices_roundtrip_network_change_a_and_b
+        PASS [   0.255s] cyber-radio socket::tests::test_two_devices_roundtrip_network_change_only_a
+        PASS [   0.260s] cyber-radio socket::tests::test_two_devices_roundtrip_quinn_large
+        PASS [   0.250s] cyber-radio socket::tests::test_two_devices_roundtrip_quinn_small
+        PASS [   0.076s] cyber-radio socket::tests::test_two_devices_setup_teardown
+        PASS [   0.008s] cyber-radio socket::transports::ip::tests::test_bind_sorting
+        PASS [   0.115s] cyber-radio socket::transports::relay::actor::tests::test_active_relay_inactive
+        PASS [   0.034s] cyber-radio socket::transports::relay::actor::tests::test_active_relay_reconnect
+        PASS [   0.010s] cyber-radio socket::transports::relay::actor::tests::test_ping_tracker
+        PASS [   0.009s] cyber-radio socket::transports::relay::tests::test_relay_datagram_queue
+        PASS [   0.007s] cyber-radio test_utils::pkarr_dns_state::tests::test_endpoint_id_from_domain_name
+        PASS [   0.007s] cyber-radio tls::name::tests::test_roundtrip
+        PASS [   0.007s] cyber-radio tls::name::tests::test_snapshot
+        PASS [   0.020s] cyber-radio util::tests::test_maybefuture_poll_after_use
+        PASS [   3.802s] cyber-radio::integration simple_endpoint_id_based_connection_transfer
+        PASS [   0.011s] cyber-radio-base endpoint_addr::tests::test_roundtrip_new_addr_type
+        PASS [   0.006s] cyber-radio-base key::tests::public_key_json
+        PASS [   0.005s] cyber-radio-base key::tests::public_key_postcard
+        PASS [   0.006s] cyber-radio-base key::tests::signature_postcard
+        PASS [   0.006s] cyber-radio-base key::tests::test_from_str
+        PASS [   0.006s] cyber-radio-base key::tests::test_public_key_postcard
+        PASS [   0.005s] cyber-radio-base key::tests::test_regression_parse_endpoint_id_panic
+        PASS [   0.006s] cyber-radio-base relay_url::tests::test_relay_url_absolute
+        PASS [   0.006s] cyber-radio-base relay_url::tests::test_relay_url_debug_display
+        PASS [   0.031s] cyber-radio-relay dns::tests::custom_resolver
+        PASS [   0.010s] cyber-radio-relay dns::tests::jitter_test_nonzero_lower_bound
+        PASS [   0.007s] cyber-radio-relay dns::tests::jitter_test_nonzero_upper_bound
+        PASS [   0.007s] cyber-radio-relay dns::tests::jitter_test_zero
+        PASS [   0.024s] cyber-radio-relay dns::tests::stagger_basic
+        PASS [   0.013s] cyber-radio-relay endpoint_info::tests::signed_packet_roundtrip
+        PASS [   0.011s] cyber-radio-relay endpoint_info::tests::test_from_hickory_lookup
+        PASS [   0.007s] cyber-radio-relay endpoint_info::tests::txt_attr_roundtrip
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_challenge_verification
+        PASS [   0.007s] cyber-radio-relay protos::handshake::tests::test_client_auth_roundtrip
+        PASS [   0.011s] cyber-radio-relay protos::handshake::tests::test_handshake_challenge_fallback
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_handshake_mismatching_shared_secrets
+        PASS [   0.007s] cyber-radio-relay protos::handshake::tests::test_handshake_via_challenge
+        PASS [   0.009s] cyber-radio-relay protos::handshake::tests::test_handshake_via_shared_secret_with_auth_negative
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_handshake_via_shared_secrets
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_handshake_with_auth_negative
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_handshake_with_auth_positive
+        PASS [   0.008s] cyber-radio-relay protos::handshake::tests::test_key_material_verification
+        PASS [   0.007s] cyber-radio-relay protos::handshake::tests::test_km_client_auth_roundtrip
+        PASS [   1.316s] cyber-radio-relay protos::relay::proptests::client_server_frame_encoded_len
+        PASS [   1.387s] cyber-radio-relay protos::relay::proptests::client_server_frame_roundtrip
+        PASS [   3.888s] cyber-radio-relay protos::relay::proptests::datagrams_encoded_len
+        PASS [   4.140s] cyber-radio-relay protos::relay::proptests::server_client_frame_encoded_len
+        PASS [   3.901s] cyber-radio-relay protos::relay::proptests::server_client_frame_roundtrip
+        PASS [   0.007s] cyber-radio-relay protos::relay::tests::test_client_server_frames_snapshot
+        PASS [   0.006s] cyber-radio-relay protos::relay::tests::test_server_client_frames_snapshot
+        PASS [   0.125s] cyber-radio-relay quic::tests::quic_endpoint_basic
+        PASS [   0.011s] cyber-radio-relay quic::tests::test_qad_client_closes_unresponsive_fast
+        PASS [   2.919s] cyber-radio-relay quic::tests::test_qad_connect_delayed
+        PASS [   0.023s] cyber-radio-relay relay_map::tests::relay_map_extend
+        PASS [   0.020s] cyber-radio-relay server::client::tests::test_client_actor_basic
+        PASS [   0.011s] cyber-radio-relay server::client::tests::test_rate_limit
+        PASS [   0.114s] cyber-radio-relay server::clients::tests::test_clients
+        PASS [   0.220s] cyber-radio-relay server::clients::tests::test_clients_same_endpoint_id
+        PASS [   0.035s] cyber-radio-relay server::http_server::tests::test_http_clients_and_server
+        PASS [   0.033s] cyber-radio-relay server::http_server::tests::test_https_clients_and_server
+        PASS [   1.017s] cyber-radio-relay server::http_server::tests::test_server_basic
+        PASS [   2.028s] cyber-radio-relay server::http_server::tests::test_server_replace_client
+        PASS [   0.033s] cyber-radio-relay server::streams::tests::smoke_test_bucket_high_consume
+        PASS [   0.014s] cyber-radio-relay server::streams::tests::test_bucket_high_refill
+        PASS [   0.124s] cyber-radio-relay server::streams::tests::test_ratelimiter
+        PASS [   0.010s] cyber-radio-relay server::tests::test_captive_portal_service
+        PASS [   0.006s] cyber-radio-relay server::tests::test_conflicting_bind
+        PASS [   0.006s] cyber-radio-relay server::tests::test_no_services
+        PASS [   0.012s] cyber-radio-relay server::tests::test_relay_access_control
+        PASS [   0.009s] cyber-radio-relay server::tests::test_relay_clients
+        PASS [   0.046s] cyber-radio-relay server::tests::test_relay_clients_full
+        PASS [   0.007s] cyber-radio-relay server::tests::test_root_handler
+        PASS [   0.019s] cyber-radio-relay::bin/cyber-radio-relay tests::test_access_config
+        PASS [   0.006s] cyber-radio-relay::bin/cyber-radio-relay tests::test_enable_relay_config
+        PASS [   0.005s] cyber-radio-relay::bin/cyber-radio-relay tests::test_rate_limit_config
+        PASS [   0.005s] cyber-radio-relay::bin/cyber-radio-relay tests::test_rate_limit_default
+        PASS [   0.034s] iroh-blobs api::blobs::export_pairs::encoded_error_propagates
+        PASS [   0.006s] iroh-blobs api::blobs::export_pairs::geometry_pins
+        PASS [   0.009s] iroh-blobs api::blobs::export_pairs::literal_parent_byte_stream
+        PASS [   0.005s] iroh-blobs api::blobs::export_pairs::literal_parent_progress
+        PASS [   0.006s] iroh-blobs api::blobs::export_pairs::literal_parent_write
+        PASS [   0.007s] iroh-blobs api::blobs::export_pairs::partial_parent_failure
+        PASS [   0.006s] iroh-blobs api::blobs::export_pairs::payload_progress_failure
+        PASS [   0.022s] iroh-blobs api::blobs::export_pairs::readonly_store_missing
+        PASS [   0.008s] iroh-blobs api::blobs::export_pairs::readonly_store_parent_free
+        PASS [   0.034s] iroh-blobs api::blobs::export_pairs::readonly_store_right_block
+        PASS [   0.013s] iroh-blobs api::blobs::export_pairs::root_policy_mutable_memory_key_and_wire
+        PASS [   0.008s] iroh-blobs api::blobs::export_pairs::root_policy_readonly_memory_key_and_wire
+        PASS [   0.327s] iroh-blobs api::blobs::export_pairs::root_policy_tiny_and_streamed_fs_import_agree
+        PASS [   0.007s] iroh-blobs api::blobs::export_pairs::writer_failure_accounting
+        PASS [   0.851s] iroh-blobs api::blobs::reader::tests::reader_partial_fs
+        PASS [   0.604s] iroh-blobs api::blobs::reader::tests::reader_partial_memory
+        PASS [   0.706s] iroh-blobs api::blobs::reader::tests::reader_smoke_fs
+        PASS [   0.610s] iroh-blobs api::blobs::reader::tests::reader_smoke_memory
+        PASS [   3.249s] iroh-blobs api::downloader::tests::downloader_get_all
+        PASS [   3.311s] iroh-blobs api::downloader::tests::downloader_get_smoke
+        PASS [   0.023s] iroh-blobs api::proto::bitfield::tests::test_combine_empty
+        PASS [   0.023s] iroh-blobs api::proto::bitfield::tests::test_combine_order
+        PASS [   0.021s] iroh-blobs api::proto::bitfield::tests::test_complete_normalized
+        PASS [   0.772s] iroh-blobs api::remote::tests::test_local_info_complex_request
+        PASS [   1.954s] iroh-blobs api::remote::tests::test_local_info_hash_seq
+        PASS [   2.241s] iroh-blobs api::remote::tests::test_local_info_hash_seq_large
+        PASS [   0.097s] iroh-blobs api::remote::tests::test_local_info_raw
+        PASS [   0.767s] iroh-blobs api::remote::tests::test_observe_partial_fs
+        PASS [   0.608s] iroh-blobs api::remote::tests::test_observe_partial_mem
+        PASS [   0.007s] iroh-blobs format::collection::tests::collection_store_load
+        PASS [   0.007s] iroh-blobs format::collection::tests::roundtrip_blob
+        PASS [   0.006s] iroh-blobs format::collection::tests::roundtrip_collection_meta
+        PASS [   0.006s] iroh-blobs hash::empty_root::leaking_empty_tags_preserve_format
+        PASS [   0.005s] iroh-blobs hash::empty_root::published_empty_tree_domain
+        PASS [   0.006s] iroh-blobs hash::empty_root::raw_identity_serialization_preserves_all_bytes
+        PASS [   0.007s] iroh-blobs hash::empty_root::remote::canonical_zero_header_drains_empty_leaf
+        PASS [   0.007s] iroh-blobs hash::empty_root::remote::hello_runs_actual_decoder_and_import
+        PASS [   0.006s] iroh-blobs hash::empty_root::remote::short_header_has_remote_not_found_wrapper
+        PASS [   0.006s] iroh-blobs hash::empty_root::remote::zero_header_rejects_zero_and_hello_keys
+        PASS [   0.202s] iroh-blobs hash::empty_root::stores::fs_add_formats_and_synthetic_reopen
+        PASS [   0.236s] iroh-blobs hash::empty_root::stores::fs_synthetic_status_enumeration_and_nonempty_control
+        PASS [   0.008s] iroh-blobs hash::empty_root::stores::local_canonical_zero_header_admission
+        PASS [   0.007s] iroh-blobs hash::empty_root::stores::local_hello_runs_actual_decoder_and_import
+        PASS [   0.006s] iroh-blobs hash::empty_root::stores::local_short_header_is_unexpected_eof
+        PASS [   0.007s] iroh-blobs hash::empty_root::stores::local_zero_header_rejects_wrong_keys
+        PASS [   0.007s] iroh-blobs hash::empty_root::stores::memory_add_read_observe_export
+        PASS [   0.008s] iroh-blobs hash::empty_root::stores::readonly_computed_key_control
+        PASS [   0.008s] iroh-blobs hash::empty_root::stores::zero_key_has_no_empty_alias
+        PASS [   0.007s] iroh-blobs hash::empty_root::ticket_envelope_preserves_canonical_zero_and_nonempty_keys
+        PASS [   0.008s] iroh-blobs hash::root_policy::canonical_key_and_legacy_ticket_bytes
+        PASS [   0.008s] iroh-blobs hash::root_policy::published_tree_anchors
+        PASS [   0.007s] iroh-blobs hash::tests::hash_and_format_redb
+        PASS [   0.007s] iroh-blobs hash::tests::hash_redb
+        PASS [   0.008s] iroh-blobs hash::tests::hash_wire_format
+        PASS [   0.009s] iroh-blobs hash::tests::test_display_parse_roundtrip
+        PASS [   0.008s] iroh-blobs hash::tests::test_empty_hash
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_and_format_json
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_and_format_parse
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_and_format_postcard
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_json
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_postcard
+        PASS [   0.008s] iroh-blobs hash::tests::test_hash_serde
+        PASS [   0.008s] iroh-blobs protocol::builder::tests::chunk_ranges_ext
+        PASS [   0.008s] iroh-blobs protocol::builder::tests::get_many_request_builder
+        PASS [   0.008s] iroh-blobs protocol::builder::tests::get_request_builder
+        PASS [   0.022s] iroh-blobs protocol::range_spec::tests::range_spec_roundtrip
+        PASS [   0.040s] iroh-blobs protocol::range_spec::tests::range_spec_seq_bytes_roundtrip
+        PASS [   0.009s] iroh-blobs protocol::range_spec::tests::range_spec_seq_canonical
+        PASS [   0.038s] iroh-blobs protocol::range_spec::tests::range_spec_seq_roundtrip
+        PASS [   0.008s] iroh-blobs protocol::range_spec::tests::range_spec_seq_roundtrip_cases
+        PASS [   0.009s] iroh-blobs protocol::range_spec::tests::range_spec_seq_wire_format
+        PASS [   0.007s] iroh-blobs protocol::range_spec::tests::range_spec_wire_format
+        PASS [   0.006s] iroh-blobs protocol::tests::request_type_size
+        PASS [   0.006s] iroh-blobs protocol::tests::request_wire_format
+        PASS [   1.996s] iroh-blobs store::fs::import::tests::smoke
+        PASS [   3.146s] iroh-blobs store::fs::tests::smoke
+        PASS [   0.098s] iroh-blobs store::fs::tests::test_batch_fs
+        PASS [   1.176s] iroh-blobs store::fs::tests::test_export_path
+        PASS [   0.163s] iroh-blobs store::fs::tests::test_import_bao_minimal
+        PASS [   2.660s] iroh-blobs store::fs::tests::test_import_bao_persistence_full
+        PASS [   1.487s] iroh-blobs store::fs::tests::test_import_bao_persistence_just_size
+        PASS [   1.485s] iroh-blobs store::fs::tests::test_import_bao_persistence_observe
+        PASS [   1.489s] iroh-blobs store::fs::tests::test_import_bao_persistence_recover
+        PASS [   4.082s] iroh-blobs store::fs::tests::test_import_bao_persistence_two_stages
+        PASS [   0.171s] iroh-blobs store::fs::tests::test_import_bao_ranges
+        PASS [   0.320s] iroh-blobs store::fs::tests::test_import_bao_simple
+        PASS [   1.734s] iroh-blobs store::fs::tests::test_import_byte_stream
+        PASS [   1.991s] iroh-blobs store::fs::tests::test_import_bytes_persistence_full
+        PASS [   1.729s] iroh-blobs store::fs::tests::test_import_bytes_simple
+        PASS [   1.672s] iroh-blobs store::fs::tests::test_import_path
+        PASS [   1.655s] iroh-blobs store::fs::tests::test_observe
+        PASS [   0.008s] iroh-blobs store::fs::util::entity_manager::tests::mem::test_busy
+        PASS [   0.219s] iroh-blobs store::fs::util::entity_manager::tests::mem::test_dead
+        PASS [   2.664s] iroh-blobs store::fs::util::entity_manager::tests::test_counters_manager_proptest_fs
+        PASS [   0.494s] iroh-blobs store::fs::util::entity_manager::tests::test_counters_manager_proptest_mem
+        PASS [   0.132s] iroh-blobs store::gc::tests::gc_check_deletion_fs
+        PASS [   0.011s] iroh-blobs store::gc::tests::gc_check_deletion_mem
+        PASS [   1.475s] iroh-blobs store::gc::tests::gc_smoke_fs
+        PASS [   0.009s] iroh-blobs store::gc::tests::gc_smoke_mem
+        PASS [   0.026s] iroh-blobs store::mem::parent_pairs::corrupted_leaf_rejected_then_valid_retry
+        PASS [   0.023s] iroh-blobs store::mem::parent_pairs::corrupted_parent_rejected_then_valid_retry
+        PASS [   0.008s] iroh-blobs store::mem::parent_pairs::diagnostic_one_pair
+        PASS [   0.036s] iroh-blobs store::mem::parent_pairs::diagnostic_rejects_partial_pair
+        PASS [   0.007s] iroh-blobs store::mem::parent_pairs::diagnostic_two_pairs
+        PASS [   0.293s] iroh-blobs store::mem::parent_pairs::fs_complete_memory_batch_and_reopen
+        PASS [   0.008s] iroh-blobs store::mem::parent_pairs::literal_pair_storage
+        PASS [   0.008s] iroh-blobs store::mem::parent_pairs::parent_free_control
+        PASS [   0.067s] iroh-blobs store::mem::parent_pairs::right_partial_then_complete_and_repeat
+        PASS [   0.007s] iroh-blobs store::mem::parent_pairs::short_pair_reader_error
+        PASS [   0.063s] iroh-blobs store::mem::parent_pairs::three_group_nonzero_parent_ordinal
+        PASS [   0.026s] iroh-blobs store::mem::tests::smoke
+        PASS [   0.718s] iroh-blobs tests::export_ranges_smoke_fs
+        PASS [   0.634s] iroh-blobs tests::export_ranges_smoke_mem
+        PASS [   5.067s] iroh-blobs tests::node_serve_blobs
+        PASS [   1.801s] iroh-blobs tests::node_serve_hash_seq
+        PASS [   1.210s] iroh-blobs tests::node_smoke_fs
+        PASS [   0.155s] iroh-blobs tests::node_smoke_mem
+        PASS [   0.114s] iroh-blobs tests::test_export_chunk
+        PASS [   7.009s] iroh-blobs tests::two_nodes_get_blobs_fs
+        PASS [   7.209s] iroh-blobs tests::two_nodes_get_blobs_mem
+        PASS [   4.709s] iroh-blobs tests::two_nodes_get_many_fs
+        PASS [   7.523s] iroh-blobs tests::two_nodes_get_many_mem
+        PASS [   3.028s] iroh-blobs tests::two_nodes_hash_seq_fs
+        PASS [   3.018s] iroh-blobs tests::two_nodes_hash_seq_mem
+        PASS [   2.980s] iroh-blobs tests::two_nodes_hash_seq_progress
+        SLOW [> 10.000s] iroh-blobs tests::two_nodes_observe_fs
+        PASS [  11.023s] iroh-blobs tests::two_nodes_observe_fs
+        PASS [   4.679s] iroh-blobs tests::two_nodes_observe_mem
+        SLOW [> 10.000s] iroh-blobs tests::two_nodes_push_blobs_fs
+        PASS [  10.219s] iroh-blobs tests::two_nodes_push_blobs_fs
+        PASS [   9.764s] iroh-blobs tests::two_nodes_push_blobs_mem
+        PASS [   0.008s] iroh-blobs ticket::tests::test_ticket_base32
+        PASS [   0.008s] iroh-blobs ticket::tests::test_ticket_json
+        PASS [   0.008s] iroh-blobs ticket::tests::test_ticket_postcard
+        PASS [   5.015s] iroh-blobs util::connection_pool::tests::connection_pool_errors
+        PASS [   7.573s] iroh-blobs util::connection_pool::tests::connection_pool_idle
+        SLOW [> 10.000s] iroh-blobs util::connection_pool::tests::connection_pool_smoke
+        PASS [  11.647s] iroh-blobs util::connection_pool::tests::connection_pool_smoke
+        PASS [   2.515s] iroh-blobs util::connection_pool::tests::on_connected_direct
+        PASS [   1.889s] iroh-blobs util::connection_pool::tests::on_connected_error
+        PASS [   4.049s] iroh-blobs util::connection_pool::tests::watch_close
+        PASS [   0.010s] iroh-blobs util::outboard_with_progress::tests::init_outboard_with_progress
+        PASS [   0.007s] iroh-blobs util::serde::tests::test_roundtrip_error_kinds
+        PASS [   0.315s] iroh-blobs::blobs blobs_smoke_fs
+        PASS [   0.292s] iroh-blobs::blobs blobs_smoke_fs_rpc
+        PASS [   0.121s] iroh-blobs::blobs blobs_smoke_mem
+        PASS [   0.125s] iroh-blobs::tags tags_smoke_fs
+        PASS [   0.186s] iroh-blobs::tags tags_smoke_fs_rpc
+        PASS [   0.009s] iroh-blobs::tags tags_smoke_mem
+        PASS [   0.009s] iroh-car header::tests::symmetric_header_v1
+        PASS [   0.006s] iroh-car reader::tests::car_write_read
+        PASS [   0.006s] iroh-car util::tests::ld_read_write_fail
+        PASS [   0.005s] iroh-car util::tests::ld_read_write_good
+        PASS [   0.010s] iroh-car::car_file_test roundtrip_carv1_basic_fixtures_file
+        PASS [   0.006s] iroh-car::car_file_test roundtrip_carv1_test_file
+        PASS [   3.391s] iroh-car::car_writer_bytes_test write_returns_bytes_written
+        PASS [   0.309s] iroh-dns-server http::tests::test_doh
+        PASS [   0.229s] iroh-dns-server tests::integration_smoke
+        PASS [   0.238s] iroh-dns-server tests::pkarr_publish_dns_resolve
+        PASS [   1.027s] iroh-dns-server tests::store_eviction
+        PASS [   0.156s] iroh-docs actor::tests::open_close
+        PASS [   0.009s] iroh-docs engine::live::tests::test_sync_remove
+        PASS [   0.008s] iroh-docs heads::tests::author_heads_compare
+        PASS [   0.008s] iroh-docs heads::tests::author_heads_encode_decode
+        PASS [   1.907s] iroh-docs net::codec::tests::test_sync_many_authors_fs
+        PASS [   1.298s] iroh-docs net::codec::tests::test_sync_many_authors_memory
+        PASS [   0.256s] iroh-docs net::codec::tests::test_sync_simple
+        PASS [   0.346s] iroh-docs net::codec::tests::test_sync_timestamps_fs
+        PASS [   1.683s] iroh-docs net::codec::tests::test_sync_timestamps_memory
+        PASS [   0.049s] iroh-docs ranger::tests::simple_store_get_ranges
+        PASS [   0.069s] iroh-docs ranger::tests::simple_store_sync
+        PASS [   0.008s] iroh-docs ranger::tests::simple_store_sync_1
+        PASS [   0.007s] iroh-docs ranger::tests::simple_store_sync_2
+        PASS [   0.007s] iroh-docs ranger::tests::simple_store_sync_3
+        PASS [   0.087s] iroh-docs ranger::tests::simple_store_sync_u8
+        PASS [   0.007s] iroh-docs ranger::tests::simple_store_sync_x
+        PASS [   0.007s] iroh-docs ranger::tests::store_get_range
+        PASS [   0.007s] iroh-docs ranger::tests::test_equal_key_higher_value
+        PASS [   0.006s] iroh-docs ranger::tests::test_limits
+        PASS [   0.007s] iroh-docs ranger::tests::test_multikey
+        PASS [   0.007s] iroh-docs ranger::tests::test_paper_1
+        PASS [   0.007s] iroh-docs ranger::tests::test_paper_2
+        PASS [   0.007s] iroh-docs ranger::tests::test_paper_3
+        PASS [   0.007s] iroh-docs ranger::tests::test_prefixes_empty_alice
+        PASS [   0.006s] iroh-docs ranger::tests::test_prefixes_empty_bob
+        PASS [   0.006s] iroh-docs ranger::tests::test_prefixes_simple
+        PASS [   0.007s] iroh-docs ranger::tests::test_validate_cb
+        PASS [   0.006s] iroh-docs store::fs::bounds::tests::by_key_bounds
+        PASS [   0.006s] iroh-docs store::fs::bounds::tests::records_bounds
+        PASS [   0.212s] iroh-docs store::fs::tests::test_basics
+        PASS [   0.293s] iroh-docs store::fs::tests::test_migration_001_populate_latest_table
+        PASS [   0.169s] iroh-docs store::fs::tests::test_migration_004_populate_by_key_index
+        PASS [   0.164s] iroh-docs store::fs::tests::test_ranges
+        PASS [   0.007s] iroh-docs store::tests::test_filter_kind_encode_decode
+        PASS [   0.178s] iroh-docs sync::tests::test_actor_capability_fs
+        PASS [   0.133s] iroh-docs sync::tests::test_actor_capability_memory
+        PASS [   0.194s] iroh-docs sync::tests::test_basics_fs
+        PASS [   0.144s] iroh-docs sync::tests::test_basics_memory
+        PASS [   0.173s] iroh-docs sync::tests::test_content_hashes_iterator_fs
+        PASS [   0.136s] iroh-docs sync::tests::test_content_hashes_iterator_memory
+        PASS [   0.169s] iroh-docs sync::tests::test_dl_policies_fs
+        PASS [   0.133s] iroh-docs sync::tests::test_dl_policies_mem
+        PASS [   0.136s] iroh-docs sync::tests::test_future_timestamp
+        PASS [   0.131s] iroh-docs sync::tests::test_insert_empty
+        PASS [   0.181s] iroh-docs sync::tests::test_latest_iter_fs
+        PASS [   0.134s] iroh-docs sync::tests::test_latest_iter_memory
+        PASS [   0.008s] iroh-docs sync::tests::test_multikey
+        PASS [   0.166s] iroh-docs sync::tests::test_prefix_delete_fs
+        PASS [   0.130s] iroh-docs sync::tests::test_prefix_delete_memory
+        PASS [   0.179s] iroh-docs sync::tests::test_replica_byte_keys_fs
+        PASS [   1.920s] iroh-docs sync::tests::test_replica_byte_keys_memory
+        PASS [   0.228s] iroh-docs sync::tests::test_replica_capability_fs
+        PASS [   0.134s] iroh-docs sync::tests::test_replica_capability_memory
+        PASS [   0.204s] iroh-docs sync::tests::test_replica_delete_edge_cases_fs
+        PASS [   0.139s] iroh-docs sync::tests::test_replica_delete_edge_cases_memory
+        PASS [   0.259s] iroh-docs sync::tests::test_replica_no_wrong_remote_insert_events
+        PASS [   0.194s] iroh-docs sync::tests::test_replica_queries_fs
+        PASS [   0.134s] iroh-docs sync::tests::test_replica_queries_mem
+        PASS [   0.183s] iroh-docs sync::tests::test_replica_remove_fs
+        PASS [   0.131s] iroh-docs sync::tests::test_replica_remove_memory
+        PASS [   0.327s] iroh-docs sync::tests::test_replica_sync_delete_fs
+        PASS [   0.259s] iroh-docs sync::tests::test_replica_sync_delete_memory
+        PASS [   0.343s] iroh-docs sync::tests::test_replica_sync_fs
+        PASS [   0.260s] iroh-docs sync::tests::test_replica_sync_memory
+        PASS [   0.334s] iroh-docs sync::tests::test_replica_timestamp_sync_fs
+        PASS [   0.257s] iroh-docs sync::tests::test_replica_timestamp_sync_memory
+        PASS [   0.172s] iroh-docs sync::tests::test_timestamps_fs
+        PASS [   0.131s] iroh-docs sync::tests::test_timestamps_memory
+        PASS [   0.008s] iroh-docs ticket::tests::test_ticket_base32
+        PASS [   0.236s] iroh-docs::client test_authors
+        PASS [   0.145s] iroh-docs::client test_default_author_memory
+        PASS [   2.028s] iroh-docs::client test_default_author_persist
+        PASS [   0.244s] iroh-docs::client test_doc_close
+        PASS [   0.143s] iroh-docs::client test_doc_import_export
+        PASS [   2.008s] iroh-docs::gc redb_doc_import_stress
+        PASS [   2.414s] iroh-docs::sync doc_delete
+        PASS [   0.146s] iroh-docs::sync sync_drop_doc
+        PASS [   0.467s] iroh-docs::sync sync_gossip_bulk
+        PASS [   0.139s] iroh-docs::sync sync_open_close
+        PASS [   0.562s] iroh-docs::sync sync_simple
+        PASS [   0.144s] iroh-docs::sync sync_subscribe_no_sync
+        PASS [   0.139s] iroh-docs::sync sync_subscribe_stop_close
+        PASS [   0.299s] iroh-docs::sync test_download_policies
+        PASS [   0.235s] iroh-docs::sync test_list_docs_stream
+        PASS [   0.518s] iroh-docs::sync test_sync_via_relay
+        PASS [   0.016s] iroh-gossip api::tests::ensure_gossip_topic_is_sync
+        PASS [   0.931s] iroh-gossip net::address_lookup::tests::test_retention
+        PASS [   0.329s] iroh-gossip net::test::can_die_and_reconnect
+        PASS [   1.504s] iroh-gossip net::test::can_reconnect
+        PASS [   0.122s] iroh-gossip net::test::gossip_change_alpn
+        PASS [   0.684s] iroh-gossip net::test::gossip_net_smoke
+        PASS [   0.143s] iroh-gossip net::test::gossip_rely_on_gossip_address_lookup
+        PASS [   1.493s] iroh-gossip net::test::subscription_cleanup
+        PASS [   0.119s] iroh-gossip net::test::topic_stays_alive_after_sender_drop
+        PASS [   0.008s] iroh-gossip proto::plumtree::test::cache_is_evicted
+        PASS [   0.008s] iroh-gossip proto::plumtree::test::optimize_tree
+        PASS [   0.008s] iroh-gossip proto::plumtree::test::spoofed_messages_are_ignored
+        PASS [   0.010s] iroh-gossip proto::test::hyparview_smoke
+        PASS [   0.013s] iroh-gossip proto::test::plumtree_smoke
+        PASS [   0.010s] iroh-gossip proto::test::quit
+        PASS [   0.008s] iroh-gossip proto::util::test::hex
+        PASS [   0.008s] iroh-gossip proto::util::test::indexset
+        PASS [   0.007s] iroh-gossip proto::util::test::time_bound_cache
+        PASS [   0.007s] iroh-gossip proto::util::test::timer_map
+        PASS [   2.278s] iroh-willow net::tests::net_live_data
+        PASS [   0.974s] iroh-willow net::tests::net_smoke
+        PASS [   0.009s] iroh-willow proto::grouping::tests::area_eq
+        PASS [   0.011s] iroh-willow session::pai_finder::tests::pai_smoke
+        PASS [   0.013s] iroh-willow session::pai_finder::tests::pai_subspace
+        PASS [   0.016s] iroh-willow store::willow_store_glue::tests::prop_stored_timestamp_ord_matches_u64_ord
+        PASS [   0.277s] iroh-willow::basic peer_manager_big_payload
+        PASS [   0.146s] iroh-willow::basic peer_manager_empty_payload
+        PASS [   0.148s] iroh-willow::basic peer_manager_shutdown_immediate
+        PASS [   1.030s] iroh-willow::basic peer_manager_shutdown_timeout
+        PASS [   0.117s] iroh-willow::basic peer_manager_two_intents
+        PASS [   0.581s] iroh-willow::basic peer_manager_twoway_loop
+        PASS [   0.120s] iroh-willow::basic peer_manager_update_intent
+        PASS [   0.016s] iroh-willow::basic read_back_write
+        SLOW [> 10.000s] iroh-willow::spaces prop_sync_simulation_matches_model
+        SLOW [> 20.000s] iroh-willow::spaces prop_sync_simulation_matches_model
+        PASS [  22.308s] iroh-willow::spaces prop_sync_simulation_matches_model
+        PASS [   0.232s] iroh-willow::spaces spaces_smoke
+        PASS [   0.036s] iroh-willow::spaces spaces_subscription
+        PASS [   0.771s] radio-integration-tests::blob_transfer blob_add_and_fetch_1mb
+        PASS [   0.280s] radio-integration-tests::blob_transfer blob_add_and_fetch_small
+        PASS [   0.283s] radio-integration-tests::blob_transfer blob_chunk_boundary
+        PASS [   0.279s] radio-integration-tests::blob_transfer blob_empty
+        PASS [   0.378s] radio-integration-tests::blob_transfer blob_fetch_via_downloader
+        PASS [   0.377s] radio-integration-tests::blob_transfer blob_multiple_sequential
+        PASS [   0.447s] radio-integration-tests::blob_transfer blob_three_nodes_relay
+        PASS [   0.532s] radio-integration-tests::doc_sync doc_sync_bidirectional
+        PASS [   0.890s] radio-integration-tests::doc_sync doc_sync_large_value
+        PASS [   0.391s] radio-integration-tests::doc_sync doc_sync_simple
+        PASS [   0.562s] radio-integration-tests::full_pipeline multi_blob_doc_sync
+        PASS [   0.393s] radio-integration-tests::full_pipeline pin_then_doc_sync_then_download
+        PASS [   0.419s] radio-integration-tests::gossip_broadcast gossip_bidirectional
+        PASS [   1.136s] radio-integration-tests::gossip_broadcast gossip_multihop_relay
+        PASS [   1.174s] radio-integration-tests::gossip_broadcast gossip_three_nodes_fan_out
+        PASS [   0.286s] radio-integration-tests::gossip_broadcast gossip_two_nodes
+        PASS [   0.046s] radio-integration-tests::hash_verify blob_store_hash_matches_iroh_blobs_hash
+        PASS [   0.010s] radio-integration-tests::hash_verify blob_store_hash_round_trip
+        PASS [   0.008s] radio-integration-tests::hash_verify poseidon2_derive_key
+        PASS [   0.008s] radio-integration-tests::hash_verify poseidon2_hash_deterministic
+        PASS [   0.007s] radio-integration-tests::hash_verify poseidon2_hash_different_inputs
+        PASS [   0.007s] radio-integration-tests::hash_verify poseidon2_keyed_hash_differs
+        PASS [   0.007s] radio-integration-tests::hash_verify poseidon2_streaming_consistency
+------------
+     Summary [ 308.924s] 563 tests run: 558 passed (4 slow), 5 failed, 9 skipped
+        FAIL [   5.019s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_expire
+        FAIL [   5.035s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_publish_resolve
+        FAIL [   5.040s] cyber-radio address_lookup::mdns::tests::run_in_isolation::mdns_subscribe
+        FAIL [   2.186s] cyber-radio address_lookup::mdns::tests::run_in_isolation::non_advertising_endpoint_not_discovered
+        FAIL [   4.093s] cyber-radio address_lookup::mdns::tests::run_in_isolation::test_service_names
+error: test run failed
