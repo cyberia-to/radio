@@ -16,6 +16,8 @@ use cyber_bao::hash::Poseidon2Backend;
 use cyber_bao::io::{decode, encode, outboard};
 use cyber_bao::tree::BlockSize;
 
+use radio_cli::{hex_to_bytes, parse_poseidon_hash};
+
 #[derive(Parser)]
 #[command(name = "radio", about = "Radio network CLI", version)]
 struct Cli {
@@ -236,29 +238,6 @@ fn cmd_hash(action: HashAction) -> Result<()> {
         }
     }
     Ok(())
-}
-
-fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
-    let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
-    if bytes.len() != 32 {
-        bail!("hash must be 32 bytes (64 hex chars), got {} bytes", bytes.len());
-    }
-    let mut arr = [0u8; 32];
-    arr.copy_from_slice(&bytes);
-    Ok(hemera::Hash::from_bytes(arr))
-}
-
-fn hex_to_bytes(hex: &str) -> Result<Vec<u8>> {
-    if !hex.is_ascii() {
-        bail!("non-ASCII hex string");
-    }
-    if !hex.len().is_multiple_of(2) {
-        bail!("odd-length hex string");
-    }
-    (0..hex.len())
-        .step_by(2)
-        .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).context("invalid hex digit"))
-        .collect()
 }
 
 // ── Node implementation ────────────────────────────────────────────────
@@ -512,40 +491,4 @@ async fn cmd_gossip(action: GossipAction) -> Result<()> {
     }
 
     Ok(())
-}
-
-#[cfg(test)]
-mod hex_to_bytes_tests {
-    use super::*;
-
-    #[test]
-    fn decodes_valid_input() {
-        assert_eq!(hex_to_bytes("ab01").unwrap(), vec![0xab, 0x01]);
-        assert_eq!(hex_to_bytes("").unwrap(), Vec::<u8>::new());
-    }
-
-    #[test]
-    fn rejects_odd_length() {
-        assert!(hex_to_bytes("abc").is_err());
-    }
-
-    #[test]
-    fn rejects_non_hex() {
-        assert!(hex_to_bytes("zz").is_err());
-    }
-
-    #[test]
-    fn rejects_non_ascii_without_panicking() {
-        // 31 ASCII bytes + 'é' (2 bytes) + 1 ASCII byte = 34 bytes, an even
-        // length that used to reach the byte-indexed slice loop and panic
-        // when a step boundary landed inside 'é'.
-        let mut s = String::new();
-        for _ in 0..31 {
-            s.push('a');
-        }
-        s.push('é');
-        s.push('a');
-        assert_eq!(s.len(), 34);
-        assert!(hex_to_bytes(&s).is_err());
-    }
 }

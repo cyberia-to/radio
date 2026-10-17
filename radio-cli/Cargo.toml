@@ -5,6 +5,10 @@ edition = "2021"
 description = "Radio network CLI — hash, node, blob, gossip"
 license = "MIT OR Apache-2.0"
 
+[lib]
+name = "radio_cli"
+path = "src/lib.rs"
+
 [[bin]]
 name = "radio"
 path = "src/main.rs"
