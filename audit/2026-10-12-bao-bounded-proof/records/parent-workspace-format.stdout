@@ -1,0 +1,3692 @@
+[cargo-make] INFO - cargo make 0.37.24
+[cargo-make] INFO - 
+[cargo-make] INFO - Build File: Makefile.toml
+[cargo-make] INFO - Task: format-check
+[cargo-make] INFO - Profile: development
+[cargo-make] INFO - Execute Command: "cargo" "fmt" "--all" "--check" "--" "--config" "unstable_features=true" "--config" "imports_granularity=Crate,group_imports=StdExternalCrate,reorder_imports=true,format_code_in_doc_comments=true"
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/examples/blobs-transfer.rs:85:
+             println!("    # this will print a ticket.");
+             println!();
+             println!("    # to receive:");
+-            println!("    cargo run -p iroh-blobs --example blobs-transfer -- receive [TICKET] [FILE]");
++            println!(
++                "    cargo run -p iroh-blobs --example blobs-transfer -- receive [TICKET] [FILE]"
++            );
+         }
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/examples/get-blob.rs:1:
+ /// Example how to request a blob from a remote node without using a store.
+ mod common;
+-use cyber_bao::io::BaoContentItem;
+ use clap::Parser;
+ use common::setup_logging;
++use cyber_bao::io::BaoContentItem;
+ use iroh::address_lookup::PkarrResolver;
+ use iroh_blobs::{get::request::GetBlobItem, ticket::BlobTicket, BlobFormat};
+ use n0_future::StreamExt;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/api/blobs.rs:14:
+     pin::Pin,
+ };
+ 
++use bytes::Bytes;
+ pub use cyber_bao::io::mixed::EncodedItem;
+ use cyber_bao::{
+     io::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/api/blobs.rs:22:
+     },
+     BaoTree, ChunkNum, ChunkRanges,
+ };
+-use bytes::Bytes;
+ use genawaiter::sync::Gen;
+ use iroh_io::AsyncStreamWriter;
+ use irpc::channel::{mpsc, oneshot};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/api/proto.rs:23:
+ };
+ 
+ use arrayvec::ArrayString;
++use bytes::Bytes;
+ use cyber_bao::{
+     io::{mixed::EncodedItem, BaoContentItem, Leaf},
+     ChunkRanges,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/api/proto.rs:29:
+ };
+-use bytes::Bytes;
+ use irpc::{
+     channel::{mpsc, oneshot},
+     rpc_requests,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/format/collection.rs:324:
+     #[tokio::test]
+     async fn collection_store_load() -> testresult::TestResult {
+         let collection = (0..3)
+-            .map(|i| {
+-                (
+-                    format!("blob{i}"),
+-                    crate::Hash::new(&[i as u8]),
+-                )
+-            })
++            .map(|i| (format!("blob{i}"), crate::Hash::new(&[i as u8])))
+             .collect::<Collection>();
+         let mut root = None;
+         let store = collection
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/get/request.rs:14:
+     task::{Context, Poll},
+ };
+ 
+-use cyber_bao::{io::BaoContentItem, ChunkNum, ChunkRanges};
+ use bytes::Bytes;
++use cyber_bao::{io::BaoContentItem, ChunkNum, ChunkRanges};
+ use genawaiter::sync::{Co, Gen};
+ use iroh::endpoint::Connection;
+ use n0_error::e;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/protocol.rs:378:
+     ops::{Bound, RangeBounds},
+ };
+ 
+-use cyber_bao::{io::round_up_to_chunks, ChunkNum};
+ use builder::GetRequestBuilder;
++use cyber_bao::{io::round_up_to_chunks, ChunkNum};
+ use derive_more::From;
+ use iroh::endpoint::VarInt;
+ use postcard::experimental::max_size::MaxSize;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs/bao_file.rs:6:
+     path::Path,
+ };
+ 
++use bytes::{Bytes, BytesMut};
+ use cyber_bao::{
+-    io::{
+-        ReadBytesAt,
+-        pre_order::PreOrderOutboard,
+-        BaoContentItem, ReadAt, WriteAt,
+-    },
++    io::{pre_order::PreOrderOutboard, BaoContentItem, ReadAt, ReadBytesAt, WriteAt},
+     BaoTree, ChunkRanges,
+ };
+-use bytes::{Bytes, BytesMut};
+ use derive_more::Debug;
+ use irpc::channel::mpsc;
+ use n0_error::{Result, StdResultExt};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs/import.rs:18:
+     sync::Arc,
+ };
+ 
++use bytes::Bytes;
+ use cyber_bao::{
+     io::pre_order::{PreOrderMemOutboard, PreOrderOutboard},
+     BaoTree, ChunkNum,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs/import.rs:24:
+ };
+-use bytes::Bytes;
+ use genawaiter::sync::Gen;
+ use irpc::{
+     channel::{mpsc, none::NoReceiver},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs/meta.rs:8:
+     time::SystemTime,
+ };
+ 
+-use cyber_bao::BaoTree;
+ use bytes::Bytes;
++use cyber_bao::BaoTree;
+ use irpc::channel::mpsc;
+ use n0_error::{anyerr, e, stack_error, AnyError};
+ use redb::{Database, DatabaseError, ReadableTable};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs.rs:77:
+     },
+ };
+ 
++use bytes::Bytes;
+ use cyber_bao::{
+     io::{
+-        mixed::{traverse_ranges_validated, EncodedItem}, ReadBytesAt,
++        mixed::{traverse_ranges_validated, EncodedItem},
+         pre_order::PreOrderOutboard,
+-        BaoContentItem, Leaf, ReadAt,
++        BaoContentItem, Leaf, ReadAt, ReadBytesAt,
+     },
+     BaoTree, ChunkNum, ChunkRanges,
+ };
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/fs.rs:88:
+-use bytes::Bytes;
+ use delete_set::{BaoFilePart, ProtectHandle};
+ use entity_manager::{EntityManagerState, SpawnArg};
+ use entry_state::{DataLocation, OutboardLocation};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/mem.rs:16:
+     sync::Arc,
+ };
+ 
++use bytes::Bytes;
+ use cyber_bao::{
+     io::{
+-        mixed::{traverse_ranges_validated, EncodedItem}, ReadBytesAt,
++        mixed::{traverse_ranges_validated, EncodedItem},
+         pre_order::PreOrderMemOutboard,
+-        BaoContentItem, EncodeError, Leaf, Outboard, ReadAt, WriteAt,
++        BaoContentItem, EncodeError, Leaf, Outboard, ReadAt, ReadBytesAt, WriteAt,
+     },
+     BaoTree, ChunkNum, ChunkRanges, TreeNode,
+ };
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/mem.rs:27:
+-use bytes::Bytes;
+ use irpc::channel::mpsc;
+ use n0_error::{Result, StdResultExt};
+ use n0_future::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/readonly_mem.rs:12:
+     path::PathBuf,
+ };
+ 
++use bytes::Bytes;
+ use cyber_bao::{
+     io::{
+-        mixed::{traverse_ranges_validated, EncodedItem}, ReadBytesAt,
++        mixed::{traverse_ranges_validated, EncodedItem},
+         pre_order::PreOrderMemOutboard,
+-        ReadAt,
+-        Leaf,
++        Leaf, ReadAt, ReadBytesAt,
+     },
+     BaoTree, ChunkRanges,
+ };
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/readonly_mem.rs:24:
+-use bytes::Bytes;
+ use irpc::channel::mpsc;
+ use n0_future::{
+     future::{self, yield_now},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/util/mem_or_file.rs:4:
+     io::{self, Read, Seek},
+ };
+ 
+-use cyber_bao::io::{
+-    ReadBytesAt,
+-    {ReadAt, Size},
+-};
+ use bytes::Bytes;
++use cyber_bao::io::{ReadAt, ReadBytesAt, Size};
+ 
+ use super::SliceInfoExt;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/util/partial_mem_storage.rs:1:
+ use std::io;
+ 
+ use cyber_bao::{
+-    io::{WriteAt, BaoContentItem},
++    io::{BaoContentItem, WriteAt},
+     BaoTree,
+ };
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/util/sparse_mem_file.rs:1:
+ use std::{io, ops::Deref};
+ 
+-use cyber_bao::io::{
+-    ReadBytesAt,
+-    {ReadAt, Size, WriteAt},
+-};
+ use bytes::Bytes;
++use cyber_bao::io::{ReadAt, ReadBytesAt, Size, WriteAt};
+ use range_collections::{range_set::RangeSetRange, RangeSet2};
+ 
+ /// A file that is sparse in memory
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/store/util.rs:1:
+ use std::{borrow::Borrow, fmt};
+ 
+-use cyber_bao::io::mixed::EncodedItem;
+ use bytes::Bytes;
++use cyber_bao::io::mixed::EncodedItem;
+ use derive_more::{From, Into};
+ use n0_future::time::SystemTime;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/tests.rs:1:
+ use std::{collections::HashSet, io, ops::Range, path::PathBuf};
+ 
+-use cyber_bao::ChunkRanges;
+ use bytes::Bytes;
++use cyber_bao::ChunkRanges;
+ use iroh::{address_lookup::MemoryLookup, protocol::Router, Endpoint, EndpointId, RelayMode};
+ use irpc::RpcMessage;
+ use n0_future::{task::AbortOnDropHandle, StreamExt};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/util.rs:225:
+     use std::io::{self, BufReader, Read};
+ 
+     use cyber_bao::{
+-        io::{
+-            pre_order::PreOrderOutboard,
+-            OutboardMut, WriteAt,
+-        },
++        io::{pre_order::PreOrderOutboard, OutboardMut, WriteAt},
+         BaoChunk, BaoTree, ChunkNum,
+     };
+     use smallvec::SmallVec;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/util.rs:235:
+ 
+     use super::sink::Sink;
+ 
+-    fn hash_subtree(start_chunk: u64, data: &[u8], is_root: bool, block_bytes: usize) -> hemera::Hash {
++    fn hash_subtree(
++        start_chunk: u64,
++        data: &[u8],
++        is_root: bool,
++        block_bytes: usize,
++    ) -> hemera::Hash {
+         use cyber_bao::hash::Poseidon2Backend;
+         cyber_bao::io::hash_block(&Poseidon2Backend, data, start_chunk, is_root, block_bytes)
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-blobs/src/util.rs:312:
+ 
+     #[cfg(test)]
+     mod tests {
+-        use cyber_bao::{
+-            io::pre_order::PreOrderOutboard,
+-            BaoTree,
+-        };
++        use cyber_bao::{io::pre_order::PreOrderOutboard, BaoTree};
+         use testresult::TestResult;
+ 
+         use crate::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-car/src/header.rs:77:
+ #[cfg(test)]
+ mod tests {
+     use multihash_codetable::MultihashDigest;
+-
+-    use super::*;
+-
+     #[cfg(target_arch = "wasm32")]
+     use wasm_bindgen_test::wasm_bindgen_test;
++
++    use super::*;
+ 
+     #[cfg(target_arch = "wasm32")]
+     wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-car/src/lib.rs:6:
+ mod util;
+ mod writer;
+ 
+-pub use crate::error::Error;
+-pub use crate::header::CarHeader;
+-pub use crate::reader::CarReader;
+-pub use crate::writer::CarWriter;
++pub use crate::{error::Error, header::CarHeader, reader::CarReader, writer::CarWriter};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-car/src/reader.rs:65:
+     use cid::Cid;
+     use futures::TryStreamExt;
+     use multihash_codetable::MultihashDigest;
+-
+-    use crate::{header::CarHeaderV1, writer::CarWriter};
+-
+-    use super::*;
+-
+     #[cfg(target_arch = "wasm32")]
+     use wasm_bindgen_test::wasm_bindgen_test;
++
++    use super::*;
++    use crate::{header::CarHeaderV1, writer::CarWriter};
+ 
+     #[cfg(target_arch = "wasm32")]
+     wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-car/src/util.rs:84:
+ #[cfg(test)]
+ mod tests {
+     use tokio::io::{AsyncWrite, AsyncWriteExt};
+-
+-    use super::*;
+-
+     #[cfg(target_arch = "wasm32")]
+     use wasm_bindgen_test::wasm_bindgen_test;
++
++    use super::*;
+ 
+     #[cfg(target_arch = "wasm32")]
+     wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-car/tests/car_file_test.rs:1:
+ use futures::TryStreamExt;
+ use iroh_car::*;
+ use tokio::io::BufReader;
+-
+ #[cfg(target_arch = "wasm32")]
+ use wasm_bindgen_test::wasm_bindgen_test;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-docs/src/engine/live.rs:200:
+         let (replica_events_tx, replica_events_rx) = async_channel::bounded(1024);
+         let gossip_state = GossipState::new(gossip, sync.clone(), sync_actor_tx.clone());
+         let memory_lookup = MemoryLookup::new();
+-        endpoint.address_lookup().expect("endpoint closed").add(memory_lookup.clone());
++        endpoint
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(memory_lookup.clone());
+         Self {
+             inbox,
+             sync,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-docs/src/ranger.rs:125:
+             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+                 write!(f, "32 bytes")
+             }
+-            fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<Fingerprint, A::Error> {
++            fn visit_seq<A: serde::de::SeqAccess<'de>>(
++                self,
++                mut seq: A,
++            ) -> Result<Fingerprint, A::Error> {
+                 let mut bytes = [0u8; 32];
+                 for (i, byte) in bytes.iter_mut().enumerate() {
+-                    *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
++                    *byte = seq
++                        .next_element()?
++                        .ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                 }
+                 Ok(Fingerprint(bytes))
+             }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:185:
+     pub fn spawn(self, endpoint: Endpoint) -> Gossip {
+         let metrics = Arc::new(Metrics::default());
+         let address_lookup = GossipAddressLookup::default();
+-        endpoint.address_lookup().expect("endpoint closed").add(address_lookup.clone());
++        endpoint
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(address_lookup.clone());
+         let (actor, rpc_tx, local_tx) = Actor::new(
+             endpoint,
+             self.config,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1144:
+             let endpoint = create_endpoint(rng, relay_map, None).await?;
+             let metrics = Arc::new(Metrics::default());
+             let address_lookup = GossipAddressLookup::default();
+-            endpoint.address_lookup().expect("endpoint closed").add(address_lookup.clone());
++            endpoint
++                .address_lookup()
++                .expect("endpoint closed")
++                .add(address_lookup.clone());
+ 
+             let (actor, to_actor_tx, conn_tx) =
+                 Actor::new(endpoint, config, metrics.clone(), None, address_lookup);
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1202:
+             .await?;
+ 
+         if let Some(memory_lookup) = memory_lookup {
+-            ep.address_lookup().expect("endpoint closed").add(memory_lookup);
++            ep.address_lookup()
++                .expect("endpoint closed")
++                .add(memory_lookup);
+         }
+         ep.online().await;
+         Ok(ep)
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1404:
+             "endpoints ready"
+         );
+ 
+-        let hash_bytes: [u8; 32] = hemera::hash(b"subscription_cleanup").as_bytes()[..32].try_into().unwrap();
++        let hash_bytes: [u8; 32] = hemera::hash(b"subscription_cleanup").as_bytes()[..32]
++            .try_into()
++            .unwrap();
+         let topic: TopicId = hash_bytes.into();
+         tracing::info!(%topic, "joining");
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1443:
+         let addr2 = EndpointAddr::new(endpoint_id2).with_relay_url(relay_url);
+         let memory_lookup = MemoryLookup::new();
+         memory_lookup.add_endpoint_info(addr2);
+-        actor.endpoint.address_lookup().expect("endpoint closed").add(memory_lookup);
++        actor
++            .endpoint
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(memory_lookup);
+         // we use a channel to signal advancing steps to the task
+         let (tx, mut rx) = mpsc::channel::<()>(1);
+         let ct1 = ct.clone();
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1545:
+             "endpoints ready"
+         );
+ 
+-        let hash_bytes: [u8; 32] = hemera::hash(b"can_reconnect").as_bytes()[..32].try_into().unwrap();
++        let hash_bytes: [u8; 32] = hemera::hash(b"can_reconnect").as_bytes()[..32]
++            .try_into()
++            .unwrap();
+         let topic: TopicId = hash_bytes.into();
+         tracing::info!(%topic, "joining");
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1555:
+         let addr1 = EndpointAddr::new(endpoint_id1).with_relay_url(relay_url.clone());
+         let memory_lookup = MemoryLookup::new();
+         memory_lookup.add_endpoint_info(addr1);
+-        ep2.address_lookup().expect("endpoint closed").add(memory_lookup.clone());
++        ep2.address_lookup()
++            .expect("endpoint closed")
++            .add(memory_lookup.clone());
+         let go2_task = async move {
+             let mut sub = go2.subscribe(topic, Vec::new()).await?;
+             sub.joined().await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1580:
+ 
+         let addr2 = EndpointAddr::new(endpoint_id2).with_relay_url(relay_url);
+         memory_lookup.add_endpoint_info(addr2);
+-        ep1.address_lookup().expect("endpoint closed").add(memory_lookup);
++        ep1.address_lookup()
++            .expect("endpoint closed")
++            .add(memory_lookup);
+ 
+         let mut sub = go1.subscribe(topic, vec![endpoint_id2]).await?;
+         // wait for subscribed notification
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1674:
+             let bootstrap = vec![bootstrap_addr.id];
+             let memory_lookup = MemoryLookup::new();
+             memory_lookup.add_endpoint_info(bootstrap_addr);
+-            router.endpoint().address_lookup().expect("endpoint closed").add(memory_lookup);
++            router
++                .endpoint()
++                .address_lookup()
++                .expect("endpoint closed")
++                .add(memory_lookup);
+             let mut topic = gossip.subscribe_and_join(topic_id, bootstrap).await?;
+             topic.broadcast(message.as_bytes().to_vec().into()).await?;
+             std::future::pending::<()>().await;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1791:
+         let id1 = addr1.id;
+         let memory_lookup = MemoryLookup::new();
+         memory_lookup.add_endpoint_info(addr1);
+-        router2.endpoint().address_lookup().expect("endpoint closed").add(memory_lookup);
++        router2
++            .endpoint()
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(memory_lookup);
+ 
+         let mut topic1 = gossip1.subscribe(topic_id, vec![]).await?;
+         let mut topic2 = gossip2.subscribe(topic_id, vec![id1]).await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1843:
+         lookup.add_endpoint_info(addr1);
+ 
+         // add addr info of endpoint1 to endpoint2 and join endpoint1
+-        r2.endpoint().address_lookup().expect("endpoint closed").add(lookup.clone());
++        r2.endpoint()
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(lookup.clone());
+         tx2.join_peers(vec![n1]).await?;
+ 
+         // await join endpoint2 -> nodde1
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1855:
+             .std_context("wait rx2 join")??;
+ 
+         // add addr info of endpoint1 to endpoint3 and join endpoint1
+-        r3.endpoint().address_lookup().expect("endpoint closed").add(lookup.clone());
++        r3.endpoint()
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(lookup.clone());
+         tx3.join_peers(vec![n1]).await?;
+ 
+         // await join at endpoint3: n1 and n2
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/net.rs:1917:
+         let id1 = addr1.id;
+         let mem_lookup = MemoryLookup::new();
+         mem_lookup.add_endpoint_info(addr1);
+-        router2.endpoint().address_lookup().expect("endpoint closed").add(mem_lookup);
++        router2
++            .endpoint()
++            .address_lookup()
++            .expect("endpoint closed")
++            .add(mem_lookup);
+ 
+         let topic1 = gossip1.subscribe(topic_id, vec![]).await?;
+         let topic2 = gossip2.subscribe(topic_id, vec![id1]).await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-gossip/src/proto/plumtree.rs:50:
+             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+                 write!(f, "32 bytes")
+             }
+-            fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<MessageId, A::Error> {
++            fn visit_seq<A: serde::de::SeqAccess<'de>>(
++                self,
++                mut seq: A,
++            ) -> Result<MessageId, A::Error> {
+                 let mut bytes = [0u8; 32];
+                 for (i, byte) in bytes.iter_mut().enumerate() {
+-                    *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
++                    *byte = seq
++                        .next_element()?
++                        .ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                 }
+                 Ok(MessageId(bytes))
+             }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/examples/bench.rs:99:
+     use anyhow::Result;
+     use bytes::Bytes;
+     use futures_concurrency::future::TryJoin;
+-    use iroh::{Endpoint, EndpointId};
+-    use iroh::address_lookup::memory::MemoryLookup;
++    use iroh::{address_lookup::memory::MemoryLookup, Endpoint, EndpointId};
+     use iroh_willow::{
+         engine::{AcceptOpts, Engine},
+         form::EntryForm,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/examples/bench.rs:205:
+ 
+     pub async fn spawn_two(rng: &mut impl CryptoRngCore) -> Result<[Peer; 2]> {
+         let disco = MemoryLookup::new();
+-        let peers = [
+-            generate_secret_key(rng),
+-            generate_secret_key(rng),
+-        ]
+-        .map(|secret_key| Peer::spawn(secret_key, disco.clone(), Default::default()))
+-        .try_join()
+-        .await?;
++        let peers = [generate_secret_key(rng), generate_secret_key(rng)]
++            .map(|secret_key| Peer::spawn(secret_key, disco.clone(), Default::default()))
++            .try_join()
++            .await?;
+ 
+         Ok(peers)
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/engine.rs:7:
+     future::{MapErr, Shared},
+     FutureExt, TryFutureExt,
+ };
+-use iroh::{endpoint::Connection, protocol::{AcceptError, ProtocolHandler}, Endpoint, EndpointId};
++use iroh::{
++    endpoint::Connection,
++    protocol::{AcceptError, ProtocolHandler},
++    Endpoint, EndpointId,
++};
+ use tokio::{
+     sync::{mpsc, oneshot},
+     task::JoinError,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/engine.rs:128:
+     ///
+     /// This can freely be called multiple times for the same peer. The engine will merge the
+     /// intents and make sure that only a single session is opened per peer.
+-    pub async fn sync_with_peer(&self, peer: EndpointId, init: SessionInit) -> Result<IntentHandle> {
++    pub async fn sync_with_peer(
++        &self,
++        peer: EndpointId,
++        init: SessionInit,
++    ) -> Result<IntentHandle> {
+         let (intent, handle) = Intent::new(init);
+         self.peer_manager_inbox
+             .send(peer_manager::Input::SubmitIntent { peer, intent })
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/engine.rs:170:
+ 
+ impl ProtocolHandler for Engine {
+     async fn accept(&self, conn: Connection) -> Result<(), AcceptError> {
+-        self.handle_connection(conn).await.map_err(|e| AcceptError::from(std::io::Error::other(e)))
++        self.handle_connection(conn)
++            .await
++            .map_err(|e| AcceptError::from(std::io::Error::other(e)))
+     }
+ 
+     async fn shutdown(&self) {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/form.rs:5:
+ 
+ use bytes::Bytes;
+ use futures_lite::Stream;
+-use iroh_blobs::{
+-    api::proto::ImportMode,
+-    Hash,
+-};
++use iroh_blobs::{api::proto::ImportMode, Hash};
+ use serde::{Deserialize, Serialize};
+ use tokio::io::AsyncRead;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/form.rs:41:
+ }
+ 
+ impl PayloadForm {
+-    pub async fn submit(
+-        self,
+-        store: &iroh_blobs::api::Store,
+-    ) -> anyhow::Result<(Hash, u64)> {
++    pub async fn submit(self, store: &iroh_blobs::api::Store) -> anyhow::Result<(Hash, u64)> {
+         let blobs = store.blobs();
+         let (hash, len) = match self {
+             PayloadForm::Hash(digest) => {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/net.rs:482:
+         let start = Instant::now();
+         let mut expected_entries = BTreeSet::new();
+ 
+-        let handle_alfie = ActorHandle::spawn_memory(iroh_blobs::store::mem::MemStore::default().into(), node_id_alfie);
+-        let handle_betty = ActorHandle::spawn_memory(iroh_blobs::store::mem::MemStore::default().into(), node_id_betty);
++        let handle_alfie = ActorHandle::spawn_memory(
++            iroh_blobs::store::mem::MemStore::default().into(),
++            node_id_alfie,
++        );
++        let handle_betty = ActorHandle::spawn_memory(
++            iroh_blobs::store::mem::MemStore::default().into(),
++            node_id_betty,
++        );
+ 
+         let user_alfie = handle_alfie.create_user().await?;
+         let user_betty = handle_betty.create_user().await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/net.rs:618:
+         let (ep_alfie, node_id_alfie, _) = create_endpoint(&mut rng, &disco).await?;
+         let (ep_betty, node_id_betty, addr_betty) = create_endpoint(&mut rng, &disco).await?;
+ 
+-        let handle_alfie = ActorHandle::spawn_memory(iroh_blobs::store::mem::MemStore::default().into(), node_id_alfie);
+-        let handle_betty = ActorHandle::spawn_memory(iroh_blobs::store::mem::MemStore::default().into(), node_id_betty);
++        let handle_alfie = ActorHandle::spawn_memory(
++            iroh_blobs::store::mem::MemStore::default().into(),
++            node_id_alfie,
++        );
++        let handle_betty = ActorHandle::spawn_memory(
++            iroh_blobs::store::mem::MemStore::default().into(),
++            node_id_betty,
++        );
+ 
+         let user_alfie = handle_alfie.create_user().await?;
+         let user_betty = handle_betty.create_user().await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/proto/wgps/challenge.rs:32:
+             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+                 write!(f, "32 bytes")
+             }
+-            fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<ChallengeHash, A::Error> {
++            fn visit_seq<A: serde::de::SeqAccess<'de>>(
++                self,
++                mut seq: A,
++            ) -> Result<ChallengeHash, A::Error> {
+                 let mut bytes = [0u8; 32];
+                 for (i, byte) in bytes.iter_mut().enumerate() {
+-                    *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
++                    *byte = seq
++                        .next_element()?
++                        .ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                 }
+                 Ok(ChallengeHash(bytes))
+             }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/proto/wgps/fingerprint.rs:47:
+             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+                 write!(f, "32 bytes")
+             }
+-            fn visit_seq<A: serde::de::SeqAccess<'de>>(self, mut seq: A) -> Result<Fingerprint, A::Error> {
++            fn visit_seq<A: serde::de::SeqAccess<'de>>(
++                self,
++                mut seq: A,
++            ) -> Result<Fingerprint, A::Error> {
+                 let mut bytes = [0u8; 32];
+                 for (i, byte) in bytes.iter_mut().enumerate() {
+-                    *byte = seq.next_element()?.ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
++                    *byte = seq
++                        .next_element()?
++                        .ok_or_else(|| serde::de::Error::invalid_length(i, &self))?;
+                 }
+                 Ok(Fingerprint(bytes))
+             }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:55:
+     /// Create a new namespace in the Willow store.
+     pub async fn create(&self, kind: NamespaceKind, owner: UserId) -> Result<Space> {
+         let req = CreateNamespaceRequest { kind, owner };
+-        let res = self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        let res = self
++            .rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(Space::new(self.rpc.clone(), res.0))
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:62:
+     /// Create a new user in the Willow store.
+     pub async fn create_user(&self) -> Result<UserId> {
+         let req = CreateUserRequest;
+-        let res: RpcResult<CreateUserResponse> = self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))?;
++        let res: RpcResult<CreateUserResponse> = self
++            .rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))?;
+         let res = res?;
+         Ok(res.0)
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:79:
+             access_mode,
+             to,
+         };
+-        let res = self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        let res = self
++            .rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(res.0)
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:86:
+     /// Import capabilities.
+     pub async fn import_caps(&self, caps: Vec<CapabilityPack>) -> Result<()> {
+         let req = ImportCapsRequest { caps };
+-        self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        self.rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(())
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:122:
+     /// Synchronize with a peer.
+     pub async fn sync_with_peer(&self, peer: EndpointId, init: SessionInit) -> Result<SyncHandle> {
+         let req = SyncWithPeerRequest { peer, init };
+-        let (update_tx, mut event_rx) = self.rpc.bidi_streaming(req, 32, 32).await
++        let (update_tx, mut event_rx) = self
++            .rpc
++            .bidi_streaming(req, 32, 32)
++            .await
+             .map_err(|e| anyhow::anyhow!("{e}"))?;
+ 
+         let (mapped_tx, mapped_rx) = tokio::sync::mpsc::channel(32);
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:142:
+             }
+         });
+ 
+-        let event_rx: EventReceiver = Box::pin(tokio_stream::wrappers::ReceiverStream::new(mapped_rx));
++        let event_rx: EventReceiver =
++            Box::pin(tokio_stream::wrappers::ReceiverStream::new(mapped_rx));
+ 
+-        let (mapped_update_tx, mut mapped_update_rx) = tokio::sync::mpsc::channel::<IntentUpdate>(32);
++        let (mapped_update_tx, mut mapped_update_rx) =
++            tokio::sync::mpsc::channel::<IntentUpdate>(32);
+         tokio::task::spawn(async move {
+             while let Some(update) = mapped_update_rx.recv().await {
+                 if update_tx.send(SyncWithPeerUpdate(update)).await.is_err() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:153:
+             }
+         });
+ 
+-        let update_tx: UpdateSender = Box::pin(futures_util::sink::unfold(mapped_update_tx, |tx, item| async move {
+-            tx.send(item).await.map_err(|e| anyhow::anyhow!("{e}"))?;
+-            Ok(tx)
+-        }));
++        let update_tx: UpdateSender = Box::pin(futures_util::sink::unfold(
++            mapped_update_tx,
++            |tx, item| async move {
++                tx.send(item).await.map_err(|e| anyhow::anyhow!("{e}"))?;
++                Ok(tx)
++            },
++        ));
+ 
+         Ok(SyncHandle::new(update_tx, event_rx, Default::default()))
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:166:
+         let req = InsertSecretRequest {
+             secret: secret.into(),
+         };
+-        self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        self.rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(())
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:173:
+     /// Fetches the [`EndpointAddr`] for this endpoint.
+     pub async fn addr(&self) -> Result<EndpointAddr> {
+-        let addr = self.rpc.rpc(AddrRequest).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        let addr = self
++            .rpc
++            .rpc(AddrRequest)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(addr)
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:179:
+     /// Adds a known endpoint address.
+     pub async fn add_addr(&self, addr: EndpointAddr) -> Result<()> {
+-        self.rpc.rpc(AddAddrRequest { addr }).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        self.rpc
++            .rpc(AddAddrRequest { addr })
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(())
+     }
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:196:
+     }
+ 
+     fn spaces(&self) -> Client {
+-        Client { rpc: self.rpc.clone() }
++        Client {
++            rpc: self.rpc.clone(),
++        }
+     }
+ 
+     /// Returns the identifier for this space.
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:214:
+         };
+         let auth = entry.auth;
+         let req = InsertEntryRequest { entry: form, auth };
+-        let res = self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        let res = self
++            .rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(res)
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:231:
+         entry: EntryForm,
+         payload: impl Into<Bytes>,
+     ) -> Result<InsertEntrySuccess> {
+-        let tag = blobs
+-            .blobs()
+-            .add_bytes(payload.into())
+-            .temp_tag()
+-            .await?;
++        let tag = blobs.blobs().add_bytes(payload.into()).temp_tag().await?;
+         self.insert_hash(entry, tag.hash()).await
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:242:
+     /// Ingest an authorised entry.
+     pub async fn ingest(&self, authorised_entry: AuthorisedEntry) -> Result<()> {
+         let req = IngestEntryRequest { authorised_entry };
+-        self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        self.rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(())
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:257:
+             subspace,
+             path,
+         };
+-        let entry = self.rpc.rpc(req).await.map_err(|e| anyhow::anyhow!("{e}"))??;
++        let entry = self
++            .rpc
++            .rpc(req)
++            .await
++            .map_err(|e| anyhow::anyhow!("{e}"))??;
+         Ok(entry.0.map(Into::into))
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:270:
+             namespace: self.namespace_id,
+             range,
+         };
+-        let rx = self.rpc.server_streaming(req, 64).await
++        let rx = self
++            .rpc
++            .server_streaming(req, 64)
++            .await
+             .map_err(|e| anyhow::anyhow!("{e}"))?;
+-        Ok(rx.into_stream()
+-            .map(|res| match res {
+-                Ok(Ok(r)) => Ok(r.0),
+-                Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
+-                Err(e) => Err(anyhow::anyhow!("{e}")),
+-            }))
++        Ok(rx.into_stream().map(|res| match res {
++            Ok(Ok(r)) => Ok(r.0),
++            Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
++            Err(e) => Err(anyhow::anyhow!("{e}")),
++        }))
+     }
+ 
+     /// Syncs with a peer and quit the session after a single reconciliation.
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:338:
+             params,
+             initial_progress_id: None,
+         };
+-        let rx = self.rpc.server_streaming(req, 1024).await
++        let rx = self
++            .rpc
++            .server_streaming(req, 1024)
++            .await
+             .map_err(|e| anyhow::anyhow!("{e}"))?;
+-        let stream = rx.into_stream()
+-            .map(|item| match item {
+-                Ok(Ok(event)) => Ok(event),
+-                Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
+-                Err(e) => Err(anyhow::anyhow!("{e}")),
+-            });
++        let stream = rx.into_stream().map(|item| match item {
++            Ok(Ok(event)) => Ok(event),
++            Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
++            Err(e) => Err(anyhow::anyhow!("{e}")),
++        });
+         Ok(stream)
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:362:
+             params,
+             initial_progress_id: Some(progress_id),
+         };
+-        let rx = self.rpc.server_streaming(req, 1024).await
++        let rx = self
++            .rpc
++            .server_streaming(req, 1024)
++            .await
+             .map_err(|e| anyhow::anyhow!("{e}"))?;
+-        let stream = rx.into_stream()
+-            .map(|item| match item {
+-                Ok(Ok(event)) => Ok(event),
+-                Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
+-                Err(e) => Err(anyhow::anyhow!("{e}")),
+-            });
++        let stream = rx.into_stream().map(|item| match item {
++            Ok(Ok(event)) => Ok(event),
++            Ok(Err(e)) => Err(anyhow::anyhow!("{e}")),
++            Err(e) => Err(anyhow::anyhow!("{e}")),
++        });
+         Ok(stream)
+     }
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:392:
+ }
+ 
+ /// Sends updates into a reconciliation intent.
+-pub type UpdateSender = Pin<Box<dyn futures_util::Sink<IntentUpdate, Error = anyhow::Error> + Send + 'static>>;
++pub type UpdateSender =
++    Pin<Box<dyn futures_util::Sink<IntentUpdate, Error = anyhow::Error> + Send + 'static>>;
+ 
+ /// Receives events for a reconciliation intent.
+ pub type EventReceiver = Pin<Box<dyn Stream<Item = Event> + Send + 'static>>;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/client.rs:498:
+ 
+ impl SyncHandleSet {
+     /// Add a sync intent to the set.
+-    pub fn insert(&mut self, peer: EndpointId, handle: SyncHandle) -> Result<(), IntentExistsError> {
++    pub fn insert(
++        &mut self,
++        peer: EndpointId,
++        handle: SyncHandle,
++    ) -> Result<(), IntentExistsError> {
+         if let std::collections::hash_map::Entry::Vacant(e) = self.intents.entry(peer) {
+             let SyncHandle {
+                 update_tx,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/handler.rs:147:
+             let WithChannels { tx, rx, inner, .. } = msg;
+             let (events_tx, mut events_rx) = tokio::sync::mpsc::channel(32);
+             tokio::task::spawn(async move {
+-                if let Err(err) =
+-                    sync_with_peer(&engine, inner, events_tx.clone(), rx).await
+-                {
++                if let Err(err) = sync_with_peer(&engine, inner, events_tx.clone(), rx).await {
+                     let _ = events_tx.send(Err(RpcError::new(&*err))).await;
+                 }
+             });
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/rpc/proto.rs:1:
+ use iroh::{EndpointAddr, EndpointId};
+ use iroh_blobs::Hash;
+-use irpc::{channel::{mpsc, oneshot}, rpc_requests};
++use irpc::{
++    channel::{mpsc, oneshot},
++    rpc_requests,
++};
+ use serde::{Deserialize, Serialize};
+ 
+ use crate::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/session/intents.rs:192:
+ pub struct SendError<T>(pub T);
+ 
+ impl IntentHandle {
+-    pub fn new(
+-        update_tx: UpdateSender,
+-        event_rx: EventReceiver,
+-    ) -> Self {
++    pub fn new(update_tx: UpdateSender, event_rx: EventReceiver) -> Self {
+         Self {
+             update_tx,
+             event_rx,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/session/payload.rs:27:
+ ) -> Result<bool, Error> {
+     let hash: Hash = digest.into();
+     let blobs = payload_store.blobs();
+-    let status = blobs.status(hash).await.map_err(|e| Error::PayloadStore(io::Error::other(e.to_string())))?;
++    let status = blobs
++        .status(hash)
++        .await
++        .map_err(|e| Error::PayloadStore(io::Error::other(e.to_string())))?;
+     let size = match status {
+         iroh_blobs::api::blobs::BlobStatus::Complete { size } => size,
+         _ => return Ok(false),
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/session/payload.rs:34:
+     };
+ 
+     // Export the blob data as a single byte range and send as chunks
+-    let data = blobs.export_ranges(hash, offset..size)
++    let data = blobs
++        .export_ranges(hash, offset..size)
+         .concatenate()
+         .await
+         .map_err(|e| Error::PayloadStore(io::Error::other(e.to_string())))?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/session/payload.rs:112:
+             let fut = async move {
+                 // Use the blobs API to import the data by collecting chunks
+                 let stream = tokio_stream::wrappers::ReceiverStream::new(rx);
+-                let _temp_tag = store.blobs().add_stream(stream).await.temp_tag().await
++                let _temp_tag = store
++                    .blobs()
++                    .add_stream(stream)
++                    .await
++                    .temp_tag()
++                    .await
+                     .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
+                 // Verify hash matches
+                 if _temp_tag.hash() != hash {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/src/session/payload.rs:124:
+                 Ok(())
+             };
+             let task = tokio::task::spawn_local(fut);
+-            PayloadWriter {
+-                task,
+-                sender: tx,
+-            }
++            PayloadWriter { task, sender: tx }
+         });
+         writer.sender.send(Ok(chunk)).await?;
+         state.received_length += len as u64;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/tests/basic.rs:285:
+     let mut rng = create_rng("read_back_write");
+ 
+     let disco = iroh::address_lookup::memory::MemoryLookup::new();
+-    let alfie = Peer::spawn(util::generate_secret_key(&mut rng), Default::default(), disco).await?;
++    let alfie = Peer::spawn(
++        util::generate_secret_key(&mut rng),
++        Default::default(),
++        disco,
++    )
++    .await?;
+ 
+     let user_alfie = alfie.create_user().await?;
+     let namespace_id = alfie
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-willow/tests/basic.rs:487:
+ 
+     pub async fn spawn_two(mut rng: &mut impl CryptoRngCore) -> Result<[Peer; 2]> {
+         let disco = iroh::address_lookup::memory::MemoryLookup::new();
+-        let peers = [
+-            generate_secret_key(&mut rng),
+-            generate_secret_key(&mut rng),
+-        ]
+-        .map(|secret_key| Peer::spawn(secret_key, Default::default(), disco.clone()))
+-        .try_join()
+-        .await?;
++        let peers = [generate_secret_key(&mut rng), generate_secret_key(&mut rng)]
++            .map(|secret_key| Peer::spawn(secret_key, Default::default(), disco.clone()))
++            .try_join()
++            .await?;
+ 
+         disco.add_endpoint_info(peers[0].endpoint.addr());
+         disco.add_endpoint_info(peers[1].endpoint.addr());
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/bench/src/bin/bulk.rs:5:
+ };
+ 
+ use anyhow::{Context, Result};
+-use clap::Parser;
+-use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-use tokio::sync::Semaphore;
+-use tracing::{info, trace};
+-
+ use bench::{
+     Opt, configure_tracing_subscriber, connect_client, drain_stream, rt, send_data_on_stream,
+     server_endpoint,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/bench/src/bin/bulk.rs:16:
+     stats::{Stats, TransferResult},
+ };
++use clap::Parser;
++use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
++use tokio::sync::Semaphore;
++use tracing::{info, trace};
+ 
+ fn main() {
+     let opt = Opt::parse();
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/fuzz/fuzz_targets/streams.rs:5:
+ use libfuzzer_sys::fuzz_target;
+ 
+ extern crate proto;
+-use proto::fuzzing::{ConnectionState, ResetStream, Retransmits, StreamsState};
+-use proto::{Dir, Side, StreamId, VarInt};
+-use proto::{SendStream, Streams};
++use proto::{
++    Dir, SendStream, Side, StreamId, Streams, VarInt,
++    fuzzing::{ConnectionState, ResetStream, Retransmits, StreamsState},
++};
+ 
+ #[derive(Arbitrary, Debug)]
+ struct StreamParams {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/perf/src/bin/perf.rs:1:
+ use clap::{Parser, Subcommand};
++use perf::{client, server};
+ use tracing::error;
+ use tracing_subscriber::{EnvFilter, Layer, fmt, layer::SubscriberExt, util::SubscriberInitExt};
+-
+-use perf::{client, server};
+ 
+ #[tokio::main(flavor = "current_thread")]
+ async fn main() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/perf/src/noprotection.rs:1:
+ use std::sync::Arc;
+ 
+ use bytes::BytesMut;
+-
+ use quinn_proto::{
+     ConnectionId, PathId, Side, TransportError,
+     crypto::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/perf/src/stats.rs:1:
++use std::{
++    sync::{
++        Arc, Mutex,
++        atomic::{AtomicBool, AtomicU64, AtomicUsize, Ordering},
++    },
++    time::{Duration, Instant, SystemTime},
++};
++
+ use hdrhistogram::Histogram;
+ use quinn::StreamId;
+-use std::sync::atomic::{AtomicBool, AtomicU64, AtomicUsize, Ordering};
+-use std::sync::{Arc, Mutex};
+-use std::time::{Duration, Instant, SystemTime};
+ #[cfg(feature = "json-output")]
+ use {std::fs::File, std::io, std::path::Path};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/perf/src/stats.rs:245:
+ 
+ #[cfg(feature = "json-output")]
+ mod json {
+-    use crate::stats;
+-    use crate::stats::{Stats, StreamIntervalStats};
++    use std::{
++        io::Write,
++        time::{SystemTime, UNIX_EPOCH},
++    };
++
+     use quinn::StreamId;
+     use serde::{self, Serialize, Serializer, ser::SerializeStruct};
+-    use std::io::Write;
+-    use std::time::{SystemTime, UNIX_EPOCH};
++
++    use crate::{
++        stats,
++        stats::{Stats, StreamIntervalStats},
++    };
+ 
+     pub(crate) fn print<W: Write>(stats: &Stats, out: W) {
+         let report = Report {
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:1:
+-use std::fs;
+-use std::io::{self, Read, Write as _};
+-use std::path::PathBuf;
++use std::{
++    fs,
++    io::{self, Read, Write as _},
++    path::PathBuf,
++};
+ 
+-use anyhow::{Context, Result, bail};
++use anyhow::{bail, Context, Result};
+ use bytes::Bytes;
+ use clap::{Parser, Subcommand};
++use cyber_bao::{
++    hash::Poseidon2Backend,
++    io::{decode, encode, outboard},
++    tree::BlockSize,
++};
+ use futures_lite::StreamExt;
+-use iroh::{Endpoint, RelayMode, SecretKey};
+-use iroh::protocol::Router;
+-use iroh_blobs::{BlobsProtocol, Hash, store::mem::MemStore};
+-use iroh_gossip::net::{Gossip, GOSSIP_ALPN};
+-use iroh_gossip::proto::TopicId;
++use iroh::{protocol::Router, Endpoint, RelayMode, SecretKey};
++use iroh_blobs::{store::mem::MemStore, BlobsProtocol, Hash};
++use iroh_gossip::{
++    net::{Gossip, GOSSIP_ALPN},
++    proto::TopicId,
++};
+ 
+-use cyber_bao::hash::Poseidon2Backend;
+-use cyber_bao::io::{decode, encode, outboard};
+-use cyber_bao::tree::BlockSize;
+-
+ #[derive(Parser)]
+ #[command(name = "radio", about = "Radio network CLI", version)]
+ struct Cli {
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:140:
+ 
+     match cli.command {
+         Commands::Hash { action } => cmd_hash(action),
+-        Commands::Node { action } => {
+-            tokio::runtime::Builder::new_multi_thread()
+-                .enable_all()
+-                .build()?
+-                .block_on(cmd_node(action))
+-        }
+-        Commands::Blob { action } => {
+-            tokio::runtime::Builder::new_multi_thread()
+-                .enable_all()
+-                .build()?
+-                .block_on(cmd_blob(action))
+-        }
+-        Commands::Gossip { action } => {
+-            tokio::runtime::Builder::new_multi_thread()
+-                .enable_all()
+-                .build()?
+-                .block_on(cmd_gossip(action))
+-        }
++        Commands::Node { action } => tokio::runtime::Builder::new_multi_thread()
++            .enable_all()
++            .build()?
++            .block_on(cmd_node(action)),
++        Commands::Blob { action } => tokio::runtime::Builder::new_multi_thread()
++            .enable_all()
++            .build()?
++            .block_on(cmd_blob(action)),
++        Commands::Gossip { action } => tokio::runtime::Builder::new_multi_thread()
++            .enable_all()
++            .build()?
++            .block_on(cmd_gossip(action)),
+     }
+ }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:173:
+                 println!("{h}");
+             } else {
+                 for path in &files {
+-                    let data = fs::read(path)
+-                        .with_context(|| format!("reading {}", path.display()))?;
++                    let data =
++                        fs::read(path).with_context(|| format!("reading {}", path.display()))?;
+                     let h = hemera::hash(&data);
+                     if files.len() > 1 {
+                         println!("{h}  {}", path.display());
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:185:
+             }
+         }
+         HashAction::Verify { file, hash } => {
+-            let data = fs::read(&file)
+-                .with_context(|| format!("reading {}", file.display()))?;
++            let data = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
+             let expected = parse_poseidon_hash(&hash)?;
+             let backend = Poseidon2Backend;
+             let ob = outboard::outboard(&backend, &data, BlockSize::ZERO);
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:200:
+             }
+         }
+         HashAction::BaoEncode { file } => {
+-            let data = fs::read(&file)
+-                .with_context(|| format!("reading {}", file.display()))?;
++            let data = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
+             let backend = Poseidon2Backend;
+             let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+             io::stdout().write_all(&encoded)?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:209:
+             eprintln!("encoded size: {} bytes", encoded.len());
+         }
+         HashAction::BaoDecode { file, hash } => {
+-            let encoded = fs::read(&file)
+-                .with_context(|| format!("reading {}", file.display()))?;
++            let encoded = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
+             let root = parse_poseidon_hash(&hash)?;
+             let backend = Poseidon2Backend;
+             match decode::decode(&backend, &encoded, &root, BlockSize::ZERO) {
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:225:
+             }
+         }
+         HashAction::Outboard { file } => {
+-            let data = fs::read(&file)
+-                .with_context(|| format!("reading {}", file.display()))?;
++            let data = fs::read(&file).with_context(|| format!("reading {}", file.display()))?;
+             let backend = Poseidon2Backend;
+             let ob = outboard::outboard(&backend, &data, BlockSize::ZERO);
+             println!("root hash:      {}", ob.root);
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:241:
+ fn parse_poseidon_hash(hex: &str) -> Result<hemera::Hash> {
+     let bytes = hex_to_bytes(hex).context("invalid hex hash")?;
+     if bytes.len() != 32 {
+-        bail!("hash must be 32 bytes (64 hex chars), got {} bytes", bytes.len());
++        bail!(
++            "hash must be 32 bytes (64 hex chars), got {} bytes",
++            bytes.len()
++        );
+     }
+     let mut arr = [0u8; 32];
+     arr.copy_from_slice(&bytes);
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:266:
+     match action {
+         NodeAction::Id => {
+             let secret_key = SecretKey::generate(&mut rand::rng());
+-            println!("secret key:   {}", data_encoding::HEXLOWER.encode(&secret_key.to_bytes()));
++            println!(
++                "secret key:   {}",
++                data_encoding::HEXLOWER.encode(&secret_key.to_bytes())
++            );
+             println!("endpoint id:  {}", secret_key.public());
+         }
+         NodeAction::Start => {
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:275:
+                 Err(_) => {
+                     let sk = SecretKey::generate(&mut rand::rng());
+                     eprintln!("generated new secret key (set RADIO_SECRET to reuse):");
+-                    eprintln!("  RADIO_SECRET={}", data_encoding::HEXLOWER.encode(&sk.to_bytes()));
++                    eprintln!(
++                        "  RADIO_SECRET={}",
++                        data_encoding::HEXLOWER.encode(&sk.to_bytes())
++                    );
+                     sk
+                 }
+             };
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:326:
+                 .accept(iroh_blobs::ALPN, blobs)
+                 .spawn();
+ 
+-            let tag = store.blobs().add_path(&path).await
++            let tag = store
++                .blobs()
++                .add_path(&path)
++                .await
+                 .with_context(|| format!("importing {}", path.display()))?;
+             println!("{}", tag.hash);
+         }
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:353:
+             store.remote().fetch(conn, blob_hash).await?;
+ 
+             let data = store.blobs().get_bytes(blob_hash).await?;
+-            fs::write(&out, &data)
+-                .with_context(|| format!("writing {}", out.display()))?;
++            fs::write(&out, &data).with_context(|| format!("writing {}", out.display()))?;
+             println!("downloaded {} bytes to {}", data.len(), out.display());
+         }
+         BlobAction::List => {
+Diff in /private/tmp/radio-bao-proof-parent-b933/radio-cli/src/main.rs:363:
+             let mut count = 0u64;
+             while let Some(item) = stream.next().await {
+                 let info = item?;
+-                println!("{}  {:?}  {}", info.hash, info.format, String::from_utf8_lossy(info.name.as_ref()));
++                println!(
++                    "{}  {:?}  {}",
++                    info.hash,
++                    info.format,
++                    String::from_utf8_lossy(info.name.as_ref())
++                );
+                 count += 1;
+             }
+             if count == 0 {
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/blob_transfer.rs:1:
+ use anyhow::Result;
+-use radio_integration_tests::{init_tracing, spawn_pair, spawn_nodes, test_rng};
++use radio_integration_tests::{init_tracing, spawn_nodes, spawn_pair, test_rng};
+ 
+ #[tokio::test]
+ async fn blob_add_and_fetch_small() -> Result<()> {
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/blob_transfer.rs:163:
+         .connect(nodes[0].addr(), iroh_blobs::ALPN)
+         .await?;
+     nodes[1].store.remote().fetch(conn1, tt.hash).await?;
+-    assert_eq!(nodes[1].store.get_bytes(tt.hash).await?.as_ref(), data.as_ref());
++    assert_eq!(
++        nodes[1].store.get_bytes(tt.hash).await?.as_ref(),
++        data.as_ref()
++    );
+ 
+     // Node 2 fetches from node 0
+     let conn2 = nodes[2]
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/blob_transfer.rs:172:
+         .connect(nodes[0].addr(), iroh_blobs::ALPN)
+         .await?;
+     nodes[2].store.remote().fetch(conn2, tt.hash).await?;
+-    assert_eq!(nodes[2].store.get_bytes(tt.hash).await?.as_ref(), data.as_ref());
++    assert_eq!(
++        nodes[2].store.get_bytes(tt.hash).await?.as_ref(),
++        data.as_ref()
++    );
+ 
+     for node in nodes {
+         node.shutdown().await?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/doc_sync.rs:80:
+     wait_for_content_ready(&mut events_a, hash_b, Duration::from_secs(30)).await?;
+ 
+     // Verify both entries exist on both nodes
+-    let entry_a_on_b = doc_b
+-        .get_exact(author_a, b"from_a".to_vec(), false)
+-        .await?;
++    let entry_a_on_b = doc_b.get_exact(author_a, b"from_a".to_vec(), false).await?;
+     assert!(entry_a_on_b.is_some());
+ 
+-    let entry_b_on_a = doc_a
+-        .get_exact(author_b, b"from_b".to_vec(), false)
+-        .await?;
++    let entry_b_on_a = doc_a.get_exact(author_b, b"from_b".to_vec(), false).await?;
+     assert!(entry_b_on_a.is_some());
+ 
+     tokio::try_join!(node_a.shutdown(), node_b.shutdown())?;
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/full_pipeline.rs:27:
+ 
+     // set_bytes stores the value and creates an entry whose content_hash is the hash of the value
+     let entry_hash = doc_a
+-        .set_bytes(
+-            author_a,
+-            b"pinned-file".to_vec(),
+-            blob_data.to_vec(),
+-        )
++        .set_bytes(author_a, b"pinned-file".to_vec(), blob_data.to_vec())
+         .await?;
+     // The hash from set_bytes is the content hash (BAO root of the value bytes)
+     assert_eq!(entry_hash, blob_hash);
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:12:
+     let mut rng = test_rng(b"gossip_two");
+     let (node_a, node_b) = spawn_pair(&mut rng).await?;
+ 
+-    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-two-nodes").as_bytes()[..32].try_into().unwrap();
++    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-two-nodes").as_bytes()[..32]
++        .try_into()
++        .unwrap();
+     let topic: iroh_gossip::TopicId = hash_bytes.into();
+ 
+     // Both nodes subscribe without blocking; node B bootstraps off node A
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:56:
+     let mut rng = test_rng(b"gossip_fan_out");
+     let nodes = spawn_nodes(3, &mut rng).await?;
+ 
+-    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-fan-out").as_bytes()[..32].try_into().unwrap();
++    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-fan-out").as_bytes()[..32]
++        .try_into()
++        .unwrap();
+     let topic: iroh_gossip::TopicId = hash_bytes.into();
+ 
+     // All subscribe; nodes 1 and 2 bootstrap off node 0
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:112:
+     let mut rng = test_rng(b"gossip_bidir");
+     let (node_a, node_b) = spawn_pair(&mut rng).await?;
+ 
+-    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-bidir").as_bytes()[..32].try_into().unwrap();
++    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-bidir").as_bytes()[..32]
++        .try_into()
++        .unwrap();
+     let topic: iroh_gossip::TopicId = hash_bytes.into();
+ 
+     // Both subscribe; node B bootstraps off node A
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:160:
+     let mut rng = test_rng(b"gossip_multihop");
+     let nodes = spawn_nodes(4, &mut rng).await?;
+ 
+-    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-multihop").as_bytes()[..32].try_into().unwrap();
++    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-multihop").as_bytes()[..32]
++        .try_into()
++        .unwrap();
+     let topic: iroh_gossip::TopicId = hash_bytes.into();
+ 
+     // Chain bootstrap: 0 bootstraps 1, 1 bootstraps 2, 2 bootstraps 3. Node 3
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:174:
+     // that forbids the direct edge (network isolation, not just bootstrap
+     // order); that is a follow-up on launch row 21.
+     let sub0 = nodes[0].gossip.subscribe(topic, vec![]).await?;
+-    let sub1 = nodes[1].gossip.subscribe(topic, vec![nodes[0].id()]).await?;
+-    let sub2 = nodes[2].gossip.subscribe(topic, vec![nodes[1].id()]).await?;
+-    let sub3 = nodes[3].gossip.subscribe(topic, vec![nodes[2].id()]).await?;
++    let sub1 = nodes[1]
++        .gossip
++        .subscribe(topic, vec![nodes[0].id()])
++        .await?;
++    let sub2 = nodes[2]
++        .gossip
++        .subscribe(topic, vec![nodes[1].id()])
++        .await?;
++    let sub3 = nodes[3]
++        .gossip
++        .subscribe(topic, vec![nodes[2].id()])
++        .await?;
+ 
+     let (sender0, _recv0) = sub0.split();
+     let (_sender1, mut recv1) = sub1.split();
+Diff in /private/tmp/radio-bao-proof-parent-b933/tests/integration/tests/gossip_broadcast.rs:225:
+ 
+ // --- Helpers ---
+ 
+-async fn wait_for_received(
+-    receiver: &mut GossipReceiver,
+-    timeout: Duration,
+-) -> Result<Bytes> {
++async fn wait_for_received(receiver: &mut GossipReceiver, timeout: Duration) -> Result<Bytes> {
+     let deadline = tokio::time::Instant::now() + timeout;
+     loop {
+         let item = tokio::time::timeout_at(deadline, receiver.next())
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:4:
+ //! and verifies every hash against the trusted root. Invalid data is
+ //! rejected immediately.
+ 
+-use crate::hash::HashBackend;
+-use crate::tree::{BaoChunk, BaoTree, BlockSize};
++use crate::{
++    hash::HashBackend,
++    tree::{BaoChunk, BaoTree, BlockSize},
++};
+ 
+ /// Error during decoding / verification.
+ #[derive(Debug, Clone, PartialEq, Eq)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:135:
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+-    use crate::hash::Poseidon2Backend;
+-    use crate::io::encode;
+-    use crate::tree::CHUNK_SIZE;
++    use crate::{hash::Poseidon2Backend, io::encode, tree::CHUNK_SIZE};
+ 
+     #[test]
+     fn decode_single_block() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:219:
+     #[test]
+     fn roundtrip_various_sizes() {
+         let backend = Poseidon2Backend;
+-        for size in [0, 1, 512, CHUNK_SIZE, CHUNK_SIZE + 1, CHUNK_SIZE * 2, CHUNK_SIZE * 3 - 1000, CHUNK_SIZE * 4, CHUNK_SIZE * 5 - 1000, CHUNK_SIZE * 8] {
++        for size in [
++            0,
++            1,
++            512,
++            CHUNK_SIZE,
++            CHUNK_SIZE + 1,
++            CHUNK_SIZE * 2,
++            CHUNK_SIZE * 3 - 1000,
++            CHUNK_SIZE * 4,
++            CHUNK_SIZE * 5 - 1000,
++            CHUNK_SIZE * 8,
++        ] {
+             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
+             let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+             let decoded = decode(&backend, &encoded, &root, BlockSize::ZERO).unwrap();
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:231:
+     fn roundtrip_block_size_nonzero() {
+         let backend = Poseidon2Backend;
+         let bs = BlockSize::from_chunk_log(1); // 2KB blocks
+-        for size in [0, CHUNK_SIZE, CHUNK_SIZE * 2, CHUNK_SIZE * 3 - 1000, CHUNK_SIZE * 4, CHUNK_SIZE * 8, CHUNK_SIZE * 10] {
++        for size in [
++            0,
++            CHUNK_SIZE,
++            CHUNK_SIZE * 2,
++            CHUNK_SIZE * 3 - 1000,
++            CHUNK_SIZE * 4,
++            CHUNK_SIZE * 8,
++            CHUNK_SIZE * 10,
++        ] {
+             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
+             let (root, encoded) = encode::encode(&backend, &data, bs);
+             let decoded = decode(&backend, &encoded, &root, bs).unwrap();
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:238:
+-            assert_eq!(decoded, data, "roundtrip failed for size {size} with BlockSize(1)");
++            assert_eq!(
++                decoded, data,
++                "roundtrip failed for size {size} with BlockSize(1)"
++            );
+         }
+     }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:243:
+     fn roundtrip_block_size_default() {
+         let backend = Poseidon2Backend;
+         let bs = BlockSize::DEFAULT; // 16KiB blocks
+-        for size in [0, CHUNK_SIZE, CHUNK_SIZE * 4, CHUNK_SIZE * 8, CHUNK_SIZE * 12] {
++        for size in [
++            0,
++            CHUNK_SIZE,
++            CHUNK_SIZE * 4,
++            CHUNK_SIZE * 8,
++            CHUNK_SIZE * 12,
++        ] {
+             let data: Vec<u8> = (0..size).map(|i| (i % 256) as u8).collect();
+             let (root, encoded) = encode::encode(&backend, &data, bs);
+             let decoded = decode(&backend, &encoded, &root, bs).unwrap();
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/decode.rs:250:
+-            assert_eq!(decoded, data, "roundtrip failed for size {size} with BlockSize::DEFAULT");
++            assert_eq!(
++                decoded, data,
++                "roundtrip failed for size {size} with BlockSize::DEFAULT"
++            );
+         }
+     }
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/encode.rs:9:
+ //! Parent nodes appear before their children, so the decoder can verify
+ //! each piece as it arrives without buffering the entire file.
+ 
+-use crate::hash::HashBackend;
+-use crate::io::outboard;
+-use crate::tree::{BaoChunk, BlockSize, CHUNK_SIZE};
++use crate::{
++    hash::HashBackend,
++    io::outboard,
++    tree::{BaoChunk, BlockSize, CHUNK_SIZE},
++};
+ 
+ /// Encode data into the combined (pre-order) format.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/encode.rs:75:
+ 
+         // Header (8 bytes) + data (CHUNK_SIZE bytes), no parents
+         assert_eq!(encoded.len(), 8 + CHUNK_SIZE);
+-        assert_eq!(u64::from_le_bytes(encoded[..8].try_into().unwrap()), CHUNK_SIZE as u64);
++        assert_eq!(
++            u64::from_le_bytes(encoded[..8].try_into().unwrap()),
++            CHUNK_SIZE as u64
++        );
+         assert_eq!(&encoded[8..], &data[..]);
+         assert_eq!(root, backend.chunk_hash(&data, 0, true));
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/error.rs:107:
+     use std::{fmt, io};
+ 
+     use serde::{
+-        de::{self, Visitor},
+         Deserializer, Serializer,
++        de::{self, Visitor},
+     };
+ 
+     pub fn serialize<S>(error: &io::Error, serializer: S) -> Result<S::Ok, S::Error>
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:5:
+ 
+ use std::io;
+ 
++use hemera::OUTPUT_BYTES;
+ use smallvec::SmallVec;
+ 
+-use hemera::OUTPUT_BYTES;
++use crate::{
++    ChunkRanges,
++    hash::HashBackend,
++    io::{
++        content::{BaoContentItem, Leaf, Parent},
++        error::DecodeError,
++    },
++    tree::{BaoChunk, BaoTree, CHUNK_SIZE, ChunkNum, TreeNode},
++};
+ 
+-use crate::hash::HashBackend;
+-use crate::io::content::{BaoContentItem, Leaf, Parent};
+-use crate::io::error::DecodeError;
+-use crate::tree::{BaoChunk, BaoTree, ChunkNum, TreeNode, CHUNK_SIZE};
+-use crate::ChunkRanges;
+-
+ /// Size of a hash pair (two hashes concatenated).
+ const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:95:
+     /// Create a new decoder for the given root hash, ranges, tree, and reader.
+     ///
+     /// Only items matching the requested ranges will be read from the stream.
+-    pub fn new(
+-        hash: hemera::Hash,
+-        ranges: ChunkRanges,
+-        tree: BaoTree,
+-        encoded: R,
+-    ) -> Self {
++    pub fn new(hash: hemera::Hash, ranges: ChunkRanges, tree: BaoTree, encoded: R) -> Self {
+         let items = tree.pre_order_chunks_filtered(&ranges);
+         let mut stack = SmallVec::new();
+         stack.push(hash.clone());
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:140:
+         }
+     }
+ 
+-    async fn next0(
+-        &mut self,
+-    ) -> Option<Result<BaoContentItem<hemera::Hash>, DecodeError>> {
++    async fn next0(&mut self) -> Option<Result<BaoContentItem<hemera::Hash>, DecodeError>> {
+         let inner = &mut self.inner;
+         if inner.pos >= inner.items.len() {
+             // Final length validation: decoded bytes must not exceed tree size
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:162:
+         let block_bytes = inner.tree.block_size().bytes();
+ 
+         match chunk {
+-            BaoChunk::Parent { node, is_root, left: visit_left, right: visit_right } => {
++            BaoChunk::Parent {
++                node,
++                is_root,
++                left: visit_left,
++                right: visit_right,
++            } => {
+                 let pair_buf: [u8; PAIR_SIZE] = match inner.encoded.read().await {
+                     Ok(buf) => buf,
+                     Err(e) => return Some(Err(DecodeError::Io(e))),
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:169:
+                 };
+ 
+-                let left =
+-                    hemera::Hash::from_bytes(pair_buf[..OUTPUT_BYTES].try_into().unwrap());
+-                let right =
+-                    hemera::Hash::from_bytes(pair_buf[OUTPUT_BYTES..].try_into().unwrap());
++                let left = hemera::Hash::from_bytes(pair_buf[..OUTPUT_BYTES].try_into().unwrap());
++                let right = hemera::Hash::from_bytes(pair_buf[OUTPUT_BYTES..].try_into().unwrap());
+ 
+                 let computed = backend.parent_hash(&left, &right, is_root);
+                 let expected = match inner.stack.pop() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:214:
+                     Err(e) => return Some(Err(DecodeError::Io(e))),
+                 };
+ 
+-                let computed =
+-                    hash_block(&backend, &leaf_data, start_chunk, is_root, block_bytes);
++                let computed = hash_block(&backend, &leaf_data, start_chunk, is_root, block_bytes);
+                 let expected = match inner.stack.pop() {
+                     Some(h) => h,
+                     None => {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:243:
+ 
+ #[cfg(test)]
+ mod tests {
+-    use super::*;
+     use bytes::Bytes;
+-    use crate::hash::Poseidon2Backend;
+-    use crate::io::encode;
+-    use crate::tree::BlockSize;
+ 
++    use super::*;
++    use crate::{hash::Poseidon2Backend, io::encode, tree::BlockSize};
++
+     #[tokio::test]
+     async fn fsm_decode_two_blocks() {
+         let backend = Poseidon2Backend;
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:257:
+ 
+         let tree = BaoTree::new(CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
+         let encoded_bytes = Bytes::from(encoded[8..].to_vec());
+-        let decoder =
+-            ResponseDecoder::new(root, ChunkRanges::all(), tree, encoded_bytes);
++        let decoder = ResponseDecoder::new(root, ChunkRanges::all(), tree, encoded_bytes);
+ 
+         assert_eq!(decoder.tree(), tree);
+         assert_eq!(*decoder.hash(), root);
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/fsm.rs:291:
+         let ranges = ChunkRanges::from(ChunkNum(0)..ChunkNum(1));
+ 
+         // Build the encoded stream for just this range using sync encoder
+-        use crate::io::pre_order::PreOrderMemOutboard;
+-        use crate::io::sync::encode_ranges_validated;
++        use crate::io::{pre_order::PreOrderMemOutboard, sync::encode_ranges_validated};
+ 
+         let outboard = PreOrderMemOutboard::create(&data, BlockSize::ZERO);
+         let mut range_encoded = Vec::new();
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/mixed.rs:8:
+ 
+ use smallvec::SmallVec;
+ 
+-use crate::hash::HashBackend;
+-use crate::io::content::{Leaf, Parent};
+-use crate::io::error::EncodeError;
+-use crate::io::traits::{Outboard, ReadBytesAt};
+-use crate::tree::{BaoChunk, BaoTree, ChunkNum, CHUNK_SIZE};
+-use crate::ChunkRanges;
++use crate::{
++    ChunkRanges,
++    hash::HashBackend,
++    io::{
++        content::{Leaf, Parent},
++        error::EncodeError,
++        traits::{Outboard, ReadBytesAt},
++    },
++    tree::{BaoChunk, BaoTree, CHUNK_SIZE, ChunkNum},
++};
+ 
+ /// An item in the encoded BAO stream.
+ #[derive(Debug)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/mixed.rs:94:
+ 
+     for chunk in &pre_order {
+         match chunk {
+-            BaoChunk::Parent { node, is_root, left, right } => {
++            BaoChunk::Parent {
++                node,
++                is_root,
++                left,
++                right,
++            } => {
+                 let pair = match outboard.load(*node) {
+                     Ok(Some(pair)) => pair,
+                     Ok(None) => {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/mixed.rs:118:
+                     stack.push(pair.0.clone());
+                 }
+ 
+-                send.send(EncodedItem::Parent(Parent {
+-                    node: *node,
+-                    pair,
+-                }))
+-                .await?;
++                send.send(EncodedItem::Parent(Parent { node: *node, pair }))
++                    .await?;
+             }
+             BaoChunk::Leaf {
+                 start_chunk,
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/mixed.rs:136:
+                 };
+ 
+                 let chunk_num = ChunkNum(*start_chunk);
+-                let computed =
+-                    hash_block(&backend, &leaf_data, *start_chunk, *is_root, block_size.bytes());
++                let computed = hash_block(
++                    &backend,
++                    &leaf_data,
++                    *start_chunk,
++                    *is_root,
++                    block_size.bytes(),
++                );
+                 let expected = match stack.pop() {
+                     Some(h) => h,
+                     None => return Ok(Err(EncodeError::LeafHashMismatch(chunk_num))),
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/mod.rs:20:
+ // Re-export commonly used types at the io level.
+ pub use content::{BaoContentItem, Leaf, Parent};
+ pub use error::{DecodeError, EncodeError};
++use range_collections::range_set::RangeSetRange;
+ pub use traits::{Outboard, OutboardMut, ReadAt, ReadBytesAt, Size, WriteAt};
+ 
+-use range_collections::range_set::RangeSetRange;
+-
+-use crate::hash::{HashBackend, Poseidon2Backend};
+-use crate::tree::{BlockSize, ChunkNum, CHUNK_SIZE};
+-use crate::{ByteRanges, ChunkRanges};
++use crate::{
++    ByteRanges, ChunkRanges,
++    hash::{HashBackend, Poseidon2Backend},
++    tree::{BlockSize, CHUNK_SIZE, ChunkNum},
++};
+ 
+ /// Compute the root hash for a single block (possibly multi-chunk).
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/outboard.rs:6:
+ 
+ use std::collections::HashMap;
+ 
+-use crate::hash::HashBackend;
+-use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
++use crate::{
++    hash::HashBackend,
++    tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE},
++};
+ 
+ /// Result of computing the outboard for a blob.
+ #[derive(Debug, Clone)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/pre_order.rs:10:
+ 
+ use hemera::OUTPUT_BYTES;
+ 
+-use crate::io::outboard as outboard_fn;
+-use crate::io::traits::{Outboard, OutboardMut, ReadAt, WriteAt};
+-use crate::tree::{BaoTree, BlockSize, TreeNode};
++use crate::{
++    io::{
++        outboard as outboard_fn,
++        traits::{Outboard, OutboardMut, ReadAt, WriteAt},
++    },
++    tree::{BaoTree, BlockSize, TreeNode},
++};
+ 
+ /// Size of a hash pair (two hashes concatenated).
+ const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/pre_order.rs:129:
+         if byte_offset + PAIR_SIZE > self.data.len() {
+             return Ok(None);
+         }
+-        let left = H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES]).unwrap());
+-        let right =
+-            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE]).unwrap());
++        let left = H::from(
++            <[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES])
++                .unwrap(),
++        );
++        let right = H::from(
++            <[u8; OUTPUT_BYTES]>::try_from(
++                &self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE],
++            )
++            .unwrap(),
++        );
+         Ok(Some((left, right)))
+     }
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/pre_order.rs:303:
+         if byte_offset + PAIR_SIZE > self.data.len() {
+             return Ok(None);
+         }
+-        let left =
+-            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES]).unwrap());
+-        let right =
+-            H::from(<[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE]).unwrap());
++        let left = H::from(
++            <[u8; OUTPUT_BYTES]>::try_from(&self.data[byte_offset..byte_offset + OUTPUT_BYTES])
++                .unwrap(),
++        );
++        let right = H::from(
++            <[u8; OUTPUT_BYTES]>::try_from(
++                &self.data[byte_offset + OUTPUT_BYTES..byte_offset + PAIR_SIZE],
++            )
++            .unwrap(),
++        );
+         Ok(Some((left, right)))
+     }
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/pre_order.rs:339:
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+-    use crate::hash::Poseidon2Backend;
+-    use crate::io::outboard::outboard;
+-    use crate::tree::CHUNK_SIZE;
++    use crate::{hash::Poseidon2Backend, io::outboard::outboard, tree::CHUNK_SIZE};
+ 
+     #[test]
+     fn pre_order_outboard_roundtrip() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/pre_order.rs:398:
+ 
+     #[test]
+     fn post_order_can_validate_via_encode_ranges() {
+-        use crate::io::sync::encode_ranges_validated;
+-        use crate::ChunkRanges;
++        use crate::{ChunkRanges, io::sync::encode_ranges_validated};
+ 
+         let data = vec![0x42u8; CHUNK_SIZE * 4];
+         let post_ob = PostOrderMemOutboard::create(&data, BlockSize::ZERO);
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:7:
+ 
+ use std::ops::Range;
+ 
+-use crate::hash::HashBackend;
+-use crate::io::outboard;
+-use crate::tree::{BaoChunk, BaoTree, BlockSize, ChunkNum, CHUNK_SIZE};
+-use crate::{ChunkRanges, ChunkRangesRef};
++use crate::{
++    ChunkRanges, ChunkRangesRef,
++    hash::HashBackend,
++    io::outboard,
++    tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum},
++};
+ 
+ /// Extract a slice (proof + data) for the given byte range.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:65:
+                 outboard_offset += pair_size;
+             }
+             BaoChunk::Leaf {
+-                start_chunk,
+-                size,
+-                ..
++                start_chunk, size, ..
+             } => {
+                 let chunks_per_block = 1u64 << block_size.chunk_log();
+                 let block_idx = *start_chunk / chunks_per_block;
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:74:
+                 let leaf_start = block_idx * chunks_per_block;
+                 let leaf_end = leaf_start + chunks_per_block;
+-                let leaf_range =
+-                    ChunkRanges::from(ChunkNum(leaf_start)..ChunkNum(leaf_end));
++                let leaf_range = ChunkRanges::from(ChunkNum(leaf_start)..ChunkNum(leaf_end));
+                 if !leaf_range.is_disjoint(ranges) {
+                     let byte_start = (*start_chunk * CHUNK_SIZE as u64) as usize;
+                     let byte_end = (byte_start + *size).min(data.len());
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:221:
+     fn slice_full_range_matches_encode() {
+         let backend = Poseidon2Backend;
+         let data = vec![0x42u8; CHUNK_SIZE * 2];
+-        let (root, slice) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
++        let (root, slice) =
++            extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
+ 
+         assert_eq!(slice.len(), 8 + PAIR_SIZE + CHUNK_SIZE * 2);
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:235:
+     fn slice_partial_range_is_smaller() {
+         let backend = Poseidon2Backend;
+         let data = vec![0x42u8; CHUNK_SIZE * 4];
+-        let (root_full, full_slice) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
++        let (root_full, full_slice) =
++            extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
+         let (root_partial, partial_slice) =
+             extract_slice(&backend, &data, 0..CHUNK_SIZE as u64, BlockSize::ZERO);
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:248:
+         let backend = Poseidon2Backend;
+         let data = vec![0x42u8; CHUNK_SIZE * 4];
+         let (root1, _) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64, BlockSize::ZERO);
+-        let (root2, _) = extract_slice(&backend, &data, CHUNK_SIZE as u64..CHUNK_SIZE as u64 * 2, BlockSize::ZERO);
++        let (root2, _) = extract_slice(
++            &backend,
++            &data,
++            CHUNK_SIZE as u64..CHUNK_SIZE as u64 * 2,
++            BlockSize::ZERO,
++        );
+         let (root3, _) = extract_slice(&backend, &data, 0..CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
+         assert_eq!(root1, root2);
+         assert_eq!(root2, root3);
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/slice.rs:339:
+         let ranges = ChunkRanges::all();
+         let (root, slice) = extract_slice_ranges(&backend, &data, &ranges, bs);
+ 
+-        let results = decode_slice(&backend, &slice, &root, &ranges, bs)
+-            .expect("decode should succeed");
++        let results =
++            decode_slice(&backend, &slice, &root, &ranges, bs).expect("decode should succeed");
+ 
+         let mut decoded = vec![0u8; CHUNK_SIZE * 8];
+         for (offset, chunk) in &results {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:5:
+ 
+ use std::io::{self, Write};
+ 
++use hemera::OUTPUT_BYTES;
+ use smallvec::SmallVec;
+ 
+-use hemera::OUTPUT_BYTES;
++use crate::{
++    ChunkRangesRef,
++    hash::{HashBackend, Poseidon2Backend},
++    io::{
++        error::EncodeError,
++        traits::{Outboard, ReadAt},
++    },
++    tree::{CHUNK_SIZE, ChunkNum},
++};
+ 
+-use crate::hash::{HashBackend, Poseidon2Backend};
+-use crate::io::error::EncodeError;
+-use crate::io::traits::{Outboard, ReadAt};
+-use crate::tree::{ChunkNum, CHUNK_SIZE};
+-use crate::ChunkRangesRef;
+-
+ /// Size of a hash pair (two hashes concatenated).
+ const PAIR_SIZE: usize = OUTPUT_BYTES * 2;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:47:
+ 
+     for chunk in &pre_order {
+         match chunk {
+-            crate::tree::BaoChunk::Parent { node, is_root, left, right } => {
++            crate::tree::BaoChunk::Parent {
++                node,
++                is_root,
++                left,
++                right,
++            } => {
+                 let (l_hash, r_hash) = outboard.load(*node)?.unwrap();
+                 let actual = backend.parent_hash(&l_hash, &r_hash, *is_root);
+                 let expected = stack.pop().unwrap();
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:101:
+     D: ReadAt + 'a,
+ {
+     genawaiter::sync::Gen::new(move |co| async move {
+-        if let Err(cause) =
+-            validate_ranges_impl(outboard, data, ranges, &co).await
+-        {
++        if let Err(cause) = validate_ranges_impl(outboard, data, ranges, &co).await {
+             co.yield_(Err(cause)).await;
+         }
+     })
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:188:
+ 
+     let ranges = truncate_ranges(ranges, tree.size());
+     validate_node_rec(
+-        &outboard, &data, &backend, &tree, tree.root(), outboard.root(),
+-        true, ranges, co,
+-    ).await;
++        &outboard,
++        &data,
++        &backend,
++        &tree,
++        tree.root(),
++        outboard.root(),
++        true,
++        ranges,
++        co,
++    )
++    .await;
+ 
+     Ok(())
+ }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:206:
+     is_root: bool,
+     ranges: &ChunkRangesRef,
+     co: &genawaiter::sync::Co<io::Result<std::ops::Range<ChunkNum>>>,
+-)
+-where
++) where
+     O: Outboard<Hash = hemera::Hash>,
+     D: ReadAt,
+ {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:241:
+         if actual == expected_hash {
+             let chunks_per_block = 1u64 << tree.block_size().chunk_log();
+             let leaf_end_chunk = start_chunk + chunks_per_block;
+-            co.yield_(Ok(ChunkNum(start_chunk)..ChunkNum(leaf_end_chunk))).await;
++            co.yield_(Ok(ChunkNum(start_chunk)..ChunkNum(leaf_end_chunk)))
++                .await;
+         }
+         return;
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:256:
+         // No right child — skip parent, recurse left with inherited is_root
+         if let Some(left) = node.left_child() {
+             Box::pin(validate_node_rec(
+-                outboard, data, backend, tree, left, expected_hash,
+-                is_root, ranges, co,
+-            )).await;
++                outboard,
++                data,
++                backend,
++                tree,
++                left,
++                expected_hash,
++                is_root,
++                ranges,
++                co,
++            ))
++            .await;
+         }
+         return;
+     }
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:278:
+     // Recurse into children
+     if let Some(left) = node.left_child() {
+         Box::pin(validate_node_rec(
+-            outboard, data, backend, tree, left, l_hash,
+-            false, ranges, co,
+-        )).await;
++            outboard, data, backend, tree, left, l_hash, false, ranges, co,
++        ))
++        .await;
+     }
+     if let Some(right) = node.right_child() {
+         Box::pin(validate_node_rec(
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:287:
+-            outboard, data, backend, tree, right, r_hash,
+-            false, ranges, co,
+-        )).await;
++            outboard, data, backend, tree, right, r_hash, false, ranges, co,
++        ))
++        .await;
+     }
+ }
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/io/sync.rs:293:
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+-    use crate::io::pre_order::PreOrderMemOutboard;
+-    use crate::tree::{BlockSize, ChunkNum};
+-    use crate::ChunkRanges;
++    use crate::{
++        ChunkRanges,
++        io::pre_order::PreOrderMemOutboard,
++        tree::{BlockSize, ChunkNum},
++    };
+ 
+     #[test]
+     fn encode_ranges_validated_full() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/lib.rs:21:
+ pub mod tree;
+ 
+ pub use hash::{HashBackend, Poseidon2Backend};
+-pub use tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum, TreeNode};
+-
+ #[cfg(feature = "std")]
+ pub use tree::PostOrderChunkIter;
++pub use tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE, ChunkNum, TreeNode};
+ 
+ /// A set of chunk ranges (used for partial downloads, range requests, etc.).
+ #[cfg(feature = "std")]
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/src/tree.rs:4:
+ //! The tree uses in-order indexing (same as bao-tree): leaves at
+ //! even positions, parents at odd positions, level = trailing ones count.
+ 
+-use core::fmt;
+-use core::ops::Range;
++use core::{fmt, ops::Range};
+ 
+ use hemera::OUTPUT_BYTES;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/tests/group_allocation.rs:1:
+ #![cfg(feature = "std")]
+ //! Thread-local host allocator observation; inputs and harness are outside the guard.
+-use cyber_bao::{Poseidon2Backend, group::GroupHasher};
+ use std::{
+     alloc::{GlobalAlloc, Layout, System},
+     cell::Cell,
+Diff in /private/tmp/radio-bao-proof-parent-b933/cyber-bao/tests/group_allocation.rs:7:
+     hint::black_box,
+ };
++
++use cyber_bao::{Poseidon2Backend, group::GroupHasher};
+ struct ObservedAllocator;
+ thread_local! {
+     static ACTIVE: Cell<bool> = const { Cell::new(false) };
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/0rtt.rs:2:
+ 
+ use clap::Parser;
+ use data_encoding::HEXLOWER;
++use n0_error::{Result, StackResultExt, StdResultExt};
++use n0_future::StreamExt;
+ use radio::{
+     EndpointId, SecretKey,
+     address_lookup::AddressLookup,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/0rtt.rs:8:
+     endpoint::{RecvStream, SendStream, ZeroRttStatus},
+ };
+-use n0_error::{Result, StackResultExt, StdResultExt};
+-use n0_future::StreamExt;
+ use tracing::{info, trace};
+ 
+ const PINGPONG_ALPN: &[u8] = b"0rtt-pingpong";
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/auth-hook.rs:4:
+ //! It allows to put authentication in front of iroh protocols. The protocols don't need any special support.
+ //! Authentication is handled prior to establishing the connections, over a separate connection.
+ 
+-use radio::{Endpoint, EndpointAddr, protocol::Router};
+ use n0_error::{Result, StdResultExt};
++use radio::{Endpoint, EndpointAddr, protocol::Router};
+ 
+ use crate::echo::Echo;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/auth-hook.rs:60:
+ mod echo {
+     //! A bare-bones protocol with no knowledge of auth whatsoever.
+ 
++    use n0_error::{Result, StdResultExt, anyerr};
+     use radio::{
+         Endpoint, EndpointAddr,
+         endpoint::Connection,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/auth-hook.rs:66:
+         protocol::{AcceptError, ProtocolHandler},
+     };
+-    use n0_error::{Result, StdResultExt, anyerr};
+ 
+     #[derive(Debug, Clone)]
+     pub struct Echo;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/auth-hook.rs:111:
+         sync::{Arc, Mutex},
+     };
+ 
++    use n0_error::{AnyError, Result, StackResultExt, StdResultExt, anyerr};
++    use n0_future::task::AbortOnDropHandle;
+     use radio::{
+         Endpoint, EndpointAddr, EndpointId,
+         endpoint::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/auth-hook.rs:118:
+         },
+         protocol::{AcceptError, ProtocolHandler},
+     };
+-    use n0_error::{AnyError, Result, StackResultExt, StdResultExt, anyerr};
+-    use n0_future::task::AbortOnDropHandle;
+     use tokio::{
+         sync::{mpsc, oneshot},
+         task::JoinSet,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/connect-unreliable.rs:8:
+ use std::net::SocketAddr;
+ 
+ use clap::Parser;
+-use radio::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey};
+ use iroh_base::TransportAddr;
+ use n0_error::{Result, StdResultExt};
++use radio::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey};
+ use tracing::info;
+ 
+ // An example ALPN that we are using to communicate over the `Endpoint`
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/connect.rs:8:
+ use std::net::SocketAddr;
+ 
+ use clap::Parser;
+-use radio::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey, TransportAddr};
+ use n0_error::{Result, StdResultExt};
++use radio::{Endpoint, EndpointAddr, RelayMode, RelayUrl, SecretKey, TransportAddr};
+ use tracing::info;
+ 
+ // An example ALPN that we are using to communicate over the `Endpoint`
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/dht_address_lookup.rs:11:
+ use std::str::FromStr;
+ 
+ use clap::Parser;
+-use radio::{Endpoint, EndpointId};
+ use n0_error::{Result, StdResultExt};
++use radio::{Endpoint, EndpointId};
+ use tracing::warn;
+ use url::Url;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/echo-no-router.rs:7:
+ //!
+ //!     cargo run --example echo-no-router --features=examples
+ 
+-use radio::{Endpoint, EndpointAddr};
+ use n0_error::{AnyError as Error, Result, StdResultExt};
++use radio::{Endpoint, EndpointAddr};
+ 
+ /// Each protocol is identified by its ALPN string.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/echo.rs:6:
+ //!
+ //!     cargo run --example echo --features=examples
+ 
++use n0_error::{Result, StdResultExt};
+ use radio::{
+     Endpoint, EndpointAddr,
+     endpoint::Connection,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/echo.rs:12:
+     protocol::{AcceptError, ProtocolHandler, Router},
+ };
+-use n0_error::{Result, StdResultExt};
+ 
+ /// Each protocol is identified by its ALPN string.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/listen-unreliable.rs:3:
+ //! This example uses the default relay servers to attempt to holepunch, and will use that relay server to relay packets if the two devices cannot establish a direct UDP connection.
+ //! run this example from the project root:
+ //!     $ cargo run --example listen-unreliable
+-use radio::{Endpoint, RelayMode, SecretKey};
+ use n0_error::{AnyError as Error, Result, StdResultExt};
++use radio::{Endpoint, RelayMode, SecretKey};
+ use tracing::{info, warn};
+ 
+ // An example ALPN that we are using to communicate over the `Endpoint`
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/listen.rs:5:
+ //!     $ cargo run --example listen
+ use std::time::Duration;
+ 
+-use radio::{Endpoint, RelayMode, SecretKey, endpoint::ConnectionError};
+ use n0_error::{Result, StdResultExt};
++use radio::{Endpoint, RelayMode, SecretKey, endpoint::ConnectionError};
+ use tracing::{debug, info, warn};
+ 
+ // An example ALPN that we are using to communicate over the `Endpoint`
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/mdns_address_lookup.rs:5:
+ //! This is an async, non-determinate process, so the number of EndpointIDs discovered each time may be different. If you have other iroh endpoints or iroh endpoints with [`address_lookup::MdnsAddressLookup`] enabled, it may discover those endpoints as well.
+ use std::time::Duration;
+ 
+-use radio::{Endpoint, EndpointId, address_lookup, endpoint_info::UserData};
+ use n0_error::Result;
+ use n0_future::StreamExt;
++use radio::{Endpoint, EndpointId, address_lookup, endpoint_info::UserData};
+ use tokio::task::JoinSet;
+ 
+ #[tokio::main]
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/monitor-connections.rs:1:
+ use std::{sync::Arc, time::Duration};
+ 
++use n0_error::{Result, StackResultExt, StdResultExt, ensure_any};
++use n0_future::task::AbortOnDropHandle;
+ use radio::{
+     Endpoint, RelayMode, Watcher,
+     endpoint::{AfterHandshakeOutcome, ConnectionInfo, EndpointHooks},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/monitor-connections.rs:6:
+ };
+-use n0_error::{Result, StackResultExt, StdResultExt, ensure_any};
+-use n0_future::task::AbortOnDropHandle;
+ use tokio::{
+     sync::mpsc::{UnboundedReceiver, UnboundedSender},
+     task::JoinSet,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/remote-info.rs:7:
+ 
+ use std::time::{Duration, SystemTime};
+ 
+-use radio::{Endpoint, EndpointAddr};
+ use n0_error::{Result, StackResultExt, StdResultExt, ensure_any};
+ use n0_future::IterExt;
++use radio::{Endpoint, EndpointAddr};
+ use tracing::{Instrument, info, info_span};
+ 
+ use crate::remote_map::RemoteMap;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/remote-info.rs:165:
+         time::{Duration, SystemTime},
+     };
+ 
++    use n0_future::task::AbortOnDropHandle;
+     use radio::{
+         EndpointId, Watcher,
+         endpoint::{AfterHandshakeOutcome, ConnectionInfo, EndpointHooks, PathInfo},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/remote-info.rs:171:
+     };
+-    use n0_future::task::AbortOnDropHandle;
+     use tokio::{sync::mpsc, task::JoinSet};
+     use tokio_stream::StreamExt;
+     use tracing::{Instrument, debug, info, info_span};
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/screening-connection.rs:12:
+     atomic::{AtomicU64, Ordering},
+ };
+ 
++use n0_error::{Result, StdResultExt, e};
+ use radio::{
+     Endpoint, EndpointAddr,
+     endpoint::{Accepting, Connection},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/screening-connection.rs:18:
+     protocol::{AcceptError, ProtocolHandler, Router},
+ };
+-use n0_error::{Result, StdResultExt, e};
+ 
+ /// Each protocol is identified by its ALPN string.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/search.rs:32:
+ use std::{collections::BTreeSet, sync::Arc};
+ 
+ use clap::Parser;
++use n0_error::{Result, StdResultExt};
+ use radio::{
+     Endpoint, EndpointId,
+     endpoint::Connection,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/search.rs:38:
+     protocol::{AcceptError, ProtocolHandler, Router},
+ };
+-use n0_error::{Result, StdResultExt};
+ use tokio::sync::Mutex;
+ use tracing_subscriber::{EnvFilter, prelude::*};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/transfer.rs:37:
+ use data_encoding::HEXLOWER;
+ use derive_more::{Display, From};
+ use indicatif::HumanBytes;
++use n0_error::{Result, StackResultExt, StdResultExt, anyerr, ensure_any};
++use n0_future::{stream::StreamExt, task::AbortOnDropHandle};
++use netdev::ipnet::{Ipv4Net, Ipv6Net};
++use postcard::experimental::max_size::MaxSize;
+ #[cfg(feature = "qlog")]
+ use radio::endpoint::QuicTransportConfig;
+ use radio::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/examples/transfer.rs:52:
+         WriteError,
+     },
+ };
+-use n0_error::{Result, StackResultExt, StdResultExt, anyerr, ensure_any};
+-use n0_future::{stream::StreamExt, task::AbortOnDropHandle};
+-use netdev::ipnet::{Ipv4Net, Ipv6Net};
+-use postcard::experimental::max_size::MaxSize;
+ use serde::{Deserialize, Serialize, Serializer};
+ use tokio::{
+     io::{AsyncReadExt, AsyncWriteExt},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/src/address_lookup/mdns.rs:8:
+ //! ```no_run
+ //! use std::time::Duration;
+ //!
++//! use n0_future::StreamExt;
+ //! use radio::{
+ //!     RelayMode, SecretKey,
+ //!     address_lookup::{DiscoveryEvent, MdnsAddressLookup},
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/src/address_lookup/mdns.rs:14:
+ //!     endpoint::{Endpoint, Source},
+ //! };
+-//! use n0_future::StreamExt;
+ //!
+ //! #[tokio::main]
+ //! async fn main() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/src/address_lookup/memory.rs:37:
+ /// # Examples
+ ///
+ /// ```rust
+-/// use radio::{Endpoint, EndpointAddr, TransportAddr, address_lookup::memory::MemoryLookup};
+ /// use iroh_base::SecretKey;
++/// use radio::{Endpoint, EndpointAddr, TransportAddr, address_lookup::memory::MemoryLookup};
+ ///
+ /// # #[tokio::main]
+ /// # async fn main() -> n0_error::Result<()> {
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/src/lib.rs:170:
+ //! The central struct is the [`Endpoint`], which allows you to connect to other endpoints:
+ //!
+ //! ```no_run
+-//! use radio::{Endpoint, EndpointAddr};
+ //! use n0_error::{Result, StackResultExt, StdResultExt};
++//! use radio::{Endpoint, EndpointAddr};
+ //!
+ //! async fn connect(addr: EndpointAddr) -> Result<()> {
+ //!     // The Endpoint is the central object that manages an iroh node.
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/src/lib.rs:195:
+ //! Every [`Endpoint`] can also accept connections:
+ //!
+ //! ```no_run
+-//! use radio::{Endpoint, EndpointAddr};
+ //! use n0_error::{Result, StackResultExt, StdResultExt};
+ //! use n0_future::StreamExt;
++//! use radio::{Endpoint, EndpointAddr};
+ //!
+ //! async fn accept() -> Result<()> {
+ //!     // To accept connections at least one ALPN must be configured.
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/tests/integration.rs:9:
+ //!
+ //! In the past we've hit relay rate-limits from all the tests in our CI, but I expect
+ //! we won't hit these with only this integration test.
+-use radio::{
+-    Endpoint, RelayMode,
+-    address_lookup::{AddressLookup, pkarr::PkarrResolver},
+-};
+ use n0_error::{Result, StdResultExt};
+ use n0_future::{
+     StreamExt, task,
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh/tests/integration.rs:19:
+     time::{self, Duration},
++};
++use radio::{
++    Endpoint, RelayMode,
++    address_lookup::{AddressLookup, pkarr::PkarrResolver},
+ };
+ #[cfg(not(wasm_browser))]
+ use tokio::test;
+Diff in /private/tmp/radio-bao-proof-parent-b933/iroh-relay/src/protos/handshake.rs:592:
+             // we simulate something like exporting keying material using hemera
+ 
+             let label_key = hemera::hash(label);
+-            let context_key =
+-                hemera::keyed_hash(label_key.as_bytes(), context.unwrap_or(&[]));
++            let context_key = hemera::keyed_hash(label_key.as_bytes(), context.unwrap_or(&[]));
+             let mut hasher = hemera::Hasher::new_keyed(context_key.as_bytes());
+             hasher.update(&self.shared_secret?.to_le_bytes());
+             hasher.finalize_xof().fill(output.as_mut());
+Diff in /private/tmp/radio-bao-proof-parent-b933/particle/src/main.rs:1:
+-use std::fs;
+-use std::io::{self, Read};
+-use std::process;
++use std::{
++    fs,
++    io::{self, Read},
++    process,
++};
+ 
+-use cyber_bao::hash::Poseidon2Backend;
+-use cyber_bao::io::{decode, encode, outboard};
+-use cyber_bao::tree::BlockSize;
++use cyber_bao::{
++    hash::Poseidon2Backend,
++    io::{decode, encode, outboard},
++    tree::BlockSize,
++};
+ 
+ fn main() {
+     let args: Vec<String> = std::env::args().collect();
+Diff in /private/tmp/radio-bao-proof-parent-b933/particle/src/main.rs:51:
+         println!("{h}");
+     } else {
+         for path in args {
+-            let data =
+-                fs::read(path).unwrap_or_else(|e| fatal(&format!("reading {path}: {e}")));
++            let data = fs::read(path).unwrap_or_else(|e| fatal(&format!("reading {path}: {e}")));
+             let h = hemera::hash(&data);
+             if args.len() > 1 {
+                 println!("{h}  {path}");
+Diff in /private/tmp/radio-bao-proof-parent-b933/particle/src/main.rs:90:
+     let path = &args[0];
+     let hash_hex = &args[1];
+ 
+-    let encoded =
+-        fs::read(path).unwrap_or_else(|e| fatal(&format!("reading {path}: {e}")));
++    let encoded = fs::read(path).unwrap_or_else(|e| fatal(&format!("reading {path}: {e}")));
+     let root = parse_hash(hash_hex);
+     let backend = Poseidon2Backend;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/docs/book/src/bin/set-up-connection.rs:1:
++use std::{
++    error::Error,
++    net::{IpAddr, Ipv4Addr, SocketAddr},
++};
++
+ use quinn::{Endpoint, ServerConfig};
+-use std::error::Error;
+-use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+ 
+ fn main() {}
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/benches/bench.rs:5:
+ };
+ 
+ use criterion::{Criterion, criterion_group, criterion_main};
++use iroh_quinn::{self as quinn, Endpoint, TokioRuntime};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+ use tokio::runtime::{Builder, Runtime};
+ use tracing::error_span;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/benches/bench.rs:11:
+ use tracing_futures::Instrument as _;
+-
+-use iroh_quinn::{self as quinn, Endpoint, TokioRuntime};
+ 
+ criterion_group!(
+     benches,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/examples/common/mod.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ //! Commonly used code in most examples.
+ 
++use std::{error::Error, net::SocketAddr, sync::Arc};
++
+ use iroh_quinn::{ClientConfig, Endpoint, ServerConfig};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-
+-use std::{error::Error, net::SocketAddr, sync::Arc};
+ 
+ /// Constructs a QUIC endpoint configured for use a client only.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/examples/common/mod.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ //! Commonly used code in most examples.
+ 
++use std::{error::Error, net::SocketAddr, sync::Arc};
++
+ use iroh_quinn::{ClientConfig, Endpoint, ServerConfig};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-
+-use std::{error::Error, net::SocketAddr, sync::Arc};
+ 
+ /// Constructs a QUIC endpoint configured for use a client only.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/examples/common/mod.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ //! Commonly used code in most examples.
+ 
++use std::{error::Error, net::SocketAddr, sync::Arc};
++
+ use iroh_quinn::{ClientConfig, Endpoint, ServerConfig};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-
+-use std::{error::Error, net::SocketAddr, sync::Arc};
+ 
+ /// Constructs a QUIC endpoint configured for use a client only.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/examples/common/mod.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ //! Commonly used code in most examples.
+ 
++use std::{error::Error, net::SocketAddr, sync::Arc};
++
+ use iroh_quinn::{ClientConfig, Endpoint, ServerConfig};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-
+-use std::{error::Error, net::SocketAddr, sync::Arc};
+ 
+ /// Constructs a QUIC endpoint configured for use a client only.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/examples/common/mod.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ //! Commonly used code in most examples.
+ 
++use std::{error::Error, net::SocketAddr, sync::Arc};
++
+ use iroh_quinn::{ClientConfig, Endpoint, ServerConfig};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+-
+-use std::{error::Error, net::SocketAddr, sync::Arc};
+ 
+ /// Constructs a QUIC endpoint configured for use a client only.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/connection.rs:12:
+ 
+ use bytes::Bytes;
+ use pin_project_lite::pin_project;
++use proto::{
++    ConnectionError, ConnectionHandle, ConnectionStats, Dir, EndpointEvent, FourTuple, PathError,
++    PathEvent, PathId, PathStats, PathStatus, Side, StreamEvent, StreamId, TransportError,
++    TransportErrorCode, congestion::Controller, iroh_hp,
++};
+ use rustc_hash::FxHashMap;
+ use thiserror::Error;
+ use tokio::sync::{Notify, futures::Notified, mpsc, oneshot, watch};
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/connection.rs:26:
+     runtime::{AsyncTimer, Runtime, UdpSender},
+     send_stream::SendStream,
+     udp_transmit,
+-};
+-use proto::{
+-    ConnectionError, ConnectionHandle, ConnectionStats, Dir, EndpointEvent, FourTuple, PathError,
+-    PathEvent, PathId, PathStats, PathStatus, Side, StreamEvent, StreamId, TransportError,
+-    TransportErrorCode, congestion::Controller, iroh_hp,
+ };
+ 
+ /// In-progress connection attempt future
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/endpoint.rs:12:
+     task::{Context, Poll, RawWaker, RawWakerVTable, Waker},
+ };
+ 
+-#[cfg(all(
+-    not(wasm_browser),
+-    any(feature = "runtime-tokio", feature = "runtime-smol"),
+-    any(feature = "aws-lc-rs", feature = "ring"),
+-))]
+-use crate::runtime::default_runtime;
+-use crate::{
+-    Instant,
+-    runtime::{AsyncUdpSocket, Runtime, UdpSender},
+-    udp_transmit,
+-};
+ use bytes::{Bytes, BytesMut};
+ use pin_project_lite::pin_project;
+ use proto::{
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/endpoint.rs:40:
+ use tracing::{Instrument, Span, trace};
+ use udp::{BATCH_SIZE, RecvMeta};
+ 
++#[cfg(all(
++    not(wasm_browser),
++    any(feature = "runtime-tokio", feature = "runtime-smol"),
++    any(feature = "aws-lc-rs", feature = "ring"),
++))]
++use crate::runtime::default_runtime;
+ use crate::{
+-    ConnectionEvent, EndpointConfig, IO_LOOP_BOUND, RECV_TIME_BOUND, VarInt,
+-    connection::Connecting, incoming::Incoming, work_limiter::WorkLimiter,
++    ConnectionEvent, EndpointConfig, IO_LOOP_BOUND, Instant, RECV_TIME_BOUND, VarInt,
++    connection::Connecting,
++    incoming::Incoming,
++    runtime::{AsyncUdpSocket, Runtime, UdpSender},
++    udp_transmit,
++    work_limiter::WorkLimiter,
+ };
+ 
+ /// A QUIC endpoint.
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/lib.rs:39:
+ //! encryption alone.
+ #![warn(missing_docs)]
+ 
+-use std::pin::Pin;
+-use std::sync::Arc;
++use std::{pin::Pin, sync::Arc};
+ 
+ mod connection;
+ mod endpoint;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/lib.rs:54:
+ 
+ #[cfg(not(wasm_browser))]
+ pub(crate) use std::time::{Duration, Instant};
+-#[cfg(wasm_browser)]
+-pub(crate) use web_time::{Duration, Instant};
+ 
+ #[cfg(feature = "bloom")]
+ pub use proto::BloomTokenLog;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/lib.rs:73:
+ #[cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ pub use rustls;
+ pub use udp;
++#[cfg(wasm_browser)]
++pub(crate) use web_time::{Duration, Instant};
+ 
+-pub use crate::connection::{
+-    AcceptBi, AcceptUni, Connecting, Connection, OnClosed, OpenBi, OpenUni, ReadDatagram,
+-    SendDatagram, SendDatagramError, WeakConnectionHandle, ZeroRttAccepted,
+-};
+-pub use crate::endpoint::{Accept, Endpoint, EndpointStats};
+-pub use crate::incoming::{Incoming, IncomingFuture, RetryError};
+-pub use crate::path::{AddressDiscovery, OpenPath, Path, WeakPathHandle};
+-pub use crate::recv_stream::{
+-    ReadError, ReadExactError, ReadToEndError, RecvStream, ResetError, UnorderedRecvStream,
+-};
+ #[cfg(feature = "runtime-smol")]
+ pub use crate::runtime::SmolRuntime;
+ #[cfg(feature = "runtime-tokio")]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/lib.rs:90:
+ pub use crate::runtime::TokioRuntime;
+ #[cfg(any(feature = "runtime-tokio", feature = "runtime-smol"))]
+ pub use crate::runtime::default_runtime;
+-pub use crate::runtime::{AsyncTimer, AsyncUdpSocket, Runtime, UdpSender};
+-pub use crate::send_stream::{SendStream, Stopped, StoppedError, WriteError};
++pub use crate::{
++    connection::{
++        AcceptBi, AcceptUni, Connecting, Connection, OnClosed, OpenBi, OpenUni, ReadDatagram,
++        SendDatagram, SendDatagramError, WeakConnectionHandle, ZeroRttAccepted,
++    },
++    endpoint::{Accept, Endpoint, EndpointStats},
++    incoming::{Incoming, IncomingFuture, RetryError},
++    path::{AddressDiscovery, OpenPath, Path, WeakPathHandle},
++    recv_stream::{
++        ReadError, ReadExactError, ReadToEndError, RecvStream, ResetError, UnorderedRecvStream,
++    },
++    runtime::{AsyncTimer, AsyncUdpSocket, Runtime, UdpSender},
++    send_stream::{SendStream, Stopped, StoppedError, WriteError},
++};
+ 
+ #[cfg(test)]
+ mod tests;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/mutex.rs:5:
+ 
+ #[cfg(feature = "lock_tracking")]
+ mod tracking {
+-    use super::*;
+-    use crate::{Duration, Instant};
+     use std::collections::VecDeque;
++
+     use tracing::warn;
++
++    use super::*;
++    use crate::{Duration, Instant};
+ 
+     #[derive(Debug)]
+     struct Inner<T> {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/path.rs:1:
+-use std::future::Future;
+-use std::net::SocketAddr;
+-use std::pin::Pin;
+-use std::sync::Arc;
+-use std::task::{Context, Poll, ready};
+-use std::time::Duration;
++use std::{
++    future::Future,
++    net::SocketAddr,
++    pin::Pin,
++    sync::Arc,
++    task::{Context, Poll, ready},
++    time::Duration,
++};
+ 
+ use proto::{
+     ClosePathError, ClosedPath, PathError, PathEvent, PathId, PathStats, PathStatus,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/path.rs:12:
+ use tokio::sync::watch;
+ use tokio_stream::{Stream, wrappers::WatchStream};
+ 
+-use crate::connection::ConnectionRef;
+-use crate::{Runtime, WeakConnectionHandle};
++use crate::{Runtime, WeakConnectionHandle, connection::ConnectionRef};
+ 
+ /// Future produced by [`crate::Connection::open_path`]
+ pub struct OpenPath(OpenPathInner);
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/runtime/smol.rs:1:
+ use std::{
+     future::Future,
++    io,
+     num::NonZeroUsize,
+     pin::Pin,
+-    task::{Context, Poll},
++    sync::Arc,
++    task::{Context, Poll, ready},
+     time::Instant,
+ };
+-use std::{io, sync::Arc, task::ready};
+ 
+-use async_io::Async;
+-use async_io::Timer;
++use async_io::{Async, Timer};
+ 
+-use super::AsyncTimer;
+-use super::{AsyncUdpSocket, Runtime, UdpSender, UdpSenderHelper, UdpSenderHelperSocket};
++use super::{
++    AsyncTimer, AsyncUdpSocket, Runtime, UdpSender, UdpSenderHelper, UdpSenderHelperSocket,
++};
+ 
+ /// A Quinn runtime for smol
+ #[derive(Debug)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/tests.rs:1:
+ #![cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+ 
+-#[cfg(all(feature = "rustls-aws-lc-rs", not(feature = "rustls-ring")))]
+-use rustls::crypto::aws_lc_rs::default_provider;
+-#[cfg(feature = "rustls-ring")]
+-use rustls::crypto::ring::default_provider;
+-use testresult::TestResult;
+-use tokio_stream::StreamExt;
+-
+ use std::{
+     convert::TryInto,
+     io,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/tests.rs:15:
+     sync::Arc,
+ };
+ 
+-use crate::runtime::TokioRuntime;
+-use crate::{Duration, Instant};
+ use bytes::Bytes;
+ use proto::{ConnectionError, RandomConnectionIdGenerator, crypto::rustls::QuicClientConfig};
+ use rand::{RngCore, SeedableRng, rngs::StdRng};
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/tests.rs:23:
++#[cfg(all(feature = "rustls-aws-lc-rs", not(feature = "rustls-ring")))]
++use rustls::crypto::aws_lc_rs::default_provider;
++#[cfg(feature = "rustls-ring")]
++use rustls::crypto::ring::default_provider;
+ use rustls::{
+     RootCertStore,
+     pki_types::{CertificateDer, PrivateKeyDer, PrivatePkcs8KeyDer},
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/tests.rs:26:
+ };
++use testresult::TestResult;
+ use tokio::runtime::{Builder, Runtime};
++use tokio_stream::StreamExt;
+ use tracing::{error_span, info, info_span};
+ use tracing_futures::Instrument as _;
+ use tracing_subscriber::EnvFilter;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/tests.rs:31:
+ 
+ use super::{ClientConfig, Endpoint, EndpointConfig, RecvStream, SendStream, TransportConfig};
++use crate::{Duration, Instant, runtime::TokioRuntime};
+ 
+ /// Detect if running under Wine (test helper).
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/src/work_limiter.rs:126:
+ 
+ #[cfg(test)]
+ mod tests {
+-    use super::*;
+     use std::cell::RefCell;
++
++    use super::*;
+ 
+     #[test]
+     fn limit_work() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/tests/many_connections.rs:7:
+ };
+ 
+ use crc::Crc;
+-use iroh_quinn::{self as quinn, ConnectionError, ReadError, StoppedError, TransportConfig, WriteError};
++use iroh_quinn::{
++    self as quinn, ConnectionError, ReadError, StoppedError, TransportConfig, WriteError,
++};
+ use rand::{self, RngCore};
+ use rustls::pki_types::{CertificateDer, PrivatePkcs8KeyDer};
+ use tokio::runtime::Builder;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/tests/post_quantum.rs:6:
+     sync::Arc,
+ };
+ 
++use iroh_quinn::{
++    Endpoint,
++    crypto::rustls::{HandshakeData, QuicClientConfig, QuicServerConfig},
++};
+ use rustls::{
+     NamedGroup,
+     pki_types::{CertificateDer, PrivatePkcs8KeyDer},
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn/tests/post_quantum.rs:12:
+ };
+ use tracing::info;
+-
+-use iroh_quinn::{
+-    Endpoint,
+-    crypto::rustls::{HandshakeData, QuicClientConfig, QuicServerConfig},
+-};
+ 
+ #[tokio::test]
+ async fn post_quantum_key_worst_case_header() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/bloom_token_log.rs:254:
+ 
+ #[cfg(test)]
+ mod test {
+-    use super::*;
+     use rand::prelude::*;
+     use rand_pcg::Pcg32;
++
++    use super::*;
+ 
+     fn new_rng() -> impl Rng {
+         Pcg32::from_seed(0xdeadbeefdeadbeefdeadbeefdeadbeef_u128.to_le_bytes())
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/cid_generator.rs:2:
+ 
+ use rand::{Rng, RngCore};
+ 
+-use crate::Duration;
+-use crate::MAX_CID_SIZE;
+-use crate::shared::ConnectionId;
++use crate::{Duration, MAX_CID_SIZE, shared::ConnectionId};
+ 
+ /// Generates connection IDs for incoming connections
+ pub trait ConnectionIdGenerator: Send + Sync {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/config/mod.rs:31:
+ 
+ #[cfg(feature = "qlog")]
+ pub use qlog::{QlogConfig, QlogFactory, QlogFileFactory};
+-pub use transport::{AckFrequencyConfig, IdleTimeout, MtuDiscoveryConfig, TransportConfig};
+-
+ #[cfg(doc)]
+ pub use transport::DEFAULT_CONCURRENT_MULTIPATH_PATHS_WHEN_ENABLED;
++pub use transport::{AckFrequencyConfig, IdleTimeout, MtuDiscoveryConfig, TransportConfig};
+ 
+ /// Global configuration for the endpoint, affecting all connections
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/congestion/bbr/mod.rs:1:
+-use std::any::Any;
+-use std::fmt::Debug;
+-use std::sync::Arc;
++use std::{any::Any, fmt::Debug, sync::Arc};
+ 
+ use rand::{Rng, SeedableRng};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/congestion/bbr/mod.rs:7:
+-use crate::congestion::ControllerMetrics;
+-use crate::congestion::bbr::bw_estimation::BandwidthEstimation;
+-use crate::congestion::bbr::min_max::MinMax;
+-use crate::connection::RttEstimator;
+-use crate::{Duration, Instant};
+-
+ use super::{BASE_DATAGRAM_SIZE, Controller, ControllerFactory};
++use crate::{
++    Duration, Instant,
++    congestion::{
++        ControllerMetrics,
++        bbr::{bw_estimation::BandwidthEstimation, min_max::MinMax},
++    },
++    connection::RttEstimator,
++};
+ 
+ mod bw_estimation;
+ mod min_max;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/congestion/cubic.rs:1:
+-use std::any::Any;
+-use std::cmp;
+-use std::sync::Arc;
++use std::{any::Any, cmp, sync::Arc};
+ 
+ use super::{BASE_DATAGRAM_SIZE, Controller, ControllerFactory};
+-use crate::connection::RttEstimator;
+-use crate::{Duration, Instant};
++use crate::{Duration, Instant, connection::RttEstimator};
+ 
+ /// CUBIC Constants.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/congestion/new_reno.rs:1:
+-use std::any::Any;
+-use std::sync::Arc;
++use std::{any::Any, sync::Arc};
+ 
+ use super::{BASE_DATAGRAM_SIZE, Controller, ControllerFactory};
+-use crate::Instant;
+-use crate::connection::RttEstimator;
++use crate::{Instant, connection::RttEstimator};
+ 
+ /// A simple, standard congestion controller
+ #[derive(Debug, Clone)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/congestion.rs:1:
+ //! Logic for controlling the rate at which data is sent
+ 
+-use crate::Instant;
+-use crate::connection::RttEstimator;
+-use std::any::Any;
+-use std::sync::Arc;
++use std::{any::Any, sync::Arc};
++
++use crate::{Instant, connection::RttEstimator};
+ 
+ mod bbr;
+ mod cubic;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/ack_frequency.rs:1:
+-use crate::Duration;
+-use crate::frame::AckFrequency;
+-use crate::transport_parameters::TransportParameters;
+-use crate::{AckFrequencyConfig, TIMER_GRANULARITY, TransportError, VarInt};
+-
+ use super::PathId;
++use crate::{
++    AckFrequencyConfig, Duration, TIMER_GRANULARITY, TransportError, VarInt, frame::AckFrequency,
++    transport_parameters::TransportParameters,
++};
+ 
+ /// State associated to ACK frequency
+ pub(super) struct AckFrequencyState {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/assembler.rs:339:
+ 
+ #[cfg(test)]
+ mod test {
+-    use super::*;
+     use assert_matches::assert_matches;
++
++    use super::*;
+ 
+     #[test]
+     fn assemble_ordered() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/mod.rs:10:
+ 
+ use bytes::{Bytes, BytesMut};
+ use frame::StreamMetaVec;
+-
+ use rand::{Rng, SeedableRng, rngs::StdRng};
+ use rustc_hash::{FxHashMap, FxHashSet};
+ use thiserror::Error;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/mtud.rs:1:
+-use crate::{Instant, MAX_UDP_PAYLOAD, MtuDiscoveryConfig, packet::SpaceId};
+ use std::cmp;
++
+ use tracing::trace;
+ 
++use crate::{Instant, MAX_UDP_PAYLOAD, MtuDiscoveryConfig, packet::SpaceId};
++
+ /// Implements Datagram Packetization Layer Path Maximum Transmission Unit Discovery
+ ///
+ /// See [`MtuDiscoveryConfig`] for details
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/mtud.rs:523:
+ 
+ #[cfg(test)]
+ mod tests {
+-    use super::*;
+-    use crate::Duration;
+-    use crate::MAX_UDP_PAYLOAD;
+-    use crate::packet::SpaceId;
+     use assert_matches::assert_matches;
++
++    use super::*;
++    use crate::{Duration, MAX_UDP_PAYLOAD, packet::SpaceId};
+ 
+     fn default_mtud() -> MtuDiscovery {
+         let config = MtuDiscoveryConfig::default();
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/pacing.rs:1:
+ //! Pacing of packet transmissions.
+ 
+-use crate::{Duration, Instant};
+-
+ use tracing::warn;
++
++use crate::{Duration, Instant};
+ 
+ /// A simple token-bucket pacer
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/packet_crypto.rs:1:
+-use std::mem;
+-use std::ops::{Index, IndexMut};
++use std::{
++    mem,
++    ops::{Index, IndexMut},
++};
+ 
++use rand::Rng;
+ use tracing::{debug, trace};
+ 
+-use crate::connection::assembler::Assembler;
+-use crate::crypto::{self, HeaderKey, KeyPair, Keys, PacketKey};
+-use crate::packet::{Packet, PartialDecode, SpaceId};
+-use crate::token::ResetToken;
+-use rand::Rng;
+-
+-use crate::{ConnectionId, Instant, Side};
+-use crate::{RESET_TOKEN_SIZE, TransportError};
+-
+-use super::PathId;
+-use super::spaces::PacketSpace;
++use super::{PathId, spaces::PacketSpace};
++use crate::{
++    ConnectionId, Instant, RESET_TOKEN_SIZE, Side, TransportError,
++    connection::assembler::Assembler,
++    crypto::{self, HeaderKey, KeyPair, Keys, PacketKey},
++    packet::{Packet, PartialDecode, SpaceId},
++    token::ResetToken,
++};
+ 
+ /// Perform key updates this many packets before the AEAD confidentiality limit.
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/paths.rs:1:
+ use std::{cmp, net::SocketAddr};
+ 
+ use identity_hash::IntMap;
++#[cfg(feature = "qlog")]
++use qlog::events::quic::RecoveryMetricsUpdated;
+ use thiserror::Error;
+ use tracing::{debug, trace};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/paths.rs:17:
+     frame::ObservedAddr,
+     packet::SpaceId,
+ };
+-
+-#[cfg(feature = "qlog")]
+-use qlog::events::quic::RecoveryMetricsUpdated;
+ 
+ /// Id representing different paths when using multipath extension
+ #[cfg_attr(test, derive(test_strategy::Arbitrary))]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/send_buffer.rs:583:
+ 
+ #[cfg(all(test, not(target_family = "wasm")))]
+ mod proptests {
+-    use super::*;
+-
+     use proptest::prelude::*;
+     use test_strategy::{Arbitrary, proptest};
+-    use crate::tests::subscribe;
+     use tracing::trace;
++
++    use super::*;
++    use crate::tests::subscribe;
+ 
+     #[derive(Debug, Clone, Arbitrary)]
+     enum Op {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/state.rs:1:
+ use bytes::Bytes;
+ use tracing::trace;
+ 
+-use crate::frame::Close;
+-use crate::{ApplicationClose, ConnectionClose, ConnectionError, TransportError, TransportErrorCode};
++use crate::{
++    ApplicationClose, ConnectionClose, ConnectionError, TransportError, TransportErrorCode,
++    frame::Close,
++};
+ 
+ #[allow(unreachable_pub)] // fuzzing only
+ #[derive(Debug, Clone)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/stats.rs:1:
+ //! Connection statistics
+ 
+-use crate::Duration;
+-use crate::FrameType;
++use crate::{Duration, FrameType};
+ 
+ /// Statistics about UDP datagrams transmitted or received on a connection
+ ///
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/streams/recv.rs:1:
+-use std::collections::hash_map::Entry;
+-use std::mem;
++use std::{collections::hash_map::Entry, mem};
+ 
+ use thiserror::Error;
+ use tracing::debug;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/streams/recv.rs:6:
+ 
+-use super::state::get_or_insert_recv;
+-use super::{ClosedStream, Retransmits, ShouldTransmit, StreamId, StreamsState};
+-use crate::connection::assembler::{Assembler, Chunk, IllegalOrderedRead};
+-use crate::connection::streams::state::StreamRecv;
+-use crate::{TransportError, VarInt, frame};
++use super::{
++    ClosedStream, Retransmits, ShouldTransmit, StreamId, StreamsState, state::get_or_insert_recv,
++};
++use crate::{
++    TransportError, VarInt,
++    connection::{
++        assembler::{Assembler, Chunk, IllegalOrderedRead},
++        streams::state::StreamRecv,
++    },
++    frame,
++};
+ 
+ #[derive(Debug, Default)]
+ pub(super) struct Recv {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/streams/recv.rs:445:
+ mod tests {
+     use bytes::Bytes;
+ 
+-    use crate::{Dir, Side};
+-
+     use super::*;
++    use crate::{Dir, Side};
+ 
+     #[test]
+     fn reordered_frames_while_stopped() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/streams/state.rs:940:
+ 
+ #[cfg(test)]
+ mod tests {
++    use bytes::Bytes;
++
+     use super::*;
+     use crate::{
+         ReadableError, RecvStream, SendStream, TransportErrorCode, WriteError,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/streams/state.rs:946:
+-        connection::State as ConnState, connection::Streams,
++        connection::{State as ConnState, Streams},
+     };
+-    use bytes::Bytes;
+ 
+     fn make(side: Side) -> StreamsState {
+         StreamsState::new(
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/timer.rs:1:
+ use identity_hash::{IdentityHashable, IntMap};
+ 
++use super::PathId;
+ use crate::{
+     Instant,
+     connection::qlog::{QlogSink, QlogSinkWithTime},
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/timer.rs:6:
+ };
+ 
+-use super::PathId;
+-
+ #[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+ pub(crate) enum Timer {
+     /// Per connection timers.
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/connection/timer.rs:397:
+ mod tests {
+     use std::time::Duration;
+ 
+-    use crate::connection::qlog::QlogSink;
+-
+     use super::*;
++    use crate::connection::qlog::QlogSink;
+ 
+     #[test]
+     fn timer_table() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/frame.rs:6:
+ };
+ 
+ use bytes::{Buf, BufMut, Bytes};
++#[cfg(test)]
++use proptest::{collection, prelude::any, strategy::Strategy};
++#[cfg(test)]
++use test_strategy::Arbitrary;
+ use tinyvec::TinyVec;
+ 
++#[cfg(feature = "qlog")]
++use super::connection::qlog::ToQlog;
++#[cfg(test)]
++use crate::varint::varint_u64;
+ use crate::{
+     Dir, MAX_CID_SIZE, RESET_TOKEN_SIZE, ResetToken, StreamId, TransportError, TransportErrorCode,
+     VarInt,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/frame.rs:17:
+     shared::{ConnectionId, EcnCodepoint},
+ };
+ 
+-#[cfg(feature = "qlog")]
+-use super::connection::qlog::ToQlog;
+-
+-#[cfg(test)]
+-use crate::varint::varint_u64;
+-#[cfg(test)]
+-use proptest::{collection, prelude::any, strategy::Strategy};
+-#[cfg(test)]
+-use test_strategy::Arbitrary;
+-
+ #[derive(
+     Copy, Clone, Eq, PartialEq, derive_more::Debug, derive_more::Display, enum_assoc::Assoc,
+ )]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/frame.rs:2488:
+ 
+ #[cfg(test)]
+ mod test {
++    use assert_matches::assert_matches;
++
+     use super::*;
+     use crate::coding::Encodable;
+-    use assert_matches::assert_matches;
+ 
+     #[test]
+     fn frame_type() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/lib.rs:42:
+ pub use bloom_token_log::BloomTokenLog;
+ 
+ pub(crate) mod connection;
++#[cfg(feature = "rustls")]
++pub use rustls;
++#[cfg(test)]
++use test_strategy::Arbitrary;
++
+ pub use crate::connection::{
+     Chunk, Chunks, ClosePathError, ClosedPath, ClosedStream, Connection, ConnectionError,
+     ConnectionStats, Datagrams, Event, FinishError, FrameStats, MultipathNotNegotiated,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/lib.rs:49:
+     ReadableError, RecvStream, RttEstimator, SendDatagramError, SendStream, SetPathStatusError,
+     ShouldTransmit, StreamEvent, Streams, UdpStats, WriteError, Written,
+ };
+-#[cfg(test)]
+-use test_strategy::Arbitrary;
+ 
+-#[cfg(feature = "rustls")]
+-pub use rustls;
+-
+ mod config;
+ #[cfg(doc)]
+ pub use config::DEFAULT_CONCURRENT_MULTIPATH_PATHS_WHEN_ENABLED;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/lib.rs:115:
+ // Deal with time
+ #[cfg(not(all(target_family = "wasm", target_os = "unknown")))]
+ pub(crate) use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
++
+ #[cfg(all(target_family = "wasm", target_os = "unknown"))]
+ pub(crate) use web_time::{Duration, Instant, SystemTime, UNIX_EPOCH};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/lib.rs:126:
+ 
+ #[cfg(fuzzing)]
+ pub mod fuzzing {
+-    pub use crate::connection::{Retransmits, State as ConnectionState, StreamsState};
+-    pub use crate::frame::ResetStream;
+-    pub use crate::packet::PartialDecode;
+-    pub use crate::transport_parameters::TransportParameters;
+-    pub use bytes::{BufMut, BytesMut};
+-
+     #[cfg(feature = "arbitrary")]
+     use arbitrary::{Arbitrary, Result, Unstructured};
++    pub use bytes::{BufMut, BytesMut};
++
++    pub use crate::{
++        connection::{Retransmits, State as ConnectionState, StreamsState},
++        frame::ResetStream,
++        packet::PartialDecode,
++        transport_parameters::TransportParameters,
++    };
+ 
+     #[cfg(feature = "arbitrary")]
+     impl<'arbitrary> Arbitrary<'arbitrary> for TransportParameters {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/packet.rs:867:
+ 
+ impl LongHeaderType {
+     fn from_byte(b: u8) -> Result<Self, PacketDecodeError> {
+-        use {LongHeaderType::*, LongType::*};
++        use LongHeaderType::*;
++        use LongType::*;
+         debug_assert!(b & LONG_HEADER_FORM != 0, "not a long packet");
+         Ok(match (b & 0x30) >> 4 {
+             0x0 => Initial,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/packet.rs:881:
+ 
+ impl From<LongHeaderType> for u8 {
+     fn from(ty: LongHeaderType) -> Self {
+-        use {LongHeaderType::*, LongType::*};
++        use LongHeaderType::*;
++        use LongType::*;
+         match ty {
+             Initial => LONG_HEADER_FORM | FIXED_BIT,
+             Standard(ZeroRtt) => LONG_HEADER_FORM | FIXED_BIT | (0x1 << 4),
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/packet.rs:978:
+ 
+ #[cfg(test)]
+ mod tests {
+-    use super::*;
+-    use hex_literal::hex;
+     use std::io;
+ 
++    use hex_literal::hex;
++
++    use super::*;
++
+     fn check_pn(typed: PacketNumber, encoded: &[u8]) {
+         let mut buf = Vec::new();
+         typed.encode(&mut buf);
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/packet.rs:1018:
+     #[cfg(any(feature = "rustls-aws-lc-rs", feature = "rustls-ring"))]
+     #[test]
+     fn header_encoding() {
+-        use crate::Side;
+-        use crate::crypto::rustls::{initial_keys, initial_suite_from_provider};
+         #[cfg(all(feature = "rustls-aws-lc-rs", not(feature = "rustls-ring")))]
+         use rustls::crypto::aws_lc_rs::default_provider;
+         #[cfg(feature = "rustls-ring")]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/packet.rs:1026:
+         use rustls::crypto::ring::default_provider;
+         use rustls::quic::Version;
++
++        use crate::{
++            Side,
++            crypto::rustls::{initial_keys, initial_suite_from_provider},
++        };
+ 
+         let dcid = ConnectionId::new(&hex!("06b858ec6f80452b"));
+         let provider = default_provider();
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/range_set/array_range_set.rs:1:
+-use std::fmt::{self, Write};
+-use std::ops::Range;
++use std::{
++    fmt::{self, Write},
++    ops::Range,
++};
+ 
+ use tinyvec::TinyVec;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/shared.rs:2:
+ 
+ use bytes::{Buf, BufMut, BytesMut};
+ 
+-use crate::FourTuple;
+-use crate::PathId;
+-use crate::{Duration, Instant, MAX_CID_SIZE, ResetToken, coding::BufExt, packet::PartialDecode};
++use crate::{
++    Duration, FourTuple, Instant, MAX_CID_SIZE, PathId, ResetToken, coding::BufExt,
++    packet::PartialDecode,
++};
+ 
+ /// Events sent from an Endpoint to a Connection
+ #[derive(Debug)]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/tests/encode_decode.rs:1:
+ use bytes::{BufMut, BytesMut};
++use proptest::{prelude::*, prop_assert_ne};
+ use test_strategy::proptest;
+-use proptest::{prop_assert_ne, prelude::*};
+ 
+ use crate::{
+     FrameType,
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/tests/multipath.rs:1:
+ //! Tests for multipath
+ 
+-use std::net::SocketAddr;
+-use std::num::NonZeroU32;
+-use std::sync::Arc;
+-use std::time::Duration;
++use std::{net::SocketAddr, num::NonZeroU32, sync::Arc, time::Duration};
+ 
+ use assert_matches::assert_matches;
+ use testresult::TestResult;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/tests/multipath.rs:10:
+ use tracing::info;
+ 
+-use crate::tests::RoutingTable;
+-use crate::tests::util::{CLIENT_PORTS, ConnPair, SERVER_PORTS};
++use super::{
++    Pair, client_config, server_config,
++    util::{min_opt, subscribe},
++};
+ use crate::{
+-    ClientConfig, ClosePathError, ConnectionId, ConnectionIdGenerator, Endpoint, EndpointConfig,
+-    FourTuple, LOCAL_CID_COUNT, NetworkChangeHint, PathId, PathStatus, RandomConnectionIdGenerator,
+-    ServerConfig, Side::*, TransportConfig, cid_queue::CidQueue,
++    ClientConfig, ClosePathError, ConnectionId, ConnectionIdGenerator, Dir, Endpoint,
++    EndpointConfig, Event, FourTuple, LOCAL_CID_COUNT, NetworkChangeHint, PathError, PathEvent,
++    PathId, PathStatus, RandomConnectionIdGenerator, ServerConfig,
++    Side::*,
++    StreamEvent, TransportConfig,
++    cid_queue::CidQueue,
++    tests::{
++        RoutingTable,
++        util::{CLIENT_PORTS, ConnPair, SERVER_PORTS},
++    },
+ };
+-use crate::{Dir, Event, PathError, PathEvent, StreamEvent};
+-
+-use super::util::{min_opt, subscribe};
+-use super::{Pair, client_config, server_config};
+ 
+ const MAX_PATHS: u32 = 3;
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/tests/token.rs:1:
+ //! Tests specifically for tokens
+ 
+-use super::*;
+-
+ #[cfg(all(target_family = "wasm", target_os = "unknown"))]
+ use wasm_bindgen_test::wasm_bindgen_test as test;
++
++use super::*;
+ 
+ #[test]
+ fn stateless_retry() {
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/tests/util.rs:21:
+ };
+ use tracing::{debug, info_span, trace};
+ 
+-use super::crypto::rustls::{QuicClientConfig, QuicServerConfig, configured_provider};
+-use super::*;
++use super::{
++    crypto::rustls::{QuicClientConfig, QuicServerConfig, configured_provider},
++    *,
++};
+ use crate::{Duration, Instant, congestion::Controller};
+ 
+ pub(super) const DEFAULT_MTU: usize = 1452;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token.rs:408:
+ 
+ #[cfg(all(test, any(feature = "aws-lc-rs", feature = "ring")))]
+ mod test {
+-    use super::*;
+     #[cfg(all(feature = "aws-lc-rs", not(feature = "ring")))]
+     use aws_lc_rs::hkdf;
+     use rand::prelude::*;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token.rs:415:
+     #[cfg(feature = "ring")]
+     use ring::hkdf;
+ 
++    use super::*;
++
+     fn token_round_trip(payload: TokenPayload) -> TokenPayload {
+         let rng = &mut rand::rng();
+         let token = Token::new(payload, rng);
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token.rs:429:
+ 
+     #[test]
+     fn retry_token_sanity() {
+-        use crate::MAX_CID_SIZE;
+-        use crate::cid_generator::{ConnectionIdGenerator, RandomConnectionIdGenerator};
+-        use crate::{Duration, UNIX_EPOCH};
+-
+         use std::net::Ipv6Addr;
+ 
++        use crate::{
++            Duration, MAX_CID_SIZE, UNIX_EPOCH,
++            cid_generator::{ConnectionIdGenerator, RandomConnectionIdGenerator},
++        };
++
+         let address_1 = SocketAddr::new(Ipv6Addr::LOCALHOST.into(), 4433);
+         let orig_dst_cid_1 = RandomConnectionIdGenerator::new(MAX_CID_SIZE).generate_cid();
+         let issued_1 = UNIX_EPOCH + Duration::from_secs(42); // Fractional seconds would be lost
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token.rs:459:
+ 
+     #[test]
+     fn validation_token_sanity() {
+-        use crate::{Duration, UNIX_EPOCH};
+-
+         use std::net::Ipv6Addr;
+ 
++        use crate::{Duration, UNIX_EPOCH};
++
+         let ip_1 = Ipv6Addr::LOCALHOST.into();
+         let issued_1 = UNIX_EPOCH + Duration::from_secs(42); // Fractional seconds would be lost
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token.rs:484:
+ 
+     #[test]
+     fn invalid_token_returns_err() {
+-        use super::*;
+         use rand::RngCore;
++
++        use super::*;
+ 
+         let rng = &mut rand::rng();
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token_memory_cache.rs:154:
+ mod tests {
+     use std::collections::VecDeque;
+ 
+-    use super::*;
+     use rand::prelude::*;
+     use rand_pcg::Pcg32;
+     use tracing::info;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-proto/src/token_memory_cache.rs:161:
++
++    use super::*;
+ 
+     fn new_rng() -> impl Rng {
+         Pcg32::from_seed(0xdeadbeefdeadbeefdeadbeefdeadbeefu128.to_le_bytes())
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp/benches/throughput.rs:6:
+ };
+ 
+ use criterion::{Criterion, criterion_group, criterion_main};
+-use tokio::{io::Interest, runtime::Runtime};
+-
+ use iroh_quinn_udp::{BATCH_SIZE, RecvMeta, Transmit, UdpSocketState};
++use tokio::{io::Interest, runtime::Runtime};
+ 
+ pub fn criterion_benchmark(c: &mut Criterion) {
+     const TOTAL_BYTES: usize = 10 * 1024 * 1024;
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp/src/lib.rs:58:
+ mod log {
+     #[cfg(all(feature = "log", not(feature = "tracing-log")))]
+     pub(crate) use log::{debug, error, info, trace, warn};
+-
+     #[cfg(feature = "tracing-log")]
+     pub(crate) use tracing::{debug, error, info, trace, warn};
+ 
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp/src/lib.rs:70:
+         macro_rules! log_warn ( ($($tt:tt)*) => {{}} );
+         macro_rules! error    ( ($($tt:tt)*) => {{}} );
+ 
+-        pub(crate) use {debug, error, info, log_warn as warn, trace};
++        pub(crate) use debug;
++        pub(crate) use error;
++        pub(crate) use info;
++        pub(crate) use log_warn as warn;
++        pub(crate) use trace;
+     }
+ 
+     #[cfg(not(any(feature = "log", feature = "tracing-log")))]
+Diff in /private/tmp/radio-bao-proof-parent-b933/quinn/quinn-udp/src/unix.rs:817:
+ 
+ #[cfg(any(target_os = "linux", target_os = "android"))]
+ mod gso {
+-    use super::*;
+     use std::{ffi::CStr, mem, str::FromStr, sync::OnceLock};
++
++    use super::*;
+ 
+     // Support for UDP GSO has been added to linux kernel in version 4.18
+     // https://github.com/torvalds/linux/commit/cb586c63e3fc5b227c51fd8c4cb40b34d3750645

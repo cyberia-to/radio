@@ -1,0 +1,1284 @@
+{
+  "parent": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "context_bytes": 353968,
+  "context_sha256": "7cb5148704360f37383ff2567e6f2b96b792ddeb75a156db6f9de290dd62711f",
+  "sections": [
+    {
+      "label": "CODE review scope and indexed omissions",
+      "bytes": 3115,
+      "sha256": "82bee6c203fc0c0f1602f09feba59ba4dde958a4baa80fa4d76c655c8fd19eb5",
+      "offset": 150,
+      "header": "\n===== 001 BEGIN CODE review scope and indexed omissions | 3115 bytes | SHA256 82bee6c203fc0c0f1602f09feba59ba4dde958a4baa80fa4d76c655c8fd19eb5 =====\n",
+      "footer": "\n===== 001 END CODE review scope and indexed omissions =====\n",
+      "local": "inputs/001.txt",
+      "binding": {
+        "kind": "brief"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/plan.md",
+      "bytes": 11425,
+      "sha256": "86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620",
+      "offset": 3481,
+      "header": "\n===== 002 BEGIN .claude/tasks/audit-cargo-packaging/plan.md | 11425 bytes | SHA256 86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620 =====\n",
+      "footer": "\n===== 002 END .claude/tasks/audit-cargo-packaging/plan.md =====\n",
+      "local": "inputs/002.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/plan.md"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/response-v1.md",
+      "bytes": 2722,
+      "sha256": "d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc",
+      "offset": 15132,
+      "header": "\n===== 003 BEGIN .claude/tasks/audit-cargo-packaging/response-v1.md | 2722 bytes | SHA256 d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc =====\n",
+      "footer": "\n===== 003 END .claude/tasks/audit-cargo-packaging/response-v1.md =====\n",
+      "local": "inputs/003.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/response-v1.md"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/execution.md",
+      "bytes": 3660,
+      "sha256": "d09975acf4aee60fdc358d204817c3d2a74f9706f482e60d99389fe107b8e84d",
+      "offset": 18085,
+      "header": "\n===== 004 BEGIN .claude/tasks/audit-cargo-packaging/execution.md | 3660 bytes | SHA256 d09975acf4aee60fdc358d204817c3d2a74f9706f482e60d99389fe107b8e84d =====\n",
+      "footer": "\n===== 004 END .claude/tasks/audit-cargo-packaging/execution.md =====\n",
+      "local": "inputs/004.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/execution.md"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/research.md",
+      "bytes": 5509,
+      "sha256": "f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b",
+      "offset": 21973,
+      "header": "\n===== 005 BEGIN .claude/tasks/audit-cargo-packaging/research.md | 5509 bytes | SHA256 f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b =====\n",
+      "footer": "\n===== 005 END .claude/tasks/audit-cargo-packaging/research.md =====\n",
+      "local": "inputs/005.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/research.md"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/README.md",
+      "bytes": 3362,
+      "sha256": "66a9b8d1abbb7591d18399570029ae450a3fd32f4dc720bb91b81a979f70c858",
+      "offset": 27710,
+      "header": "\n===== 006 BEGIN audit/2026-10-13-audit-cargo-packaging/README.md | 3362 bytes | SHA256 66a9b8d1abbb7591d18399570029ae450a3fd32f4dc720bb91b81a979f70c858 =====\n",
+      "footer": "\n===== 006 END audit/2026-10-13-audit-cargo-packaging/README.md =====\n",
+      "local": "inputs/006.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/README.md"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/execution/source-freeze.json",
+      "bytes": 2520,
+      "sha256": "e1bfd8f595385152fd08a23ab5edf46d683689e7ccb81639bd6e63082d0a07fa",
+      "offset": 31320,
+      "header": "\n===== 007 BEGIN audit/2026-10-13-audit-cargo-packaging/execution/source-freeze.json | 2520 bytes | SHA256 e1bfd8f595385152fd08a23ab5edf46d683689e7ccb81639bd6e63082d0a07fa =====\n",
+      "footer": "\n===== 007 END audit/2026-10-13-audit-cargo-packaging/execution/source-freeze.json =====\n",
+      "local": "inputs/007.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/execution/source-freeze.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605",
+      "offset": 34092,
+      "header": "\n===== 008 BEGIN audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt | 454 bytes | SHA256 209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605 =====\n",
+      "footer": "\n===== 008 END audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt =====\n",
+      "local": "inputs/008.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570",
+      "offset": 34794,
+      "header": "\n===== 009 BEGIN audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt | 375 bytes | SHA256 981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570 =====\n",
+      "footer": "\n===== 009 END audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt =====\n",
+      "local": "inputs/009.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36",
+      "offset": 35426,
+      "header": "\n===== 010 BEGIN audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt | 246 bytes | SHA256 80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36 =====\n",
+      "footer": "\n===== 010 END audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt =====\n",
+      "local": "inputs/010.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d",
+      "offset": 35921,
+      "header": "\n===== 011 BEGIN audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt | 222 bytes | SHA256 06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d =====\n",
+      "footer": "\n===== 011 END audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt =====\n",
+      "local": "inputs/011.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+      "offset": 36385,
+      "header": "\n===== 012 BEGIN audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt | 250 bytes | SHA256 c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f =====\n",
+      "footer": "\n===== 012 END audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt =====\n",
+      "local": "inputs/012.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+      "offset": 36886,
+      "header": "\n===== 013 BEGIN audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt | 377 bytes | SHA256 eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd =====\n",
+      "footer": "\n===== 013 END audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt =====\n",
+      "local": "inputs/013.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+      "offset": 37515,
+      "header": "\n===== 014 BEGIN audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt | 217 bytes | SHA256 26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038 =====\n",
+      "footer": "\n===== 014 END audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt =====\n",
+      "local": "inputs/014.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+      "bytes": 916,
+      "sha256": "794bbec41c38771fe666ebc40d5b8bbe8cf844632000654289fcc5ed65c7533e",
+      "offset": 37971,
+      "header": "\n===== 015 BEGIN audit/2026-10-09-kadek-slice-traversal/reproduce.nu | 916 bytes | SHA256 794bbec41c38771fe666ebc40d5b8bbe8cf844632000654289fcc5ed65c7533e =====\n",
+      "footer": "\n===== 015 END audit/2026-10-09-kadek-slice-traversal/reproduce.nu =====\n",
+      "local": "inputs/015.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50",
+      "offset": 39136,
+      "header": "\n===== 016 BEGIN audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt | 11037 bytes | SHA256 2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50 =====\n",
+      "footer": "\n===== 016 END audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt =====\n",
+      "local": "inputs/016.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.original.nu.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/verify.nu",
+      "bytes": 719,
+      "sha256": "fd64cf8a7aed61ce88c336497c05f805a885c9ef3325ea38f09f0ed1cffcc30f",
+      "offset": 50414,
+      "header": "\n===== 017 BEGIN audit/2026-10-12-bao-proof-research/verify.nu | 719 bytes | SHA256 fd64cf8a7aed61ce88c336497c05f805a885c9ef3325ea38f09f0ed1cffcc30f =====\n",
+      "footer": "\n===== 017 END audit/2026-10-12-bao-proof-research/verify.nu =====\n",
+      "local": "inputs/017.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-proof-research/verify.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/verify.original.nu.txt",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78",
+      "offset": 51369,
+      "header": "\n===== 018 BEGIN audit/2026-10-12-bao-proof-research/verify.original.nu.txt | 4241 bytes | SHA256 70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78 =====\n",
+      "footer": "\n===== 018 END audit/2026-10-12-bao-proof-research/verify.original.nu.txt =====\n",
+      "local": "inputs/018.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-proof-research/verify.original.nu.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+      "bytes": 628,
+      "sha256": "ad4154daeb25c641ccd571905edf4870899e160f7b7d4e0cb3fe6231684f54d2",
+      "offset": 55844,
+      "header": "\n===== 019 BEGIN audit/2026-10-12-bao-bounded-proof/verify.nu | 628 bytes | SHA256 ad4154daeb25c641ccd571905edf4870899e160f7b7d4e0cb3fe6231684f54d2 =====\n",
+      "footer": "\n===== 019 END audit/2026-10-12-bao-bounded-proof/verify.nu =====\n",
+      "local": "inputs/019.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/verify.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a",
+      "offset": 56707,
+      "header": "\n===== 020 BEGIN audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt | 10975 bytes | SHA256 dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a =====\n",
+      "footer": "\n===== 020 END audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt =====\n",
+      "local": "inputs/020.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-12-bao-bounded-proof/verify.original.nu.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/replay.nu",
+      "bytes": 1795,
+      "sha256": "a8f26e4ce221fa18ddd99eb622015e6327e8df2f480386c747ab163619f3b151",
+      "offset": 67920,
+      "header": "\n===== 021 BEGIN audit/2026-10-13-audit-cargo-packaging/replay.nu | 1795 bytes | SHA256 a8f26e4ce221fa18ddd99eb622015e6327e8df2f480386c747ab163619f3b151 =====\n",
+      "footer": "\n===== 021 END audit/2026-10-13-audit-cargo-packaging/replay.nu =====\n",
+      "local": "inputs/021.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/replay.nu"
+      }
+    },
+    {
+      "label": "Cargo.toml",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2",
+      "offset": 69906,
+      "header": "\n===== 022 BEGIN Cargo.toml | 2085 bytes | SHA256 3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2 =====\n",
+      "footer": "\n===== 022 END Cargo.toml =====\n",
+      "local": "inputs/022.txt",
+      "binding": {
+        "kind": "git",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "Cargo.toml"
+      }
+    },
+    {
+      "label": "cyber-bao/Cargo.toml",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+      "offset": 72154,
+      "header": "\n===== 023 BEGIN cyber-bao/Cargo.toml | 1078 bytes | SHA256 95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365 =====\n",
+      "footer": "\n===== 023 END cyber-bao/Cargo.toml =====\n",
+      "local": "inputs/023.txt",
+      "binding": {
+        "kind": "git",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "cyber-bao/Cargo.toml"
+      }
+    },
+    {
+      "label": "LICENSE-MIT",
+      "bytes": 1048,
+      "sha256": "f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050",
+      "offset": 73396,
+      "header": "\n===== 024 BEGIN LICENSE-MIT | 1048 bytes | SHA256 f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050 =====\n",
+      "footer": "\n===== 024 END LICENSE-MIT =====\n",
+      "local": "inputs/024.txt",
+      "binding": {
+        "kind": "git",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "LICENSE-MIT"
+      }
+    },
+    {
+      "label": "LICENSE-APACHE",
+      "bytes": 10831,
+      "sha256": "903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab",
+      "offset": 74603,
+      "header": "\n===== 025 BEGIN LICENSE-APACHE | 10831 bytes | SHA256 903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab =====\n",
+      "footer": "\n===== 025 END LICENSE-APACHE =====\n",
+      "local": "inputs/025.txt",
+      "binding": {
+        "kind": "git",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "LICENSE-APACHE"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md",
+      "bytes": 8517,
+      "sha256": "9397ff948d59b5736c6fce0322913a71dd4aea3b7364934f9a30eeb767205544",
+      "offset": 85644,
+      "header": "\n===== 026 BEGIN audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md | 8517 bytes | SHA256 9397ff948d59b5736c6fce0322913a71dd4aea3b7364934f9a30eeb767205544 =====\n",
+      "footer": "\n===== 026 END audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md =====\n",
+      "local": "inputs/026.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/result.md"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json",
+      "bytes": 10552,
+      "sha256": "27a51f83e0ea67a2fbd7951f8bf83a2572ea4fe859a95d99a33d90f233a7dec4",
+      "offset": 94423,
+      "header": "\n===== 027 BEGIN audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json | 10552 bytes | SHA256 27a51f83e0ea67a2fbd7951f8bf83a2572ea4fe859a95d99a33d90f233a7dec4 =====\n",
+      "footer": "\n===== 027 END audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json =====\n",
+      "local": "inputs/027.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/stdout.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json",
+      "bytes": 1223,
+      "sha256": "84ed4a38c954d7a0ed6155c823090d978ae1e3a88544f5bd4e4d8f47c81683b3",
+      "offset": 105242,
+      "header": "\n===== 028 BEGIN audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json | 1223 bytes | SHA256 84ed4a38c954d7a0ed6155c823090d978ae1e3a88544f5bd4e4d8f47c81683b3 =====\n",
+      "footer": "\n===== 028 END audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json =====\n",
+      "local": "inputs/028.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/invocation.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json",
+      "bytes": 240,
+      "sha256": "e4bc2332413f64460b78b29577a23c9aa7019ae7f37197279e44b2a7c7228bd0",
+      "offset": 106735,
+      "header": "\n===== 029 BEGIN audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json | 240 bytes | SHA256 e4bc2332413f64460b78b29577a23c9aa7019ae7f37197279e44b2a7c7228bd0 =====\n",
+      "footer": "\n===== 029 END audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json =====\n",
+      "local": "inputs/029.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v2/completion.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/inputs/source.json",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a",
+      "offset": 107234,
+      "header": "\n===== 030 BEGIN audit/2026-10-13-audit-cargo-packaging/inputs/source.json | 5180 bytes | SHA256 23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a =====\n",
+      "footer": "\n===== 030 END audit/2026-10-13-audit-cargo-packaging/inputs/source.json =====\n",
+      "local": "inputs/030.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/source.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/inputs/renames.json",
+      "bytes": 3469,
+      "sha256": "887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb",
+      "offset": 112662,
+      "header": "\n===== 031 BEGIN audit/2026-10-13-audit-cargo-packaging/inputs/renames.json | 3469 bytes | SHA256 887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb =====\n",
+      "footer": "\n===== 031 END audit/2026-10-13-audit-cargo-packaging/inputs/renames.json =====\n",
+      "local": "inputs/031.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/renames.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json",
+      "bytes": 9834,
+      "sha256": "4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94",
+      "offset": 116398,
+      "header": "\n===== 032 BEGIN audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json | 9834 bytes | SHA256 4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94 =====\n",
+      "footer": "\n===== 032 END audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json =====\n",
+      "local": "inputs/032.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/inputs/registry.json",
+      "bytes": 364,
+      "sha256": "161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c",
+      "offset": 126499,
+      "header": "\n===== 033 BEGIN audit/2026-10-13-audit-cargo-packaging/inputs/registry.json | 364 bytes | SHA256 161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c =====\n",
+      "footer": "\n===== 033 END audit/2026-10-13-audit-cargo-packaging/inputs/registry.json =====\n",
+      "local": "inputs/033.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/registry.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt",
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+      "offset": 127118,
+      "header": "\n===== 034 BEGIN audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt | 149 bytes | SHA256 c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984 =====\n",
+      "footer": "\n===== 034 END audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt =====\n",
+      "local": "inputs/034.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/registry-radio.txt"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/execution/staging-tests-v2.rb",
+      "bytes": 6123,
+      "sha256": "a7ec49f602321063728d1c640eeec274a5684735fadea386918eee3ab3364dbe",
+      "offset": 127532,
+      "header": "\n===== 035 BEGIN audit/2026-10-13-audit-cargo-packaging/execution/staging-tests-v2.rb | 6123 bytes | SHA256 a7ec49f602321063728d1c640eeec274a5684735fadea386918eee3ab3364dbe =====\n",
+      "footer": "\n===== 035 END audit/2026-10-13-audit-cargo-packaging/execution/staging-tests-v2.rb =====\n",
+      "local": "inputs/035.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/execution/staging-tests-v2.rb"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/execution/child-exit-v1.rb",
+      "bytes": 1319,
+      "sha256": "76b62594c68978eab961f5aedc7d5df3f83b91e21b08bed10349428420f2ee63",
+      "offset": 133921,
+      "header": "\n===== 036 BEGIN audit/2026-10-13-audit-cargo-packaging/execution/child-exit-v1.rb | 1319 bytes | SHA256 76b62594c68978eab961f5aedc7d5df3f83b91e21b08bed10349428420f2ee63 =====\n",
+      "footer": "\n===== 036 END audit/2026-10-13-audit-cargo-packaging/execution/child-exit-v1.rb =====\n",
+      "local": "inputs/036.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/execution/child-exit-v1.rb"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/execution/pair-v3.rb",
+      "bytes": 10288,
+      "sha256": "d1c2b15bec7b24c5cc90dda14b01de9ddb3f2fe40a72f9326b77105e518487c0",
+      "offset": 135498,
+      "header": "\n===== 037 BEGIN audit/2026-10-13-audit-cargo-packaging/execution/pair-v3.rb | 10288 bytes | SHA256 d1c2b15bec7b24c5cc90dda14b01de9ddb3f2fe40a72f9326b77105e518487c0 =====\n",
+      "footer": "\n===== 037 END audit/2026-10-13-audit-cargo-packaging/execution/pair-v3.rb =====\n",
+      "local": "inputs/037.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/execution/pair-v3.rb"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/execution/metadata-v1.rb",
+      "bytes": 3114,
+      "sha256": "5709a5fa44890fe124f97847c6327955a9428abae288219d7e67d94ab4bec894",
+      "offset": 146041,
+      "header": "\n===== 038 BEGIN audit/2026-10-13-audit-cargo-packaging/execution/metadata-v1.rb | 3114 bytes | SHA256 5709a5fa44890fe124f97847c6327955a9428abae288219d7e67d94ab4bec894 =====\n",
+      "footer": "\n===== 038 END audit/2026-10-13-audit-cargo-packaging/execution/metadata-v1.rb =====\n",
+      "local": "inputs/038.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/execution/metadata-v1.rb"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/frozen/reader_probe.rs",
+      "bytes": 9574,
+      "sha256": "c591a5f63d2a8079ed757fbcdf4a00d9f4b281f2ffe0abff657ebf7731058b15",
+      "offset": 149417,
+      "header": "\n===== 039 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/frozen/reader_probe.rs | 9574 bytes | SHA256 c591a5f63d2a8079ed757fbcdf4a00d9f4b281f2ffe0abff657ebf7731058b15 =====\n",
+      "footer": "\n===== 039 END audit/2026-10-13-audit-cargo-packaging/pair/frozen/reader_probe.rs =====\n",
+      "local": "inputs/039.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/frozen/reader_probe.rs"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/controls/staging-v2/results.json",
+      "bytes": 1961,
+      "sha256": "b43ea385f101466313a219b85c507307c8293f5cf37a906be8cb7b65830cfa2e",
+      "offset": 159261,
+      "header": "\n===== 040 BEGIN audit/2026-10-13-audit-cargo-packaging/controls/staging-v2/results.json | 1961 bytes | SHA256 b43ea385f101466313a219b85c507307c8293f5cf37a906be8cb7b65830cfa2e =====\n",
+      "footer": "\n===== 040 END audit/2026-10-13-audit-cargo-packaging/controls/staging-v2/results.json =====\n",
+      "local": "inputs/040.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/controls/staging-v2/results.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/controls/child-exit-v1/result.json",
+      "bytes": 559,
+      "sha256": "255d8f904c3569600c89a94658c4b9f18b3b804eec3b0776c1ae5254b2fb4c94",
+      "offset": 161498,
+      "header": "\n===== 041 BEGIN audit/2026-10-13-audit-cargo-packaging/controls/child-exit-v1/result.json | 559 bytes | SHA256 255d8f904c3569600c89a94658c4b9f18b3b804eec3b0776c1ae5254b2fb4c94 =====\n",
+      "footer": "\n===== 041 END audit/2026-10-13-audit-cargo-packaging/controls/child-exit-v1/result.json =====\n",
+      "local": "inputs/041.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/controls/child-exit-v1/result.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/snapshot.json",
+      "bytes": 74032,
+      "sha256": "3dcc049831099401f6d7e77bf8748529f7dc9dd8ee5f958c48d4600c5c3a2bad",
+      "offset": 162321,
+      "header": "\n===== 042 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/snapshot.json | 74032 bytes | SHA256 3dcc049831099401f6d7e77bf8748529f7dc9dd8ee5f958c48d4600c5c3a2bad =====\n",
+      "footer": "\n===== 042 END audit/2026-10-13-audit-cargo-packaging/pair/snapshot.json =====\n",
+      "local": "inputs/042.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/snapshot.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/results.json",
+      "bytes": 1924,
+      "sha256": "574cecd2073ace5b095c9398891b9731f20b76ae7731c244cd48749aabf6d5d6",
+      "offset": 236599,
+      "header": "\n===== 043 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/results.json | 1924 bytes | SHA256 574cecd2073ace5b095c9398891b9731f20b76ae7731c244cd48749aabf6d5d6 =====\n",
+      "footer": "\n===== 043 END audit/2026-10-13-audit-cargo-packaging/pair/results.json =====\n",
+      "local": "inputs/043.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/results.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/external-manifest.json",
+      "bytes": 773,
+      "sha256": "408ccb298b6a638a76ce44053064ff0c7fc77fdd87cea890a7b03492bad89a58",
+      "offset": 238777,
+      "header": "\n===== 044 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/external-manifest.json | 773 bytes | SHA256 408ccb298b6a638a76ce44053064ff0c7fc77fdd87cea890a7b03492bad89a58 =====\n",
+      "footer": "\n===== 044 END audit/2026-10-13-audit-cargo-packaging/pair/external-manifest.json =====\n",
+      "local": "inputs/044.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/external-manifest.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/metadata-comparison.json",
+      "bytes": 22547,
+      "sha256": "61b54d100b6474c69ee73eaba9c9d3012e63f61ba462b28afa1ef7f157d17f8a",
+      "offset": 239818,
+      "header": "\n===== 045 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/metadata-comparison.json | 22547 bytes | SHA256 61b54d100b6474c69ee73eaba9c9d3012e63f61ba462b28afa1ef7f157d17f8a =====\n",
+      "footer": "\n===== 045 END audit/2026-10-13-audit-cargo-packaging/pair/metadata-comparison.json =====\n",
+      "local": "inputs/045.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/metadata-comparison.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/tools.json",
+      "bytes": 1523,
+      "sha256": "ad32f03d58356f8abc0a969571b42dfc7c188668d54dc59e006bb2e800c7809c",
+      "offset": 262620,
+      "header": "\n===== 046 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/tools.json | 1523 bytes | SHA256 ad32f03d58356f8abc0a969571b42dfc7c188668d54dc59e006bb2e800c7809c =====\n",
+      "footer": "\n===== 046 END audit/2026-10-13-audit-cargo-packaging/pair/tools.json =====\n",
+      "local": "inputs/046.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/tools.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.json",
+      "bytes": 1382,
+      "sha256": "1b45192e4a20ce32bcc31c2f2b393bd661fbf9c41b5174b144ae70b2a7372082",
+      "offset": 264390,
+      "header": "\n===== 047 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.json | 1382 bytes | SHA256 1b45192e4a20ce32bcc31c2f2b393bd661fbf9c41b5174b144ae70b2a7372082 =====\n",
+      "footer": "\n===== 047 END audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.json =====\n",
+      "local": "inputs/047.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 266024,
+      "header": "\n===== 048 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stdout | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 048 END audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stdout =====\n",
+      "local": "inputs/048.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stderr",
+      "bytes": 3907,
+      "sha256": "121497c8acb0d780d8c3930a0081c9e81524501895c242a90ab9a819ae7448c2",
+      "offset": 266281,
+      "header": "\n===== 049 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stderr | 3907 bytes | SHA256 121497c8acb0d780d8c3930a0081c9e81524501895c242a90ab9a819ae7448c2 =====\n",
+      "footer": "\n===== 049 END audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stderr =====\n",
+      "local": "inputs/049.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/lock.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.json",
+      "bytes": 1450,
+      "sha256": "0bb48b527459f33b688f8d598eeedbe5568c955bb4af2ebef5f526a5b4ab5576",
+      "offset": 270447,
+      "header": "\n===== 050 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.json | 1450 bytes | SHA256 0bb48b527459f33b688f8d598eeedbe5568c955bb4af2ebef5f526a5b4ab5576 =====\n",
+      "footer": "\n===== 050 END audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.json =====\n",
+      "local": "inputs/050.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stdout",
+      "bytes": 12278,
+      "sha256": "47376714385cb98a34ea24d49464d005e2cd20dc6a2bb5fab9f2a0b68138dbed",
+      "offset": 272161,
+      "header": "\n===== 051 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stdout | 12278 bytes | SHA256 47376714385cb98a34ea24d49464d005e2cd20dc6a2bb5fab9f2a0b68138dbed =====\n",
+      "footer": "\n===== 051 END audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stdout =====\n",
+      "local": "inputs/051.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stderr",
+      "bytes": 354,
+      "sha256": "9d636fead80a7e4b3dd6950fc477980d250438ea237573f98d523ae0e2fee5ca",
+      "offset": 284703,
+      "header": "\n===== 052 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stderr | 354 bytes | SHA256 9d636fead80a7e4b3dd6950fc477980d250438ea237573f98d523ae0e2fee5ca =====\n",
+      "footer": "\n===== 052 END audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stderr =====\n",
+      "local": "inputs/052.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/metadata.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.json",
+      "bytes": 1507,
+      "sha256": "95fc04f75a41a9683922fa77a9425b25067f000eb673ef0ca2ce4b8998dead41",
+      "offset": 285317,
+      "header": "\n===== 053 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.json | 1507 bytes | SHA256 95fc04f75a41a9683922fa77a9425b25067f000eb673ef0ca2ce4b8998dead41 =====\n",
+      "footer": "\n===== 053 END audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.json =====\n",
+      "local": "inputs/053.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stdout",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99",
+      "offset": 287081,
+      "header": "\n===== 054 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stdout | 2413 bytes | SHA256 ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99 =====\n",
+      "footer": "\n===== 054 END audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stdout =====\n",
+      "local": "inputs/054.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stderr",
+      "bytes": 924,
+      "sha256": "8c4338bb58bf85d480f9578193a26079bda087304a4542710783b927777056a5",
+      "offset": 289752,
+      "header": "\n===== 055 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stderr | 924 bytes | SHA256 8c4338bb58bf85d480f9578193a26079bda087304a4542710783b927777056a5 =====\n",
+      "footer": "\n===== 055 END audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stderr =====\n",
+      "local": "inputs/055.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/debug.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.json",
+      "bytes": 1528,
+      "sha256": "78f21d31a4b348f2dae37c0ab9d1d1aa3b021a28bcd8455f2db7db8bf2774138",
+      "offset": 290935,
+      "header": "\n===== 056 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/release.json | 1528 bytes | SHA256 78f21d31a4b348f2dae37c0ab9d1d1aa3b021a28bcd8455f2db7db8bf2774138 =====\n",
+      "footer": "\n===== 056 END audit/2026-10-13-audit-cargo-packaging/pair/parent/release.json =====\n",
+      "local": "inputs/056.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stdout",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99",
+      "offset": 292724,
+      "header": "\n===== 057 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stdout | 2413 bytes | SHA256 ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99 =====\n",
+      "footer": "\n===== 057 END audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stdout =====\n",
+      "local": "inputs/057.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stderr",
+      "bytes": 916,
+      "sha256": "5f50359e10521948ae9439dc771bfbfb57fc7b163aff0404e6e859c435815bd5",
+      "offset": 295399,
+      "header": "\n===== 058 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stderr | 916 bytes | SHA256 5f50359e10521948ae9439dc771bfbfb57fc7b163aff0404e6e859c435815bd5 =====\n",
+      "footer": "\n===== 058 END audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stderr =====\n",
+      "local": "inputs/058.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/parent/release.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.json",
+      "bytes": 1397,
+      "sha256": "7758b95e8ce8da3a306ce770b525637c55204ddef02d4d4a413ca5cd9d1bd7b4",
+      "offset": 296576,
+      "header": "\n===== 059 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.json | 1397 bytes | SHA256 7758b95e8ce8da3a306ce770b525637c55204ddef02d4d4a413ca5cd9d1bd7b4 =====\n",
+      "footer": "\n===== 059 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.json =====\n",
+      "local": "inputs/059.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 298231,
+      "header": "\n===== 060 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stdout | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 060 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stdout =====\n",
+      "local": "inputs/060.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stderr",
+      "bytes": 3553,
+      "sha256": "2f61656eab86ba9c7aa6f4575f23e16ba0f8c14b912409c7a2acf1a000c5fc92",
+      "offset": 298494,
+      "header": "\n===== 061 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stderr | 3553 bytes | SHA256 2f61656eab86ba9c7aa6f4575f23e16ba0f8c14b912409c7a2acf1a000c5fc92 =====\n",
+      "footer": "\n===== 061 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stderr =====\n",
+      "local": "inputs/061.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/lock.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.json",
+      "bytes": 1463,
+      "sha256": "fad52db03f796e7139293d8a315a2d03cdc984a7d4cd9ca70f18dcdb0c3a1ca9",
+      "offset": 302312,
+      "header": "\n===== 062 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.json | 1463 bytes | SHA256 fad52db03f796e7139293d8a315a2d03cdc984a7d4cd9ca70f18dcdb0c3a1ca9 =====\n",
+      "footer": "\n===== 062 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.json =====\n",
+      "local": "inputs/062.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stdout",
+      "bytes": 12362,
+      "sha256": "92580476b44fd4dc6a8c4e2295a63e829905492620234e0c3bc8d47edd688002",
+      "offset": 304045,
+      "header": "\n===== 063 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stdout | 12362 bytes | SHA256 92580476b44fd4dc6a8c4e2295a63e829905492620234e0c3bc8d47edd688002 =====\n",
+      "footer": "\n===== 063 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stdout =====\n",
+      "local": "inputs/063.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 316675,
+      "header": "\n===== 064 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 064 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stderr =====\n",
+      "local": "inputs/064.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/metadata.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.json",
+      "bytes": 1522,
+      "sha256": "88731d609ebba4b16a4a49975c55571a790f50b2cf479b4a4eb36cd84ef52a03",
+      "offset": 316941,
+      "header": "\n===== 065 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.json | 1522 bytes | SHA256 88731d609ebba4b16a4a49975c55571a790f50b2cf479b4a4eb36cd84ef52a03 =====\n",
+      "footer": "\n===== 065 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.json =====\n",
+      "local": "inputs/065.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stdout",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99",
+      "offset": 318726,
+      "header": "\n===== 066 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stdout | 2413 bytes | SHA256 ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99 =====\n",
+      "footer": "\n===== 066 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stdout =====\n",
+      "local": "inputs/066.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stderr",
+      "bytes": 576,
+      "sha256": "75005803413265952fa612eef3f44a9ed3a2990ad3c88082b7aa1c4664b52f7b",
+      "offset": 321403,
+      "header": "\n===== 067 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stderr | 576 bytes | SHA256 75005803413265952fa612eef3f44a9ed3a2990ad3c88082b7aa1c4664b52f7b =====\n",
+      "footer": "\n===== 067 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stderr =====\n",
+      "local": "inputs/067.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/debug.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.json",
+      "bytes": 1543,
+      "sha256": "f3eac31ccdffb3188bedc6079bc2cbe8d98c9b9cccc0af603fda14f3f2c009bf",
+      "offset": 322244,
+      "header": "\n===== 068 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.json | 1543 bytes | SHA256 f3eac31ccdffb3188bedc6079bc2cbe8d98c9b9cccc0af603fda14f3f2c009bf =====\n",
+      "footer": "\n===== 068 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.json =====\n",
+      "local": "inputs/068.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stdout",
+      "bytes": 2413,
+      "sha256": "ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99",
+      "offset": 324054,
+      "header": "\n===== 069 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stdout | 2413 bytes | SHA256 ccb679634c8a07dc76b75445b6ac9f8372602e46bb4d85217a7634db6956ab99 =====\n",
+      "footer": "\n===== 069 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stdout =====\n",
+      "local": "inputs/069.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stderr",
+      "bytes": 568,
+      "sha256": "99c4a127e48eb0143a7282a8086692658c952138571e2ec75b6cc96e85460215",
+      "offset": 326735,
+      "header": "\n===== 070 BEGIN audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stderr | 568 bytes | SHA256 99c4a127e48eb0143a7282a8086692658c952138571e2ec75b6cc96e85460215 =====\n",
+      "footer": "\n===== 070 END audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stderr =====\n",
+      "local": "inputs/070.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/pair/candidate/release.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.json",
+      "bytes": 868,
+      "sha256": "13b07784eda84e2e564ce4f384cc4ff121b493f24283f1f82f2cdc94cba1ade9",
+      "offset": 327572,
+      "header": "\n===== 071 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.json | 868 bytes | SHA256 13b07784eda84e2e564ce4f384cc4ff121b493f24283f1f82f2cdc94cba1ade9 =====\n",
+      "footer": "\n===== 071 END audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.json =====\n",
+      "local": "inputs/071.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stdout",
+      "bytes": 267,
+      "sha256": "d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640",
+      "offset": 328712,
+      "header": "\n===== 072 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stdout | 267 bytes | SHA256 d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640 =====\n",
+      "footer": "\n===== 072 END audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stdout =====\n",
+      "local": "inputs/072.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 329251,
+      "header": "\n===== 073 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 073 END audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stderr =====\n",
+      "local": "inputs/073.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-after-v2.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.json",
+      "bytes": 816,
+      "sha256": "ca3dcf7d96ff818fcd0ad3456f09d759f42d72fd061be543d679e996e1136e06",
+      "offset": 329520,
+      "header": "\n===== 074 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.json | 816 bytes | SHA256 ca3dcf7d96ff818fcd0ad3456f09d759f42d72fd061be543d679e996e1136e06 =====\n",
+      "footer": "\n===== 074 END audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.json =====\n",
+      "local": "inputs/074.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stdout",
+      "bytes": 496,
+      "sha256": "756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059",
+      "offset": 330602,
+      "header": "\n===== 075 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stdout | 496 bytes | SHA256 756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059 =====\n",
+      "footer": "\n===== 075 END audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stdout =====\n",
+      "local": "inputs/075.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 331364,
+      "header": "\n===== 076 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 076 END audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stderr =====\n",
+      "local": "inputs/076.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-after-v2.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.json",
+      "bytes": 882,
+      "sha256": "df2079dcad12a5aa55601f6c7d72d819a3cbcbd226c34c4d39d807687a8e1058",
+      "offset": 331635,
+      "header": "\n===== 077 BEGIN audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.json | 882 bytes | SHA256 df2079dcad12a5aa55601f6c7d72d819a3cbcbd226c34c4d39d807687a8e1058 =====\n",
+      "footer": "\n===== 077 END audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.json =====\n",
+      "local": "inputs/077.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stdout",
+      "bytes": 243,
+      "sha256": "2ebdd7dc83f67023e207081ca20a6f303017daa5a8fb2fd69847895781cc01b2",
+      "offset": 332793,
+      "header": "\n===== 078 BEGIN audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stdout | 243 bytes | SHA256 2ebdd7dc83f67023e207081ca20a6f303017daa5a8fb2fd69847895781cc01b2 =====\n",
+      "footer": "\n===== 078 END audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stdout =====\n",
+      "local": "inputs/078.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 333312,
+      "header": "\n===== 079 BEGIN audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 079 END audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stderr =====\n",
+      "local": "inputs/079.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/code-input-after-v1.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.json",
+      "bytes": 892,
+      "sha256": "f7d11abb13eb67dfd9d9fd0cf2772d478e2686cd54e95ac64942f009d82e5894",
+      "offset": 333591,
+      "header": "\n===== 080 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.json | 892 bytes | SHA256 f7d11abb13eb67dfd9d9fd0cf2772d478e2686cd54e95ac64942f009d82e5894 =====\n",
+      "footer": "\n===== 080 END audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.json =====\n",
+      "local": "inputs/080.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 334763,
+      "header": "\n===== 081 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stdout | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 081 END audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stdout =====\n",
+      "local": "inputs/081.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stderr",
+      "bytes": 661,
+      "sha256": "0adef1143bce6e3f032afb7305d97390b151da9d0d0c2a1dacf10358ef14d3fa",
+      "offset": 335047,
+      "header": "\n===== 082 BEGIN audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stderr | 661 bytes | SHA256 0adef1143bce6e3f032afb7305d97390b151da9d0d0c2a1dacf10358ef14d3fa =====\n",
+      "footer": "\n===== 082 END audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stderr =====\n",
+      "local": "inputs/082.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-live-after-v2.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.json",
+      "bytes": 840,
+      "sha256": "6a68a9e697097c930ae7fc1f01dd4e40f87e3f650c21f0509909f08a84449fc9",
+      "offset": 335987,
+      "header": "\n===== 083 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.json | 840 bytes | SHA256 6a68a9e697097c930ae7fc1f01dd4e40f87e3f650c21f0509909f08a84449fc9 =====\n",
+      "footer": "\n===== 083 END audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.json =====\n",
+      "local": "inputs/083.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 337101,
+      "header": "\n===== 084 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stdout | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 084 END audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stdout =====\n",
+      "local": "inputs/084.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stderr",
+      "bytes": 642,
+      "sha256": "bd23ac9036992d463898b0e8ad784709a3f497182e1454a99f1e7c46e0f4cc77",
+      "offset": 337379,
+      "header": "\n===== 085 BEGIN audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stderr | 642 bytes | SHA256 bd23ac9036992d463898b0e8ad784709a3f497182e1454a99f1e7c46e0f4cc77 =====\n",
+      "footer": "\n===== 085 END audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stderr =====\n",
+      "local": "inputs/085.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-live-after-v2.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.json",
+      "bytes": 759,
+      "sha256": "a91440888697c7971295761d12e0abd373b76677620178857391c511d5788a03",
+      "offset": 338294,
+      "header": "\n===== 086 BEGIN audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.json | 759 bytes | SHA256 a91440888697c7971295761d12e0abd373b76677620178857391c511d5788a03 =====\n",
+      "footer": "\n===== 086 END audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.json =====\n",
+      "local": "inputs/086.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stdout",
+      "bytes": 255,
+      "sha256": "a1d346595dfa0fc13fe7e5f67a05aa5b695913c8f3de6ce301cea27c99655f49",
+      "offset": 339323,
+      "header": "\n===== 087 BEGIN audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stdout | 255 bytes | SHA256 a1d346595dfa0fc13fe7e5f67a05aa5b695913c8f3de6ce301cea27c99655f49 =====\n",
+      "footer": "\n===== 087 END audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stdout =====\n",
+      "local": "inputs/087.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 339848,
+      "header": "\n===== 088 BEGIN audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 088 END audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stderr =====\n",
+      "local": "inputs/088.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/staging-tests-v2.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.json",
+      "bytes": 749,
+      "sha256": "16bdec98c561defe202c166e0b9ea9a4ef1af7e500089f3d8aa8f6310a066703",
+      "offset": 340115,
+      "header": "\n===== 089 BEGIN audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.json | 749 bytes | SHA256 16bdec98c561defe202c166e0b9ea9a4ef1af7e500089f3d8aa8f6310a066703 =====\n",
+      "footer": "\n===== 089 END audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.json =====\n",
+      "local": "inputs/089.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stdout",
+      "bytes": 80,
+      "sha256": "aea7269c7ba8d95f11e1c80c1b8a7d4374dffdcade3ca442f15dfa39334a2fb0",
+      "offset": 341127,
+      "header": "\n===== 090 BEGIN audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stdout | 80 bytes | SHA256 aea7269c7ba8d95f11e1c80c1b8a7d4374dffdcade3ca442f15dfa39334a2fb0 =====\n",
+      "footer": "\n===== 090 END audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stdout =====\n",
+      "local": "inputs/090.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 341471,
+      "header": "\n===== 091 BEGIN audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 091 END audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stderr =====\n",
+      "local": "inputs/091.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/child-exit-v1.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.json",
+      "bytes": 740,
+      "sha256": "98e6254143908eb8aed1a454eea1d8e64c75ab2de65785647efa226110d9831a",
+      "offset": 341733,
+      "header": "\n===== 092 BEGIN audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.json | 740 bytes | SHA256 98e6254143908eb8aed1a454eea1d8e64c75ab2de65785647efa226110d9831a =====\n",
+      "footer": "\n===== 092 END audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.json =====\n",
+      "local": "inputs/092.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stdout",
+      "bytes": 265,
+      "sha256": "50510d56fa676d7e70edffd84505333eabde9fc198498a237c699ac876b8a4b2",
+      "offset": 342733,
+      "header": "\n===== 093 BEGIN audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stdout | 265 bytes | SHA256 50510d56fa676d7e70edffd84505333eabde9fc198498a237c699ac876b8a4b2 =====\n",
+      "footer": "\n===== 093 END audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stdout =====\n",
+      "local": "inputs/093.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 343258,
+      "header": "\n===== 094 BEGIN audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 094 END audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stderr =====\n",
+      "local": "inputs/094.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/pair-run-v3.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.json",
+      "bytes": 743,
+      "sha256": "589d07d003160257eedba908d1da99a40e31826942892bd497ff6e5206b6deb8",
+      "offset": 343518,
+      "header": "\n===== 095 BEGIN audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.json | 743 bytes | SHA256 589d07d003160257eedba908d1da99a40e31826942892bd497ff6e5206b6deb8 =====\n",
+      "footer": "\n===== 095 END audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.json =====\n",
+      "local": "inputs/095.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stdout",
+      "bytes": 73,
+      "sha256": "921712e27231ad4080e6555251fbb0c787f917ca74e224105809198c8251eb46",
+      "offset": 344520,
+      "header": "\n===== 096 BEGIN audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stdout | 73 bytes | SHA256 921712e27231ad4080e6555251fbb0c787f917ca74e224105809198c8251eb46 =====\n",
+      "footer": "\n===== 096 END audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stdout =====\n",
+      "local": "inputs/096.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stdout"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 344853,
+      "header": "\n===== 097 BEGIN audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 097 END audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stderr =====\n",
+      "local": "inputs/097.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/metadata-v1.stderr"
+      }
+    },
+    {
+      "label": "audit/2026-10-13-audit-cargo-packaging/verify.nu",
+      "bytes": 8799,
+      "sha256": "e208a0859470dd834c5986cbbb6b40585681693feacb5fb16719e3c97a1234fa",
+      "offset": 345099,
+      "header": "\n===== 098 BEGIN audit/2026-10-13-audit-cargo-packaging/verify.nu | 8799 bytes | SHA256 e208a0859470dd834c5986cbbb6b40585681693feacb5fb16719e3c97a1234fa =====\n",
+      "footer": "\n===== 098 END audit/2026-10-13-audit-cargo-packaging/verify.nu =====\n",
+      "local": "inputs/098.txt",
+      "binding": {
+        "kind": "owned",
+        "path": "audit/2026-10-13-audit-cargo-packaging/verify.nu"
+      }
+    }
+  ]
+}

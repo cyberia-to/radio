@@ -5,7 +5,7 @@
 //! rejected immediately.
 
 use crate::hash::HashBackend;
-use crate::tree::{BaoChunk, BaoTree, BlockSize, CHUNK_SIZE};
+use crate::tree::{BaoChunk, BaoTree, BlockSize};
 
 /// Error during decoding / verification.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -57,7 +57,6 @@ pub fn decode<B: HashBackend>(
     let tree = BaoTree::new(declared_size, block_size);
     let pre_order = tree.pre_order_chunks();
     let hash_size = backend.hash_size();
-    let bs = block_size.bytes();
 
     let mut cursor = 8usize;
     let mut data = Vec::with_capacity(declared_size as usize);
@@ -110,8 +109,7 @@ pub fn decode<B: HashBackend>(
                 let leaf_data = &encoded[cursor..cursor + *size];
                 cursor += *size;
 
-                let computed =
-                    hash_block_for_verify(backend, leaf_data, *start_chunk, *is_root, bs);
+                let computed = super::hash_group(backend, leaf_data, *start_chunk, *is_root);
                 let expected = expected_stack.pop().ok_or(DecodeError::Truncated)?;
                 if computed != expected {
                     return Err(DecodeError::LeafMismatch {
@@ -134,59 +132,12 @@ pub fn decode<B: HashBackend>(
     Ok(data)
 }
 
-/// Hash a block of data for verification (same logic as outboard's hash_block).
-fn hash_block_for_verify<B: HashBackend>(
-    backend: &B,
-    data: &[u8],
-    start_chunk: u64,
-    is_root: bool,
-    block_bytes: usize,
-) -> B::Hash {
-    if data.is_empty() {
-        return backend.chunk_hash(&[], start_chunk, is_root);
-    }
-
-    let mut chunk_hashes: Vec<B::Hash> = Vec::new();
-    let mut offset = 0usize;
-    let mut counter = start_chunk;
-    while offset < data.len() {
-        let end = (offset + CHUNK_SIZE).min(data.len());
-        let chunk_data = &data[offset..end];
-        let is_single_chunk = data.len() <= CHUNK_SIZE && is_root;
-        chunk_hashes.push(backend.chunk_hash(chunk_data, counter, is_single_chunk));
-        offset += CHUNK_SIZE;
-        counter += 1;
-    }
-
-    if chunk_hashes.len() == 1 {
-        return chunk_hashes.into_iter().next().unwrap();
-    }
-
-    let _ = block_bytes;
-    let mut level = chunk_hashes;
-    while level.len() > 1 {
-        let mut next = Vec::with_capacity(level.len().div_ceil(2));
-        let mut i = 0;
-        while i < level.len() {
-            if i + 1 < level.len() {
-                let parent = backend.parent_hash(&level[i], &level[i + 1], false);
-                next.push(parent);
-            } else {
-                next.push(level[i].clone());
-            }
-            i += 2;
-        }
-        level = next;
-    }
-
-    level.into_iter().next().unwrap()
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::hash::Poseidon2Backend;
     use crate::io::encode;
+    use crate::tree::CHUNK_SIZE;
 
     #[test]
     fn decode_single_block() {

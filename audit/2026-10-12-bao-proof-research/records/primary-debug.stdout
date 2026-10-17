@@ -1,0 +1,17 @@
+fixture=hello size=5 log=0 request=1..4 wire=13 root=626fa46e4e7bd5c87d630eef8333931a0b9198587400a0191eae7821692880d7 expected_actions=4
+fixture=empty size=0 log=0 request=0..0 wire=8 root=ea57b2e6b1ec7d2de11b15cb6d7060dd61d247fe0fbf5f7d3fb97a7be9328552 expected_actions=4
+fixture=three-right size=12288 log=0 request=8192..8193 wire=4168 root=373d0ded6b2bd351ba575cdc690ca79bbc04af1a49844f67140ce7a10e672992 expected_actions=5
+fixture=three-interior size=12288 log=0 request=4097..4100 wire=4232 root=373d0ded6b2bd351ba575cdc690ca79bbc04af1a49844f67140ce7a10e672992 expected_actions=6
+fixture=three-boundary size=12288 log=0 request=4095..4097 wire=8328 root=373d0ded6b2bd351ba575cdc690ca79bbc04af1a49844f67140ce7a10e672992 expected_actions=8
+fixture=grouped-left size=12288 log=1 request=4095..4097 wire=8264 root=373d0ded6b2bd351ba575cdc690ca79bbc04af1a49844f67140ce7a10e672992 expected_actions=7
+fixture=final-short size=8193 log=1 request=8192..8193 wire=73 root=40c6bd68b6e89443753bce2dd95fd159da63a7399340fa6070a762d102d9e3ae expected_actions=5
+fixture=sole-group size=8192 log=1 request=1..8191 wire=8200 root=2abf65dd26465a7352707d79d18ff3aab9ee5d97614a774619c79ed527e20190 expected_actions=6
+alias_word=0 raw_equal=false parent_equal=true legacy_accept=true root=9fa00cab5db073eea8280861b4c3b2eb5fd5f13334fb2d481c3b16a3b4244879
+alias_word=1 raw_equal=false parent_equal=true legacy_accept=true root=9fa00cab5db073eea8280861b4c3b2eb5fd5f13334fb2d481c3b16a3b4244879
+alias_word=2 raw_equal=false parent_equal=true legacy_accept=true root=9fa00cab5db073eea8280861b4c3b2eb5fd5f13334fb2d481c3b16a3b4244879
+alias_word=3 raw_equal=false parent_equal=true legacy_accept=true root=9fa00cab5db073eea8280861b4c3b2eb5fd5f13334fb2d481c3b16a3b4244879
+word=0 proposed_canonical=true
+word=18446744069414584320 proposed_canonical=true
+word=18446744069414584321 proposed_canonical=false
+word=18446744073709551615 proposed_canonical=false
+No new verifier API, allocation guarantee, or whole-file synthetic-root authority is tested here.

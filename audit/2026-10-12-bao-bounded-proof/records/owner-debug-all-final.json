@@ -1,0 +1,40 @@
+{
+  "started": "2026-10-13T00:11:21.838691Z",
+  "finished": "2026-10-13T00:11:26.412240Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "-u",
+    "RUSTC_WRAPPER",
+    "PATH=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin:/tmp/radio-gate-tools/bin:/Users/master/.cargo/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    "RUSTC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "RUSTDOC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-target",
+    "RUST_BACKTRACE=1",
+    "IROH_FORCE_STAGING_RELAYS=1",
+    "RUSTFLAGS=-Dwarnings",
+    "RUSTDOCFLAGS=-Dwarnings",
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "cyber-bao",
+    "--all-features"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-owner-debug-all-final.stdout",
+    "bytes": 8357,
+    "sha256": "69de7a2cf20e1d37dafb474724cc394c3659d2d381a917819be7b911fd0ea54a"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-owner-debug-all-final.stderr",
+    "bytes": 1268,
+    "sha256": "ef07c683c47791b35c7c7991698e047a060db43d8fe2feccae43a5ffc65af9c3"
+  }
+}

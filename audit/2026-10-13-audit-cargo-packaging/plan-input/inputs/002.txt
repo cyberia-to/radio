@@ -1,0 +1,119 @@
+# Lossless archival Cargo manifests
+
+Status: draft; fresh different-vendor PLAN approval required before edits to
+existing artifacts. Serves Kadek foundation row 4 through Radio; discovered from
+PR40's committed Git consumer. Parent: `ce0fb312faa8770e80efe9afa864106ae6b51552`.
+
+## Result
+
+Rename exactly seven archived harness manifests from `Cargo.toml` to
+`Cargo.toml.txt`, preserving every byte. Keep source/workspace manifests and all
+dependency pins, locks, Rust sources, tests and specifications unchanged. Cargo
+must discover only the actual package when a fresh consumer pins an independent
+committed candidate snapshot. The candidate is a local packaging witness, never
+an origin release input.
+
+Preserve the three original replay scripts under `verify.original.nu.txt` or
+`reproduce.original.nu.txt` beside their existing names. Replace only those entry
+scripts with thin Nu wrappers. Add one small shared staging helper in this task's
+new audit directory. The wrappers retain all existing options, arguments and default paths;
+they resolve the actual repository/sibling paths before entering a temporary
+layout and pass those paths explicitly to the original script. Preserve `--live`
+parent-check semantics exactly; it is not meaningful as a claim about the merged
+current tree because the original live checks name their historical parent.
+
+The helper copies only its selected capsule to a newly created disposable `/tmp`
+directory, restores the explicitly listed Cargo logical names, and restores the
+original replay script at its historical filename. It must refuse collisions or
+missing archive files; it must never create a Cargo.toml inside the real repository.
+The original script then executes unchanged. All historical `files.json`, source
+indices, contexts, reviews, fixture bytes, raw manifests and command receipts
+remain unchanged. The wrapper is new packaging code, not the historically reviewed
+verifier. Its own bytes and the original-to-archive mappings are bound by the new
+capsule's manifest. Successful disposable replays are cleaned; failed ones retain
+their isolated directory and propagate the original nonzero status.
+
+## Steps and decisive checks
+
+1. Freeze the seven manifest blobs, three original scripts, consuming paths and
+   ce0 warning receipts. → Verify: every byte equals the exact committed object;
+   discoverable audit manifest inventory is exactly the seven listed below;
+   both original 2026-10-12 replay commands pass before mutation. These baseline
+   checks are already measured; preserve them unchanged.
+2. Rename the seven manifests losslessly and install only the replay wrappers,
+   their archived originals and the small staging helper. → Verify: no audit
+   `Cargo.toml` remains; the seven `.txt` contents match the original hashes;
+   all real source manifests retain their paths and bytes. A complete committed
+   tree comparison outside the allowed audit/task paths must be empty.
+3. Check the replay boundary. → Verify: research and execution wrappers reproduce
+   the original successful JSON results with the same counts; their staging restores
+   the complete original indexed file hashes including the original verifier itself.
+   Run the unchanged proof CODE input verifier. Exercise 2026-10-09 staging and the
+   original `prepare-crate` function for its historical parent/implementation,
+   comparing Cargo manifest, lock and probe bytes. Do not rerun its codec matrix.
+   A deliberate missing archived input/collision in a disposable copy must fail
+   before running the historical script, leaving the real repository unchanged.
+4. Freeze an independent committed temporary candidate snapshot containing the
+   exact candidate tree: committed ce0 blobs plus an explicit allowlist of owned
+   candidate changes, never another dirty worktree's inputs. → Verify: it is derived
+   from ce0 with only the explicit
+   archive changes, and all production source/normal manifest/lock blobs are equal.
+   From a new consumer and fresh private Cargo Git checkout/cache, pin that exact
+   local commit through a Git dependency (not a path dependency). Keep Hemera d5
+   pinned and use a bounded local object-store acquisition with no new network claim.
+5. Measure dependency behavior. → Verify: lock generation and `cargo metadata
+   --locked --offline` emit zero Cargo warnings; the package identity and source
+   path resolve to that exact temporary Git checkout, not any archived/external
+   harness. Metadata contains only consumer, `cyber-bao` and Git Hemera with no
+   features. Run the frozen eight-case reader control in debug/release with matched
+   Rust 1.95, jobs=2, incremental=0 and isolated target, with no Cargo/compiler
+   warnings. This warning-free result is limited to these consumer invocations.
+   Require exactly the prior literal outputs and unchanged input/source
+   hashes before/after. This is a packaging consumer control, not a broad codec gate.
+6. Freeze compact new audit and fresh CODE input. → Verify: lossless historical
+   replay, exact raw receipts, input mappings and source equality independently
+   replay; different-vendor CODE approval precedes root's final commit/PR/merge.
+   Preserve all historical red outcomes without claiming a new full-gate pass.
+
+## File scope
+
+Seven manifest renames, each adding only `.txt`:
+
+```text
+audit/2026-10-09-kadek-slice-traversal/Cargo.toml
+audit/2026-10-12-bao-proof-research/probe/Cargo.toml
+audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml
+audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml
+audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml
+audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml
+audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml
+```
+
+Three entry wrappers replace their names while preserving exact original bytes:
+`audit/2026-10-09-kadek-slice-traversal/reproduce.nu`,
+`audit/2026-10-12-bao-proof-research/verify.nu`, and
+`audit/2026-10-12-bao-bounded-proof/verify.nu`.
+New helper, mappings, documentation, review inputs and raw evidence live only in
+`audit/2026-10-13-audit-cargo-packaging/`; task artifacts live only in
+`.claude/tasks/audit-cargo-packaging/`. No nested historical audit archive is copied.
+
+## Five likely failures
+
+1. A forgotten archived Cargo manifest still participates in discovery: exhaustive
+   tracked basename inventory and a fresh committed-snapshot Git consumer.
+2. Renaming silently changes historical bytes or hashes: compare all seven blobs,
+   keep every historical index/receipt unchanged, replay the original scripts.
+3. A wrapper reads temporary paths as the real source repository: resolve/pass
+   explicit repo and sibling paths, including original CLI defaults.
+4. Staging overwrites evidence or leaves a executable manifest in the repository:
+   unique external destination, explicit mappings/collision checks, failure probe
+   in a disposable copy, and before/after repository identity verification.
+5. Packaging masks production/dependency drift: exact tree comparison, Git-pinned
+   consumer identity, two unchanged literal result streams and honest warning counts.
+
+Radio's cached registry `part_of = soft3` and Kadek's direct dependency remain
+explicit. This is a packaging repair with no API/version floor change. There is
+no release, tag, registry publication or Kadek dependency update in this unit.
+The caller owns subsequent adoption of the actual merged Radio revision.
+Previous broad workspace/rung and last-tag gate results remain unrefreshed; no
+broader warning-free compiler, source, product or release claim follows.

@@ -154,6 +154,75 @@ async fn gossip_bidirectional() -> Result<()> {
     Ok(())
 }
 
+#[tokio::test]
+async fn gossip_multihop_relay() -> Result<()> {
+    init_tracing();
+    let mut rng = test_rng(b"gossip_multihop");
+    let nodes = spawn_nodes(4, &mut rng).await?;
+
+    let hash_bytes: [u8; 32] = hemera::hash(b"gossip-multihop").as_bytes()[..32].try_into().unwrap();
+    let topic: iroh_gossip::TopicId = hash_bytes.into();
+
+    // Chain bootstrap: 0 bootstraps 1, 1 bootstraps 2, 2 bootstraps 3. Node 3
+    // is handed node 2's id only. What this proves: a node that joined the
+    // topic through an intermediary, with no bootstrap knowledge of the
+    // sender, still receives the sender's broadcast. What it does not pin
+    // down: the delivery path. HyParView's ForwardJoin and shuffle may place
+    // node 0 straight into node 3's active view (capacity 5 by default, so
+    // four nodes can fully mesh), in which case the message arrives direct
+    // rather than relayed via 1 and 2. A strict relay proof needs a topology
+    // that forbids the direct edge (network isolation, not just bootstrap
+    // order); that is a follow-up on launch row 21.
+    let sub0 = nodes[0].gossip.subscribe(topic, vec![]).await?;
+    let sub1 = nodes[1].gossip.subscribe(topic, vec![nodes[0].id()]).await?;
+    let sub2 = nodes[2].gossip.subscribe(topic, vec![nodes[1].id()]).await?;
+    let sub3 = nodes[3].gossip.subscribe(topic, vec![nodes[2].id()]).await?;
+
+    let (sender0, _recv0) = sub0.split();
+    let (_sender1, mut recv1) = sub1.split();
+    let (_sender2, mut recv2) = sub2.split();
+    let (_sender3, mut recv3) = sub3.split();
+
+    // Wait for the whole chain to mesh up before broadcasting.
+    tokio::try_join!(
+        async {
+            tokio::time::timeout(Duration::from_secs(10), recv1.joined())
+                .await
+                .map_err(|_| anyhow::anyhow!("timeout waiting for recv1 join"))?
+                .map_err(|e| anyhow::anyhow!(e))
+        },
+        async {
+            tokio::time::timeout(Duration::from_secs(10), recv2.joined())
+                .await
+                .map_err(|_| anyhow::anyhow!("timeout waiting for recv2 join"))?
+                .map_err(|e| anyhow::anyhow!(e))
+        },
+        async {
+            tokio::time::timeout(Duration::from_secs(10), recv3.joined())
+                .await
+                .map_err(|_| anyhow::anyhow!("timeout waiting for recv3 join"))?
+                .map_err(|e| anyhow::anyhow!(e))
+        },
+    )?;
+
+    // Node 0 broadcasts; every node in the chain, including the one it has
+    // no direct link to, must receive it.
+    let msg = Bytes::from("relay across the chain");
+    sender0.broadcast(msg.clone()).await?;
+
+    let r1 = wait_for_received(&mut recv1, Duration::from_secs(10)).await?;
+    let r2 = wait_for_received(&mut recv2, Duration::from_secs(10)).await?;
+    let r3 = wait_for_received(&mut recv3, Duration::from_secs(10)).await?;
+    assert_eq!(r1, msg);
+    assert_eq!(r2, msg);
+    assert_eq!(r3, msg);
+
+    for node in nodes {
+        node.shutdown().await?;
+    }
+    Ok(())
+}
+
 // --- Helpers ---
 
 async fn wait_for_received(

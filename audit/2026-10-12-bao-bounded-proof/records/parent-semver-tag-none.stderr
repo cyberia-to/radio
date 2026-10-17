@@ -1,0 +1,49 @@
+     Cloning v0.1.0
+    Building cyber-bao v0.1.0 (current)
+       Built [   0.287s] (current)
+     Parsing cyber-bao v0.1.0 (current)
+      Parsed [   0.001s] (current)
+error: running 'cargo update' on crate 'cyber-bao' failed with output:
+-----
+    Blocking waiting for file lock on package cache
+error: failed to get `cyber-hemera` as a dependency of package `cyber-bao v0.1.0 (/private/tmp/radio-bao-proof-api-parent-tag-none/semver-checks/git-v0_1_0/770544fdb7d8effd9f23188c44752d224afe50ef/cyber-bao)`
+    ... which satisfies path dependency `cyber-bao` of package `placeholder v0.0.0 (/tmp/radio-bao-proof-api-parent-tag-none/semver-checks/git-v0_1_0/local-cyber_bao-0_1_0-aarch64_apple_darwin-b109bba8b0de0c4c)`
+
+Caused by:
+  failed to load source for dependency `cyber-hemera`
+
+Caused by:
+  unable to update /private/tmp/radio-bao-proof-api-parent-tag-none/semver-checks/git-v0_1_0/hemera/rs
+
+Caused by:
+  failed to read `/private/tmp/radio-bao-proof-api-parent-tag-none/semver-checks/git-v0_1_0/hemera/rs/Cargo.toml`
+
+Caused by:
+  No such file or directory (os error 2)
+
+-----
+error: failed to update dependencies for crate cyber-bao v0.1.0
+note: this is unlikely to be a bug in cargo-semver-checks,
+      and is probably an issue with the crate's Cargo.toml
+note: the following command can be used to reproduce the compilation error:
+      cargo new --lib example &&
+          cd example &&
+          echo '[workspace]' >> Cargo.toml &&
+          cargo add --path /private/tmp/radio-bao-proof-api-parent-tag-none/semver-checks/git-v0_1_0/770544fdb7d8effd9f23188c44752d224afe50ef/cyber-bao --no-default-features &&
+          cargo update
+
+error: aborting due to failure to run 'cargo update' for crate cyber-bao v0.1.0
+
+Stack backtrace:
+   0: <std::backtrace::Backtrace>::capture
+   1: anyhow::error::<impl anyhow::Error>::msg
+   2: anyhow::__private::format_err
+   3: cargo_semver_checks::data_generation::generate::generate_rustdoc
+   4: cargo_semver_checks::data_generation::request::CrateDataRequest::resolve
+   5: cargo_semver_checks::rustdoc_gen::StatefulRustdocGenerator<cargo_semver_checks::rustdoc_gen::ReadyState>::load_rustdoc
+   6: cargo_semver_checks::Check::check_release::{{closure}}
+   7: cargo_semver_checks::Check::check_release
+   8: cargo_semver_checks::exit_on_error
+   9: cargo_semver_checks::main
+  10: std::sys::backtrace::__rust_begin_short_backtrace
+  11: _main

@@ -1,0 +1,323 @@
+{
+  "source_archive": "/Users/master/cyber/kadek-bao-anchor/audit/2026-10-12-bao-anchor-research/evidence.tar.gz",
+  "archive_sha256": "b37063a53da33f19c411a58f62b854425efdc1da30c3cd168b327634931483c8",
+  "member": "./external-inventory.json",
+  "member_sha256": "19546c3da15fbdda1c291dde046f0d6dc1d0ac667d79e1d89cb25e0412794ed3",
+  "registry_revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+  "registry_sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e",
+  "boundary": "Historical exact cached revisions, no fresh network inventory. Full original archive is referenced, not embedded or replayed by this capsule. Nu was subsequently recovered at retained 1e58416ef0501675ef503dd86f80dc1236dfc2a4; Kern absent. Radio a96 and Kadek4d9 support refreshed directly here.",
+  "repositories": [
+    {
+      "repo": "bbg",
+      "status": "cached-origin",
+      "revision": "441e3c9ddf85c4bee36b40ed7ae8805b1481bc27",
+      "manifests": 2
+    },
+    {
+      "repo": "bostrom",
+      "status": "cached-origin",
+      "revision": "bc01d7dc9c22cb1c48caa0edaef6575ce5c38d14",
+      "manifests": 0
+    },
+    {
+      "repo": "cve",
+      "status": "cached-origin",
+      "revision": "727eec0074394bdde806dc9273aa889e38d6d26f",
+      "manifests": 0
+    },
+    {
+      "repo": "cy",
+      "status": "cached-origin",
+      "revision": "94fc97ae9ee0213a46a3cc2ae3be1f4930ffe67c",
+      "manifests": 0
+    },
+    {
+      "repo": "cyb",
+      "status": "cached-origin",
+      "revision": "4e4711f1ba4de640e60e29304b6180c94f20c9d7",
+      "manifests": 7
+    },
+    {
+      "repo": "cyber-valley",
+      "status": "cached-origin",
+      "revision": "ed59bf3fce22ec3cdf5a545fdd45f2aed5182fe6",
+      "manifests": 0
+    },
+    {
+      "repo": "cybergraph",
+      "status": "cached-origin",
+      "revision": "42fc2512389c7411d8cc3461501d859c1545980e",
+      "manifests": 2
+    },
+    {
+      "repo": "cyberia",
+      "status": "cached-origin",
+      "revision": "acbad2e899d5632ebcc24494d206d822bf8499b9",
+      "manifests": 0
+    },
+    {
+      "repo": "cyberia-blog",
+      "status": "cached-origin",
+      "revision": "961c956bdc021fa56a14e24980af4a447b7d95c7",
+      "manifests": 0
+    },
+    {
+      "repo": "cyberia-my",
+      "status": "cached-origin",
+      "revision": "d1d036728957295d6ba782ba65a1ced88191f225",
+      "manifests": 1
+    },
+    {
+      "repo": "cybernode",
+      "status": "cached-origin",
+      "revision": "475e91161cd3c3069a998b01299f0ae735cf8d31",
+      "manifests": 0
+    },
+    {
+      "repo": "cyberstates",
+      "status": "cached-origin",
+      "revision": "ce254a1c690416994f0278e547756644c2669cc8",
+      "manifests": 1
+    },
+    {
+      "repo": "eidos",
+      "status": "cached-origin",
+      "revision": "e9baa2ef849c34bbfab57c59de20ec7d083fee2f",
+      "manifests": 3
+    },
+    {
+      "repo": "evy",
+      "status": "cached-origin",
+      "revision": "a194311ae557bd6dac3ef0c2f12141cb9fc1e01f",
+      "manifests": 27
+    },
+    {
+      "repo": "file",
+      "status": "cached-origin",
+      "revision": "e29b4c74804f1fecf123ad4bab14c3cf5b7f3551",
+      "manifests": 1
+    },
+    {
+      "repo": "foculus",
+      "status": "cached-origin",
+      "revision": "8a935e1695dfeed2b0241256bc2cd762729bb324",
+      "manifests": 1
+    },
+    {
+      "repo": "fs",
+      "status": "cached-origin",
+      "revision": "f1ab2516b636c517a80a8d80782780d83a00679f",
+      "manifests": 0
+    },
+    {
+      "repo": "glia",
+      "status": "cached-origin",
+      "revision": "477d91c0a75f8985f4af5f873401a867327bd014",
+      "manifests": 3
+    },
+    {
+      "repo": "hemera",
+      "status": "cached-origin",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "manifests": 5
+    },
+    {
+      "repo": "honeycrisp",
+      "status": "cached-origin",
+      "revision": "9cbd48070a136e24711896c930670fcff8a147fc",
+      "manifests": 14
+    },
+    {
+      "repo": "inf",
+      "status": "cached-origin",
+      "revision": "5054c939adbc875c32f1d89cce839d87bbd428bb",
+      "manifests": 11
+    },
+    {
+      "repo": "joy",
+      "status": "cached-origin",
+      "revision": "10844a890e2939d529a1003474298a09be30b75c",
+      "manifests": 3
+    },
+    {
+      "repo": "kadek",
+      "status": "cached-origin",
+      "revision": "fe61aba6f3eb485abb328b269a3921f6b476d72d",
+      "manifests": 32
+    },
+    {
+      "repo": "kern",
+      "status": "unavailable",
+      "revision": null,
+      "manifests": 0
+    },
+    {
+      "repo": "lens",
+      "status": "cached-origin",
+      "revision": "8b26cef6587bee6a686f2cf163f6a8496931ee6a",
+      "manifests": 9
+    },
+    {
+      "repo": "lytics",
+      "status": "cached-origin",
+      "revision": "02c98495deda66c5f3c69ba3d5be650ce658e313",
+      "manifests": 5
+    },
+    {
+      "repo": "mir",
+      "status": "cached-origin",
+      "revision": "b9c832d5011d5a719bec6021afef123be35490ab",
+      "manifests": 1
+    },
+    {
+      "repo": "mudra",
+      "status": "cached-origin",
+      "revision": "186c0f22871e72ac5d27396d893998865fc604d4",
+      "manifests": 3
+    },
+    {
+      "repo": "neural",
+      "status": "cached-origin",
+      "revision": "47b086c2e3255c784f17ab9303a987bb1dff534c",
+      "manifests": 4
+    },
+    {
+      "repo": "neuron",
+      "status": "cached-origin",
+      "revision": "c87541120caae4fb5d5bb401653d1cbcbeffeb7d",
+      "manifests": 7
+    },
+    {
+      "repo": "nox",
+      "status": "cached-origin",
+      "revision": "0b1407a4b855e4961ede07e1b7ea199cb8018c30",
+      "manifests": 3
+    },
+    {
+      "repo": "nu",
+      "status": "retained-revision",
+      "revision": "1e58416ef0501675ef503dd86f80dc1236dfc2a4",
+      "manifests": 42
+    },
+    {
+      "repo": "optica",
+      "status": "cached-origin",
+      "revision": "9f0c352cfea30e1ac8ce0feb0d735ffb9fa47ace",
+      "manifests": 1
+    },
+    {
+      "repo": "prysm",
+      "status": "cached-origin",
+      "revision": "f66cbd82cada5f5e6315b674818bce705b962eb6",
+      "manifests": 1
+    },
+    {
+      "repo": "radio",
+      "status": "cached-origin",
+      "revision": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+      "manifests": 33
+    },
+    {
+      "repo": "rs",
+      "status": "cached-origin",
+      "revision": "01d82825d93129401df064ff3e0c3adae04d852a",
+      "manifests": 11
+    },
+    {
+      "repo": "rune",
+      "status": "cached-origin",
+      "revision": "67281db727070c1160c12be341c6fd85e39e5380",
+      "manifests": 12
+    },
+    {
+      "repo": "seer",
+      "status": "cached-origin",
+      "revision": "40924ac6c9e2d7564d90962e6c10356c58308877",
+      "manifests": 0
+    },
+    {
+      "repo": "sigma",
+      "status": "cached-origin",
+      "revision": "93ae6e201a0b23842349829639480fc7d094119b",
+      "manifests": 0
+    },
+    {
+      "repo": "soft3",
+      "status": "cached-origin",
+      "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+      "manifests": 2
+    },
+    {
+      "repo": "soma",
+      "status": "cached-origin",
+      "revision": "7cfa6f8a602367ceedf45e0bd7e120884c9a6ae3",
+      "manifests": 0
+    },
+    {
+      "repo": "space-pussy",
+      "status": "cached-origin",
+      "revision": "3c6e32a43fcfe2338d66780194fd2959308a4f24",
+      "manifests": 0
+    },
+    {
+      "repo": "spark",
+      "status": "cached-origin",
+      "revision": "5399d36e99637a9d36018ecf88f3d4d6a80cc9a9",
+      "manifests": 1
+    },
+    {
+      "repo": "strata",
+      "status": "cached-origin",
+      "revision": "494df7a0973ae10a6cc1c2022e644d70449a29d6",
+      "manifests": 22
+    },
+    {
+      "repo": "tade",
+      "status": "cached-origin",
+      "revision": "c7d404aa8aa4c1e960f7a7268cbef47f2d6ba4d4",
+      "manifests": 1
+    },
+    {
+      "repo": "tok",
+      "status": "cached-origin",
+      "revision": "e27da0dff72b948418a5e40a5ed6290c0fd167f3",
+      "manifests": 1
+    },
+    {
+      "repo": "trident",
+      "status": "cached-origin",
+      "revision": "ec986d8edb926da51a70c23c97782d65a239c144",
+      "manifests": 3
+    },
+    {
+      "repo": "tru",
+      "status": "cached-origin",
+      "revision": "2f3a2556afc943ae949530a626ba4f2a83ace06b",
+      "manifests": 3
+    },
+    {
+      "repo": "true-cyber",
+      "status": "cached-origin",
+      "revision": "b58589f130f4f80dd8b2752f98704842372aa2d9",
+      "manifests": 1
+    },
+    {
+      "repo": "vault",
+      "status": "cached-origin",
+      "revision": "c980557471184a78d43366e1c52fc978a3e82444",
+      "manifests": 1
+    },
+    {
+      "repo": "wysm",
+      "status": "cached-origin",
+      "revision": "bde62d57e4ed2a89fae475ea9e216aeffbd6deb8",
+      "manifests": 13
+    },
+    {
+      "repo": "zheng",
+      "status": "cached-origin",
+      "revision": "5733dfdcc15cbc22fce9f5877b37515d005b8c44",
+      "manifests": 3
+    }
+  ]
+}

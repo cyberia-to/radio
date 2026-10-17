@@ -1,0 +1,24 @@
+{
+  "created": "2026-10-12T23:38:30Z",
+  "radio": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "initial_git_inputs": 55,
+  "support_git_inputs": 35,
+  "records": 7,
+  "all_record_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "legacy_outputs_equal": true,
+  "primary_outputs_equal": true,
+  "fixtures": 13,
+  "fixture_bytes": 54126,
+  "debug_release_fixtures_equal": true,
+  "new_verifier_implemented": false,
+  "new_api_work_measured": false,
+  "whole_file_synthetic_root_witnessed": false
+}

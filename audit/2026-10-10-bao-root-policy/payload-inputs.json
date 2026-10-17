@@ -1,0 +1,472 @@
+{
+  "stage": "/tmp/bao-root-audit-payload.JOWlXs",
+  "source_root": "/tmp/radio-bao-root-policy.rPXzYh",
+  "parent": "258724bd8ab797ad8d2ef43c6a4a2e07f1fc9e24",
+  "hemera": "23f3bbcff910ea6d504ceb505680a539260869da",
+  "source_freeze_sha256": "9ce51f8d84e5f6e9f601f5979cb36d99b65af5966300ec646c952fdbf3d0b886",
+  "code_brief_sha256": "1230766951a336798b7fbdcec3a795abe7b4c0e45c08bdc22dbc02d6687494e9",
+  "verified_raw_receipts": [
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/extract-parent-hemera.json",
+      "sha256": "3566e0f42d96d8f6c579569e6b00cbc20285539799cc153481f3a96086fe1a41"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-named-format-check.json",
+      "sha256": "6161e0704dca854efd35645b1a6929db704d096090c58ffee54ef7bf64865aa9"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.89.0-cargo.json",
+      "sha256": "25d1ffa0fa8cba89ed1f58e186731b3aaf9842d37f131003c53b7dfb9f6006d4"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-bao-root.json",
+      "sha256": "578a1f96890c6f52cd2af1db225b0e37d0d309daa7f8470665854dc5a712a19f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-named-nextest-build.json",
+      "sha256": "dc8d7e8521f611615dc3392e547e95dccccaabd2f940c1f48b673775185c646d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-clean-completed-parent-nightly.json",
+      "sha256": "b5e64096d2cf1b58ec8d3d784a9c85827513e5b971be4d72f1f18562666040ed"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-bao-all.json",
+      "sha256": "4eacda7dbf46705f75af38cd69ab8aa7be82626429133f95c140fe4c09a1c84f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-clippy-none.json",
+      "sha256": "f3e07218fa260e4811bb462cb39439fceee39f34fd5f2ae3e314ecc4a735792f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-metadata.json",
+      "sha256": "b5b1b75ee7472c8aea7904ec610e883c249b580b4b6d2916ba6b9e9f233753bb"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-workspace-test-compile.json",
+      "sha256": "4d670c65a0846b3772a2375d6f490dd9ba5b7c765d635d35beba524065f6032f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-iroh-blobs-doc.json",
+      "sha256": "3b0dd8987b5cf19bd1a4ba2cc71a32719640619b5d50a944df6ede53b741b824"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-export-pairs-default.json",
+      "sha256": "e7fe67c22e07a47ef22898378ce5fc62d34af82e0b4adec48e03f5c9649f40e0"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-format.json",
+      "sha256": "46ceee3c6be32deef54eb9a4600955bc3afac677d96c379a6d02f84d592d45cc"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/lock-blob.json",
+      "sha256": "da967e7bc2aa6a774d752166760a5e9f6b33eba1fc1e1c747e74273207e9bbc8"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-root-policy-default.json",
+      "sha256": "2f555d7eee9e7232e866ab77f89cb878df8c846c68f917e0f1c4688dd643aff4"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/archive-radio.json",
+      "sha256": "7a61f9fa63d52043de4e4ff60445efc9800269617f09a25cbfd164e8b937a536"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-bao-check.json",
+      "sha256": "4e08725e6ff240ab5ba6774bee1eeda69a147a0a0701ea7684f672916f0a3904"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-native-root.json",
+      "sha256": "5801a11b059385607cc6c601f42a592683c0e2461cc48c81ce843459223aba4b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/witness-extract-hemera.json",
+      "sha256": "42a2ae898807f5deca5f06e1314bb98aea4a699479f85383738a34694f5ccd6b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-parent-radio.json",
+      "sha256": "24131b255fff2c817e6af94322e178b26d44ad865d8c3870ced19f76fbf31e0a"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-root-policy-all.json",
+      "sha256": "870423a6f2461624eac48ef8b4e9b0ec5e2a631d108274348aa64ba4bf8ae816"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-all.json",
+      "sha256": "02433ef675acf093851ddb6ef8b987575c7b8e14058d004df9dec76e6bfa8bcd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-clean-completed-nightly.json",
+      "sha256": "0356445e8c587b6055ce0144e113eb3d6030fac0b69d5fa999be10b7e6f72c10"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.95.0-cargo-clippy.json",
+      "sha256": "10386f42c14799a4210f7379d855263778c5b7ada77ab73851fc368bbc17d013"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-export-release-all.json",
+      "sha256": "c48d8a263a58b0195428fdb73cb85f06cf0c70dee65f5065c1dcf70ff722bbbd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.95.0-rustc.json",
+      "sha256": "898cd85aa91cf9f6098b2ecbed658720301512df4b76fd658b1930c644868613"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-native-doc-toolchain.json",
+      "sha256": "62c6b17961d0782af1b2f1edc463d4fe22d1d03f582e0518a7e67713a6782be1"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-clippy-all.json",
+      "sha256": "cce77b10a4190189f3222867f28fcbd460ce1bdb3eb9f899739ff7b461ec1f17"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-root-policy-default.json",
+      "sha256": "4f5ebbab5074db8ce3c72536dbe9fb51ce493be74b70171cc42280ab1df67823"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-format.json",
+      "sha256": "68d67065af462be9c5f0c7d7516d5e5308543ffbd7a3f15cb906e8911ce6272d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.95.0-cargo-clippy.json",
+      "sha256": "3a82ed62bffb2e989fa38c46ecf95d99c2b070e351bd3f29cdca50e046f8f488"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/extract-candidate-radio.json",
+      "sha256": "863a2bcea5fc05194e070f124252f538037738d88f07703caffeac826712b2d4"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.89.0-rustdoc.json",
+      "sha256": "f069e10f821dfc811aa8c2908e607cd18267bf98dfde58097295dd280079778d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.95.0-rustc.json",
+      "sha256": "0efb4d05f3d94b4fd022d0d54c83c0b80daa7fa5f236d90d8df43fa1f46da902"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-local-consumers-test-compile.json",
+      "sha256": "28de3a8dc19eb39a4aab182a980a74af4606cf00a08110561e7a5775b7c12781"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-workspace-no-run.json",
+      "sha256": "2dfcc4b483e971a7b14ab5611e639f338a026c59ec92e74add06c4423252c8fb"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-current-radio.json",
+      "sha256": "c3e30c74cbd9582b0b97293faec532ca7ec8d147ea9a231f3e6f9f1ff363eb26"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tag-radio-extract.json",
+      "sha256": "0fc997f9d35281186f54216e97a94e6c8cb84f7ffef68db2ef7d1d76997c9f2e"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/nettools.json",
+      "sha256": "12d5b25ab57ef02f958a64896ae138b432652c1d06f142ee3e4cde08d91ffe41"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-right-fixture.json",
+      "sha256": "d31764b3d5736713171f77df8bad98b1679a161451241deab8aff50a181868e8"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/archive-hemera.json",
+      "sha256": "18bf9c730666362ca969830db9b16b75110831d3e09b9876d8a26e153f4602cd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-nightly-docs.json",
+      "sha256": "9d5cf4381020e9276d272709e8c1c2cc97afb078e989145519036e6d1e8dab03"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-named-msrv-workspace.json",
+      "sha256": "a52aecef4724e23466aa3202853bddddb0adf01a6ddacb54bd97b9085a0ac4ca"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-tag-radio.json",
+      "sha256": "ec8affe83c29b8c674b3ad54e3cc888b396a9e204990476d144889f1df602f60"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-clean-completed-before-semver.json",
+      "sha256": "ca6148317a22e847254d707a58ba45bf9d888e0d95cbdc16f4cd399b0bf38ead"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/radio-tree.json",
+      "sha256": "0f5e8b087b1cba630e01336f2ef98c33156778e4affc90ab2b272192c2f566f0"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-toolchain-inventory-after.json",
+      "sha256": "da44893375c0cb94caf5b4183cde11493495971086fb663e6ae01ebe178b4efd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-parent-hemera.json",
+      "sha256": "5c236835b07041d9650b7adc330aba46cdfd1047b5deb98cc314357c2e978411"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.95.0-rustdoc.json",
+      "sha256": "e6de8782f02c03faf8779ae7d736e2433a78d93322daa5a583bcdec0bc0d7d1c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/list-hemera.json",
+      "sha256": "77e71e5ab8a228bd8b5858a961404ad3c285bf1fbcef41748ec70cc0963a56b6"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-clean-completed-for-root-witness.json",
+      "sha256": "40e2d62a00ae9b1c91136984d3f080250101eb82f4fb4f230ee9b73bf64e30ac"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.89.0-cargo.json",
+      "sha256": "149fc8d45401187f54d6b55072095b1cb29160c4625c68620e8480a4a3a5d6d4"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-doc.json",
+      "sha256": "5c3d53da4c23ec589b89f1c242fa625530508119f89e2bb970852986f928142c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-native-export-release-all.json",
+      "sha256": "ec799b34887703897a289b1ee0b798b66f089865005fbbbbb0781b04c47db9d4"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-fmt.json",
+      "sha256": "79d7c0bfede29fcf9f6cfb30fac9121c9c342a2e0d9cb2008e71ef87e975d33f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-export-all.json",
+      "sha256": "83b9c5fd280e7ba71844b07b3e4b9e7e5406a0b883dbe1f3f9c4155500a86ba5"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/witness-root-policy-stores.json",
+      "sha256": "98ecf84e4c7ad24dd32ac160db142426ed6cc0bf617b9af06c28f8377afa0562"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-export-default.json",
+      "sha256": "e96b340e9191c760d41008ba45afad30ca7fc9e6da2d18beca65d44267ca4767"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-native-root-release-all.json",
+      "sha256": "8e5d826b71f9e6f658ee93f69d755c8dbf6dfd30919488f67e3e3a29697d2077"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-doc.json",
+      "sha256": "e455634a4e5790f763ab392e287cb2fef07d1af7267032926051aa06694088fd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-bao-release-all.json",
+      "sha256": "1422569854e182a04be5f70e17d6acf228c2103bd283fbc656d942a0458d177b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-metadata.json",
+      "sha256": "e418c89dad6c4abbf7fcfc4da33bafb22622d74aa6679fe8f429210ada2b2ae0"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.89.0-rustc.json",
+      "sha256": "e0af15ef9d3993d2ed7f4231cdd4609b04bbea9eec36ad44d2e14c3cd876ea8e"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/extract-parent-radio.json",
+      "sha256": "fcbcc2cf6e6f7f853062367629d66ae7d133a756640bc57242613dd39775c7db"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-root-policy-all.json",
+      "sha256": "48b2aa9c6847e081d8f6d0e8057bccc3b4df63c015521541fe63437b64acd88a"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/witness-clean-completed-for-candidate.json",
+      "sha256": "ddfae53e407c9c73f86597ddf564ba9ad77b7cc6174b4dfcb0d326b3c524b183"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-clippy.json",
+      "sha256": "17784ec8d1a237cf0b8f46fc6b520f186a6848fcc61476eb5ef466602c52f398"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tag-archive.json",
+      "sha256": "64d0312c8a1ff1602d47ed5dad5ee89326a16f50efe8b6911ea404f8846eef80"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-native-root-all.json",
+      "sha256": "d80e3979b3dc012c16b4f5729dd16eb039d58f95fdded9ca600be5ad6911767d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-named-deny.json",
+      "sha256": "a4afa20f95aa7fae4ce26a26ba6b485cf01d7f1589da2fc44d86e3f023b6d578"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/dry-gate-1.95.0.json",
+      "sha256": "964f768a2b872ddec748a0b35e366438e4417bd857ada788a417e2daec5be946"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/list-radio.json",
+      "sha256": "55d44061fcaec92094fd52e6670e3dc95c98a364272a87d7fd0903274e1a9e35"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.95.0-rustdoc.json",
+      "sha256": "f0cfbcc1e28605208631aaf3f2fa12f047754e1a228f9901e6125e2a8c76362d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-v3-native-export-all.json",
+      "sha256": "12ce8f6d8c769969e0feb9d3e043f37e1e516ac0fb1f46623d483bcac4a37b7b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/top.json",
+      "sha256": "f235feca79e155da71f7dad2e18fd4cf3fd2645c780aab2b2e6605128dcf2f9e"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-default.json",
+      "sha256": "8fc1f556202ff6552f8ce6bc398e54513feead40c6232b71b050be2f15b5335b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-cyber-bao-doc.json",
+      "sha256": "8db3446964ad343c1b86f8f9e63500774fa8d108c5c0e394fcb21bc66a322a48"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-cyber-bao-default.json",
+      "sha256": "82d7f3bce5d70f3dd2e9722a40f124770677d2734c1176ba5e9e5e1b5d602145"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-bao-release-all.json",
+      "sha256": "9137bf5bdf05f2f05e40ebd9bc083c246ba81c167a3386b8985d8195fd828dab"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-toolchain-inventory-during-removal.json",
+      "sha256": "bd1f9b543d17aaade4ec3c9f41028250b15883862f9f71f354c3cfb7e82511fd"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-workspace-check.json",
+      "sha256": "f5919c7f103a1993e7858959df25c5648c0ccfb5e511076a57aab48ca2bf441f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.89.0-rustdoc.json",
+      "sha256": "1170bf8009f735ad446451949c4a86cc2bc5477edf9d9a0557a9aff1460e2fcf"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-deny.json",
+      "sha256": "ca5788e1d1ed15c499ebc749cb7b6697724f7b395f7a1ee61751eac045a49bed"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-source-equivalence.json",
+      "sha256": "cbeedbba818d2d558a1357d7bdc4c869553e6bfe0fcf084b0371a01b451af00c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tool-1.95.0-cargo.json",
+      "sha256": "3479c87aa4d359c7fdff7afc797e650a5fe18bbcd256ffb78708bb5bcd2d698d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/dry-gate-1.89.0.json",
+      "sha256": "bfb23e8e5eb015d5f25502c698d8ef1cf284f53f5816feda8e8240c694abd90f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-toolchain-inventory-restored.json",
+      "sha256": "af9719d888200f522d5daccc319dae44fc10d072b357c5273fde5da10af2d0fe"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-semver-tag-iroh-blobs.json",
+      "sha256": "0286e1a4314404a782511a09a4cdfd9032507e29f87c529aa18eb51b723f7956"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-tool-version.json",
+      "sha256": "9a297889e25f8ef56095c13f0c1a07ef4a205edf81fb9f4523dd1b36ab03e95b"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-remove-incomplete-doc-toolchain.json",
+      "sha256": "fde4c3758edd4d89b86c97787735b03c4e9902463661f71e7e7067e5acb94995"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/witness-extract-radio.json",
+      "sha256": "4b9bae67d1614ac83d0f2d1f935dac69809a2a76a50b13c087a03d31e40d7d2e"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-iroh-blobs-clippy.json",
+      "sha256": "2094b80f54bdcb07ec40c626cd508bd09fc0a4f2e44fc4037d5088288045720c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-native-doc-toolchain-no-install.json",
+      "sha256": "1fab4d43732f4198ab40920bb9bee4f537f88727fb4629247dd4c44635a54201"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-semver-tag-cyber-bao.json",
+      "sha256": "68b210315a2704eb5d79368edcce966a69e31f5ea2485fdb6d393a4ad9b62619"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.95.0-cargo.json",
+      "sha256": "de60b49ee570295b551665598610a21a4ba1d6cae333891081827764f3e640e1"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-msrv-native-export.json",
+      "sha256": "f549495e36d97f254a018ea3d00f8cfe041c4193db8e116da8ad8511def3063c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/extract-candidate-hemera.json",
+      "sha256": "9bbeb6f331c5a3babccbd2fd2ee5289c93f1a0af29cb79924dc2938772f3e80d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-root-release-all.json",
+      "sha256": "9e4aaf0f5ab3ccca97a061e288a4bf3850cdf48570aefa5cdaeed17ab396e4fa"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-consumers-no-run.json",
+      "sha256": "8a61e478ab8665dec8bd0381d880a0c9f8a73fc450a12e367ff3733653c6c903"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/witness-root-policy-default.json",
+      "sha256": "f79780a67ea87931631b1839588cef5e6e18b04e02c17b85835531813d35ac0d"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-current-hemera.json",
+      "sha256": "c2ab63bb723bc86ee496ab5d51479305f2655c8249c42b667d79e25eba30c470"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-cyber-bao-all-features.json",
+      "sha256": "c7c8156cfdecc35c1eaea004cab212ab5ff5df3cef6bfd21183aae9ca30c1c1a"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/parent-cyber-bao-clippy.json",
+      "sha256": "e9257d3ace850c5e4944f7b8282193df3c859f8d719703798474ab393df2ccc7"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-semver-parent-iroh-blobs.json",
+      "sha256": "2633ef2f31c2f96917d4d29afca03ea01ac5ce0ea7df0ca4265f438fa79ce1b5"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-native-clippy.json",
+      "sha256": "eb67329a8cc86129e66011d42cb691153bd7eee41e8d698d3a0db61683f56e1e"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/dry-overlay.json",
+      "sha256": "0176bc6f3423cdba0300a3d84ad1860bfc1514123add07048e87598815d9d84f"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/version-1.89.0-rustc.json",
+      "sha256": "d78f97d319cb2034089d58705ff0f80e71ceff85e937cd8a1f0d82394cbd6a12"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-clippy-default.json",
+      "sha256": "f8c80890ce6e78efbbed0ed3fb361464290af8576ec089128eee4db137ea2ea1"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/excluded-targets.json",
+      "sha256": "6652a05e2d5c075fdca9f4a0ccd4eccac07522674b67215d94dc07f9507b157c"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-semver-parent-cyber-bao.json",
+      "sha256": "053268eb72597aa5e8e00b03489115272ae19affb2af0718c8d3d0d0a9867e42"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/tag-hemera-extract.json",
+      "sha256": "a47db98f91a138f34609193587997d2f83aaa8c0a2d361bbb7c0d843c06cdcf8"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-clean-completed-release.json",
+      "sha256": "9f80169a89d0ca62423dc5e4dbe054d5d17173f8dd5b0af7e4fdfece6b0b3194"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/candidate-named-nextest-all.json",
+      "sha256": "1712b41916113ac70f044e288ef36fd95d78bbdcd2d5bbadeb2d892cc22fecd8"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/semver-prepare-tag-hemera.json",
+      "sha256": "6f976eb944ad0d0995a4b000c3c49b10af074a5c5e22761784a3c2d90bda6c77"
+    },
+    {
+      "path": "/tmp/radio-bao-root-policy.rPXzYh/logs/hemera-tree.json",
+      "sha256": "51e6bf4876c83ba5c1306650bf7de4666f2fc149815fd68ab69a0ba026f2e963"
+    }
+  ],
+  "code_gate_count": 51,
+  "tool_manifest_sha256": "e5be79d397b4eb3fcce67515046330e03f09da2e82de377c4916f40cfe26571b"
+}

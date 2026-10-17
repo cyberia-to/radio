@@ -1,0 +1,5 @@
+[
+  {"candidate":"nostd-binary","parent":"nostd-parent-binary","scope":"isolated thumb final binary; candidate proof use versus parent pure ChunkNum control; both fail missing allocator through Hemera; not identical source probes"},
+  {"candidate":"nostd-library","parent":"nostd-parent-library","scope":"corresponding isolated thumb libraries; both pass"},
+  {"candidate":"ready-format-lib-candidate","parent":"ready-format-lib-parent","scope":"same configured formatter on lib.rs; same inherited re-export difference; source-complete changes only a test afterwards"}
+]

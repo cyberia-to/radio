@@ -1,0 +1,20 @@
+APPROVE
+
+Blockers: none.
+
+The production delta is the unconditional `hash == Hash::EMPTY` reply `BlobStatus::Complete { size: 0 }` in `handle_get_blob_status`, before `tables.blobs().get`, plus the synthetic-availability comment. `Hash` is `Copy` + `PartialEq`. The early `tx.send(...).await.ok()` matches the handler’s existing send path, and the `Ok(())` return leaves the read batch intact. Only that constant is intercepted. A zero key and any other hash still take the blobs-table path, including its inline-data `Inconsistent` error.
+
+That reply matches the Fs paths already in this tree. `HashContext::load` and `get_entry_state` synthesize empty complete bytes with no row. `FinishImport` returns `TempTag::leaking_empty` and writes nothing. `observeAPPROVE
+
+Blockers: none.
+
+The production delta is the unconditional `hash == Hash::EMPTY` reply `BlobStatus::Complete { size: 0 }` in `handle_get_blob_status`, placed immediately after the `BlobStatusMsg` destructure and before `tables.blobs().get`. The synthetic-availability comment matches that contract. `hash.rs` adds only `#[cfg(test)] mod empty_root`. `Hash::EMPTY`, its docs, and `test_empty_hash` stay the published tree root `ea57b2e6…8552`, distinct from the plain particle `a67a71b2…` and the zero key. The five freeze digests match the supplied sources, and the two-file patch is only that guard plus the test-module line.
+
+`Command::BlobStatus` forwards to this handler, and `Blobs::has` is true exactly for `Complete`. The same constant already synthesizes Fs `load`, `get_entry_state`, `FinishImport`, `observe`, and the zero-size import/get arms, with no row written. List and delete still follow the blobs table, so a fresh or post-add empty listing stays empty and force-delete cannot withdraw the status. Zero and nonempty keys still take the old lookup. A legacy EMPTY row is masked; that matches `get_entry_state`. Local docs map `Complete` to `ContentStatus::Complete`, and `start_download` returns on that variant. Tombstone construction, `validate_empty`, and the query filter still use the same `Hash::EMPTY` bytes. Willow’s manifest still selects registry `iroh-blobs` 0.98.0.
+
+The 17 tests are the four identity/ticket/tag cases, nine store cases, and four remote cases. The two Fs tests are `fs-store`-gated, so a no-default run is 15. Supplied debug and release witness stdout each show 17 run, 15 pass, and both Fs failures at `stores.rs:19` (`NotFound` versus `Complete { size: 0 }`). The enumeration stderr shows `fresh=[]`, `after-empty-add=[]`, and the computed key equal to that root. Those assertions are what this guard makes true. The 30-second test bound and the committed default slow-timeout (`10s`, terminate-after 3) are visible in the sources reviewed here.
+
+Optional advice:
+- This verdict is from the supplied sources, canon excerpts, and witness stdout. The later 17/15-pass rows, parent matrices, and nextest 0.9.80 fallback are executor summaries whose raw streams were not in this brief.
+- MemStore’s pre-add partial state, proof bounds, and particle/root/length binding remain separate work, as the task records already state.
+- `status`/`has` for this one hash are the public behavior change; the type-level semver runs do not measure that. Root still owns commit, merge, and any release.

@@ -1,0 +1,34 @@
+{
+  "started": "2026-10-12T23:58:33.662890Z",
+  "finished": "2026-10-12T23:58:35.417523Z",
+  "cwd": "/Users/master/cyber/radio-bao-bounded-proof",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-research-target",
+    "RUSTC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "RUSTFLAGS=-Dwarnings",
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "run",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+    "--",
+    "audit/2026-10-12-bao-bounded-proof/fixtures"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-fixture-freeze-v1.stdout",
+    "bytes": 3083,
+    "sha256": "261fb7c1163d2e4701f59cfa3a881e3f77ce96143d96c4eb5edbe0dd09da7328"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-fixture-freeze-v1.stderr",
+    "bytes": 581,
+    "sha256": "25848dfa1d9be4caec1c0f24025bd7faa83a5b34cdd909c0a96fd5213ff6724c"
+  }
+}

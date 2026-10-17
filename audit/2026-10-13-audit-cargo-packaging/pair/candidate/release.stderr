@@ -1,0 +1,5 @@
+   Compiling cyber-hemera v0.3.1 (https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#d5f0a095)
+   Compiling cyber-bao v0.1.0 (file:///tmp/radio-audit-packaging-pair-v3/source.git?rev=e22c5b472a0979ad382d241b9706de5b82fed9a9#e22c5b47)
+   Compiling kadek-bao-reader-control v0.0.0 (/tmp/radio-audit-packaging-pair-v3/candidate/consumer)
+    Finished `release` profile [optimized] target(s) in 2.53s
+     Running `/tmp/radio-audit-packaging-pair-v3/candidate/target/release/reader-control /tmp/radio-audit-packaging-pair-v3/frozen/literal`

@@ -1,0 +1,8 @@
+{
+  "name": "final-interleaved-proof-release-none",
+  "kind": "candidate",
+  "source_before": "a0624dd1f9d1257356609e816519d50d1cd5900d69aa0c413d00a6b6c05a886c",
+  "source_after": "a0624dd1f9d1257356609e816519d50d1cd5900d69aa0c413d00a6b6c05a886c",
+  "record_sha256": "4d60a70edfb262e84ead76f12fa929a75a1e8e5fdaa6ca35ea2153b086c25ae9",
+  "runner_sha256": "a1dc9c5ba7901cb17bf95dee75084d2f3f5362c3f55a837947ab0130f2b45986"
+}

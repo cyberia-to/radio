@@ -1,0 +1,20 @@
+warning: output filename collision at /Users/master/cyber/.stands/G3/_target_main/debug/examples/transfer
+warning: output filename collision at /Users/master/cyber/.stands/G3/_target_main/debug/examples/transfer.dSYM
+error[E0433]: cannot find module or crate `radio` in this scope
+error[E0432]: unresolved import `radio`
+error[E0433]: cannot find `radio` in the crate root
+error[E0433]: cannot find `radio` in the crate root
+error[E0433]: cannot find module or crate `radio` in this scope
+error: could not compile `iroh-bench` (lib) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+error[E0053]: method `find_providers` has an incompatible type for trait
+error[E0308]: mismatched types
+error[E0308]: mismatched types
+error[E0271]: type mismatch resolving `<Vec<PublicKey> as IntoIterator>::Item == PublicKey`
+error[E0308]: mismatched types
+error[E0308]: mismatched types
+error[E0308]: mismatched types
+error[E0308]: mismatched types
+error[E0308]: mismatched types
+error: could not compile `iroh-docs` (lib) due to 9 previous errors
+error: could not compile `iroh-docs` (lib test) due to 9 previous errors

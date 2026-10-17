@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "sections": 84,
+  "bytes": 434422,
+  "sha256": "48567e078407c1a5b554143fb712ac548132f5c7037d34a7dfbfb0361c2ff600",
+  "full_git_sources": 23,
+  "primary_excerpts": 14,
+  "candidate_sources": 7,
+  "evidence_inputs": 40
+}

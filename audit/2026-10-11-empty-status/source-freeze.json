@@ -1,0 +1,31 @@
+{
+  "base": "bc8b6331d3c76cbc011210e13f81e6ea351ef06f",
+  "hemera": "d5f0a09539360934fb32db9b2e15a91995607db6",
+  "files": [
+    {
+      "path": "iroh-blobs/src/hash.rs",
+      "sha256": "3fada4afcb8384dd47e8fda26005e1831da375ca95c43707ad3b666dc7bdde5e",
+      "bytes": 17121
+    },
+    {
+      "path": "iroh-blobs/src/hash/empty_root.rs",
+      "sha256": "2b550a5e71b4a72179d9c5766c0674b58dab8fb5c59ed0ccf5fa3effecad343c",
+      "bytes": 3817
+    },
+    {
+      "path": "iroh-blobs/src/hash/empty_root/remote.rs",
+      "sha256": "e7b8bf26b9fa0835465326c4fcd6c81c338dc287a68e8b78247095c9403a1736",
+      "bytes": 3929
+    },
+    {
+      "path": "iroh-blobs/src/hash/empty_root/stores.rs",
+      "sha256": "874bb559e125ed5a0fecf021d0b96f45141905469a678465cd657fb753a0ad20",
+      "bytes": 9315
+    },
+    {
+      "path": "iroh-blobs/src/store/fs/meta.rs",
+      "sha256": "fc2fe7b982899ad6a16b4650422c627fe9b4d45a4d7856478be2988cd7e2563b",
+      "bytes": 31426
+    }
+  ]
+}

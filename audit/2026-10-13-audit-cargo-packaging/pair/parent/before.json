@@ -1,0 +1,512 @@
+[
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "bytes": 31232696,
+    "sha256": "c512bff73c86143b557463f021d0c3d5b0490d97d65040ba59ea2b3427784758"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "bytes": 412504,
+    "sha256": "b829b733131d4e1673eeebd1f34d06ae1e9ff4977b051313cf42e2a9e79ecf1c"
+  },
+  {
+    "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "bytes": 11710264,
+    "sha256": "59bc6a1caf617032284a2edc2aa03916396e70589c435a8b51e3957887f90ce5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/body.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/manifest.json",
+    "bytes": 279,
+    "sha256": "723cbcee3ee50b30e6e231d208f66e8427421f9c4eb979464f944b529d21fe69"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/proof.bao",
+    "bytes": 8,
+    "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/empty/selected.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/manifest.json",
+    "bytes": 297,
+    "sha256": "1065424148bd2bf5fa7dddf6633108029763be66845433edae2eec28e38016dc"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/proof.bao",
+    "bytes": 16456,
+    "sha256": "5cacc9435844cb40994744c65497fd98ab618b9592fc7a4a6a2220aa129d0c58"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/grouped/selected.bin",
+    "bytes": 2,
+    "sha256": "dff0c047227d36b6e8175c4e2e67391c525cf066a5b44ff64e003b210958424b"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/interleaved.bao",
+    "bytes": 12488,
+    "sha256": "674ac7f2fa42c1d25fa7083c8d0d46b3459cfd6a82dcd16e20445a1479dfc7ad"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/manifest.json",
+    "bytes": 458,
+    "sha256": "889d3b761aeeaec5aa0be3c631ad530dab4723e9f9362ef855fb25203ccd4420"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/interleaved/selected.bin",
+    "bytes": 4098,
+    "sha256": "b68e6889a7d56daccc9ea0e19d8cdf3e7b2ee4363f1b13858c60b7e96d1a5950"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/manifest.json",
+    "bytes": 286,
+    "sha256": "ca9a4610f80827cd09168d4e930bf3b2453bffbdb31d67445c9fc5cebd546b9d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/proof.bao",
+    "bytes": 4232,
+    "sha256": "879809f7022af32df196934ce49fc6a0b7d6e8461548588875db9d62879af8a8"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/left/selected.bin",
+    "bytes": 2,
+    "sha256": "049dd55c700c191303a99adaf952dbdd1ce028592a3dc250f67ff22f0a7a4b64"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/body.bin",
+    "bytes": 14,
+    "sha256": "ef1d4848669acc5eb2640c0a2aede8305987bf84478f41b6b927645d2e5f7a8d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/manifest.json",
+    "bytes": 280,
+    "sha256": "4370007e94bacc0cb18bd9a43cc47f7eab8ac8309b343b2c9bec3aca2b3c0de5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/proof.bao",
+    "bytes": 22,
+    "sha256": "3c16fd61ba57f93e03366c30992e93e845b73768432a0f8d93e68d926c5e55e3"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/pcm/selected.bin",
+    "bytes": 8,
+    "sha256": "96df61ec9b1c976bfe26379add192ce4bf9151ed9a380eebe133b76ca7faa41e"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/body.bin",
+    "bytes": 16384,
+    "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/manifest.json",
+    "bytes": 295,
+    "sha256": "db373f983310a346f2bccdd86de20c9edb0245a22fd761fab8b4c51970b28520"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/proof.bao",
+    "bytes": 4232,
+    "sha256": "fd5b9f7592f21d10c41b1d1f75d907f5459cd1ccf299adea939c54c93d031b42"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/right/selected.bin",
+    "bytes": 3,
+    "sha256": "b625a35d1037280eb7b0a70017c9c52b6ed75de424658b5001b110452010218d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/body.bin",
+    "bytes": 4099,
+    "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/manifest.json",
+    "bytes": 299,
+    "sha256": "ff3b1ab0778546ec5d8f780af1994e2b69186dd379f27ddcce8c8083276085f2"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/proof.bao",
+    "bytes": 4107,
+    "sha256": "40d7d006a05a220f0876fa94cb8dd33fc73000bff019b54f4c77b6c66ebc1f53"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short-grouped/selected.bin",
+    "bytes": 4,
+    "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/body.bin",
+    "bytes": 4099,
+    "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/manifest.json",
+    "bytes": 292,
+    "sha256": "d4b065575c2579b00336f1a996049071af34f1f28cdb10b567d9b6612c018a02"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/proof.bao",
+    "bytes": 4171,
+    "sha256": "d04ec3ff5cd522470236798445932cd40c7c3c63d3cbadec28933d3534ed7954"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/literal/short/selected.bin",
+    "bytes": 4,
+    "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/frozen/reader_probe.rs",
+    "bytes": 9574,
+    "sha256": "c591a5f63d2a8079ed757fbcdf4a00d9f4b281f2ffe0abff657ebf7731058b15"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/config.toml",
+    "bytes": 154,
+    "sha256": "ea9016628ffbbffd0f8d0f79bf84ece8d8835884223f088460462fa9a5232957"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/Cargo.toml",
+    "bytes": 970,
+    "sha256": "351913fa05ec28a0fce1078fd03c0fe84b957435b970c9dd122f140983fcdd75"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/bench.rs",
+    "bytes": 8232,
+    "sha256": "dff24684ad117b4302303c101f5d0994eb10cbab5bd79f162e36dbff7d766221"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/neon_mul.rs",
+    "bytes": 6607,
+    "sha256": "5a86e7009d4c1a539531369f6ab71cef2aa4198eb08fba70d83a4e2b719f098b"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/examples/split.rs",
+    "bytes": 3293,
+    "sha256": "507fdeb2d27a7cc92e61577ac1033c1e1751478ddbd89a084200b7570debd0c0"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/arith.rs",
+    "bytes": 12016,
+    "sha256": "42c41ce43ab3f00e8ac32c812830044583e686581cd44762d61977f9a3c33ebf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/async_io.rs",
+    "bytes": 4033,
+    "sha256": "a898313b5f2237015050375c5cf982be61e3982cfeb834543adace3df01c74a8"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/backend.rs",
+    "bytes": 6726,
+    "sha256": "7c42ab817693b484f327cbb745b7fac3ae76bf4a5c762990cea62ef01b913d53"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/batch.rs",
+    "bytes": 13057,
+    "sha256": "614607f86923b31212a908c868f5a6b41982f32b3f3ad34a8e84571e22e3918a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/bootstrap.rs",
+    "bytes": 5694,
+    "sha256": "fa865dbb6fcee2b047000d8235d259d66a924c17cbee5c2be451e4926e71b6f7"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/cdc.rs",
+    "bytes": 18537,
+    "sha256": "3320d137fcb381a2a512ffb545720deba24c46eedd8d6026a073ba6f01778fc7"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/constants.rs",
+    "bytes": 5509,
+    "sha256": "dbf8bf10ec173fd2aa6518281677ee4de3882b29b2f3912f712dcc361b20382a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/encoding.rs",
+    "bytes": 7759,
+    "sha256": "4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/field.rs",
+    "bytes": 12041,
+    "sha256": "7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/kernel.rs",
+    "bytes": 7430,
+    "sha256": "cc05e4c745ead3bdc60bfa1b8285686957c63917ea13e788005b51c4120f08b2"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/lib.rs",
+    "bytes": 10109,
+    "sha256": "597a5690eb43fde59265d0055152c185cee2e719ff2059719e148ce2fc3c077d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/merkle.rs",
+    "bytes": 6777,
+    "sha256": "baacc02a9f798d73a596d644c538330b9d10fadbb72cc22ff1e41b0607d233d5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/params.rs",
+    "bytes": 6597,
+    "sha256": "bf5b2cb5a80697d272546425bddcdf2cb2bfe7e08367ae7c793a0922088f2a91"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/permutation.rs",
+    "bytes": 11403,
+    "sha256": "7238b9789a19c0aa10ec6e828e75fcaf87ce437103137cfe4556729b4037d76c"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/profile.rs",
+    "bytes": 3344,
+    "sha256": "bd666bffb1e797330ae93eb7cc4fe38e5bbb4e02b5dc532e756ac056d8f37d49"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/reference.rs",
+    "bytes": 4962,
+    "sha256": "a91a3a2f7f0a01e3003cd8b5856e684a22391ee8050cce7523e71737ed49f516"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/sparse.rs",
+    "bytes": 16841,
+    "sha256": "2eff551631f7c1d155b794ec95a1de652c4b54c4700fd8c4c521bd73365d9d2c"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/sponge.rs",
+    "bytes": 29369,
+    "sha256": "e4152c73ca942140fc82575a3d68c6538d323a6355842210b4b40302d7b8daa9"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/step_sponge.rs",
+    "bytes": 5892,
+    "sha256": "64ec167940782c5f83b684965ee06bcb88f001f2baccdc3be189aa57b6fc5922"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/stream.rs",
+    "bytes": 16940,
+    "sha256": "8516cbe65d0f704035e146fc58ead96ac66115966213ab5377e6b1c4b64c40e3"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/stream_async.rs",
+    "bytes": 14822,
+    "sha256": "207f9c0d34663d583d4dbc38170d745f15e56ed3880eb518c39399ce4e99b8f6"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/trace.rs",
+    "bytes": 1979,
+    "sha256": "823d30b41ac817749fe5352e919dafa73522df9ef3c575807995ef50b3e0665d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/tree.rs",
+    "bytes": 53162,
+    "sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/constant_time.rs",
+    "bytes": 6189,
+    "sha256": "fc6e9e767773a7715b306179ee16cefd6da52ae74ed14e5c6c1e7091dc36adbf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/differential.rs",
+    "bytes": 12890,
+    "sha256": "737ba241712a25c71f94270504bd1eb210194adc082260095bee09a0ab203080"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/tests/vectors.rs",
+    "bytes": 1310,
+    "sha256": "9724feea2af43654e0670e813faae61e23072f345f0d73669e1a38a23aa9f620"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/Cargo.toml",
+    "bytes": 1078,
+    "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/group.rs",
+    "bytes": 6349,
+    "sha256": "948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/group/tests.rs",
+    "bytes": 745,
+    "sha256": "6d8d75cd586684c6d13c7a9ed2c563bec418a8687910110bdce8dbbb5473053d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/hash.rs",
+    "bytes": 3960,
+    "sha256": "1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/content.rs",
+    "bytes": 1342,
+    "sha256": "582fa031c6ee9f38e9f38cf875a5e8e76827fc6c07c0c88027857f92147e7ecd"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/decode.rs",
+    "bytes": 9782,
+    "sha256": "334bfbe8e731a7b2b863c36b6a8f95562206c14ed2b944492897b5920837589d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/encode.rs",
+    "bytes": 5619,
+    "sha256": "c30d550675db2cf288ab3e438270d2c862416fc4c9972e6ce799e9a2f80dcbf0"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/error.rs",
+    "bytes": 4193,
+    "sha256": "ef64b616b421e8ced59a76cae247ba5ea6a2180e03e27bd4e1438d2246aa2c29"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/fsm.rs",
+    "bytes": 10938,
+    "sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/mixed.rs",
+    "bytes": 5019,
+    "sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/mod.rs",
+    "bytes": 8630,
+    "sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/outboard.rs",
+    "bytes": 6220,
+    "sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/pre_order.rs",
+    "bytes": 14509,
+    "sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/slice.rs",
+    "bytes": 13041,
+    "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/sync.rs",
+    "bytes": 13540,
+    "sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/io/traits.rs",
+    "bytes": 8211,
+    "sha256": "e212344d3a42d4ce967dbf0530a99a3d3f3e4bb27f1dc04c975c88202538f326"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/lib.rs",
+    "bytes": 1345,
+    "sha256": "9e82621f1a213a4943c2d8e5b313621ce0e5cee811f86975fe9bff20195c472a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/proof.rs",
+    "bytes": 11816,
+    "sha256": "82e5aed5b71ab1263d05df7808046a614991ec5daeab2e30b88a12b970c395b7"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/proof/output.rs",
+    "bytes": 5054,
+    "sha256": "b2f4ec894d5f28524ebad8e60e6129ee15f2282aeeb51c347f4e8471072989d6"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/traversal.rs",
+    "bytes": 6067,
+    "sha256": "87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/tree.rs",
+    "bytes": 12320,
+    "sha256": "458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/tree/tests.rs",
+    "bytes": 4810,
+    "sha256": "2c9cd904ac8595341f1946e31c79be1a01c97574c86a51068cba343238601e1d"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/src/tree/traversal.rs",
+    "bytes": 12053,
+    "sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/group.rs",
+    "bytes": 10376,
+    "sha256": "cfaffe11dd1abdd6ebac7678223d6bb821cf768f1345124bee1d358265196884"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/group_allocation.rs",
+    "bytes": 2476,
+    "sha256": "fbad19824bed68c777fa32eda14aee86af8cb0812b4a7fb1632de93eb2c0cbd5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof.rs",
+    "bytes": 10191,
+    "sha256": "9c7a06da1f77d9966e940c29aee04184c958f5513224128ba19b7113b28c4eb9"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof_allocation.rs",
+    "bytes": 4240,
+    "sha256": "b8dc7985cc0cf68e68530d19cc8040b8ed28773c67965b5170ad571645b45df5"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/proof_failures.rs",
+    "bytes": 11662,
+    "sha256": "9a89df71bbdd17dec76b9907dd026a3b4104cfe77d12367b12a86140f67e1af7"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/range_traversal.rs",
+    "bytes": 12350,
+    "sha256": "e07530aa7035ccad8c75da53c50355efc03c503f2480189c32ac133ead883d25"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/range_traversal_allocation.rs",
+    "bytes": 3083,
+    "sha256": "cc7b2cc32b710ee835be001d77887c5176e42e6719b3fc8c97d31ddec4fe6c59"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/root_policy.rs",
+    "bytes": 8717,
+    "sha256": "42737b5a4f3c3e6f9d19f91a5d14279e3f43a8e3eaaf8d4caf251b744944f94b"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/slice_traversal.rs",
+    "bytes": 9055,
+    "sha256": "b85161fc1a8105a46f6239ff243f7d414ed28882669c93bea55fc4274a047180"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/cargo-home/git/checkouts/source-029023e212e163c1/ce0fb31/cyber-bao/tests/support/proof.rs",
+    "bytes": 7549,
+    "sha256": "a28d04cb2d1cee78f950b895956830fe849cfe97256649b3a2088200994c5ddd"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/consumer/Cargo.lock",
+    "bytes": 632,
+    "sha256": "a291f2114f899acbbba854348257a358574dd950cfcffe409b587bf5d1c8a02e"
+  },
+  {
+    "path": "/tmp/radio-audit-packaging-pair-v3/parent/consumer/Cargo.toml",
+    "bytes": 374,
+    "sha256": "b6f9871a8c1138b08bc69c78bd8784b40e62560bd7b16f2235f9352b081c4096"
+  }
+]

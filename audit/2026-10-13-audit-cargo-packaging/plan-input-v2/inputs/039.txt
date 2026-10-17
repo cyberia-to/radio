@@ -1,0 +1,35 @@
+{
+  "started": "2026-10-13T01:18:58.902251Z",
+  "finished": "2026-10-13T01:18:58.980586Z",
+  "cwd": "/Users/master/cyber/kadek-bao-range-publication",
+  "revision": "6e3597cd2cd2841c24ffd2208b509ad4fb404390",
+  "argv": [
+    "env",
+    "CARGO_HOME=/tmp/kadek-bao-reader-cargo-home",
+    "CARGO_TARGET_DIR=/tmp/kadek-bao-reader-target",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "RUSTC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "RUSTDOC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+    "metadata",
+    "--manifest-path",
+    "/tmp/kadek-bao-reader-control-v1/Cargo.toml",
+    "--format-version",
+    "1",
+    "--offline",
+    "--locked"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 0,
+  "stdout": {
+    "path": "/tmp/kadek-bao-reader-metadata-v1.stdout",
+    "bytes": 11661,
+    "sha256": "d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e"
+  },
+  "stderr": {
+    "path": "/tmp/kadek-bao-reader-metadata-v1.stderr",
+    "bytes": 316,
+    "sha256": "fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c"
+  }
+}

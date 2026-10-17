@@ -1,0 +1,13 @@
+   Compiling cyber-bao v0.1.0 (/Users/master/cyber/radio-bao-bounded-proof/cyber-bao)
+    Finished `release` profile [optimized + debuginfo] target(s) in 5.25s
+     Running unittests src/lib.rs (/tmp/radio-bao-proof-target/release/deps/cyber_bao-9d518c426f813f57)
+     Running tests/group.rs (/tmp/radio-bao-proof-target/release/deps/group-4b525abd1dfff157)
+     Running tests/group_allocation.rs (/tmp/radio-bao-proof-target/release/deps/group_allocation-693c743b63a40061)
+     Running tests/proof.rs (/tmp/radio-bao-proof-target/release/deps/proof-91ce2c27c094291b)
+     Running tests/proof_allocation.rs (/tmp/radio-bao-proof-target/release/deps/proof_allocation-0cae73f705039265)
+     Running tests/proof_failures.rs (/tmp/radio-bao-proof-target/release/deps/proof_failures-9008161f41418dec)
+     Running tests/range_traversal.rs (/tmp/radio-bao-proof-target/release/deps/range_traversal-71ad369e21609c51)
+     Running tests/range_traversal_allocation.rs (/tmp/radio-bao-proof-target/release/deps/range_traversal_allocation-78507bb4ade50d2a)
+     Running tests/root_policy.rs (/tmp/radio-bao-proof-target/release/deps/root_policy-e6b9ed6d733833d9)
+     Running tests/slice_traversal.rs (/tmp/radio-bao-proof-target/release/deps/slice_traversal-9e075ac86de1fb68)
+   Doc-tests cyber_bao

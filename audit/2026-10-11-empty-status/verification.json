@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "nu",
+    "/Users/master/cyber/radio-kadek-empty-status/audit/2026-10-11-empty-status/verify.nu",
+    "--source-root",
+    "/Users/master/cyber/radio-kadek-empty-status"
+  ],
+  "started": "2026-10-11T17:41:30.142615+00:00",
+  "ended": "2026-10-11T17:41:32.089738+00:00",
+  "exit": 0,
+  "stdout_sha256": "a443dc1172eaa1eefcbbe271757019fa528aed8eac43b5c3e3cf4abfecadee42",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "note": "No recorded gate executed. Outer checksums updated after recording this verification. Current bounded review pending at capsule freeze."
+}

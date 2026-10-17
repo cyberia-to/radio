@@ -1,0 +1,418 @@
+{
+  "created": "2026-10-12T23:40:34Z",
+  "parent": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "current": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "source": "24b189ea809d214994a32b78aa65d338c0c2b2b3",
+  "merge": "https://github.com/cyberia-to/radio/pull/39",
+  "production_claim": "Mechanical dependency integration only; earlier measurements remain at a96d. No bounded-proof implementation.",
+  "comparison": [
+    {
+      "path": "Cargo.toml",
+      "parent_sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2",
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2",
+      "bytes": 2085,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/Cargo.toml",
+      "parent_sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+      "bytes": 1078,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/group.rs",
+      "parent_sha256": "948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf",
+      "sha256": "948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf",
+      "bytes": 6349,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/group/tests.rs",
+      "parent_sha256": "6d8d75cd586684c6d13c7a9ed2c563bec418a8687910110bdce8dbbb5473053d",
+      "sha256": "6d8d75cd586684c6d13c7a9ed2c563bec418a8687910110bdce8dbbb5473053d",
+      "bytes": 745,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/hash.rs",
+      "parent_sha256": "1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f",
+      "sha256": "1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f",
+      "bytes": 3960,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/content.rs",
+      "parent_sha256": "582fa031c6ee9f38e9f38cf875a5e8e76827fc6c07c0c88027857f92147e7ecd",
+      "sha256": "582fa031c6ee9f38e9f38cf875a5e8e76827fc6c07c0c88027857f92147e7ecd",
+      "bytes": 1342,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/decode.rs",
+      "parent_sha256": "334bfbe8e731a7b2b863c36b6a8f95562206c14ed2b944492897b5920837589d",
+      "sha256": "334bfbe8e731a7b2b863c36b6a8f95562206c14ed2b944492897b5920837589d",
+      "bytes": 9782,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/encode.rs",
+      "parent_sha256": "c30d550675db2cf288ab3e438270d2c862416fc4c9972e6ce799e9a2f80dcbf0",
+      "sha256": "c30d550675db2cf288ab3e438270d2c862416fc4c9972e6ce799e9a2f80dcbf0",
+      "bytes": 5619,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/error.rs",
+      "parent_sha256": "ef64b616b421e8ced59a76cae247ba5ea6a2180e03e27bd4e1438d2246aa2c29",
+      "sha256": "ef64b616b421e8ced59a76cae247ba5ea6a2180e03e27bd4e1438d2246aa2c29",
+      "bytes": 4193,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/fsm.rs",
+      "parent_sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f",
+      "sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f",
+      "bytes": 10938,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/mixed.rs",
+      "parent_sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2",
+      "sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2",
+      "bytes": 5019,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/mod.rs",
+      "parent_sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a",
+      "sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a",
+      "bytes": 8630,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/outboard.rs",
+      "parent_sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06",
+      "sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06",
+      "bytes": 6220,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/pre_order.rs",
+      "parent_sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65",
+      "sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65",
+      "bytes": 14509,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/slice.rs",
+      "parent_sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7",
+      "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7",
+      "bytes": 13041,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/sync.rs",
+      "parent_sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a",
+      "sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a",
+      "bytes": 13540,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/io/traits.rs",
+      "parent_sha256": "e212344d3a42d4ce967dbf0530a99a3d3f3e4bb27f1dc04c975c88202538f326",
+      "sha256": "e212344d3a42d4ce967dbf0530a99a3d3f3e4bb27f1dc04c975c88202538f326",
+      "bytes": 8211,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/lib.rs",
+      "parent_sha256": "8b504071c619a79dfe5e1b7fa8825d507afe907bd8817a92d9951b37345bd602",
+      "sha256": "2e054f65e05d5a47555e684cb339903972672e2f1077a2ee19ddd6648f88ac40",
+      "bytes": 1330,
+      "unchanged": false
+    },
+    {
+      "path": "cyber-bao/src/tree.rs",
+      "parent_sha256": "458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a",
+      "sha256": "458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a",
+      "bytes": 12320,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/tree/tests.rs",
+      "parent_sha256": "2c9cd904ac8595341f1946e31c79be1a01c97574c86a51068cba343238601e1d",
+      "sha256": "2c9cd904ac8595341f1946e31c79be1a01c97574c86a51068cba343238601e1d",
+      "bytes": 4810,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/src/tree/traversal.rs",
+      "parent_sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e",
+      "sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e",
+      "bytes": 12053,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/tests/group.rs",
+      "parent_sha256": "cfaffe11dd1abdd6ebac7678223d6bb821cf768f1345124bee1d358265196884",
+      "sha256": "cfaffe11dd1abdd6ebac7678223d6bb821cf768f1345124bee1d358265196884",
+      "bytes": 10376,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/tests/group_allocation.rs",
+      "parent_sha256": "fbad19824bed68c777fa32eda14aee86af8cb0812b4a7fb1632de93eb2c0cbd5",
+      "sha256": "fbad19824bed68c777fa32eda14aee86af8cb0812b4a7fb1632de93eb2c0cbd5",
+      "bytes": 2476,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/tests/root_policy.rs",
+      "parent_sha256": "42737b5a4f3c3e6f9d19f91a5d14279e3f43a8e3eaaf8d4caf251b744944f94b",
+      "sha256": "42737b5a4f3c3e6f9d19f91a5d14279e3f43a8e3eaaf8d4caf251b744944f94b",
+      "bytes": 8717,
+      "unchanged": true
+    },
+    {
+      "path": "cyber-bao/tests/slice_traversal.rs",
+      "parent_sha256": "b85161fc1a8105a46f6239ff243f7d414ed28882669c93bea55fc4274a047180",
+      "sha256": "b85161fc1a8105a46f6239ff243f7d414ed28882669c93bea55fc4274a047180",
+      "bytes": 9055,
+      "unchanged": true
+    },
+    {
+      "path": "Cargo.lock",
+      "parent_sha256": "90d5aa88f4fb507434036ad5ec0ca7a3897741fe810fdf16a080bff006130d65",
+      "sha256": "90d5aa88f4fb507434036ad5ec0ca7a3897741fe810fdf16a080bff006130d65",
+      "bytes": 186712,
+      "unchanged": true
+    },
+    {
+      "path": "Makefile.toml",
+      "parent_sha256": "0f1e457aa4bb7c6e4674d2dfbd847b58344319a1242625c2f055241ebd048d8d",
+      "sha256": "0f1e457aa4bb7c6e4674d2dfbd847b58344319a1242625c2f055241ebd048d8d",
+      "bytes": 662,
+      "unchanged": true
+    },
+    {
+      "path": ".config/nextest.toml",
+      "parent_sha256": "ef588b7e34ddd981c24a523ba359ec76a616a45b40f3f3f525692ae809aea590",
+      "sha256": "ef588b7e34ddd981c24a523ba359ec76a616a45b40f3f3f525692ae809aea590",
+      "bytes": 594,
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "parent_sha256": "ded5a95996283b54293810ab4938dadc1d589fab73be85397ad9c3435b203208",
+      "sha256": "ded5a95996283b54293810ab4938dadc1d589fab73be85397ad9c3435b203208",
+      "bytes": 11846,
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/tests.yaml",
+      "parent_sha256": "749952dae052754d58ca44b060dac25431a507f5ddf9e854e2c54a91084b5a6b",
+      "sha256": "749952dae052754d58ca44b060dac25431a507f5ddf9e854e2c54a91084b5a6b",
+      "bytes": 10418,
+      "unchanged": true
+    },
+    {
+      "path": "iroh-blobs/Cargo.toml",
+      "parent_sha256": "cbf2f94e32cb76f6976b9f271231077da1eadeb9a8fea69636180bec5441c011",
+      "sha256": "cbf2f94e32cb76f6976b9f271231077da1eadeb9a8fea69636180bec5441c011",
+      "bytes": 3156,
+      "unchanged": true
+    },
+    {
+      "path": "particle/Cargo.toml",
+      "parent_sha256": "a80402ad3fce896380f81f4a510e7ef081c1a881043970a81c7b24e203996969",
+      "sha256": "a80402ad3fce896380f81f4a510e7ef081c1a881043970a81c7b24e203996969",
+      "bytes": 367,
+      "unchanged": true
+    },
+    {
+      "path": "radio-cli/Cargo.toml",
+      "parent_sha256": "5d2e24decf543ba918766c57dd5bd3f3224b871933c3f4fc51d2420461cfccc0",
+      "sha256": "5d2e24decf543ba918766c57dd5bd3f3224b871933c3f4fc51d2420461cfccc0",
+      "bytes": 666,
+      "unchanged": true
+    },
+    {
+      "path": "tests/integration/Cargo.toml",
+      "parent_sha256": "ac74983dbeee09aed2222c0c6108e81f97a176e59a7b3db444b3d4e1e429b4a0",
+      "sha256": "ac74983dbeee09aed2222c0c6108e81f97a176e59a7b3db444b3d4e1e429b4a0",
+      "bytes": 673,
+      "unchanged": true
+    },
+    {
+      "path": "iroh-docs/Cargo.toml",
+      "parent_sha256": "fc5de9598d40d5265bbc36c4bc6bd7f38f55ba206bf0f717bfdf9b8e0e8b07c6",
+      "sha256": "fc5de9598d40d5265bbc36c4bc6bd7f38f55ba206bf0f717bfdf9b8e0e8b07c6",
+      "bytes": 2490,
+      "unchanged": true
+    },
+    {
+      "path": "iroh-blobs/src/api/blobs.rs",
+      "parent_sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286",
+      "sha256": "4750b32042433b27a9f1740327e2925a8da94217b0ff87dbd0626c756c9ad286",
+      "bytes": 40466,
+      "unchanged": true
+    },
+    {
+      "path": "iroh-blobs/src/api/blobs/export_pairs.rs",
+      "parent_sha256": "96914dc66c602b6e0bc9cf29a5287a84214b514be367ca96eef0b637079eb9c2",
+      "sha256": "96914dc66c602b6e0bc9cf29a5287a84214b514be367ca96eef0b637079eb9c2",
+      "bytes": 13409,
+      "unchanged": true
+    },
+    {
+      "path": "particle/src/main.rs",
+      "parent_sha256": "14602af31ea2950f3d7af6ad831150e469d745ef4d237bdbf86d56087f843e75",
+      "sha256": "14602af31ea2950f3d7af6ad831150e469d745ef4d237bdbf86d56087f843e75",
+      "bytes": 5460,
+      "unchanged": true
+    },
+    {
+      "path": "radio-cli/src/main.rs",
+      "parent_sha256": "e80c1d700e19d4a32a7427853664d3ba49ead62b339c9584d59581f6e886e61a",
+      "sha256": "e80c1d700e19d4a32a7427853664d3ba49ead62b339c9584d59581f6e886e61a",
+      "bytes": 18693,
+      "unchanged": true
+    }
+  ],
+  "merged_inputs": [
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "cyber-bao/src/traversal.rs",
+      "local": "merged-prerequisite/traversal.rs",
+      "bytes": 6067,
+      "sha256": "87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "cyber-bao/src/lib.rs",
+      "local": "merged-prerequisite/lib.rs",
+      "bytes": 1330,
+      "sha256": "2e054f65e05d5a47555e684cb339903972672e2f1077a2ee19ddd6648f88ac40"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "cyber-bao/tests/range_traversal.rs",
+      "local": "merged-prerequisite/range_traversal.rs",
+      "bytes": 12350,
+      "sha256": "e07530aa7035ccad8c75da53c50355efc03c503f2480189c32ac133ead883d25"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "cyber-bao/tests/range_traversal_allocation.rs",
+      "local": "merged-prerequisite/range_traversal_allocation.rs",
+      "bytes": 3083,
+      "sha256": "cc7b2cc32b710ee835be001d77887c5176e42e6719b3fc8c97d31ddec4fe6c59"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": ".claude/tasks/bao-bounded-traversal/code-review.md",
+      "local": "merged-prerequisite/code-review.md",
+      "bytes": 1774,
+      "sha256": "094d6c46d2da82a937499cd3015dc2289d54a4abf02f8d3fe3d6d502ea28b94a"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "audit/2026-10-11-bao-bounded-traversal/code/review/result.md",
+      "local": "merged-prerequisite/result.md",
+      "bytes": 10113,
+      "sha256": "42a737b1963d82f27bd13349bdd049cc535848890531a9af64cb91b11deb98d0"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "audit/2026-10-11-bao-bounded-traversal/code/review/invocation.json",
+      "local": "merged-prerequisite/invocation.json",
+      "bytes": 1218,
+      "sha256": "719f82d3af1f4bbcfb4e4dd8c73ff1409db72ac90effc1a18197be3bd6b08968"
+    },
+    {
+      "repository": "radio",
+      "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+      "path": "audit/2026-10-11-bao-bounded-traversal/code/review/completion.json",
+      "local": "merged-prerequisite/completion.json",
+      "bytes": 240,
+      "sha256": "7a8fbbc20da54b3ddc82921a245e4eb10bb844384d7e5e94a7c823588ab9bd35"
+    }
+  ],
+  "diff_name_status": [
+    "A\t.claude/tasks/bao-bounded-traversal/code-review.md",
+    "A\t.claude/tasks/bao-bounded-traversal/execution.md",
+    "A\t.claude/tasks/bao-bounded-traversal/implementation.md",
+    "A\t.claude/tasks/bao-bounded-traversal/literal-cases.md",
+    "A\t.claude/tasks/bao-bounded-traversal/plan.md",
+    "A\t.claude/tasks/bao-bounded-traversal/research.md",
+    "A\t.claude/tasks/bao-bounded-traversal/review-status.md",
+    "A\taudit/2026-10-11-bao-bounded-traversal/README.md",
+    "A\taudit/2026-10-11-bao-bounded-traversal/SHA256SUMS",
+    "A\taudit/2026-10-11-bao-bounded-traversal/capsule.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/README.md",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/SHA256SUMS",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/capsule.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/evidence-index.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/evidence.tar.gz",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/replay/command.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/replay/local-doc-check.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/replay/stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/replay/stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/completion.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/invocation.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/launcher.rb",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/result.md",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/stderr.txt",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/review/stdout.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/code-execution-v4.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/code-v4.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/code-verification-v4.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-check.rb.txt",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/docs-v1.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/root-replay/portable-v1.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/code/verify.nu",
+    "A\taudit/2026-10-11-bao-bounded-traversal/evidence-index.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/evidence.tar.gz",
+    "A\taudit/2026-10-11-bao-bounded-traversal/package.rb.txt",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan-review/completion.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan-review/invocation.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan-review/stdout.txt",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/README.md",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/SHA256SUMS",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/capsule.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/evidence-index.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/evidence.tar.gz",
+    "A\taudit/2026-10-11-bao-bounded-traversal/plan/verify.nu",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt1.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt1.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt1.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt2.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt2.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt2.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt3.json",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt3.stderr",
+    "A\taudit/2026-10-11-bao-bounded-traversal/portable/attempt3.stdout",
+    "A\taudit/2026-10-11-bao-bounded-traversal/verify-attempt1.nu.txt",
+    "A\taudit/2026-10-11-bao-bounded-traversal/verify.nu",
+    "M\tcyber-bao/src/lib.rs",
+    "A\tcyber-bao/src/traversal.rs",
+    "A\tcyber-bao/tests/range_traversal.rs",
+    "A\tcyber-bao/tests/range_traversal_allocation.rs"
+  ],
+  "source_diff": "diff --git a/cyber-bao/src/lib.rs b/cyber-bao/src/lib.rs\nindex 30525582..073146bc 100644\n--- a/cyber-bao/src/lib.rs\n+++ b/cyber-bao/src/lib.rs\n@@ -17,6 +17,7 @@ pub mod group;\n pub mod hash;\n #[cfg(feature = \"std\")]\n pub mod io;\n+pub mod traversal;\n pub mod tree;\n \n pub use hash::{HashBackend, Poseidon2Backend};\ndiff --git a/cyber-bao/src/traversal.rs b/cyber-bao/src/traversal.rs\nnew file mode 100644\nindex 00000000..c1acc11b\n--- /dev/null\n+++ b/cyber-bao/src/traversal.rs\n@@ -0,0 +1,172 @@\n+//! Checked, allocation-free preorder geometry for one byte range.\n+//!\n+//! This cursor emits geometry only. It does not parse a proof or authenticate\n+//! a particle, root, payload or empty request.\n+\n+use core::{fmt, iter::FusedIterator, ops::Range};\n+\n+use crate::{BaoChunk, BlockSize, CHUNK_SIZE, TreeNode};\n+\n+/// Invalid geometry supplied to [`RangeTraversal::new`].\n+#[derive(Debug, Clone, Copy, PartialEq, Eq)]\n+pub enum RangeTraversalError {\n+    /// The group width cannot be represented by both u64 and usize.\n+    InvalidBlockSize,\n+    /// The byte range is reversed or extends beyond the file.\n+    InvalidRange,\n+}\n+\n+impl fmt::Display for RangeTraversalError {\n+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {\n+        f.write_str(match self {\n+            Self::InvalidBlockSize => \"invalid traversal block size\",\n+            Self::InvalidRange => \"invalid traversal byte range\",\n+        })\n+    }\n+}\n+\n+impl core::error::Error for RangeTraversalError {}\n+\n+#[derive(Debug, Clone, Copy)]\n+struct Frame {\n+    first: u64,\n+    count: u64,\n+    is_root: bool,\n+}\n+\n+/// Preorder cursor over whole groups intersecting a half-open byte range.\n+///\n+/// Construction uses fixed storage for 53 frames. Each pending [`Iterator::next`]\n+/// pops one frame, pushes at most two children and returns one item, without\n+/// allocation, recursion, scanning or hashing. Pausing requires no extra state:\n+/// simply retain the cursor without calling `next`.\n+///\n+/// ROOT belongs to the complete file tree, even when the request selects only\n+/// one leaf. Parent flags identify children visited by this request; a parent\n+/// still describes a pair of hashes. An empty request is immediately complete\n+/// and emits no item; it makes no authentication claim.\n+pub struct RangeTraversal {\n+    size: u64,\n+    group_bytes: u64,\n+    selected: Range<u64>,\n+    frames: [Frame; 53],\n+    pending: usize,\n+}\n+\n+impl fmt::Debug for RangeTraversal {\n+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {\n+        f.debug_struct(\"RangeTraversal\")\n+            .field(\"size\", &self.size)\n+            .field(\"group_bytes\", &self.group_bytes)\n+            .field(\"selected\", &self.selected)\n+            .field(\"pending\", &self.pending)\n+            .finish()\n+    }\n+}\n+\n+impl RangeTraversal {\n+    /// Admit a file size, group width and half-open requested byte interval.\n+    ///\n+    /// Block geometry is validated before the request: the block log must be at\n+    /// most 51, and its byte width must fit usize. This admits logs 0..=51 on\n+    /// 64-bit targets and 0..=19 on 32-bit targets, even for a short or empty file.\n+    /// Width admission concerns integer geometry, not allocation layout validity.\n+    /// The request must satisfy `start <= end <= size`; an empty interval at EOF\n+    /// is valid. Only the final file group is clipped to its actual byte length.\n+    pub fn new(\n+        size: u64,\n+        block_size: BlockSize,\n+        request: Range<u64>,\n+    ) -> Result<Self, RangeTraversalError> {\n+        if block_size.0 > 51 {\n+            return Err(RangeTraversalError::InvalidBlockSize);\n+        }\n+        let group_bytes = (CHUNK_SIZE as u64) << block_size.0;\n+        usize::try_from(group_bytes).map_err(|_| RangeTraversalError::InvalidBlockSize)?;\n+        if request.start > request.end || request.end > size {\n+            return Err(RangeTraversalError::InvalidRange);\n+        }\n+        let mut result = Self {\n+            size,\n+            group_bytes,\n+            selected: 0..0,\n+            frames: [Frame {\n+                first: 0,\n+                count: 0,\n+                is_root: false,\n+            }; 53],\n+            pending: 0,\n+        };\n+        if request.start < request.end {\n+            result.selected = request.start / group_bytes..(request.end - 1) / group_bytes + 1;\n+            result.push(Frame {\n+                first: 0,\n+                count: size.div_ceil(group_bytes),\n+                is_root: true,\n+            });\n+        }\n+        Ok(result)\n+    }\n+\n+    /// Whether no item remains, including immediately after the last emission.\n+    pub fn is_complete(&self) -> bool {\n+        self.pending == 0\n+    }\n+\n+    fn push(&mut self, frame: Frame) {\n+        // N <= 2^52: at depth d <= 52, at most d deferred siblings plus\n+        // one current frame exist. Pop before pushing children preserves 53.\n+        self.frames[self.pending] = frame;\n+        self.pending += 1;\n+    }\n+}\n+\n+impl Iterator for RangeTraversal {\n+    type Item = BaoChunk;\n+\n+    fn next(&mut self) -> Option<Self::Item> {\n+        if self.is_complete() {\n+            return None;\n+        }\n+        self.pending -= 1;\n+        let frame = self.frames[self.pending];\n+        if frame.count == 1 {\n+            // first < N implies first * group_bytes <= size - 1. Subtract\n+            // before clipping: the next group's byte end need not fit u64.\n+            let start = frame.first * self.group_bytes;\n+            return Some(BaoChunk::Leaf {\n+                start_chunk: start / CHUNK_SIZE as u64,\n+                size: self.group_bytes.min(self.size - start) as usize,\n+                is_root: frame.is_root,\n+            });\n+        }\n+        let left_count = 1u64 << (frame.count - 1).ilog2();\n+        let middle = frame.first + left_count;\n+        let end = frame.first + frame.count;\n+        let left = self.selected.start < middle && frame.first < self.selected.end;\n+        let right = self.selected.start < end && middle < self.selected.end;\n+        if right {\n+            self.push(Frame {\n+                first: middle,\n+                count: frame.count - left_count,\n+                is_root: false,\n+            });\n+        }\n+        if left {\n+            self.push(Frame {\n+                first: frame.first,\n+                count: left_count,\n+                is_root: false,\n+            });\n+        }\n+        // middle < N <= 2^52, so this group-based index is below 2^53.\n+        Some(BaoChunk::Parent {\n+            node: TreeNode::new(2 * middle - 1),\n+            is_root: frame.is_root,\n+            left,\n+            right,\n+        })\n+    }\n+}\n+\n+impl FusedIterator for RangeTraversal {}\n",
+  "candidate_traversal_identical": true
+}

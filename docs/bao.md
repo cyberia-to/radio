@@ -17,7 +17,7 @@ three layers
 
 ## parameters
 
-chunk size: 4 KiB (4096 bytes). pair size: 128 bytes (two 64-byte [[Hemera]] hashes concatenated)
+chunk size: 4 KiB (4096 bytes). pair size: 64 bytes (two 32-byte [[Hemera]] hashes concatenated)
 
 ## tree structure
 
