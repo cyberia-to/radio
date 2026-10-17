@@ -176,11 +176,6 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v6
 
-      - name: Setup node.js version 22.5 # needed for browser-like websocket API support in node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22.5
-
       - name: Install stable toolchain
         uses: dtolnay/rust-toolchain@stable
 
@@ -215,8 +210,9 @@ jobs:
         run: |
           ! wasm-tools print --skeleton target/wasm32-unknown-unknown/debug/iroh.wasm | grep 'import "env"'
 
+      # headless Chrome via the runner image's chromedriver (no Node.js)
       - name: Run integration test in wasm
-        run: cargo test -p iroh --test integration --target=wasm32-unknown-unknown --no-default-features
+        run: CHROMEDRIVER="$CHROMEWEBDRIVER/chromedriver" cargo test -p iroh --test integration --target=wasm32-unknown-unknown --no-default-features
 
   check_semver:
     runs-on: ubuntu-latest

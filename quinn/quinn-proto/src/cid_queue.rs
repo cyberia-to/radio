@@ -114,7 +114,7 @@ impl CidQueue {
         let (i, cid_data) = self.iter_from_reserved().nth(1)?;
         let reserved = self.reserved_len();
         for j in 0..=reserved {
-            self.buffer[self.cursor + j] = None;
+            self.buffer[(self.cursor + j) % Self::LEN] = None;
         }
         let orig_offset = self.offset;
         self.offset += (i + reserved) as u64;
@@ -269,6 +269,36 @@ mod tests {
             q.next().unwrap();
             assert_eq!(q.active_seq(), i);
         }
+        assert!(q.next().is_none());
+    }
+
+    /// `next()` with reserved CIDs that wrap past the end of the ring: the
+    /// retired slots are `cursor..=cursor + reserved` modulo `LEN`. Without the
+    /// modulo this indexed `buffer[LEN]` and panicked (cid_queue.rs:117,
+    /// "index out of bounds: the len is 5 but the index is 5"), which aborted
+    /// every soft3 chain node a restarting peer re-dialed in the pussy-rc
+    /// rehearsal of 2026-10-16 (soft3/audit/chain/rehearsal-2026-10-16.md).
+    #[test]
+    fn next_with_reserved_wrapping() {
+        let mut q = CidQueue::new(initial_cid());
+        for i in 1..CidQueue::LEN as u64 {
+            q.insert(cid(i, 0)).unwrap();
+        }
+        for _ in 0..3 {
+            q.next().unwrap();
+        }
+        assert_eq!(q.active_seq(), 3);
+        for i in CidQueue::LEN as u64..(CidQueue::LEN as u64 + 3) {
+            q.insert(cid(i, 0)).unwrap();
+        }
+        assert_eq!(q.next_reserved(), Some(ConnectionId::new(&4u64.to_be_bytes())));
+        assert_eq!(q.next_reserved(), Some(ConnectionId::new(&5u64.to_be_bytes())));
+        let (_, retired) = q.next().unwrap();
+        assert_eq!(retired, 3..6);
+        assert_eq!(q.active_seq(), 6);
+        assert_eq!(q.active(), ConnectionId::new(&6u64.to_be_bytes()));
+        let (_, retired) = q.next().unwrap();
+        assert_eq!(retired, 6..7);
         assert!(q.next().is_none());
     }
 

@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "nu",
+    "-c",
+    "use \"/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-13-audit-cargo-packaging/replay.nu\" stage; stage \"/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-12-bao-proof-research\" \"verify.nu\" [\"probe/Cargo.toml\",\"primary-probe/Cargo.toml\"] | to json"
+  ],
+  "exit": 0,
+  "stdout_sha256": "624b4a9e2d5ec26f32ba57eed7debf88f00525607be6fdc06758b044311d121a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

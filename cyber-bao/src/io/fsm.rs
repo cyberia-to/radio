@@ -284,7 +284,7 @@ mod tests {
     async fn fsm_decode_with_range_filter() {
         let backend = Poseidon2Backend;
         let data: Vec<u8> = (0..CHUNK_SIZE * 4).map(|i| (i % 256) as u8).collect();
-        let (root, encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
+        let (root, _encoded) = encode::encode(&backend, &data, BlockSize::ZERO);
 
         let tree = BaoTree::new(CHUNK_SIZE as u64 * 4, BlockSize::ZERO);
         // Only request chunk 0 (first CHUNK_SIZE bytes)

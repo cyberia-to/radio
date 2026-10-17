@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "files": 406,
+  "historical_git_inputs": 21,
+  "index_bindings": 19,
+  "packaging_files": 14,
+  "snapshot_paths": 208,
+  "raw_records": 38,
+  "source_tuples": 63,
+  "consumer_cases": 8,
+  "consumer_commands_per_arm": 4,
+  "requires_exact_git_objects": true,
+  "cargo_rerun": false,
+  "broader_gates_refreshed": false
+}

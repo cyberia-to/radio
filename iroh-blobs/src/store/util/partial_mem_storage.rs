@@ -5,7 +5,7 @@ use cyber_bao::{
     BaoTree,
 };
 
-use super::{size_info::SizeInfo, SparseMemFile};
+use super::{encode_parent_pair, size_info::SizeInfo, SparseMemFile, HASH_PAIR_BYTES};
 use crate::{api::blobs::Bitfield, store::IROH_BLOCK_SIZE};
 
 /// An incomplete entry, with all the logic to keep track of the state of the entry
@@ -34,12 +34,10 @@ impl PartialMemStorage {
                 BaoContentItem::Parent(parent) => {
                     if let Some(offset) = tree.pre_order_offset(parent.node) {
                         let o0 = offset
-                            .checked_mul(128)
+                            .checked_mul(HASH_PAIR_BYTES as u64)
                             .expect("u64 overflow multiplying to hash pair offset");
                         let outboard = &mut self.outboard;
-                        let mut buf = [0u8; 128];
-                        buf[..64].copy_from_slice(parent.pair.0.as_bytes());
-                        buf[64..].copy_from_slice(parent.pair.1.as_bytes());
+                        let buf = encode_parent_pair(&parent.pair);
                         outboard.write_all_at(o0, &buf)?;
                     }
                 }

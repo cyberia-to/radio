@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml",
+    "bytes": 1078,
+    "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+    "point": "parent-before",
+    "captured": "2026-10-13T02:16:32.423537Z"
+  },
+  {
+    "path": "/tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml",
+    "bytes": 1078,
+    "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+    "point": "candidate-before",
+    "captured": "2026-10-13T02:17:05.615796Z"
+  },
+  {
+    "path": "/tmp/radio-bao-proof-parent-b933/cyber-bao/Cargo.toml",
+    "bytes": 1078,
+    "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+    "point": "candidate-after",
+    "captured": "2026-10-13T02:17:29.275029Z"
+  }
+]

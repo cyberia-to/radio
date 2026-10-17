@@ -1,0 +1,20 @@
+require 'json'; require 'digest'; require 'fileutils'; require 'open3'; require 'tmpdir'; require 'time'
+root = __dir__
+audit = '/Users/master/cyber/radio-bao-bounded-traversal/audit/2026-10-11-bao-bounded-traversal'
+raise 'archive already exists' if File.exist?(audit + '/evidence.tar.gz')
+names = ['source-freeze.json', 'run.rb', 'probe/Cargo.toml', 'probe/Cargo.lock', 'probe/src/main.rs']
+names += JSON.parse(File.read(root + '/source-freeze.json')).fetch('files').map { |r| 'source/' + r.fetch('path') }
+names += %w[resolve debug release].flat_map { |name| %w[command.json stdout stderr].map { |file| name + '/' + file } }
+rows = names.sort.map { |path| bytes = File.binread(root + '/' + path); {path: path, bytes: bytes.bytesize, sha256: Digest::SHA256.hexdigest(bytes)} }
+FileUtils.mkdir_p(audit)
+Dir.mktmpdir('bao-traversal-package.') do |stage|
+  FileUtils.mkdir_p(stage + '/objects')
+  rows.each { |r| File.binwrite(stage + '/objects/' + r.fetch(:sha256), File.binread(root + '/' + r.fetch(:path))) }
+  objects = rows.map { |r| 'objects/' + r.fetch(:sha256) }.uniq.sort
+  _, err, status = Open3.capture3('tar', '-czf', audit + '/evidence.tar.gz', '-C', stage, *objects)
+  raise err unless status.success?
+end
+File.write(audit + '/evidence-index.json', JSON.pretty_generate(rows) + "\n")
+File.write(audit + '/capsule.json', JSON.pretty_generate({at: Time.now.utc.iso8601, revision: 'dacd030c9d6301b316a96b5bc6e4ea1e1cec79f1', logical_payloads: rows.length, unique_objects: rows.map { |r| r.fetch(:sha256) }.uniq.length, archive_sha256: Digest::SHA256.file(audit + '/evidence.tar.gz').hexdigest, index_sha256: Digest::SHA256.file(audit + '/evidence-index.json').hexdigest}) + "\n")
+FileUtils.cp(__FILE__, audit + '/package.rb.txt')
+puts File.read(audit + '/capsule.json')

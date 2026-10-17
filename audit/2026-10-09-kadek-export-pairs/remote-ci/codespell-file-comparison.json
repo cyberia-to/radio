@@ -1,0 +1,130 @@
+[
+  {
+    "path": "quinn/quinn-proto/src/frame.rs",
+    "touched": false,
+    "base_blob": "350ae2c1f2364ecfb71f36457d3fcb2e5ffbb7f5",
+    "head_blob": "350ae2c1f2364ecfb71f36457d3fcb2e5ffbb7f5",
+    "unchanged": true,
+    "count": 3
+  },
+  {
+    "path": "quinn/quinn-proto/src/shared.rs",
+    "touched": false,
+    "base_blob": "f5b6ec1f9a8fed84f1939c98fd92e576ec676094",
+    "head_blob": "f5b6ec1f9a8fed84f1939c98fd92e576ec676094",
+    "unchanged": true,
+    "count": 2
+  },
+  {
+    "path": "quinn/quinn-proto/src/connection/spaces.rs",
+    "touched": false,
+    "base_blob": "46dc512bd97b0ac2ec87691cad1aff7ad77ead45",
+    "head_blob": "46dc512bd97b0ac2ec87691cad1aff7ad77ead45",
+    "unchanged": true,
+    "count": 2
+  },
+  {
+    "path": "quinn/quinn-udp/src/lib.rs",
+    "touched": false,
+    "base_blob": "14c942a668461a66efd9eee3ab307276725753c0",
+    "head_blob": "14c942a668461a66efd9eee3ab307276725753c0",
+    "unchanged": true,
+    "count": 2
+  },
+  {
+    "path": "audit/2026-10-09-kadek-slice-traversal/diagnostics/remote-ci.txt",
+    "touched": false,
+    "base_blob": "5ed51b024704b93cf242ef7beec7e8ea8d568d0b",
+    "head_blob": "5ed51b024704b93cf242ef7beec7e8ea8d568d0b",
+    "unchanged": true,
+    "count": 34
+  },
+  {
+    "path": "iroh-ffi/iroh-js/src/blob.rs",
+    "touched": false,
+    "base_blob": "9d485cd1c19ec32a45289cae316123a5b80afb1a",
+    "head_blob": "9d485cd1c19ec32a45289cae316123a5b80afb1a",
+    "unchanged": true,
+    "count": 1
+  },
+  {
+    "path": "iroh-ffi/iroh-js/src/doc.rs",
+    "touched": false,
+    "base_blob": "a93ffc6a9ec8d1f687855ac87fee3ac35c1ac304",
+    "head_blob": "a93ffc6a9ec8d1f687855ac87fee3ac35c1ac304",
+    "unchanged": true,
+    "count": 2
+  },
+  {
+    "path": "iroh-ffi/iroh-js/src/endpoint.rs",
+    "touched": false,
+    "base_blob": "e965d529b767c2b5f5f1d208b4d355bea68227e4",
+    "head_blob": "e965d529b767c2b5f5f1d208b4d355bea68227e4",
+    "unchanged": true,
+    "count": 6
+  },
+  {
+    "path": "iroh-ffi/iroh-js/src/lib.rs",
+    "touched": false,
+    "base_blob": "35b9e6e8641fe2a3e01b909b1341f092d4ed2c44",
+    "head_blob": "35b9e6e8641fe2a3e01b909b1341f092d4ed2c44",
+    "unchanged": true,
+    "count": 1
+  },
+  {
+    "path": "iroh-ffi/iroh-js/src/ticket.rs",
+    "touched": false,
+    "base_blob": "398486fc0b793729c0fa1d86ee1636f7687eb807",
+    "head_blob": "398486fc0b793729c0fa1d86ee1636f7687eb807",
+    "unchanged": true,
+    "count": 1
+  },
+  {
+    "path": "iroh-ffi/src/blob.rs",
+    "touched": false,
+    "base_blob": "11e00705f240eb95e1970b806a508c96dad8a64d",
+    "head_blob": "11e00705f240eb95e1970b806a508c96dad8a64d",
+    "unchanged": true,
+    "count": 2
+  },
+  {
+    "path": "iroh-ffi/src/doc.rs",
+    "touched": false,
+    "base_blob": "49828dbd5aafa35429513513f970a1ad9e267ebe",
+    "head_blob": "49828dbd5aafa35429513513f970a1ad9e267ebe",
+    "unchanged": true,
+    "count": 3
+  },
+  {
+    "path": "iroh-ffi/src/endpoint.rs",
+    "touched": false,
+    "base_blob": "fcb84260d5881c4842a07de389414f0908b5c038",
+    "head_blob": "fcb84260d5881c4842a07de389414f0908b5c038",
+    "unchanged": true,
+    "count": 6
+  },
+  {
+    "path": "iroh-ffi/src/lib.rs",
+    "touched": false,
+    "base_blob": "f04f3145ec6e8b90beab770f9d85202fdee38689",
+    "head_blob": "f04f3145ec6e8b90beab770f9d85202fdee38689",
+    "unchanged": true,
+    "count": 1
+  },
+  {
+    "path": "iroh-ffi/kotlin/lib/build.gradle.kts",
+    "touched": false,
+    "base_blob": "e815d813e34d681c5eaf3158d1e7dc5b59130031",
+    "head_blob": "e815d813e34d681c5eaf3158d1e7dc5b59130031",
+    "unchanged": true,
+    "count": 1
+  },
+  {
+    "path": "docs/endpoint.md",
+    "touched": false,
+    "base_blob": "3a999319202088d27eed7ff72d7726a7ba0b9347",
+    "head_blob": "3a999319202088d27eed7ff72d7726a7ba0b9347",
+    "unchanged": true,
+    "count": 1
+  }
+]

@@ -1,0 +1,52 @@
+## Review verdict: **APPROVE**
+
+Narrow re-review of the four requested source-precision corrections, against the newly supplied `cyber-bao/src/tree.rs`, `iroh-blobs/src/store/mod.rs`, `iroh-blobs/src/provider/events.rs`, `iroh-blobs/src/store/readonly_mem.rs`, `iroh-blobs/src/api.rs` and the exporter excerpt. All four are resolved correctly from actual source, the previously approved parts are unchanged, and the current plan is implementable as written.
+
+---
+
+## Correction 1 — chunk geometry: confirmed, numbers check out
+
+`tree.rs` supplies `pub const CHUNK_SIZE: usize = 4096;`, `from_chunk_log(log) -> Self(log)` and `bytes(self) -> CHUNK_SIZE << self.0`. With `store/mod.rs`'s `from_chunk_log(4)`:
+
+- B = `4096 << 4` = **65536** (the `2^4*1024 = 16KiB` comment is stale by 4×; research correctly records it as stale and excludes repair).
+- C = B/CHUNK_SIZE = **16**; body `2*B` = **131072** = 32 chunks = 2 blocks; query `ChunkNum(16)..ChunkNum(32)` = exactly the right block ⇒ **one** Parent, right Leaf at offset 65536 length 65536.
+- Wire `8 + 2*32 + 65536` = **65608**; overhead `8 + 64` = **72**. Every number in the plan's table is consistent with the supplied constants.
+
+The oracle shape is also right for this geometry: 32 leaf CVs with absolute counters and `root=false`, each 16-leaf half reduced through exactly four pairwise levels (16→8→4→2→1) with `root=false`, then `root = parent_cv(L,R,true)`. Deriving B/C/body/query from the constants while *separately* pinning CHUNK_SIZE=4096 and B=65536 with distinct messages is the right structure — a geometry change fails on its own named assertion instead of masquerading as the width bug.
+
+Parent-free control is now correct too: `BaoTree::new(4096, from_chunk_log(4))` ⇒ `chunks()=1`, `blocks()=1`, `pre_order_chunks()` yields a single `Leaf { start_chunk: 0, size: 4096, is_root: true }` and `outboard_size()=0` — no Parent, and `len <= CHUNK_SIZE && is_root` makes `chunk_cv(data,0,true)` the correct independent root. This is the one shape that avoids the grouped-single-root discrepancy, as asked.
+
+## Correction 2 — missing-store variants: confirmed per method
+
+`readonly_mem.rs`'s `None` arm sends `EncodedItem::Error(EncodeError::Io(io::Error::new(UnexpectedEof, "export task ended unexpectedly")))` and returns **before** Size. Therefore:
+
+- `write` / `write_with_progress`: `EncodedItem::Error(cause) => return Err(cause.into())` with `cause: EncodeError` ⇒ `ExportBaoError::ExportBaoInner` (api.rs `from_sources`), not `ExportBaoIo`. Plan states this.
+- `into_byte_stream`: `cause.into()` into `super::Result<Bytes>` uses the supplied `impl From<EncodeError> for Error`, whose `EncodeError::Io(cause) => Self::Io(cause)` arm preserves kind **and** detail ⇒ `api::Error::Io(UnexpectedEof)` with the same message. Plan states this.
+- "no bytes/progress": correct — the Error item precedes Size, so `send_transfer_started` and every `log_other_write` are unreached.
+
+## Correction 3 — `ProgressError`/`ClientResult`: source-confirmed, no longer inferred
+
+`events.rs` shows `ProgressError::Permission {}`, `impl From<AbortReason> for ProgressError` mapping `Permission => e!(ProgressError::Permission)`, and `pub type ClientResult = Result<(), ProgressError>`. `notify_payload_write` returns `ClientResult`, and `?` in `write_with_progress` converts via api.rs's `ClientError { source: ProgressError }`. So `payload_progress_failure`'s construction (`ProgressError::from(AbortReason::Permission)`) and assertion (`ExportBaoError::ClientError` whose source is the `Permission` variant) are both exact. The accompanying evidence — leaf on the wire, overhead 72, one callback attempt, no subsequent scripted leaf — matches the code path line-for-line (`send_bytes` succeeds, then `?` returns immediately).
+
+## Correction 4 — semver baseline-root: correct
+
+`--baseline-root <tag>/radio/iroh-blobs` now names the directory containing the baseline crate source, per the tool's own `--baseline-root <MANIFEST_ROOT>` help text, with `--manifest-path iroh-blobs/Cargo.toml` disambiguating the duplicate local/registry 0.98.0 identities and verbose output retained to prove both compared paths are the local/tag trees. Tool identity recorded as inspection (version/help/SHA256), explicitly not a run; "tool/setup failure is not an API-compatibility pass" retained. Adding only a private fn and a `cfg(test)` module against an identical baseline tree is a no-public-API-change delta, so the gate is meaningful rather than vacuous.
+
+## Correction 5 — optional `support.rs`: acceptable
+
+`api/blobs/export_pairs/support.rs` is the correct non-`mod.rs` child path for `export_pairs.rs` to declare, both files stay ≤500 lines, no case is dropped, no new dependency, and the file is private `cfg(test)`-only. This removes the budget risk I flagged advisorily without widening scope. The "free helpers without awaits stay synchronous; trait impls implement the actual traits" wording keeps the `clippy::unused_async` hazard closed under `-Dwarnings`.
+
+---
+
+## Carried forward unchanged (re-approved, not re-reviewed)
+
+Exporter defect identification in all three methods (128-byte buffer, 64-byte halves, 32-byte `as_bytes()`, 128-byte overhead credit); the `encode_parent_pair` fix shape with `Bytes::copy_from_slice` in the byte-stream arm and `data.len()` credited after a successful send; `ReadonlyMemStore` as the real store that bypasses mutable import's stale pair stride; red-first ordering with ordinary failures (no `should_panic`); progress/error accounting (header 0, parent 8, leaf 72, no payload callback); error-variant mapping; isolation, archive, metadata `source=null` audit, gate list, baseline-red carry-forward, ring/drift handling and rollback. No root/storage/CI repair is requested, and none is in this plan.
+
+## Advisory only — do not expand scope for these
+
+1. **`CHUNK_SIZE` import path.** If `cyber_bao` does not re-export `tree::CHUNK_SIZE` at the crate root, use `BlockSize::ZERO.bytes()` (identically 4096 per `bytes()`) in `geometry_pins` and the fixture. Do **not** add a re-export to cyber-bao — that would be an out-of-scope production edit.
+2. **Literal pair construction.** The 0..31 / 32..63 pair needs a `hemera::Hash` from 32 bytes; if the available constructor differs from expectation, report it as a blocker rather than touching hemera.
+3. **Module declaration.** If `support.rs` is used, remember `export_pairs.rs` must carry its `mod support;` declaration; the only production-file edit remains the single `cfg(test)` child-module line in `blobs.rs`.
+4. Minor: research cites `tree.rs:239–255` where the plan cites `240–255`; harmless, align if convenient when writing the receipt.
+
+Proceed to implementation under the plan's own rules: red-first literal and real-store cases, then the serializer and three integrations, then gates with frozen bytes and retained receipts, then fresh different-vendor code review. Root owns commits, PR, merge and the ring/rung adjudication.

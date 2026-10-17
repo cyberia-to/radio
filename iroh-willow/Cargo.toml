@@ -40,7 +40,7 @@ futures-util = "0.3.30"
 genawaiter = "0.99.1"
 hex = "0.4.3"
 iroh-base = { package = "cyber-radio-base", version = "0.1", path = "../iroh-base" }
-hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
+hemera = { workspace = true, features = ["std"] }
 iroh-blobs = { version = "0.98" }
 iroh-metrics = { version = "0.38", default-features = false, optional = true }
 iroh = { package = "cyber-radio", version = "0.1", path = "../iroh" }

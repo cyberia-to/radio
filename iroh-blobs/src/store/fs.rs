@@ -1723,7 +1723,8 @@ pub mod tests {
         let db_dir = testdir.path().join("db");
         {
             let store = FsStore::load(&db_dir).await?;
-            let data = test_data(100000);
+            // 400000 bytes = 98 chunks, so chunks 16..32 lie inside the blob
+            let data = test_data(400000);
             let ranges = ChunkRanges::chunks(16..32);
             let (hash, bao) = create_n0_bao(&data, &ranges)?;
             store

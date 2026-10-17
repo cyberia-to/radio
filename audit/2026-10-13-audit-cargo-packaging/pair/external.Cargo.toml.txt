@@ -1,0 +1,30 @@
+[package]
+name = "cyber-bao"
+version = "0.1.0"
+edition = "2024"
+description = "Poseidon2-BAO: verified streaming with Poseidon2 hash over Goldilocks"
+license = "MIT OR Apache-2.0"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[dependencies]
+hemera = { workspace = true }
+bytes = { version = "1", optional = true }
+smallvec = { version = "1", features = ["const_new"], optional = true }
+range-collections = { version = "0.4", features = ["serde", "new_unchecked"], optional = true }
+iroh-io = { version = "0.6.1", optional = true }
+genawaiter = { version = "0.99.1", features = ["futures03"], optional = true }
+tokio = { version = "1", features = ["io-util"], optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+
+[dev-dependencies]
+proptest = "1"
+tokio = { version = "1", features = ["macros", "rt", "io-util"] }
+
+[features]
+default = ["std"]
+std = ["hemera/std", "dep:bytes", "dep:smallvec", "dep:range-collections", "dep:iroh-io", "dep:genawaiter"]
+tokio_fsm = ["std", "dep:tokio"]
+serde = ["std", "dep:serde", "hemera/serde", "bytes/serde"]

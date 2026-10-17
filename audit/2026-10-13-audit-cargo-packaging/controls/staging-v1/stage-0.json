@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "nu",
+    "-c",
+    "use \"/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-13-audit-cargo-packaging/replay.nu\" stage; stage \"/Users/master/cyber/radio-bao-bounded-proof/audit/2026-10-09-kadek-slice-traversal\" \"reproduce.nu\" [\"Cargo.toml\"] | to json"
+  ],
+  "exit": 0,
+  "stdout_sha256": "77d6bc6d93ab0cd6f192848feca384f59c00609e6b0e667dcf1d154ae0ff844c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

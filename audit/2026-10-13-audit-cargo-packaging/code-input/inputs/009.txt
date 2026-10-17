@@ -1,0 +1,11 @@
+[package]
+name = "bao-proof-fixture-freeze"
+version = "0.0.0"
+edition = "2024"
+publish = false
+[workspace]
+[dependencies]
+cyber-bao = { path = "../../../cyber-bao" }
+hemera = { package = "cyber-hemera", git = "https://github.com/cyberia-to/hemera", rev = "d5f0a09539360934fb32db9b2e15a91995607db6", default-features = false }
+[profile.dev.package.cyber-hemera]
+opt-level = 3

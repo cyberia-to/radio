@@ -10,12 +10,12 @@ rust-version = "1.89"
 workspace = true
 
 [dependencies]
-hemera = { package = "cyber-hemera", path = "../../hemera/rs" }
-bytes = "1"
-smallvec = { version = "1", features = ["const_new"] }
-range-collections = { version = "0.4", features = ["serde", "new_unchecked"] }
-iroh-io = "0.6.1"
-genawaiter = { version = "0.99.1", features = ["futures03"] }
+hemera = { workspace = true }
+bytes = { version = "1", optional = true }
+smallvec = { version = "1", features = ["const_new"], optional = true }
+range-collections = { version = "0.4", features = ["serde", "new_unchecked"], optional = true }
+iroh-io = { version = "0.6.1", optional = true }
+genawaiter = { version = "0.99.1", features = ["futures03"], optional = true }
 tokio = { version = "1", features = ["io-util"], optional = true }
 serde = { version = "1", features = ["derive"], optional = true }
 
@@ -24,6 +24,7 @@ proptest = "1"
 tokio = { version = "1", features = ["macros", "rt", "io-util"] }
 
 [features]
-default = []
-tokio_fsm = ["dep:tokio"]
-serde = ["dep:serde", "hemera/serde", "bytes/serde"]
+default = ["std"]
+std = ["hemera/std", "dep:bytes", "dep:smallvec", "dep:range-collections", "dep:iroh-io", "dep:genawaiter"]
+tokio_fsm = ["std", "dep:tokio"]
+serde = ["std", "dep:serde", "hemera/serde", "bytes/serde"]

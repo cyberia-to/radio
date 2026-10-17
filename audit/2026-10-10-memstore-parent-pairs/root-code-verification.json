@@ -1,0 +1,12 @@
+{
+  "records": 83,
+  "git_blob_checks": 59,
+  "full_text_sections": 81,
+  "bytes": 920750,
+  "bundle_sha256": "13d04d07b1147592b4b2ee56d2a4d42d3dcc0dd2a55ce3fc7dd44d3856043b95",
+  "index_sha256": "8652310e3532683bcf687d16ce8f1967c2bb47a0ae5cfcfb2386e9c4faa8e1b6",
+  "required_full_import_reopen_sources": 10,
+  "candidate_source_checks": 6,
+  "raw_receipt_checks": 202,
+  "result": "verified"
+}

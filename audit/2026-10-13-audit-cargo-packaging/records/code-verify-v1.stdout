@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "bytes": 353968,
+  "sha256": "7cb5148704360f37383ff2567e6f2b96b792ddeb75a156db6f9de290dd62711f",
+  "sections": 98,
+  "full_git_sections": 4,
+  "owned_sections": 93,
+  "exact_packaging_files": 14,
+  "cargo_rerun": false
+}

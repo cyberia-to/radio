@@ -1,0 +1,22 @@
+{
+  "created": "2026-10-12T23:27:52Z",
+  "radio": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "files": [
+    {
+      "path": "primary-probe/Cargo.lock",
+      "bytes": 8650,
+      "sha256": "bb8b429d65035bef93e2182c9c27021157266d275a9ee50e02d5b04485eda18b"
+    },
+    {
+      "path": "primary-probe/Cargo.toml",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd"
+    },
+    {
+      "path": "primary-probe/src/main.rs",
+      "bytes": 7858,
+      "sha256": "6c274529c97ebc1e98ffd0bcb37e2e47abf02f5e1db7ca07480ff20ea432971f"
+    }
+  ],
+  "boundary": "Frozen primary expressions/manual carriers before execution; no verifier implementation"
+}

@@ -297,6 +297,11 @@ async fn handle_get_blob_status(
         tx,
         ..
     } = msg;
+    // Empty content is synthetically available, including after forced deletion.
+    if hash == Hash::EMPTY {
+        tx.send(BlobStatus::Complete { size: 0 }).await.ok();
+        return Ok(());
+    }
     let res = match tables
         .blobs()
         .get(hash)

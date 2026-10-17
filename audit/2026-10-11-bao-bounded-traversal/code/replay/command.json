@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "nu",
+    "/Users/master/cyber/radio-bao-bounded-traversal/audit/2026-10-11-bao-bounded-traversal/code/verify.nu",
+    "/Users/master/cyber/radio-bao-bounded-traversal/audit/2026-10-11-bao-bounded-traversal/code"
+  ],
+  "cwd": "/Users/master/cyber/radio-bao-bounded-traversal",
+  "started": "2026-10-12T23:28:17Z",
+  "finished": "2026-10-12T23:28:30Z",
+  "exit": 0,
+  "verifier_sha256": "fe935abc982a60ca307e4b3e829955172a0a45fab039b35643c6b76ff5d269d4",
+  "stdout_sha256": "ee839b2b6e512a89ae2ec67c3ec5ebd78a3afe36f9c73e9ec7ec41d2339d3d76",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

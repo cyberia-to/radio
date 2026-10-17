@@ -2,7 +2,7 @@ use std::{env, path::PathBuf, str::FromStr};
 
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
-use iroh::{address_lookup::MemoryLookup, SecretKey};
+use iroh::{address_lookup::MemoryLookup, EndpointAddr, SecretKey};
 use iroh_blobs::{
     api::downloader::Shuffled,
     provider::events::{AbortReason, EventMask, EventSender, ProviderMessage},
@@ -10,12 +10,52 @@ use iroh_blobs::{
     test::{add_hash_sequences, create_random_blobs},
     HashAndFormat,
 };
-use iroh_tickets::endpoint::EndpointTicket;
+use iroh_tickets::{ParseError, Ticket};
 use irpc::RpcMessage;
 use n0_future::StreamExt;
 use rand::{rngs::StdRng, Rng, SeedableRng};
 use tokio::signal::ctrl_c;
 use tracing::info;
+
+/// An endpoint address as a printable ticket.
+///
+/// `iroh_tickets::endpoint::EndpointTicket` wraps the upstream `iroh-base`
+/// `EndpointAddr`, not the forked one this workspace uses, so the example
+/// carries its own ticket over the forked type.
+#[derive(Debug, Clone)]
+pub struct EndpointTicket(EndpointAddr);
+
+impl EndpointTicket {
+    fn endpoint_addr(&self) -> &EndpointAddr {
+        &self.0
+    }
+}
+
+impl Ticket for EndpointTicket {
+    const KIND: &'static str = "endpoint";
+
+    fn to_bytes(&self) -> Vec<u8> {
+        postcard::to_stdvec(&self.0).expect("postcard serialization failed")
+    }
+
+    fn from_bytes(bytes: &[u8]) -> std::result::Result<Self, ParseError> {
+        Ok(Self(postcard::from_bytes(bytes)?))
+    }
+}
+
+impl std::fmt::Display for EndpointTicket {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(&Ticket::serialize(self))
+    }
+}
+
+impl FromStr for EndpointTicket {
+    type Err = ParseError;
+
+    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+        Ticket::deserialize(s)
+    }
+}
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -243,7 +283,7 @@ async fn provide(args: ProvideArgs) -> anyhow::Result<()> {
         .accept(iroh_blobs::ALPN, blobs)
         .spawn();
     let addr = router.endpoint().addr();
-    let ticket = EndpointTicket::from(addr.clone());
+    let ticket = EndpointTicket(addr.clone());
     println!("Node address: {addr:?}");
     println!("ticket:\n{ticket}");
     ctrl_c().await?;

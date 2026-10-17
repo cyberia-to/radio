@@ -1,0 +1,790 @@
+{
+  "parent": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+  "context_bytes": 223056,
+  "context_sha256": "364132b75dbb5c251ea507ea8b71a7baff6c896a888e3a743ea317affa070d58",
+  "sections": [
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/research.md",
+      "bytes": 5509,
+      "sha256": "f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b",
+      "offset": 158,
+      "header": "\n===== 001 BEGIN .claude/tasks/audit-cargo-packaging/research.md | 5509 bytes | SHA256 f93288d7ff45295f0d89dbb70bfd346706d3180be6d837938c1654cd58789c7b =====\n",
+      "footer": "\n===== 001 END .claude/tasks/audit-cargo-packaging/research.md =====\n",
+      "local": "inputs/001.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/research.md"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/plan.md",
+      "bytes": 11425,
+      "sha256": "86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620",
+      "offset": 5891,
+      "header": "\n===== 002 BEGIN .claude/tasks/audit-cargo-packaging/plan.md | 11425 bytes | SHA256 86d9ede9c35d7650a1093e0438d35c6a93f8a60d0b69d148dafa431c7976f620 =====\n",
+      "footer": "\n===== 002 END .claude/tasks/audit-cargo-packaging/plan.md =====\n",
+      "local": "inputs/002.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/plan.md"
+      }
+    },
+    {
+      "label": ".claude/tasks/audit-cargo-packaging/response-v1.md",
+      "bytes": 2722,
+      "sha256": "d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc",
+      "offset": 17542,
+      "header": "\n===== 003 BEGIN .claude/tasks/audit-cargo-packaging/response-v1.md | 2722 bytes | SHA256 d832af26441f2a76493b54cb1f901cabf4fc49e311fb3f859c7e089041afd1fc =====\n",
+      "footer": "\n===== 003 END .claude/tasks/audit-cargo-packaging/response-v1.md =====\n",
+      "local": "inputs/003.txt",
+      "binding": {
+        "kind": "owned",
+        "path": ".claude/tasks/audit-cargo-packaging/response-v1.md"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml",
+      "bytes": 454,
+      "sha256": "209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605",
+      "offset": 20495,
+      "header": "\n===== 004 BEGIN audit/2026-10-09-kadek-slice-traversal/Cargo.toml | 454 bytes | SHA256 209a572a11fa9eebac43f8d4f20d98630a30c18b4d191667aac6c1143d300605 =====\n",
+      "footer": "\n===== 004 END audit/2026-10-09-kadek-slice-traversal/Cargo.toml =====\n",
+      "local": "inputs/004.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml",
+      "bytes": 375,
+      "sha256": "981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570",
+      "offset": 21189,
+      "header": "\n===== 005 BEGIN audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml | 375 bytes | SHA256 981f1301d8eeb4bebe1ca398763edd631e349fac8c472a0c4a8fd948aba03570 =====\n",
+      "footer": "\n===== 005 END audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml =====\n",
+      "local": "inputs/005.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/fixture-probe/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml",
+      "bytes": 246,
+      "sha256": "80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36",
+      "offset": 21813,
+      "header": "\n===== 006 BEGIN audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml | 246 bytes | SHA256 80c90d0fc41d73464e1822e41732716a77f265356163c631468d2d1ebf22ef36 =====\n",
+      "footer": "\n===== 006 END audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml =====\n",
+      "local": "inputs/006.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/nostd-parent/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml",
+      "bytes": 222,
+      "sha256": "06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d",
+      "offset": 22300,
+      "header": "\n===== 007 BEGIN audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml | 222 bytes | SHA256 06a48e732670b8e220fb3cb342271372bc1ca5bba75f77278dd7c2f83fa43b0d =====\n",
+      "footer": "\n===== 007 END audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml =====\n",
+      "local": "inputs/007.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/nostd/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml",
+      "bytes": 250,
+      "sha256": "c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f",
+      "offset": 22756,
+      "header": "\n===== 008 BEGIN audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml | 250 bytes | SHA256 c7e24e2b1b47380009cd84b67820df749ae27a457a71b2a16f7f62db39ef258f =====\n",
+      "footer": "\n===== 008 END audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml =====\n",
+      "local": "inputs/008.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/seals/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml",
+      "bytes": 377,
+      "sha256": "eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd",
+      "offset": 23249,
+      "header": "\n===== 009 BEGIN audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml | 377 bytes | SHA256 eb9de62bfb997f05ffd0c06ef0069e1708d6ff24d5ca277fc25f3c6beef894fd =====\n",
+      "footer": "\n===== 009 END audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml =====\n",
+      "local": "inputs/009.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-proof-research/primary-probe/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml",
+      "bytes": 217,
+      "sha256": "26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038",
+      "offset": 23870,
+      "header": "\n===== 010 BEGIN audit/2026-10-12-bao-proof-research/probe/Cargo.toml | 217 bytes | SHA256 26df88edd220a39b6d5c7964a5dc8767acd2712349ed27b28904cf0e2bc0c038 =====\n",
+      "footer": "\n===== 010 END audit/2026-10-12-bao-proof-research/probe/Cargo.toml =====\n",
+      "local": "inputs/010.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-proof-research/probe/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu",
+      "bytes": 11037,
+      "sha256": "2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50",
+      "offset": 24324,
+      "header": "\n===== 011 BEGIN audit/2026-10-09-kadek-slice-traversal/reproduce.nu | 11037 bytes | SHA256 2429703bbea959fa84bbb6ee650f377bb8c93163009941fbddbfa055ca5a5e50 =====\n",
+      "footer": "\n===== 011 END audit/2026-10-09-kadek-slice-traversal/reproduce.nu =====\n",
+      "local": "inputs/011.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/reproduce.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/verify.nu",
+      "bytes": 4241,
+      "sha256": "70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78",
+      "offset": 35590,
+      "header": "\n===== 012 BEGIN audit/2026-10-12-bao-proof-research/verify.nu | 4241 bytes | SHA256 70ccf93dd5c30e9fd1eea057190655f886b6919b1365fb481f60e8bc433e6f78 =====\n",
+      "footer": "\n===== 012 END audit/2026-10-12-bao-proof-research/verify.nu =====\n",
+      "local": "inputs/012.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-proof-research/verify.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/verify.nu",
+      "bytes": 10975,
+      "sha256": "dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a",
+      "offset": 40054,
+      "header": "\n===== 013 BEGIN audit/2026-10-12-bao-bounded-proof/verify.nu | 10975 bytes | SHA256 dd3c97295aac25f832c4b39c1a8f654e478212cefa790ecd29e6285ac63ae63a =====\n",
+      "footer": "\n===== 013 END audit/2026-10-12-bao-bounded-proof/verify.nu =====\n",
+      "local": "inputs/013.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/verify.nu"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/code-input/verify.nu",
+      "bytes": 2833,
+      "sha256": "20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587",
+      "offset": 51261,
+      "header": "\n===== 014 BEGIN audit/2026-10-12-bao-bounded-proof/code-input/verify.nu | 2833 bytes | SHA256 20cb9d43e1e178a7a150f239d6da949a3d60937c94aa8929582ff0ff73cf3587 =====\n",
+      "footer": "\n===== 014 END audit/2026-10-12-bao-bounded-proof/code-input/verify.nu =====\n",
+      "local": "inputs/014.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/code-input/verify.nu"
+      }
+    },
+    {
+      "label": "Cargo.toml",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2",
+      "offset": 54292,
+      "header": "\n===== 015 BEGIN Cargo.toml | 2085 bytes | SHA256 3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2 =====\n",
+      "footer": "\n===== 015 END Cargo.toml =====\n",
+      "local": "inputs/015.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "Cargo.toml"
+      }
+    },
+    {
+      "label": "cyber-bao/Cargo.toml",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365",
+      "offset": 56540,
+      "header": "\n===== 016 BEGIN cyber-bao/Cargo.toml | 1078 bytes | SHA256 95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365 =====\n",
+      "footer": "\n===== 016 END cyber-bao/Cargo.toml =====\n",
+      "local": "inputs/016.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "cyber-bao/Cargo.toml"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock",
+      "bytes": 15956,
+      "sha256": "470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8",
+      "offset": 57821,
+      "header": "\n===== 017 BEGIN audit/2026-10-09-kadek-slice-traversal/Cargo.lock | 15956 bytes | SHA256 470c17ba895e574e71aa98211febdf29853ec6b80f205ce301e36cb5777603c8 =====\n",
+      "footer": "\n===== 017 END audit/2026-10-09-kadek-slice-traversal/Cargo.lock =====\n",
+      "local": "inputs/017.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/Cargo.lock"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/probe.rs",
+      "bytes": 5265,
+      "sha256": "f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927",
+      "offset": 74006,
+      "header": "\n===== 018 BEGIN audit/2026-10-09-kadek-slice-traversal/probe.rs | 5265 bytes | SHA256 f9d267e16e9cdd4aab64b5d13cddd3f59415c0b0cee15ec4e134e05ff8e91927 =====\n",
+      "footer": "\n===== 018 END audit/2026-10-09-kadek-slice-traversal/probe.rs =====\n",
+      "local": "inputs/018.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/probe.rs"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json",
+      "bytes": 1038,
+      "sha256": "5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065",
+      "offset": 79508,
+      "header": "\n===== 019 BEGIN audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json | 1038 bytes | SHA256 5726e6ece1488a7635a6d0a3d32444e8858437ca1aec943b5da5cb3bb03c3065 =====\n",
+      "footer": "\n===== 019 END audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json =====\n",
+      "local": "inputs/019.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/SOURCE-FREEZE.json"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS",
+      "bytes": 275,
+      "sha256": "ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823",
+      "offset": 80792,
+      "header": "\n===== 020 BEGIN audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS | 275 bytes | SHA256 ddd0192c1e67305c760278ff3d8e782d9738e6f3c605810940375944e6545823 =====\n",
+      "footer": "\n===== 020 END audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS =====\n",
+      "local": "inputs/020.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/FIXTURE-SHA256SUMS"
+      }
+    },
+    {
+      "label": "audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout",
+      "bytes": 1106,
+      "sha256": "b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb",
+      "offset": 81317,
+      "header": "\n===== 021 BEGIN audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout | 1106 bytes | SHA256 b282ba959f50ebabe9249cf9215631ff55d09f71052b56b68fd9809e70b071cb =====\n",
+      "footer": "\n===== 021 END audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout =====\n",
+      "local": "inputs/021.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-09-kadek-slice-traversal/expected-probe.stdout"
+      }
+    },
+    {
+      "label": "LICENSE-MIT",
+      "bytes": 1048,
+      "sha256": "f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050",
+      "offset": 82627,
+      "header": "\n===== 022 BEGIN LICENSE-MIT | 1048 bytes | SHA256 f169adb8124d3b005416d8485d00777c9a7bdd9099982c52a4493f9732e6d050 =====\n",
+      "footer": "\n===== 022 END LICENSE-MIT =====\n",
+      "local": "inputs/022.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "LICENSE-MIT"
+      }
+    },
+    {
+      "label": "LICENSE-APACHE",
+      "bytes": 10831,
+      "sha256": "903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab",
+      "offset": 83834,
+      "header": "\n===== 023 BEGIN LICENSE-APACHE | 10831 bytes | SHA256 903131e2786f073a942fbf8fae122d9e576e4dad758c6da7f9f2ba58fd8611ab =====\n",
+      "footer": "\n===== 023 END LICENSE-APACHE =====\n",
+      "local": "inputs/023.txt",
+      "binding": {
+        "kind": "git",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "LICENSE-APACHE"
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-proof-research/files.json selected logical records",
+      "bytes": 425,
+      "sha256": "cd473d3bfc4802a305204d101e7802974526392dafdb74391ca690cf4c954562",
+      "offset": 94882,
+      "header": "\n===== 024 BEGIN audit/2026-10-12-bao-proof-research/files.json selected logical records | 425 bytes | SHA256 cd473d3bfc4802a305204d101e7802974526392dafdb74391ca690cf4c954562 =====\n",
+      "footer": "\n===== 024 END audit/2026-10-12-bao-proof-research/files.json selected logical records =====\n",
+      "local": "inputs/024.txt",
+      "binding": {
+        "kind": "index",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-proof-research/files.json",
+        "source_sha256": "1773cdccfac8d4c95cc86659aabf22f218de8e33c07235c63d7aeb2da60e1a94",
+        "source_bytes": 13350
+      }
+    },
+    {
+      "label": "audit/2026-10-12-bao-bounded-proof/files.json selected logical records",
+      "bytes": 858,
+      "sha256": "1d4e7da4914f54110878d8260170cb42e154560c99dd9026d6cdacbbff79cbc0",
+      "offset": 95580,
+      "header": "\n===== 025 BEGIN audit/2026-10-12-bao-bounded-proof/files.json selected logical records | 858 bytes | SHA256 1d4e7da4914f54110878d8260170cb42e154560c99dd9026d6cdacbbff79cbc0 =====\n",
+      "footer": "\n===== 025 END audit/2026-10-12-bao-bounded-proof/files.json selected logical records =====\n",
+      "local": "inputs/025.txt",
+      "binding": {
+        "kind": "index",
+        "repository": "radio",
+        "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+        "path": "audit/2026-10-12-bao-bounded-proof/files.json",
+        "source_sha256": "543ae474daaf3628c322ab5993340a1a211be17cf3fdc5e5be33bb6f8cf4d102",
+        "source_bytes": 98759
+      }
+    },
+    {
+      "label": "Packaging inputs/source.json",
+      "bytes": 5180,
+      "sha256": "23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a",
+      "offset": 96669,
+      "header": "\n===== 026 BEGIN Packaging inputs/source.json | 5180 bytes | SHA256 23a3f57a847fcfbdb6d43b1bbcd1bb79f6fd04662b2c0ec3ae4060723e57f85a =====\n",
+      "footer": "\n===== 026 END Packaging inputs/source.json =====\n",
+      "local": "inputs/026.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/source.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/renames.json",
+      "bytes": 3469,
+      "sha256": "887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb",
+      "offset": 102039,
+      "header": "\n===== 027 BEGIN Packaging inputs/renames.json | 3469 bytes | SHA256 887a035861b42d9ebb70b1ca495283cda2dfa1da614bd5aafb276a8fc892bfbb =====\n",
+      "footer": "\n===== 027 END Packaging inputs/renames.json =====\n",
+      "local": "inputs/027.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/renames.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/observation.json",
+      "bytes": 704,
+      "sha256": "fcc5784b19fef093b12276568b3e392f2930504183a2b9bf4276610c878c330c",
+      "offset": 105702,
+      "header": "\n===== 028 BEGIN Packaging inputs/observation.json | 704 bytes | SHA256 fcc5784b19fef093b12276568b3e392f2930504183a2b9bf4276610c878c330c =====\n",
+      "footer": "\n===== 028 END Packaging inputs/observation.json =====\n",
+      "local": "inputs/028.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/observation.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/historical-ce0-reader-before-runs.json",
+      "bytes": 32027,
+      "sha256": "fc853a924b7ded1effe7f1d839fb6bc908999e395abc297d2b9e1b9d2904e8f1",
+      "offset": 106628,
+      "header": "\n===== 029 BEGIN Packaging inputs/historical-ce0-reader-before-runs.json | 32027 bytes | SHA256 fc853a924b7ded1effe7f1d839fb6bc908999e395abc297d2b9e1b9d2904e8f1 =====\n",
+      "footer": "\n===== 029 END Packaging inputs/historical-ce0-reader-before-runs.json =====\n",
+      "local": "inputs/029.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-before-runs.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/historical-ce0-reader-after-runs.json",
+      "bytes": 32027,
+      "sha256": "5451033572e43aef4c467b61963a41a79250f81025846f51779fb47900ac6bd1",
+      "offset": 138898,
+      "header": "\n===== 030 BEGIN Packaging inputs/historical-ce0-reader-after-runs.json | 32027 bytes | SHA256 5451033572e43aef4c467b61963a41a79250f81025846f51779fb47900ac6bd1 =====\n",
+      "footer": "\n===== 030 END Packaging inputs/historical-ce0-reader-after-runs.json =====\n",
+      "local": "inputs/030.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-ce0-reader-after-runs.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/registry.json",
+      "bytes": 364,
+      "sha256": "161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c",
+      "offset": 171141,
+      "header": "\n===== 031 BEGIN Packaging inputs/registry.json | 364 bytes | SHA256 161c57e4dc5a81ae3a20256aa6643826214dfb358bb23db46dcdd5f12c0a617c =====\n",
+      "footer": "\n===== 031 END Packaging inputs/registry.json =====\n",
+      "local": "inputs/031.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/registry.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/v2-additional-source.json",
+      "bytes": 1703,
+      "sha256": "855cc9a34bac26628a31790d826acd30370bd2fe7a4d899300874bef1ecd7c93",
+      "offset": 171710,
+      "header": "\n===== 032 BEGIN Packaging inputs/v2-additional-source.json | 1703 bytes | SHA256 855cc9a34bac26628a31790d826acd30370bd2fe7a4d899300874bef1ecd7c93 =====\n",
+      "footer": "\n===== 032 END Packaging inputs/v2-additional-source.json =====\n",
+      "local": "inputs/032.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/v2-additional-source.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/historical-index-bindings.json",
+      "bytes": 9834,
+      "sha256": "4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94",
+      "offset": 173635,
+      "header": "\n===== 033 BEGIN Packaging inputs/historical-index-bindings.json | 9834 bytes | SHA256 4a2b126ec58f132f3591038887b7e2378bf47840eb995d2cc04389fd4919ce94 =====\n",
+      "footer": "\n===== 033 END Packaging inputs/historical-index-bindings.json =====\n",
+      "local": "inputs/033.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/historical-index-bindings.json"
+      }
+    },
+    {
+      "label": "Packaging inputs/prepare-measurement.json",
+      "bytes": 2782,
+      "sha256": "28daa5cdb02010d3613da34cf92a0740daf8b8b90b64fc4db966c8f76e5de0c9",
+      "offset": 183690,
+      "header": "\n===== 034 BEGIN Packaging inputs/prepare-measurement.json | 2782 bytes | SHA256 28daa5cdb02010d3613da34cf92a0740daf8b8b90b64fc4db966c8f76e5de0c9 =====\n",
+      "footer": "\n===== 034 END Packaging inputs/prepare-measurement.json =====\n",
+      "local": "inputs/034.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-measurement.json"
+      }
+    },
+    {
+      "label": "Registry Radio component",
+      "bytes": 149,
+      "sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+      "offset": 186669,
+      "header": "\n===== 035 BEGIN Registry Radio component | 149 bytes | SHA256 c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984 =====\n",
+      "footer": "\n===== 035 END Registry Radio component =====\n",
+      "local": "inputs/035.txt",
+      "binding": {
+        "repository": "soft3",
+        "revision": "18fd6b22ec45725aa776e37d377c5a75aeeaf553",
+        "path": "release/components.toml",
+        "bytes": 16783,
+        "sha256": "02aae8e6f2def3e23c124c76be6cc52b01cc54e86ab514c0a519dcbaf7c21e8e",
+        "first": 250,
+        "last": 260,
+        "excerpt_sha256": "c8981791a8d1a7860703afece8f14943f7e2f2629d297415392fa15db72db984",
+        "excerpt_bytes": 149,
+        "kind": "excerpt"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-lock.json",
+      "bytes": 1231,
+      "sha256": "7bae398813416deb30860425fe81910f88543a6c432d3ed3d1ca021f2962931a",
+      "offset": 187005,
+      "header": "\n===== 036 BEGIN records/consumer-ce0-lock.json | 1231 bytes | SHA256 7bae398813416deb30860425fe81910f88543a6c432d3ed3d1ca021f2962931a =====\n",
+      "footer": "\n===== 036 END records/consumer-ce0-lock.json =====\n",
+      "local": "inputs/036.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.json"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-lock.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 188428,
+      "header": "\n===== 037 BEGIN records/consumer-ce0-lock.stdout | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 037 END records/consumer-ce0-lock.stdout =====\n",
+      "local": "inputs/037.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stdout"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-lock.stderr",
+      "bytes": 382,
+      "sha256": "69528359025d2f3b1a3c01b1467936af11a4548419aea2b7098d793df03a7173",
+      "offset": 188624,
+      "header": "\n===== 038 BEGIN records/consumer-ce0-lock.stderr | 382 bytes | SHA256 69528359025d2f3b1a3c01b1467936af11a4548419aea2b7098d793df03a7173 =====\n",
+      "footer": "\n===== 038 END records/consumer-ce0-lock.stderr =====\n",
+      "local": "inputs/038.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-lock.stderr"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-metadata.json",
+      "bytes": 1255,
+      "sha256": "65d4733ac8f24c1398e19d1cd0b24bb9f7bdac4e58d87b8389f32676a1738b3f",
+      "offset": 189205,
+      "header": "\n===== 039 BEGIN records/consumer-ce0-metadata.json | 1255 bytes | SHA256 65d4733ac8f24c1398e19d1cd0b24bb9f7bdac4e58d87b8389f32676a1738b3f =====\n",
+      "footer": "\n===== 039 END records/consumer-ce0-metadata.json =====\n",
+      "local": "inputs/039.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.json"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-metadata.stdout",
+      "bytes": 11661,
+      "sha256": "d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e",
+      "offset": 190664,
+      "header": "\n===== 040 BEGIN records/consumer-ce0-metadata.stdout | 11661 bytes | SHA256 d3c9306e6f1834a5a984c9f5c2e7147f9e5f65076614d912d6985bd0f62ad92e =====\n",
+      "footer": "\n===== 040 END records/consumer-ce0-metadata.stdout =====\n",
+      "local": "inputs/040.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stdout"
+      }
+    },
+    {
+      "label": "records/consumer-ce0-metadata.stderr",
+      "bytes": 316,
+      "sha256": "fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c",
+      "offset": 202529,
+      "header": "\n===== 041 BEGIN records/consumer-ce0-metadata.stderr | 316 bytes | SHA256 fdedc38caebc5e2d3485e65da74d909408c324ff325a015b8cc1315e5d5e8f6c =====\n",
+      "footer": "\n===== 041 END records/consumer-ce0-metadata.stderr =====\n",
+      "local": "inputs/041.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/consumer-ce0-metadata.stderr"
+      }
+    },
+    {
+      "label": "records/research-before.json",
+      "bytes": 870,
+      "sha256": "997212d2bfa8aa7f3c939d661d7a9c709d14dde2fba451317d02383cecca2c07",
+      "offset": 203041,
+      "header": "\n===== 042 BEGIN records/research-before.json | 870 bytes | SHA256 997212d2bfa8aa7f3c939d661d7a9c709d14dde2fba451317d02383cecca2c07 =====\n",
+      "footer": "\n===== 042 END records/research-before.json =====\n",
+      "local": "inputs/042.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.json"
+      }
+    },
+    {
+      "label": "records/research-before.stdout",
+      "bytes": 267,
+      "sha256": "d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640",
+      "offset": 204101,
+      "header": "\n===== 043 BEGIN records/research-before.stdout | 267 bytes | SHA256 d9a4f1b0acf77a8beac40a1c3e01d258b50265d5e59c37dae14e8970873e8640 =====\n",
+      "footer": "\n===== 043 END records/research-before.stdout =====\n",
+      "local": "inputs/043.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.stdout"
+      }
+    },
+    {
+      "label": "records/research-before.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 204558,
+      "header": "\n===== 044 BEGIN records/research-before.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 044 END records/research-before.stderr =====\n",
+      "local": "inputs/044.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/research-before.stderr"
+      }
+    },
+    {
+      "label": "records/proof-before.json",
+      "bytes": 818,
+      "sha256": "d06549ac9223df84d22e4e8c25f7b8372b8e8e173a264c96437feb4390172c4a",
+      "offset": 204745,
+      "header": "\n===== 045 BEGIN records/proof-before.json | 818 bytes | SHA256 d06549ac9223df84d22e4e8c25f7b8372b8e8e173a264c96437feb4390172c4a =====\n",
+      "footer": "\n===== 045 END records/proof-before.json =====\n",
+      "local": "inputs/045.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.json"
+      }
+    },
+    {
+      "label": "records/proof-before.stdout",
+      "bytes": 496,
+      "sha256": "756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059",
+      "offset": 205747,
+      "header": "\n===== 046 BEGIN records/proof-before.stdout | 496 bytes | SHA256 756a8291737f092cbbe7b4c17a411b9bc21c89afbbb12dc5681fc6f17ab43059 =====\n",
+      "footer": "\n===== 046 END records/proof-before.stdout =====\n",
+      "local": "inputs/046.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stdout"
+      }
+    },
+    {
+      "label": "records/proof-before.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 206427,
+      "header": "\n===== 047 BEGIN records/proof-before.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 047 END records/proof-before.stderr =====\n",
+      "local": "inputs/047.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/proof-before.stderr"
+      }
+    },
+    {
+      "label": "records/original-prepare-v2.json",
+      "bytes": 1411,
+      "sha256": "f6f82cad75670edffdb046e4b01b1c934b7ad7f4fba740ab1dd7cf437f3ebb6f",
+      "offset": 206619,
+      "header": "\n===== 048 BEGIN records/original-prepare-v2.json | 1411 bytes | SHA256 f6f82cad75670edffdb046e4b01b1c934b7ad7f4fba740ab1dd7cf437f3ebb6f =====\n",
+      "footer": "\n===== 048 END records/original-prepare-v2.json =====\n",
+      "local": "inputs/048.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.json"
+      }
+    },
+    {
+      "label": "records/original-prepare-v2.stdout",
+      "bytes": 72,
+      "sha256": "22c3676876af3c07a6921ad725e6f8d4781c4087e79eefed29825a2dd77fe31c",
+      "offset": 208227,
+      "header": "\n===== 049 BEGIN records/original-prepare-v2.stdout | 72 bytes | SHA256 22c3676876af3c07a6921ad725e6f8d4781c4087e79eefed29825a2dd77fe31c =====\n",
+      "footer": "\n===== 049 END records/original-prepare-v2.stdout =====\n",
+      "local": "inputs/049.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stdout"
+      }
+    },
+    {
+      "label": "records/original-prepare-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "offset": 208497,
+      "header": "\n===== 050 BEGIN records/original-prepare-v2.stderr | 0 bytes | SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 =====\n",
+      "footer": "\n===== 050 END records/original-prepare-v2.stderr =====\n",
+      "local": "inputs/050.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/original-prepare-v2.stderr"
+      }
+    },
+    {
+      "label": "PLAN v1 result.md",
+      "bytes": 8924,
+      "sha256": "4f9bbdf74f2b8a94ac410c4a097415a63d5e17173499ac11475025ad405630c1",
+      "offset": 208681,
+      "header": "\n===== 051 BEGIN PLAN v1 result.md | 8924 bytes | SHA256 4f9bbdf74f2b8a94ac410c4a097415a63d5e17173499ac11475025ad405630c1 =====\n",
+      "footer": "\n===== 051 END PLAN v1 result.md =====\n",
+      "local": "inputs/051.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/result.md"
+      }
+    },
+    {
+      "label": "PLAN v1 invocation.json",
+      "bytes": 1223,
+      "sha256": "b76f9e1bf74867d0ee9bd508a9273d1ad33fbfa2de6c6b24548fdbc85a99946f",
+      "offset": 217778,
+      "header": "\n===== 052 BEGIN PLAN v1 invocation.json | 1223 bytes | SHA256 b76f9e1bf74867d0ee9bd508a9273d1ad33fbfa2de6c6b24548fdbc85a99946f =====\n",
+      "footer": "\n===== 052 END PLAN v1 invocation.json =====\n",
+      "local": "inputs/052.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/invocation.json"
+      }
+    },
+    {
+      "label": "PLAN v1 completion.json",
+      "bytes": 240,
+      "sha256": "0e36b4447e9cdbf6c2a1787a2e32bd66d0e4d6c6bb755cfe43782ed0bea4cf6b",
+      "offset": 219179,
+      "header": "\n===== 053 BEGIN PLAN v1 completion.json | 240 bytes | SHA256 0e36b4447e9cdbf6c2a1787a2e32bd66d0e4d6c6bb755cfe43782ed0bea4cf6b =====\n",
+      "footer": "\n===== 053 END PLAN v1 completion.json =====\n",
+      "local": "inputs/053.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/review/plan-v1/completion.json"
+      }
+    },
+    {
+      "label": "Exact prepare-crate child code",
+      "bytes": 666,
+      "sha256": "a32f6f23ba0ac47ac73dee6d04a0cc6c4fdb54bf7095a970ee41813b1d8fb3b4",
+      "offset": 219604,
+      "header": "\n===== 054 BEGIN Exact prepare-crate child code | 666 bytes | SHA256 a32f6f23ba0ac47ac73dee6d04a0cc6c4fdb54bf7095a970ee41813b1d8fb3b4 =====\n",
+      "footer": "\n===== 054 END Exact prepare-crate child code =====\n",
+      "local": "inputs/054.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/inputs/prepare-child-code.nu.txt"
+      }
+    },
+    {
+      "label": "Capture wrapper",
+      "bytes": 872,
+      "sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+      "offset": 220447,
+      "header": "\n===== 055 BEGIN Capture wrapper | 872 bytes | SHA256 10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6 =====\n",
+      "footer": "\n===== 055 END Capture wrapper =====\n",
+      "local": "inputs/055.txt",
+      "binding": {
+        "kind": "evidence",
+        "path": "audit/2026-10-13-audit-cargo-packaging/records/capture.rb"
+      }
+    },
+    {
+      "label": "Review scope and indexed omissions",
+      "bytes": 1499,
+      "sha256": "39f471e0454a6275130141a3dd823bdb45120b609b665c7be9cf595ad0479ca3",
+      "offset": 221501,
+      "header": "\n===== 056 BEGIN Review scope and indexed omissions | 1499 bytes | SHA256 39f471e0454a6275130141a3dd823bdb45120b609b665c7be9cf595ad0479ca3 =====\n",
+      "footer": "\n===== 056 END Review scope and indexed omissions =====\n",
+      "local": "inputs/056.txt",
+      "binding": {
+        "kind": "brief"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+warning: cyber-radio-relay@0.1.0: not within a suitable 'git' worktree!
+warning: cyber-radio-relay@0.1.0: VERGEN_GIT_SHA set to default
+   Compiling iroh-blobs v0.98.0 (/private/tmp/radio-export-pairs.FbuGlp/candidate/radio/iroh-blobs)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.11s
+     Running unittests src/lib.rs (target/debug/deps/iroh_blobs-b258a47651dfeddb)

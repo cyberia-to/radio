@@ -1,0 +1,363 @@
+{
+  "head": "d90a784fa6a7f410492cc6c6d5242527e221c399",
+  "parent": "a11d342594949d4ea542b26366f71d56ef21662d",
+  "jobs": [
+    {
+      "name": "wasm",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 632,
+        "text": "error: cannot specify features for packages outside of workspace"
+      },
+      "errors": [
+        {
+          "line": 632,
+          "text": "error: cannot specify features for packages outside of workspace"
+        },
+        {
+          "line": 635,
+          "text": "##[error]Process completed with exit code 101."
+        }
+      ],
+      "toolchains": [
+        "rustc +\"$toolchain\" --version --verbose",
+        "rustc 1.99.0 (b940084d7 2026-09-28)"
+      ],
+      "log_sha256": "bc9d182d19ae17c47dde5e7e0e1f57ad22d691de3690ca2a91cefe363c744338"
+    },
+    {
+      "name": "semver",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 338,
+        "text": "error: running 'cargo update' on crate 'iroh-bench' failed with output:"
+      },
+      "errors": [
+        {
+          "line": 338,
+          "text": "error: running 'cargo update' on crate 'iroh-bench' failed with output:"
+        },
+        {
+          "line": 341,
+          "text": "error: no matching package named `cyber-hemera` found"
+        },
+        {
+          "line": 349,
+          "text": "error: failed to update dependencies for crate iroh-bench v0.96.1"
+        },
+        {
+          "line": 371,
+          "text": "error: aborting due to failure to run 'cargo update' for crate iroh-bench v0.96.1"
+        },
+        {
+          "line": 388,
+          "text": "##[error]The process '/home/runner/.cargo/bin/cargo' failed with exit code 101"
+        }
+      ],
+      "toolchains": [
+        "rustc 1.99.0 (b940084d7 2026-09-28)"
+      ],
+      "log_sha256": "cf8bfe8b69d2c6f574415a3a7c5210046158fd2cf7afd8d8afd8eb72fd7f8b6c"
+    },
+    {
+      "name": "fmt",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 4379,
+        "text": "##[error]Process completed with exit code 105."
+      },
+      "errors": [
+        {
+          "line": 4379,
+          "text": "##[error]Process completed with exit code 105."
+        }
+      ],
+      "toolchains": [
+        "rustc +\"$toolchain\" --version --verbose",
+        "rustc 1.99.0 (b940084d7 2026-09-28)"
+      ],
+      "log_sha256": "6bfe637092737bb01a258817c50ec5c2e28e2b6cd16484e56ae04e258a219929"
+    },
+    {
+      "name": "docs",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 1571,
+        "text": "error: couldn't generate documentation: failed to read column from disk: data consumer error: invalid type: null, expected type data at line 1 column 4"
+      },
+      "errors": [
+        {
+          "line": 1571,
+          "text": "error: couldn't generate documentation: failed to read column from disk: data consumer error: invalid type: null, expected type data at line 1 column 4"
+        },
+        {
+          "line": 1575,
+          "text": "error: could not document `cyber-radio`"
+        },
+        {
+          "line": 1576,
+          "text": "##[error]Process completed with exit code 101."
+        }
+      ],
+      "toolchains": [
+        "rustc +\"$toolchain\" --version --verbose",
+        "rustc 1.92.0-nightly (b6f0945e4 2025-10-08)"
+      ],
+      "log_sha256": "0bcc6ea86a4e1c52fe3e204da8c6436e63554a47a7af8513f2c2a2614c2c21b6"
+    },
+    {
+      "name": "clippy",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 1403,
+        "text": "error: trailing semicolon in macro used in expression position"
+      },
+      "errors": [
+        {
+          "line": 1403,
+          "text": "error: trailing semicolon in macro used in expression position"
+        },
+        {
+          "line": 1421,
+          "text": "error: trailing semicolon in macro used in expression position"
+        },
+        {
+          "line": 1437,
+          "text": "error: could not compile `cyber-radio-quinn-udp` (build script) due to 99 previous errors"
+        },
+        {
+          "line": 1439,
+          "text": "##[error]Process completed with exit code 101."
+        }
+      ],
+      "toolchains": [
+        "rustc +\"$toolchain\" --version --verbose",
+        "rustc 1.99.0 (b940084d7 2026-09-28)"
+      ],
+      "log_sha256": "0a25e3cf839f097f6befa25988103a320cdc9956b1089ba9aae4d43900edda00"
+    },
+    {
+      "name": "deny",
+      "checkout_merge": "2d606fbc2638c52c9613ea7d712a6f35ee32a48c",
+      "first_error": {
+        "line": 329,
+        "text": "error[no-license-field]: license expression was not specified in manifest for crate 'cyber-hemera = 0.3.1'"
+      },
+      "errors": [
+        {
+          "line": 329,
+          "text": "error[no-license-field]: license expression was not specified in manifest for crate 'cyber-hemera = 0.3.1'"
+        },
+        {
+          "line": 360,
+          "text": "error[gather-failure]: "
+        },
+        {
+          "line": 368,
+          "text": "error[unlicensed]: a valid license expression could not be retrieved for the crate"
+        },
+        {
+          "line": 376,
+          "text": "error[unlicensed]: cyber-hemera = 0.3.1 is unlicensed"
+        },
+        {
+          "line": 379,
+          "text": "error[rejected]: failed to satisfy license requirements"
+        },
+        {
+          "line": 403,
+          "text": "error[no-license-field]: license expression was not specified in manifest for crate 'radio-integration-tests = 0.1.0'"
+        },
+        {
+          "line": 406,
+          "text": "error[unlicensed]: a valid license expression could not be retrieved for the crate"
+        },
+        {
+          "line": 414,
+          "text": "error[unlicensed]: radio-integration-tests = 0.1.0 is unlicensed"
+        },
+        {
+          "line": 417,
+          "text": "error[rejected]: failed to satisfy license requirements"
+        },
+        {
+          "line": 440,
+          "text": "error[source-not-allowed]: detected 'git' source not explicitly allowed"
+        },
+        {
+          "line": 449,
+          "text": "error[source-not-allowed]: detected 'git' source not explicitly allowed"
+        },
+        {
+          "line": 460,
+          "text": "error[source-not-allowed]: detected 'git' source not explicitly allowed"
+        },
+        {
+          "line": 474,
+          "text": "error[source-not-allowed]: detected 'git' source not explicitly allowed"
+        },
+        {
+          "line": 483,
+          "text": "error[unmatched-source]: allowed source was not encountered"
+        },
+        {
+          "line": 489,
+          "text": "error[unsound]: Unsoundness in `Error::downcast_mut()`"
+        },
+        {
+          "line": 658,
+          "text": "error[unmaintained]: core2 is unmaintained, all versions yanked"
+        },
+        {
+          "line": 689,
+          "text": "error[vulnerability]: Invalid pointer dereference in `fmt::Pointer` impl for `Atomic` and `Shared` when the underlying pointer is invalid"
+        },
+        {
+          "line": 734,
+          "text": "error[vulnerability]: h2 unbounded empty DATA frames"
+        },
+        {
+          "line": 845,
+          "text": "error[vulnerability]: NSEC3 closest-encloser proof validation enters unbounded loop on cross-zone responses"
+        },
+        {
+          "line": 917,
+          "text": "error[vulnerability]: CPU exhaustion during message encoding due to O(n²) name compression"
+        },
+        {
+          "line": 970,
+          "text": "error[unsound]: Potential use-after-free due to lack of panic safety in `LruCache::pop()`"
+        },
+        {
+          "line": 1029,
+          "text": "error[unmaintained]: proc-macro-error is unmaintained"
+        },
+        {
+          "line": 1068,
+          "text": "error[vulnerability]: Quadratic run time when checking a start tag for duplicate attribute names"
+        },
+        {
+          "line": 1163,
+          "text": "error[vulnerability]: Unbounded namespace-declaration allocation in `NsReader` enables memory-exhaustion denial of service"
+        },
+        {
+          "line": 1246,
+          "text": "error[unsound]: Rand is unsound with a custom logger using `rand::rng()`"
+        },
+        {
+          "line": 1268,
+          "text": "error[unsound]: Rand is unsound with a custom logger using `rand::rng()`"
+        },
+        {
+          "line": 1431,
+          "text": "error[vulnerability]: TLS 1.3 handshake messages incorrectly accepted across encryption level boundaries"
+        },
+        {
+          "line": 1579,
+          "text": "error[vulnerability]: CRLs not considered authoritative by Distribution Point due to faulty matching logic"
+        },
+        {
+          "line": 1723,
+          "text": "error[vulnerability]: Name constraints for URI names were incorrectly accepted"
+        },
+        {
+          "line": 1865,
+          "text": "error[vulnerability]: Name constraints were accepted for certificates asserting a wildcard name"
+        },
+        {
+          "line": 2008,
+          "text": "error[vulnerability]: Reachable panic in certificate revocation list parsing"
+        },
+        {
+          "line": 2152,
+          "text": "error[yanked]: detected yanked crate (try `cargo update -p core2`)"
+        },
+        {
+          "line": 2173,
+          "text": "error[yanked]: detected yanked crate (try `cargo update -p crypto-common`)"
+        },
+        {
+          "line": 2243,
+          "text": "error[yanked]: detected yanked crate (try `cargo update -p spin`)"
+        },
+        {
+          "line": 2326,
+          "text": "error[yanked]: detected yanked crate (try `cargo update -p spin`)"
+        }
+      ],
+      "toolchains": [],
+      "log_sha256": "2ab1f2b9b41ab54c4de07524d60c6bec8e3c49ad5360a68c7ced6dbd8e33d9cb"
+    }
+  ],
+  "direct_input_identities": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "parent_entry": "100644 blob 66e6d81d18287650943fd39be4c4b9045f3414c5\t.github/workflows/ci.yml",
+      "head_entry": "100644 blob 66e6d81d18287650943fd39be4c4b9045f3414c5\t.github/workflows/ci.yml",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "Makefile.toml",
+      "parent_entry": "100644 blob 5dde2e70dd826be428b23c89b55a848799c70f04\tMakefile.toml",
+      "head_entry": "100644 blob 5dde2e70dd826be428b23c89b55a848799c70f04\tMakefile.toml",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "iroh-base/Cargo.toml",
+      "parent_entry": "100644 blob 0c6a535d3ff53436048fb2b1906885e73feb9236\tiroh-base/Cargo.toml",
+      "head_entry": "100644 blob 0c6a535d3ff53436048fb2b1906885e73feb9236\tiroh-base/Cargo.toml",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "quinn/Cargo.toml",
+      "parent_entry": "100644 blob 7e6dc6c202e4408757377a48db2e286e2dcc6d0d\tquinn/Cargo.toml",
+      "head_entry": "100644 blob 7e6dc6c202e4408757377a48db2e286e2dcc6d0d\tquinn/Cargo.toml",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "quinn/quinn-udp/Cargo.toml",
+      "parent_entry": "100644 blob a5475940f38db2bc44d1ca46aa14991bfd6c234d\tquinn/quinn-udp/Cargo.toml",
+      "head_entry": "100644 blob a5475940f38db2bc44d1ca46aa14991bfd6c234d\tquinn/quinn-udp/Cargo.toml",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "quinn/quinn-udp/build.rs",
+      "parent_entry": "100644 blob ed26e5e647438f4a8236c784be88b24e34e9bed3\tquinn/quinn-udp/build.rs",
+      "head_entry": "100644 blob ed26e5e647438f4a8236c784be88b24e34e9bed3\tquinn/quinn-udp/build.rs",
+      "unchanged": true,
+      "parent_present": true
+    },
+    {
+      "path": "iroh/bench/Cargo.toml",
+      "parent_entry": "100644 blob 02245397ae8be945cce5c65b5843888dec7459b5\tiroh/bench/Cargo.toml",
+      "head_entry": "100644 blob 02245397ae8be945cce5c65b5843888dec7459b5\tiroh/bench/Cargo.toml",
+      "unchanged": true,
+      "parent_present": true
+    }
+  ],
+  "cfg_aliases_lock_entry": {
+    "body": "[[package]]\nname = \"cfg_aliases\"\nversion = \"0.2.1\"\nsource = \"registry+https://github.com/rust-lang/crates.io-index\"\nchecksum = \"613afe47fcd5fac7ccf1db93babcb082c5994d996f20b8b159f2ad1658eb5724\"\n\n",
+    "sha256": "7e1f3196c6443aa9dd9ff9f8a7f5c3668e5654a6505730251d203d4467a0cc55",
+    "parent_equal": true
+  },
+  "scope": "Hosted head/merge attribution and source identities only. No hosted-parent rerun; architecture/tool versions differ from local gates. Codespell introduction is evidence index data; raw names are preserved, no policy or source edit.",
+  "format": {
+    "sections": 300,
+    "unique_paths": 131,
+    "all_paths_unchanged": true
+  },
+  "codespell": {
+    "findings": 157,
+    "inherited": 139,
+    "introduced": 18
+  },
+  "deny": {
+    "headings_equal_to_local_after_policy": false,
+    "source_denials": 4
+  }
+}

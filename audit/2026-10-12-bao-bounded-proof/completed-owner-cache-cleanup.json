@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-13T00:42:29Z",
+  "scope": "completed private build caches only; raw receipts and frozen source/fixtures retained",
+  "paths": [
+    {
+      "path": "/tmp/radio-bao-proof-target",
+      "kib": 893088,
+      "removed": true
+    },
+    {
+      "path": "/tmp/radio-bao-proof-clippy-target",
+      "kib": 114860,
+      "removed": true
+    },
+    {
+      "path": "/tmp/radio-bao-proof-msrv-target",
+      "kib": 428,
+      "removed": true
+    },
+    {
+      "path": "/tmp/radio-bao-proof-research-target",
+      "kib": 195568,
+      "removed": true
+    }
+  ]
+}

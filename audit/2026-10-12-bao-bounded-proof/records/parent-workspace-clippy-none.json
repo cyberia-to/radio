@@ -1,0 +1,45 @@
+{
+  "started": "2026-10-13T00:41:19.185676Z",
+  "finished": "2026-10-13T00:41:27.677726Z",
+  "cwd": "/private/tmp/radio-bao-proof-parent-b933",
+  "revision": "b933829cbe273d2f31fe75ca83125f3ddd8917a2",
+  "argv": [
+    "env",
+    "-u",
+    "RUSTC_WRAPPER",
+    "PATH=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin:/tmp/radio-gate-tools/bin:/Users/master/.cargo/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    "RUSTC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+    "RUSTDOC=/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+    "CARGO_BUILD_JOBS=2",
+    "CARGO_INCREMENTAL=0",
+    "CARGO_TARGET_DIR=/tmp/radio-bao-proof-parent-final-target",
+    "RUST_BACKTRACE=1",
+    "IROH_FORCE_STAGING_RELAYS=1",
+    "RUSTFLAGS=-Dwarnings",
+    "RUSTDOCFLAGS=-Dwarnings",
+    "cargo",
+    "clippy",
+    "--locked",
+    "--offline",
+    "--workspace",
+    "--no-default-features",
+    "--all-targets",
+    "--lib",
+    "--bins",
+    "--tests",
+    "--benches",
+    "--examples"
+  ],
+  "runner_sha256": "10fc0f8210a06cd42e2cc85d0f2b328da05a5e09e01c8feb75651b31fdb0d5d6",
+  "exit_code": 101,
+  "stdout": {
+    "path": "/tmp/radio-bao-proof-parent-workspace-clippy-none.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/radio-bao-proof-parent-workspace-clippy-none.stderr",
+    "bytes": 1829,
+    "sha256": "d611c0da0dbd33566673e00f76f61e9de59a1792cf7a483f966cd481353c70b8"
+  }
+}

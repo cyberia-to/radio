@@ -1,0 +1,19 @@
+{
+  "radio": "bc8b6331d3c76cbc011210e13f81e6ea351ef06f",
+  "hemera": "d5f0a09539360934fb32db9b2e15a91995607db6",
+  "archives_reproduced_from_git": 3,
+  "base_radio_files": 1058,
+  "hemera_files": 100,
+  "final_radio_files": 1061,
+  "tag_radio_files": 848,
+  "complete_export_pairs_checked": 7,
+  "source_freeze_sha256": "751d7471250a7899ed4a7a6af35df9200c404448dc08633208d74fc96852213d",
+  "command_records": 196,
+  "raw_streams": 392,
+  "paired_diagnostic_records_bound_to_raw": 21,
+  "narrowed_runtime_mapping_checked": true,
+  "full_native_comparator_checked": true,
+  "exact_sigkill_followups_checked": 2,
+  "generated_parent_seed_retained": true,
+  "note": "Integrity and command/scope identities only. Diagnostic equality assertions are separately derived in paired-diagnostics.json; no red outcome becomes green."
+}

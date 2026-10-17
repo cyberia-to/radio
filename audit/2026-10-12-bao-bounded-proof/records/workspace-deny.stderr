@@ -1,0 +1,2099 @@
+error[no-license-field]: license expression was not specified in manifest for crate 'cyber-hemera = 0.3.1'
+ ├ cyber-hemera v0.3.1
+   ├── cyber-bao v0.1.0
+   │   ├── iroh-blobs v0.98.0
+   │   │   ├── iroh-docs v0.96.0
+   │   │   │   └── radio-integration-tests v0.1.0
+   │   │   ├── radio-cli v0.1.0
+   │   │   └── radio-integration-tests v0.1.0 (*)
+   │   ├── particle v0.1.0
+   │   ├── radio-cli v0.1.0 (*)
+   │   └── radio-integration-tests v0.1.0 (*)
+   ├── cyber-radio-relay v0.1.0
+   │   └── cyber-radio v0.1.0
+   │       ├── iroh-bench v0.96.1
+   │       ├── iroh-blobs v0.98.0 (*)
+   │       ├── (dev) iroh-dns-server v0.96.1
+   │       ├── (dev) iroh-docs v0.96.0 (*)
+   │       ├── iroh-gossip v0.96.0
+   │       │   ├── iroh-docs v0.96.0 (*)
+   │       │   ├── radio-cli v0.1.0 (*)
+   │       │   └── radio-integration-tests v0.1.0 (*)
+   │       ├── (dev) iroh-willow v0.28.0
+   │       ├── radio-cli v0.1.0 (*)
+   │       └── radio-integration-tests v0.1.0 (*)
+   ├── iroh-blobs v0.98.0 (*)
+   ├── iroh-docs v0.96.0 (*)
+   ├── iroh-gossip v0.96.0 (*)
+   ├── iroh-willow v0.28.0 (*)
+   ├── particle v0.1.0 (*)
+   └── radio-cli v0.1.0 (*)
+
+error[gather-failure]: 
+  ┌─ git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1-synthesized.toml:6:125
+  │
+6 │     { path = "/Users/master/.cargo/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/../LICENSE", hash = 0xc0a7a29b, score = 0.05 },
+  │                                                                                                                             ──── low confidence in the license text
+  │
+  ├ cyber-hemera v0.3.1 (*)
+
+error[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1-synthesized.toml:2:9
+  │
+2 │ name = "cyber-hemera"
+  │         ━━━━━━━━━━━━
+  │
+  ├ cyber-hemera v0.3.1 (*)
+
+error[unlicensed]: cyber-hemera = 0.3.1 is unlicensed
+ ├ cyber-hemera v0.3.1 (*)
+
+error[rejected]: failed to satisfy license requirements
+   ┌─ /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/maybe-std-0.1.2/Cargo.toml:19:12
+   │
+19 │ license = "CC-PDDC"
+   │            ━━━━━━━
+   │            │
+   │            rejected: license is not explicitly allowed
+   │
+   ├ CC-PDDC - Creative Commons Public Domain Dedication and Certification:
+   ├   - No additional metadata available for license
+   ├ maybe-std v0.1.2
+     └── wrapper v0.1.1
+         └── ufotofu v0.4.3
+             ├── iroh-willow v0.28.0
+             ├── meadowcap v0.1.0
+             │   └── iroh-willow v0.28.0 (*)
+             ├── willow-data-model v0.1.0
+             │   ├── iroh-willow v0.28.0 (*)
+             │   └── meadowcap v0.1.0 (*)
+             └── willow-encoding v0.1.0
+                 ├── iroh-willow v0.28.0 (*)
+                 ├── meadowcap v0.1.0 (*)
+                 └── willow-data-model v0.1.0 (*)
+
+error[no-license-field]: license expression was not specified in manifest for crate 'radio-integration-tests = 0.1.0'
+ ├ radio-integration-tests v0.1.0
+
+error[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///Users/master/cyber/radio-bao-bounded-proof/tests/integration#radio-integration-tests@0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "radio-integration-tests"
+  │         ━━━━━━━━━━━━━━━━━━━━━━━
+  │
+  ├ radio-integration-tests v0.1.0 (*)
+
+error[unlicensed]: radio-integration-tests = 0.1.0 is unlicensed
+ ├ radio-integration-tests v0.1.0 (*)
+
+error[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:295:17
+    │
+295 │ meadowcap 0.1.0 git+https://github.com/n0-computer/willow-rs.git?branch=main
+    │                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ meadowcap v0.1.0
+      └── iroh-willow v0.28.0
+
+error[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:606:25
+    │
+606 │ willow-data-model 0.1.0 git+https://github.com/n0-computer/willow-rs.git?branch=main
+    │                         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ willow-data-model v0.1.0
+      ├── iroh-willow v0.28.0
+      └── meadowcap v0.1.0
+          └── iroh-willow v0.28.0 (*)
+
+error[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:607:23
+    │
+607 │ willow-encoding 0.1.0 git+https://github.com/n0-computer/willow-rs.git?branch=main
+    │                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ willow-encoding v0.1.0
+      ├── iroh-willow v0.28.0
+      ├── meadowcap v0.1.0
+      │   └── iroh-willow v0.28.0 (*)
+      └── willow-data-model v0.1.0
+          ├── iroh-willow v0.28.0 (*)
+          └── meadowcap v0.1.0 (*)
+
+error[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:608:20
+    │
+608 │ willow-store 0.1.0 git+https://github.com/n0-computer/willow-store.git?branch=main
+    │                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ willow-store v0.1.0
+      └── iroh-willow v0.28.0
+
+error[unmatched-source]: allowed source was not encountered
+   ┌─ /Users/master/cyber/radio-bao-bounded-proof/deny.toml:31:4
+   │
+31 │   "https://github.com/n0-computer/quinn",
+   │    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ no crate source matched these criteria
+
+error[rejected]: failed to satisfy license requirements
+   ┌─ /Users/master/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wrapper-0.1.1/Cargo.toml:19:12
+   │
+19 │ license = "CC-PDDC"
+   │            ━━━━━━━
+   │            │
+   │            rejected: license is not explicitly allowed
+   │
+   ├ CC-PDDC - Creative Commons Public Domain Dedication and Certification:
+   ├   - No additional metadata available for license
+   ├ wrapper v0.1.1
+     └── ufotofu v0.4.3
+         ├── iroh-willow v0.28.0
+         ├── meadowcap v0.1.0
+         │   └── iroh-willow v0.28.0 (*)
+         ├── willow-data-model v0.1.0
+         │   ├── iroh-willow v0.28.0 (*)
+         │   └── meadowcap v0.1.0 (*)
+         └── willow-encoding v0.1.0
+             ├── iroh-willow v0.28.0 (*)
+             ├── meadowcap v0.1.0 (*)
+             └── willow-data-model v0.1.0 (*)
+
+error[unsound]: Unsoundness in `Error::downcast_mut()`
+   ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:14:1
+   │
+14 │ anyhow 1.0.101 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+   │
+   ├ ID: RUSTSEC-2026-0190
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0190
+   ├ Affected versions of this crate violate borrow rules, resulting in undefined behavior, when the user adds context to an error via `Error::context` and then later calls `Error::downcast_mut` on the returned `Error`.
+     
+     The flaw was corrected in commit `6e8c000` by revising how the mutable reference is constructed, avoiding inclusion of a shared reference in the resulting borrow chain.
+     
+     ## Example
+     
+     ```rust
+     use anyhow::Error;
+     use std::fmt;
+     
+     #[derive(Debug)]
+     struct ErrorContext(&'static str);
+     
+     impl fmt::Display for ErrorContext {
+         fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+             fmt::Display::fmt(&self.0, f)
+         }
+     }
+     
+     fn main() {
+         let mut error = Error::msg("inner error").context(ErrorContext("old context"));
+         let context: &mut ErrorContext = error.downcast_mut().unwrap();
+         context.0 = "new context";
+         println!("{:?}", error);
+     }
+     ```
+     
+     ## Miri output
+     
+     ```
+     error: Undefined Behavior: trying to retag from <1538> for Unique permission at alloc602[0x38], but that tag only grants SharedReadOnly permission for this location
+        --> src/ptr.rs:170:18
+         |
+     170 |         unsafe { &mut *self.ptr.as_ptr() }
+         |                  ^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc602[0x38..0x48]
+         |
+         = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental
+         = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information
+     help: <1538> was created by a SharedReadOnly retag at offsets [0x38..0x48]
+        --> src/ptr.rs:89:18
+         |
+      89 |             ptr: NonNull::from(ptr),
+         |                  ^^^^^^^^^^^^^^^^^^
+         = note: stack backtrace:
+                 0: anyhow::ptr::Mut::<'_, ErrorContext>::deref_mut
+                     at src/ptr.rs:170:18: 170:41
+                 1: anyhow::error::<impl anyhow::Error>::downcast_mut::<ErrorContext>
+                     at src/error.rs:560:18: 560:46
+                 2: main
+                     at examples/downcast_mut.rs:15:38: 15:58
+     ```
+   ├ Announcement: https://github.com/dtolnay/anyhow/issues/451
+   ├ Solution: Upgrade to >=1.0.103 (try `cargo update -p anyhow`)
+   ├ anyhow v1.0.101
+     ├── (dev) iroh-blobs v0.98.0
+     │   ├── iroh-docs v0.96.0
+     │   │   └── radio-integration-tests v0.1.0
+     │   ├── radio-cli v0.1.0
+     │   └── radio-integration-tests v0.1.0 (*)
+     ├── iroh-car v0.5.0
+     ├── iroh-docs v0.96.0 (*)
+     ├── iroh-test v0.31.0
+     │   └── (dev) iroh-blobs v0.98.0 (*)
+     ├── iroh-willow v0.28.0
+     ├── n0-error v0.1.3
+     │   ├── cyber-radio v0.1.0
+     │   │   ├── iroh-bench v0.96.1
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── (dev) iroh-dns-server v0.96.1
+     │   │   ├── (dev) iroh-docs v0.96.0 (*)
+     │   │   ├── iroh-gossip v0.96.0
+     │   │   │   ├── iroh-docs v0.96.0 (*)
+     │   │   │   ├── radio-cli v0.1.0 (*)
+     │   │   │   └── radio-integration-tests v0.1.0 (*)
+     │   │   ├── (dev) iroh-willow v0.28.0 (*)
+     │   │   ├── radio-cli v0.1.0 (*)
+     │   │   └── radio-integration-tests v0.1.0 (*)
+     │   ├── cyber-radio-base v0.1.1
+     │   │   ├── (dev) cyber-radio v0.1.0 (*)
+     │   │   ├── cyber-radio-relay v0.1.0
+     │   │   │   └── cyber-radio v0.1.0 (*)
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-gossip v0.96.0 (*)
+     │   │   ├── iroh-willow v0.28.0 (*)
+     │   │   └── radio-integration-tests v0.1.0 (*)
+     │   ├── cyber-radio-netwatch v0.1.0
+     │   │   ├── cyber-radio v0.1.0 (*)
+     │   │   └── cyber-radio-portmapper v0.1.0
+     │   │       └── cyber-radio v0.1.0 (*)
+     │   ├── cyber-radio-portmapper v0.1.0 (*)
+     │   ├── cyber-radio-relay v0.1.0 (*)
+     │   ├── iroh v0.96.1
+     │   │   └── iroh-blobs v0.98.0
+     │   │       └── iroh-willow v0.28.0 (*)
+     │   ├── iroh-base v0.95.1
+     │   │   └── iroh-tickets v0.2.0
+     │   │       └── iroh-docs v0.96.0 (*)
+     │   ├── iroh-base v0.96.1
+     │   │   ├── iroh v0.96.1 (*)
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-relay v0.96.1
+     │   │   │   └── iroh v0.96.1 (*)
+     │   │   └── iroh-tickets v0.3.0
+     │   │       ├── iroh-blobs v0.98.0 (*)
+     │   │       └── iroh-blobs v0.98.0 (*)
+     │   ├── iroh-bench v0.96.1 (*)
+     │   ├── iroh-blobs v0.98.0 (*)
+     │   ├── iroh-blobs v0.98.0 (*)
+     │   ├── iroh-dns-server v0.96.1 (*)
+     │   ├── iroh-docs v0.96.0 (*)
+     │   ├── iroh-gossip v0.96.0 (*)
+     │   ├── iroh-metrics v0.38.2
+     │   │   ├── cyber-radio v0.1.0 (*)
+     │   │   ├── cyber-radio-portmapper v0.1.0 (*)
+     │   │   ├── cyber-radio-relay v0.1.0 (*)
+     │   │   ├── iroh v0.96.1 (*)
+     │   │   ├── iroh-bench v0.96.1 (*)
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-dns-server v0.96.1 (*)
+     │   │   ├── iroh-docs v0.96.0 (*)
+     │   │   ├── iroh-gossip v0.96.0 (*)
+     │   │   ├── iroh-relay v0.96.1 (*)
+     │   │   ├── iroh-willow v0.28.0 (*)
+     │   │   └── portmapper v0.14.0
+     │   │       └── iroh v0.96.1 (*)
+     │   ├── iroh-relay v0.96.1 (*)
+     │   ├── iroh-tickets v0.2.0 (*)
+     │   ├── iroh-tickets v0.3.0 (*)
+     │   ├── irpc v0.12.0
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-blobs v0.98.0 (*)
+     │   │   ├── iroh-docs v0.96.0 (*)
+     │   │   ├── iroh-gossip v0.96.0 (*)
+     │   │   └── iroh-willow v0.28.0 (*)
+     │   ├── n0-watcher v0.6.1
+     │   │   ├── cyber-radio v0.1.0 (*)
+     │   │   ├── cyber-radio-netwatch v0.1.0 (*)
+     │   │   ├── iroh v0.96.1 (*)
+     │   │   └── netwatch v0.14.0
+     │   │       ├── iroh v0.96.1 (*)
+     │   │       └── portmapper v0.14.0 (*)
+     │   ├── netwatch v0.14.0 (*)
+     │   └── portmapper v0.14.0 (*)
+     ├── radio-cli v0.1.0 (*)
+     ├── radio-integration-tests v0.1.0 (*)
+     ├── testdir v0.7.3
+     │   └── (dev) iroh-docs v0.96.0 (*)
+     ├── vergen v9.1.0
+     │   └── vergen-gitcl v1.0.8
+     │       ├── (build) cyber-radio-relay v0.1.0 (*)
+     │       ├── (build) iroh-dns-server v0.96.1 (*)
+     │       └── (build) iroh-relay v0.96.1 (*)
+     ├── vergen-gitcl v1.0.8 (*)
+     ├── vergen-lib v0.1.6
+     │   └── vergen-gitcl v1.0.8 (*)
+     ├── vergen-lib v9.1.0
+     │   └── vergen v9.1.0 (*)
+     └── willow-store v0.1.0
+         └── iroh-willow v0.28.0 (*)
+
+error[unmaintained]: core2 is unmaintained, all versions yanked
+   ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:90:1
+   │
+90 │ core2 0.4.0 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unmaintained advisory detected
+   │
+   ├ ID: RUSTSEC-2026-0105
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0105
+   ├ The maintainer decided stop maintaining crate and yanked all published versions.
+     
+     Potential alternatives:
+     
+     - [`embedded-io`](https://crates.io/crates/embedded-io) solves the same general problem
+     - [`no-std-io2`](https://crates.io/crates/no-std-io2) is a maintained fork
+   ├ Announcement: https://hachyderm.io/@piecritic/116404790999620656
+   ├ Solution: No safe upgrade is available!
+   ├ core2 v0.4.0
+     ├── cid v0.11.1
+     │   ├── ipld-core v0.4.3
+     │   │   └── serde_ipld_dagcbor v0.6.4
+     │   │       └── iroh-car v0.5.0
+     │   └── iroh-car v0.5.0 (*)
+     ├── multihash v0.19.3
+     │   ├── cid v0.11.1 (*)
+     │   ├── (dev) iroh-car v0.5.0 (*)
+     │   └── multihash-derive v0.9.1
+     │       └── multihash-codetable v0.1.4
+     │           └── (dev) iroh-car v0.5.0 (*)
+     ├── multihash-codetable v0.1.4 (*)
+     └── multihash-derive v0.9.1 (*)
+
+error[vulnerability]: Invalid pointer dereference in `fmt::Pointer` impl for `Atomic` and `Shared` when the underlying pointer is invalid
+   ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:99:1
+   │
+99 │ crossbeam-epoch 0.9.18 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+   │
+   ├ ID: RUSTSEC-2026-0204
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0204
+   ├ Affected versions of `fmt::Display` dereference the underlying pointer. This causes a invalid pointer dereference e.g., when a pointer created with `Atomic::null` or `Shared::null`. `fmt::Debug` impls and pre-0.9 `fmt::Display` impls, which do not dereference pointers, are not affected by this issue.
+   ├ Announcement: https://github.com/crossbeam-rs/crossbeam/pull/1276
+   ├ Solution: Upgrade to >=0.9.20 (try `cargo update -p crossbeam-epoch`)
+   ├ crossbeam-epoch v0.9.18
+     ├── crossbeam-deque v0.8.6
+     │   └── rayon-core v1.13.0
+     │       └── rayon v1.11.0
+     │           ├── criterion v0.7.0
+     │           │   └── (dev) iroh-dns-server v0.96.1
+     │           └── iroh-gossip v0.96.0
+     │               ├── iroh-docs v0.96.0
+     │               │   └── radio-integration-tests v0.1.0
+     │               ├── radio-cli v0.1.0
+     │               └── radio-integration-tests v0.1.0 (*)
+     └── moka v0.12.13
+         └── hickory-resolver v0.25.2
+             ├── cyber-radio v0.1.0
+             │   ├── iroh-bench v0.96.1
+             │   ├── iroh-blobs v0.98.0
+             │   │   ├── iroh-docs v0.96.0 (*)
+             │   │   ├── radio-cli v0.1.0 (*)
+             │   │   └── radio-integration-tests v0.1.0 (*)
+             │   ├── (dev) iroh-dns-server v0.96.1 (*)
+             │   ├── (dev) iroh-docs v0.96.0 (*)
+             │   ├── iroh-gossip v0.96.0 (*)
+             │   ├── (dev) iroh-willow v0.28.0
+             │   ├── radio-cli v0.1.0 (*)
+             │   └── radio-integration-tests v0.1.0 (*)
+             ├── cyber-radio-relay v0.1.0
+             │   └── cyber-radio v0.1.0 (*)
+             ├── iroh v0.96.1
+             │   └── iroh-blobs v0.98.0
+             │       └── iroh-willow v0.28.0 (*)
+             ├── (dev) iroh-dns-server v0.96.1 (*)
+             └── iroh-relay v0.96.1
+                 └── iroh v0.96.1 (*)
+
+error[unsound]: `event-listener` allows `!Send` tags to cross thread boundaries via `StackSlot`
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:163:1
+    │
+163 │ event-listener 5.4.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+    │
+    ├ ID: RUSTSEC-2026-0221
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0221
+    ├ Affected versions of `event-listener` unconditionally implement `Send` and
+      `Sync` for `StackSlot<'_, T>`, the stack-allocated listener type created
+      by the `listener!` macro.
+      
+      This allows a `!Send` tag type set via `Event::with_tag` to be moved to
+      another thread and accessed via `StackSlot::wait`, causing a data race in safe
+      code.
+    ├ Announcement: https://github.com/smol-rs/event-listener/pull/163
+    ├ Solution: Upgrade to >=5.4.2 (try `cargo update -p event-listener`)
+    ├ event-listener v5.4.1
+      └── event-listener-strategy v0.5.4
+          └── async-channel v2.5.0
+              └── iroh-docs v0.96.0
+                  └── radio-integration-tests v0.1.0
+
+error[vulnerability]: h2 unbounded empty DATA frames
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:200:1
+    │
+200 │ h2 0.4.13 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0258
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0258
+    ├ The h2 crate, used internally by hyper, had a flaw that would accept and queue empty DATA frames without limit.
+      If streams were not actively drained, this could lead to unbounded memory usage, or a panic if the length overflows.
+      
+      Low severity.
+      
+      Patched in v0.4.16.
+    ├ Announcement: https://github.com/hyperium/h2/pull/935
+    ├ Solution: Upgrade to >=0.4.16 (try `cargo update -p h2`)
+    ├ h2 v0.4.13
+      ├── hickory-proto v0.25.2
+      │   ├── hickory-resolver v0.25.2
+      │   │   ├── cyber-radio v0.1.0
+      │   │   │   ├── iroh-bench v0.96.1
+      │   │   │   ├── iroh-blobs v0.98.0
+      │   │   │   │   ├── iroh-docs v0.96.0
+      │   │   │   │   │   └── radio-integration-tests v0.1.0
+      │   │   │   │   ├── radio-cli v0.1.0
+      │   │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1
+      │   │   │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   │   │   ├── iroh-gossip v0.96.0
+      │   │   │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   │   ├── (dev) iroh-willow v0.28.0
+      │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0
+      │   │   │   └── cyber-radio v0.1.0 (*)
+      │   │   ├── iroh v0.96.1
+      │   │   │   └── iroh-blobs v0.98.0
+      │   │   │       └── iroh-willow v0.28.0 (*)
+      │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   └── iroh-relay v0.96.1
+      │   │       └── iroh v0.96.1 (*)
+      │   ├── hickory-server v0.25.2
+      │   │   └── iroh-dns-server v0.96.1 (*)
+      │   └── swarm-discovery v0.5.0
+      │       └── cyber-radio v0.1.0 (*)
+      ├── hickory-server v0.25.2 (*)
+      ├── hyper v1.8.1
+      │   ├── axum v0.8.8
+      │   │   ├── (dev) cyber-radio v0.1.0 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tower_governor v0.8.0
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── axum-server v0.8.0
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tokio-rustls-acme v0.9.0
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hyper-rustls v0.27.7
+      │   │   └── reqwest v0.12.28
+      │   │       ├── cyber-radio v0.1.0 (*)
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       ├── iroh v0.96.1 (*)
+      │   │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │       ├── iroh-metrics v0.38.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-portmapper v0.1.0
+      │   │       │   │   └── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-bench v0.96.1 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   ├── iroh-docs v0.96.0 (*)
+      │   │       │   ├── iroh-gossip v0.96.0 (*)
+      │   │       │   ├── iroh-relay v0.96.1 (*)
+      │   │       │   ├── iroh-willow v0.28.0 (*)
+      │   │       │   └── portmapper v0.14.0
+      │   │       │       └── iroh v0.96.1 (*)
+      │   │       ├── iroh-relay v0.96.1 (*)
+      │   │       ├── pkarr v5.0.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   └── iroh-relay v0.96.1 (*)
+      │   │       └── tokio-rustls-acme v0.9.0 (*)
+      │   ├── hyper-util v0.1.20
+      │   │   ├── axum v0.8.8 (*)
+      │   │   ├── axum-server v0.8.0 (*)
+      │   │   ├── cyber-radio-portmapper v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── hyper-rustls v0.27.7 (*)
+      │   │   ├── igd-next v0.16.2
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-portmapper v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   └── portmapper v0.14.0 (*)
+      │   │   ├── iroh-metrics v0.38.2 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   ├── portmapper v0.14.0 (*)
+      │   │   └── reqwest v0.12.28 (*)
+      │   ├── igd-next v0.16.2 (*)
+      │   ├── iroh-metrics v0.38.2 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   └── reqwest v0.12.28 (*)
+      └── reqwest v0.12.28 (*)
+
+error[vulnerability]: NSEC3 closest-encloser proof validation enters unbounded loop on cross-zone responses
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:209:1
+    │
+209 │ hickory-proto 0.25.2 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0118
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0118
+    ├ The NSEC3 closest-encloser proof validation in `hickory-proto`'s
+      `DnssecDnsHandle` walks from the QNAME up to the SOA owner name, building a
+      list of candidate encloser names. The iterator used assumes the
+      QNAME is a descendant of the SOA owner, terminating only when the current
+      candidate equals the SOA name. When the SOA in a response's authority section
+      is not an ancestor of the QNAME, the loop stalls at the DNS root and never
+      terminates, repeatedly calling `Name::base_name()` and pushing newly allocated
+      `Name` and hashed-name entries into the candidate `Vec`.
+      
+      The bug is reachable by any caller of `DnssecDnsHandle` — including the
+      resolver, recursor, and client — when built with the `dnssec-ring` or
+      `dnssec-aws-lc-rs` feature and configured to perform DNSSEC validation. It is
+      triggered while validating a NoData or NXDomain response whose authority
+      section contains an SOA record from a zone other than an ancestor of the
+      QNAME, on a code path that requires NSEC3 closest-encloser proof. In practice
+      this can be reached through an insecure CNAME chain that crosses zone
+      boundaries into a DNSSEC-signed zone returning NoData, but the minimum
+      condition is just a mismatched SOA owner on a response requiring NSEC3
+      validation.
+      
+      A `debug_assert_ne!(name, Name::root())` guards the loop body, so debug builds
+      abort with a panic on the first iteration past the root. Release builds
+      compile the assertion out and run the loop unbounded, allocating until the
+      process exhausts available memory (OOM). A reachable upstream attacker who
+      can return such a response can therefore crash a debug-built validator or
+      exhaust memory on a release-built one.
+      
+      The affected code was migrated from `hickory-proto` to `hickory-net` as part of
+      the 0.26.0 release. The `hickory-proto` 0.26.x release no longer offers
+      `DnssecDnsHandle` and so we recommend all affected users update to `hickory-net`
+      0.26.1 when the implementation of that type is required.
+    ├ Announcement: https://github.com/hickory-dns/hickory-dns/pull/3597
+    ├ Solution: No safe upgrade is available!
+    ├ hickory-proto v0.25.2
+      ├── hickory-resolver v0.25.2
+      │   ├── cyber-radio v0.1.0
+      │   │   ├── iroh-bench v0.96.1
+      │   │   ├── iroh-blobs v0.98.0
+      │   │   │   ├── iroh-docs v0.96.0
+      │   │   │   │   └── radio-integration-tests v0.1.0
+      │   │   │   ├── radio-cli v0.1.0
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── (dev) iroh-dns-server v0.96.1
+      │   │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0
+      │   │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── (dev) iroh-willow v0.28.0
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0
+      │   │   └── cyber-radio v0.1.0 (*)
+      │   ├── iroh v0.96.1
+      │   │   └── iroh-blobs v0.98.0
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   └── iroh-relay v0.96.1
+      │       └── iroh v0.96.1 (*)
+      ├── hickory-server v0.25.2
+      │   └── iroh-dns-server v0.96.1 (*)
+      └── swarm-discovery v0.5.0
+          └── cyber-radio v0.1.0 (*)
+
+error[vulnerability]: CPU exhaustion during message encoding due to O(n²) name compression
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:209:1
+    │
+209 │ hickory-proto 0.25.2 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0119
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0119
+    ├ During message encoding, `hickory-proto`'s `BinEncoder` stores pointers to
+      labels that are candidates for name compression in a `Vec<(usize, Vec<u8>)>`.
+      The name compression logic then searches for matches with a linear scan.
+      
+      A malicious message with many records can both introduce many candidate labels,
+      and invoke this linear scan many times. This can amplify CPU exhaustion in DoS
+      attacks.
+      
+      This is similar to
+      [CVE-2024-8508](https://www.nlnetlabs.nl/downloads/unbound/CVE-2024-8508.txt).
+      
+      We recommend all affected users update to `hickory-proto` 0.26.1 for the fix.
+    ├ Announcement: https://github.com/hickory-dns/hickory-dns/pull/3613
+    ├ Solution: Upgrade to >=0.26.1 (try `cargo update -p hickory-proto`)
+    ├ hickory-proto v0.25.2
+      ├── hickory-resolver v0.25.2
+      │   ├── cyber-radio v0.1.0
+      │   │   ├── iroh-bench v0.96.1
+      │   │   ├── iroh-blobs v0.98.0
+      │   │   │   ├── iroh-docs v0.96.0
+      │   │   │   │   └── radio-integration-tests v0.1.0
+      │   │   │   ├── radio-cli v0.1.0
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── (dev) iroh-dns-server v0.96.1
+      │   │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0
+      │   │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── (dev) iroh-willow v0.28.0
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0
+      │   │   └── cyber-radio v0.1.0 (*)
+      │   ├── iroh v0.96.1
+      │   │   └── iroh-blobs v0.98.0
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   └── iroh-relay v0.96.1
+      │       └── iroh v0.96.1 (*)
+      ├── hickory-server v0.25.2
+      │   └── iroh-dns-server v0.96.1 (*)
+      └── swarm-discovery v0.5.0
+          └── cyber-radio v0.1.0 (*)
+
+error[unsound]: Potential use-after-free due to lack of panic safety in `LruCache::pop()`
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:285:1
+    │
+285 │ lru 0.16.3 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+    │
+    ├ ID: RUSTSEC-2026-0253
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0253
+    ├ `LruCache::pop()` in `lru` was not panic-safe. If the `Drop` implementation of a stored key panics during `pop()`, `self.detach()` is never called, leaving dangling pointers in the internal doubly-linked list.
+      
+      A subsequent cache operation that triggers eviction can then dereference these dangling pointers:
+      - The node is freed from the map, but remains linked in the LRU list due to the skipped `detach()` call
+      - When a new insertion causes eviction, the LRU traversal encounters the dangling pointer
+      - This results in a write to already-freed memory during the eviction process
+      
+      ## Impact
+      
+      - **CWE-416 (Use-After-Free):** memory corruption when subsequent cache operations access freed node pointers in the linked list
+      - **CWE-415 (Double Free):** potential heap corruption when the same memory is freed multiple times
+      
+      Both types of undefined behavior can be invoked in safe Rust, but only if unwinding panics are enabled and `std::panic::catch_unwind` is used with key types that have potentially-panicking `Drop` implementations.
+      
+      ## Fix
+      
+      Fixed in `lru` 0.18.2 by detaching the node from the linked list before freeing it and dropping the key ([lru-rs#238](https://github.com/jeromefroe/lru-rs/pull/238)).
+    ├ Announcement: https://github.com/jeromefroe/lru-rs/pull/238
+    ├ Solution: Upgrade to >=0.18.2 (try `cargo update -p lru`)
+    ├ lru v0.16.3
+      ├── cyber-radio-relay v0.1.0
+      │   └── cyber-radio v0.1.0
+      │       ├── iroh-bench v0.96.1
+      │       ├── iroh-blobs v0.98.0
+      │       │   ├── iroh-docs v0.96.0
+      │       │   │   └── radio-integration-tests v0.1.0
+      │       │   ├── radio-cli v0.1.0
+      │       │   └── radio-integration-tests v0.1.0 (*)
+      │       ├── (dev) iroh-dns-server v0.96.1
+      │       ├── (dev) iroh-docs v0.96.0 (*)
+      │       ├── iroh-gossip v0.96.0
+      │       │   ├── iroh-docs v0.96.0 (*)
+      │       │   ├── radio-cli v0.1.0 (*)
+      │       │   └── radio-integration-tests v0.1.0 (*)
+      │       ├── (dev) iroh-willow v0.28.0
+      │       ├── radio-cli v0.1.0 (*)
+      │       └── radio-integration-tests v0.1.0 (*)
+      ├── iroh-dns-server v0.96.1 (*)
+      ├── iroh-relay v0.96.1
+      │   └── iroh v0.96.1
+      │       └── iroh-blobs v0.98.0
+      │           └── iroh-willow v0.28.0 (*)
+      ├── mainline v6.0.1
+      │   └── pkarr v5.0.2
+      │       ├── cyber-radio v0.1.0 (*)
+      │       ├── cyber-radio-relay v0.1.0 (*)
+      │       ├── iroh v0.96.1 (*)
+      │       ├── iroh-dns-server v0.96.1 (*)
+      │       └── iroh-relay v0.96.1 (*)
+      └── pkarr v5.0.2 (*)
+
+error[unmaintained]: proc-macro-error is unmaintained
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:391:1
+    │
+391 │ proc-macro-error 0.4.12 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unmaintained advisory detected
+    │
+    ├ ID: RUSTSEC-2024-0370
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2024-0370
+    ├ proc-macro-error's maintainer seems to be unreachable, with no commits for 2 years, no releases pushed for 4 years, and no activity on the GitLab repo or response to email.
+      
+      proc-macro-error also depends on `syn 1.x`, which may be bringing duplicate dependencies into dependant build trees.
+      
+      ## Possible Alternative(s)
+      
+      - [manyhow](https://crates.io/crates/manyhow)
+      - [proc-macro2-diagnostics](https://github.com/SergioBenitez/proc-macro2-diagnostics)
+    ├ Announcement: https://gitlab.com/CreepySkeleton/proc-macro-error/-/issues/20
+    ├ Solution: No safe upgrade is available!
+    ├ proc-macro-error v0.4.12
+      └── genawaiter-proc-macro v0.99.1
+          └── genawaiter v0.99.1
+              ├── bao-tree v0.16.0
+              │   └── iroh-blobs v0.98.0
+              │       └── iroh-willow v0.28.0
+              ├── cyber-bao v0.1.0
+              │   ├── iroh-blobs v0.98.0
+              │   │   ├── iroh-docs v0.96.0
+              │   │   │   └── radio-integration-tests v0.1.0
+              │   │   ├── radio-cli v0.1.0
+              │   │   └── radio-integration-tests v0.1.0 (*)
+              │   ├── particle v0.1.0
+              │   ├── radio-cli v0.1.0 (*)
+              │   └── radio-integration-tests v0.1.0 (*)
+              ├── iroh-blobs v0.98.0 (*)
+              ├── iroh-blobs v0.98.0 (*)
+              ├── iroh-willow v0.28.0 (*)
+              └── willow-store v0.1.0
+                  └── iroh-willow v0.28.0 (*)
+
+error[vulnerability]: Quadratic run time when checking a start tag for duplicate attribute names
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:398:1
+    │
+398 │ quick-xml 0.38.4 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0194
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0194
+    ├ `BytesStart::attributes()` returns an `Attributes` iterator which, by default
+      (`with_checks(true)`), rejects a start tag that repeats an attribute name. For
+      each attribute yielded, the iterator compared the new name against every name
+      seen so far in the same tag using a linear scan, so a start tag with `N`
+      distinct attribute names cost `O(N²)` byte comparisons. There was no bound on
+      `N` other than the size of the buffered start tag.
+      
+      ## Impact
+      
+      Any code that parses untrusted XML and iterates a start tag's attributes with
+      the default duplicate check enabled can be made to spend CPU time quadratic in
+      the number of attributes on a single tag. Because the check is pure computation
+      with no `.await`/I/O, an I/O-based timeout on the consumer (for example a read
+      or request timeout) cannot interrupt it while it runs.
+      
+      Measured cost of a single start tag, release build:
+      
+      | Attributes on one tag | Time |
+      |---|---|
+      | 80,000  | ~6 s   |
+      | 800,000 | ~10 min |
+      
+      The cost grows with the square of the attribute count, so a start tag of a few
+      tens of megabytes can stall a parsing thread for hours. No memory is exhausted
+      and the parser does not crash; the effect is CPU exhaustion on the thread doing
+      the parsing: a single crafted start tag can pin a CPU core for minutes to hours,
+      denying service to that worker. A deployment that places a wall-clock bound on
+      parsing, or confines it to a non-critical thread, may consider the availability
+      impact lower.
+      
+      ## Affected code paths
+      
+      * `BytesStart::attributes()` / `Attributes` iterated with checks enabled (the
+        default), and `BytesStart::try_get_attribute`.
+      * `NsReader`, which resolves namespaces by iterating a tag's attributes and so
+        reaches the same check internally.
+      
+      Consumers that iterate attributes with `.attributes().with_checks(false)` and do
+      not use `NsReader` are not affected.
+      
+      This was reported as reachable by a remote, unauthenticated attacker in a
+      real-world RPKI relying party (NLnet Labs Routinator) via a crafted RRDP
+      `snapshot.xml`.
+      
+      ## Remediation
+      
+      Upgrade to `quick-xml >= 0.41.0`, where the duplicate check keeps the linear
+      scan for start tags with a small number of attributes and switches to an `O(1)`
+      hash pre-filter above a threshold, making the whole tag `O(N)`. The reported
+      `AttrError::Duplicated` positions are unchanged.
+      
+      If upgrading is not possible and duplicate-name detection is not required,
+      disable it with `.attributes().with_checks(false)` (this does not help
+      `NsReader` consumers, which have no equivalent opt-out before 0.41.0).
+    ├ Announcement: https://github.com/tafia/quick-xml/issues/969
+    ├ Solution: Upgrade to >=0.41.0 (try `cargo update -p quick-xml`)
+    ├ quick-xml v0.38.4
+      └── plist v1.8.0
+          └── netdev v0.40.0
+              ├── cyber-radio v0.1.0
+              │   ├── iroh-bench v0.96.1
+              │   ├── iroh-blobs v0.98.0
+              │   │   ├── iroh-docs v0.96.0
+              │   │   │   └── radio-integration-tests v0.1.0
+              │   │   ├── radio-cli v0.1.0
+              │   │   └── radio-integration-tests v0.1.0 (*)
+              │   ├── (dev) iroh-dns-server v0.96.1
+              │   ├── (dev) iroh-docs v0.96.0 (*)
+              │   ├── iroh-gossip v0.96.0
+              │   │   ├── iroh-docs v0.96.0 (*)
+              │   │   ├── radio-cli v0.1.0 (*)
+              │   │   └── radio-integration-tests v0.1.0 (*)
+              │   ├── (dev) iroh-willow v0.28.0
+              │   ├── radio-cli v0.1.0 (*)
+              │   └── radio-integration-tests v0.1.0 (*)
+              ├── cyber-radio-netwatch v0.1.0
+              │   ├── cyber-radio v0.1.0 (*)
+              │   └── cyber-radio-portmapper v0.1.0
+              │       └── cyber-radio v0.1.0 (*)
+              ├── iroh v0.96.1
+              │   └── iroh-blobs v0.98.0
+              │       └── iroh-willow v0.28.0 (*)
+              └── netwatch v0.14.0
+                  ├── iroh v0.96.1 (*)
+                  └── portmapper v0.14.0
+                      └── iroh v0.96.1 (*)
+
+error[vulnerability]: Unbounded namespace-declaration allocation in `NsReader` enables memory-exhaustion denial of service
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:398:1
+    │
+398 │ quick-xml 0.38.4 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0195
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0195
+    ├ `NsReader` resolves namespaces by calling `NamespaceResolver::push` for every
+      `Start`/`Empty` event *before* the event is returned to the caller. `push`
+      iterated all `xmlns` / `xmlns:*` attributes on the start tag and, for each one,
+      appended the prefix bytes to an internal buffer and pushed a `NamespaceBinding`
+      (32 bytes on 64-bit) to an internal `Vec`, with no upper bound on the number of
+      declarations.
+      
+      ## Impact
+      
+      A start tag with `N` namespace declarations drove roughly `3×` the tag's byte
+      size in `NamespaceResolver` heap, allocated *inside* `quick-xml` before the
+      `NsReader` consumer ever received the event and could inspect or reject it. A
+      consumer that bounds its *input* size therefore still cannot bound this
+      allocation: an `M`-byte start tag yields on the order of `3 × M` bytes of
+      resolver heap the caller never sees.
+      
+      On untrusted XML this lets a remote, unauthenticated attacker force large heap
+      allocations with a single start tag. With several `NsReader`s running
+      concurrently on independent inputs (a common server pattern), the allocations
+      stack and can exhaust process memory, causing the operating system to kill the
+      process (OOM). This was confirmed against a real-world RPKI relying party (NLnet
+      Labs Routinator), where concurrent RRDP validation workers parsing a crafted
+      `snapshot.xml` exceeded the memory limit and the process was OOM-killed.
+      
+      ## Affected code paths
+      
+      Consumers using `NsReader` (which always calls `NamespaceResolver::push` before
+      yielding `Start`/`Empty`), or calling `NamespaceResolver::push` directly. A plain
+      `Reader` that does not perform namespace resolution is not affected.
+      
+      ## Remediation
+      
+      Upgrade to `quick-xml >= 0.41.0`. `NamespaceResolver::push` now rejects a start
+      tag that declares more than `DEFAULT_MAX_DECLARATIONS_PER_ELEMENT` (256)
+      namespace bindings, returning the new `NamespaceError::TooManyDeclarations`
+      instead of allocating without limit. The limit is configurable via
+      `NamespaceResolver::set_max_declarations_per_element` (use `usize::MAX` to
+      restore the previous unbounded behavior), and `NsReader::resolver_mut()` is
+      provided to reach it.
+      
+      There is no clean workaround for `NsReader` consumers before 0.41.0, as the
+      allocation happens inside the reader with no configuration knob to cap it.
+    ├ Announcement: https://github.com/tafia/quick-xml/issues/970
+    ├ Solution: Upgrade to >=0.41.0 (try `cargo update -p quick-xml`)
+    ├ quick-xml v0.38.4
+      └── plist v1.8.0
+          └── netdev v0.40.0
+              ├── cyber-radio v0.1.0
+              │   ├── iroh-bench v0.96.1
+              │   ├── iroh-blobs v0.98.0
+              │   │   ├── iroh-docs v0.96.0
+              │   │   │   └── radio-integration-tests v0.1.0
+              │   │   ├── radio-cli v0.1.0
+              │   │   └── radio-integration-tests v0.1.0 (*)
+              │   ├── (dev) iroh-dns-server v0.96.1
+              │   ├── (dev) iroh-docs v0.96.0 (*)
+              │   ├── iroh-gossip v0.96.0
+              │   │   ├── iroh-docs v0.96.0 (*)
+              │   │   ├── radio-cli v0.1.0 (*)
+              │   │   └── radio-integration-tests v0.1.0 (*)
+              │   ├── (dev) iroh-willow v0.28.0
+              │   ├── radio-cli v0.1.0 (*)
+              │   └── radio-integration-tests v0.1.0 (*)
+              ├── cyber-radio-netwatch v0.1.0
+              │   ├── cyber-radio v0.1.0 (*)
+              │   └── cyber-radio-portmapper v0.1.0
+              │       └── cyber-radio v0.1.0 (*)
+              ├── iroh v0.96.1
+              │   └── iroh-blobs v0.98.0
+              │       └── iroh-willow v0.28.0 (*)
+              └── netwatch v0.14.0
+                  ├── iroh v0.96.1 (*)
+                  └── portmapper v0.14.0
+                      └── iroh v0.96.1 (*)
+
+error[unsound]: Rand is unsound with a custom logger using `rand::rng()`
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:403:1
+    │
+403 │ rand 0.8.5 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+    │
+    ├ ID: RUSTSEC-2026-0097
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0097
+    ├ It has been reported (by [@lopopolo](https://github.com/lopopolo)) that the `rand` library is [unsound](https://rust-lang.github.io/unsafe-code-guidelines/glossary.html#soundness-of-code--of-a-library) (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met:
+      
+      - The `log` and `thread_rng` features are enabled
+      - A [custom logger](https://docs.rs/log/latest/log/#implementing-a-logger) is defined
+      - The custom logger accesses `rand::rng()` (previously `rand::thread_rng()`) and calls any `TryRng` (previously `RngCore`) methods on `ThreadRng`
+      - The `ThreadRng` (attempts to) reseed while called from the custom logger (this happens every 64 kB of generated data)
+      - Trace-level logging is enabled or warn-level logging is enabled and the random source (the `getrandom` crate) is unable to provide a new seed
+      
+      `TryRng` (previously `RngCore`) methods for `ThreadRng` use `unsafe` code to cast `*mut BlockRng<ReseedingCore>` to `&mut BlockRng<ReseedingCore>`. When all the above conditions are met this results in an aliased mutable reference, violating the Stacked Borrows rules. Miri is able to detect this violation in sample code. Since construction of [aliased mutable references is Undefined Behaviour](https://doc.rust-lang.org/stable/nomicon/references.html), the behaviour of optimized builds is hard to predict.
+    ├ Announcement: https://github.com/rust-random/rand/pull/1763
+    ├ Solution: Upgrade to >=0.10.1 OR <0.10.0, >=0.9.3 OR <0.9.0, >=0.8.6 (try `cargo update -p rand`)
+    ├ rand v0.8.5
+      └── iroh-willow v0.28.0
+
+error[unsound]: Rand is unsound with a custom logger using `rand::rng()`
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:404:1
+    │
+404 │ rand 0.9.2 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+    │
+    ├ ID: RUSTSEC-2026-0097
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0097
+    ├ It has been reported (by [@lopopolo](https://github.com/lopopolo)) that the `rand` library is [unsound](https://rust-lang.github.io/unsafe-code-guidelines/glossary.html#soundness-of-code--of-a-library) (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met:
+      
+      - The `log` and `thread_rng` features are enabled
+      - A [custom logger](https://docs.rs/log/latest/log/#implementing-a-logger) is defined
+      - The custom logger accesses `rand::rng()` (previously `rand::thread_rng()`) and calls any `TryRng` (previously `RngCore`) methods on `ThreadRng`
+      - The `ThreadRng` (attempts to) reseed while called from the custom logger (this happens every 64 kB of generated data)
+      - Trace-level logging is enabled or warn-level logging is enabled and the random source (the `getrandom` crate) is unable to provide a new seed
+      
+      `TryRng` (previously `RngCore`) methods for `ThreadRng` use `unsafe` code to cast `*mut BlockRng<ReseedingCore>` to `&mut BlockRng<ReseedingCore>`. When all the above conditions are met this results in an aliased mutable reference, violating the Stacked Borrows rules. Miri is able to detect this violation in sample code. Since construction of [aliased mutable references is Undefined Behaviour](https://doc.rust-lang.org/stable/nomicon/references.html), the behaviour of optimized builds is hard to predict.
+    ├ Announcement: https://github.com/rust-random/rand/pull/1763
+    ├ Solution: Upgrade to >=0.10.1 OR <0.10.0, >=0.9.3 OR <0.9.0, >=0.8.6 (try `cargo update -p rand`)
+    ├ rand v0.9.2
+      ├── cyber-hemera v0.1.2
+      │   └── radio-integration-tests v0.1.0
+      ├── cyber-radio v0.1.0
+      │   ├── iroh-bench v0.96.1
+      │   ├── iroh-blobs v0.98.0
+      │   │   ├── iroh-docs v0.96.0
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── radio-cli v0.1.0
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-willow v0.28.0
+      │   ├── radio-cli v0.1.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── (dev) cyber-radio-base v0.1.1
+      │   ├── (dev) cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0
+      │   │   └── cyber-radio v0.1.0 (*)
+      │   ├── iroh-blobs v0.98.0 (*)
+      │   ├── iroh-gossip v0.96.0 (*)
+      │   ├── iroh-willow v0.28.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── cyber-radio-portmapper v0.1.0
+      │   └── cyber-radio v0.1.0 (*)
+      ├── cyber-radio-quinn-proto v0.1.0
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   └── iroh-bench v0.96.1 (*)
+      │   └── cyber-radio-relay v0.1.0 (*)
+      ├── cyber-radio-relay v0.1.0 (*)
+      ├── fastbloom v0.14.1
+      │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   └── iroh-quinn-proto v0.15.1
+      │       ├── iroh v0.96.1
+      │       │   └── iroh-blobs v0.98.0
+      │       │       └── iroh-willow v0.28.0 (*)
+      │       ├── iroh-quinn v0.16.1
+      │       │   ├── iroh v0.96.1 (*)
+      │       │   ├── iroh-blobs v0.98.0 (*)
+      │       │   ├── iroh-blobs v0.98.0 (*)
+      │       │   ├── iroh-docs v0.96.0 (*)
+      │       │   ├── iroh-gossip v0.96.0 (*)
+      │       │   ├── iroh-relay v0.96.1
+      │       │   │   └── iroh v0.96.1 (*)
+      │       │   └── irpc v0.12.0
+      │       │       ├── iroh-blobs v0.98.0 (*)
+      │       │       ├── iroh-blobs v0.98.0 (*)
+      │       │       ├── iroh-docs v0.96.0 (*)
+      │       │       ├── iroh-gossip v0.96.0 (*)
+      │       │       └── iroh-willow v0.28.0 (*)
+      │       └── iroh-relay v0.96.1 (*)
+      ├── governor v0.10.4
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   └── tower_governor v0.8.0
+      │       └── iroh-dns-server v0.96.1 (*)
+      ├── hickory-proto v0.25.2
+      │   ├── hickory-resolver v0.25.2
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   └── iroh-relay v0.96.1 (*)
+      │   ├── hickory-server v0.25.2
+      │   │   └── iroh-dns-server v0.96.1 (*)
+      │   └── swarm-discovery v0.5.0
+      │       └── cyber-radio v0.1.0 (*)
+      ├── hickory-resolver v0.25.2 (*)
+      ├── igd-next v0.16.2
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-portmapper v0.1.0 (*)
+      │   ├── iroh v0.96.1 (*)
+      │   └── portmapper v0.14.0
+      │       └── iroh v0.96.1 (*)
+      ├── iroh v0.96.1 (*)
+      ├── iroh-bench v0.96.1 (*)
+      ├── iroh-blobs v0.98.0 (*)
+      ├── iroh-blobs v0.98.0 (*)
+      ├── (dev) iroh-dns-server v0.96.1 (*)
+      ├── iroh-docs v0.96.0 (*)
+      ├── iroh-gossip v0.96.0 (*)
+      ├── iroh-quinn-proto v0.15.1 (*)
+      ├── iroh-relay v0.96.1 (*)
+      ├── p3-field v0.4.2
+      │   ├── cyber-hemera v0.1.2 (*)
+      │   ├── p3-challenger v0.4.2
+      │   │   └── p3-goldilocks v0.4.2
+      │   │       └── cyber-hemera v0.1.2 (*)
+      │   ├── p3-dft v0.4.2
+      │   │   ├── p3-goldilocks v0.4.2 (*)
+      │   │   ├── p3-mds v0.4.2
+      │   │   │   ├── p3-goldilocks v0.4.2 (*)
+      │   │   │   ├── p3-monty-31 v0.4.2
+      │   │   │   │   └── p3-challenger v0.4.2 (*)
+      │   │   │   └── p3-poseidon2 v0.4.2
+      │   │   │       ├── cyber-hemera v0.1.2 (*)
+      │   │   │       ├── p3-goldilocks v0.4.2 (*)
+      │   │   │       └── p3-monty-31 v0.4.2 (*)
+      │   │   └── p3-monty-31 v0.4.2 (*)
+      │   ├── p3-goldilocks v0.4.2 (*)
+      │   ├── p3-matrix v0.4.2
+      │   │   ├── p3-dft v0.4.2 (*)
+      │   │   └── p3-monty-31 v0.4.2 (*)
+      │   ├── p3-mds v0.4.2 (*)
+      │   ├── p3-monty-31 v0.4.2 (*)
+      │   ├── p3-poseidon2 v0.4.2 (*)
+      │   └── p3-symmetric v0.4.2
+      │       ├── cyber-hemera v0.1.2 (*)
+      │       ├── p3-challenger v0.4.2 (*)
+      │       ├── p3-goldilocks v0.4.2 (*)
+      │       ├── p3-mds v0.4.2 (*)
+      │       ├── p3-monty-31 v0.4.2 (*)
+      │       └── p3-poseidon2 v0.4.2 (*)
+      ├── p3-goldilocks v0.4.2 (*)
+      ├── p3-matrix v0.4.2 (*)
+      ├── p3-mds v0.4.2 (*)
+      ├── p3-monty-31 v0.4.2 (*)
+      ├── p3-poseidon2 v0.4.2 (*)
+      ├── portmapper v0.14.0 (*)
+      ├── proptest v1.10.0
+      │   ├── (dev) cyber-bao v0.1.0
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── particle v0.1.0
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) cyber-radio-base v0.1.1 (*)
+      │   ├── (dev) cyber-radio-relay v0.1.0 (*)
+      │   ├── (dev) iroh-blobs v0.98.0 (*)
+      │   ├── (dev) iroh-car v0.5.0
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   └── (dev) iroh-willow v0.28.0 (*)
+      ├── radio-cli v0.1.0 (*)
+      ├── radio-integration-tests v0.1.0 (*)
+      ├── swarm-discovery v0.5.0 (*)
+      └── tokio-websockets v0.12.3
+          ├── cyber-radio-relay v0.1.0 (*)
+          └── iroh-relay v0.96.1 (*)
+
+error[vulnerability]: TLS 1.3 handshake messages incorrectly accepted across encryption level boundaries
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:435:1
+    │
+435 │ rustls 0.23.36 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0285
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0285
+    ├ Rustls accepted TLS 1.3 handshake messages sent at the wrong encryption level
+      when they followed a key-changing message in the same record. For example,
+      a plaintext `EncryptedExtensions` message packed into the same record as the
+      `ServerHello` was accepted.
+      
+      RFC 8446 section 5.1 requires that handshake messages do not span key changes,
+      and that implementations terminate the connection with an "unexpected_message"
+      alert if they do.
+      
+      The handshake transcript is still authenticated, so a network-position attacker
+      cannot use this to alter or complete a handshake; the practical effect is that
+      a peer could send handshake messages that should be encrypted in plaintext
+      without rustls rejecting the connection.
+      
+      This is functionally the same bug as Go's
+      [GO-2026-4340](https://pkg.go.dev/vuln/GO-2026-4340) (CVE-2025-61730).
+    ├ Announcement: https://github.com/rustls/rustls/pull/3265
+    ├ Solution: Upgrade to >=0.23.45 (try `cargo update -p rustls`)
+    ├ rustls v0.23.36
+      ├── axum-server v0.8.0
+      │   ├── iroh-dns-server v0.96.1
+      │   └── tokio-rustls-acme v0.9.0
+      │       ├── cyber-radio-relay v0.1.0
+      │       │   └── cyber-radio v0.1.0
+      │       │       ├── iroh-bench v0.96.1
+      │       │       ├── iroh-blobs v0.98.0
+      │       │       │   ├── iroh-docs v0.96.0
+      │       │       │   │   └── radio-integration-tests v0.1.0
+      │       │       │   ├── radio-cli v0.1.0
+      │       │       │   └── radio-integration-tests v0.1.0 (*)
+      │       │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │       │       ├── (dev) iroh-docs v0.96.0 (*)
+      │       │       ├── iroh-gossip v0.96.0
+      │       │       │   ├── iroh-docs v0.96.0 (*)
+      │       │       │   ├── radio-cli v0.1.0 (*)
+      │       │       │   └── radio-integration-tests v0.1.0 (*)
+      │       │       ├── (dev) iroh-willow v0.28.0
+      │       │       ├── radio-cli v0.1.0 (*)
+      │       │       └── radio-integration-tests v0.1.0 (*)
+      │       └── iroh-dns-server v0.96.1 (*)
+      ├── cyber-radio v0.1.0 (*)
+      ├── cyber-radio-quinn v0.1.0
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   └── iroh-bench v0.96.1 (*)
+      ├── cyber-radio-quinn-proto v0.1.0
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0 (*)
+      │   └── cyber-radio-relay v0.1.0 (*)
+      ├── cyber-radio-relay v0.1.0 (*)
+      ├── hickory-proto v0.25.2
+      │   ├── hickory-resolver v0.25.2
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── iroh v0.96.1
+      │   │   │   └── iroh-blobs v0.98.0
+      │   │   │       └── iroh-willow v0.28.0 (*)
+      │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   └── iroh-relay v0.96.1
+      │   │       └── iroh v0.96.1 (*)
+      │   ├── hickory-server v0.25.2
+      │   │   └── iroh-dns-server v0.96.1 (*)
+      │   └── swarm-discovery v0.5.0
+      │       └── cyber-radio v0.1.0 (*)
+      ├── hickory-resolver v0.25.2 (*)
+      ├── hickory-server v0.25.2 (*)
+      ├── hyper-rustls v0.27.7
+      │   └── reqwest v0.12.28
+      │       ├── cyber-radio v0.1.0 (*)
+      │       ├── cyber-radio-relay v0.1.0 (*)
+      │       ├── iroh v0.96.1 (*)
+      │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │       ├── iroh-metrics v0.38.2
+      │       │   ├── cyber-radio v0.1.0 (*)
+      │       │   ├── cyber-radio-portmapper v0.1.0
+      │       │   │   └── cyber-radio v0.1.0 (*)
+      │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │       │   ├── iroh v0.96.1 (*)
+      │       │   ├── iroh-bench v0.96.1 (*)
+      │       │   ├── iroh-blobs v0.98.0 (*)
+      │       │   ├── iroh-blobs v0.98.0 (*)
+      │       │   ├── iroh-dns-server v0.96.1 (*)
+      │       │   ├── iroh-docs v0.96.0 (*)
+      │       │   ├── iroh-gossip v0.96.0 (*)
+      │       │   ├── iroh-relay v0.96.1 (*)
+      │       │   ├── iroh-willow v0.28.0 (*)
+      │       │   └── portmapper v0.14.0
+      │       │       └── iroh v0.96.1 (*)
+      │       ├── iroh-relay v0.96.1 (*)
+      │       ├── pkarr v5.0.2
+      │       │   ├── cyber-radio v0.1.0 (*)
+      │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │       │   ├── iroh v0.96.1 (*)
+      │       │   ├── iroh-dns-server v0.96.1 (*)
+      │       │   └── iroh-relay v0.96.1 (*)
+      │       └── tokio-rustls-acme v0.9.0 (*)
+      ├── iroh v0.96.1 (*)
+      ├── iroh-bench v0.96.1 (*)
+      ├── iroh-dns-server v0.96.1 (*)
+      ├── iroh-quinn v0.16.1
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-blobs v0.98.0 (*)
+      │   ├── iroh-blobs v0.98.0 (*)
+      │   ├── iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   └── irpc v0.12.0
+      │       ├── iroh-blobs v0.98.0 (*)
+      │       ├── iroh-blobs v0.98.0 (*)
+      │       ├── iroh-docs v0.96.0 (*)
+      │       ├── iroh-gossip v0.96.0 (*)
+      │       └── iroh-willow v0.28.0 (*)
+      ├── iroh-quinn-proto v0.15.1
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-quinn v0.16.1 (*)
+      │   └── iroh-relay v0.96.1 (*)
+      ├── iroh-relay v0.96.1 (*)
+      ├── irpc v0.12.0 (*)
+      ├── reqwest v0.12.28 (*)
+      ├── rustls-cert-reloadable-resolver v0.7.1
+      │   └── cyber-radio-relay v0.1.0 (*)
+      ├── rustls-platform-verifier v0.6.2
+      │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   └── iroh-quinn-proto v0.15.1 (*)
+      ├── tokio-rustls v0.26.4
+      │   ├── axum-server v0.8.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hickory-proto v0.25.2 (*)
+      │   ├── hickory-resolver v0.25.2 (*)
+      │   ├── hickory-server v0.25.2 (*)
+      │   ├── hyper-rustls v0.27.7 (*)
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   ├── reqwest v0.12.28 (*)
+      │   ├── tokio-rustls-acme v0.9.0 (*)
+      │   └── tokio-websockets v0.12.3
+      │       ├── cyber-radio-relay v0.1.0 (*)
+      │       └── iroh-relay v0.96.1 (*)
+      └── tokio-rustls-acme v0.9.0 (*)
+
+error[vulnerability]: CRLs not considered authoritative by Distribution Point due to faulty matching logic
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:443:1
+    │
+443 │ rustls-webpki 0.103.9 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0049
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0049
+    ├ If a certificate had more than one `distributionPoint`, then only the first `distributionPoint` would be considered against each CRL's `IssuingDistributionPoint` `distributionPoint`, and then the certificate's subsequent `distributionPoint`s would be ignored.
+      
+      The impact was that correctly provided CRLs would not be consulted to check revocation. With `UnknownStatusPolicy::Deny` (the default) this would lead to incorrect but safe `Error::UnknownRevocationStatus`. With `UnknownStatusPolicy::Allow` this would lead to inappropriate acceptance of revoked certificates.
+      
+      This vulnerability is thought to be of limited impact. This is because both the certificate and CRL are signed -- an attacker would need to compromise a trusted issuing authority to trigger this bug.  An attacker with such capabilities could likely bypass revocation checking through other more impactful means (such as publishing a valid, empty CRL.)
+      
+      More likely, this bug would be latent in normal use, and an attacker could leverage faulty revocation checking to continue using a revoked credential.
+      
+      This vulnerability is identified as [GHSA-pwjx-qhcg-rvj4](https://github.com/rustls/webpki/security/advisories/GHSA-pwjx-qhcg-rvj4). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.10 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.9
+      ├── cyber-radio v0.1.0
+      │   ├── iroh-bench v0.96.1
+      │   ├── iroh-blobs v0.98.0
+      │   │   ├── iroh-docs v0.96.0
+      │   │   │   └── radio-integration-tests v0.1.0
+      │   │   ├── radio-cli v0.1.0
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-willow v0.28.0
+      │   ├── radio-cli v0.1.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── iroh v0.96.1
+      │   └── iroh-blobs v0.98.0
+      │       └── iroh-willow v0.28.0 (*)
+      ├── rustls v0.23.36
+      │   ├── axum-server v0.8.0
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tokio-rustls-acme v0.9.0
+      │   │       ├── cyber-radio-relay v0.1.0
+      │   │       │   └── cyber-radio v0.1.0 (*)
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   └── iroh-bench v0.96.1 (*)
+      │   ├── cyber-radio-quinn-proto v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-quinn v0.1.0 (*)
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hickory-proto v0.25.2
+      │   │   ├── hickory-resolver v0.25.2
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   │   └── iroh-relay v0.96.1
+      │   │   │       └── iroh v0.96.1 (*)
+      │   │   ├── hickory-server v0.25.2
+      │   │   │   └── iroh-dns-server v0.96.1 (*)
+      │   │   └── swarm-discovery v0.5.0
+      │   │       └── cyber-radio v0.1.0 (*)
+      │   ├── hickory-resolver v0.25.2 (*)
+      │   ├── hickory-server v0.25.2 (*)
+      │   ├── hyper-rustls v0.27.7
+      │   │   └── reqwest v0.12.28
+      │   │       ├── cyber-radio v0.1.0 (*)
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       ├── iroh v0.96.1 (*)
+      │   │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │       ├── iroh-metrics v0.38.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-portmapper v0.1.0
+      │   │       │   │   └── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-bench v0.96.1 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   ├── iroh-docs v0.96.0 (*)
+      │   │       │   ├── iroh-gossip v0.96.0 (*)
+      │   │       │   ├── iroh-relay v0.96.1 (*)
+      │   │       │   ├── iroh-willow v0.28.0 (*)
+      │   │       │   └── portmapper v0.14.0
+      │   │       │       └── iroh v0.96.1 (*)
+      │   │       ├── iroh-relay v0.96.1 (*)
+      │   │       ├── pkarr v5.0.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   └── iroh-relay v0.96.1 (*)
+      │   │       └── tokio-rustls-acme v0.9.0 (*)
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-bench v0.96.1 (*)
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   ├── iroh-quinn v0.16.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   └── irpc v0.12.0
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-docs v0.96.0 (*)
+      │   │       ├── iroh-gossip v0.96.0 (*)
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── iroh-quinn-proto v0.15.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-quinn v0.16.1 (*)
+      │   │   └── iroh-relay v0.96.1 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   ├── irpc v0.12.0 (*)
+      │   ├── reqwest v0.12.28 (*)
+      │   ├── rustls-cert-reloadable-resolver v0.7.1
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── rustls-platform-verifier v0.6.2
+      │   │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   │   └── iroh-quinn-proto v0.15.1 (*)
+      │   ├── tokio-rustls v0.26.4
+      │   │   ├── axum-server v0.8.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── hickory-proto v0.25.2 (*)
+      │   │   ├── hickory-resolver v0.25.2 (*)
+      │   │   ├── hickory-server v0.25.2 (*)
+      │   │   ├── hyper-rustls v0.27.7 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   ├── reqwest v0.12.28 (*)
+      │   │   ├── tokio-rustls-acme v0.9.0 (*)
+      │   │   └── tokio-websockets v0.12.3
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       └── iroh-relay v0.96.1 (*)
+      │   └── tokio-rustls-acme v0.9.0 (*)
+      └── rustls-platform-verifier v0.6.2 (*)
+
+error[vulnerability]: Name constraints for URI names were incorrectly accepted
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:443:1
+    │
+443 │ rustls-webpki 0.103.9 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0098
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0098
+    ├ Name constraints for URI names were ignored and therefore accepted.
+      
+      Note this library does not provide an API for asserting URI names, and URI name constraints are otherwise not implemented.  URI name constraints are now rejected unconditionally.
+      
+      Since name constraints are restrictions on otherwise properly-issued certificates, this bug is reachable only after signature verification and requires misissuance to exploit.
+      
+      This vulnerability is identified as [GHSA-965h-392x-2mh5](https://github.com/rustls/webpki/security/advisories/GHSA-965h-392x-2mh5). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.12, <0.104.0-alpha.1 OR >=0.104.0-alpha.6 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.9
+      ├── cyber-radio v0.1.0
+      │   ├── iroh-bench v0.96.1
+      │   ├── iroh-blobs v0.98.0
+      │   │   ├── iroh-docs v0.96.0
+      │   │   │   └── radio-integration-tests v0.1.0
+      │   │   ├── radio-cli v0.1.0
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-willow v0.28.0
+      │   ├── radio-cli v0.1.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── iroh v0.96.1
+      │   └── iroh-blobs v0.98.0
+      │       └── iroh-willow v0.28.0 (*)
+      ├── rustls v0.23.36
+      │   ├── axum-server v0.8.0
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tokio-rustls-acme v0.9.0
+      │   │       ├── cyber-radio-relay v0.1.0
+      │   │       │   └── cyber-radio v0.1.0 (*)
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   └── iroh-bench v0.96.1 (*)
+      │   ├── cyber-radio-quinn-proto v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-quinn v0.1.0 (*)
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hickory-proto v0.25.2
+      │   │   ├── hickory-resolver v0.25.2
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   │   └── iroh-relay v0.96.1
+      │   │   │       └── iroh v0.96.1 (*)
+      │   │   ├── hickory-server v0.25.2
+      │   │   │   └── iroh-dns-server v0.96.1 (*)
+      │   │   └── swarm-discovery v0.5.0
+      │   │       └── cyber-radio v0.1.0 (*)
+      │   ├── hickory-resolver v0.25.2 (*)
+      │   ├── hickory-server v0.25.2 (*)
+      │   ├── hyper-rustls v0.27.7
+      │   │   └── reqwest v0.12.28
+      │   │       ├── cyber-radio v0.1.0 (*)
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       ├── iroh v0.96.1 (*)
+      │   │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │       ├── iroh-metrics v0.38.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-portmapper v0.1.0
+      │   │       │   │   └── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-bench v0.96.1 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   ├── iroh-docs v0.96.0 (*)
+      │   │       │   ├── iroh-gossip v0.96.0 (*)
+      │   │       │   ├── iroh-relay v0.96.1 (*)
+      │   │       │   ├── iroh-willow v0.28.0 (*)
+      │   │       │   └── portmapper v0.14.0
+      │   │       │       └── iroh v0.96.1 (*)
+      │   │       ├── iroh-relay v0.96.1 (*)
+      │   │       ├── pkarr v5.0.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   └── iroh-relay v0.96.1 (*)
+      │   │       └── tokio-rustls-acme v0.9.0 (*)
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-bench v0.96.1 (*)
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   ├── iroh-quinn v0.16.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   └── irpc v0.12.0
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-docs v0.96.0 (*)
+      │   │       ├── iroh-gossip v0.96.0 (*)
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── iroh-quinn-proto v0.15.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-quinn v0.16.1 (*)
+      │   │   └── iroh-relay v0.96.1 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   ├── irpc v0.12.0 (*)
+      │   ├── reqwest v0.12.28 (*)
+      │   ├── rustls-cert-reloadable-resolver v0.7.1
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── rustls-platform-verifier v0.6.2
+      │   │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   │   └── iroh-quinn-proto v0.15.1 (*)
+      │   ├── tokio-rustls v0.26.4
+      │   │   ├── axum-server v0.8.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── hickory-proto v0.25.2 (*)
+      │   │   ├── hickory-resolver v0.25.2 (*)
+      │   │   ├── hickory-server v0.25.2 (*)
+      │   │   ├── hyper-rustls v0.27.7 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   ├── reqwest v0.12.28 (*)
+      │   │   ├── tokio-rustls-acme v0.9.0 (*)
+      │   │   └── tokio-websockets v0.12.3
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       └── iroh-relay v0.96.1 (*)
+      │   └── tokio-rustls-acme v0.9.0 (*)
+      └── rustls-platform-verifier v0.6.2 (*)
+
+error[vulnerability]: Name constraints were accepted for certificates asserting a wildcard name
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:443:1
+    │
+443 │ rustls-webpki 0.103.9 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0099
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0099
+    ├ Permitted subtree name constraints for DNS names were accepted for certificates asserting a wildcard name.
+      
+      This was incorrect because, given a name constraint of `accept.example.com`, `*.example.com` could feasibly allow a name of `reject.example.com` which is outside the constraint.
+      This is very similar to [CVE-2025-61727](https://go.dev/issue/76442).
+      
+      Since name constraints are restrictions on otherwise properly-issued certificates, this bug is reachable only after signature verification and requires misissuance to exploit.
+      
+      This vulnerability is identified as [GHSA-xgp8-3hg3-c2mh](https://github.com/rustls/webpki/security/advisories/GHSA-xgp8-3hg3-c2mh). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.12, <0.104.0-alpha.1 OR >=0.104.0-alpha.6 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.9
+      ├── cyber-radio v0.1.0
+      │   ├── iroh-bench v0.96.1
+      │   ├── iroh-blobs v0.98.0
+      │   │   ├── iroh-docs v0.96.0
+      │   │   │   └── radio-integration-tests v0.1.0
+      │   │   ├── radio-cli v0.1.0
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-willow v0.28.0
+      │   ├── radio-cli v0.1.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── iroh v0.96.1
+      │   └── iroh-blobs v0.98.0
+      │       └── iroh-willow v0.28.0 (*)
+      ├── rustls v0.23.36
+      │   ├── axum-server v0.8.0
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tokio-rustls-acme v0.9.0
+      │   │       ├── cyber-radio-relay v0.1.0
+      │   │       │   └── cyber-radio v0.1.0 (*)
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   └── iroh-bench v0.96.1 (*)
+      │   ├── cyber-radio-quinn-proto v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-quinn v0.1.0 (*)
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hickory-proto v0.25.2
+      │   │   ├── hickory-resolver v0.25.2
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   │   └── iroh-relay v0.96.1
+      │   │   │       └── iroh v0.96.1 (*)
+      │   │   ├── hickory-server v0.25.2
+      │   │   │   └── iroh-dns-server v0.96.1 (*)
+      │   │   └── swarm-discovery v0.5.0
+      │   │       └── cyber-radio v0.1.0 (*)
+      │   ├── hickory-resolver v0.25.2 (*)
+      │   ├── hickory-server v0.25.2 (*)
+      │   ├── hyper-rustls v0.27.7
+      │   │   └── reqwest v0.12.28
+      │   │       ├── cyber-radio v0.1.0 (*)
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       ├── iroh v0.96.1 (*)
+      │   │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │       ├── iroh-metrics v0.38.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-portmapper v0.1.0
+      │   │       │   │   └── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-bench v0.96.1 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   ├── iroh-docs v0.96.0 (*)
+      │   │       │   ├── iroh-gossip v0.96.0 (*)
+      │   │       │   ├── iroh-relay v0.96.1 (*)
+      │   │       │   ├── iroh-willow v0.28.0 (*)
+      │   │       │   └── portmapper v0.14.0
+      │   │       │       └── iroh v0.96.1 (*)
+      │   │       ├── iroh-relay v0.96.1 (*)
+      │   │       ├── pkarr v5.0.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   └── iroh-relay v0.96.1 (*)
+      │   │       └── tokio-rustls-acme v0.9.0 (*)
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-bench v0.96.1 (*)
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   ├── iroh-quinn v0.16.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   └── irpc v0.12.0
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-docs v0.96.0 (*)
+      │   │       ├── iroh-gossip v0.96.0 (*)
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── iroh-quinn-proto v0.15.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-quinn v0.16.1 (*)
+      │   │   └── iroh-relay v0.96.1 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   ├── irpc v0.12.0 (*)
+      │   ├── reqwest v0.12.28 (*)
+      │   ├── rustls-cert-reloadable-resolver v0.7.1
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── rustls-platform-verifier v0.6.2
+      │   │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   │   └── iroh-quinn-proto v0.15.1 (*)
+      │   ├── tokio-rustls v0.26.4
+      │   │   ├── axum-server v0.8.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── hickory-proto v0.25.2 (*)
+      │   │   ├── hickory-resolver v0.25.2 (*)
+      │   │   ├── hickory-server v0.25.2 (*)
+      │   │   ├── hyper-rustls v0.27.7 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   ├── reqwest v0.12.28 (*)
+      │   │   ├── tokio-rustls-acme v0.9.0 (*)
+      │   │   └── tokio-websockets v0.12.3
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       └── iroh-relay v0.96.1 (*)
+      │   └── tokio-rustls-acme v0.9.0 (*)
+      └── rustls-platform-verifier v0.6.2 (*)
+
+error[vulnerability]: Reachable panic in certificate revocation list parsing
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:443:1
+    │
+443 │ rustls-webpki 0.103.9 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0104
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0104
+    ├ A panic was reachable when parsing certificate revocation lists via [`BorrowedCertRevocationList::from_der`]
+      or [`OwnedCertRevocationList::from_der`].  This was the result of mishandling a syntactically valid empty
+      `BIT STRING` appearing in the `onlySomeReasons` element of a `IssuingDistributionPoint` CRL extension.
+      
+      This panic is reachable prior to a CRL's signature being verified.
+      
+      Applications that do not use CRLs are not affected.
+      
+      Thank you to [@tynus3](https://github.com/tynus3) for the report.
+    ├ Solution: Upgrade to >=0.103.13, <0.104.0-alpha.1 OR >=0.104.0-alpha.7 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.9
+      ├── cyber-radio v0.1.0
+      │   ├── iroh-bench v0.96.1
+      │   ├── iroh-blobs v0.98.0
+      │   │   ├── iroh-docs v0.96.0
+      │   │   │   └── radio-integration-tests v0.1.0
+      │   │   ├── radio-cli v0.1.0
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-dns-server v0.96.1
+      │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   ├── iroh-gossip v0.96.0
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── radio-cli v0.1.0 (*)
+      │   │   └── radio-integration-tests v0.1.0 (*)
+      │   ├── (dev) iroh-willow v0.28.0
+      │   ├── radio-cli v0.1.0 (*)
+      │   └── radio-integration-tests v0.1.0 (*)
+      ├── iroh v0.96.1
+      │   └── iroh-blobs v0.98.0
+      │       └── iroh-willow v0.28.0 (*)
+      ├── rustls v0.23.36
+      │   ├── axum-server v0.8.0
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   └── tokio-rustls-acme v0.9.0
+      │   │       ├── cyber-radio-relay v0.1.0
+      │   │       │   └── cyber-radio v0.1.0 (*)
+      │   │       └── iroh-dns-server v0.96.1 (*)
+      │   ├── cyber-radio v0.1.0 (*)
+      │   ├── cyber-radio-quinn v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   └── iroh-bench v0.96.1 (*)
+      │   ├── cyber-radio-quinn-proto v0.1.0
+      │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-quinn v0.1.0 (*)
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── cyber-radio-relay v0.1.0 (*)
+      │   ├── hickory-proto v0.25.2
+      │   │   ├── hickory-resolver v0.25.2
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │   │   └── iroh-relay v0.96.1
+      │   │   │       └── iroh v0.96.1 (*)
+      │   │   ├── hickory-server v0.25.2
+      │   │   │   └── iroh-dns-server v0.96.1 (*)
+      │   │   └── swarm-discovery v0.5.0
+      │   │       └── cyber-radio v0.1.0 (*)
+      │   ├── hickory-resolver v0.25.2 (*)
+      │   ├── hickory-server v0.25.2 (*)
+      │   ├── hyper-rustls v0.27.7
+      │   │   └── reqwest v0.12.28
+      │   │       ├── cyber-radio v0.1.0 (*)
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       ├── iroh v0.96.1 (*)
+      │   │       ├── (dev) iroh-dns-server v0.96.1 (*)
+      │   │       ├── iroh-metrics v0.38.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-portmapper v0.1.0
+      │   │       │   │   └── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-bench v0.96.1 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-blobs v0.98.0 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   ├── iroh-docs v0.96.0 (*)
+      │   │       │   ├── iroh-gossip v0.96.0 (*)
+      │   │       │   ├── iroh-relay v0.96.1 (*)
+      │   │       │   ├── iroh-willow v0.28.0 (*)
+      │   │       │   └── portmapper v0.14.0
+      │   │       │       └── iroh v0.96.1 (*)
+      │   │       ├── iroh-relay v0.96.1 (*)
+      │   │       ├── pkarr v5.0.2
+      │   │       │   ├── cyber-radio v0.1.0 (*)
+      │   │       │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │       │   ├── iroh v0.96.1 (*)
+      │   │       │   ├── iroh-dns-server v0.96.1 (*)
+      │   │       │   └── iroh-relay v0.96.1 (*)
+      │   │       └── tokio-rustls-acme v0.9.0 (*)
+      │   ├── iroh v0.96.1 (*)
+      │   ├── iroh-bench v0.96.1 (*)
+      │   ├── iroh-dns-server v0.96.1 (*)
+      │   ├── iroh-quinn v0.16.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   └── irpc v0.12.0
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-blobs v0.98.0 (*)
+      │   │       ├── iroh-docs v0.96.0 (*)
+      │   │       ├── iroh-gossip v0.96.0 (*)
+      │   │       └── iroh-willow v0.28.0 (*)
+      │   ├── iroh-quinn-proto v0.15.1
+      │   │   ├── iroh v0.96.1 (*)
+      │   │   ├── iroh-quinn v0.16.1 (*)
+      │   │   └── iroh-relay v0.96.1 (*)
+      │   ├── iroh-relay v0.96.1 (*)
+      │   ├── irpc v0.12.0 (*)
+      │   ├── reqwest v0.12.28 (*)
+      │   ├── rustls-cert-reloadable-resolver v0.7.1
+      │   │   └── cyber-radio-relay v0.1.0 (*)
+      │   ├── rustls-platform-verifier v0.6.2
+      │   │   ├── cyber-radio-quinn-proto v0.1.0 (*)
+      │   │   └── iroh-quinn-proto v0.15.1 (*)
+      │   ├── tokio-rustls v0.26.4
+      │   │   ├── axum-server v0.8.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0 (*)
+      │   │   ├── hickory-proto v0.25.2 (*)
+      │   │   ├── hickory-resolver v0.25.2 (*)
+      │   │   ├── hickory-server v0.25.2 (*)
+      │   │   ├── hyper-rustls v0.27.7 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   ├── iroh-relay v0.96.1 (*)
+      │   │   ├── reqwest v0.12.28 (*)
+      │   │   ├── tokio-rustls-acme v0.9.0 (*)
+      │   │   └── tokio-websockets v0.12.3
+      │   │       ├── cyber-radio-relay v0.1.0 (*)
+      │   │       └── iroh-relay v0.96.1 (*)
+      │   └── tokio-rustls-acme v0.9.0 (*)
+      └── rustls-platform-verifier v0.6.2 (*)
+
+error[yanked]: detected yanked crate (try `cargo update -p core2`)
+   ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:90:1
+   │
+90 │ core2 0.4.0 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ yanked version
+   │
+   ├ core2 v0.4.0
+     ├── cid v0.11.1
+     │   ├── ipld-core v0.4.3
+     │   │   └── serde_ipld_dagcbor v0.6.4
+     │   │       └── iroh-car v0.5.0
+     │   └── iroh-car v0.5.0 (*)
+     ├── multihash v0.19.3
+     │   ├── cid v0.11.1 (*)
+     │   ├── (dev) iroh-car v0.5.0 (*)
+     │   └── multihash-derive v0.9.1
+     │       └── multihash-codetable v0.1.4
+     │           └── (dev) iroh-car v0.5.0 (*)
+     ├── multihash-codetable v0.1.4 (*)
+     └── multihash-derive v0.9.1 (*)
+
+error[yanked]: detected yanked crate (try `cargo update -p crypto-common`)
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:105:1
+    │
+105 │ crypto-common 0.2.0 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ yanked version
+    │
+    ├ crypto-common v0.2.0
+      └── digest v0.11.0-rc.10
+          ├── curve25519-dalek v5.0.0-pre.1
+          │   ├── cyber-radio-base v0.1.1
+          │   │   ├── (dev) cyber-radio v0.1.0
+          │   │   │   ├── iroh-bench v0.96.1
+          │   │   │   ├── iroh-blobs v0.98.0
+          │   │   │   │   ├── iroh-docs v0.96.0
+          │   │   │   │   │   └── radio-integration-tests v0.1.0
+          │   │   │   │   ├── radio-cli v0.1.0
+          │   │   │   │   └── radio-integration-tests v0.1.0 (*)
+          │   │   │   ├── (dev) iroh-dns-server v0.96.1
+          │   │   │   ├── (dev) iroh-docs v0.96.0 (*)
+          │   │   │   ├── iroh-gossip v0.96.0
+          │   │   │   │   ├── iroh-docs v0.96.0 (*)
+          │   │   │   │   ├── radio-cli v0.1.0 (*)
+          │   │   │   │   └── radio-integration-tests v0.1.0 (*)
+          │   │   │   ├── (dev) iroh-willow v0.28.0
+          │   │   │   ├── radio-cli v0.1.0 (*)
+          │   │   │   └── radio-integration-tests v0.1.0 (*)
+          │   │   ├── cyber-radio-relay v0.1.0
+          │   │   │   └── cyber-radio v0.1.0 (*)
+          │   │   ├── iroh-blobs v0.98.0 (*)
+          │   │   ├── iroh-gossip v0.96.0 (*)
+          │   │   ├── iroh-willow v0.28.0 (*)
+          │   │   └── radio-integration-tests v0.1.0 (*)
+          │   ├── ed25519-dalek v3.0.0-pre.1
+          │   │   ├── cyber-radio v0.1.0 (*)
+          │   │   ├── cyber-radio-base v0.1.1 (*)
+          │   │   ├── iroh v0.96.1
+          │   │   │   └── iroh-blobs v0.98.0
+          │   │   │       └── iroh-willow v0.28.0 (*)
+          │   │   ├── iroh-base v0.95.1
+          │   │   │   └── iroh-tickets v0.2.0
+          │   │   │       └── iroh-docs v0.96.0 (*)
+          │   │   ├── iroh-base v0.96.1
+          │   │   │   ├── iroh v0.96.1 (*)
+          │   │   │   ├── iroh-blobs v0.98.0 (*)
+          │   │   │   ├── iroh-relay v0.96.1
+          │   │   │   │   └── iroh v0.96.1 (*)
+          │   │   │   └── iroh-tickets v0.3.0
+          │   │   │       ├── iroh-blobs v0.98.0 (*)
+          │   │   │       └── iroh-blobs v0.98.0 (*)
+          │   │   ├── iroh-docs v0.96.0 (*)
+          │   │   ├── iroh-gossip v0.96.0 (*)
+          │   │   ├── mainline v6.0.1
+          │   │   │   └── pkarr v5.0.2
+          │   │   │       ├── cyber-radio v0.1.0 (*)
+          │   │   │       ├── cyber-radio-relay v0.1.0 (*)
+          │   │   │       ├── iroh v0.96.1 (*)
+          │   │   │       ├── iroh-dns-server v0.96.1 (*)
+          │   │   │       └── iroh-relay v0.96.1 (*)
+          │   │   └── pkarr v5.0.2 (*)
+          │   ├── iroh-base v0.95.1 (*)
+          │   └── iroh-base v0.96.1 (*)
+          ├── cyber-radio-base v0.1.1 (*)
+          ├── iroh-base v0.96.1 (*)
+          ├── sha1 v0.11.0-rc.4
+          │   └── cyber-radio-relay v0.1.0 (*)
+          └── sha2 v0.11.0-rc.2
+              ├── cyber-radio-base v0.1.1 (*)
+              ├── ed25519-dalek v3.0.0-pre.1 (*)
+              └── iroh-base v0.96.1 (*)
+
+error[yanked]: detected yanked crate (try `cargo update -p spin`)
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:492:1
+    │
+492 │ spin 0.10.0 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ yanked version
+    │
+    ├ spin v0.10.0
+      ├── futures-buffered v0.2.12
+      │   ├── iroh-docs v0.96.0
+      │   │   └── radio-integration-tests v0.1.0
+      │   ├── iroh-willow v0.28.0
+      │   ├── irpc v0.12.0
+      │   │   ├── iroh-blobs v0.98.0
+      │   │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   │   ├── radio-cli v0.1.0
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── iroh-blobs v0.98.0
+      │   │   │   └── iroh-willow v0.28.0 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0
+      │   │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   └── iroh-willow v0.28.0 (*)
+      │   ├── n0-future v0.3.2
+      │   │   ├── cyber-radio v0.1.0
+      │   │   │   ├── iroh-bench v0.96.1
+      │   │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   │   ├── (dev) iroh-dns-server v0.96.1
+      │   │   │   ├── (dev) iroh-docs v0.96.0 (*)
+      │   │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   │   ├── (dev) iroh-willow v0.28.0 (*)
+      │   │   │   ├── radio-cli v0.1.0 (*)
+      │   │   │   └── radio-integration-tests v0.1.0 (*)
+      │   │   ├── cyber-radio-netwatch v0.1.0
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   └── cyber-radio-portmapper v0.1.0
+      │   │   │       └── cyber-radio v0.1.0 (*)
+      │   │   ├── cyber-radio-relay v0.1.0
+      │   │   │   └── cyber-radio v0.1.0 (*)
+      │   │   ├── iroh v0.96.1
+      │   │   │   └── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-bench v0.96.1 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-blobs v0.98.0 (*)
+      │   │   ├── iroh-dns-server v0.96.1 (*)
+      │   │   ├── iroh-docs v0.96.0 (*)
+      │   │   ├── iroh-gossip v0.96.0 (*)
+      │   │   ├── iroh-relay v0.96.1
+      │   │   │   └── iroh v0.96.1 (*)
+      │   │   ├── iroh-willow v0.28.0 (*)
+      │   │   ├── irpc v0.12.0 (*)
+      │   │   ├── n0-watcher v0.6.1
+      │   │   │   ├── cyber-radio v0.1.0 (*)
+      │   │   │   ├── cyber-radio-netwatch v0.1.0 (*)
+      │   │   │   ├── iroh v0.96.1 (*)
+      │   │   │   └── netwatch v0.14.0
+      │   │   │       ├── iroh v0.96.1 (*)
+      │   │   │       └── portmapper v0.14.0
+      │   │   │           └── iroh v0.96.1 (*)
+      │   │   └── netwatch v0.14.0 (*)
+      │   └── pkarr v5.0.2
+      │       ├── cyber-radio v0.1.0 (*)
+      │       ├── cyber-radio-relay v0.1.0 (*)
+      │       ├── iroh v0.96.1 (*)
+      │       ├── iroh-dns-server v0.96.1 (*)
+      │       └── iroh-relay v0.96.1 (*)
+      ├── p3-dft v0.4.2
+      │   ├── p3-goldilocks v0.4.2
+      │   │   └── cyber-hemera v0.1.2
+      │   │       └── radio-integration-tests v0.1.0 (*)
+      │   ├── p3-mds v0.4.2
+      │   │   ├── p3-goldilocks v0.4.2 (*)
+      │   │   ├── p3-monty-31 v0.4.2
+      │   │   │   └── p3-challenger v0.4.2
+      │   │   │       └── p3-goldilocks v0.4.2 (*)
+      │   │   └── p3-poseidon2 v0.4.2
+      │   │       ├── cyber-hemera v0.1.2 (*)
+      │   │       ├── p3-goldilocks v0.4.2 (*)
+      │   │       └── p3-monty-31 v0.4.2 (*)
+      │   └── p3-monty-31 v0.4.2 (*)
+      └── p3-monty-31 v0.4.2 (*)
+
+error[yanked]: detected yanked crate (try `cargo update -p spin`)
+    ┌─ /Users/master/cyber/radio-bao-bounded-proof/Cargo.lock:491:1
+    │
+491 │ spin 0.9.8 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ yanked version
+    │
+    ├ spin v0.9.8
+      ├── flume v0.11.1
+      │   └── mainline v6.0.1
+      │       └── pkarr v5.0.2
+      │           ├── cyber-radio v0.1.0
+      │           │   ├── iroh-bench v0.96.1
+      │           │   ├── iroh-blobs v0.98.0
+      │           │   │   ├── iroh-docs v0.96.0
+      │           │   │   │   └── radio-integration-tests v0.1.0
+      │           │   │   ├── radio-cli v0.1.0
+      │           │   │   └── radio-integration-tests v0.1.0 (*)
+      │           │   ├── (dev) iroh-dns-server v0.96.1
+      │           │   ├── (dev) iroh-docs v0.96.0 (*)
+      │           │   ├── iroh-gossip v0.96.0
+      │           │   │   ├── iroh-docs v0.96.0 (*)
+      │           │   │   ├── radio-cli v0.1.0 (*)
+      │           │   │   └── radio-integration-tests v0.1.0 (*)
+      │           │   ├── (dev) iroh-willow v0.28.0
+      │           │   ├── radio-cli v0.1.0 (*)
+      │           │   └── radio-integration-tests v0.1.0 (*)
+      │           ├── cyber-radio-relay v0.1.0
+      │           │   └── cyber-radio v0.1.0 (*)
+      │           ├── iroh v0.96.1
+      │           │   └── iroh-blobs v0.98.0
+      │           │       └── iroh-willow v0.28.0 (*)
+      │           ├── iroh-dns-server v0.96.1 (*)
+      │           └── iroh-relay v0.96.1
+      │               └── iroh v0.96.1 (*)
+      └── heapless v0.7.17
+          └── postcard v1.1.3
+              ├── (dev) cyber-radio v0.1.0 (*)
+              ├── (dev) cyber-radio-base v0.1.1
+              │   ├── (dev) cyber-radio v0.1.0 (*)
+              │   ├── cyber-radio-relay v0.1.0 (*)
+              │   ├── iroh-blobs v0.98.0 (*)
+              │   ├── iroh-gossip v0.96.0 (*)
+              │   ├── iroh-willow v0.28.0 (*)
+              │   └── radio-integration-tests v0.1.0 (*)
+              ├── cyber-radio-relay v0.1.0 (*)
+              ├── iroh-blobs v0.98.0 (*)
+              ├── iroh-blobs v0.98.0 (*)
+              ├── iroh-docs v0.96.0 (*)
+              ├── iroh-gossip v0.96.0 (*)
+              ├── iroh-metrics v0.38.2
+              │   ├── cyber-radio v0.1.0 (*)
+              │   ├── cyber-radio-portmapper v0.1.0
+              │   │   └── cyber-radio v0.1.0 (*)
+              │   ├── cyber-radio-relay v0.1.0 (*)
+              │   ├── iroh v0.96.1 (*)
+              │   ├── iroh-bench v0.96.1 (*)
+              │   ├── iroh-blobs v0.98.0 (*)
+              │   ├── iroh-blobs v0.98.0 (*)
+              │   ├── iroh-dns-server v0.96.1 (*)
+              │   ├── iroh-docs v0.96.0 (*)
+              │   ├── iroh-gossip v0.96.0 (*)
+              │   ├── iroh-relay v0.96.1 (*)
+              │   ├── iroh-willow v0.28.0 (*)
+              │   └── portmapper v0.14.0
+              │       └── iroh v0.96.1 (*)
+              ├── iroh-relay v0.96.1 (*)
+              ├── iroh-tickets v0.2.0
+              │   └── iroh-docs v0.96.0 (*)
+              ├── iroh-tickets v0.3.0
+              │   ├── iroh-blobs v0.98.0 (*)
+              │   └── iroh-blobs v0.98.0 (*)
+              ├── iroh-willow v0.28.0 (*)
+              └── irpc v0.12.0
+                  ├── iroh-blobs v0.98.0 (*)
+                  ├── iroh-blobs v0.98.0 (*)
+                  ├── iroh-docs v0.96.0 (*)
+                  ├── iroh-gossip v0.96.0 (*)
+                  └── iroh-willow v0.28.0 (*)
+

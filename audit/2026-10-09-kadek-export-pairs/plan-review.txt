@@ -1,0 +1,75 @@
+## Review verdict: **REQUEST CHANGES**
+
+Scope, defect identification, method coverage, error/progress semantics and isolation discipline are sound and mostly verified against the supplied sources. One central fixture assumption is **not** derivable from the supplied sources and contradicts a supplied doc comment; it propagates into the plan's acceptance numbers for the primary real-store proof and into the parent-free control's root oracle. That must be fixed in the plan text before implementation. The remaining items are small precision fixes.
+
+---
+
+## What I verified as correct (accept as-is)
+
+**Defect is real in all three methods.** `blobs.rs` `write`, `write_with_progress` and `into_byte_stream` each build a 128-byte buffer and `copy_from_slice` a `hemera::Hash` into a 64-byte half. `hash.rs` pins `OUTPUT_BYTES`-wide hashes with `as_bytes() -> &[u8; OUTPUT_BYTES]`, and `mem.rs::OutboardReader::load` reads 64-byte pairs at `offset * 64` — so the source width is 32 and every `Parent` reaches a length-mismatched copy. `copy_from_slice` panics in debug *and* release, so step 2's debug/release red-first requirement is achievable without `should_panic`. `write_with_progress` additionally credits 128 overhead bytes.
+
+**Fix shape is feasible.** `hemera` is a direct dependency, `OUTPUT_BYTES` is a `usize` const usable in an array length (`hash.rs` already uses it in a `const fn` context), `parent.pair` is `(hemera::Hash, hemera::Hash)` (constructed in `mixed.rs` from `outboard.load`), and `&[u8; 64] → &[u8]` coercion works at both `target.write(..)` and `writer.send(..)` call sites exactly as the current `[u8; 128]` code does. `Bytes::copy_from_slice` for the byte-stream arm is right.
+
+**Test-harness access is feasible.** `mod reader;` already establishes `api/blobs/<file>.rs` as the child-module path, so `api/blobs/export_pairs.rs` resolves. A descendant module can reach the private `ExportBaoProgress::new`, the `pub(crate)` `write_with_progress`, the `pub(crate) trait WriteProgress` and `crate::util::SendStream`. `irpc::channel::mpsc::channel(n)` + async `send` is confirmed usable in this crate by `observe_with_opts`. `iroh-io` 0.6.2's `AsyncStreamWriter` (write/write_bytes/sync, `Vec<u8>` impl) and `SendStream` (send_bytes/send/sync/reset/stopped/id, `VarInt`) are both implementable by one private mock; the crate's own `impl SendStream for iroh::endpoint::SendStream` proves `async fn` satisfies the `impl Future + Send` RPITIT here.
+
+**Progress/error semantics match the code line-for-line.** Header failure ⇒ `send_transfer_started` already awaited, `log_other_write(8)` not reached (overhead 0); parent failure ⇒ overhead 8; leaf `send_bytes` failure ⇒ overhead 72 and `notify_payload_write` never called; leaf success then progress error ⇒ immediate `?` return with no further items. `From<io::Error>`/`from_sources` on `ExportBaoError` gives `ExportBaoIo`; `EncodedItem::Error(EncodeError)` gives `ExportBaoInner` for the writers and `api::Error::Io` (preserving the sentinel `io::ErrorKind`) for the byte stream via `impl From<EncodeError> for Error`. Overhead of 64 per completed parent is the right credit.
+
+**Store choice is correct and non-obvious.** `ReadonlyMemStore` builds entries via `CompleteStorage::create` → `PreOrderMemOutboard::create`, so it bypasses the mutable-import stale `offset * 128` / 64-byte-half writes in `mem.rs::import_bao`. Using `MemStore` would have conflated two defects. `readonly_store_missing` correctly targets the actual `UnexpectedEof` emitted by `readonly_mem::export_bao`'s `None` arm.
+
+**Wire format is internally consistent with the crate's own verifier.** `decode_slice` reads `LE64 size || hash_size*2 pair || leaf bytes` with `pair_size = 2 * 32`, computes `parent_hash(L, R, is_root=true)` against the trusted root, pushes only the visited child, then verifies the leaf with `hash_block_for_verify` using absolute counters and `is_root=false`. So the corrected `left32 || right32` emission is exactly what the decoder expects, and the planned "exactly one returned block" assertion is reachable. The hemera-primitive oracle (per-chunk `chunk_cv` with absolute counters and `is_root=false`, four pairwise `parent_cv(_,_,false)` levels, then `parent_cv(L,R,true)`) matches `outboard::hash_block` + the tree-level root exactly — *given the geometry assumption below*.
+
+**Process discipline is correct.** Baseline reds are carried forward, not hidden or repaired; the prior traversal receipt is left untouched; `--manifest-path iroh-blobs/Cargo.toml` is the right disambiguation for the duplicate local/registry `iroh-blobs 0.98.0`; drift of soft3's phase-1 radio pin is retained red and left to the owner; no release/tag/publish/bump. Grouped ROOT policy, mutable-store widths, `print_outboard`, partial-storage checksum widths and Particle↔root binding are correctly excluded rather than silently folded in.
+
+---
+
+## Required changes
+
+### 1. The 4096-byte chunk assumption is unverified and contradicted (blocking)
+
+`research.md` cites `store/mod.rs:17` for "`IROH_BLOCK_SIZE = BlockSize::from_chunk_log(4)`: 16 × 4096-byte chunks per block". The cited line only establishes `from_chunk_log(4)` (16 chunks/block). The chunk width is `cyber_bao::tree::CHUNK_SIZE`, which is **not** in the supplied sources — and the doc comment immediately above that very line says:
+
+> `/// Block size used by iroh, 2^4*1024 = 16KiB`
+
+i.e. 1024-byte chunks, 16 KiB blocks. Nothing in the supplied `mixed.rs`, `slice.rs`, `outboard.rs`, `hash.rs` or the cyber-bao tests pins the constant numerically (`CHUNK_SIZE * 2`, `CHUNK_SIZE + 500`, 3000, 2048, 500 are all geometry-neutral).
+
+If `CHUNK_SIZE == 1024`, every number in the plan's primary case is wrong: a 131072-byte body is 128 chunks / 8 blocks, `ChunkNum(16)..ChunkNum(32)` yields **three** parents plus a 16384-byte leaf at offset 16384, the 65608-byte wire and overhead-72/payload-65536 assertions fail, and the 32-leaf decomposition oracle is invalid. The `readonly_store_parent_free` control also breaks: a 4096-byte body would be four chunks in one block, so the root is a `parent_cv(_,_,false)` mini-tree, not `chunk_cv(data, 0, true)` — and it would then land squarely in the grouped-single-root nonconformance the plan claims to avoid.
+
+Required:
+
+- Read `cyber-bao/src/tree.rs` and record `CHUNK_SIZE` (and `BlockSize::bytes()`) as an actual cited source line in `research.md`, replacing the current inference. Correct the `store/mod.rs` row to say only what that line shows.
+- Derive the fixture geometry in the plan **and** in the test from the constants (`CHUNK_SIZE`, `IROH_BLOCK_SIZE.bytes()`), not from literals: body = 2 blocks, query = second block's chunk range, wire = `8 + 64 + block_bytes`, payload offset/length = `block_bytes`. Keep the literal expected numbers in the plan only as a derived annotation of the confirmed constant.
+- Add a cheap in-test assertion (or `const` assert) on `CHUNK_SIZE` and `IROH_BLOCK_SIZE.bytes()` so a geometry mismatch fails with its own named message instead of being conflated with the width bug.
+- Restate `readonly_store_parent_free` as "a body of exactly one chunk (`CHUNK_SIZE` bytes)", which is the only shape for which `chunk_cv(data, 0, true)` is the root per `outboard::hash_block`'s `is_single_chunk = data.len() <= CHUNK_SIZE && is_root`.
+
+The test *shape* (one parent, right-block-only leaf, independent oracle, decode cross-check) is correct and should be kept unchanged; only the numeric binding needs to stop being hardcoded.
+
+### 2. Name `readonly_store_missing`'s expected error per method
+
+"its existing UnexpectedEof error in each method" is under-specified where the rest of the table is precise. `readonly_mem` sends `EncodedItem::Error(EncodeError::Io(UnexpectedEof, …))`, so `write` / `write_with_progress` must assert `ExportBaoError::ExportBaoInner` (not `ExportBaoIo`), and `into_byte_stream` must assert `api::Error::Io` with the `UnexpectedEof` kind. State this explicitly so the implementer cannot "discover" the variant from a failing run.
+
+### 3. Mark the `ProgressError` variant as to-be-confirmed
+
+`provider/events.rs` is not in the supplied set, so `ClientResult`'s error type and a `Permission` variant are inferences (consistent with `ExportBaoError::ClientError { source: ProgressError }`, but unverified). Reword `payload_progress_failure` to "the actual permission/denied variant of `ProgressError`", and record the real name and `ClientResult` alias in the research inputs during step 1. If `ClientResult`'s error is not `ProgressError`, that is a blocker to report, not a licence to touch `provider/events.rs`.
+
+### 4. Point `--baseline-root` at the package, not the workspace root
+
+Given two `iroh-blobs 0.98.0` identities in the lock, `cargo semver-checks check-release --manifest-path iroh-blobs/Cargo.toml --baseline-root <tag>/radio` risks resolving the wrong baseline package or erroring on workspace-root resolution. Use the tag's `iroh-blobs` package directory (and verify the reported baseline identity in the receipt). The plan's existing rule — a failed tool/setup invocation is not a compatibility pass — stays as written.
+
+---
+
+## Advisory (not required for approval)
+
+- **`-D warnings` reach:** `RUSTFLAGS` applies to path dependencies too, so a pre-existing rustc warning anywhere in `cyber-bao`, `iroh`, `iroh-base` or `particle` can block *every* planned test invocation. The plan's "record it and return the blocker" rule is the right response; just expect it to be exercised.
+- **`clippy::unused_async` is a workspace warn-level lint.** Trait-impl methods are exempt, so the `SendStream`/`AsyncStreamWriter`/`WriteProgress` mocks are safe, but a free `async fn` helper in the test module with no `.await` would be a hard error under `-D warnings`. Keep helpers non-async.
+- **≤500-line budget is tight** for 11 cases plus two writer mocks, a progress recorder, the 32-CV oracle and exact-wire assertions. If it does not fit, report it rather than quietly adding a second file or trimming a case — the plan declares exactly one new file.
+- `partial_parent_failure` largely asserts the mock's own behaviour; it is consistent with `iroh-io`'s documented "some bytes may have been written" and the plan's explicit no-rollback claim, so it is harmless as documentation of the contract. Keep the "no rollback/retry claim" wording.
+
+---
+
+## Identified separately — I am **not** asking for these in this unit
+
+Recorded here only so they are not lost, and explicitly out of scope per the task framing: `mem.rs::import_bao`'s `offset * 128` / 64-byte-half writes (incoherent with `OutboardReader::load`'s `offset * 64`, and storage-layout affecting); `print_outboard`'s 128/64 split with `Hash::from_bytes([u8; 32])`; partial-storage/util checksum widths; the grouped single-root ROOT-finalization nonconformance; BAO root ↔ plain Hemera Particle binding; full-workspace bench/gossip/Endpoint-PublicKey reds; remote CI's missing sibling Hemera checkout; soft3 phase-1 radio pin drift. No generic BAO redesign and no root-domain change is warranted by this defect.
+
+---
+
+Re-approval should be narrow: a plan/research text revision pinning `CHUNK_SIZE` from `cyber-bao/src/tree.rs`, deriving the fixture geometry from the constants, and the three wording fixes above. No re-research of the exporter path, store choice, oracle construction, isolation plan or gate list is needed — those are approved as written.

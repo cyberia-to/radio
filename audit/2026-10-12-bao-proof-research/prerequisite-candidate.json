@@ -1,0 +1,27 @@
+{
+  "parent": "a96d86e28d384cdf656aadc4282c78c0c170c102",
+  "selected_source_digest": "53f29b5b1cf4d609ecb98c7b482198f87160fb56fdb229466bff8f33568a90eb",
+  "files": [
+    {
+      "path": "prerequisite/traversal.rs",
+      "bytes": 6067,
+      "sha256": "87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a",
+      "source": "/Users/master/cyber/radio-bao-bounded-traversal/cyber-bao/src/traversal.rs",
+      "status": "unmerged frozen candidate; historical after bridge"
+    },
+    {
+      "path": "prerequisite/plan.md",
+      "bytes": 12095,
+      "sha256": "5b45173f013772e19dd324167d449cdc076e672b9a12cfdad64b3b3c0d8b8f88",
+      "source": "/Users/master/cyber/radio-bao-bounded-traversal/.claude/tasks/bao-bounded-traversal/plan.md",
+      "status": "unmerged frozen candidate; historical after bridge"
+    },
+    {
+      "path": "prerequisite/literal-cases.md",
+      "bytes": 3670,
+      "sha256": "8b38796bc96b1ace037f85a10ed27ae415a1e7da4c1304bbc776b524b0fcd69e",
+      "source": "/Users/master/cyber/radio-bao-bounded-traversal/.claude/tasks/bao-bounded-traversal/literal-cases.md",
+      "status": "unmerged frozen candidate; historical after bridge"
+    }
+  ]
+}

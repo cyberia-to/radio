@@ -1,0 +1,713 @@
+{
+  "at": "2026-10-13T01:20:13Z",
+  "kadek_parent": "6e3597cd2cd2841c24ffd2208b509ad4fb404390",
+  "source": [
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "Cargo.lock",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/Cargo.lock",
+      "bytes": 186712,
+      "sha256": "90d5aa88f4fb507434036ad5ec0ca7a3897741fe810fdf16a080bff006130d65"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "Cargo.toml",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/Cargo.toml",
+      "bytes": 2085,
+      "sha256": "3f8d71aa50c829445d66c981166e22f9b64fbd1f91bdddf4ecb422cf4ebd39f2"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/Cargo.toml",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/Cargo.toml",
+      "bytes": 1078,
+      "sha256": "95e58b3d1e130d6a579b361111e848b9aa907f66eee0e2acb7ab5449c9f9e365"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/group.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/group.rs",
+      "bytes": 6349,
+      "sha256": "948307e945b1f7f3808b5828dacb04547a89c701c8f00ba1534fa396d0b66cdf"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/group/tests.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/group/tests.rs",
+      "bytes": 745,
+      "sha256": "6d8d75cd586684c6d13c7a9ed2c563bec418a8687910110bdce8dbbb5473053d"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/hash.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/hash.rs",
+      "bytes": 3960,
+      "sha256": "1e705848543784c326be3ecd347878eae8dc5ab0207392d64ba5d9efb695bf1f"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/content.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/content.rs",
+      "bytes": 1342,
+      "sha256": "582fa031c6ee9f38e9f38cf875a5e8e76827fc6c07c0c88027857f92147e7ecd"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/decode.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/decode.rs",
+      "bytes": 9782,
+      "sha256": "334bfbe8e731a7b2b863c36b6a8f95562206c14ed2b944492897b5920837589d"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/encode.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/encode.rs",
+      "bytes": 5619,
+      "sha256": "c30d550675db2cf288ab3e438270d2c862416fc4c9972e6ce799e9a2f80dcbf0"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/error.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/error.rs",
+      "bytes": 4193,
+      "sha256": "ef64b616b421e8ced59a76cae247ba5ea6a2180e03e27bd4e1438d2246aa2c29"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/fsm.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/fsm.rs",
+      "bytes": 10938,
+      "sha256": "ddebb307e02e97b1dfed9f961102a115578f1079d633ece6f5f0006b01c91b0f"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/mixed.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/mixed.rs",
+      "bytes": 5019,
+      "sha256": "6301d689a80d341f778462a0615720a495e81f94ae722926c5cbef26f6db17b2"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/mod.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/mod.rs",
+      "bytes": 8630,
+      "sha256": "252d9f85216e4534d15116ba005d86e4e8e47a99d62331759540a526a283c55a"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/outboard.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/outboard.rs",
+      "bytes": 6220,
+      "sha256": "da155075c63eded19b8a17dcbb6e9716eae50690117bf3ce3802b6982f8f1a06"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/pre_order.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/pre_order.rs",
+      "bytes": 14509,
+      "sha256": "225d2bcaaa3ba36780a7f6c599cc2dfe27cf6cf8cce4a7f9ac900e235a7bde65"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/slice.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/slice.rs",
+      "bytes": 13041,
+      "sha256": "0f29291599f56c3c8dda4930e660d41a3e04cf1a3ee9cdfb8c36e3fc1de832d7"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/sync.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/sync.rs",
+      "bytes": 13540,
+      "sha256": "da90915445d295c63ee051bd569015a6f78be226da933e89d11053f1293da63a"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/io/traits.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/io/traits.rs",
+      "bytes": 8211,
+      "sha256": "e212344d3a42d4ce967dbf0530a99a3d3f3e4bb27f1dc04c975c88202538f326"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/lib.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/lib.rs",
+      "bytes": 1345,
+      "sha256": "9e82621f1a213a4943c2d8e5b313621ce0e5cee811f86975fe9bff20195c472a"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/proof.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/proof.rs",
+      "bytes": 11816,
+      "sha256": "82e5aed5b71ab1263d05df7808046a614991ec5daeab2e30b88a12b970c395b7"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/proof/output.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/proof/output.rs",
+      "bytes": 5054,
+      "sha256": "b2f4ec894d5f28524ebad8e60e6129ee15f2282aeeb51c347f4e8471072989d6"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/traversal.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/traversal.rs",
+      "bytes": 6067,
+      "sha256": "87f646ef36a1e7ba1be3dd4576acf4bf6637d1ec6705953aef0bf8c6ac42eb5a"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/tree.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/tree.rs",
+      "bytes": 12320,
+      "sha256": "458f26235aee22c42376dde8929a55831c1f8a58dd59a5dac270cd9bb8bd667a"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/tree/tests.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/tree/tests.rs",
+      "bytes": 4810,
+      "sha256": "2c9cd904ac8595341f1946e31c79be1a01c97574c86a51068cba343238601e1d"
+    },
+    {
+      "package": "cyber-bao",
+      "repository": "radio",
+      "revision": "ce0fb312faa8770e80efe9afa864106ae6b51552",
+      "path": "cyber-bao/src/tree/traversal.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/radio-1a8d5f25084d9866/ce0fb31/cyber-bao/src/tree/traversal.rs",
+      "bytes": 12053,
+      "sha256": "d0f2a97b0bbe3b90a8009aeb96ba7f47ff119c0f69b1b015fc643a1e863ae26e"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "Cargo.lock",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/Cargo.lock",
+      "bytes": 44367,
+      "sha256": "cb39b0444279e9122294ec469839df3ef7599072a4212e31ef6a73fe5e5c29dc"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "Cargo.toml",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/Cargo.toml",
+      "bytes": 345,
+      "sha256": "e94575ed81a4143aa1fca117650faf83f2d919d44f8f1425ca76b4aea898c0eb"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/Cargo.toml",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/Cargo.toml",
+      "bytes": 970,
+      "sha256": "351913fa05ec28a0fce1078fd03c0fe84b957435b970c9dd122f140983fcdd75"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/arith.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/arith.rs",
+      "bytes": 12016,
+      "sha256": "42c41ce43ab3f00e8ac32c812830044583e686581cd44762d61977f9a3c33ebf"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/async_io.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/async_io.rs",
+      "bytes": 4033,
+      "sha256": "a898313b5f2237015050375c5cf982be61e3982cfeb834543adace3df01c74a8"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/backend.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/backend.rs",
+      "bytes": 6726,
+      "sha256": "7c42ab817693b484f327cbb745b7fac3ae76bf4a5c762990cea62ef01b913d53"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/batch.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/batch.rs",
+      "bytes": 13057,
+      "sha256": "614607f86923b31212a908c868f5a6b41982f32b3f3ad34a8e84571e22e3918a"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/bootstrap.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/bootstrap.rs",
+      "bytes": 5694,
+      "sha256": "fa865dbb6fcee2b047000d8235d259d66a924c17cbee5c2be451e4926e71b6f7"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/cdc.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/cdc.rs",
+      "bytes": 18537,
+      "sha256": "3320d137fcb381a2a512ffb545720deba24c46eedd8d6026a073ba6f01778fc7"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/constants.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/constants.rs",
+      "bytes": 5509,
+      "sha256": "dbf8bf10ec173fd2aa6518281677ee4de3882b29b2f3912f712dcc361b20382a"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/encoding.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/encoding.rs",
+      "bytes": 7759,
+      "sha256": "4da69b468a5276a6ed32092e0ed6149b67bf16ded2e6aba2c405af805291701e"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/field.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/field.rs",
+      "bytes": 12041,
+      "sha256": "7a9da58f2daa65d946574753d819e4c0d39d80d61fd519ad42e38d038aebd09a"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/kernel.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/kernel.rs",
+      "bytes": 7430,
+      "sha256": "cc05e4c745ead3bdc60bfa1b8285686957c63917ea13e788005b51c4120f08b2"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/lib.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/lib.rs",
+      "bytes": 10109,
+      "sha256": "597a5690eb43fde59265d0055152c185cee2e719ff2059719e148ce2fc3c077d"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/merkle.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/merkle.rs",
+      "bytes": 6777,
+      "sha256": "baacc02a9f798d73a596d644c538330b9d10fadbb72cc22ff1e41b0607d233d5"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/params.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/params.rs",
+      "bytes": 6597,
+      "sha256": "bf5b2cb5a80697d272546425bddcdf2cb2bfe7e08367ae7c793a0922088f2a91"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/permutation.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/permutation.rs",
+      "bytes": 11403,
+      "sha256": "7238b9789a19c0aa10ec6e828e75fcaf87ce437103137cfe4556729b4037d76c"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/profile.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/profile.rs",
+      "bytes": 3344,
+      "sha256": "bd666bffb1e797330ae93eb7cc4fe38e5bbb4e02b5dc532e756ac056d8f37d49"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/reference.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/reference.rs",
+      "bytes": 4962,
+      "sha256": "a91a3a2f7f0a01e3003cd8b5856e684a22391ee8050cce7523e71737ed49f516"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/sparse.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/sparse.rs",
+      "bytes": 16841,
+      "sha256": "2eff551631f7c1d155b794ec95a1de652c4b54c4700fd8c4c521bd73365d9d2c"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/sponge.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/sponge.rs",
+      "bytes": 29369,
+      "sha256": "e4152c73ca942140fc82575a3d68c6538d323a6355842210b4b40302d7b8daa9"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/step_sponge.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/step_sponge.rs",
+      "bytes": 5892,
+      "sha256": "64ec167940782c5f83b684965ee06bcb88f001f2baccdc3be189aa57b6fc5922"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/stream.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/stream.rs",
+      "bytes": 16940,
+      "sha256": "8516cbe65d0f704035e146fc58ead96ac66115966213ab5377e6b1c4b64c40e3"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/stream_async.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/stream_async.rs",
+      "bytes": 14822,
+      "sha256": "207f9c0d34663d583d4dbc38170d745f15e56ed3880eb518c39399ce4e99b8f6"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/trace.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/trace.rs",
+      "bytes": 1979,
+      "sha256": "823d30b41ac817749fe5352e919dafa73522df9ef3c575807995ef50b3e0665d"
+    },
+    {
+      "package": "cyber-hemera",
+      "repository": "hemera",
+      "revision": "d5f0a09539360934fb32db9b2e15a91995607db6",
+      "path": "rs/src/tree.rs",
+      "local": "/private/tmp/kadek-bao-reader-cargo-home/git/checkouts/hemera-63696198fb70e01e/d5f0a09/rs/src/tree.rs",
+      "bytes": 53162,
+      "sha256": "2226bc0526238cf05b79c3188ad8a3bcdcc482916a45c6b49cf33c30799440c6"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/.claude/tasks/bao-range-publication/reader_probe.rs",
+      "bytes": 9574,
+      "sha256": "c591a5f63d2a8079ed757fbcdf4a00d9f4b281f2ffe0abff657ebf7731058b15"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/empty/body.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/empty/manifest.json",
+      "bytes": 279,
+      "sha256": "723cbcee3ee50b30e6e231d208f66e8427421f9c4eb979464f944b529d21fe69"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/empty/proof.bao",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/empty/selected.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/grouped/body.bin",
+      "bytes": 16384,
+      "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/grouped/manifest.json",
+      "bytes": 297,
+      "sha256": "1065424148bd2bf5fa7dddf6633108029763be66845433edae2eec28e38016dc"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/grouped/proof.bao",
+      "bytes": 16456,
+      "sha256": "5cacc9435844cb40994744c65497fd98ab618b9592fc7a4a6a2220aa129d0c58"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/grouped/selected.bin",
+      "bytes": 2,
+      "sha256": "dff0c047227d36b6e8175c4e2e67391c525cf066a5b44ff64e003b210958424b"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/interleaved/body.bin",
+      "bytes": 16384,
+      "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/interleaved/interleaved.bao",
+      "bytes": 12488,
+      "sha256": "674ac7f2fa42c1d25fa7083c8d0d46b3459cfd6a82dcd16e20445a1479dfc7ad"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/interleaved/manifest.json",
+      "bytes": 458,
+      "sha256": "889d3b761aeeaec5aa0be3c631ad530dab4723e9f9362ef855fb25203ccd4420"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/interleaved/selected.bin",
+      "bytes": 4098,
+      "sha256": "b68e6889a7d56daccc9ea0e19d8cdf3e7b2ee4363f1b13858c60b7e96d1a5950"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/left/body.bin",
+      "bytes": 16384,
+      "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/left/manifest.json",
+      "bytes": 286,
+      "sha256": "ca9a4610f80827cd09168d4e930bf3b2453bffbdb31d67445c9fc5cebd546b9d"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/left/proof.bao",
+      "bytes": 4232,
+      "sha256": "879809f7022af32df196934ce49fc6a0b7d6e8461548588875db9d62879af8a8"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/left/selected.bin",
+      "bytes": 2,
+      "sha256": "049dd55c700c191303a99adaf952dbdd1ce028592a3dc250f67ff22f0a7a4b64"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/pcm/body.bin",
+      "bytes": 14,
+      "sha256": "ef1d4848669acc5eb2640c0a2aede8305987bf84478f41b6b927645d2e5f7a8d"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/pcm/manifest.json",
+      "bytes": 280,
+      "sha256": "4370007e94bacc0cb18bd9a43cc47f7eab8ac8309b343b2c9bec3aca2b3c0de5"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/pcm/proof.bao",
+      "bytes": 22,
+      "sha256": "3c16fd61ba57f93e03366c30992e93e845b73768432a0f8d93e68d926c5e55e3"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/pcm/selected.bin",
+      "bytes": 8,
+      "sha256": "96df61ec9b1c976bfe26379add192ce4bf9151ed9a380eebe133b76ca7faa41e"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/right/body.bin",
+      "bytes": 16384,
+      "sha256": "48149ae1ba9acc1a00d9050eda69d6eb894262c7929cad507db1ba590a116c91"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/right/manifest.json",
+      "bytes": 295,
+      "sha256": "db373f983310a346f2bccdd86de20c9edb0245a22fd761fab8b4c51970b28520"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/right/proof.bao",
+      "bytes": 4232,
+      "sha256": "fd5b9f7592f21d10c41b1d1f75d907f5459cd1ccf299adea939c54c93d031b42"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/right/selected.bin",
+      "bytes": 3,
+      "sha256": "b625a35d1037280eb7b0a70017c9c52b6ed75de424658b5001b110452010218d"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short-grouped/body.bin",
+      "bytes": 4099,
+      "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short-grouped/manifest.json",
+      "bytes": 299,
+      "sha256": "ff3b1ab0778546ec5d8f780af1994e2b69186dd379f27ddcce8c8083276085f2"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short-grouped/proof.bao",
+      "bytes": 4107,
+      "sha256": "40d7d006a05a220f0876fa94cb8dd33fc73000bff019b54f4c77b6c66ebc1f53"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short-grouped/selected.bin",
+      "bytes": 4,
+      "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short/body.bin",
+      "bytes": 4099,
+      "sha256": "25b9b0ca04936dae1fb2389b4d239548ed7ded9c1c069cd03e8b82a1998bef0f"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short/manifest.json",
+      "bytes": 292,
+      "sha256": "d4b065575c2579b00336f1a996049071af34f1f28cdb10b567d9b6612c018a02"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short/proof.bao",
+      "bytes": 4171,
+      "sha256": "d04ec3ff5cd522470236798445932cd40c7c3c63d3cbadec28933d3534ed7954"
+    },
+    {
+      "path": "/Users/master/cyber/kadek-bao-range-publication/audit/2026-10-13-bao-range-research/reader-control/literal/short/selected.bin",
+      "bytes": 4,
+      "sha256": "d39554e33024ca90c03b1e5b675e0dd472c68e0ed920f80463a4629676240acf"
+    },
+    {
+      "path": "/tmp/kadek-bao-reader-cargo-home/config.toml",
+      "bytes": 169,
+      "sha256": "6a3fedff23e23f35901be1577e29577f165114bd81afc392049a708694adae29"
+    },
+    {
+      "path": "/tmp/kadek-bao-reader-control-v1/Cargo.lock",
+      "bytes": 615,
+      "sha256": "407e33e4b9b40de1797adce10b2ff1d447da6eac620bf073f9e4cbb74750bb1f"
+    },
+    {
+      "path": "/tmp/kadek-bao-reader-control-v1/Cargo.toml",
+      "bytes": 402,
+      "sha256": "f8c6af2b7881c2f7222d7a68fc0c8b0d6d4a8e44b3d4cf8ac39e3e94704c6810"
+    }
+  ],
+  "tools": [
+    {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/cargo",
+      "version": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+      "bytes": 31232696,
+      "sha256": "c512bff73c86143b557463f021d0c3d5b0490d97d65040ba59ea2b3427784758"
+    },
+    {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustc",
+      "version": "rustc 1.95.0 (59807616e 2026-04-14)",
+      "bytes": 412504,
+      "sha256": "b829b733131d4e1673eeebd1f34d06ae1e9ff4977b051313cf42e2a9e79ecf1c"
+    },
+    {
+      "path": "/Users/master/.rustup/toolchains/1.95.0-aarch64-apple-darwin/bin/rustdoc",
+      "version": "rustdoc 1.95.0 (59807616e 2026-04-14)",
+      "bytes": 11710264,
+      "sha256": "59bc6a1caf617032284a2edc2aa03916396e70589c435a8b51e3957887f90ce5"
+    }
+  ],
+  "resolved_nodes": [
+    {
+      "id": "git+https://github.com/cyberia-to/radio?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+      "dependencies": [
+        "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1"
+      ],
+      "deps": [
+        {
+          "name": "hemera",
+          "pkg": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1",
+          "dep_kinds": [
+            {
+              "kind": null,
+              "target": null
+            }
+          ]
+        }
+      ],
+      "features": []
+    },
+    {
+      "id": "git+https://github.com/cyberia-to/hemera?rev=d5f0a09539360934fb32db9b2e15a91995607db6#cyber-hemera@0.3.1",
+      "dependencies": [],
+      "deps": [],
+      "features": []
+    },
+    {
+      "id": "path+file:///tmp/kadek-bao-reader-control-v1#kadek-bao-reader-control@0.0.0",
+      "dependencies": [
+        "git+https://github.com/cyberia-to/radio?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0"
+      ],
+      "deps": [
+        {
+          "name": "cyber_bao",
+          "pkg": "git+https://github.com/cyberia-to/radio?rev=ce0fb312faa8770e80efe9afa864106ae6b51552#cyber-bao@0.1.0",
+          "dep_kinds": [
+            {
+              "kind": null,
+              "target": null
+            }
+          ]
+        }
+      ],
+      "features": []
+    }
+  ]
+}
