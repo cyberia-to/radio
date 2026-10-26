@@ -1,0 +1,96 @@
+name: diag-g4-observe
+
+on:
+  push:
+    branches: [diag/g4-observe-fs]
+  workflow_dispatch:
+
+env:
+  RUST_BACKTRACE: 1
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: mozilla-actions/sccache-action@v0.0.9
+        continue-on-error: true
+
+      - name: Build test binary once
+        run: |
+          mkdir -p diag
+          rustc -V | tee diag/toolchain.txt
+          cargo test --locked -p iroh-blobs --lib --no-run 2>&1 | tee diag/build.log
+
+      - name: A observe_fs isolated x20
+        if: always()
+        shell: bash
+        env:
+          RUST_LOG: iroh_blobs=debug,radio=info
+        run: |
+          set +e
+          pass=0
+          for i in $(seq 1 20); do
+            cargo test --locked -p iroh-blobs --lib tests::two_nodes_observe_fs -- --exact --nocapture > diag/A_$i.log 2>&1
+            if [ $? -eq 0 ]; then pass=$((pass+1)); echo "A iter $i PASS"; else echo "A iter $i FAIL"; fi
+          done
+          echo "A observe_fs isolated: $pass/20" | tee -a diag/summary.txt
+          exit 0
+
+      - name: B observe_mem isolated x20
+        if: always()
+        shell: bash
+        env:
+          RUST_LOG: iroh_blobs=debug,radio=info
+        run: |
+          set +e
+          pass=0
+          for i in $(seq 1 20); do
+            cargo test --locked -p iroh-blobs --lib tests::two_nodes_observe_mem -- --exact --nocapture > diag/B_$i.log 2>&1
+            if [ $? -eq 0 ]; then pass=$((pass+1)); echo "B iter $i PASS"; else echo "B iter $i FAIL"; fi
+          done
+          echo "B observe_mem isolated: $pass/20" | tee -a diag/summary.txt
+          exit 0
+
+      - name: C full lib parallel x5
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          k=0
+          others=""
+          for i in $(seq 1 5); do
+            cargo test --locked -p iroh-blobs --lib > diag/C_$i.log 2>&1
+            rc=$?
+            if grep -q 'tests::two_nodes_observe_fs .*FAILED' diag/C_$i.log; then k=$((k+1)); echo "C iter $i observe_fs FAIL"; else echo "C iter $i observe_fs ok (rc=$rc)"; fi
+            f=$(grep -E '^test .* \.\.\. FAILED' diag/C_$i.log | sed -E 's/^test (.*) \.\.\. FAILED/\1/' | grep -v '^tests::two_nodes_observe_fs$' | tr '\n' ' ')
+            others="$others [iter $i: $f]"
+          done
+          echo "C full lib parallel: observe_fs failed in $k/5; other failures:$others" | tee -a diag/summary.txt
+          exit 0
+
+      - name: D full lib serial
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          cargo test --locked -p iroh-blobs --lib -- --test-threads=1 > diag/D.log 2>&1
+          rc=$?
+          f=$(grep -E '^test .* \.\.\. FAILED' diag/D.log | sed -E 's/^test (.*) \.\.\. FAILED/\1/' | tr '\n' ' ')
+          echo "D full lib serial: rc=$rc; failures: ${f:-none}; $(grep -E '^test result' diag/D.log | tail -1)" | tee -a diag/summary.txt
+          exit 0
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          cat diag/summary.txt
+          { echo '```'; cat diag/summary.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diag
+          path: diag/
