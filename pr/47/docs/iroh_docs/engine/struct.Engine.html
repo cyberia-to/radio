@@ -24,7 +24,7 @@ thread for the actor interacting with doc storage.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.start_sync" class="method"><a class="src rightside" href="../../src/iroh_docs/engine.rs.html#176-187">Source</a><h4 class="code-header">pub async fn <a href="#method.start_sync" class="fn">start_sync</a>(
     &amp;self,
     namespace: <a class="struct" href="../struct.NamespaceId.html" title="struct iroh_docs::NamespaceId">NamespaceId</a>,
-    peers: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;EndpointAddr&gt;,
+    peers: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../iroh_base/endpoint_addr/struct.EndpointAddr.html" title="struct iroh_base::endpoint_addr::EndpointAddr">EndpointAddr</a>&gt;,
 ) -&gt; <a class="type" href="https://docs.rs/anyhow/1.0.101/anyhow/type.Result.html" title="type anyhow::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</h4></section></summary><div class="docblock"><p>Start to sync a document.</p>
 <p>If <code>peers</code> is non-empty, it will both do an initial set-reconciliation sync with each peer,
 and join an iroh-gossip swarm with these peers to receive and broadcast document updates.</p>
