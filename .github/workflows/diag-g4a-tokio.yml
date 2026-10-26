@@ -1,0 +1,96 @@
+name: diag-g4a-tokio
+
+# G4a diagnostic, never merged. tokio 1.49.0's mpsc Rx::len() computes
+# `tail_position - index - is_closed` from two separate loads; when the last
+# Sender closes between them, it underflows (tokio #8062, fixed in 1.47.5,
+# 1.51.3, 1.52.3). iroh-blobs' entity manager calls recv.is_empty() during
+# recycle, so test_counters_manager_proptest_fs flakes. This run:
+#   lock:   resolves tokio 1.51.5 on the build service and uploads Cargo.lock
+#   repeat: runs the proptest N times at the control lock and at the new lock
+
+on:
+  push:
+    branches: [diag/g4a-tokio]
+  workflow_dispatch:
+
+env:
+  RUSTUP_TOOLCHAIN: "1.95.0"
+  RUNS: "50"
+
+jobs:
+  lock:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+      - name: Resolve tokio 1.51.5
+        shell: bash
+        run: |
+          set -eu
+          mkdir -p out
+          cargo update -p tokio --precise 1.51.5 2>&1 | tee out/cargo-update.txt
+          git diff Cargo.lock > out/Cargo.lock.diff
+          cp Cargo.lock out/Cargo.lock
+          sha256sum out/Cargo.lock | tee out/Cargo.lock.sha256
+          grep -A1 '^name = "tokio"$' Cargo.lock
+      - uses: actions/upload-artifact@v6
+        with:
+          name: lock
+          path: out/
+
+  repeat:
+    needs: lock
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        tokio: ["1.49.0", "1.51.5"]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v6
+        with:
+          name: lock
+          path: lock
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+      - name: Apply lock
+        shell: bash
+        run: |
+          set -eu
+          if [ "${{ matrix.tokio }}" = "1.51.5" ]; then cp lock/Cargo.lock Cargo.lock; fi
+          rm -rf lock
+          grep -A1 '^name = "tokio"$' Cargo.lock
+      - name: Build tests
+        run: cargo test --locked -p iroh-blobs --lib --no-run
+      - name: Repeat the proptest
+        shell: bash
+        run: |
+          set -u
+          mkdir -p out
+          fail=0
+          for i in $(seq 1 "$RUNS"); do
+            if cargo test --locked -p iroh-blobs --lib \
+                store::fs::util::entity_manager::tests::test_counters_manager_proptest \
+                > "out/run-$i.txt" 2>&1; then
+              echo "run $i ok"
+            else
+              fail=$((fail+1)); echo "run $i FAILED"
+              grep -n 'panicked\|overflow\|FAILED' "out/run-$i.txt" | head -5
+            fi
+            git checkout -q -- iroh-blobs/proptest-regressions
+          done
+          echo "tokio=${{ matrix.tokio }} runs=$RUNS failed=$fail" | tee out/summary.txt
+          git status --porcelain > out/git-status.txt
+          [ "$fail" -eq 0 ]
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: repeat-${{ matrix.tokio }}
+          path: out/
