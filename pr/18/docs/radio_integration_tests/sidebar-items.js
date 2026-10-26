@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["init_tracing","spawn_nodes","spawn_pair","test_rng"],"struct":["TestNode"]};

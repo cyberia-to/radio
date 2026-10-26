@@ -1,9 +1,0 @@
-(function() {
-    var implementors = Object.fromEntries([["cyber_radio_relay",[["impl FromArgMatches for <a class=\"struct\" href=\"cyber_radio_relay/struct.Cli.html\" title=\"struct cyber_radio_relay::Cli\">Cli</a>"]]],["iroh_bench",[["impl FromArgMatches for <a class=\"enum\" href=\"iroh_bench/enum.Commands.html\" title=\"enum iroh_bench::Commands\">Commands</a>"],["impl FromArgMatches for <a class=\"struct\" href=\"iroh_bench/s2n/struct.Opt.html\" title=\"struct iroh_bench::s2n::Opt\">Opt</a>"],["impl FromArgMatches for <a class=\"struct\" href=\"iroh_bench/struct.Opt.html\" title=\"struct iroh_bench::Opt\">Opt</a>"]]],["radio",[["impl FromArgMatches for <a class=\"enum\" href=\"radio/enum.BlobAction.html\" title=\"enum radio::BlobAction\">BlobAction</a>"],["impl FromArgMatches for <a class=\"enum\" href=\"radio/enum.Commands.html\" title=\"enum radio::Commands\">Commands</a>"],["impl FromArgMatches for <a class=\"enum\" href=\"radio/enum.GossipAction.html\" title=\"enum radio::GossipAction\">GossipAction</a>"],["impl FromArgMatches for <a class=\"enum\" href=\"radio/enum.HashAction.html\" title=\"enum radio::HashAction\">HashAction</a>"],["impl FromArgMatches for <a class=\"enum\" href=\"radio/enum.NodeAction.html\" title=\"enum radio::NodeAction\">NodeAction</a>"],["impl FromArgMatches for <a class=\"struct\" href=\"radio/struct.Cli.html\" title=\"struct radio::Cli\">Cli</a>"]]],["sim",[["impl FromArgMatches for <a class=\"enum\" href=\"sim/enum.Command.html\" title=\"enum sim::Command\">Command</a>"],["impl FromArgMatches for <a class=\"struct\" href=\"sim/struct.Cli.html\" title=\"struct sim::Cli\">Cli</a>"]]]]);
-    if (window.register_implementors) {
-        window.register_implementors(implementors);
-    } else {
-        window.pending_implementors = implementors;
-    }
-})()
-//{"start":57,"fragment_lengths":[162,410,777,238]}
