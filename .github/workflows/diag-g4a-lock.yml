@@ -1,0 +1,41 @@
+name: diag-g4a-lock
+
+# G4a diagnostic, never merged: the smallest lock that carries tokio's mpsc
+# len() fix (#8062). Every patched tokio needs socket2 >= 0.6.3 and mio 1.2,
+# so move those first (each a precise single-package update), then tokio.
+
+on:
+  push:
+    branches: [diag/g4a-lock]
+  workflow_dispatch:
+
+jobs:
+  lock:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      RUSTUP_TOOLCHAIN: "1.95.0"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+      - name: Resolve step by step
+        shell: bash
+        run: |
+          set -eu
+          mkdir -p out
+          {
+            echo "== socket2@0.6.2 -> 0.6.5"; cargo update -p socket2@0.6.2 --precise 0.6.5 2>&1
+            echo "== mio -> 1.2.4";           cargo update -p mio --precise 1.2.4 2>&1
+            echo "== tokio -> 1.51.5";        cargo update -p tokio --precise 1.51.5 2>&1
+          } | tee out/cargo-update.txt
+          cargo metadata --locked --format-version 1 > /dev/null
+          git diff Cargo.lock > out/Cargo.lock.diff
+          cp Cargo.lock out/Cargo.lock
+          sha256sum out/Cargo.lock | tee out/Cargo.lock.sha256
+      - uses: actions/upload-artifact@v6
+        with:
+          name: lock
+          path: out/
