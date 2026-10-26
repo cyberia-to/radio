@@ -1,0 +1,120 @@
+name: diag-g4-budget
+
+on:
+  push:
+    branches: [diag/g4-budget]
+  workflow_dispatch:
+
+jobs:
+  budget:
+    name: j${{ matrix.jobs }}-${{ matrix.variant }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        jobs: [2, 4]
+        variant: [v0, vA, vB]
+    env:
+      RUSTUP_TOOLCHAIN: "1.95.0"
+      CARGO_BUILD_JOBS: ${{ matrix.jobs }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+
+      - name: Apply profile variant and record env
+        shell: bash
+        run: |
+          set -eu
+          mkdir -p diag
+          if [ "${{ matrix.variant }}" != "v0" ]; then
+            if grep -qE '^\[profile\.dev\][[:space:]]*$' Cargo.toml; then
+              echo "ERROR: root Cargo.toml already has a [profile.dev] table" >&2
+              exit 1
+            fi
+            {
+              echo ""
+              echo "[profile.dev]"
+              echo 'debug = "line-tables-only"'
+              echo '[profile.dev.package."*"]'
+              echo "debug = false"
+              if [ "${{ matrix.variant }}" = "vB" ]; then
+                echo "opt-level = 1"
+              fi
+            } >> Cargo.toml
+          fi
+          {
+            echo "jobs=${{ matrix.jobs }} variant=${{ matrix.variant }}"
+            echo "--- nproc"; nproc
+            echo "--- free -m"; free -m
+            echo "--- rustc -V"; rustc -V
+            echo "--- appended profile"
+            if [ "${{ matrix.variant }}" = "v0" ]; then echo "(none)"; else git diff -U0 Cargo.toml; fi
+          } > diag/env.txt
+          cat diag/env.txt
+
+      - name: Start memory sampler
+        shell: bash
+        run: |
+          : > diag/mem.txt
+          setsid nohup bash -c 'while true; do echo "$(date +%s) $(free -m | awk "/^Mem:/ {print \$3}")" >> diag/mem.txt; sleep 2; done' > /dev/null 2>&1 &
+          echo $! > diag/sampler.pid
+
+      - name: build
+        shell: bash
+        run: |
+          set +e
+          t0=$(date +%s)
+          /usr/bin/time -v cargo test --locked --no-run > diag/build.log 2>&1
+          rc=$?
+          t1=$(date +%s)
+          echo "$((t1 - t0))" > diag/compile_s
+          echo "$rc" > diag/build_exit
+          tail -n 40 diag/build.log
+          exit 0
+
+      - name: test
+        shell: bash
+        run: |
+          set +e
+          t0=$(date +%s)
+          cargo test --locked > diag/test.log 2>&1
+          rc=$?
+          t1=$(date +%s)
+          echo "$((t1 - t0))" > diag/test_s
+          echo "$rc" > diag/test_exit
+          exit 0
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          kill "$(cat diag/sampler.pid)" 2>/dev/null || true
+          c=$(cat diag/compile_s 2>/dev/null || echo 0)
+          t=$(cat diag/test_s 2>/dev/null || echo 0)
+          e=$(cat diag/test_exit 2>/dev/null || echo NA)
+          peak=$(awk 'NF==2 && $2+0>m {m=$2+0} END {print m+0}' diag/mem.txt)
+          total=$((c + t))
+          u=no; [ "$total" -lt 900 ] && u=yes
+          {
+            echo "jobs=${{ matrix.jobs }} variant=${{ matrix.variant }} compile_s=$c test_s=$t total_s=$total test_exit=$e peak_mem_mib=$peak under_900=$u"
+            echo "--- 10 slowest test binaries"
+            if [ -f diag/test.log ]; then
+              awk '/^ *Running |^ *Doc-tests / {run=$0}
+                   /^test result:.*finished in [0-9.]+s/ {
+                     match($0, /finished in [0-9.]+s/); s=substr($0, RSTART+12, RLENGTH-13);
+                     printf "%s\t%s\t%s\n", s, run, $0 }' diag/test.log \
+                | sort -rn | head -n 10 | awk -F'\t' '{print $2; print $3; print ""}'
+            fi
+          } | tee diag/summary.txt
+          cat diag/summary.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diag-g4-budget-j${{ matrix.jobs }}-${{ matrix.variant }}
+          path: diag/
