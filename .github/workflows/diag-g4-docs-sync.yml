@@ -1,0 +1,127 @@
+name: diag-g4-docs-sync
+
+on:
+  push:
+    branches: [diag/g4-docs-sync]
+  workflow_dispatch:
+
+jobs:
+  docs-sync:
+    name: case-${{ matrix.case }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [A, B, C, D]
+    env:
+      RUSTUP_TOOLCHAIN: "1.95.0"
+      CARGO_BUILD_JOBS: '2'
+      CASE: ${{ matrix.case }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+
+      - name: Run case
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diag
+          : > diag/results.txt
+          {
+            echo "case=$CASE"
+            nproc
+            free -m
+            rustc -V
+            grep -n -A8 '^\[profile\.dev\]' Cargo.toml
+          } > diag/env.txt 2>&1
+
+          # iter LABEL CMD...: run once, log to diag/<case>_<label>.log, record "label rc seconds".
+          # Passing runs keep only a .brief; failing runs keep the full log.
+          iter() {
+            label="$1"; shift
+            log="diag/${CASE}_${label}.log"
+            t0=$(date +%s)
+            "$@" > "$log" 2>&1
+            rc=$?
+            t1=$(date +%s)
+            secs=$((t1 - t0))
+            echo "$label $rc $secs" >> diag/results.txt
+            echo "[$CASE] $label rc=$rc secs=$secs"
+            if [ "$rc" -eq 0 ]; then
+              grep -E '^test result:|^test .* \.\.\. (ok|FAILED)' "$log" > "diag/${CASE}_${label}.brief"
+              rm -f "$log"
+            fi
+          }
+
+          case "$CASE" in
+            A|B)
+              if [ "$CASE" = A ]; then T=test_download_policies; else T=test_sync_via_relay; fi
+              iter compile cargo test --locked -p iroh-docs --test sync --no-run
+              export RUST_LOG=iroh_docs=debug,iroh_blobs=info
+              for i in $(seq 1 20); do
+                iter "$i" cargo test --locked -p iroh-docs --test sync -- --exact "$T" --nocapture
+              done
+              ;;
+            C)
+              iter compile cargo test --locked -p iroh-docs --test sync --no-run
+              for i in $(seq 1 10); do
+                iter "$i" cargo test --locked -p iroh-docs --test sync
+              done
+              ;;
+            D)
+              iter compile cargo test --locked --no-run
+              for i in 1 2 3; do
+                iter "$i" cargo test --locked
+              done
+              ;;
+          esac
+          exit 0
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "case=$CASE"
+            if [ -f diag/results.txt ]; then
+              iters=$(grep -cvE '^compile ' diag/results.txt)
+              fails=$(grep -vE '^compile ' diag/results.txt | awk '$2 != 0' | wc -l)
+              echo "iterations_run=$iters failures=$fails"
+              if [ "$CASE" = D ]; then
+                c=$(awk '$1 == "compile" {print $3}' diag/results.txt)
+                r1=$(awk '$1 == "1" {print $3}' diag/results.txt)
+                echo "compile_s=$c"
+                awk '$1 != "compile" {print "run" $1 "_s=" $3 " rc=" $2}' diag/results.txt
+                echo "compile_s+run1_s=$(( ${c:-0} + ${r1:-0} ))"
+              else
+                echo "compile: $(awk '$1 == "compile" {print "rc=" $2 " secs=" $3}' diag/results.txt)"
+              fi
+              for i in $(awk '$1 != "compile" && $2 != 0 {print $1}' diag/results.txt); do
+                log="diag/${CASE}_${i}.log"
+                echo ""
+                echo "=== FAILURE iteration $i (rc=$(awk -v i="$i" '$1 == i {print $2}' diag/results.txt)) ==="
+                grep -E '^test .* FAILED' "$log"
+                grep -A40 -m1 -E 'stdout ----' "$log" | head -n 40
+              done
+              if [ -f diag/${CASE}_compile.log ]; then
+                echo ""
+                echo "=== compile failed; tail ==="
+                tail -n 30 "diag/${CASE}_compile.log"
+              fi
+            else
+              echo "no results recorded"
+            fi
+          } > diag/summary.txt
+          cat diag/summary.txt
+          { echo '```'; cat diag/summary.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diag-g4-docs-sync-${{ matrix.case }}
+          path: diag/
