@@ -78,7 +78,7 @@ sync_wrapper = { version = "1.0.2", features = ["futures"] }
 
 # non-wasm-in-browser dependencies
 [target.'cfg(not(all(target_family = "wasm", target_os = "unknown")))'.dependencies]
-hickory-resolver = "0.25.1"
+hickory-resolver = "0.26.3"
 igd-next = { version = "0.16", features = ["aio_tokio"] }
 netdev = { version = "0.40.0" }
 portmapper = { package = "cyber-radio-portmapper", version = "0.1", path = "../nettools/portmapper", default-features = false }

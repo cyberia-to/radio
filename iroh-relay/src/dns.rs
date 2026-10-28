@@ -9,8 +9,9 @@ use std::{
 
 use hickory_resolver::{
     TokioResolver,
-    config::{ResolverConfig, ResolverOpts},
-    name_server::TokioConnectionProvider,
+    config::{ConnectionConfig, ResolverConfig, ResolverOpts},
+    net::runtime::TokioRuntimeProvider,
+    proto::rr::RData,
 };
 use iroh_base::EndpointId;
 use n0_error::{StackError, e, stack_error};
@@ -78,7 +79,7 @@ pub enum DnsError {
     MissingHost {},
     #[error(transparent)]
     Resolve {
-        source: hickory_resolver::ResolveError,
+        source: hickory_resolver::net::NetError,
     },
     #[error("invalid DNS response: not a query for _iroh.z32encodedpubkey")]
     InvalidResponse {},
@@ -144,13 +145,12 @@ pub enum DnsProtocol {
 }
 
 impl DnsProtocol {
-    fn to_hickory(self) -> hickory_resolver::proto::xfer::Protocol {
-        use hickory_resolver::proto::xfer::Protocol;
+    fn to_hickory(self, ip: IpAddr) -> ConnectionConfig {
         match self {
-            DnsProtocol::Udp => Protocol::Udp,
-            DnsProtocol::Tcp => Protocol::Tcp,
-            DnsProtocol::Tls => Protocol::Tls,
-            DnsProtocol::Https => Protocol::Https,
+            DnsProtocol::Udp => ConnectionConfig::udp(),
+            DnsProtocol::Tcp => ConnectionConfig::tcp(),
+            DnsProtocol::Tls => ConnectionConfig::tls(Arc::from(ip.to_string())),
+            DnsProtocol::Https => ConnectionConfig::https(Arc::from(ip.to_string()), None),
         }
     }
 }
@@ -542,16 +542,21 @@ impl HickoryResolver {
                 Ok((config, options)) => (config, options),
                 Err(error) => {
                     debug!(%error, "Failed to read the system's DNS config, using fallback DNS servers.");
-                    (ResolverConfig::google(), ResolverOpts::default())
+                    (
+                        ResolverConfig::udp_and_tcp(&hickory_resolver::config::GOOGLE),
+                        ResolverOpts::default(),
+                    )
                 }
             }
         } else {
-            (ResolverConfig::new(), ResolverOpts::default())
+            (ResolverConfig::default(), ResolverOpts::default())
         };
 
         for (addr, proto) in builder.nameservers.iter() {
+            let mut connection = proto.to_hickory(addr.ip());
+            connection.port = addr.port();
             let nameserver =
-                hickory_resolver::config::NameServerConfig::new(*addr, proto.to_hickory());
+                hickory_resolver::config::NameServerConfig::new(addr.ip(), true, vec![connection]);
             config.add_name_server(nameserver);
         }
 
@@ -559,17 +564,17 @@ impl HickoryResolver {
         options.ip_strategy = hickory_resolver::config::LookupIpStrategy::Ipv4thenIpv6;
 
         let mut hickory_builder =
-            TokioResolver::builder_with_config(config, TokioConnectionProvider::default());
+            TokioResolver::builder_with_config(config, TokioRuntimeProvider::default());
         *hickory_builder.options_mut() = options;
-        hickory_builder.build()
+        hickory_builder.build().expect("config works")
     }
 
-    fn system_config() -> Result<(ResolverConfig, ResolverOpts), hickory_resolver::ResolveError> {
+    fn system_config() -> Result<(ResolverConfig, ResolverOpts), hickory_resolver::net::NetError> {
         let (system_config, options) = hickory_resolver::system_conf::read_system_conf()?;
 
         // Copy all of the system config, but strip the bad windows nameservers.  Unfortunately
         // there is no easy way to do this.
-        let mut config = hickory_resolver::config::ResolverConfig::new();
+        let mut config = hickory_resolver::config::ResolverConfig::default();
         if let Some(name) = system_config.domain() {
             config.set_domain(name.clone());
         }
@@ -577,7 +582,7 @@ impl HickoryResolver {
             config.add_search(name.clone());
         }
         for nameserver_cfg in system_config.name_servers() {
-            if !WINDOWS_BAD_SITE_LOCAL_DNS_SERVERS.contains(&nameserver_cfg.socket_addr.ip()) {
+            if !WINDOWS_BAD_SITE_LOCAL_DNS_SERVERS.contains(&nameserver_cfg.ip) {
                 config.add_name_server(nameserver_cfg.clone());
             }
         }
@@ -588,12 +593,16 @@ impl HickoryResolver {
         &self,
         host: String,
     ) -> Result<impl Iterator<Item = Ipv4Addr> + use<>, DnsError> {
-        Ok(self
-            .resolver
-            .ipv4_lookup(host)
-            .await?
+        let lookup = self.resolver.ipv4_lookup(host).await?;
+        let iter = lookup
+            .answers()
+            .to_vec()
             .into_iter()
-            .map(Ipv4Addr::from))
+            .filter_map(|record| match record.data {
+                RData::A(addr) => Some(addr.0),
+                _ => None,
+            });
+        Ok(iter)
     }
 
     /// Looks up an IPv6 address.
@@ -601,12 +610,16 @@ impl HickoryResolver {
         &self,
         host: String,
     ) -> Result<impl Iterator<Item = Ipv6Addr> + use<>, DnsError> {
-        Ok(self
-            .resolver
-            .ipv6_lookup(host)
-            .await?
+        let lookup = self.resolver.ipv6_lookup(host).await?;
+        let iter = lookup
+            .answers()
+            .to_vec()
             .into_iter()
-            .map(Ipv6Addr::from))
+            .filter_map(|record| match record.data {
+                RData::AAAA(addr) => Some(addr.0),
+                _ => None,
+            });
+        Ok(iter)
     }
 
     /// Looks up TXT records.
@@ -614,12 +627,16 @@ impl HickoryResolver {
         &self,
         host: String,
     ) -> Result<impl Iterator<Item = TxtRecordData> + use<>, DnsError> {
-        Ok(self
-            .resolver
-            .txt_lookup(host)
-            .await?
+        let lookup = self.resolver.txt_lookup(host).await?;
+        let iter = lookup
+            .answers()
+            .to_vec()
             .into_iter()
-            .map(|txt| TxtRecordData::from_iter(txt.iter().cloned())))
+            .filter_map(|record| match record.data {
+                RData::TXT(txt) => Some(TxtRecordData::from(txt.txt_data.to_vec())),
+                _ => None,
+            });
+        Ok(iter)
     }
 
     /// Clears the internal cache.
