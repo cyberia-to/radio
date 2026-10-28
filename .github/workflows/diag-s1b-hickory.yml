@@ -1,0 +1,55 @@
+name: diag-s1b-hickory
+
+# S1(b) diagnostic, never merged: with the committed Cargo.lock for hickory 0.26,
+# report cargo check, clippy and fmt results for the whole workspace.
+
+on:
+  push:
+    branches: [diag/s1b-hickory]
+  workflow_dispatch:
+
+jobs:
+  hickory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      RUSTUP_TOOLCHAIN: "1.95.0"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Toolchain
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal --component clippy,rustfmt
+          rustup default 1.95.0
+      - name: Lock
+        shell: bash
+        run: |
+          set +e
+          mkdir -p out; cargo metadata --locked --format-version 1 > /dev/null; echo "cargo metadata --locked exit: $?" | tee out/lock.txt; sha256sum Cargo.lock | tee -a out/lock.txt
+      - name: Check, clippy, fmt
+        shell: bash
+        run: |
+          set +e
+          set +o pipefail
+          : > out/exit-codes.txt
+          cargo check --locked --workspace --all-targets --all-features 2>&1 | tee out/check.txt
+          echo "check: ${PIPESTATUS[0]}" >> out/exit-codes.txt
+          cargo clippy --locked --workspace --all-targets --all-features -- -Dwarnings 2>&1 | tee out/clippy.txt
+          echo "clippy: ${PIPESTATUS[0]}" >> out/exit-codes.txt
+          cargo fmt --all -- --check 2>&1 | tee out/fmt.txt
+          echo "fmt: ${PIPESTATUS[0]}" >> out/exit-codes.txt
+          cat out/exit-codes.txt
+          grep -q ': [^0]' out/exit-codes.txt && exit 1 || exit 0
+      - name: Hickory versions
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p out
+          {
+            echo "hickory packages in Cargo.lock: $(grep -c 'name = "hickory' Cargo.lock)"
+            grep -A1 'name = "hickory' Cargo.lock | grep -v '^--'
+          } | tee out/hickory-versions.txt
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: s1b
+          path: out/
