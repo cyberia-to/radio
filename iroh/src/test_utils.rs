@@ -175,10 +175,7 @@ pub(crate) mod dns_server {
         net::{Ipv4Addr, SocketAddr},
     };
 
-    use hickory_resolver::proto::{
-        op::{Message, header::MessageType},
-        serialize::binary::BinDecodable,
-    };
+    use hickory_resolver::proto::{op::Message, serialize::binary::BinDecodable};
     use n0_future::future::Boxed as BoxFuture;
     use tokio::{net::UdpSocket, sync::oneshot};
     use tracing::{debug, error, warn};
@@ -251,11 +248,14 @@ pub(crate) mod dns_server {
             }
         }
 
-        async fn handle_datagram(&self, from: SocketAddr, buf: &[u8]) -> std::io::Result<()> {
+        async fn handle_datagram(
+            &self,
+            from: SocketAddr,
+            buf: &[u8],
+        ) -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
             let packet = Message::from_bytes(buf)?;
-            debug!(queries = ?packet.queries(), %from, "received query");
-            let mut reply = packet.clone();
-            reply.set_message_type(MessageType::Response);
+            debug!(queries = ?packet.queries, %from, "received query");
+            let mut reply = packet.clone().into_response();
             self.resolver.resolve(&packet, &mut reply).await?;
             debug!(?reply, %from, "send reply");
             let buf = reply.to_vec()?;
@@ -438,7 +438,7 @@ pub(crate) mod pkarr_dns_state {
             reply: &mut hickory_resolver::proto::op::Message,
             ttl: u32,
         ) -> std::io::Result<()> {
-            for query in query.queries() {
+            for query in &query.queries {
                 let domain_name = query.name().to_string();
                 let Some(endpoint_id) = endpoint_id_from_domain_name(&domain_name) else {
                     continue;
