@@ -33,7 +33,7 @@ the dependency graph carries the IPFS era twice: upstream `iroh 0.96` + registry
 
 ## 2. what the stack requires of it
 
-from `soft3/specs/routing.md`, `foculus/specs/gossip.md`, `cyb/decide/wire.md`, `cybergraph/specs/address.md` (branch `docs/locus-0927`), `radio/specs/neuron-context.md`, `tade/spec`, `cyber/network.md`, `cyber/launch.md`:
+from `cybernode/specs/routing.md`, `foculus/specs/gossip.md`, `cyb/decide/wire.md`, `cybergraph/specs/address.md` (branch `docs/locus-0927`), `radio/specs/neuron-context.md`, `tade/spec`, `cyber/network.md`, `cyber/launch.md`:
 
 | concern | the spec says | iroh does |
 |---|---|---|
@@ -144,7 +144,7 @@ the n0 fork proved the pattern: QAD and QNT are *extension frames* and *transpor
 
 and two places where cyber's routing lives *above* QUIC, because QUIC is point-to-point and the graph is not:
 
-- forwarding: greedy by locus over FOLLOW with gravity-pressure fallback (`soft3/specs/routing.md`) is an overlay that chooses the *next QUIC peer*; the hop carries a tade frame on a stream or a QUIC datagram (RFC 9221, in the fork) when the payload is itself a QUIC packet being relayed — datagrams avoid reliability-on-reliability.
+- forwarding: greedy by locus over FOLLOW with gravity-pressure fallback (`cybernode/specs/routing.md`) is an overlay that chooses the *next QUIC peer*; the hop carries a tade frame on a stream or a QUIC datagram (RFC 9221, in the fork) when the payload is itself a QUIC packet being relayed — datagrams avoid reliability-on-reliability.
 - custody: delay-tolerant delivery is a bundle layer, not a transport feature; QUIC stays the protocol of one pond, custody bridges ponds. this is the CCSDS lesson (bundles over a convergence layer) applied with our own convergence layer.
 
 ### what this buys that nobody else has
@@ -182,7 +182,7 @@ QUIC is the best transport the IP internet has, and it is a legacy transport: it
 | per-connection congestion control | shared paths with no information about distance or price | the location proof gives the RTT floor; locus gives distance; forwarding is paid in focus — rate is pressure and price, measurable and settled, not a probe for a number nobody knows |
 | per-packet TLS crypto with key levels | protect a byte stream between two addresses | integrity is the hash; confidentiality where it matters is at the payload (seal, veil); what the wire needs is traffic-analysis resistance between two neurons — a pairwise AEAD channel after one PQ KEM exchange, WireGuard-shaped, not TLS |
 
-what remains is a different animal, and it has a name in the literature: named-data networking — interests and data, no connections, data cached by forwarders, routed by name. NDN never deployed for three reasons, and cyber has all three: name-based routing tables that explode at scale (cyber routes greedily by *locus*, O(degree) state, no table — `soft3/specs/routing.md`); no incentive to forward or cache (relay receipts paid in focus); no global naming authority (the cybergraph is the name graph, and a particle is its own authority).
+what remains is a different animal, and it has a name in the literature: named-data networking — interests and data, no connections, data cached by forwarders, routed by name. NDN never deployed for three reasons, and cyber has all three: name-based routing tables that explode at scale (cyber routes greedily by *locus*, O(degree) state, no table — `cybernode/specs/routing.md`); no incentive to forward or cache (relay receipts paid in focus); no global naming authority (the cybergraph is the name graph, and a particle is its own authority).
 
 ### the native wire — cybernet
 
@@ -247,4 +247,4 @@ three measurements decide whether "radically better" is a number, and all three 
 
 none of this is on the phase-1 path. all of it is why the phase-1 radio must be *transmit only*: a QUIC-era module that holds no address, no identity, no store and no reliability of its own is the one that can be swapped for the native wire without touching anything above it.
 
-see `soft3/roadmap/component-boundaries.md` · `soft3/specs/routing.md` · `foculus/specs/gossip.md` · `cyb/decide/wire.md` · `radio/specs/neuron-context.md` · `cyber/launch.md` §critical dependencies 3
+see `soft3/roadmap/component-boundaries.md` · `cybernode/specs/routing.md` · `foculus/specs/gossip.md` · `cyb/decide/wire.md` · `radio/specs/neuron-context.md` · `cyber/launch.md` §critical dependencies 3
