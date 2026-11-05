@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["CHUNK_SIZE"],"enum":["BaoChunk"],"struct":["BaoTree","BlockSize","ChunkNum","PostOrderChunkIter","TreeNode"]};
