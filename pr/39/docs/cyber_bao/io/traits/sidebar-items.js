@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"trait":["Outboard","OutboardMut","ReadAt","ReadBytesAt","Size","WriteAt"]};

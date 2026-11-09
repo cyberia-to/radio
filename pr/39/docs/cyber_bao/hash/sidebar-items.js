@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":["Poseidon2Backend"],"trait":["HashBackend"]};
