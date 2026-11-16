@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["cmd_decode","cmd_encode","cmd_hash","cmd_outboard","cmd_verify","fatal","hex_to_bytes","main","parse_hash","print_usage"]};
