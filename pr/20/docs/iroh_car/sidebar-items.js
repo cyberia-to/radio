@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CarHeader","Error"],"struct":["CarReader","CarWriter"]};
