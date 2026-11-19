@@ -2,16 +2,16 @@ use std::{fmt, sync::Arc};
 
 use async_trait::async_trait;
 use hickory_server::{
-    authority::{
-        AuthLookup, Authority, LookupControlFlow, LookupError, LookupOptions, LookupRecords,
-        MessageRequest, UpdateResult, ZoneType,
-    },
     proto::{
         op::ResponseCode,
-        rr::{LowerName, Name, RecordType},
+        rr::{LowerName, Name, RecordType, TSigResponseContext},
     },
-    server::RequestInfo,
-    store::in_memory::InMemoryAuthority,
+    server::{Request, RequestInfo},
+    store::in_memory::InMemoryZoneHandler,
+    zone_handler::{
+        AuthLookup, AxfrPolicy, LookupControlFlow, LookupError, LookupOptions, LookupRecords,
+        ZoneHandler, ZoneType,
+    },
 };
 use n0_error::{Result, StackResultExt, StdResultExt, bail_any};
 use tracing::{debug, trace};
@@ -25,10 +25,10 @@ use crate::{
 pub struct NodeAuthority {
     serial: u32,
     origins: Vec<Name>,
-    #[debug("InMemoryAuthority")]
-    static_authority: InMemoryAuthority,
+    #[debug("InMemoryZoneHandler")]
+    static_authority: InMemoryZoneHandler,
     zones: ZoneStore,
-    // TODO: This is used by Authority::origin
+    // TODO: This is used by ZoneHandler::origin
     // Find out what exactly this is used for - we don't have a primary origin.
     first_origin: LowerName,
 }
@@ -36,7 +36,7 @@ pub struct NodeAuthority {
 impl NodeAuthority {
     pub fn new(
         zones: ZoneStore,
-        static_authority: InMemoryAuthority,
+        static_authority: InMemoryZoneHandler,
         origins: Vec<Name>,
         serial: u32,
     ) -> Result<Self> {
@@ -92,20 +92,18 @@ impl NodeAuthority {
 }
 
 #[async_trait]
-impl Authority for NodeAuthority {
-    type Lookup = AuthLookup;
-
+impl ZoneHandler for NodeAuthority {
     fn zone_type(&self) -> ZoneType {
         ZoneType::Primary
     }
 
-    fn is_axfr_allowed(&self) -> bool {
-        false
+    fn axfr_policy(&self) -> AxfrPolicy {
+        AxfrPolicy::Deny
     }
 
-    async fn update(&self, _update: &MessageRequest) -> UpdateResult<bool> {
-        Err(ResponseCode::NotImp)
-    }
+    // `update` is deliberately not implemented: the trait default refuses every dynamic update
+    // with `ResponseCode::NotImp` (hickory-server 0.26.3, src/zone_handler/mod.rs:62-68), which
+    // is what the `Authority::update` override of hickory 0.25 returned here.
 
     fn origin(&self) -> &LowerName {
         &self.first_origin
@@ -115,13 +113,14 @@ impl Authority for NodeAuthority {
         &self,
         name: &LowerName,
         record_type: RecordType,
+        request_info: Option<&RequestInfo<'_>>,
         lookup_options: LookupOptions,
-    ) -> LookupControlFlow<Self::Lookup> {
+    ) -> LookupControlFlow<AuthLookup> {
         debug!(name=%name, "lookup in node authority");
         match record_type {
             RecordType::SOA | RecordType::NS => {
                 self.static_authority
-                    .lookup(name, record_type, lookup_options)
+                    .lookup(name, record_type, request_info, lookup_options)
                     .await
             }
             _ => match parse_name_as_pkarr_with_origin(name, &self.origins) {
@@ -134,7 +133,7 @@ impl Authority for NodeAuthority {
                 Err(err) => {
                     debug!(%name, failed_with=%err, "not a pkarr name, resolve in static authority");
                     self.static_authority
-                        .lookup(name, record_type, lookup_options)
+                        .lookup(name, record_type, request_info, lookup_options)
                         .await
                 }
             },
@@ -143,30 +142,48 @@ impl Authority for NodeAuthority {
 
     async fn search(
         &self,
-        request_info: RequestInfo<'_>,
+        request: &Request,
         lookup_options: LookupOptions,
-    ) -> LookupControlFlow<Self::Lookup> {
+    ) -> (LookupControlFlow<AuthLookup>, Option<TSigResponseContext>) {
+        let request_info = match request.request_info() {
+            Ok(info) => info,
+            Err(err) => return (LookupControlFlow::Continue(Err(err)), None),
+        };
         debug!("search in node authority for {}", request_info.query);
         let lookup_name = request_info.query.name();
         let record_type: RecordType = request_info.query.query_type();
-        match record_type {
+        let result = match record_type {
             RecordType::SOA => {
                 self.static_authority
-                    .lookup(self.origin(), record_type, lookup_options)
+                    .lookup(
+                        self.origin(),
+                        record_type,
+                        Some(&request_info),
+                        lookup_options,
+                    )
                     .await
             }
             RecordType::AXFR => {
                 LookupControlFlow::Continue(Err(LookupError::from(ResponseCode::Refused)))
             }
-            _ => self.lookup(lookup_name, record_type, lookup_options).await,
-        }
+            _ => {
+                self.lookup(
+                    lookup_name,
+                    record_type,
+                    Some(&request_info),
+                    lookup_options,
+                )
+                .await
+            }
+        };
+        (result, None)
     }
 
-    async fn get_nsec_records(
+    async fn nsec_records(
         &self,
         _name: &LowerName,
         _lookup_options: LookupOptions,
-    ) -> LookupControlFlow<Self::Lookup> {
+    ) -> LookupControlFlow<AuthLookup> {
         LookupControlFlow::Skip
     }
 }

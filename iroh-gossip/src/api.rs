@@ -465,7 +465,7 @@ mod tests {
         let memory_lookup = MemoryLookup::new();
         memory_lookup.add_endpoint_info(endpoint2_addr);
 
-        router.endpoint().address_lookup().add(memory_lookup);
+        router.endpoint().address_lookup()?.add(memory_lookup);
 
         // expose the gossip endpoint over RPC
         let (rpc_server_endpoint, rpc_server_cert) =

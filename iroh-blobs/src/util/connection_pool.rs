@@ -599,11 +599,10 @@ mod tests {
     }
 
     async fn echo_server() -> TestResult<(EndpointAddr, Router)> {
-        let endpoint = iroh::Endpoint::builder()
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .alpns(vec![ECHO_ALPN.to_vec()])
             .bind()
             .await?;
-        endpoint.online().await;
         let addr = endpoint.addr();
         let router = iroh::protocol::Router::builder(endpoint)
             .accept(ECHO_ALPN, Echo)
@@ -666,7 +665,7 @@ mod tests {
     async fn connection_pool_errors() -> TestResult<()> {
         // set up static address lookup for all addrs
         let address_lookup = MemoryLookup::new();
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup.clone())
             .bind()
             .await?;
@@ -702,7 +701,7 @@ mod tests {
         let n = 32;
         let (ids, routers, address_lookup) = echo_servers(n).await?;
         // build a client endpoint that can resolve all the endpoint ids
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup.clone())
             .bind()
             .await?;
@@ -737,7 +736,7 @@ mod tests {
         let n = 32;
         let (ids, routers, address_lookup) = echo_servers(n).await?;
         // build a client endpoint that can resolve all the endpoint ids
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup.clone())
             .bind()
             .await?;
@@ -768,7 +767,7 @@ mod tests {
     async fn on_connected_error() -> TestResult<()> {
         let n = 1;
         let (ids, routers, address_lookup) = echo_servers(n).await?;
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup)
             .bind()
             .await?;
@@ -798,7 +797,7 @@ mod tests {
     async fn on_connected_direct() -> TestResult<()> {
         let n = 1;
         let (ids, routers, address_lookup) = echo_servers(n).await?;
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup)
             .bind()
             .await?;
@@ -836,7 +835,7 @@ mod tests {
     async fn watch_close() -> TestResult<()> {
         let n = 1;
         let (ids, routers, address_lookup) = echo_servers(n).await?;
-        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Default)
+        let endpoint = iroh::Endpoint::empty_builder(RelayMode::Disabled)
             .address_lookup(address_lookup)
             .bind()
             .await?;

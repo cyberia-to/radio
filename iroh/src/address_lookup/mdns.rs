@@ -557,9 +557,16 @@ mod tests {
         use super::super::*;
         use crate::address_lookup::UserData;
 
+        /// `cargo test` runs tests as threads of one process, and these tests share one
+        /// mDNS multicast group and (seed 0) the same endpoint ids, so run concurrently
+        /// they discover each other. nextest isolates them by this module's name
+        /// (`.config/nextest.toml`); this lock gives `cargo test` the same isolation.
+        static ISOLATION: tokio::sync::Mutex<()> = tokio::sync::Mutex::const_new(());
+
         #[tokio::test]
         #[traced_test]
         async fn mdns_publish_resolve() -> Result {
+            let _isolation = ISOLATION.lock().await;
             let mut rng = rand_chacha::ChaCha8Rng::seed_from_u64(0u64);
 
             // Create Address LookupA with advertise=false (only listens)
@@ -625,6 +632,7 @@ mod tests {
         #[tokio::test]
         #[traced_test]
         async fn mdns_publish_expire() -> Result {
+            let _isolation = ISOLATION.lock().await;
             let mut rng = rand_chacha::ChaCha8Rng::seed_from_u64(0u64);
             let (_, address_lookup_a) = make_address_lookup(&mut rng, false)?;
             let (endpoint_id_b, address_lookup_b) = make_address_lookup(&mut rng, true)?;
@@ -682,6 +690,7 @@ mod tests {
         #[tokio::test]
         #[traced_test]
         async fn mdns_subscribe() -> Result {
+            let _isolation = ISOLATION.lock().await;
             let mut rng = rand_chacha::ChaCha8Rng::seed_from_u64(0u64);
 
             let num_endpoints = 5;
@@ -733,6 +742,7 @@ mod tests {
         #[tokio::test]
         #[traced_test]
         async fn non_advertising_endpoint_not_discovered() -> Result {
+            let _isolation = ISOLATION.lock().await;
             let mut rng = rand_chacha::ChaCha8Rng::seed_from_u64(0u64);
 
             let (_, address_lookup_a) = make_address_lookup(&mut rng, false)?;
@@ -767,6 +777,7 @@ mod tests {
         #[tokio::test]
         #[traced_test]
         async fn test_service_names() -> Result {
+            let _isolation = ISOLATION.lock().await;
             let mut rng = rand_chacha::ChaCha8Rng::seed_from_u64(0u64);
 
             // Create an Address Lookupusing the default

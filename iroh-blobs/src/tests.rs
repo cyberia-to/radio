@@ -500,7 +500,7 @@ pub async fn node_test_setup_with_events_fs(
 ) -> TestResult<(Router, FsStore, PathBuf, MemoryLookup)> {
     let store = crate::store::fs::FsStore::load(&db_path).await?;
     let sp = MemoryLookup::new();
-    let ep = Endpoint::empty_builder(RelayMode::Default)
+    let ep = Endpoint::empty_builder(RelayMode::Disabled)
         .address_lookup(sp.clone())
         .bind()
         .await?;
@@ -518,7 +518,7 @@ pub async fn node_test_setup_with_events_mem(
 ) -> TestResult<(Router, MemStore, MemoryLookup)> {
     let store = MemStore::new();
     let sp = MemoryLookup::new();
-    let ep = Endpoint::empty_builder(RelayMode::Default)
+    let ep = Endpoint::empty_builder(RelayMode::Disabled)
         .address_lookup(sp.clone())
         .bind()
         .await?;
@@ -618,14 +618,14 @@ async fn node_serve_hash_seq() -> TestResult<()> {
     let hash_seq = tts.iter().map(|x| x.hash).collect::<HashSeq>();
     let root_tt = store.add_bytes(hash_seq).await?;
     let root = root_tt.hash;
-    let endpoint = Endpoint::bind().await?;
+    let endpoint = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let blobs = crate::net_protocol::BlobsProtocol::new(&store, None);
     let r1 = Router::builder(endpoint)
         .accept(crate::protocol::ALPN, blobs)
         .spawn();
     let addr1 = r1.endpoint().addr();
     info!("node addr: {addr1:?}");
-    let endpoint2 = Endpoint::bind().await?;
+    let endpoint2 = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let conn = endpoint2.connect(addr1, crate::protocol::ALPN).await?;
     let (hs, sizes) = get::request::get_hash_seq_and_sizes(&conn, &root, 1024, None).await?;
     println!("hash seq: {hs:?}");
@@ -649,14 +649,14 @@ async fn node_serve_blobs() -> TestResult<()> {
     for size in sizes {
         tts.push(store.add_bytes(test_data(size)).await?);
     }
-    let endpoint = Endpoint::bind().await?;
+    let endpoint = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let blobs = crate::net_protocol::BlobsProtocol::new(&store, None);
     let r1 = Router::builder(endpoint)
         .accept(crate::protocol::ALPN, blobs)
         .spawn();
     let addr1 = r1.endpoint().addr();
     info!("node addr: {addr1:?}");
-    let endpoint2 = Endpoint::bind().await?;
+    let endpoint2 = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let conn = endpoint2.connect(addr1, crate::protocol::ALPN).await?;
     for size in sizes {
         let expected = test_data(size);
@@ -689,14 +689,14 @@ async fn node_smoke_mem() -> TestResult<()> {
 async fn node_smoke(store: &Store) -> TestResult<()> {
     let tt = store.add_bytes(b"hello world".to_vec()).temp_tag().await?;
     let hash = tt.hash();
-    let endpoint = Endpoint::bind().await?;
+    let endpoint = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let blobs = crate::net_protocol::BlobsProtocol::new(store, None);
     let r1 = Router::builder(endpoint)
         .accept(crate::protocol::ALPN, blobs)
         .spawn();
     let addr1 = r1.endpoint().addr();
     info!("node addr: {addr1:?}");
-    let endpoint2 = Endpoint::bind().await?;
+    let endpoint2 = Endpoint::empty_builder(RelayMode::Disabled).bind().await?;
     let conn = endpoint2.connect(addr1, crate::protocol::ALPN).await?;
     let (size, stats) = get::request::get_unverified_size(&conn, &hash).await?;
     info!("size: {} stats: {:?}", size, stats);

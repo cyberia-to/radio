@@ -25,6 +25,19 @@ hemera = { package = "cyber-hemera", git = "https://github.com/cyberia-to/hemera
 [profile.release]
 debug = true
 
+# The release train's stack-radio gate runs `cargo test --locked` (dev profile) inside a
+# 900 s budget on a 4-core runner with CARGO_BUILD_JOBS=2. Cold, the default profile takes
+# 885 s (428 s compile + 457 s tests); this one 609 s (476 + 133), peak 4.0 GiB, every test
+# green (diagnostic run 40279934190, variant vB). Dependencies at opt-level 1 like `dev-ci`;
+# debug assertions and overflow checks stay on; cyber-hemera keeps opt-level 3 below
+# (a package-specific override wins over "*"). Profiles are ignored by dependents.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+opt-level = 1
+
 # Hemera is the hash under every blob, BAO tree and ticket. Unoptimized it makes the
 # two-node tests (8 MB blobs) take minutes and starve their QUIC paths into idle
 # timeouts; optimizing just the hash keeps debug builds debuggable everywhere else.
