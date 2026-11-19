@@ -566,6 +566,12 @@ impl HickoryResolver {
         let mut hickory_builder =
             TokioResolver::builder_with_config(config, TokioRuntimeProvider::default());
         *hickory_builder.options_mut() = options;
+        // `build()` became fallible in hickory 0.26, but not because of anything a caller can
+        // configure here: its only `?` is `TlsConfig::new()?`, taken when no TLS config was
+        // given (hickory-resolver 0.26.3, src/resolver.rs:529), and that builds a rustls
+        // `ClientConfig` from the compiled-in crypto provider and root store (hickory-net
+        // 0.26.3, src/tls.rs:252). It reads neither `config` nor `options`, so no nameserver
+        // passed through the `Builder` can make it fail, in `new` or in `reset`.
         hickory_builder.build().expect("config works")
     }
 

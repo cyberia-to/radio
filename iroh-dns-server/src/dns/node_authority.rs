@@ -101,6 +101,10 @@ impl ZoneHandler for NodeAuthority {
         AxfrPolicy::Deny
     }
 
+    // `update` is deliberately not implemented: the trait default refuses every dynamic update
+    // with `ResponseCode::NotImp` (hickory-server 0.26.3, src/zone_handler/mod.rs:62-68), which
+    // is what the `Authority::update` override of hickory 0.25 returned here.
+
     fn origin(&self) -> &LowerName {
         &self.first_origin
     }
