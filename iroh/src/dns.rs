@@ -42,8 +42,18 @@ pub(crate) mod tests {
     ///
     /// The test nameserver answers a TXT query with an extra `A` record and an `A` query with an
     /// extra TXT record, both under the queried name. hickory hands that answer section on
-    /// unchanged — it only rewrites it while following a CNAME chain — so dropping the record of
-    /// the wrong type is the resolver's own work, and this test fails without it.
+    /// unchanged, so dropping the record of the wrong type is the resolver's own work and this
+    /// test fails without the filters. In hickory-resolver 0.26.3 that path is:
+    ///
+    /// - `src/caching_client.rs:417` computes `needs_filtering` from the CNAME chain only — with
+    ///   no CNAME in the answer and nothing carried over from an earlier hop it is `false`, and
+    ///   the message is returned "as-is" to "preserve all sections exactly as DNS server sent
+    ///   them" (`src/caching_client.rs:415`, returned at `:462`). The one place hickory rewrites
+    ///   the answer section by record type, `:456`, is reached only when `needs_filtering` holds.
+    /// - `src/caching_client.rs:531` builds the `Lookup` from that message; the only thing done
+    ///   to the records on the way is a TTL clamp (`src/cache.rs:128`).
+    /// - `src/lookup.rs:88` hands `message.answers` back verbatim, which is what
+    ///   `iroh_relay::dns` filters.
     #[tokio::test]
     #[traced_test]
     async fn test_lookup_keeps_only_the_queried_record_type() {
