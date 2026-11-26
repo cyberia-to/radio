@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EncodedItem"],"fn":["traverse_ranges_validated"],"trait":["Sender"]};
